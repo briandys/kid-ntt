@@ -1,0 +1,428 @@
+.comment-published-datetime---cr {
+    padding: .5rem;
+}
+
+.comment-meta---cr {
+    @include if-y-center
+}
+
+.comment-author---cr {
+    @include if-y-center;
+    padding: .5rem;
+}
+
+.comment-name {
+    padding: .5rem;
+    font-weight: bold;
+
+    .txt {
+        display: inline-block;
+        padding: .5rem;
+    }
+}
+
+.comment-reply-axn {
+    padding: .5rem;
+}
+
+.comment-author {
+    order: -1;
+}
+
+.comment-author-avatar {
+    order: -1;
+}
+
+.comment-author-name {
+
+    a {
+        display: inline-block;
+    }
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.comments-count {
+
+    a {
+        display: inline-block;
+    }
+
+    .l {
+        @extend %block-pad;
+    }
+}
+
+.comments-header---cr {
+    @include if-y-center;
+
+    .comments-actions-snippet,
+    .comments-actions-snippet---cr {
+        display: flex;
+        display: contents;
+    }
+
+    .comments-count {
+        padding: 1rem;
+        line-height: 1;
+        font-weight: bold;
+
+        .l {
+            @extend %count-box;
+        }
+
+        a {
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        .glabel---txt {
+            display: none;
+        }
+    }
+    
+    .disabled-comments-note {
+        flex: 1 100%;    
+    }
+}
+
+.comments-actions-snippet {
+
+    .comment-axn {
+        padding: .5rem;
+
+        a {
+            display: inline-block;
+
+            &:hover {
+                text-decoration: none;
+
+                .comment---text {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .l {
+            @include if-y-center;
+        }
+    
+        .comment---text {
+            display: block;
+            padding: .5em;
+        }
+            
+        .requires-log-in---text {
+            display: block;
+            padding: .5em;
+        }
+    }
+}
+
+.comment-reply-axn {
+
+    a {
+        display: inline-block;
+
+        &:hover {
+            text-decoration: none;
+
+            .reply---text {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .l {
+        @include if-y-center;
+    }
+
+    .reply---text {
+        display: block;
+        padding: .5em;
+    }
+        
+    .requires-log-in---text {
+        display: block;
+        padding: .5em;
+    }
+}
+
+.comments-name {
+    display: inline-block;
+    padding: .5rem;
+    @include y-margin();
+    margin-right: -1rem;
+    font-weight: normal;
+    font-size: 1rem;
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.modify-comment-axn {
+    padding: .5rem;
+    
+    a {
+        display: inline-block;
+    }
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.compose-comment-glabel {
+    padding: .5rem;
+
+    .l {
+        @extend %block-pad;
+    }
+    
+}
+
+.cancel-reply-axn {
+    display: none;
+    padding: .5rem;
+
+    a {
+        display: inline-block;
+    }
+
+    .l {
+        @extend %block-pad;
+    }
+
+    .reply---text {
+        //display: none;
+    }
+}
+
+.comments-group {
+
+    ul {
+        @include unlist;
+
+        ul {
+            padding-left: 1rem;
+        }
+    }
+
+    .comment-respond {
+        @include if-y-center;
+        display: flex;
+    }
+
+    .cancel-reply-axn {
+        display: block;
+    }
+
+    .comment-form {
+        flex: 1 100%;
+    }
+}
+
+.comment-author-message-field-label {
+    //@extend %vh;
+}
+
+.comment-form {
+
+    .field---cr {
+        padding: .5rem;
+    }
+
+    .field-label {
+        display: inline-block;
+        line-height: 1;
+
+        .l {
+            @include if-y-center;
+        }
+    }
+
+    .form-element {
+        padding: .5rem;
+    }
+
+    .field-label---txt {
+        display: inline-block;
+        padding: .5rem;
+    }
+
+    .optional---text {
+        display: inline-block;
+        padding: .5rem;
+    }
+
+    .form-submit {
+        margin: 0;
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    .subscribe-label {
+        display: inline-block !important;
+        padding: .5rem;
+    }
+
+    .comment-subscription-form {
+        @include x-padding(1rem);
+        @include y-margin(1rem);
+    }
+}
+
+.submit-comment-axn {
+    margin: 1rem;
+}
+
+.logged-in-admin-account---cr {
+    padding: .5rem;
+}
+
+.logged-in-admin-account {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logged-in-admin-account-glabel {
+    display: inline-block;
+    margin-right: -1rem;
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.admin-account-log-status---cr {
+    @include if-y-center;
+}
+
+.log-out-admin-account-axn {
+    padding: .5rem;
+
+    a {
+        display: inline-block;
+    }
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.logged-in-admin-account-name {
+    display: inline-block;
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.entry-header {
+
+    .comment-axn  {
+        //display: none;
+    }
+
+    .comments--empty & {
+
+        .comments-actions-snippet {
+            //display: none;
+        }
+    }
+
+    .comments-actions-snippet {
+
+        .comments-count {
+            padding: .5rem;
+
+            @at-root .post-password-required & {
+                padding: 1rem;
+            }
+        }
+    }
+}
+
+.page-view {
+
+    &.comments--empty.comment-creation--0 {
+
+        .comment-md {
+            //display: none;
+        }
+    }
+}
+
+.comments--empty {
+
+    &.comment-creation--0 {
+        
+        .empty-comments-note {
+            //display: none;
+        }
+    }
+}
+
+// Comments Navigation
+
+.comments-nav {
+    flex: 1 100%;
+    @include y-padding(.5rem);
+}
+
+.comments-navi {
+    padding: .5rem;
+
+    a {
+        display: inline-block;
+    }
+
+    .l {
+        @extend %block-pad;
+    }
+
+    .comments---text {
+        //display: none;
+    }
+}
+    
+.comments-nav---cr {
+    @include if-y-center;
+    display: flex;
+}
+
+.next-comments-navi {
+    order: 1;
+}
+
+.comment-edit-link {
+    display: inline-block;
+
+    .txt {
+        @extend %block-pad;
+    }
+} 
+
+.comment-published-datetime {
+    flex: 1 100%;
+}
+
+.comment-published-datetime-glabel {
+    display: inline-block;
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.comment-published-datetime---cr {
+    @include if-y-center;
+    padding: .5rem;
+}

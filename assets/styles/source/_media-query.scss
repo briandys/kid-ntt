@@ -1,0 +1,136 @@
+// 48em and up
+@include mq(m-vp) {
+
+    /*
+    .entity---cr {
+        @include x-margin(auto);
+        max-width: $m-vp;
+    }
+    */
+
+    .wp-caption,
+    .wp-block-image {
+
+        .alignleft {
+            float: left;
+            margin-right: 1em;
+        }
+
+        .alignright {
+            float: right;
+            margin-left: 1em;
+        }
+    }
+
+    .entity-main-main-aside--1 {
+        
+        /*
+        .entity---cr {
+            max-width: none;
+        }
+        */
+
+        .entity-main-main---cr {
+            display: flex;
+        }
+    
+        .entry-md {
+            flex: 1 70%;
+        }
+    
+        .entity-main-main-aside {
+            flex: 1 30%;
+        }
+    }
+
+    .entry-main-aside--1 {
+        
+        /*
+        .entity---cr {
+            max-width: none;
+        }
+        */
+
+        .entry-main---cr {
+            display: flex;
+        }
+    
+        .entry-content {
+            flex: 1 70%;
+        }
+    
+        .entry-main-aside {
+            flex: 1 30%;
+        }
+
+        &.entity-main-main-aside--0 {
+
+            .entry-main-aside---cr {
+                margin-top: 0;
+            }
+        }
+
+        &.entity-main-main-aside--1 {
+
+            .entry-main---cr {
+                display: block;
+            }
+        }
+    }
+
+    .entry-nav-group---cr {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .next-entry-navi {
+        order: 1;
+        display: flex;
+        justify-content: flex-end;
+
+        .l {
+            align-items: flex-end;
+        }
+
+        .value---line {
+            text-align: right;
+        }
+    }
+
+    .previous-entry-navi,
+    .next-entry-navi {
+        flex-basis: 50%;
+    }
+}
+
+// 64em and up
+@include mq(l-vp) {
+
+    .entry-main-aside--1 {
+
+        .entry-main-aside---cr {
+            margin-top: 0;
+        }
+    }
+
+    .entry-main-aside--1 {
+
+        &.entity-main-main-aside--1 {
+
+            .entry-main---cr {
+                display: flex;
+            }
+        }
+    }
+}
+
+// 80em and up
+@include mq(xl-vp) {
+
+    /*
+    .entity---cr {
+        max-width: $xl-vp;
+    }
+    */
+}

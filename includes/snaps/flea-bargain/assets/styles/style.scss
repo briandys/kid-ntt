@@ -1,0 +1,572 @@
+//--------------------------------------------------------------
+// NTT Kid Rules
+//--------------------------------------------------------------
+
+@import '../../../../../assets/styles/source/rules';
+
+//--------------------------------------------------------------
+// Snap Rules
+//--------------------------------------------------------------
+
+$primary-color: #ec5942;
+$link-color: $primary-color;
+
+$corner-radius-s: .125rem;
+
+%voyager-gradient {
+    background: linear-gradient(to right, #632f75 0%,#2d1241 25%,#2d0311 50%,#5e1216 75%,#ec5942 100%);
+}
+
+@import '../../../../../assets/styles/source/theme';
+
+//--------------------------------------------------------------
+// Basic
+//--------------------------------------------------------------
+
+html {
+    background-color: #F1F3F6;
+}
+
+body {
+    font-family: 'Hind', sans-serif;
+}
+
+//--------------------------------------------------------------
+// Current Index View
+//--------------------------------------------------------------
+
+.current-index-view {
+    
+    .entity-view-heading {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Page View
+//--------------------------------------------------------------
+
+.page-view {
+
+    .entry-nav,
+    .entry-primary-meta,
+    .comment-md {
+        display: none;
+    }
+
+    .entry-header {
+
+        .comments-actions-snippet {
+            display: none;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entity
+//--------------------------------------------------------------
+
+.entity-primary-name {
+    color: white;
+    font-size: 1.5rem;
+
+    a {
+        color: inherit;
+    }
+
+    .txt {
+        @include x-padding(1rem);
+        background-color: #632f75;
+        border-radius: $corner-radius-s;
+        font-family: 'Open Sans Condensed', sans-serif;
+        text-transform: uppercase;
+    }
+}
+
+.entity-primary-nav {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+
+    a {
+        color: inherit;
+    }
+}
+
+.entity-secondary-info---cr {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.entity-main---cr {
+    max-width: 48rem;
+    @include x-margin(auto);
+}
+
+.entity-main-main---cr {
+    @include y-margin(2rem);
+}
+
+.entity-view-name {
+
+    a {
+        color: inherit;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Header
+//--------------------------------------------------------------
+
+.entity-header---cr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.entity-primary-heading---cr {
+    padding: 1rem;
+}
+
+.primary-menu-aside,
+.primary-actions-aside {
+    display: none;
+}
+
+.entity-primary-nav {
+    flex-grow: 1;
+}
+
+.entity-header-aside {
+
+    .widget {
+        @include y-padding();
+    }
+}
+
+//--------------------------------------------------------------
+// Entity View
+//--------------------------------------------------------------
+
+.entity-view-heading {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.entity-view-name {
+    font-size: 1.375rem;
+
+    .value---line {
+        color: $primary-color;
+    }
+}
+
+.entity-view-entry-count {
+
+    .l {
+        background-color: $primary-color;
+        color: white;
+        border: 0;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry
+//--------------------------------------------------------------
+
+.entry-name {
+    font-family: 'Open Sans Condensed', sans-serif;
+    
+    .txt {
+        display: inline-block;
+        @include y-margin();
+        @extend %voyager-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        font-size: 3em;
+    }
+}
+
+.entries-nav {
+
+    li,
+    .page---text {
+        display: none;
+    }
+
+    .next-navi,
+    .previous-navi {
+        display: block;
+    }
+
+    .current-page---txt {
+        font-weight: bold;
+    }
+}
+
+.entries-nav---cr {
+    @include if-y-center;
+
+    .navigation,
+    .nav-links,
+    .page-numbers {
+        display: contents;
+    }
+
+    .next-navi {
+        order: 1;
+    }
+}
+
+.entry-navi {
+
+    .value---line {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 1.375rem;
+    }
+
+    .property---line {
+        margin-bottom: -1rem;
+        color: $faint-color;
+        font-weight: bold;
+        font-size: .875rem;
+        text-transform: uppercase;
+        letter-spacing: .125em;
+    }
+
+    .entry---text {
+        display: none;
+    }
+}
+
+.entry-breadcrumbs-nav,
+.entry-categories {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+}
+
+.entry-breadcrumbs-navi--current {
+    color: $faint-color--hi;
+}
+
+.entry {
+    @include y-margin(2rem);
+}
+
+.entry-header {
+
+    .comments-actions-snippet {
+        display: none;
+    }
+}
+
+.entry-author-glabel {
+    display: none;
+}
+
+.cm-author-avatar {
+
+    img {
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+.cm-author-name {
+
+    a {
+        color: inherit;
+    }
+}
+
+.entry-categories {
+
+    a {
+        color: $primary-color;
+    }
+}
+
+.entry-axns---cr {
+    padding: 1rem;
+}
+
+.entry-categories-name {
+    display: none;
+}
+
+.entry-name {
+    @include y-padding();
+}
+
+.modify-entry-axn {
+
+    .txt {
+        @include if-y-center;
+        padding: .5rem 1rem;
+        min-height: 2.25rem;
+        background-color: $primary-color;
+        color: white;
+        border-radius: $corner-radius-s;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1;
+    }
+}
+
+.ntt--shocking-entry {
+
+    .entry-full-content---cr {
+        background-color: #FF0090;
+        color: #01E1FF;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Header
+//--------------------------------------------------------------
+
+.cssgrid {
+
+    .entry-header---cr {
+        display: grid;
+        grid-template:
+            'categories .'
+            'heading datetime'
+            'actions .'
+            'author .'
+            'comments .'
+            'banner .'
+            / 1fr auto;
+    }
+
+    .entry-primary-meta,
+    .entry-primary-meta---cr {
+        display: contents;
+    }
+
+    .entry-categories {
+        grid-area: categories;
+        grid-column: categories / -1;
+        margin-bottom: -1rem;
+    }
+
+    .entry-heading {
+        grid-area: heading;
+    }
+
+    .entry-datetime {
+        grid-area: datetime;
+        grid-row: datetime / -1;
+        align-self: flex-start;
+    }
+
+    .entry-axns {
+        grid-area: actions;
+        grid-column: actions / -1;
+    }
+
+    .entry-author {
+        grid-area: author;
+        grid-column: author / -1;
+    }
+
+    .entry-header {
+
+        .comments-actions-snippet {
+            grid-area: comments;
+            grid-column: comments / -1;
+        }
+    }
+
+    .entry-banner {
+        grid-area: banner;
+        grid-column: banner / -1;
+    }
+}
+
+//--------------------------------------------------------------
+// Content
+//--------------------------------------------------------------
+
+.content {
+    font-size: 1.375em;
+    line-height: 1.8;
+}
+
+.entry-full-content {
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Open Sans Condensed', sans-serif;
+    }
+
+    .initial-letter {
+        margin-top: .11em;
+        margin-right: .11em;
+        line-height: .85;
+    }
+
+    p.has-drop-cap:not(:focus) {
+
+        &:first-letter {
+            @extend .initial-letter;
+        }
+
+        &:after {
+            padding-top: 0;
+        }
+    }
+}
+
+.content-snippet {
+
+    a {
+        color: inherit;
+    }
+}
+
+.show-more-axn {
+    padding: 1rem;
+
+    .l {
+        padding: .75rem 1rem;
+        border: 2px solid $primary-color;
+        line-height: 1;
+        border-radius: $corner-radius-s;
+
+    }
+
+    .show---text {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Comment
+//--------------------------------------------------------------
+
+.comment-md {
+    display: none;
+}
+
+//--------------------------------------------------------------
+// [NTT Feature] Search - Compact
+//--------------------------------------------------------------
+
+.ntt--search--compact {
+
+    .search---cr {
+
+        .text-input {
+            padding-left: 1rem;
+            background-color: white;
+            border: 1px solid $faint-color--hi;
+            border-right: 0;
+            border-radius: $corner-radius-s;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        button {
+            border-radius: $corner-radius-s;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// [Snap Feature] Entry DateTime - Boxy
+//--------------------------------------------------------------
+
+.ntt--entry-datetime--boxy {
+
+    .entry-published-datetime-glabel,
+    .cm-time,
+    .entry-modified-datetime {
+        display: none;
+    }
+
+    .entry--updated {
+
+        .entry-published-datetime {
+            display: none;
+        }
+
+        .entry-modified-datetime {
+            display: block;
+        }
+    }
+
+    .entry-published-datetime---cr {
+        padding: 0;
+    }
+
+    .entry-modified-datetime---cr {
+        position: relative;
+        padding: 0;
+    }
+
+    .entry-modified-datetime-glabel {
+        @extend %ir;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-right: .25rem;
+        margin-top: .25rem;
+        width: .5rem;
+        height: .5rem;
+        background-color: white;
+        border-radius: 100rem;
+        mix-blend-mode: soft-light;
+
+        .l {
+            padding: .5em .5em;
+        }
+
+        .on---text {
+            display: none;
+        }
+    }
+
+    .cm-datetime {
+        padding: 1rem;
+    }
+
+    .cm-date {
+        font-size: .875rem;
+
+        .l {
+            padding: .75em;
+            background-color: $primary-color;
+            color: white;
+            border-radius: $corner-radius-s;
+
+            > * {
+                display: block;
+                text-align: center;
+                line-height: 1;
+            }
+        }
+
+        a {
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        .day---txt {
+            font-weight: bold;
+            font-size: 2em;
+        }
+
+        .month---txt {
+            text-transform: uppercase;
+            font-size: .875em;
+        }
+
+        .year---txt {
+            font-size: 1.375em;
+        }
+    }
+}

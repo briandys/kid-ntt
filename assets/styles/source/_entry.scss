@@ -1,0 +1,546 @@
+.entry-primary-meta---cr {
+    @include if-y-center;
+}
+
+.entry-author---cr {
+    padding: .5rem;
+}
+
+//--------------------------------------------------------------
+// Entry
+//--------------------------------------------------------------
+
+.entry-md---cr {
+    @include y-padding(.5rem);
+}
+.entry {
+    @include y-padding(.5rem);
+}
+
+.content {
+
+    &:empty {
+        display: none;
+    }
+
+    blockquote {
+
+        > * {
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    span[id^=more-] {
+        @extend %vh;
+    }
+
+    figure {
+        @include x-margin();
+        
+        &[style*="width"] {
+            width: 100% !important;
+        }
+    }
+
+    //--------------------------------------------------------------
+    // Table
+    //--------------------------------------------------------------
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+    }
+
+    tbody {
+        border: $faint-border;
+
+        th {
+            text-align: left;
+        }
+    }
+
+    th,
+    td {
+        padding: .5rem;
+        border: $faint-border;
+    }
+
+    pre {
+        overflow: auto;
+        white-space: pre-wrap;
+    }
+
+    .pre-skin {
+        max-width: 100vw;
+        overflow: auto;
+
+        pre {
+            padding: 1rem;
+            margin: 0;
+            background-color: $faint-color--lo;
+        }
+    }
+
+    form {
+        font-size: 1rem;
+    }
+}
+
+.content---cr {
+
+    > {
+
+        * {
+            @include x-padding(1rem);
+            @include y-margin(1em);
+        }
+
+        ul,
+        ol {
+            padding-left: 2.5rem;
+        }
+
+        .note {
+            @include y-padding();
+            @include y-margin(1em);
+        }
+
+        .sub-content-entries {
+            @include x-padding();
+        }
+
+        .txt {
+            display: block;
+            @include y-margin(1em);
+        }
+    }
+}
+
+.entry-full-content---cr {
+    @extend %cf;
+
+    .wp-block-gallery {
+        padding-left: 1rem;
+
+        .blocks-gallery-item {
+            margin: 0;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Sub-Content Entries
+//--------------------------------------------------------------
+
+.sub-content-entries-name {
+    display: none;
+}
+
+.sub-content-entry-name {
+    padding: .5rem;
+    
+    a {
+        display: inline-block;
+    }
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.entry--sub-content-entries-parent {
+
+    .entry-heading---cr {
+        @include if-y-center;
+
+        .entry-name {
+            flex: none;
+        }
+    }
+}
+
+.sub-content-entry-description {
+
+    > * {
+        @include x-padding(1rem);
+        @include y-margin(1em auto);
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Banner
+//--------------------------------------------------------------
+
+.entry-banner---cr {
+    @include y-padding(1rem);
+}
+
+//--------------------------------------------------------------
+// Figures, Images, Captions
+//--------------------------------------------------------------
+
+.wp-caption-text {
+    margin: 0;
+    margin-top: .5em;
+    text-align: left;
+    color: $faint-color;
+    font-size: .75em;
+}
+
+.wp-caption,
+.wp-block-image {
+    
+    .aligncenter {
+        margin-top: 0;
+    }
+
+    .alignleft {
+        float: none;
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    .alignright {
+        float: none;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    figcaption {
+        @extend .wp-caption-text;
+    }
+}
+
+.entry-full-content {
+
+    .initial-letter {
+        @extend %cf;
+        float: left;
+        margin-top: -.0625em;
+        margin-right: .0625em;
+        font-size: 5rem;
+        text-transform: uppercase;
+        font-style: normal;
+        line-height: 1;
+    }
+
+    p.has-drop-cap:not(:focus) {
+
+        &:first-letter {
+            @extend .initial-letter;
+        }
+
+        &:after {
+            padding-top: 0;
+        }
+    }
+}
+
+.entry-content {
+
+    form {
+        font-size: 1rem;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Categories
+//--------------------------------------------------------------
+
+.entry-categories---cr{
+    @include if-y-center;
+}
+
+.entry-categories-name {
+    @include ib-y-center;
+    padding: .5rem;
+    font-weight: bold;
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.entry-categories {
+
+    ul {
+        @include unlist
+        display: flex;
+        display: contents;
+    }
+
+    li {
+        padding: .5rem;
+    }
+
+    a {
+        @extend %block-pad;
+        color: inherit;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry DateTime
+//--------------------------------------------------------------
+
+.entry-published-datetime---cr,
+.entry-modified-datetime---cr {
+    @include if-y-center;
+    padding: .5rem;
+}
+
+.entry-published-datetime-glabel,
+.entry-modified-datetime-glabel {
+    display: inline-block;
+
+    .l {
+        @extend %block-pad;
+    }
+}
+
+.cm-date {
+
+    a {
+        display: inline-block;
+        color: inherit;
+    }
+
+    .l {
+        @extend %block-pad;
+    }
+}
+
+.cm-time {
+    
+    a {
+        display: inline-block;
+        color: inherit;
+    }
+
+    .l {
+        display: block;
+        padding: .5rem
+    }
+}
+
+.entry-author---cr {
+    @include if-y-center;
+}
+
+.entry-author-avatar {
+    order: -1;
+}
+
+.entry-author {
+    order: -1;
+}
+
+.entry-name {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+.entry-subtitle {
+    display: inline-block;
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.entry-axns {
+    user-select: none;
+}
+
+.entry-axns---cr {
+    padding: .5rem;
+}
+
+.modify-entry-axn {
+
+    a {
+        display: inline-block;
+    }
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.content-snippet {
+
+    p:empty {
+        display: none;
+    }
+
+    a {
+
+        &:empty {
+            display: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Tags
+//--------------------------------------------------------------
+
+.entry-tags---cr {
+    @include if-y-center;
+}
+
+.entry-tags {
+
+    ul {
+        @include unlist
+        display: flex;
+        display: contents;
+    }
+
+    li {
+        padding: .5rem;
+    }
+    
+    a {
+        @extend %block-pad;
+    }
+}
+
+.entry-tags-name {
+    @include ib-y-center;
+    padding: .5rem;
+    font-weight: bold;
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.entry-tag-group {
+    display: flex;
+    display: contents;
+}
+
+.comments--populated {
+
+    .entry-header---cr {
+        @include if-y-center;
+    }
+
+    .entry-heading,
+    .entry-axns,
+    .entry-banner {
+        flex: 1 100%;
+    }
+}
+
+.entry-header {
+
+    .comments-actions-snippet---cr {
+        @include if-y-center;
+    }
+
+    .disabled-comments-note {
+        flex: 1 100%;
+    }
+}
+
+.entries-page-indicator {
+    display: inline-block;
+    padding: .5rem;
+
+    .l {
+        @extend %block-pad;
+    }
+}
+
+.entry-summary-content--1 {
+
+    .entry-full-content {
+        margin-top: 1em;
+    }
+}
+
+.entry-datetime {
+    flex: 1 100%;
+}
+
+.entry-datetime---cr {
+    @include if-y-center;
+}
+
+.entry-published-date {
+
+    .l {
+        @extend %block-pad;
+    }
+}
+
+.entry-heading {
+    flex: 1 100%;
+}
+
+.entry-heading---cr {
+    @include if-y-center;
+
+    .entry-name,
+    .entry-subtitle {
+        flex: 1 100%;
+    }
+}
+
+.sub-content-entry-count {
+    @extend .entity-view-entry-count;
+}
+
+.show-more-axn {
+    padding: .5rem;
+    margin-bottom: 0;
+
+    a {
+        display: inline-block;
+    }
+
+    .l {
+        @extend %block-pad;
+    }
+}
+
+.entry-author-glabel {
+    display: inline-block;
+
+    .l {
+        @extend %block-pad;
+    }
+}
+
+//--------------------------------------------------------------
+// Password-Protected Posts
+//--------------------------------------------------------------
+
+.post-password-form {
+
+    label {
+
+        input {
+            @include y-margin(1rem);
+        }
+    }
+
+    input[type="submit"] {
+        margin-top: 1rem;
+    }
+}

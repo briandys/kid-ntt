@@ -1,0 +1,64 @@
+//--------------------------------------------------------------
+// [NTT Feature] Search - Compact
+//--------------------------------------------------------------
+
+.ntt--search--compact {
+
+    .search---cr {
+        display: flex;
+        align-items: flex-end;
+    
+        .search-field {
+            flex: 1 100%;
+        }
+    
+        .text-input {
+            border-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    
+        button {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    .search-field-textbox {
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+    .content {
+
+        .search---cr,
+        .search-field-textbox,
+        .submit-search-axn {
+            padding: 0;
+        }
+    }
+
+    .submit-search-axn {
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+
+    .search-field-label {
+        display: none;
+    }
+
+    .widget_search {
+
+        .widget-name {
+            display: none;
+        }
+
+        .search-field-textbox {
+            @include y-padding(0);
+        }
+    
+        .submit-search-axn {
+            @include y-padding(0);
+        }
+    }
+}

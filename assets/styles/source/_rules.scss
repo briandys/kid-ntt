@@ -1,0 +1,80 @@
+//--------------------------------------------------------------
+// NTT Rules
+//--------------------------------------------------------------
+
+@import '/Applications/XAMPP/xamppfiles/htdocs/projects/ntt/wp-content/themes/ntt/assets/styles/source/rules';
+
+$text-color: $eerie-black;
+$canvas-color: white;
+$link-color: $panda-blue;
+$visited-link-color: $panda-purple;
+
+$primary-color: $panda-blue;
+
+$faint-color: hsla(0, 0%, 0%, .5);
+
+$faint-color--hi: hsla(0, 0%, 0%, .25);
+$faint-color--med: hsla(0, 0%, 0%, .125);
+$faint-color--lo: hsla(0, 0%, 0%, .0625);
+
+%faint-label {
+    color: $faint-color;
+    text-transform: uppercase;
+    font-size: .75rem;
+    letter-spacing: .0625em;
+}
+
+$faint-border: 1px solid hsla(0, 0%, 0%, .125);
+
+%border {
+    border: 1px solid hsla(0, 0%, 0%, .125);
+    border-radius: .125rem;
+}
+
+%button {
+    line-height: 1;
+    padding: .5em .75em;
+    display: inline-block;
+    background-color: $panda-blue;
+    color: white;
+    border: 0;
+    border-radius: .125em;
+}
+
+%label {
+    color: $faint-color;
+    text-transform: uppercase;
+    font-size: .75rem;
+    letter-spacing: .0625em;
+}
+
+@mixin transition {
+    transition: all .25s ease-in-out;
+}
+
+@mixin ib-y-center {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@mixin if-y-center {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+%block-pad {
+    display: block;
+    padding: .5rem;
+}
+
+%count-box {
+    @include if-y-center;
+    justify-content: center;
+    padding: .5rem;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    border: $faint-border;
+    border-radius: .125rem;
+}
