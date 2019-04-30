@@ -7,14 +7,17 @@
 //--------------------------------------------------------------
 // Snap Rules
 //--------------------------------------------------------------
+$voyager-purple: #632f75;
 
 $primary-color: #ec5942;
 $link-color: $primary-color;
 
 $corner-radius-s: .125rem;
 
+$font-size-l: 1.375em;
+
 %voyager-gradient {
-    background: linear-gradient(to right, #632f75 0%,#2d1241 25%,#2d0311 50%,#5e1216 75%,#ec5942 100%);
+    background: linear-gradient(to right, $voyager-purple 0%,#2d1241 25%,#2d0311 50%,#5e1216 75%,#ec5942 100%);
 }
 
 @import '../../../../../assets/styles/source/theme';
@@ -32,37 +35,6 @@ body {
 }
 
 //--------------------------------------------------------------
-// Current Index View
-//--------------------------------------------------------------
-
-.current-index-view {
-    
-    .entity-view-heading {
-        display: none;
-    }
-}
-
-//--------------------------------------------------------------
-// Page View
-//--------------------------------------------------------------
-
-.page-view {
-
-    .entry-nav,
-    .entry-primary-meta,
-    .comment-md {
-        display: none;
-    }
-
-    .entry-header {
-
-        .comments-actions-snippet {
-            display: none;
-        }
-    }
-}
-
-//--------------------------------------------------------------
 // Entity
 //--------------------------------------------------------------
 
@@ -76,7 +48,7 @@ body {
 
     .txt {
         @include x-padding(1rem);
-        background-color: #632f75;
+        background-color: $voyager-purple;
         border-radius: $corner-radius-s;
         font-family: 'Open Sans Condensed', sans-serif;
         text-transform: uppercase;
@@ -179,11 +151,15 @@ body {
     .txt {
         display: inline-block;
         @include y-margin();
-        @extend %voyager-gradient;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: $voyager-purple;
         font-weight: bold;
         font-size: 3em;
+
+        @at-root .backgroundcliptext & {
+            @extend %voyager-gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 }
 
@@ -389,8 +365,18 @@ body {
 //--------------------------------------------------------------
 
 .content {
-    font-size: 1.375em;
+    font-size: $font-size-l;
     line-height: 1.8;
+
+    blockquote {
+        font-size: $font-size-l;
+
+        cite {
+            display: block;
+            color: gray;
+            font-style: normal;
+        }
+    }
 }
 
 .entry-full-content {
@@ -437,6 +423,57 @@ body {
 
     .show---text {
         display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// [Post Format] Status in Plural View
+//--------------------------------------------------------------
+
+.plural-view {
+
+    .format-status {
+
+        .entry-full-content---cr {
+    
+            > blockquote {
+                @include x-margin();
+            }
+        }
+    
+        &.entry-name--empty {
+            
+            .entry-heading,
+            .entry-author,
+            .entry-categories {
+                display: none;
+            }
+    
+            @at-root .cssgrid#{&} {
+        
+                .entry-header---cr {
+                    display: initial;
+                }
+    
+                .entry---cr {
+                    display: grid;
+                    grid-template:
+                        'main header'
+                        / 1fr auto;
+                }
+    
+                .entry-header {
+                    order: 1;
+                }
+    
+                .entry-full-content---cr {
+    
+                    > blockquote {
+                        @include y-margin(1rem);
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -568,5 +605,40 @@ body {
         .year---txt {
             font-size: 1.375em;
         }
+    }
+}
+
+//--------------------------------------------------------------
+// Current Index View
+//--------------------------------------------------------------
+
+.current-index-view {
+    
+    .entity-view-heading {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Page View
+//--------------------------------------------------------------
+
+.page-view {
+
+    .entry-nav,
+    .entry-primary-meta,
+    .comment-md {
+        display: none;
+    }
+
+    .entry-header {
+
+        .comments-actions-snippet {
+            display: none;
+        }
+    }
+
+    .entry-primary-meta {
+        display: none;
     }
 }

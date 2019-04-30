@@ -16,7 +16,7 @@
   height: 150%;
 }
 
-.entry-name .txt {
+.backgroundcliptext .entry-name .txt {
   background: -webkit-gradient(linear, left top, right top, from(#632f75), color-stop(25%, #2d1241), color-stop(50%, #2d0311), color-stop(75%, #5e1216), to(#ec5942));
   background: linear-gradient(to right, #632f75 0%, #2d1241 25%, #2d0311 50%, #5e1216 75%, #ec5942 100%);
 }
@@ -48,20 +48,6 @@ html {
 
 body {
   font-family: 'Hind', sans-serif;
-}
-
-.current-index-view .entity-view-heading {
-  display: none;
-}
-
-.page-view .entry-nav,
-.page-view .entry-primary-meta,
-.page-view .comment-md {
-  display: none;
-}
-
-.page-view .entry-header .comments-actions-snippet {
-  display: none;
 }
 
 .entity-primary-name {
@@ -171,10 +157,14 @@ body {
   display: inline-block;
   margin-top: 0;
   margin-bottom: 0;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #632f75;
   font-weight: bold;
   font-size: 3em;
+}
+
+.backgroundcliptext .entry-name .txt {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .entries-nav li,
@@ -360,6 +350,16 @@ body {
   line-height: 1.8;
 }
 
+.content blockquote {
+  font-size: 1.375em;
+}
+
+.content blockquote cite {
+  display: block;
+  color: gray;
+  font-style: normal;
+}
+
 .entry-full-content h1, .entry-full-content h2, .entry-full-content h3, .entry-full-content h4, .entry-full-content h5, .entry-full-content h6 {
   font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -391,6 +391,38 @@ body {
 
 .show-more-axn .show---text {
   display: none;
+}
+
+.plural-view .format-status .entry-full-content---cr > blockquote {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.plural-view .format-status.entry-name--empty .entry-heading,
+.plural-view .format-status.entry-name--empty .entry-author,
+.plural-view .format-status.entry-name--empty .entry-categories {
+  display: none;
+}
+
+.cssgrid.plural-view .format-status.entry-name--empty .entry-header---cr {
+  display: initial;
+}
+
+.cssgrid.plural-view .format-status.entry-name--empty .entry---cr {
+  display: -ms-grid;
+  display: grid;
+  grid-template: 'main header' / 1fr auto;
+}
+
+.cssgrid.plural-view .format-status.entry-name--empty .entry-header {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.cssgrid.plural-view .format-status.entry-name--empty .entry-full-content---cr > blockquote {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .comment-md {
@@ -494,4 +526,22 @@ body {
 
 .ntt--entry-datetime--boxy .cm-date .year---txt {
   font-size: 1.375em;
+}
+
+.current-index-view .entity-view-heading {
+  display: none;
+}
+
+.page-view .entry-nav,
+.page-view .entry-primary-meta,
+.page-view .comment-md {
+  display: none;
+}
+
+.page-view .entry-header .comments-actions-snippet {
+  display: none;
+}
+
+.page-view .entry-primary-meta {
+  display: none;
 }

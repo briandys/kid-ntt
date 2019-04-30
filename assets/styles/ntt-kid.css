@@ -640,11 +640,11 @@ label:hover {
   display: none;
 }
 
-.content blockquote > *:first-of-type {
+.content blockquote > *:first-child {
   margin-top: 0;
 }
 
-.content blockquote > *:last-of-type {
+.content blockquote > *:last-child {
   margin-bottom: 0;
 }
 

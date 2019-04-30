@@ -2,7 +2,7 @@
 /**
  * Child Theme Settings
  */
-$GLOBALS['ntt_kid_name'] = 'Neat Bleach NTT';
+$GLOBALS['ntt_kid_name'] = 'Kid NTT';
 $GLOBALS['ntt_kid_url'] = 'http://ntt.briandys.com/';
 
 /**
