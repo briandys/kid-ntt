@@ -393,34 +393,34 @@ body {
   display: none;
 }
 
-.plural-view .format-status .entry-full-content---cr > blockquote {
+.plural-view .format-quote .entry-full-content---cr > blockquote {
   margin-left: 0;
   margin-right: 0;
 }
 
-.plural-view .format-status.entry-name--empty .entry-heading,
-.plural-view .format-status.entry-name--empty .entry-author,
-.plural-view .format-status.entry-name--empty .entry-categories {
+.plural-view .format-quote.entry-name--empty .entry-heading,
+.plural-view .format-quote.entry-name--empty .entry-author,
+.plural-view .format-quote.entry-name--empty .entry-categories {
   display: none;
 }
 
-.cssgrid.plural-view .format-status.entry-name--empty .entry-header---cr {
+.cssgrid.plural-view .format-quote.entry-name--empty .entry-header---cr {
   display: initial;
 }
 
-.cssgrid.plural-view .format-status.entry-name--empty .entry---cr {
+.cssgrid.plural-view .format-quote.entry-name--empty .entry---cr {
   display: -ms-grid;
   display: grid;
   grid-template: 'main header' / 1fr auto;
 }
 
-.cssgrid.plural-view .format-status.entry-name--empty .entry-header {
+.cssgrid.plural-view .format-quote.entry-name--empty .entry-header {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
 }
 
-.cssgrid.plural-view .format-status.entry-name--empty .entry-full-content---cr > blockquote {
+.cssgrid.plural-view .format-quote.entry-name--empty .entry-full-content---cr > blockquote {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
