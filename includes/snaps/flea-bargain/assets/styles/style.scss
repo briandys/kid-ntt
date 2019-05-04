@@ -323,7 +323,6 @@ body {
     .entry-categories {
         grid-area: categories;
         grid-column: categories / -1;
-        margin-bottom: -1rem;
     }
 
     .entry-heading {
@@ -373,6 +372,7 @@ body {
 
         cite {
             display: block;
+            margin-top: 1em;
             color: gray;
             font-style: normal;
         }
@@ -608,6 +608,8 @@ body {
     }
 }
 
+
+
 //--------------------------------------------------------------
 // Current Index View
 //--------------------------------------------------------------
@@ -640,5 +642,19 @@ body {
 
     .entry-primary-meta {
         display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Archive Index View
+//--------------------------------------------------------------
+
+.archive-index-view {
+
+    .entity-view-heading {
+
+        .archive---text {
+            display: none;
+        }
     }
 }

@@ -311,7 +311,6 @@ body {
 .cssgrid .entry-categories {
   grid-area: categories;
   grid-column: categories / -1;
-  margin-bottom: -1rem;
 }
 
 .cssgrid .entry-heading {
@@ -356,6 +355,7 @@ body {
 
 .content blockquote cite {
   display: block;
+  margin-top: 1em;
   color: gray;
   font-style: normal;
 }
@@ -543,5 +543,9 @@ body {
 }
 
 .page-view .entry-primary-meta {
+  display: none;
+}
+
+.archive-index-view .entity-view-heading .archive---text {
   display: none;
 }
