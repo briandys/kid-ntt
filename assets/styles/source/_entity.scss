@@ -9,8 +9,7 @@
 
     &,
     body,
-    .entity,
-    .entity---cr {
+    .entity {
         height: 100%;
     }
 
@@ -46,13 +45,10 @@
 }
 
 .entity-secondary-info {
+    color: $faint-color;
     
     a {
         display: inline-block;
-        color: $faint-color;
-    }
-
-    .entity-copyright {
         color: $faint-color;
     }
 
@@ -119,10 +115,6 @@
     line-height: 1;
     font-weight: bold;
 
-    .l {
-        @extend %count-box;
-    }
-
     .glabel---txt {
         display: none;
     }
@@ -131,10 +123,8 @@
 .entity-primary-logo {
 
     img {
-        box-sizing: content-box;
         padding: .5rem;
         width: auto;
-        max-height: 7.5em;
     }
 }
 

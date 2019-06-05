@@ -131,6 +131,11 @@
     .txt {
         @extend %block-pad;
     }
+
+    .current-menu-item,
+    .current_page_item {
+        font-weight: bold;
+    }
 }
 
 .entity-primary-nav-group---cr {
@@ -139,10 +144,6 @@
     & > li {
         padding: .5rem;
     }
-}
-
-.current_page_item {
-    font-weight: bold;
 }
 
 //--------------------------------------------------------------

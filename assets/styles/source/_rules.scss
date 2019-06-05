@@ -17,6 +17,11 @@ $faint-color--hi: hsla(0, 0%, 0%, .25);
 $faint-color--med: hsla(0, 0%, 0%, .125);
 $faint-color--lo: hsla(0, 0%, 0%, .0625);
 
+$mobile-l-vp: 26.5625em;
+$tablet-vp: 48em;
+$laptop-vp: 64em;
+$laptop-l-vp: 90em;
+
 %faint-label {
     color: $faint-color;
     text-transform: uppercase;
@@ -49,7 +54,7 @@ $faint-border: 1px solid hsla(0, 0%, 0%, .125);
 }
 
 @mixin transition {
-    transition: all .25s ease-in-out;
+    transition: all .2s;
 }
 
 @mixin ib-y-center {

@@ -29,13 +29,13 @@
 }
 
 .comment-author-name .txt, .comments-count .l, .comments-name .txt, .modify-comment-axn .txt, .compose-comment-glabel .l, .cancel-reply-axn .l, .logged-in-admin-account-glabel .txt, .log-out-admin-account-axn .txt, .logged-in-admin-account-name .txt, .comments-navi .l, .comment-edit-link .txt, .comment-published-datetime-glabel .txt, .sub-content-entry-name .txt, .entry-categories-name .txt, .entry-categories a, .entry-published-datetime-glabel .l,
-.entry-modified-datetime-glabel .l, .cm-date .l, .entry-subtitle .txt, .modify-entry-axn .txt, .entry-tags a, .entry-tags-name .txt, .entries-page-indicator .l, .entry-published-date .l, .show-more-axn .l, .entry-author-glabel .l, .entity-primary-name .txt, .entity-primary-description .txt, .entity-view-name .l, .entity-name .txt, .cm-author-name .txt, .post-navigation .l, .entry-breadcrumbs-navi .txt, .entity-primary-nav .txt, .entry-navi .property---line,
+.entry-modified-datetime-glabel .l, .cm-date .l, .modify-entry-axn .txt, .entry-tags a, .entry-tags-name .txt, .entries-page-indicator .l, .entry-published-date .l, .show-more-axn .l, .entry-author-glabel .l, .entity-primary-name .txt, .entity-primary-description .txt, .entity-view-name .l, .entity-name .txt, .cm-author-name .txt, .post-navigation .l, .entry-breadcrumbs-navi .txt, .entity-primary-nav .txt, .entry-navi .property---line,
 .entry-navi .value---line, .entry-navi .img, .entry-content-nav .l, .widget_nav_menu a {
   display: block;
   padding: .5rem;
 }
 
-.comments-header---cr .comments-count .l, .entity-view-entry-count .l, .sub-content-entry-count .l {
+.comments-header---cr .comments-count .l {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -60,8 +60,8 @@
 .sticky,
 .wp-caption,
 .wp-caption-text,
-.wp-caption figcaption,
-.wp-block-image figcaption,
+.ntt .wp-caption figcaption,
+.ntt .wp-block-image figcaption,
 .alignright,
 .alignleft,
 .aligncenter {
@@ -779,8 +779,8 @@ label:hover {
 
 
 .wp-caption-text,
-.wp-caption figcaption,
-.wp-block-image figcaption {
+.ntt .wp-caption figcaption,
+.ntt .wp-block-image figcaption {
   margin: 0;
   margin-top: .5em;
   text-align: left;
@@ -788,20 +788,20 @@ label:hover {
   font-size: .75em;
 }
 
-.wp-caption .aligncenter,
-.wp-block-image .aligncenter {
+.ntt .wp-caption .aligncenter,
+.ntt .wp-block-image .aligncenter {
   margin-top: 0;
 }
 
-.wp-caption .alignleft,
-.wp-block-image .alignleft {
+.ntt .wp-caption .alignleft,
+.ntt .wp-block-image .alignleft {
   float: none;
   margin-right: 0;
   margin-top: 0;
 }
 
-.wp-caption .alignright,
-.wp-block-image .alignright {
+.ntt .wp-caption .alignright,
+.ntt .wp-block-image .alignright {
   float: none;
   margin-left: 0;
   margin-top: 0;
@@ -856,10 +856,6 @@ label:hover {
 
 .entry-categories li {
   padding: .5rem;
-}
-
-.entry-categories a {
-  color: inherit;
 }
 
 .entry-published-datetime---cr,
@@ -929,6 +925,7 @@ label:hover {
 
 .entry-subtitle {
   display: inline-block;
+  padding: 1rem;
 }
 
 .entry-axns {
@@ -1118,8 +1115,7 @@ label:hover {
 
 .cssgrid,
 .cssgrid body,
-.cssgrid .entity,
-.cssgrid .entity---cr {
+.cssgrid .entity {
   height: 100%;
 }
 
@@ -1149,12 +1145,12 @@ label:hover {
   grid-area: entity-end;
 }
 
-.entity-secondary-info a {
-  display: inline-block;
+.entity-secondary-info {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.entity-secondary-info .entity-copyright {
+.entity-secondary-info a {
+  display: inline-block;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -1214,11 +1210,8 @@ label:hover {
 }
 
 .entity-primary-logo img {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
   padding: .5rem;
   width: auto;
-  max-height: 7.5em;
 }
 
 .entity-banner-visuals--1 .entity-banner-visuals {
@@ -1249,8 +1242,8 @@ label:hover {
 
 .js .cm-author-avatar img {
   opacity: 0;
-  -webkit-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out;
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
 .window--loaded .cm-author-avatar img {
@@ -1411,6 +1404,11 @@ label:hover {
   display: inline-block;
 }
 
+.entity-primary-nav .current-menu-item,
+.entity-primary-nav .current_page_item {
+  font-weight: bold;
+}
+
 .entity-primary-nav-group---cr {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1425,10 +1423,6 @@ label:hover {
 
 .entity-primary-nav-group---cr > li {
   padding: .5rem;
-}
-
-.current_page_item {
-  font-weight: bold;
 }
 
 .entry-nav a {
@@ -1620,13 +1614,13 @@ input[type="submit"] {
         max-width: $m-vp;
     }
     */
-  .wp-caption .alignleft,
-  .wp-block-image .alignleft {
+  .ntt .wp-caption .alignleft,
+  .ntt .wp-block-image .alignleft {
     float: left;
     margin-right: 1em;
   }
-  .wp-caption .alignright,
-  .wp-block-image .alignright {
+  .ntt .wp-caption .alignright,
+  .ntt .wp-block-image .alignright {
     float: right;
     margin-left: 1em;
   }
@@ -1716,7 +1710,7 @@ input[type="submit"] {
   }
 }
 
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 61.25em) {
   .entry-main-aside--1 .entry-main-aside---cr {
     margin-top: 0;
   }
@@ -1786,4 +1780,3 @@ input[type="submit"] {
   padding-top: 0;
   padding-bottom: 0;
 }
-/*# sourceMappingURL=ntt-kid.css.map */

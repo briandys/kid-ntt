@@ -2,12 +2,14 @@
 /**
  * Child Theme Settings
  */
+
 $GLOBALS['ntt_kid_name'] = 'Kid NTT';
-$GLOBALS['ntt_kid_url'] = 'http://ntt.briandys.com/';
+$GLOBALS['ntt_kid_url'] = 'http://briandys.com/ntt/';
 
 /**
  * Functions
  */
+
 $r_funcs = array(
     'custom-fields',
     'functions-page',
@@ -27,26 +29,21 @@ foreach ( $r_funcs as $func ) {
 /** 
  * Styles, Scripts
  */
-function remove_gutenberg_styles() {
-    wp_dequeue_style( 'wp-block-library' );
-}
-add_action( 'wp_enqueue_scripts', 'remove_gutenberg_styles', 0 );
 
 function ntt_kid_styles_scripts() {
 
-    wp_enqueue_style( 'wp-block-library' );
-
     wp_enqueue_style( 'ntt-kid-style', get_stylesheet_directory_uri(). '/assets/styles/ntt-kid.min.css', array( 'ntt-style' ), wp_get_theme()->get( 'Version' ) );
     
-    wp_enqueue_script( 'ntt-kid-modernizr', get_stylesheet_directory_uri(). '/assets/scripts/modernizr-custom.js', array(), null, true );
+    wp_enqueue_script( 'ntt-kid-modernizr', get_stylesheet_directory_uri(). '/assets/scripts/modernizr-custom.js', array(), null, false );
 
     wp_enqueue_script( 'ntt-kid-script', get_stylesheet_directory_uri(). '/assets/scripts/ntt-kid.js', array( 'jquery', 'ntt-script', ), null, true );
 }
-add_action( 'wp_enqueue_scripts', 'ntt_kid_styles_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'ntt_kid_styles_scripts', 10 );
 
 /**
  * Maker Tag Name
  */
+
 function ntt_kid_entity_maker_tag_theme_name() {
     return $GLOBALS['ntt_kid_name'];
 }
@@ -55,6 +52,7 @@ add_filter( 'ntt_entity_maker_tag_theme_name_wp_filter', 'ntt_kid_entity_maker_t
 /**
  * Maker Tag URL
  */
+
 function ntt_kid_entity_maker_tag_theme_url() {
     return $GLOBALS['ntt_kid_url'];
 }
@@ -65,6 +63,7 @@ add_filter( 'ntt_entity_maker_tag_theme_url_wp_filter', 'ntt_kid_entity_maker_ta
  * 
  * https://aspengrovestudios.com/how-to-customize-password-protected-pages/
  */
+
 function ntt_kid_remove_password_protected_posts_filter( $where = '' ) {
 
     if ( ! is_single() && ! current_user_can( 'edit_private_posts' ) && ! is_admin() ) {
@@ -78,6 +77,7 @@ add_filter( 'posts_where', 'ntt_kid_remove_password_protected_posts_filter' );
 /**
  * Get Snaps
  */
+
 function ntt_get_snaps() {
     
     $snaps = array();
@@ -87,10 +87,10 @@ function ntt_get_snaps() {
         return array();
     }
 
-    $snaps[] = __( 'default', 'ntt' );
+    $snaps[] = esc_html( 'default' );
 
     foreach ( $r_snaps as $snap ) {
-        $snaps[] = basename( $snap );
+        $snaps[] = esc_html( basename( $snap ) );
     }
 
     return $snaps;

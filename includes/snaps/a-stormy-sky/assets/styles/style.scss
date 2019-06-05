@@ -27,7 +27,7 @@ $font-size-l: 1.375em;
 //--------------------------------------------------------------
 
 html {
-    background-color: #F1F3F6;
+    background-color: #CFCBC2;
 }
 
 body {
@@ -45,6 +45,12 @@ hr {
 //--------------------------------------------------------------
 // Entity
 //--------------------------------------------------------------
+
+.entity---cr {
+    max-width: 60rem;
+    @include x-margin(auto);
+    background-color: #EDEAE2;
+}
 
 .entity-primary-name {
     color: white;
@@ -75,11 +81,6 @@ hr {
 .entity-secondary-info---cr {
     margin-top: 4rem;
     text-align: center;
-}
-
-.entity-main---cr {
-    max-width: 48rem;
-    @include x-margin(auto);
 }
 
 .entity-main-main---cr {
@@ -150,17 +151,6 @@ hr {
     }
 }
 
-.entity-logo--1 {
-
-    .entity-primary-name {
-        @extend %vh;
-    }
-
-    .entity-primary-description {
-        display: none;
-    }
-}
-
 //--------------------------------------------------------------
 // Entry
 //--------------------------------------------------------------
@@ -171,15 +161,9 @@ hr {
     .txt {
         display: inline-block;
         @include y-margin();
-        color: $voyager-purple;
+        color: #5c4f4a;
         font-weight: bold;
         font-size: 3em;
-
-        @at-root .backgroundcliptext & {
-            @extend %voyager-gradient;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
     }
 }
 
@@ -235,8 +219,7 @@ hr {
     }
 }
 
-.entry-breadcrumbs-nav,
-.entry-categories {
+.entry-breadcrumbs-nav {
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform: uppercase;
 }
@@ -261,6 +244,11 @@ hr {
 }
 
 .cm-author-avatar {
+
+    .img {
+        width: 2rem;
+        height: 2rem;
+    }
 
     img {
         border-radius: 50%;
@@ -318,65 +306,28 @@ hr {
 }
 
 //--------------------------------------------------------------
-// Entry Header
+// Entry DateTime
 //--------------------------------------------------------------
 
-.cssgrid {
+.entry-published-datetime-glabel,
+.cm-time,
+.entry-modified-datetime {
+    display: none;
+}
 
-    .entry-header---cr {
-        display: grid;
-        grid-template:
-            'categories .'
-            'heading datetime'
-            'actions .'
-            'author .'
-            'comments .'
-            'banner .'
-            / 1fr auto;
+.entry--updated {
+
+    .entry-published-datetime {
+        display: none;
     }
 
-    .entry-primary-meta,
-    .entry-primary-meta---cr {
-        display: contents;
+    .entry-modified-datetime {
+        display: block;
     }
+}
 
-    .entry-categories {
-        grid-area: categories;
-        grid-column: categories / -1;
-    }
-
-    .entry-heading {
-        grid-area: heading;
-    }
-
-    .entry-datetime {
-        grid-area: datetime;
-        grid-row: datetime / -1;
-        align-self: flex-start;
-    }
-
-    .entry-axns {
-        grid-area: actions;
-        grid-column: actions / -1;
-    }
-
-    .entry-author {
-        grid-area: author;
-        grid-column: author / -1;
-    }
-
-    .entry-header {
-
-        .comments-actions-snippet {
-            grid-area: comments;
-            grid-column: comments / -1;
-        }
-    }
-
-    .entry-banner {
-        grid-area: banner;
-        grid-column: banner / -1;
-    }
+.entry-datetime {
+    flex: none;
 }
 
 //--------------------------------------------------------------
@@ -543,105 +494,6 @@ hr {
 }
 
 //--------------------------------------------------------------
-// [Snap Feature] Entry DateTime - Boxy
-//--------------------------------------------------------------
-
-.ntt--entry-datetime--boxy {
-
-    .entry-published-datetime-glabel,
-    .cm-time,
-    .entry-modified-datetime {
-        display: none;
-    }
-
-    .entry--updated {
-
-        .entry-published-datetime {
-            display: none;
-        }
-
-        .entry-modified-datetime {
-            display: block;
-        }
-    }
-
-    .entry-published-datetime---cr {
-        padding: 0;
-    }
-
-    .entry-modified-datetime---cr {
-        position: relative;
-        padding: 0;
-    }
-
-    .entry-modified-datetime-glabel {
-        @extend %ir;
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin-right: .25rem;
-        margin-top: .25rem;
-        width: .5rem;
-        height: .5rem;
-        background-color: white;
-        border-radius: 100rem;
-        mix-blend-mode: soft-light;
-
-        .l {
-            padding: .5em .5em;
-        }
-
-        .on---text {
-            display: none;
-        }
-    }
-
-    .cm-datetime {
-        padding: 1rem;
-    }
-
-    .cm-date {
-        font-size: .875rem;
-
-        .l {
-            padding: .75em;
-            background-color: $primary-color;
-            color: white;
-            border-radius: $corner-radius-s;
-
-            > * {
-                display: block;
-                text-align: center;
-                line-height: 1;
-            }
-        }
-
-        a {
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
-        .day---txt {
-            font-weight: bold;
-            font-size: 2em;
-        }
-
-        .month---txt {
-            text-transform: uppercase;
-            font-size: .875em;
-        }
-
-        .year---txt {
-            font-size: 1.375em;
-        }
-    }
-}
-
-
-
-//--------------------------------------------------------------
 // Current Index View
 //--------------------------------------------------------------
 
@@ -687,5 +539,80 @@ hr {
         .archive---text {
             display: none;
         }
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Main Main Aside
+//--------------------------------------------------------------
+
+.entity-main-main-aside {
+
+    .widget {
+        @include y-padding(1rem);
+    }
+
+    .widget---cr {
+        position: relative;
+        background-color: #F6F5F1;
+        border-bottom: 1px solid #DEDAD2;
+
+        ul {
+            list-style-type: none;
+	        counter-reset: li;
+        }
+
+        li {
+            position: relative;
+            @include y-padding(.25rem);
+            border-top: 1px solid #EDCBC5;
+
+            &:first-child {
+                border-top: 0;
+            }
+
+            &:nth-child(even) {
+                border-color: #C9E1E4;
+            }
+
+            &:before {
+                position: absolute;
+                right: 100%;
+                margin-right: .5rem;
+                content: counter(li, decimal)'.';
+                counter-increment: li;
+                color: #b0a8a4;
+            }
+
+            a {
+                color: #5c4f4a;
+            }
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 100%;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 1rem 1rem;
+            border-color: transparent transparent #DEDAD2 transparent;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 100%;
+            width: calc(100% - 1rem);
+            height: 1rem;
+            background-color: #F6F5F1;
+        }
+    }
+
+    .widget-name {
+        color: #5c4f4a;
     }
 }

@@ -1,0 +1,897 @@
+//--------------------------------------------------------------
+// NTT Kid Rules
+//--------------------------------------------------------------
+
+@import '../../../../../assets/styles/source/rules';
+
+//--------------------------------------------------------------
+// Snap Rules
+//--------------------------------------------------------------
+
+$almost-black: hsl(0, 0%, 10%);
+$almost-white: hsl(0, 0%, 95%);
+$blood-red: hsl(0, 100%, 45%);
+$a11y-gray: hsl(0, 0%, 46%);
+
+$ink-color: $almost-black;
+$paper-color: $almost-white;
+$accent-color: $blood-red;
+$neutral-color: $a11y-gray;
+
+$primary-font: 'Work Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+$primary-color: $blood-red;
+//$secondary-color;
+//$tertiary-color;
+//$color-1;
+//$color-2;
+
+$guide-56: 3.5rem;
+
+//accent-color;
+$link-color: $primary-color;
+$content-bg-color: hsl(0, 0%, 92%);
+
+@import '../../../../../assets/styles/source/theme';
+
+@mixin vertical-name {
+    /* Layout */
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 3rem 0 0 -1.25rem;
+    writing-mode: vertical-rl;
+
+    /* Visual Design */
+    font-size: 6rem;
+}
+
+//--------------------------------------------------------------
+// Basic
+//--------------------------------------------------------------
+
+html {
+    background-color: $paper-color;
+}
+
+body {
+    color: $ink-color;
+    font-family: $primary-font;
+}
+
+//--------------------------------------------------------------
+// Front View & Page
+//--------------------------------------------------------------
+
+.front-view.page-view {
+
+    .entity-secondary-nav {
+        display: none;
+    }
+
+    .entity-secondary-info {
+        @extend %vh;
+        color: $neutral-color;
+        background-color: $ink-color;
+
+        a {
+            color: $neutral-color;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entity
+//--------------------------------------------------------------
+
+.entity-main {
+    background-color: $content-bg-color;
+}
+
+.entity-secondary-info {
+    background-color: $content-bg-color;
+    font-size: .875rem;
+}
+
+.entity-secondary-info---cr {
+    text-align: center;
+}
+
+.entity-header-aside {
+    display: none;
+}
+
+//--------------------------------------------------------------
+// Entry
+//--------------------------------------------------------------
+
+.entry {
+
+    .content {
+        font-size: 1.125rem;
+        line-height: 1.5;
+    }
+}
+
+//--------------------------------------------------------------
+// Page View
+//--------------------------------------------------------------
+
+.page-view {
+
+    //--------------------------------------------------------------
+    // Hide Stuff
+    //--------------------------------------------------------------
+
+    .entry-nav,
+    .entry-primary-meta,
+    .comment-md,
+    .entry-header .comments-actions-snippet,
+    .entry-primary-meta {
+        display: none;
+    }
+
+    .entry-heading---cr {
+        display: block;
+    }
+
+    .entry-axns {
+        display: none;
+    }
+
+    .post-edit-link {
+
+        &:hover {
+            text-decoration: none;
+
+            .txt {
+                background-color: $accent-color;
+                border-color: $accent-color;
+            }
+        }
+
+        .txt {
+            @include x-padding(.75rem);
+            color: $paper-color;
+            background-color: $ink-color;
+            text-transform: uppercase;
+            border: 1px solid white;
+            @include transition;
+        }
+    }
+
+    .entry-name {
+        margin-top: 2rem;
+        text-align: center;
+        color: $accent-color;
+        line-height: 1;
+        text-transform: uppercase;
+        word-break: normal;
+        font-family: $secondary-font;
+        font-size: 2rem;
+    }
+}
+
+//--------------------------------------------------------------
+// Page: Works
+//--------------------------------------------------------------
+
+.page-entry--works {
+
+    //--------------------------------------------------------------
+    // Entity
+    //--------------------------------------------------------------
+
+    .entity-main {
+        background-color: $ink-color;
+    }
+
+    .entity-header-aside {
+        display: block;
+    }
+    
+    //--------------------------------------------------------------
+    // Entry
+    //--------------------------------------------------------------
+
+    .entry {
+        color: hsla(0, 0, 100%, .65);
+
+        .content {
+            font-size: 1.125rem;
+        }
+    }
+
+    .entry-name {
+        margin-top: 1rem;
+    }
+}
+    
+//--------------------------------------------------------------
+// Entity Primary Navigation, Entity Secondary Navigation
+//--------------------------------------------------------------
+
+.entity-primary-nav {
+    @include y-margin(2rem, 1rem);
+}
+
+.entity-primary-nav---cr {
+    border: .25rem solid hsla(0, 0%, 0%, .10);
+    border-left: 0;
+    border-right: 0;
+}
+
+.entity-primary-nav-group---cr {
+    justify-content: center;
+}
+
+.entity-secondary-nav {
+    background-color: $content-bg-color;
+
+    ul {
+        @include unlist;
+    }
+
+    .txt {
+        @extend %block-pad;
+    }
+}
+
+.entity-secondary-nav---cr {
+    @include y-padding(2rem);
+}
+
+.entity-secondary-nav-group---cr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    > li {
+        padding: .5rem;
+    }
+}
+
+.entity-primary-nav,
+.entity-secondary-nav {
+    
+    a {
+        color: $ink-color;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.125rem;
+        @include transition;
+
+        &:hover {
+            color: $accent-color;
+            text-decoration: none;
+        }
+    }
+
+    .txt {
+        @include x-padding(.75rem);
+    }
+
+    .current-menu-item,
+    .current_page_item {
+
+        a {
+            color: $accent-color;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Brian Dys Works
+//--------------------------------------------------------------
+
+.brian-dys-works---cr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.brian-dys-work-item {
+    flex: 1 15rem;
+
+    .title {
+        font-weight: 800;
+        font-size: 1.5rem;
+        font-family: $secondary-font;
+
+        a {
+            color: $paper-color;
+            @include transition;
+
+            &:hover {
+                color: $accent-color;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .sub-title {
+        color: $neutral-color;
+        font-family: $secondary-font;
+    }
+
+    .glyph {
+        text-align: center;
+        
+        a {
+            display: inline-block;
+
+            svg {
+                @include transition;
+                transition-timing-function: ease-in-out;
+            }
+
+            &:hover {
+                
+                svg {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+.brian-dys-work-item---cr {
+    padding: 1rem;
+    text-align: center;
+}
+    
+.glyph {
+
+    svg {
+
+        .brian-dys-rec-work & {
+            max-width: 150px;
+        }
+
+        .brian-dys-uxd-work & {
+            max-width: 160px;
+        }
+
+        .brian-dys-ntt-work & {
+            max-width: 115px;
+        }
+
+        .brian-dys-hok-work & {
+            max-width: 110px;
+        }
+    }
+}
+    
+//--------------------------------------------------------------
+// Brian Dys Intro
+//--------------------------------------------------------------
+
+.brian-dys-intro {
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.125rem;
+
+    .glyph {
+        margin-left: .25rem;
+
+        svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    }
+
+    .paymaya-label,
+    .voyager-label {
+        white-space: nowrap;
+
+        a {
+
+            svg {
+                @include transition;
+                transition-timing-function: ease-in-out;
+            }
+
+            &:hover {
+
+                svg {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+.brian-dys-intro---cr {
+
+    > * {
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+}
+    
+//--------------------------------------------------------------
+// Entity
+//--------------------------------------------------------------
+
+.entity-logo--1 {
+
+    .entity-primary-name {
+        @include vh;
+    }
+}
+
+.entity-primary-logo {
+    text-align: center;
+}
+
+.entity-header {
+    background-color: $paper-color;
+}
+
+.entity-header-aside {
+
+    .widget {
+        @include y-padding();
+    }
+
+    .widget---cr > * {
+        @include y-margin();
+    }
+
+    .widget-name {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Header
+//--------------------------------------------------------------
+
+.entity-primary-heading---cr {
+    padding: 0;
+}
+
+.entity-primary-logo img {
+    padding: 0;
+}
+
+.entity-header---cr {
+    padding: 1rem;
+}
+
+.entity-header-aside {
+    @include y-margin(2rem, 1rem);
+}
+
+//--------------------------------------------------------------
+// Entry
+//--------------------------------------------------------------
+
+.entry-md---cr {
+    @include y-padding();
+}
+
+.entry {
+    @include y-padding();
+}
+
+.content {
+
+    abbr[title] {
+        text-decoration: none;
+        border-bottom: 1px solid $neutral-color;
+
+        &:hover {
+            color: $accent-color;
+            border-bottom: 0;
+        }
+    }
+
+    hr {
+        width: 4rem;
+        @include x-padding();
+        @include x-margin(1rem, 1rem);
+        height: auto;
+        border-top-width: 2px;
+    }
+
+    [id*="contact-form"] {
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -.5rem;
+
+            > * {
+                margin: .5rem;
+                width: 100%;
+            }
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: .25rem;
+            color: $neutral-color;
+            font-size: 1.125rem;
+
+            span {
+                @extend %vh;
+            }
+        }
+
+        input,
+        textarea {
+            border-width: 2px;
+            border-radius: 0;
+            font-size: 1.125rem;
+
+            &:focus {
+                outline: none;
+                border-color: $ink-color;
+            }
+        }
+
+        textarea {
+            height: 7.5rem;
+            min-height: 7.5rem;
+        }
+
+        button {
+            width: 100%;
+            background-color: $ink-color;
+        }
+
+        .grunion-field-textarea-wrap {
+            flex: 1 100%;
+        }
+
+        .contact-submit {
+            margin-top: 1.5rem;
+        }
+    }
+}
+
+.entry-full-content {
+
+    .initial-letter {
+        position: relative;
+        @include x-margin(-.05em, .1em);
+        @include y-margin(0, -.025em);
+        font-weight: 800;
+        font-family: $secondary-font;
+        font-size: 5.5rem;
+    }
+    
+    p.has-drop-cap:not(:focus) {
+
+        &:first-letter {
+            @extend .initial-letter;
+        }
+    }
+}
+    
+.brian-dys-about-image {
+    display: block;
+    @include x-padding();
+    @include y-margin(1em);
+}
+
+//--------------------------------------------------------------
+// Media Query: Mobile Large Width and Below
+//--------------------------------------------------------------
+
+@media only screen and (max-width: $mobile-l-vp) {
+    
+    //--------------------------------------------------------------
+    // Brian Dys Works
+    //--------------------------------------------------------------
+
+    .brian-dys-work-item---cr {
+        padding: 2rem;
+    }
+    
+    .brian-dys-work-item {
+        margin: .5rem;
+        background-color: hsla(0, 0%, 0%, .25);
+    }
+
+    .brian-dys-works {
+        padding: .5rem;
+        @include y-margin();
+    }
+}
+
+//--------------------------------------------------------------
+// Media Query: Mobile Large Viewport Width and Up
+//--------------------------------------------------------------
+
+@media only screen and (min-width: $mobile-l-vp) {
+
+    //--------------------------------------------------------------
+    // Entry
+    //--------------------------------------------------------------
+
+    .entry {
+
+        .content {
+            font-size: 1.5rem;
+            line-height: 1.8;
+        }
+    }
+    
+    .content {
+    
+        hr {
+            border-top-width: 4px;
+        }
+
+        [id*="contact-form"] {
+
+            form {
+    
+                > * {
+                    flex: 1;
+                }
+            }
+
+            button {
+                width: auto;
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Media Query: Tablet Width and Up
+//--------------------------------------------------------------
+
+@media only screen and (min-width: $tablet-vp) {
+
+    //--------------------------------------------------------------
+    // Brian Dys Works
+    //--------------------------------------------------------------
+    
+    .brian-dys-work-item {
+        flex: 1 50%;
+    }
+}
+
+//--------------------------------------------------------------
+// Media Query: Large Width and Up
+//--------------------------------------------------------------
+
+@include mq(l-vp) {
+
+    //--------------------------------------------------------------
+    // Layout
+    //--------------------------------------------------------------
+    
+    .cssgrid {
+    
+        .entity---cr {
+            display: grid;
+            grid-template:
+                'entity-start .'
+                'entity-header entity-main' minmax(100vh, 100%)
+                'entity-footer .'
+                'entity-end .'
+                / 35vw auto;
+        }
+
+        .entity-footer {
+            grid-column: 1 / -1
+        }
+
+        .entity-footer---cr {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .entity-secondary-nav,
+        .entity-secondary-info {
+            width: 65vw;
+        }
+
+        .entity-secondary-nav,
+        .entity-secondary-info---cr {
+            max-width: 52rem;
+        }
+    }
+    
+    //--------------------------------------------------------------
+    // Entry
+    //--------------------------------------------------------------
+    
+    .entry {
+        position: relative;
+    }
+
+    .entry-md---cr {
+        @include y-padding();
+    }
+
+    .entry-full-content---cr {
+        
+        > * {
+            @include x-padding(7rem, 5rem);
+        }
+
+        > *:first-child {
+            margin-top: 3rem;
+        }
+    }
+    
+    .brian-dys-about-image {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 0;
+        
+        .content & {
+            @include y-margin(0, 2em);
+        }
+
+        img {
+            width: 30rem;
+            height: 16.875rem;
+            object-fit: cover;
+            //filter: grayscale(100%);
+            //mix-blend-mode: multiply;
+        }
+    }
+    
+    .content {
+    
+        hr {
+            @include x-margin(7rem, 5rem);
+        }
+    }
+    
+    //--------------------------------------------------------------
+    // Brian Dys Works
+    //--------------------------------------------------------------
+    
+    .brian-dys-works {
+
+        .content & {
+            @include x-padding();
+            @include y-margin();
+        }
+    }
+    
+    .brian-dys-works---cr {
+        min-height: 100vh;
+    }
+    
+    .brian-dys-works-name {
+        @include vertical-name;
+    }
+    
+    .brian-dys-work-item---cr {
+        padding: 2rem;
+    }
+    
+    //--------------------------------------------------------------
+    // Entity Header
+    //--------------------------------------------------------------
+    
+    .entity-header {
+        z-index: 1;
+
+        .cssgrid & {
+            justify-self: flex-end;
+        }
+    }
+
+    .entity-header---cr {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 3rem 2rem;
+
+        > * {
+            flex: 1 100%;
+        }
+
+        .cssgrid & {
+            max-width: 28rem;
+        }
+    }
+    
+    //--------------------------------------------------------------
+    // Entity Main
+    //--------------------------------------------------------------
+
+    .cssgrid {
+
+        .entity-main---cr {
+            max-width: 52rem;
+        }
+    }
+
+    //--------------------------------------------------------------
+    // Entity Header
+    //--------------------------------------------------------------
+
+    .entity-header-aside {
+        margin-top: 3rem;
+    }
+
+    //--------------------------------------------------------------
+    // Entity Primary Navigation
+    //--------------------------------------------------------------
+
+    .entity-primary-nav {
+        margin-top: 3rem;
+    }
+
+    //--------------------------------------------------------------
+    // Page View
+    //--------------------------------------------------------------
+
+    .page-view {
+
+        .entry-name {
+            padding: 0;
+            @include vertical-name;
+        }
+    
+        .entry-axns {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            padding: .5rem;
+        }
+    
+        .post-edit-link {
+    
+            &:hover {
+                text-decoration: none;
+    
+                .txt {
+                    background-color: $accent-color;
+                    border-color: $accent-color;
+                }
+            }
+    
+            .txt {
+                @include x-padding(.75rem);
+                color: $paper-color;
+                background-color: $ink-color;
+                text-transform: uppercase;
+                border: 1px solid white;
+                @include transition;
+            }
+        }
+
+        .entry-full-content {
+            //margin-top: 11rem;
+        }
+    }
+
+    //--------------------------------------------------------------
+    // Page: Works
+    //--------------------------------------------------------------
+
+    .page-entry--works {
+
+        .entry---cr {
+            @include x-padding(6rem, 4rem);
+            @include y-padding();
+        }
+
+        .entry-full-content {
+            margin-top: 0;
+        }
+    }
+
+}

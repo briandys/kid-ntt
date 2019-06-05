@@ -1,65 +1,12 @@
 @import '../../../../../assets/styles/source/rules';
 
-//--------------------------------------------------------------
-// Snap Rules
-//--------------------------------------------------------------
-
-//--------------------------------------------------------------
-// Absolute Variables
-//--------------------------------------------------------------
-
-$almost-black: hsl(0, 0%, 10%);
-$almost-white: hsl(0, 0%, 95%);
-$a11y-gray: hsl(0, 0%, 46%);
-
 $cherry-blossom-pink: hsl(0, 100%, 80%);
-$cherry-blossom-dark-pink: hsl(0, 100%, 68%);
-$cherry-blossom-light-pink: hsl(0, 100%, 95%);
-
-$blood-red: hsl(0, 100%, 45%);
-
-
-//--------------------------------------------------------------
-// Generic Variables
-//--------------------------------------------------------------
-
-$ink-color: $almost-black;
-$paper-color: white;
-$neutral-color: $a11y-gray;
-$accent-color: $cherry-blossom-dark-pink;
-$faint-accent-color: $cherry-blossom-light-pink;
-
-$primary-font: 'Work Sans', sans-serif;
-$secondary-font: 'Playfair Display', serif;
-
 $primary-color: $cherry-blossom-pink;
-$secondary-color: $cherry-blossom-dark-pink;
-$tertiary-color: $cherry-blossom-light-pink;
-$entry-content-font-size: 1.125em;
 $large-font-size: 1.125em;
-
-//--------------------------------------------------------------
-// Specific Variables
-//--------------------------------------------------------------
-
-$link-color: $accent-color;
-
-//--------------------------------------------------------------
-// Generic Variables
-//--------------------------------------------------------------
-
-@import '../../../../../assets/styles/source/theme';
 
 //--------------------------------------------------------------
 // Hide Stuff
 //--------------------------------------------------------------
-
-.entity-logo--1 {
-
-    .entity-primary-name {
-        @extend %vh;
-    }
-}
 
 .entry-author-glabel,
 .entry-published-datetime-glabel,
@@ -68,362 +15,24 @@ $link-color: $accent-color;
 .comment-published-datetime-glabel {
     display: none;
 }
-
-//--------------------------------------------------------------
-// Basic
-//--------------------------------------------------------------
-
-html {
-    background-color: $paper-color;
+    
+html[data-scroll-y-percentage~="100"] {
+    position: initial;
 }
+
+//--------------------------------------------------------------
+// Body
+//--------------------------------------------------------------
 
 body {
-    color: $ink-color;
-    font-family: $primary-font;
+    font-family: 'Noto Serif JP';
 }
 
 //--------------------------------------------------------------
-// Entity Secondary Info
+// Current Index View
 //--------------------------------------------------------------
 
-.entity-secondary-info {
-    color: $neutral-color;
-    font-size: .875rem;
-
-    a {
-        color: $neutral-color;
-    }
-}
-
-//--------------------------------------------------------------
-// Entity Primary Description
-//--------------------------------------------------------------
-
-.entity-primary-description {
-    color: $neutral-color;
-    font-size: .875rem;
-    letter-spacing: .045em;
-}
-
-//--------------------------------------------------------------
-// Entity Primary Navigation
-//--------------------------------------------------------------
-
-.entity-primary-nav {
-    font-size: 1.25rem;
-    font-family: $secondary-font;
-
-    a {
-        color: inherit;
-        @include transition;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
-    .current-menu-item,
-    .current_page_item {
-
-        .txt {
-            position: relative;
-            
-            &:before {
-                content: '';
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                height: 1.25rem;
-                background-color: $faint-accent-color;
-                z-index: -1;
-            }
-        }
-    }
-}
-
-.entity-primary-nav---cr {
-    border-top: .125rem solid $faint-accent-color;
-}
-
-.entity-primary-nav-group---cr {
-    justify-content: center;
-}
-
-//--------------------------------------------------------------
-// Entity Header
-//--------------------------------------------------------------
-
-.entity-header---cr {
-    display: flex;
-    flex-wrap: wrap;
-
-    > * {
-        flex: 1 100%;
-    }
-}
-
-//--------------------------------------------------------------
-// Entity Header Aside
-//--------------------------------------------------------------
-
-.entity-header-aside {
-    order: -1;
-
-    .widget_nav_menu {
-
-        a {
-            color: $ink-color;
-        }
-    }
-
-    .widget {
-        @include y-padding();
-    }
-
-    .widget---cr {
-        @include y-padding();
-        
-        > * {
-            @include y-margin();
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Entity
-//--------------------------------------------------------------
-
-.entity-primary-name {
-    font-size: 2.375rem;
-}
-
-.entity-primary-name {
-    font-family: $secondary-font;
-    font-weight: normal;
-
-    a {
-        color: inherit;
-    }
-}
-
-.entity-view-name {
-    font-size: $large-font-size;
-
-    a {
-        color: inherit;
-    }
-}
-
-.entity-view-heading,
-.entity-header,
-.entity-secondary-info {
-    text-align: center;
-}
-
-.entity-header-aside {
-
-    .search---cr {
-        @include x-margin(auto);
-        max-width: 25rem;
-    }
-}
-
-//--------------------------------------------------------------
-// Entry Name
-//--------------------------------------------------------------
-
-.entry-name {
-    font-size: 2.375rem;
-    font-family: $secondary-font;
-
-    a {
-        color: inherit;
-    }
-}
-
-//--------------------------------------------------------------
-// Entry Subtitle
-//--------------------------------------------------------------
-
-.entry-subtitle {
-    font-size: 1.75rem;
-    color: $neutral-color;
-}
-
-//--------------------------------------------------------------
-// Entry Author, Comment Author
-//--------------------------------------------------------------
-
-.entry-author,
-.comment-author {
-    order: initial;
-    
-    a {
-        color: inherit;
-    }
-}
-
-//--------------------------------------------------------------
-// Entry Content
-//--------------------------------------------------------------
-
-.entry-content {
-    font-size: $entry-content-font-size;
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: $secondary-font;
-    }
-
-    // https://type-scale.com/
-    
-    h2 {
-        font-size: 1.953em;
-    }
-
-    h3 {
-        font-size: 1.563em;
-    }
-
-    h4 {
-        font-size: 1.25em;
-    }
-
-    h5, h6 {
-        font-size: 1em;
-    }
-
-    .show-more-axn {
-
-        a {
-            background-image: none;
-
-            &:hover {
-                background-image: none;
-            }
-        }
-    }
-
-    .content-snippet {
-        
-        a {
-            background-image: none;
-    
-            &:hover {
-                background-image: none;
-            }
-        }
-    }
-}
-
-.content {
-    line-height: 1.8;
-    
-    a {
-        color: inherit;
-        background-image: linear-gradient(0deg, $tertiary-color 25%, transparent 0);
-
-        &:hover {
-            text-decoration: none;
-            background-image: linear-gradient(0deg, $primary-color 25%, transparent 0);
-        }
-
-        &[href*="flickr.com/"] {
-            display: block;
-            background-image: none;
-        }
-    }
-
-    blockquote {
-        position: relative;
-        padding-left: 3em;
-        @include y-padding(.5em);
-        @include x-margin();
-        font-size: 1.75em;
-
-        &:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 5em;
-            height: 100%;
-            background-color: $tertiary-color;
-            z-index: -1;
-        }
-
-        p {
-
-            &:first-of-type {
-                margin-top: 0;
-            }
-
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-        }
-
-        cite {
-            display: block;
-            text-align: right;
-            font-weight: bold;
-            font-style: normal;
-            font-family: $secondary-font;
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Comment DateTime
-//--------------------------------------------------------------
-
-.comment-published-datetime {
-    flex: none;
-}
-
-//--------------------------------------------------------------
-// Captions
-//--------------------------------------------------------------
-
-.ntt {
-
-    .wp-caption,
-    .wp-block-image {
-
-        figcaption {
-            color: $neutral-color;
-            font-size: 1rem;
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Entry Tags
-//--------------------------------------------------------------
-
-.entry-tags {
-
-    a {
-        color: $ink-color;
-        background-color: $tertiary-color;
-        line-height: 1;
-    }
-}
-
-.entry-tags-name {
-    font-family: $secondary-font;
-}
-
-//--------------------------------------------------------------
-// Index Views
-//--------------------------------------------------------------
-
-.current-index-view,
-.archive-index-view  {
+.current-index-view {
     
     .entity-view-heading {
         display: none;
@@ -467,210 +76,85 @@ body {
 }
 
 //--------------------------------------------------------------
-// Show More Action
+// Entity
 //--------------------------------------------------------------
 
-.show-more-axn {
-    padding: 1rem;
+.entity-primary-name {
+    font-size: 2rem;
+}
+
+.entity-primary-name {
+    font-family: 'Great Vibes';
+    font-weight: normal;
 
     a {
-        color: $secondary-color;
+        color: inherit;
+    }
+}
+
+.entity-view-name {
+    font-size: $large-font-size;
+
+    a {
+        color: inherit;
+    }
+}
+
+.entity-view-heading,
+.entity-header,
+.entity-secondary-info {
+    text-align: center;
+}
+
+.entity-header-aside {
+
+    .search---cr {
+        @include x-margin(auto);
+        max-width: 25rem;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Secondary Info
+//--------------------------------------------------------------
+
+.entity-name,
+.entity-copyright,
+.entity-maker-tag {
+    font-size: .875rem;
+}
+
+//--------------------------------------------------------------
+// Entity Primary Navigation
+//--------------------------------------------------------------
+
+.entity-primary-nav {
+
+    a {
+        color: inherit;
         @include transition;
 
         &:hover {
-            color: $paper-color;
-
-            .l {
-                background-color: $secondary-color;
-            }
-        }
-    }
-
-    .l {
-        padding: .75rem 1rem;
-        border: 2px solid $secondary-color;
-        line-height: 1;
-
-    }
-
-    .show---text {
-        display: none;
-    }
-}
-
-//--------------------------------------------------------------
-// [Style Feature] Entry DateTime - Boxy
-//--------------------------------------------------------------
-
-.ntt--entry-datetime--boxy {
-
-    .entry-published-datetime-glabel,
-    .cm-time,
-    .entry-modified-datetime {
-        display: none;
-    }
-
-    .entry--updated {
-
-        .entry-published-datetime {
-            display: none;
-        }
-
-        .entry-modified-datetime {
-            display: block;
-        }
-    }
-
-    .entry-published-datetime---cr {
-        padding: 0;
-    }
-
-    .entry-modified-datetime---cr {
-        position: relative;
-        padding: 0;
-    }
-
-    .entry-modified-datetime-glabel {
-        @extend %ir;
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin-right: .25em;
-        margin-top: .25em;
-        width: .5em;
-        height: .5em;
-        background-color: $secondary-color;
-        border-radius: 100rem;
-        mix-blend-mode: hard-light;
-        opacity: .5;
-
-        .l {
-            padding: .5em .5em;
-        }
-
-        .on---text {
-            display: none;
-        }
-    }
-
-    .cm-datetime {
-        padding: 1rem;
-    }
-
-    .cm-date {
-
-        .l {
-            padding: .5em .75em;
-            background-color: $tertiary-color;
-            color: $ink-color;
-
-            > * {
-                display: block;
-                text-align: center;
-                line-height: 1;
-            }
-        }
-
-        a {
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
-        .day---txt {
-            font-size: 1.5em;
-        }
-
-        .month---txt {
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: .875em;
-        }
-
-        .year---txt {
-            font-size: .875em;
+            background-color: hsla(11, 100%, 93%, .25);
+            text-decoration: none;
+            border-radius: .125rem;
         }
     }
 }
 
-//--------------------------------------------------------------
-// Media Query: Tablet Viewport Width and Up
-//--------------------------------------------------------------
-
-@media only screen and (min-width: $tablet-vp) {
-
-    //--------------------------------------------------------------
-    // Entity Header Aside
-    //--------------------------------------------------------------
-
-    .entity-header-aside {
-
-        .widget_nav_menu {
-
-            ul {
-                text-align: right;
-            }
-        }
-    }
-
-    //--------------------------------------------------------------
-    // Entity Main
-    //--------------------------------------------------------------
-
-    .entity-main {
-        @include x-margin(auto);
-        max-width: 45em;
-    }
-
-    .entity-main-main-aside--1,
-    .entry-main-aside--1 {
-        
-        .entity-main {
-            max-width: none;
-        }
-    }
+.entity-primary-nav---cr {
+    @extend %border;
+    border-left: 0;
+    border-right: 0;
 }
 
-//--------------------------------------------------------------
-// Media Query: Laptop Large Viewport Width and Up
-//--------------------------------------------------------------
-
-@media only screen and (min-width: $laptop-l-vp) {
-
-    //--------------------------------------------------------------
-    // Entity
-    //--------------------------------------------------------------
-
-    .entity---cr {
-        @include x-margin(auto);
-        max-width: $laptop-vp;
-    }
+.entity-primary-nav {
+    font-size: 1.25rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.entity-primary-nav-group---cr {
+    justify-content: center;
+}
 
 //--------------------------------------------------------------
 // Entry
@@ -780,7 +264,7 @@ body {
 
     .txt {
         padding: .25em .75em;
-        background-color: $accent-color;
+        background-color: $primary-color;
         border-radius: .125em;
     }
 }
@@ -806,6 +290,23 @@ p.has-drop-cap:not(:focus) {
 }
 
 //--------------------------------------------------------------
+// Entry Content
+//--------------------------------------------------------------
+
+.entry-content {
+    font-size: $large-font-size;
+}
+
+.entry-content,
+.comment-content {
+    line-height: 1.8;
+
+    blockquote {
+        font-size: $large-font-size;
+    }
+}
+
+//--------------------------------------------------------------
 // Entry Summary Content
 //--------------------------------------------------------------
 
@@ -818,7 +319,92 @@ p.has-drop-cap:not(:focus) {
     }
 }
 
+//--------------------------------------------------------------
+// Entry Name
+//--------------------------------------------------------------
 
+.entry-name {
+    font-size: 2rem;
+
+    a {
+        color: inherit;
+    }
+}
+
+//--------------------------------------------------------------
+// Show More Action
+//--------------------------------------------------------------
+
+.show-more-axn {
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 1rem;
+
+    a {
+        display: inline-block;
+
+        &:hover {
+
+            .txt {
+                background-color: $cherry-blossom-pink;
+                border-color: $cherry-blossom-pink;
+            }
+        }
+    }
+
+    .txt {
+        display: block;
+        padding: .5rem 1rem;
+        @extend %border;
+        border-color: black;
+        @include transition;
+    }
+}
+
+//--------------------------------------------------------------
+// Content
+//--------------------------------------------------------------
+
+.content {
+
+    a {
+        color: inherit;
+        background-image: linear-gradient(0deg, hsla(11, 100%, 93%, .9) 25%, transparent 0);
+
+        &:hover {
+            text-decoration: none;
+            background-image: linear-gradient(0deg, hsl(10, 100%, 90%) 25%, transparent 0);
+        }
+
+        &[href*="flickr.com/"] {
+            display: block;
+            background-image: none;
+        }
+    }
+
+    .show-more-axn {
+
+        a {
+            background-image: none;
+
+            &:hover {
+                color: white;
+                background-image: none;
+            }
+        }
+    }
+
+    .content-snippet {
+        
+        a {
+            background-image: none;
+    
+            &:hover {
+                background-image: none;
+            }
+        }
+    }
+}
 
 //--------------------------------------------------------------
 // Entry Tags
@@ -1317,6 +903,111 @@ p.has-drop-cap:not(:focus) {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Large Width and Up
+//--------------------------------------------------------------
+
+@include mq(l-vp) {
+
+    .entity---cr {
+        @include x-margin(auto);
+        max-width: $m-vp;
+    }
+
+    .entity-main-main-aside--1,
+    .entry-main-aside--1 {
+        
+        .entity---cr {
+            max-width: none;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Extra-Large Width and Up
+//--------------------------------------------------------------
+
+@include mq(xl-vp) {
+
+    .entity---cr {
+        max-width: $xl-vp;
+    }
+}
+
+//--------------------------------------------------------------
+// Temp - Newsletter
+//--------------------------------------------------------------
+
+#custom_html-4 {
+    width: 100%;
+    max-width: 320px;
+    opacity: 0;
+    @include transition;
+    transition-delay: .3s;
+
+    .dom--loaded & {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        padding: 1rem;
+    }
+
+    .show-newsletter & {
+        right: 0 !important;
+        opacity: 1;
+    }
+
+    .dismiss-action {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: .25rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .widget---cr {
+        position: relative;
+        background-color: white;
+        border-radius: .25rem;
+        box-shadow: 0 0 8px hsla(0, 0%, 0%, .05);
+    }
+}
+
+//--------------------------------------------------------------
+// Temp - Scroll Progress
+//--------------------------------------------------------------
+
+html {
+    
+    &[data-scroll-y-percentage]:before {
+        content: '';
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: .25rem;
+        width: 0%;
+        background-color: transparent;
+        @include transition;
+        opacity: .5;
+    }
+
+    @for $i from 1 through 100 {
+
+        @if $i % 5 == 0 {
+            $width: percentage($i / 100);
+            $hue: $i;
+        
+            &[data-scroll-y-percentage~="#{$i}"]:before {
+                width: $width;
+                background-color: hsl($hue, 100%, 80%);
             }
         }
     }

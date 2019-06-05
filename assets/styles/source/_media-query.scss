@@ -8,17 +8,20 @@
     }
     */
 
-    .wp-caption,
-    .wp-block-image {
+    .ntt {
+        
+        .wp-caption,
+        .wp-block-image {
 
-        .alignleft {
-            float: left;
-            margin-right: 1em;
-        }
+            .alignleft {
+                float: left;
+                margin-right: 1em;
+            }
 
-        .alignright {
-            float: right;
-            margin-left: 1em;
+            .alignright {
+                float: right;
+                margin-left: 1em;
+            }
         }
     }
 

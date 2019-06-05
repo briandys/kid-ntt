@@ -2,6 +2,8 @@
 /**
  * HTML CSS Custom Field
  * Key: ntt_cf_html_css
+ * 
+ * Adds CSS in HTML Tag
  */
 function ntt_kid_custom_field_html_css( $classes ) {
     
@@ -16,7 +18,9 @@ add_filter( 'ntt_html_css_wp_filter', 'ntt_kid_custom_field_html_css' );
 
 /**
  * Entry Subtitle Custom Field
- * key: ntt_cf_entry_subtitle
+ * Key: ntt_cf_entry_subtitle
+ * 
+ * Adds Entry Subtitle
  */
 function ntt_kid_custom_field_entry_subtitle() {
     
