@@ -223,6 +223,12 @@ body {
   color: #757575;
 }
 
+.entry-datetime {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+}
+
 .entry-author,
 .comment-author {
   -webkit-box-ordinal-group: initial;
@@ -237,6 +243,10 @@ body {
 
 .entry-content {
   font-size: 1.125em;
+}
+
+.entry-content p {
+  text-align: justify;
 }
 
 .entry-content h2,
@@ -301,8 +311,6 @@ body {
 }
 
 .content blockquote {
-  position: relative;
-  padding-left: 3em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-left: 0;
@@ -310,15 +318,8 @@ body {
   font-size: 1.75em;
 }
 
-.content blockquote:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 5em;
-  height: 100%;
-  background-color: #ffe6e6;
-  z-index: -1;
+.content blockquote p {
+  text-align: left;
 }
 
 .content blockquote p:first-of-type {
@@ -347,6 +348,7 @@ body {
 .ntt .wp-block-image figcaption {
   color: #757575;
   font-size: 1rem;
+  text-align: justify;
 }
 
 .entry-tags a {
@@ -501,6 +503,20 @@ body {
   .entry-main-aside--1 .entity-main {
     max-width: none;
   }
+  .content blockquote {
+    position: relative;
+    padding-left: 3em;
+  }
+  .content blockquote:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5em;
+    height: 100%;
+    background-color: #ffe6e6;
+    z-index: -1;
+  }
 }
 
 @media only screen and (min-width: 90em) {
@@ -537,11 +553,6 @@ body {
 
 .entries-page-indicator {
   display: none;
-}
-
-.entry-datetime {
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
 }
 
 .entry-modified-datetime {
@@ -590,28 +601,6 @@ body {
 .archive-index-view .entry-summary-content,
 .singular-view .entry-summary-content {
   font-size: 1.125em;
-}
-
-.entry-tags {
-  margin-top: 3rem;
-}
-
-.entry-tags-name {
-  position: relative;
-  padding: 2rem 0;
-  margin: -1rem .5rem;
-}
-
-.entry-tags-name:before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: calc(100% - 1rem);
-  height: .125rem;
-  background-color: rgba(0, 0, 0, 0.125);
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
 }
 
 .compose-comment-glabel {
