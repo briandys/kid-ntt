@@ -17,23 +17,23 @@ function ntt_kid_custom_field_html_css( $classes ) {
 add_filter( 'ntt_html_css_wp_filter', 'ntt_kid_custom_field_html_css' );
 
 /**
- * Entry Subtitle Custom Field
- * Key: ntt_cf_entry_subtitle
+ * Entry Subname Custom Field
+ * Key: ntt_cf_entry_subname
  * 
- * Adds Entry Subtitle
+ * Adds Entry Subname
  */
-function ntt_kid_custom_field_entry_subtitle() {
+function ntt_kid_custom_field_entry_subname() {
     
-    $entry_subtitle_post_meta = get_post_meta( get_the_ID(), 'ntt_cf_entry_subtitle', true );
+    $entry_subname_post_meta = get_post_meta( get_the_ID(), 'ntt_cf_entry_subname', true );
 
-    if ( $entry_subtitle_post_meta !== '' ) {
-        $entry_subtitle_mu = '<div class="entry-subtitle obj">';
-            $entry_subtitle_mu .= '<span class="txt">'. esc_html( $entry_subtitle_post_meta ). '</span>';
-        $entry_subtitle_mu .= '</div>';
+    if ( $entry_subname_post_meta !== '' ) {
+        $entry_subname_mu = '<div class="entry-subname obj" data-name="Entry Subname">';
+            $entry_subname_mu .= '<span class="txt">'. esc_html( $entry_subname_post_meta ). '</span>';
+        $entry_subname_mu .= '</div>';
     } else {
-        $entry_subtitle_mu = '';
+        $entry_subname_mu = '';
     }
 
-    echo $entry_subtitle_mu;
+    echo $entry_subname_mu;
 }
-add_action( 'ntt_after_entry_name_wp_hook', 'ntt_kid_custom_field_entry_subtitle', 0 );
+add_action( 'ntt_after_entry_name_wp_hook', 'ntt_kid_custom_field_entry_subname', 0 );

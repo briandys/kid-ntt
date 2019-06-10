@@ -923,7 +923,7 @@ label:hover {
   word-break: break-word;
 }
 
-.entry-subtitle {
+.entry-subname {
   display: inline-block;
   padding: 1rem;
 }
@@ -1079,7 +1079,7 @@ label:hover {
 }
 
 .entry-heading---cr .entry-name,
-.entry-heading---cr .entry-subtitle {
+.entry-heading---cr .entry-subname {
   -webkit-box-flex: 1;
       -ms-flex: 1 100%;
           flex: 1 100%;

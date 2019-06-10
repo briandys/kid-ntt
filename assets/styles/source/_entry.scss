@@ -351,7 +351,7 @@
     word-break: break-word;
 }
 
-.entry-subtitle {
+.entry-subname {
     display: inline-block;
     padding: 1rem;
 }
@@ -496,7 +496,7 @@
     @include if-y-center;
 
     .entry-name,
-    .entry-subtitle {
+    .entry-subname {
         flex: 1 100%;
     }
 }

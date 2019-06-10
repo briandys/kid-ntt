@@ -445,6 +445,10 @@ hr {
   display: none;
 }
 
+.entry-subname {
+  font-size: 1.375em;
+}
+
 .plural-view .format-quote .entry-full-content---cr > blockquote {
   margin-left: 0;
   margin-right: 0;
