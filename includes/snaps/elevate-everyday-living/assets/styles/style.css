@@ -209,6 +209,12 @@ body {
   max-width: 25rem;
 }
 
+.entry-header---cr {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .entry-name {
   font-size: 2.375rem;
   font-family: "Playfair Display", serif;
@@ -243,6 +249,52 @@ body {
 
 .entry-content {
   font-size: 1.125em;
+  line-height: 1.8;
+}
+
+.entry-content a {
+  color: inherit;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(25%, #ffe6e6), color-stop(0, transparent));
+  background-image: linear-gradient(0deg, #ffe6e6 25%, transparent 0);
+}
+
+.entry-content a:hover {
+  text-decoration: none;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(25%, #ff9999), color-stop(0, transparent));
+  background-image: linear-gradient(0deg, #ff9999 25%, transparent 0);
+}
+
+.entry-content a[href*="flickr.com/"] {
+  display: block;
+  background-image: none;
+}
+
+.entry-content blockquote {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 1.75em;
+}
+
+.entry-content blockquote p {
+  text-align: left;
+}
+
+.entry-content blockquote p:first-of-type {
+  margin-top: 0;
+}
+
+.entry-content blockquote p:last-of-type {
+  margin-bottom: 0;
+}
+
+.entry-content blockquote cite {
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  font-style: normal;
+  font-family: "Playfair Display", serif;
 }
 
 .entry-content p {
@@ -289,59 +341,91 @@ body {
   background-image: none;
 }
 
-.content {
-  line-height: 1.8;
+.content---cr ul {
+  list-style: none;
 }
 
-.content a {
-  color: inherit;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(25%, #ffe6e6), color-stop(0, transparent));
-  background-image: linear-gradient(0deg, #ffe6e6 25%, transparent 0);
+.content---cr > ul {
+  list-style: none;
+  padding-left: 3rem;
 }
 
-.content a:hover {
-  text-decoration: none;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(25%, #ff9999), color-stop(0, transparent));
-  background-image: linear-gradient(0deg, #ff9999 25%, transparent 0);
+.content---cr > ul li {
+  position: relative;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
 }
 
-.content a[href*="flickr.com/"] {
-  display: block;
-  background-image: none;
-}
-
-.content blockquote {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  margin-left: 0;
-  margin-right: 0;
-  font-size: 1.75em;
-}
-
-.content blockquote p {
-  text-align: left;
-}
-
-.content blockquote p:first-of-type {
-  margin-top: 0;
-}
-
-.content blockquote p:last-of-type {
-  margin-bottom: 0;
-}
-
-.content blockquote cite {
-  display: block;
-  text-align: right;
-  font-weight: bold;
-  font-style: normal;
-  font-family: "Playfair Display", serif;
+.content---cr > ul li:before {
+  content: '\2022';
+  position: absolute;
+  right: 100%;
+  top: 0;
+  margin-right: 1rem;
+  color: #ff9999;
+  font-size: 2rem;
+  line-height: 1;
 }
 
 .comment-published-datetime {
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
+}
+
+.entry-header .comments-count a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.entry-header .comments-count a:hover .glabel---txt {
+  text-decoration: underline;
+}
+
+.entry-header .comments-count .l {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.entry-header .comments-count .count---txt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .25rem .5rem;
+  min-width: 2rem;
+  min-height: 1.75rem;
+  background-color: #ffe6e6;
+  font-weight: bold;
+  position: relative;
+}
+
+.entry-header .comments-count .count---txt:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  /* Triangle */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 .5rem .5rem 0;
+  border-color: transparent #ffe6e6 transparent transparent;
+}
+
+.entry-header .comments-count .glabel---txt {
+  margin-left: .5rem;
 }
 
 .ntt .wp-caption figcaption,
