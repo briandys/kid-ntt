@@ -1,8 +1,8 @@
-.entry-primary-meta---cr {
+.ntt--entry-primary-meta {
     @include if-y-center;
 }
 
-.entry-author---cr {
+.ntt--entry-author {
     padding: .5rem;
 }
 
@@ -10,14 +10,14 @@
 // Entry
 //--------------------------------------------------------------
 
-.entry-md---cr {
+.ntt--entry-md {
     @include y-padding(.5rem);
 }
 .entry {
     @include y-padding(.5rem);
 }
 
-.content {
+.ntt--content {
 
     &:empty {
         display: none;
@@ -107,7 +107,7 @@
             padding-left: 2.5rem;
         }
 
-        .note {
+        .ntt--note {
             @include y-padding();
             @include y-margin(1em);
         }
@@ -116,14 +116,14 @@
             @include x-padding();
         }
 
-        .txt {
+        .ntt--txt {
             display: block;
             @include y-margin(1em);
         }
     }
 }
 
-.entry-full-content---cr {
+.ntt--entry-full-content {
     @extend %cf;
 
     .wp-block-gallery {
@@ -143,24 +143,24 @@
     display: none;
 }
 
-.sub-content-entry-name {
+.sub-content-ntt--entry-name {
     padding: .5rem;
     
     a {
         display: inline-block;
     }
 
-    .txt {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
 
 .entry--sub-content-entries-parent {
 
-    .entry-heading---cr {
+    .ntt--entry-heading---cr {
         @include if-y-center;
 
-        .entry-name {
+        .ntt--entry-name {
             flex: none;
         }
     }
@@ -178,7 +178,7 @@
 // Entry Banner
 //--------------------------------------------------------------
 
-.entry-banner---cr {
+.ntt--entry-banner {
     @include y-padding(1rem);
 }
 
@@ -221,7 +221,7 @@
     }
 }
 
-.entry-full-content {
+.ntt--entry-full-content {
 
     .initial-letter {
         @extend %cf;
@@ -246,7 +246,7 @@
     }
 }
 
-.entry-content {
+.ntt--entry-content {
 
     form {
         font-size: 1rem;
@@ -259,19 +259,24 @@
 
 .entry-categories---cr{
     @include if-y-center;
+
+    // For Uncategorized that isn't linked to its Category view
+    > .ntt--txt {
+        padding: 1rem;
+    }
 }
 
-.entry-categories-name {
+.ntt--entry-categories-name {
     @include ib-y-center;
     padding: .5rem;
     font-weight: bold;
 
-    .txt {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
 
-.entry-categories {
+.ntt--entry-categories {
 
     ul {
         @include unlist
@@ -292,17 +297,17 @@
 // Entry DateTime
 //--------------------------------------------------------------
 
-.entry-published-datetime---cr,
-.entry-modified-datetime---cr {
+.ntt--entry-published-datetime,
+.ntt--entry-modified-datetime {
     @include if-y-center;
     padding: .5rem;
 }
 
-.entry-published-datetime-glabel,
-.entry-modified-datetime-glabel {
+.ntt--entry-published-datetime-label,
+.entry-modified-datetime-label {
     display: inline-block;
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
@@ -314,7 +319,7 @@
         color: inherit;
     }
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
@@ -326,25 +331,25 @@
         color: inherit;
     }
 
-    .l {
+    .ntt--txt {
         display: block;
         padding: .5rem
     }
 }
 
-.entry-author---cr {
+.ntt--entry-author {
     @include if-y-center;
 }
 
-.entry-author-avatar {
+.ntt--entry-author-avatar {
     order: -1;
 }
 
-.entry-author {
+.ntt--entry-author {
     order: -1;
 }
 
-.entry-name {
+.ntt--entry-name {
     padding: 1rem;
     margin: 0;
     font-size: 1rem;
@@ -356,26 +361,26 @@
     padding: 1rem;
 }
 
-.entry-axns {
+.ntt--entry-axns {
     user-select: none;
 }
 
-.entry-axns---cr {
+.ntt--entry-axns {
     padding: .5rem;
 }
 
-.modify-entry-axn {
+.ntt--modify-entry-axn {
 
     a {
         display: inline-block;
     }
 
-    .txt {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
 
-.content-snippet {
+.ntt--content-snippet {
 
     p:empty {
         display: none;
@@ -397,11 +402,11 @@
 // Entry Tags
 //--------------------------------------------------------------
 
-.entry-tags---cr {
+.ntt--entry-tags {
     @include if-y-center;
 }
 
-.entry-tags {
+.ntt--entry-tags {
 
     ul {
         @include unlist
@@ -418,72 +423,72 @@
     }
 }
 
-.entry-tags-name {
+.ntt--entry-tags-name {
     @include ib-y-center;
     padding: .5rem;
     font-weight: bold;
 
-    .txt {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
 
-.entry-tag-group {
+.ntt--entry-tag-group {
     display: flex;
     display: contents;
 }
 
-.comments--populated {
+.ntt--comments---populated {
 
-    .entry-header---cr {
+    .ntt--entry-header {
         @include if-y-center;
     }
 
     .entry-heading,
     .entry-axns,
-    .entry-banner {
+    .ntt--entry-banner {
         flex: 1 100%;
     }
 }
 
 .entry-header {
 
-    .comments-actions-snippet---cr {
+    .ntt--comments-actions-snippet {
         @include if-y-center;
     }
 
-    .disabled-comments-note {
+    .ntt--disabled-comments-note {
         flex: 1 100%;
     }
 }
 
-.entries-page-indicator {
+.ntt--entries-page-indicator {
     display: inline-block;
     padding: .5rem;
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
 
 .entry-summary-content--1 {
 
-    .entry-full-content {
+    .ntt--entry-full-content {
         margin-top: 1em;
     }
 }
 
-.entry-datetime {
+.ntt--entry-datetime {
     flex: 1 100%;
 }
 
-.entry-datetime---cr {
+.ntt--entry-datetime {
     @include if-y-center;
 }
 
-.entry-published-date {
+.ntt--entry-published-date {
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
@@ -492,7 +497,7 @@
     flex: 1 100%;
 }
 
-.entry-heading---cr {
+.ntt--entry-heading---cr {
     @include if-y-center;
 
     .entry-name,
@@ -505,7 +510,7 @@
     @extend .entity-view-entry-count;
 }
 
-.show-more-axn {
+.ntt--show-more-axn {
     padding: .5rem;
     margin-bottom: 0;
 
@@ -518,10 +523,10 @@
     }
 }
 
-.entry-author-glabel {
+.ntt--entry-author-label {
     display: inline-block;
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
     }
 }

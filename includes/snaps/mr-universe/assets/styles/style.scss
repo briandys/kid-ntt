@@ -27,7 +27,7 @@ $font-size-l: 1.375em;
 //--------------------------------------------------------------
 
 html {
-    background-color: #CFCBC2;
+    background-color: #F1F3F6;
 }
 
 body {
@@ -45,12 +45,6 @@ hr {
 //--------------------------------------------------------------
 // Entity
 //--------------------------------------------------------------
-
-.ntt--entity {
-    max-width: 60rem;
-    @include x-margin(auto);
-    background-color: #EDEAE2;
-}
 
 .ntt--entity-name {
     color: white;
@@ -81,6 +75,11 @@ hr {
 .ntt--entity-secondary-info {
     margin-top: 4rem;
     text-align: center;
+}
+
+.ntt--entity-main {
+    max-width: 48rem;
+    @include x-margin(auto);
 }
 
 .ntt--entity-main-main {
@@ -151,6 +150,17 @@ hr {
     }
 }
 
+.ntt--entity-logo---1 {
+
+    .ntt--entity-name {
+        @extend %vh;
+    }
+
+    .ntt--entity-description {
+        display: none;
+    }
+}
+
 //--------------------------------------------------------------
 // Entry
 //--------------------------------------------------------------
@@ -161,9 +171,15 @@ hr {
     .ntt--txt {
         display: inline-block;
         @include y-margin();
-        color: #5c4f4a;
+        color: $voyager-purple;
         font-weight: bold;
         font-size: 3em;
+
+        @at-root .backgroundcliptext & {
+            @extend %voyager-gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 }
 
@@ -219,7 +235,8 @@ hr {
     }
 }
 
-.ntt--entry-breadcrumbs-nav {
+.entry-breadcrumbs-nav,
+.ntt--entry-categories {
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform: uppercase;
 }
@@ -244,11 +261,6 @@ hr {
 }
 
 .cm-author-avatar {
-
-    .img {
-        width: 2rem;
-        height: 2rem;
-    }
 
     img {
         border-radius: 50%;
@@ -306,28 +318,65 @@ hr {
 }
 
 //--------------------------------------------------------------
-// Entry DateTime
+// Entry Header
 //--------------------------------------------------------------
 
-.ntt--entry-published-datetime-label,
-.cm-time,
-.ntt--entry-modified-datetime {
-    display: none;
-}
+@supports (display: grid) {
 
-.entry--updated {
-
-    .ntt--entry-published-datetime {
-        display: none;
+    .ntt--entry-header {
+        display: grid;
+        grid-template:
+            'categories .'
+            'heading datetime'
+            'actions .'
+            'author .'
+            'comments .'
+            'banner .'
+            / 1fr auto;
     }
 
-    .ntt--entry-modified-datetime {
-        display: block;
+    .entry-primary-meta,
+    .ntt--entry-primary-meta {
+        display: contents;
     }
-}
 
-.ntt--entry-datetime {
-    flex: none;
+    .ntt--entry-categories {
+        grid-area: categories;
+        grid-column: categories / -1;
+    }
+
+    .entry-heading {
+        grid-area: heading;
+    }
+
+    .ntt--entry-datetime {
+        grid-area: datetime;
+        grid-row: datetime / -1;
+        align-self: flex-start;
+    }
+
+    .ntt--entry-axns {
+        grid-area: actions;
+        grid-column: actions / -1;
+    }
+
+    .ntt--entry-author {
+        grid-area: author;
+        grid-column: author / -1;
+    }
+
+    .entry-header {
+
+        .ntt--comments-actions-snippet {
+            grid-area: comments;
+            grid-column: comments / -1;
+        }
+    }
+
+    .ntt--entry-banner {
+        grid-area: banner;
+        grid-column: banner / -1;
+    }
 }
 
 //--------------------------------------------------------------
@@ -403,6 +452,10 @@ hr {
     }
 }
 
+.entry-subname {
+    font-size: $font-size-l;
+}
+
 //--------------------------------------------------------------
 // [Post Format] Status in Plural View
 //--------------------------------------------------------------
@@ -427,16 +480,16 @@ hr {
             }
     
             @at-root .cssgrid#{&} {
+        
+                .ntt--entry-header {
+                    display: initial;
+                }
     
-                &.ntt--entry {
+                .ntt--entry {
                     display: grid;
                     grid-template:
                         'main header'
                         / 1fr auto;
-                }
-        
-                .ntt--entry-header {
-                    display: initial;
                 }
     
                 .entry-header {
@@ -489,6 +542,105 @@ hr {
 }
 
 //--------------------------------------------------------------
+// [Snap Feature] Entry DateTime - Boxy
+//--------------------------------------------------------------
+
+.ntt--entry-datetime--boxy {
+
+    .ntt--entry-published-datetime-label,
+    .cm-time,
+    .ntt--entry-modified-datetime {
+        display: none;
+    }
+
+    .entry--updated {
+
+        .ntt--entry-published-datetime {
+            display: none;
+        }
+
+        .ntt--entry-modified-datetime {
+            display: block;
+        }
+    }
+
+    .ntt--entry-published-datetime {
+        padding: 0;
+    }
+
+    .ntt--entry-modified-datetime {
+        position: relative;
+        padding: 0;
+    }
+
+    .entry-modified-datetime-label {
+        @extend %ir;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-right: .25rem;
+        margin-top: .25rem;
+        width: .5rem;
+        height: .5rem;
+        background-color: white;
+        border-radius: 100rem;
+        mix-blend-mode: soft-light;
+
+        .l {
+            padding: .5em .5em;
+        }
+
+        .on---text {
+            display: none;
+        }
+    }
+
+    .cm-datetime {
+        padding: 1rem;
+    }
+
+    .cm-date {
+        font-size: .875rem;
+
+        .l {
+            padding: .75em;
+            background-color: $primary-color;
+            color: white;
+            border-radius: $corner-radius-s;
+
+            > * {
+                display: block;
+                text-align: center;
+                line-height: 1;
+            }
+        }
+
+        a {
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        .day-txt {
+            font-weight: bold;
+            font-size: 2em;
+        }
+
+        .month-txt {
+            text-transform: uppercase;
+            font-size: .875em;
+        }
+
+        .year-txt {
+            font-size: 1.375em;
+        }
+    }
+}
+
+
+
+//--------------------------------------------------------------
 // Current Index View
 //--------------------------------------------------------------
 
@@ -538,73 +690,73 @@ hr {
 }
 
 //--------------------------------------------------------------
-// Entity Main Main Aside
+// Temp - Newsletter
 //--------------------------------------------------------------
 
-.ntt--entity-main-main-aside {
+#custom_html-4 {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    background-color: white;
+    border-radius: .25rem;
+    box-shadow: 0 0 8px hsla(0, 0%, 0%, .05);
+    opacity: 0;
+    @include transition;
+    transition-delay: .3s;
 
-    .ntt--widget {
-        position: relative;
-        @include y-padding(1rem);
-        background-color: #F6F5F1;
-        border-bottom: 1px solid #DEDAD2;
-
-        ul {
-            list-style-type: none;
-	        counter-reset: li;
-        }
-
-        li {
-            position: relative;
-            @include y-padding(.25rem);
-            border-top: 1px solid #EDCBC5;
-
-            &:first-child {
-                border-top: 0;
-            }
-
-            &:nth-child(even) {
-                border-color: #C9E1E4;
-            }
-
-            &:before {
-                position: absolute;
-                right: 100%;
-                margin-right: .5rem;
-                content: counter(li, decimal)'.';
-                counter-increment: li;
-                color: #b0a8a4;
-            }
-
-            a {
-                color: #5c4f4a;
-            }
-        }
-
-        &:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 100%;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 0 1rem 1rem;
-            border-color: transparent transparent #DEDAD2 transparent;
-        }
-
-        &:after {
-            content: '';
-            position: absolute;
-            right: 0;
-            bottom: 100%;
-            width: calc(100% - 1rem);
-            height: 1rem;
-            background-color: #F6F5F1;
-        }
+    .dom--loaded & {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        padding: 1rem;
     }
 
-    .ntt--widget-name {
-        color: #5c4f4a;
+    .show-newsletter & {
+        right: 0 !important;
+        opacity: 1;
+    }
+
+    .dismiss-action {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: .25rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Temp - Scroll Progress
+//--------------------------------------------------------------
+
+html {
+    
+    &[data-scroll-y-percentage]:before {
+        content: '';
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: .25rem;
+        width: 0%;
+        background-color: transparent;
+        @include transition;
+        opacity: .5;
+        transform: translate3d(0px, 0px, 0px);
+    }
+
+    @for $i from 5 through 100 {
+
+        @if $i % 1 == 0 {
+            $width: percentage($i / 100);
+            $hue: $i;
+        
+            &[data-scroll-y-percentage~="#{$i}"]:before {
+                width: $width;
+                background-color: hsl($hue, 100%, 80%);
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ function ntt_kid_shortcodes_init() {
         'ntt_kid_menu_wp_shortcode'                     => 'ntt_menu',
         'get_search_form'                               => 'ntt_search_widget',
         'ntt_kid_random_number_wp_shortcode'            => 'ntt_rand',
+        'ntt_kid_hide_email_from_spambots_wp_shortcode' => 'ntt_email',
     );
     
     foreach ( $r_wp_shortcodes as $func => $wp_shortcode ) {
@@ -163,31 +164,23 @@ function ntt_kid_random_number_wp_shortcode( $atts ) {
 }
 
 /**
- * Entry Feature Return True
+ * Hide email from Spam Bots using a shortcode.
+ *
+ * @param array  $atts    Shortcode attributes. Not used.
+ * @param string $content The shortcode content. Should be an email address.
+ *
+ * @return string The obfuscated email address. 
  */
-function ntt_kid_cf_entry_feature() {
-    $post_meta = get_post_meta( get_the_ID(), 'ntt_cf_entry_feature', true );
-    $post_meta = trim( preg_replace( '/\s+/', '', $post_meta ) );
-    
-    return $post_meta;
+
+function ntt_kid_hide_email_from_spambots_wp_shortcode( $atts , $content = null ) {
+	if ( ! is_email( $content ) ) {
+		return;
+	}
+
+	$content = antispambot( $content );
+
+	$email_link = sprintf( 'mailto:%s', $content );
+
+	return sprintf( '<a href="%s">%s</a>', esc_url( $email_link, array( 'mailto' ) ), esc_html( $content ) );
 }
-
-/**
- * Entry Feature HTML CSS
- */
-function ntt_kid_cf_entry_feature_html_css( $classes ) {
-
-    if ( ntt_kid_cf_entry_feature() ) {
-        $classes[] = get_post_meta( get_the_ID(), 'ntt_cf_entry_feature', true );
-    }
-
-    return $classes;
-}
-add_filter( 'post_class', 'ntt_kid_cf_entry_feature_html_css' );
-
-/**
- * Entry CSS added to HTML
- */
-add_filter( 'ntt_html_css_wp_filter', function( $classes ) {
-    return ( is_singular() && ntt_kid_cf_entry_feature() ) ? ntt_kid_cf_entry_feature_html_css( $classes ) : $classes;
-} );
+add_shortcode( 'email', 'ntt_kid_hide_email_from_spambots_wp_shortcode' );

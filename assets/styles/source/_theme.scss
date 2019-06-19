@@ -19,7 +19,7 @@ input[type="submit"] {
 // Entry
 //--------------------------------------------------------------
 
-.entry-nav {
+.ntt--entry-nav {
 
     .value---line {
         color: $link-color;
@@ -30,11 +30,11 @@ input[type="submit"] {
 // Comments Actions Snippet
 //--------------------------------------------------------------
 
-.comments-actions-snippet {
+.ntt--comments-actions-snippet {
 
-    .comment-axn {
+    .ntt--comment-axn {
     
-        .comment---text {
+        .ntt--comment-text {
             color: $link-color;
         }
     }
@@ -44,9 +44,9 @@ input[type="submit"] {
 // Comment
 //--------------------------------------------------------------
 
-.comment-reply-axn {
+.ntt--comment-reply-axn {
 
-    .reply---text {
+    .ntt--reply-text {
         color: $link-color;
     }
 }

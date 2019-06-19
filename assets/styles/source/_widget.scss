@@ -1,5 +1,9 @@
-.widget {
-    @include y-padding(.5rem);
+.ntt--widget {
+    padding: .03125rem 1rem;
+    
+    > * {
+        @include y-margin(1em);
+    }
 
     ul,
     ol {
@@ -7,15 +11,7 @@
     }
 }
 
-.widget---cr {
-    padding: .03125rem 1rem;
-
-    > * {
-        @include y-margin(1em);
-    }
-}
-
-.widget-name {
+.ntt--widget-name {
     @include y-margin(1rem);
     font-weight: bold;
 }
@@ -33,9 +29,9 @@
     margin-top: 2rem;
 }
 
-.widget {
+.ntt--widget {
 
-    .search---cr {
+    .ntt--search {
         @include x-padding(0);
     }
 }
@@ -44,24 +40,24 @@
 // Search
 //--------------------------------------------------------------
 
-.search---cr {
+.ntt--search {
     padding: .5rem;
 }
 
-.search-field-label {
+.ntt--search-label {
     display: inline-block;
 
-    .txt {
+    .ntt--txt {
         display: block;
         padding: .5rem;
     }
 }
 
-.search-field-textbox {
+.ntt--search-textbox {
     padding: .5rem;
 }
 
-.submit-search-axn {
+.ntt--submit-search-axn {
     padding: .5rem;
 }
 
@@ -69,25 +65,25 @@
 // Search Widget
 //--------------------------------------------------------------
 
-.widget {
+.ntt--widget {
 
-    .search---cr {
+    .ntt--search {
         @include y-padding(0);
     }
 
-    .search-field-label {
+    .ntt--search-label {
     
-        .txt {
+        .ntt--txt {
             padding: 0;
             margin-bottom: .5rem;
         }
     }
 
-    .search-field-textbox {
+    .ntt--search-textbox {
         @include x-padding(0);
     }
 
-    .submit-search-axn {
+    .ntt--submit-search-axn {
         @include x-padding(0);
         padding-bottom: 0;
     }
@@ -99,10 +95,7 @@
 
 
 .widget_nav_menu {
-
-    .widget---cr {
-        @include x-padding();
-    }
+    @include x-padding();
 
     ul {
         @include unlist

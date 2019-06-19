@@ -54,18 +54,18 @@ $link-color: $accent-color;
 // Hide Stuff
 //--------------------------------------------------------------
 
-.entity-logo--1 {
+.ntt--entity-logo---1 {
 
-    .entity-primary-name {
+    .ntt--entity-name {
         @extend %vh;
     }
 }
 
 .entry-author-glabel,
-.entry-published-datetime-glabel,
+.ntt--entry-published-datetime-label,
 .cm-time,
 .entry-categories-name,
-.comment-published-datetime-glabel {
+.ntt--comment-published-datetime-label {
     display: none;
 }
 
@@ -86,7 +86,7 @@ body {
 // Entity Secondary Info
 //--------------------------------------------------------------
 
-.entity-secondary-info {
+.ntt--entity-secondary-info {
     color: $neutral-color;
     font-size: .875rem;
 
@@ -99,7 +99,7 @@ body {
 // Entity Primary Description
 //--------------------------------------------------------------
 
-.entity-primary-description {
+.ntt--entity-description {
     color: $neutral-color;
     font-size: .875rem;
     letter-spacing: .045em;
@@ -109,7 +109,7 @@ body {
 // Entity Primary Navigation
 //--------------------------------------------------------------
 
-.entity-primary-nav {
+.ntt--entity-primary-nav {
     font-size: 1.25rem;
     font-family: $secondary-font;
 
@@ -125,7 +125,7 @@ body {
     .current-menu-item,
     .current_page_item {
 
-        .txt {
+        .ntt--txt {
             position: relative;
             
             &:before {
@@ -142,11 +142,11 @@ body {
     }
 }
 
-.entity-primary-nav---cr {
+.ntt--ntt--entity-primary-nav {
     border-top: .125rem solid $faint-accent-color;
 }
 
-.entity-primary-nav-group---cr {
+.ntt--entity-primary-nav-group {
     justify-content: center;
 }
 
@@ -154,7 +154,7 @@ body {
 // Entity Header
 //--------------------------------------------------------------
 
-.entity-header---cr {
+.ntt--entity-header {
     display: flex;
     flex-wrap: wrap;
 
@@ -167,8 +167,13 @@ body {
 // Entity Header Aside
 //--------------------------------------------------------------
 
-.entity-header-aside {
+.ntt--entity-header-aside {
     order: -1;
+    @include y-padding();
+
+    > * {
+        @include y-margin();
+    }
 
     .widget_nav_menu {
 
@@ -177,16 +182,8 @@ body {
         }
     }
 
-    .widget {
+    .ntt--widget {
         @include y-padding();
-    }
-
-    .widget---cr {
-        @include y-padding();
-        
-        > * {
-            @include y-margin();
-        }
     }
 }
 
@@ -194,11 +191,11 @@ body {
 // Entity
 //--------------------------------------------------------------
 
-.entity-primary-name {
+.ntt--entity-name {
     font-size: 2.375rem;
 }
 
-.entity-primary-name {
+.ntt--entity-name {
     font-family: $secondary-font;
     font-weight: normal;
 
@@ -207,7 +204,7 @@ body {
     }
 }
 
-.entity-view-name {
+.ntt--entity-view-name {
     font-size: $large-font-size;
 
     a {
@@ -216,14 +213,14 @@ body {
 }
 
 .entity-view-heading,
-.entity-header,
-.entity-secondary-info {
+.ntt--entity-header,
+.ntt--entity-secondary-info {
     text-align: center;
 }
 
-.entity-header-aside {
+.ntt--entity-header-aside {
 
-    .search---cr {
+    .ntt--search {
         @include x-margin(auto);
         max-width: 25rem;
     }
@@ -233,11 +230,11 @@ body {
 // Entry
 //--------------------------------------------------------------
 
-.entry-header---cr {
+.ntt--entry-header {
     justify-content: space-between;
 }
 
-.entry-name {
+.ntt--entry-name {
     font-size: 2.375rem;
     font-family: $secondary-font;
 
@@ -259,7 +256,7 @@ body {
 // Entry DateTime
 //--------------------------------------------------------------
 
-.entry-datetime {
+.ntt--entry-datetime {
     flex: none;
 }
 
@@ -268,7 +265,7 @@ body {
 //--------------------------------------------------------------
 
 .entry-author,
-.comment-author {
+.ntt--comment-author {
     order: initial;
     
     a {
@@ -280,7 +277,7 @@ body {
 // Entry Content
 //--------------------------------------------------------------
 
-.entry-content {
+.ntt--entry-content {
     font-size: $entry-content-font-size;
     line-height: 1.8;
     
@@ -355,7 +352,7 @@ body {
         font-size: 1em;
     }
 
-    .show-more-axn {
+    .ntt--show-more-axn {
 
         a {
             background-image: none;
@@ -366,7 +363,7 @@ body {
         }
     }
 
-    .content-snippet {
+    .ntt--content-snippet {
         
         a {
             background-image: none;
@@ -413,13 +410,13 @@ body {
 // Comment
 //--------------------------------------------------------------
 
-.comment-published-datetime {
+.ntt--comment-published-datetime {
     flex: none;
 }
 
 .entry-header {
 
-    .comments-count {
+    .ntt--comments-count {
 
         a {
             color: inherit;
@@ -427,18 +424,18 @@ body {
     
             &:hover {
     
-                .glabel---txt {
+                .ntt--label-txt {
                     text-decoration: underline;
                 }
             }
         }
     
-        .l {
+        .ntt--txt {
             display: inline-flex;
             align-items: center;
         }
     
-        .count---txt {
+        .count-txt {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -466,7 +463,7 @@ body {
             }
         }
     
-        .glabel---txt {
+        .ntt--label-txt {
             margin-left: .5rem;
         }
     }
@@ -493,7 +490,7 @@ body {
 // Entry Tags
 //--------------------------------------------------------------
 
-.entry-tags {
+.ntt--entry-tags {
 
     a {
         color: $ink-color;
@@ -502,7 +499,7 @@ body {
     }
 }
 
-.entry-tags-name {
+.ntt--entry-tags-name {
     font-family: $secondary-font;
 }
 
@@ -510,10 +507,10 @@ body {
 // Index Views
 //--------------------------------------------------------------
 
-.current-index-view,
-.archive-index-view  {
+.ntt--current-index-view,
+.ntt--archive-index-view  {
     
-    .entity-view-heading {
+    .ntt--entity-view-heading {
         display: none;
     }
 }
@@ -522,9 +519,9 @@ body {
 // Singular View
 //--------------------------------------------------------------
 
-.singular-view {
+.ntt--singular-view {
 
-    .entry-banner-visuals {
+    .ntt--entry-banner-visuals {
 
         img {
             width: 100%;
@@ -542,13 +539,13 @@ body {
 
     .entry-nav,
     .entry-primary-meta,
-    .comment-md {
+    .ntt--comment-md {
         display: none;
     }
 
     .entry-header {
 
-        .comments-actions-snippet {
+        .ntt--comments-actions-snippet {
             display: none;
         }
     }
@@ -558,7 +555,7 @@ body {
 // Show More Action
 //--------------------------------------------------------------
 
-.show-more-axn {
+.ntt--show-more-axn {
     padding: 1rem;
 
     a {
@@ -574,15 +571,11 @@ body {
         }
     }
 
-    .l {
+    .txt {
         padding: .75rem 1rem;
         border: 2px solid $secondary-color;
         line-height: 1;
 
-    }
-
-    .show---text {
-        display: none;
     }
 }
 
@@ -592,33 +585,33 @@ body {
 
 .ntt--entry-datetime--boxy {
 
-    .entry-published-datetime-glabel,
+    .ntt--entry-published-datetime-label,
     .cm-time,
-    .entry-modified-datetime {
+    .ntt--entry-modified-datetime {
         display: none;
     }
 
     .entry--updated {
 
-        .entry-published-datetime {
+        .ntt--entry-published-datetime {
             display: none;
         }
 
-        .entry-modified-datetime {
+        .ntt--entry-modified-datetime {
             display: block;
         }
     }
 
-    .entry-published-datetime---cr {
+    .ntt--entry-published-datetime {
         padding: 0;
     }
 
-    .entry-modified-datetime---cr {
+    .ntt--entry-modified-datetime {
         position: relative;
         padding: 0;
     }
 
-    .entry-modified-datetime-glabel {
+    .entry-modified-datetime-label {
         @extend %ir;
         position: absolute;
         right: 0;
@@ -632,7 +625,7 @@ body {
         mix-blend-mode: hard-light;
         opacity: .5;
 
-        .l {
+        .ntt--txt {
             padding: .5em .5em;
         }
 
@@ -647,7 +640,7 @@ body {
 
     .cm-date {
 
-        .l {
+        .ntt--txt {
             padding: .5em .75em;
             background-color: $tertiary-color;
             color: $ink-color;
@@ -666,17 +659,17 @@ body {
             }
         }
 
-        .day---txt {
+        .day-txt {
             font-size: 1.5em;
         }
 
-        .month---txt {
+        .month-txt {
             text-transform: uppercase;
             font-weight: bold;
             font-size: .875em;
         }
 
-        .year---txt {
+        .year-txt {
             font-size: .875em;
         }
     }
@@ -692,7 +685,7 @@ body {
     // Entity Header Aside
     //--------------------------------------------------------------
 
-    .entity-header-aside {
+    .ntt--entity-header-aside {
 
         .widget_nav_menu {
 
@@ -706,15 +699,15 @@ body {
     // Entity Main
     //--------------------------------------------------------------
 
-    .entity-main {
+    .ntt--entity-main {
         @include x-margin(auto);
         max-width: 45em;
     }
 
-    .entity-main-main-aside--1,
+    .ntt--entity-main-main-aside---1,
     .entry-main-aside--1 {
         
-        .entity-main {
+        .ntt--entity-main {
             max-width: none;
         }
     }
@@ -723,7 +716,7 @@ body {
     // Entry
     //--------------------------------------------------------------
 
-    .content {
+    .ntt--content {
 
         blockquote {
             position: relative;
@@ -753,7 +746,7 @@ body {
     // Entity
     //--------------------------------------------------------------
 
-    .entity---cr {
+    .ntt--entity {
         @include x-margin(auto);
         max-width: $laptop-vp;
     }
@@ -790,7 +783,7 @@ body {
 .entry {
     @include y-margin(1rem);
 
-    .current-index-view & {
+    .ntt--current-index-view & {
         
         &:first-of-type {
             margin-top: 0;
@@ -800,24 +793,24 @@ body {
 
 .entry-header {
 
-    .comment-axn {
+    .ntt--comment-axn {
         display: none;
     }
 
-    .disabled-comments-note {
+    .ntt--disabled-comments-note {
         display: none;
     }
 }
 
-.entry-heading---cr {
+.ntt--entry-heading---cr {
 
     .entry-breadcrumbs-nav,
-    .entry-categories {
+    .ntt--entry-categories {
         flex: 1 100%;
     }
 }
 
-.entries-page-indicator {
+.ntt--entries-page-indicator {
     display: none;
 }
 
@@ -827,37 +820,37 @@ body {
 
 
 
-.entry-modified-datetime {
+.ntt--entry-modified-datetime {
     display: none;
 }
 
 .entry--updated {
 
-    .entry-modified-datetime {
+    .ntt--entry-modified-datetime {
         display: block;
     }
 
-    .entry-published-datetime {
+    .ntt--entry-published-datetime {
         display: none;
     }
 }
 
-.entry-modified-datetime-glabel {
+.entry-modified-datetime-label {
 
     .on---text {
         display: none;
     }
 }
 
-.entry-author-glabel {
+.ntt--entry-author-label {
     @extend %faint-label;
 }
 
-.entry-published-datetime-glabel {
+.entry-published-datetime-label {
     @extend %faint-label;
 }
 
-.entry-modified-datetime-glabel {
+.entry-modified-datetime-label {
     @extend %faint-label;
 }
 
@@ -873,21 +866,21 @@ body {
 // Entry Primary Meta
 //--------------------------------------------------------------
 
-.entry-primary-meta {
+.ntt--entry-primary-meta {
 
-    .entry-categories {
+    .ntt--entry-categories {
         display: none;
     }
 }
 
-.modify-entry-axn {
+.ntt--modify-entry-axn {
 
     a {
         padding: .5rem;
         color: white;
     }
 
-    .txt {
+    .ntt--txt {
         padding: .25em .75em;
         background-color: $accent-color;
         border-radius: .125em;
@@ -898,7 +891,7 @@ body {
 // Drop Cap, Initial Letter
 //--------------------------------------------------------------
 
-.entry-full-content {
+.ntt--entry-full-content {
 
     .initial-letter {
         margin-top: -.1em;
@@ -918,11 +911,11 @@ p.has-drop-cap:not(:focus) {
 // Entry Summary Content
 //--------------------------------------------------------------
 
-.current-index-view,
-.archive-index-view,
-.singular-view {
+.ntt--current-index-view,
+.ntt--archive-index-view,
+.ntt--singular-view {
 
-    .entry-summary-content {
+    .ntt--entry-summary-content {
         font-size: $large-font-size;
     }
 }
@@ -931,41 +924,41 @@ p.has-drop-cap:not(:focus) {
 // Comments
 //--------------------------------------------------------------
 
-.compose-comment-glabel {
+.ntt--comment-composition-name {
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-.comment-name {
+.ntt--comment-name {
     display: none;
     font-weight: bold;
     font-size: 1.5rem;
     line-height: 1;
 }
 
-.current-user--admin {
+.ntt--current-user--admin {
 
-    .comment-name {
+    .ntt--comment-name {
         display: block;
     }
 }
 
-.comment-author-glabel {
+.ntt--comment-author-label {
     display: none;
 }
 
-.modify-comment-axn {
-    @extend .modify-entry-axn;
+.ntt--modify-comment-axn {
+    @extend .ntt--modify-entry-axn;
 }
 
-.comments-name {
+.ntt--comments-name {
     font-size: $large-font-size;
     font-weight: bold;
 }
 
-.comments-header---cr {
+.ntt--comments-header {
 
-    .comments-count {
+    .ntt--comments-count {
         
         a {
             color: inherit;
@@ -973,30 +966,26 @@ p.has-drop-cap:not(:focus) {
     }
 }
 
-.comment-reply-axn {
+.ntt--comment-reply-axn {
         
-    .requires-log-in---text {
+    .ntt--requirement-txt {
         @extend %faint-label;
         @include ib-y-center;
     }
 }
 
-.comment-axn {
+.ntt--comment-axn {
         
-    .requires-log-in---text {
+    .ntt--requirement-txt {
         @extend %faint-label;
         @include ib-y-center;
     }
 }
 
-.comment-form {
+.ntt--comment-form {
 
     .field-label---txt {
         font-weight: bold;
-    }
-
-    .optional---text {
-        @extend %faint-label;
     }
 }
 
@@ -1004,29 +993,29 @@ p.has-drop-cap:not(:focus) {
     padding: .5rem 1rem;
 }
 
-.comment---cr {
+.ntt--comment---cr {
     @extend %border;
 }
 
-.comments-thread-limit--max {
+.ntt--comments-thread-limit---max {
 
-    .comment---cr {
+    .ntt--comment---cr {
         padding-bottom: 1rem;
     }
 }
 
-.cancel-reply-axn {
+.ntt--cancel-reply-axn {
 
     a {
         color: $faint-color;
     }
 
-    .reply---text {
+    .ntt--reply-text {
         display: none;
     }
 }
 
-.comment-published-datetime {
+.ntt--comment-published-datetime {
     flex-basis: auto;
 }
 
@@ -1035,26 +1024,26 @@ p.has-drop-cap:not(:focus) {
     @extend %border;
 }
 
-.log-out-admin-account-axn {
+.ntt--log-out-account-axn {
 
     a {
         color: $faint-color;
     }
 }
 
-.comment-published-datetime-glabel {
+.ntt--comment-published-datetime-label {
     @extend %faint-label;
 }
 
-.comments--empty {
+.ntt--comments---empty {
 
-    .comments-main {
+    .ntt--comments-main {
         display: none;
     }
 
     .entry-header {
 
-        .comments-actions-snippet {
+        .ntt--comments-actions-snippet {
             display: none;
         }
     }
@@ -1064,11 +1053,11 @@ p.has-drop-cap:not(:focus) {
 // Note
 //--------------------------------------------------------------
 
-.note {
+.ntt--note {
     padding: 1rem;
 }
 
-.note---cr {
+.ntt--note {
     padding: .03125rem;
     background-color: aliceblue;
 }
@@ -1078,14 +1067,11 @@ p.has-drop-cap:not(:focus) {
 //--------------------------------------------------------------
 
 .widget_blog_subscription {
+    padding: 1rem;
+    background-color: hsla(11, 100%, 93%, .25);
+    border-radius: .125rem;
 
-    .widget---cr {
-        padding: 1rem;
-        background-color: hsla(11, 100%, 93%, .25);
-        border-radius: .125rem;
-    }
-
-    .widget-name {
+    .ntt--widget-name {
         margin-bottom: 0;
     }
 
@@ -1171,39 +1157,39 @@ p.has-drop-cap:not(:focus) {
 
 @include mq(m-vp) {
 
-    .entity-primary-name {
+    .ntt--entity-name {
         font-size: 3rem;
     }
 
-    .entries---cr {
+    .ntt--entries {
         display: flex;
         flex-wrap: wrap;
     }
 
-    .entity-primary-nav---cr {
+    .ntt--ntt--entity-primary-nav {
         @include y-padding(.5rem);
     }
 
-    .entity-main-main-aside--1 {
+    .ntt--entity-main-main-aside---1 {
 
-        .entity---cr {
+        .ntt--entity {
             @include x-padding(1rem);
         }
     }
 
-    .plural-view {
+    .ntt--plural-view {
 
         .entry {
             flex: 1 100%;
         }
 
-        &.first-page-view {
+        &.ntt--first-page-view {
             
             .entry--sticky {
                 flex: 1 50%;
 
                 .entry-main,
-                .entry-footer {
+                .ntt--entry-footer {
                     display: none;
                 }
 
@@ -1213,7 +1199,7 @@ p.has-drop-cap:not(:focus) {
             }
 
             // Sticky Entry
-            &.cssgrid {
+            @supports (display: grid) {
                 $unsticky-banner-height: 30rem;
                 $sticky-banner-height: 50vh;
                 $sticky-banner-min-height: 20rem;
@@ -1222,7 +1208,7 @@ p.has-drop-cap:not(:focus) {
 
                     &.entry--unsticky {
 
-                        .entry---cr {
+                        .ntt--entry {
                             display: grid;
                             grid-template:
                                 'banner heading .'
@@ -1234,17 +1220,17 @@ p.has-drop-cap:not(:focus) {
                         }
             
                         .entry-header,
-                        .entry-header---cr {
+                        .ntt--entry-header {
                             display: contents;
                         }
             
-                        .entry-banner {
+                        .ntt--entry-banner {
                             grid-area: banner;
                             width: 100%;
                             height: $unsticky-banner-height;
                         }
 
-                        .entry-banner---cr {
+                        .ntt--entry-banner {
                             @include y-padding();
                         }
             
@@ -1255,33 +1241,33 @@ p.has-drop-cap:not(:focus) {
             
                         .entry-header {
             
-                            .entry-axns {
+                            .ntt--entry-axns {
                                 grid-area: actions;
                                 grid-column: actions / -1;
                                 align-self: center;
                             }
             
-                            .comments-actions-snippet {
+                            .ntt--comments-actions-snippet {
                                 grid-area: comments;
                                 align-self: center;
                             }
                         }
                         
-                        .entry-primary-meta {
+                        .ntt--entry-primary-meta {
                             grid-area: meta;
                         }
             
-                        .entry-main {
+                        .ntt--entry-main {
                             grid-area: main;
                             grid-column: main / -1;
                         }
             
-                        .entry-footer {
+                        .ntt--entry-footer {
                             grid-area: footer;
                             grid-column: footer / -1;
                         }
                     
-                        .entry-banner-visuals {
+                        .ntt--entry-banner-visuals {
                 
                             img {
                                 height: $unsticky-banner-height;
@@ -1294,11 +1280,11 @@ p.has-drop-cap:not(:focus) {
                 .entry--sticky {
 
                     .entry-main,
-                    .entry-footer {
+                    .ntt--entry-footer {
                         display: none;
                     }
 
-                    .entry-header---cr {
+                    .ntt--entry-header {
                         display: grid;
                         grid-template:
                             'heading .' 1fr
@@ -1316,23 +1302,23 @@ p.has-drop-cap:not(:focus) {
 
                     .entry-header {
             
-                        .entry-axns {
+                        .ntt--entry-axns {
                             grid-area: actions;
                             grid-column: actions / -1;
                             align-self: center;
                         }
         
-                        .comments-actions-snippet {
+                        .ntt--comments-actions-snippet {
                             grid-area: comments;
                             align-self: center;
                         }
                     }
                         
-                    .entry-primary-meta {
+                    .ntt--entry-primary-meta {
                         grid-area: meta;
                     }
 
-                    .entry-banner {
+                    .ntt--entry-banner {
                         grid-area: heading;
                         grid-row: heading / -1;
                         grid-column: heading / -1;
@@ -1342,7 +1328,7 @@ p.has-drop-cap:not(:focus) {
                         min-height: $sticky-banner-min-height;
                     }
 
-                    .entry-banner-visuals {
+                    .ntt--entry-banner-visuals {
                         @include x-padding();
                         margin-bottom: 0;
             
@@ -1353,20 +1339,20 @@ p.has-drop-cap:not(:focus) {
                         }
                     }
 
-                    .entry-name {
+                    .ntt--entry-name {
 
                         a {
 
                             &:hover {
                                 text-decoration: none;
 
-                                .txt {
+                                .ntt--txt {
                                     background-image: linear-gradient(0deg, hsl(10, 100%, 90%) 65%, transparent 0);
                                 }
                             }
                         }
 
-                        .txt {
+                        .ntt--txt {
                             background-image: linear-gradient(0deg, hsla(11, 100%, 93%, .9) 65%, transparent 0);
                         }
                     }
@@ -1374,11 +1360,11 @@ p.has-drop-cap:not(:focus) {
                     &:first-of-type {
                         $first-sticky-banner-height: 70vh;
         
-                        .entry-banner {
+                        .ntt--entry-banner {
                             height: $first-sticky-banner-height;
                         }
         
-                        .entry-banner-visuals {
+                        .ntt--entry-banner-visuals {
                 
                             img {
                                 height: $first-sticky-banner-height;
@@ -1391,7 +1377,7 @@ p.has-drop-cap:not(:focus) {
 
                     &.entry--sticky {
 
-                        .entry-header---cr {
+                        .ntt--entry-header {
                             height: $sticky-banner-height;
                             min-height: $sticky-banner-min-height;
                             background-color: hsla(11, 100%, 93%, .25);

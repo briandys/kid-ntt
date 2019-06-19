@@ -33,6 +33,7 @@ html {
 
 body {
     font-family: sans-serif;
+    overflow-anchor: auto;
 }
 
 a {
@@ -110,7 +111,7 @@ label {
 // Note
 //--------------------------------------------------------------
 
-.note---cr {
+.ntt--note {
     
     > * {
         @include x-padding(1rem);
@@ -133,7 +134,7 @@ label {
     &.prezo--active {
         background-color: hsla(0, 0%, 75%, .0625);
         
-        .entry-content {
+        .ntt--entry-content {
             font-size: 1.375rem;
         }
 
@@ -141,15 +142,15 @@ label {
             min-height: 100vh;
         }
     
-        .entity-header,
+        .ntt--entity-header,
         .entry-header,
         .comment-md,
         .entity-main-footer,
-        .entity-footer {
+        .ntt--entity-footer {
             display: none;
         }
     
-        .entry-full-content---cr {
+        .ntt--entry-full-content {
     
             .wp-block-gallery {
                 

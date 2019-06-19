@@ -37,3 +37,29 @@ function ntt_kid_custom_field_entry_subname() {
     echo $entry_subname_mu;
 }
 add_action( 'ntt_after_entry_name_wp_hook', 'ntt_kid_custom_field_entry_subname', 0 );
+
+/**
+ * Entry Feature Return True
+ */
+function ntt_kid_cf_entry_feature() {
+    $post_meta = get_post_meta( get_the_ID(), 'ntt_cf_entry_feature', true );
+    $post_meta = trim( preg_replace( '/\s+/', '', $post_meta ) );
+    
+    return $post_meta;
+}
+
+// Entry Feature HTML CSS
+function ntt_kid_cf_entry_feature_html_css( $classes ) {
+
+    if ( ntt_kid_cf_entry_feature() ) {
+        $classes[] = get_post_meta( get_the_ID(), 'ntt_cf_entry_feature', true );
+    }
+
+    return $classes;
+}
+add_filter( 'post_class', 'ntt_kid_cf_entry_feature_html_css' );
+
+// Entry CSS added to HTML
+add_filter( 'ntt_html_css_wp_filter', function( $classes ) {
+    return ( is_singular() && ntt_kid_cf_entry_feature() ) ? ntt_kid_cf_entry_feature_html_css( $classes ) : $classes;
+} );

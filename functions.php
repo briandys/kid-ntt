@@ -3,22 +3,20 @@
  * Child Theme Settings
  */
 
-$GLOBALS['ntt_kid_name'] = 'Kid NTT';
-$GLOBALS['ntt_kid_url'] = 'http://briandys.com/ntt/';
+$GLOBALS['ntt_child_theme_name'] = 'Kid NTT';
+$GLOBALS['ntt_child_theme_url'] = 'http://briandys.com/ntt/';
 
 /**
  * Functions
  */
 
 $r_funcs = array(
-    'custom-fields',
-    'functions-page',
     'entry-css',
     'html-css',
-    //'open-graph',
-    'prezo-mode',
+    'snaps',
     'widgets',
     'wp-customizer',
+    'wp-custom-fields',
     'wp-shortcodes',
 );
 
@@ -32,11 +30,9 @@ foreach ( $r_funcs as $func ) {
 
 function ntt_kid_styles_scripts() {
 
-    wp_enqueue_style( 'ntt-kid-style', get_stylesheet_directory_uri(). '/assets/styles/ntt-kid.min.css', array( 'ntt-style' ), wp_get_theme()->get( 'Version' ) );
-    
-    wp_enqueue_script( 'ntt-kid-modernizr', get_stylesheet_directory_uri(). '/assets/scripts/modernizr-custom.js', array(), null, false );
+    wp_enqueue_style( 'ntt-kid-style', get_stylesheet_directory_uri(). '/assets/styles/style.min.css', array( 'ntt-style' ), wp_get_theme()->get( 'Version' ) );
 
-    wp_enqueue_script( 'ntt-kid-script', get_stylesheet_directory_uri(). '/assets/scripts/ntt-kid.js', array( 'jquery', 'ntt-script', ), null, true );
+    wp_enqueue_script( 'ntt-kid-script', get_stylesheet_directory_uri(). '/assets/scripts/main.js', array( 'jquery', 'ntt-script', ), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'ntt_kid_styles_scripts', 10 );
 
@@ -45,7 +41,7 @@ add_action( 'wp_enqueue_scripts', 'ntt_kid_styles_scripts', 10 );
  */
 
 function ntt_kid_entity_maker_tag_theme_name() {
-    return $GLOBALS['ntt_kid_name'];
+    return $GLOBALS['ntt_child_theme_name'];
 }
 add_filter( 'ntt_entity_maker_tag_theme_name_wp_filter', 'ntt_kid_entity_maker_tag_theme_name' );
 
@@ -54,25 +50,9 @@ add_filter( 'ntt_entity_maker_tag_theme_name_wp_filter', 'ntt_kid_entity_maker_t
  */
 
 function ntt_kid_entity_maker_tag_theme_url() {
-    return $GLOBALS['ntt_kid_url'];
+    return $GLOBALS['ntt_child_theme_url'];
 }
 add_filter( 'ntt_entity_maker_tag_theme_url_wp_filter', 'ntt_kid_entity_maker_tag_theme_url' );
-
-/**
- * Remove Password-Protected Posts Filter
- * 
- * https://aspengrovestudios.com/how-to-customize-password-protected-pages/
- */
-
-function ntt_kid_remove_password_protected_posts_filter( $where = '' ) {
-
-    if ( ! is_single() && ! current_user_can( 'edit_private_posts' ) && ! is_admin() ) {
-        $where .= " AND post_password = ''";
-    }
- 
-    return $where;
-}
-add_filter( 'posts_where', 'ntt_kid_remove_password_protected_posts_filter' );
 
 /**
  * Get Snaps

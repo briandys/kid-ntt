@@ -1,37 +1,32 @@
-:root {
-  --customizer-hue: var(--wp-customizer-custom-color-scheme--hue);
-  --customizer-sat: var(--wp-customizer-custom-color-scheme--saturation);
-}
-
-.entity-primary-name .txt {
+.ntt--entity-name .ntt--txt {
   background-color: transparent;
   border: 0;
   overflow: hidden;
 }
 
-.entity-primary-name .txt:before {
+.ntt--entity-name .ntt--txt:before {
   content: '';
   display: block;
   width: 0;
   height: 150%;
 }
 
-.entry---cr {
+.ntt--entry {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: .125rem;
 }
 
 .page-view .entry-nav,
 .page-view .entry-primary-meta,
-.page-view .comment-md {
+.page-view .ntt--comment-md {
   display: none;
 }
 
-.page-view .entry-header .comments-actions-snippet {
+.page-view .entry-header .ntt--comments-actions-snippet {
   display: none;
 }
 
-.entity-main {
+.ntt--entity-main {
   background-color: rgba(128, 128, 128, 0.0625);
 }
 
@@ -45,31 +40,30 @@
   display: none;
 }
 
-.cssgrid .entity-header---cr {
-  display: -ms-grid;
-  display: grid;
-  grid-template: 'heading nav axns' / auto 1fr auto;
-}
-
-.cssgrid .primary-actions-aside {
-  grid-area: axns;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.cssgrid .entity-primary-heading {
-  grid-area: heading;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.cssgrid .entity-primary-nav {
-  grid-area: nav;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+@supports (display: grid) {
+  .ntt--entity-header {
+    display: -ms-grid;
+    display: grid;
+    grid-template: 'heading nav axns' / auto 1fr auto;
+  }
+  .primary-actions-aside {
+    grid-area: axns;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .ntt--entity-primary-heading {
+    grid-area: heading;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .ntt--entity-primary-nav {
+    grid-area: nav;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 
 .primary-actions-aside---cr {
@@ -81,110 +75,109 @@
           align-items: center;
 }
 
-.primary-actions-aside---cr .widget {
+.primary-actions-aside---cr .ntt--widget {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.entry---cr {
+.ntt--entry {
   margin-left: 1rem;
   margin-right: 1rem;
   background-color: white;
   border-radius: .25rem;
 }
 
-.wp-customizer-color-scheme--custom .entity-primary-name a,
-.wp-customizer-color-scheme--custom .entity-primary-description {
+.ntt--wp-customizer-color-scheme---custom .ntt--entity-name a,
+.ntt--wp-customizer-color-scheme---custom .ntt--entity-description {
   color: white;
 }
 
-.entity-logo--1 .entity-primary-logo img {
+.ntt--entity-logo---1 .ntt--entity-logo img {
   max-height: 3rem;
 }
 
-.entity-logo--1 .entity-primary-name .txt,
-.entity-logo--1 .entity-primary-description .txt {
+.ntt--entity-logo---1 .ntt--entity-name .ntt--txt,
+.ntt--entity-logo---1 .ntt--entity-description .ntt--txt {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--1.entity-primary-description--1.cssgrid .entity-primary-heading---cr {
-  display: -ms-grid;
-  display: grid;
-  grid-template: 'logo name' '. description' / auto 1fr;
+@supports (display: grid) {
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---1 .ntt--entity-primary-heading {
+    display: -ms-grid;
+    display: grid;
+    grid-template: 'logo name' '. description' / auto 1fr;
+  }
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---1 .ntt--entity-logo {
+    grid-area: logo;
+    grid-row: logo / -1;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---1 .ntt--entity-name {
+    grid-area: name;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---1 .ntt--entity-description {
+    grid-area: description;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
 }
 
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--1.entity-primary-description--1.cssgrid .entity-primary-logo {
-  grid-area: logo;
-  grid-row: logo / -1;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+@supports (display: grid) {
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---0 .ntt--entity-primary-heading {
+    display: -ms-grid;
+    display: grid;
+    grid-template: 'logo name' / auto 1fr;
+  }
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---0 .ntt--entity-logo {
+    grid-area: logo;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---0 .ntt--entity-name {
+    grid-area: name;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--1.entity-primary-description--1.cssgrid .entity-primary-name {
-  grid-area: name;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+@supports (display: grid) {
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---0.ntt--entity-description---1 .ntt--entity-primary-heading {
+    display: -ms-grid;
+    display: grid;
+    grid-template: 'logo description' / auto 1fr;
+  }
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---0.ntt--entity-description---1 .ntt--entity-logo {
+    grid-area: logo;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---0.ntt--entity-description---1 .ntt--entity-description {
+    grid-area: description;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--1.entity-primary-description--1.cssgrid .entity-primary-description {
-  grid-area: description;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-}
-
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--1.entity-primary-description--0.cssgrid .entity-primary-heading---cr {
-  display: -ms-grid;
-  display: grid;
-  grid-template: 'logo name' / auto 1fr;
-}
-
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--1.entity-primary-description--0.cssgrid .entity-primary-logo {
-  grid-area: logo;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--1.entity-primary-description--0.cssgrid .entity-primary-name {
-  grid-area: name;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--0.entity-primary-description--1.cssgrid .entity-primary-heading---cr {
-  display: -ms-grid;
-  display: grid;
-  grid-template: 'logo description' / auto 1fr;
-}
-
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--0.entity-primary-description--1.cssgrid .entity-primary-logo {
-  grid-area: logo;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.entity-logo--1.entity-primary-name-description--1.entity-primary-name--0.entity-primary-description--1.cssgrid .entity-primary-description {
-  grid-area: description;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.entity-primary-name-description--0.entity-logo--0 .entity-primary-heading---cr {
+.ntt--entity-logo---0.ntt--entity-name-description---0 .ntt--entity-primary-heading {
   padding: 0;
 }
 
 @media only screen and (min-width: 48em) {
-  .entity-main-main-aside--1 .entry-md {
+  .ntt--entity-main-main-aside---1 .entry-md {
     -webkit-box-flex: 0;
         -ms-flex: 0 60%;
             flex: 0 60%;
   }
-  .entity-main-main-aside--1 .entity-main-main-aside {
+  .ntt--entity-main-main-aside---1 .ntt--entity-main-main-aside {
     -webkit-box-flex: 0;
         -ms-flex: 0 20%;
             flex: 0 20%;
@@ -194,11 +187,11 @@
   }
 }
 
-.entity-primary-name a {
+.ntt--entity-name a {
   display: block;
 }
 
-.entity-primary-name .txt {
+.ntt--entity-name .ntt--txt {
   padding: 0;
   width: 80px;
   height: 22px;

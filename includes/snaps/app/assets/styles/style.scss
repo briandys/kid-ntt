@@ -8,13 +8,13 @@
 
     .entry-nav,
     .entry-primary-meta,
-    .comment-md {
+    .ntt--comment-md {
         display: none;
     }
 
     .entry-header {
 
-        .comments-actions-snippet {
+        .ntt--comments-actions-snippet {
             display: none;
         }
     }
@@ -24,7 +24,7 @@
 // Entity
 //--------------------------------------------------------------
 
-.entity-main {
+.ntt--entity-main {
     background-color: hsla(0, 0%, 50%, .0625);
 }
 
@@ -46,9 +46,9 @@
 // Entity Header
 //--------------------------------------------------------------
 
-.cssgrid {
+@supports (display: grid) {
 
-    .entity-header---cr {
+    .ntt--entity-header {
         display: grid;
         grid-template:
             'heading nav axns'
@@ -60,12 +60,12 @@
         align-self: center;
     }
 
-    .entity-primary-heading {
+    .ntt--entity-primary-heading {
         grid-area: heading;
         align-self: center;
     }
 
-    .entity-primary-nav {
+    .ntt--entity-primary-nav {
         grid-area: nav;
         align-self: center;
     }
@@ -75,52 +75,56 @@
     display: inline-flex;
     align-items: center;
 
-    .widget {
+    .ntt--widget {
         @include y-margin();
     }
 }
 
-.entry---cr {
+.ntt--entry {
     @extend %border;
     @include x-margin(1rem);
     background-color: white;
     border-radius: .25rem;
 }
 
-.wp-customizer-color-scheme--custom {
+.ntt--wp-customizer-color-scheme---custom {
 
-    .entity-primary-name a,
-    .entity-primary-description {
+    .ntt--entity-name a,
+    .ntt--entity-description {
         color: white;
     }
 }
 
-.entity-logo--1 {
+.ntt--entity-logo---1 {
 
-    .entity-primary-logo {
+    .ntt--entity-logo {
 
         img {
             max-height: 3rem;
         }
     }
 
-    .entity-primary-name,
-    .entity-primary-description {
+    .ntt--entity-name,
+    .ntt--entity-description {
         
-        .txt {
+        .ntt--txt {
             @include y-padding();
         }
     }
 
-    &.entity-primary-name-description--1 {
+    @supports (display: grid) {
 
-        &.entity-primary-name--1 {
+    }
 
-            &.entity-primary-description--1 {
+    &.ntt--entity-name-description---1 {
 
-                &.cssgrid {
+        &.ntt--entity-name---1 {
 
-                    .entity-primary-heading---cr {
+            &.ntt--entity-description---1 {
+
+                @supports (display: grid) {
+
+                    .ntt--entity-primary-heading {
                         display: grid;
                         grid-template:
                             'logo name'
@@ -128,41 +132,41 @@
                             / auto 1fr
                     }
             
-                    .entity-primary-logo {
+                    .ntt--entity-logo {
                         grid-area: logo;
                         grid-row: logo / -1;
                         align-self: center;
                     }
             
-                    .entity-primary-name {
+                    .ntt--entity-name {
                         grid-area: name;
                         align-self: flex-end;
                     }
             
-                    .entity-primary-description {
+                    .ntt--entity-description {
                         grid-area: description;
                         align-self: flex-start;
                     }
                 }
             }
 
-            &.entity-primary-description--0 {
+            &.ntt--entity-description---0 {
 
-                &.cssgrid {
+                @supports (display: grid) {
 
-                    .entity-primary-heading---cr {
+                    .ntt--entity-primary-heading {
                         display: grid;
                         grid-template:
                             'logo name'
                             / auto 1fr
                     }
             
-                    .entity-primary-logo {
+                    .ntt--entity-logo {
                         grid-area: logo;
                         align-self: center;
                     }
             
-                    .entity-primary-name {
+                    .ntt--entity-name {
                         grid-area: name;
                         align-self: center;
                     }
@@ -170,25 +174,25 @@
             }
         }
 
-        &.entity-primary-name--0 {
+        &.ntt--entity-name---0 {
 
-            &.entity-primary-description--1 {
+            &.ntt--entity-description---1 {
 
-                &.cssgrid {
+                @supports (display: grid) {
 
-                    .entity-primary-heading---cr {
+                    .ntt--entity-primary-heading {
                         display: grid;
                         grid-template:
                             'logo description'
                             / auto 1fr
                     }
             
-                    .entity-primary-logo {
+                    .ntt--entity-logo {
                         grid-area: logo;
                         align-self: center;
                     }
             
-                    .entity-primary-description {
+                    .ntt--entity-description {
                         grid-area: description;
                         align-self: center;
                     }
@@ -198,10 +202,13 @@
     }
 }
 
-.entity-primary-heading---cr {
+.ntt--entity-logo---0 {
 
-    .entity-primary-name-description--0.entity-logo--0 &, {
-        padding: 0;
+    &.ntt--entity-name-description---0 {
+
+        .ntt--entity-primary-heading {
+            padding: 0;
+        }
     }
 }
 
@@ -211,25 +218,25 @@
 
 @include mq(m-vp) {
 
-    .entity-main-main-aside--1 {
+    .ntt--entity-main-main-aside---1 {
 
         .entry-md {
             flex: 0 60%;
         }
-        .entity-main-main-aside {
+        .ntt--entity-main-main-aside {
             flex: 0 20%;
             order: -1;
         }
     }
 }
 
-.entity-primary-name {
+.ntt--entity-name {
 
     a {
         display: block;
     }
 
-    .txt {
+    .ntt--txt {
         @extend %ir;
         padding: 0;
         width: 80px;

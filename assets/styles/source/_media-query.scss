@@ -2,7 +2,7 @@
 @include mq(m-vp) {
 
     /*
-    .entity---cr {
+    .ntt--entity {
         @include x-margin(auto);
         max-width: $m-vp;
     }
@@ -25,15 +25,15 @@
         }
     }
 
-    .entity-main-main-aside--1 {
+    .ntt--entity-main-main-aside---1 {
         
         /*
-        .entity---cr {
+        .ntt--entity {
             max-width: none;
         }
         */
 
-        .entity-main-main---cr {
+        .ntt--entity-main-main {
             display: flex;
         }
     
@@ -41,7 +41,7 @@
             flex: 1 70%;
         }
     
-        .entity-main-main-aside {
+        .ntt--entity-main-main-aside {
             flex: 1 30%;
         }
     }
@@ -49,16 +49,16 @@
     .entry-main-aside--1 {
         
         /*
-        .entity---cr {
+        .ntt--entity {
             max-width: none;
         }
         */
 
-        .entry-main---cr {
+        .ntt--entry-main {
             display: flex;
         }
     
-        .entry-content {
+        .ntt--entry-content {
             flex: 1 70%;
         }
     
@@ -66,16 +66,16 @@
             flex: 1 30%;
         }
 
-        &.entity-main-main-aside--0 {
+        &.ntt--entity-main-main-aside---0 {
 
             .entry-main-aside---cr {
                 margin-top: 0;
             }
         }
 
-        &.entity-main-main-aside--1 {
+        &.ntt--entity-main-main-aside---1 {
 
-            .entry-main---cr {
+            .ntt--entry-main {
                 display: block;
             }
         }
@@ -87,7 +87,7 @@
         justify-content: space-between;
     }
 
-    .next-entry-navi {
+    .ntt--next-entry-navi {
         order: 1;
         display: flex;
         justify-content: flex-end;
@@ -102,7 +102,7 @@
     }
 
     .previous-entry-navi,
-    .next-entry-navi {
+    .ntt--next-entry-navi {
         flex-basis: 50%;
     }
 }
@@ -119,9 +119,9 @@
 
     .entry-main-aside--1 {
 
-        &.entity-main-main-aside--1 {
+        &.ntt--entity-main-main-aside---1 {
 
-            .entry-main---cr {
+            .ntt--entry-main {
                 display: flex;
             }
         }
@@ -132,7 +132,7 @@
 @include mq(xl-vp) {
 
     /*
-    .entity---cr {
+    .ntt--entity {
         max-width: $xl-vp;
     }
     */

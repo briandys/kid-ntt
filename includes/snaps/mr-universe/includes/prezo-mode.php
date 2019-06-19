@@ -36,9 +36,9 @@ function ntt_kid_prezo_mode_styles_scripts() {
 
     if ( ntt_kid_prezo_mode() ) {
 
-        wp_enqueue_script( 'ntt-kid-html2canvas-script', get_stylesheet_directory_uri(). '/assets/scripts/html2canvas.min.js', array( 'ntt-kid-script', ), null, true );
+        wp_enqueue_script( 'ntt-kid-html2canvas-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/scripts/html2canvas.min.js', array( 'ntt-kid-script', ), null, true );
         
-        wp_enqueue_script( 'ntt-kid-prezo-mode-script', get_stylesheet_directory_uri(). '/assets/scripts/prezo-mode.js', array( 'ntt-kid-html2canvas-script', ), null, true );
+        wp_enqueue_script( 'ntt-kid-prezo-mode-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/scripts/prezo-mode.js', array( 'ntt-kid-html2canvas-script', ), null, true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt_kid_prezo_mode_styles_scripts', 0 );

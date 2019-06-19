@@ -1,4 +1,4 @@
-.nav-name {
+.ntt--nav-name {
     display: none;
 }
 
@@ -26,15 +26,15 @@
 // Entry Breadcrumbs Navigation
 //--------------------------------------------------------------
 
-.entry-breadcrumbs-nav---cr {
+.ntt--entry-breadcrumbs-nav {
     padding: .5rem;
 }
 
-.entry-breadcrumbs-nav-group---cr {
+.ntt--entry-breadcrumbs-nav-group {
     @include if-y-center;
 }
 
-.entry-breadcrumbs-nav-ancestors-group {
+.ntt--entry-breadcrumbs-nav-ancestors-group {
     display: flex;
     display: contents;
 
@@ -42,7 +42,7 @@
         margin-right: 1rem;
     }
 
-    .txt {
+    .ntt--txt {
         position: relative;
 
         &:after {
@@ -63,25 +63,25 @@
     }
 }
 
-.entry-breadcrumbs-navi {
+.ntt--entry-breadcrumbs-navi {
 
     a {
         display: inline-block;
     }
 
-    .txt {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
 
-.entry-breadcrumbs-nav-ancestors-group---cr {
+.ntt--ntt--entry-breadcrumbs-nav-ancestors-group {
     @include unlist
     display: flex;
     display: contents;
 }
 
 .entries-nav,
-.entry-sub-content-nav {
+.ntt--entry-subcontent-nav {
 
     a {
         display: inline-block;
@@ -111,7 +111,7 @@
     }
 }
 
-.entity-primary-nav {
+.ntt--entity-primary-nav {
 
     ul {
         @include unlist
@@ -128,7 +128,7 @@
         display: inline-block;
     }
 
-    .txt {
+    .ntt--txt {
         @extend %block-pad;
     }
 
@@ -138,7 +138,7 @@
     }
 }
 
-.entity-primary-nav-group---cr {
+.ntt--entity-primary-nav-group {
     @include if-y-center;
 
     & > li {
@@ -150,7 +150,7 @@
 // Entry Navigation
 //--------------------------------------------------------------
 
-.entry-nav {
+.ntt--entry-nav {
 
     a {
         display: inline-block;
@@ -185,7 +185,7 @@
 }
 
 // Entry Content Navigation
-.entry-content-nav {
+.ntt--entry-content-nav {
 
     a {
         display: inline-block;
@@ -211,6 +211,6 @@
     }
 }
 
-.entry-content-navi--current {
+.ntt--entry-content-navi--current {
     font-weight: bold;
 }

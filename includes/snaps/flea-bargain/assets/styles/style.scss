@@ -46,7 +46,7 @@ hr {
 // Entity
 //--------------------------------------------------------------
 
-.entity-primary-name {
+.ntt--entity-name {
     color: white;
     font-size: 1.5rem;
 
@@ -54,7 +54,7 @@ hr {
         color: inherit;
     }
 
-    .txt {
+    .ntt--txt {
         @include x-padding(1rem);
         background-color: $voyager-purple;
         border-radius: $corner-radius-s;
@@ -63,7 +63,7 @@ hr {
     }
 }
 
-.entity-primary-nav {
+.ntt--entity-primary-nav {
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform: uppercase;
 
@@ -72,21 +72,21 @@ hr {
     }
 }
 
-.entity-secondary-info---cr {
+.ntt--entity-secondary-info {
     margin-top: 4rem;
     text-align: center;
 }
 
-.entity-main---cr {
+.ntt--entity-main {
     max-width: 48rem;
     @include x-margin(auto);
 }
 
-.entity-main-main---cr {
+.ntt--entity-main-main {
     @include y-margin(2rem);
 }
 
-.entity-view-name {
+.ntt--entity-view-name {
 
     a {
         color: inherit;
@@ -97,14 +97,14 @@ hr {
 // Entity Header
 //--------------------------------------------------------------
 
-.entity-header---cr {
+.ntt--entity-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.entity-primary-heading---cr {
+.ntt--entity-primary-heading {
     padding: 1rem;
 }
 
@@ -113,13 +113,13 @@ hr {
     display: none;
 }
 
-.entity-primary-nav {
+.ntt--entity-primary-nav {
     flex-grow: 1;
 }
 
-.entity-header-aside {
+.ntt--entity-header-aside {
 
-    .widget {
+    .ntt--widget {
         @include y-padding();
     }
 }
@@ -128,11 +128,11 @@ hr {
 // Entity View
 //--------------------------------------------------------------
 
-.entity-view-heading {
+.ntt--entity-view-heading {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-.entity-view-name {
+.ntt--entity-view-name {
     font-size: 1.375rem;
 
     .value---line {
@@ -150,13 +150,13 @@ hr {
     }
 }
 
-.entity-logo--1 {
+.ntt--entity-logo---1 {
 
-    .entity-primary-name {
+    .ntt--entity-name {
         @extend %vh;
     }
 
-    .entity-primary-description {
+    .ntt--entity-description {
         display: none;
     }
 }
@@ -165,10 +165,10 @@ hr {
 // Entry
 //--------------------------------------------------------------
 
-.entry-name {
+.ntt--entry-name {
     font-family: 'Open Sans Condensed', sans-serif;
     
-    .txt {
+    .ntt--txt {
         display: inline-block;
         @include y-margin();
         color: $voyager-purple;
@@ -183,7 +183,7 @@ hr {
     }
 }
 
-.entries-nav {
+.ntt--entries-nav {
 
     li,
     .page---text {
@@ -200,7 +200,7 @@ hr {
     }
 }
 
-.entries-nav---cr {
+.ntt--entries-nav {
     @include if-y-center;
 
     .navigation,
@@ -236,12 +236,12 @@ hr {
 }
 
 .entry-breadcrumbs-nav,
-.entry-categories {
+.ntt--entry-categories {
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform: uppercase;
 }
 
-.entry-breadcrumbs-navi--current {
+.ntt--ntt--entry-breadcrumbs-navi---current {
     color: $faint-color--hi;
 }
 
@@ -251,12 +251,12 @@ hr {
 
 .entry-header {
 
-    .comments-actions-snippet {
+    .ntt--comments-actions-snippet {
         display: none;
     }
 }
 
-.entry-author-glabel {
+.ntt--entry-author-label {
     display: none;
 }
 
@@ -275,28 +275,28 @@ hr {
     }
 }
 
-.entry-categories {
+.ntt--entry-categories {
 
     a {
         color: $primary-color;
     }
 }
 
-.entry-axns---cr {
+.ntt--entry-axns {
     padding: 1rem;
 }
 
-.entry-categories-name {
+.ntt--entry-categories-name {
     display: none;
 }
 
-.entry-name {
+.ntt--entry-name {
     @include y-padding();
 }
 
-.modify-entry-axn {
+.ntt--modify-entry-axn {
 
-    .txt {
+    .ntt--txt {
         @include if-y-center;
         padding: .5rem 1rem;
         min-height: 2.25rem;
@@ -311,7 +311,7 @@ hr {
 
 .ntt--shocking-entry {
 
-    .entry-full-content---cr {
+    .ntt--entry-full-content {
         background-color: #FF0090;
         color: #01E1FF;
     }
@@ -321,9 +321,9 @@ hr {
 // Entry Header
 //--------------------------------------------------------------
 
-.cssgrid {
+@supports (display: grid) {
 
-    .entry-header---cr {
+    .ntt--entry-header {
         display: grid;
         grid-template:
             'categories .'
@@ -336,11 +336,11 @@ hr {
     }
 
     .entry-primary-meta,
-    .entry-primary-meta---cr {
+    .ntt--entry-primary-meta {
         display: contents;
     }
 
-    .entry-categories {
+    .ntt--entry-categories {
         grid-area: categories;
         grid-column: categories / -1;
     }
@@ -349,31 +349,31 @@ hr {
         grid-area: heading;
     }
 
-    .entry-datetime {
+    .ntt--entry-datetime {
         grid-area: datetime;
         grid-row: datetime / -1;
         align-self: flex-start;
     }
 
-    .entry-axns {
+    .ntt--entry-axns {
         grid-area: actions;
         grid-column: actions / -1;
     }
 
-    .entry-author {
+    .ntt--entry-author {
         grid-area: author;
         grid-column: author / -1;
     }
 
     .entry-header {
 
-        .comments-actions-snippet {
+        .ntt--comments-actions-snippet {
             grid-area: comments;
             grid-column: comments / -1;
         }
     }
 
-    .entry-banner {
+    .ntt--entry-banner {
         grid-area: banner;
         grid-column: banner / -1;
     }
@@ -383,7 +383,7 @@ hr {
 // Content
 //--------------------------------------------------------------
 
-.content {
+.ntt--content {
     font-size: $font-size-l;
     line-height: 1.8;
 
@@ -410,7 +410,7 @@ hr {
     }
 }
 
-.entry-full-content {
+.ntt--entry-full-content {
 
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Open Sans Condensed', sans-serif;
@@ -434,26 +434,21 @@ hr {
     }
 }
 
-.content-snippet {
+.ntt--content-snippet {
 
     a {
         color: inherit;
     }
 }
 
-.show-more-axn {
+.ntt--show-more-axn {
     padding: 1rem;
 
-    .l {
+    .txt {
         padding: .75rem 1rem;
         border: 2px solid $primary-color;
         line-height: 1;
         border-radius: $corner-radius-s;
-
-    }
-
-    .show---text {
-        display: none;
     }
 }
 
@@ -465,11 +460,11 @@ hr {
 // [Post Format] Status in Plural View
 //--------------------------------------------------------------
 
-.plural-view {
+.ntt--plural-view {
 
     .format-quote {
 
-        .entry-full-content---cr {
+        .ntt--entry-full-content {
     
             > blockquote {
                 @include x-margin();
@@ -480,17 +475,17 @@ hr {
             
             .entry-heading,
             .entry-author,
-            .entry-categories {
+            .ntt--entry-categories {
                 display: none;
             }
     
             @at-root .cssgrid#{&} {
         
-                .entry-header---cr {
+                .ntt--entry-header {
                     display: initial;
                 }
     
-                .entry---cr {
+                .ntt--entry {
                     display: grid;
                     grid-template:
                         'main header'
@@ -501,7 +496,7 @@ hr {
                     order: 1;
                 }
     
-                .entry-full-content---cr {
+                .ntt--entry-full-content {
     
                     > blockquote {
                         @include y-margin(1rem);
@@ -516,7 +511,7 @@ hr {
 // Comment
 //--------------------------------------------------------------
 
-.comment-md {
+.ntt--comment-md {
     display: none;
 }
 
@@ -526,7 +521,7 @@ hr {
 
 .ntt--search--compact {
 
-    .search---cr {
+    .ntt--search {
 
         .text-input {
             padding-left: 1rem;
@@ -552,33 +547,33 @@ hr {
 
 .ntt--entry-datetime--boxy {
 
-    .entry-published-datetime-glabel,
+    .ntt--entry-published-datetime-label,
     .cm-time,
-    .entry-modified-datetime {
+    .ntt--entry-modified-datetime {
         display: none;
     }
 
     .entry--updated {
 
-        .entry-published-datetime {
+        .ntt--entry-published-datetime {
             display: none;
         }
 
-        .entry-modified-datetime {
+        .ntt--entry-modified-datetime {
             display: block;
         }
     }
 
-    .entry-published-datetime---cr {
+    .ntt--entry-published-datetime {
         padding: 0;
     }
 
-    .entry-modified-datetime---cr {
+    .ntt--entry-modified-datetime {
         position: relative;
         padding: 0;
     }
 
-    .entry-modified-datetime-glabel {
+    .entry-modified-datetime-label {
         @extend %ir;
         position: absolute;
         right: 0;
@@ -627,17 +622,17 @@ hr {
             }
         }
 
-        .day---txt {
+        .day-txt {
             font-weight: bold;
             font-size: 2em;
         }
 
-        .month---txt {
+        .month-txt {
             text-transform: uppercase;
             font-size: .875em;
         }
 
-        .year---txt {
+        .year-txt {
             font-size: 1.375em;
         }
     }
@@ -649,9 +644,9 @@ hr {
 // Current Index View
 //--------------------------------------------------------------
 
-.current-index-view {
+.ntt--current-index-view {
     
-    .entity-view-heading {
+    .ntt--entity-view-heading {
         display: none;
     }
 }
@@ -664,18 +659,18 @@ hr {
 
     .entry-nav,
     .entry-primary-meta,
-    .comment-md {
+    .ntt--comment-md {
         display: none;
     }
 
     .entry-header {
 
-        .comments-actions-snippet {
+        .ntt--comments-actions-snippet {
             display: none;
         }
     }
 
-    .entry-primary-meta {
+    .ntt--entry-primary-meta {
         display: none;
     }
 }
@@ -684,9 +679,9 @@ hr {
 // Archive Index View
 //--------------------------------------------------------------
 
-.archive-index-view {
+.ntt--archive-index-view {
 
-    .entity-view-heading {
+    .ntt--entity-view-heading {
 
         .archive---text {
             display: none;
