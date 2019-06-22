@@ -68,4 +68,4 @@ function eel_ntt_html_css( $classes ) {
 
     return $classes;
 }
-add_filter( 'ntt_html_css_wp_filter', 'eel_ntt_html_css' );
+add_filter( 'ntt_html_css_filter', 'eel_ntt_html_css' );

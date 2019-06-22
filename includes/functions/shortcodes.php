@@ -1,17 +1,20 @@
 <?php
 /**
- * Enable the Text Widget and Custom HTML Widget to run WP Shortcodes
+ * WordPress Shortcodes
  */
-add_filter( 'widget_text', 'do_shortcode' );
 
 /**
- * Shortcode Initialization
+ * WordPress Shortcode Initialization
+ * 
+ * List down all WordPress Shortcodes functions and their corresponding shortcode name (the one enclosed in [brackets] and is used while composing entries).
  */
-function ntt_kid_shortcodes_init() {
+
+function ntt_kid_wp_shortcodes_init() {
+    
     $r_wp_shortcodes = array(
+        'get_search_form'                               => 'ntt_search_widget',
         'ntt_kid_percept_wp_shortcode'                  => 'ntt_percept',
         'ntt_kid_menu_wp_shortcode'                     => 'ntt_menu',
-        'get_search_form'                               => 'ntt_search_widget',
         'ntt_kid_random_number_wp_shortcode'            => 'ntt_rand',
         'ntt_kid_hide_email_from_spambots_wp_shortcode' => 'ntt_email',
     );
@@ -20,27 +23,15 @@ function ntt_kid_shortcodes_init() {
         add_shortcode( $wp_shortcode, $func );
     }
 }
-add_action( 'init', 'ntt_kid_shortcodes_init' );
-
-/**
- * Menu Shortcode
- * 
- * Call menu using a shortcode
- * 
- * Usage: [ntt_menu name="menu-name"]
- */
-function ntt_kid_menu_wp_shortcode( $atts, $content = null ) {
-	extract( shortcode_atts( array( 'name' => null, ), $atts ) );
-	$menu = wp_nav_menu( array( 'menu' => $name, 'echo' => false ) );
-	return $menu;
-}
+add_action( 'init', 'ntt_kid_wp_shortcodes_init' );
 
 /**
  * NTT Percept Shortcode
  * 
- * Call any content using a shortcode
+ * Display any content using a shortcode
  *
- * Usage: [ntt_percept post_id="<post id>"]
+ * To display a particular entry: [ntt_percept post_id="<post id>"]
+ * To display a custom field: [ntt_percept "custom_field_name"]
  */
 function ntt_kid_percept_wp_shortcode( $atts ) {
     
@@ -144,6 +135,19 @@ function ntt_kid_percept_wp_shortcode( $atts ) {
 }
 
 /**
+ * Menu Shortcode
+ * 
+ * Call menu using a shortcode
+ * 
+ * Usage: [ntt_menu name="menu-name"]
+ */
+function ntt_kid_menu_wp_shortcode( $atts, $content = null ) {
+	extract( shortcode_atts( array( 'name' => null, ), $atts ) );
+	$menu = wp_nav_menu( array( 'menu' => $name, 'echo' => false ) );
+	return $menu;
+}
+
+/**
  * Random Numbers
  * 
  * Generates random numbers
@@ -184,3 +188,8 @@ function ntt_kid_hide_email_from_spambots_wp_shortcode( $atts , $content = null 
 	return sprintf( '<a href="%s">%s</a>', esc_url( $email_link, array( 'mailto' ) ), esc_html( $content ) );
 }
 add_shortcode( 'email', 'ntt_kid_hide_email_from_spambots_wp_shortcode' );
+
+/**
+ * Enable the Text Widget and Custom HTML Widget to run WP Shortcodes
+ */
+add_filter( 'widget_text', 'do_shortcode' );

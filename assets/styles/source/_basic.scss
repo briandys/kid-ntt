@@ -1,24 +1,5 @@
 //--------------------------------------------------------------
-// WP Elements
-//--------------------------------------------------------------
-
-.bypostauthor,
-.gallery-caption,
-.sticky,
-.wp-caption,
-.wp-caption-text,
-.alignright,
-.alignleft,
-.aligncenter {
-    position: inherit;
-}
-
-.screen-reader-text {
-    @extend %vh;
-}
-
-//--------------------------------------------------------------
-// HTML Elements
+// Basic
 //--------------------------------------------------------------
 
 *,
@@ -48,6 +29,10 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+//--------------------------------------------------------------
+// Form Elements
+//--------------------------------------------------------------
 
 input,
 select,
@@ -100,7 +85,7 @@ input[type="submit"] {
     }
 }
 
-label {
+label[for] {
 
     &:hover {
         cursor: pointer;
@@ -108,7 +93,7 @@ label {
 }
 
 //--------------------------------------------------------------
-// Note
+// Notes
 //--------------------------------------------------------------
 
 .ntt--note {
@@ -116,59 +101,4 @@ label {
     > * {
         @include x-padding(1rem);
     }
-}
-
-//--------------------------------------------------------------
-// Prezo Mode
-//--------------------------------------------------------------
-
-.ntt--prezo-mode {
-    
-    #prezo-mode-axn {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        margin: 1rem;
-    }
-    
-    &.prezo--active {
-        background-color: hsla(0, 0%, 75%, .0625);
-        
-        .ntt--entry-content {
-            font-size: 1.375rem;
-        }
-
-        .slide {
-            min-height: 100vh;
-        }
-    
-        .ntt--entity-header,
-        .entry-header,
-        .comment-md,
-        .entity-main-footer,
-        .ntt--entity-footer {
-            display: none;
-        }
-    
-        .ntt--entry-full-content {
-    
-            .wp-block-gallery {
-                
-                .blocks-gallery-item {
-                    padding: .5rem;
-                    max-height: 100vh;
-    
-                    img {
-                        object-fit: contain;
-                    }
-                }
-            }
-        }
-    }
-}
-
-#download-axn {
-    position: fixed;
-    right: 0;
-    bottom: 0;
 }

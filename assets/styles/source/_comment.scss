@@ -1,12 +1,20 @@
-.ntt--comment-published-datetime {
-    padding: .5rem;
+//--------------------------------------------------------------
+// Comment
+//--------------------------------------------------------------
+
+.comment-edit-link {
+    display: inline-block;
+
+    .ntt--txt {
+        @extend %block-pad;
+    }
 }
 
 .ntt--comment-meta {
     @include if-y-center
 }
 
-.ntt--ntt--comment-author {
+.ntt--comment-author {
     @include if-y-center;
     padding: .5rem;
 }
@@ -58,7 +66,6 @@
 .ntt--comments-header {
     @include if-y-center;
 
-    .comments-actions-snippet,
     .ntt--comments-actions-snippet {
         display: flex;
         display: contents;
@@ -199,6 +206,10 @@
     }
 }
 
+//--------------------------------------------------------------
+// Subcomments
+//--------------------------------------------------------------
+
 .ntt--comments-group {
 
     ul {
@@ -223,27 +234,27 @@
     }
 }
 
+//--------------------------------------------------------------
+// Comments Form
+//--------------------------------------------------------------
+
 .ntt--comment-form {
 
-    .field---cr {
+    .ntt--form-field {
         padding: .5rem;
     }
 
-    .field-label {
+    .ntt--form-label {
         display: inline-block;
         line-height: 1;
 
-        .l {
+        .ntt--txt {
             @include if-y-center;
+            padding: .5rem;
         }
     }
 
-    .form-element {
-        padding: .5rem;
-    }
-
-    .field-label---txt {
-        display: inline-block;
+    .ntt--form-element {
         padding: .5rem;
     }
 
@@ -271,20 +282,14 @@
 }
 
 .ntt--logged-in-account {
-    padding: .5rem;
-}
-
-.ntt--logged-in-account {
     display: inline-block;
     vertical-align: middle;
-}
+    padding: .5rem;
 
-.logged-in-admin-account-glabel {
-    display: inline-block;
-    margin-right: -1rem;
-
-    .ntt--txt {
+    .ntt--label-txt {
         @extend %block-pad;
+        display: inline-block;
+        margin-right: -1rem;
     }
 }
 
@@ -304,7 +309,7 @@
     }
 }
 
-.logged-in-admin-account-name {
+.ntt--logged-in-account {
     display: inline-block;
 
     .ntt--txt {
@@ -312,7 +317,7 @@
     }
 }
 
-.entry-header {
+.ntt--entry-header {
 
     .ntt--comments-actions-snippet {
 
@@ -326,54 +331,41 @@
     }
 }
 
-.ntt--comments---empty {
-
-    &.ntt--comment-creation---0 {
-        
-        .ntt--empty-comments-note {
-            //display: none;
-        }
-    }
-}
-
+//--------------------------------------------------------------
 // Comments Navigation
+//--------------------------------------------------------------
 
 .ntt--comments-nav {
+    @include if-y-center;
+    display: flex;
     flex: 1 100%;
     @include y-padding(.5rem);
 }
 
-.comments-navi {
+.ntt--comments-navi {
     padding: .5rem;
 
     a {
         display: inline-block;
     }
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
     }
-}
-    
-.ntt--comments-nav {
-    @include if-y-center;
-    display: flex;
 }
 
 .ntt--next-comments-navi {
     order: 1;
 }
 
-.comment-edit-link {
-    display: inline-block;
-
-    .ntt--txt {
-        @extend %block-pad;
-    }
-}
+//--------------------------------------------------------------
+// Comment DateTime
+//--------------------------------------------------------------
 
 .ntt--comment-published-datetime {
+    @include if-y-center;
     flex: 1 100%;
+    padding: .5rem;
 }
 
 .ntt--comment-published-datetime-label {
@@ -382,9 +374,4 @@
     .ntt--txt {
         @extend %block-pad;
     }
-}
-
-.ntt--comment-published-datetime {
-    @include if-y-center;
-    padding: .5rem;
 }

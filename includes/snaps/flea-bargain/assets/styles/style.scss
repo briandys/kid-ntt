@@ -399,7 +399,7 @@ hr {
     }
 }
 
-.content---cr {
+.ntt--content {
 
     > {
 
@@ -460,7 +460,7 @@ hr {
 // [Post Format] Status in Plural View
 //--------------------------------------------------------------
 
-.ntt--plural-view {
+.ntt--multiple-entries {
 
     .format-quote {
 
@@ -471,7 +471,7 @@ hr {
             }
         }
     
-        &.entry-name--empty {
+        &.ntt--empty-entry-name {
             
             .entry-heading,
             .entry-author,
@@ -519,7 +519,7 @@ hr {
 // [NTT Feature] Search - Compact
 //--------------------------------------------------------------
 
-.ntt--search--compact {
+.ntt--search---compact {
 
     .ntt--search {
 
@@ -553,7 +553,7 @@ hr {
         display: none;
     }
 
-    .entry--updated {
+    .ntt--updated-entry {
 
         .ntt--entry-published-datetime {
             display: none;
@@ -644,7 +644,7 @@ hr {
 // Current Index View
 //--------------------------------------------------------------
 
-.ntt--current-index-view {
+.ntt--current-index {
     
     .ntt--entity-view-heading {
         display: none;
@@ -679,7 +679,7 @@ hr {
 // Archive Index View
 //--------------------------------------------------------------
 
-.ntt--archive-index-view {
+.ntt--archive-index{
 
     .ntt--entity-view-heading {
 

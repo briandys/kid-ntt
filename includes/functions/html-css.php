@@ -12,42 +12,28 @@ function ntt_kid_html_css( $classes ) {
     
     $classes[] = 'ntt--entity--'. sanitize_title( get_bloginfo( 'name' ) );
     
-    if ( is_singular() ) {
-        global $post;
-
-        /**
-         * Entry Type View
-         * Ex. If entry type is "post," CSS class name is "ntt--post-view".
-         */
-    
-        $classes[] = 'ntt--'. $post->post_type. '-view';
-    }
-
     /**
-     * Compact Search
+     * Page Position
      */
-    $classes[] = 'ntt--search--compact';
-    
-    /**
-     * First Page View
-     * For multiple pages
-     */
+
     if ( ! is_paged() ) {
-        $classes[] = 'ntt--first-page-view';
+        $classes[] = 'ntt--first-page';
     } else {
-        $classes[] = 'ntt--subsequent-page-view';
+        $classes[] = 'ntt--subsequent-page';
     }
 
     /**
-     * Current User Types
+     * User Types
      */
+
     if ( current_user_can( 'editor' ) || current_user_can( 'administrator' ) ) {
-        $classes[] = 'ntt--current-user--admin';
+        $classes[] = 'ntt--admin-user';
     }
 
     /**
      * Entity Name Ability Status
      */
+
     if ( get_bloginfo( 'name', 'display' ) && get_header_textcolor() !== 'blank' ) {
         $classes[] = 'ntt--entity-name---1';
     } else {
@@ -57,12 +43,19 @@ function ntt_kid_html_css( $classes ) {
     /**
      * Entity Description Ability Status
      */
+
     if ( get_bloginfo( 'description', 'display' ) && get_header_textcolor() !== 'blank' ) {
-        $classes[] = 'ntt--entity-description--1';
+        $classes[] = 'ntt--entity-description---1';
     } else {
-        $classes[] = 'ntt--entity-description--0';
+        $classes[] = 'ntt--entity-description---0';
     }
+
+    /**
+     * Feature: Compact Search
+     */
+    
+    $classes[] = 'ntt--search---compact';
 
     return $classes;
 }
-add_filter( 'ntt_html_css_wp_filter', 'ntt_kid_html_css' );
+add_filter( 'ntt_html_css_filter', 'ntt_kid_html_css' );

@@ -47,4 +47,4 @@ function flea_bargain_ntt_html_css( $classes ) {
 
     return $classes;
 }
-add_filter( 'ntt_html_css_wp_filter', 'flea_bargain_ntt_html_css' );
+add_filter( 'ntt_html_css_filter', 'flea_bargain_ntt_html_css' );

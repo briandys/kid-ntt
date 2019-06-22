@@ -87,8 +87,8 @@
   border-radius: .25rem;
 }
 
-.ntt--wp-customizer-color-scheme---custom .ntt--entity-name a,
-.ntt--wp-customizer-color-scheme---custom .ntt--entity-description {
+.ntt--customizer-color-scheme---custom .ntt--entity-name a,
+.ntt--customizer-color-scheme---custom .ntt--entity-description {
   color: white;
 }
 

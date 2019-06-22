@@ -1,20 +1,20 @@
 <?php
 /**
  * HTML CSS Custom Field
- * Key: ntt_cf_html_css
+ * Key: ntt_html_css
  * 
  * Adds CSS in HTML Tag
  */
 function ntt_kid_custom_field_html_css( $classes ) {
     
-    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_cf_html_css', true );
+    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_html_css', true );
 
     if ( $html_css_post_meta !== '' ) {
         $classes[] = esc_attr( $html_css_post_meta );
     }
     return $classes;
 }
-add_filter( 'ntt_html_css_wp_filter', 'ntt_kid_custom_field_html_css' );
+add_filter( 'ntt_html_css_filter', 'ntt_kid_custom_field_html_css' );
 
 /**
  * Entry Subname Custom Field
@@ -60,6 +60,6 @@ function ntt_kid_cf_entry_feature_html_css( $classes ) {
 add_filter( 'post_class', 'ntt_kid_cf_entry_feature_html_css' );
 
 // Entry CSS added to HTML
-add_filter( 'ntt_html_css_wp_filter', function( $classes ) {
+add_filter( 'ntt_html_css_filter', function( $classes ) {
     return ( is_singular() && ntt_kid_cf_entry_feature() ) ? ntt_kid_cf_entry_feature_html_css( $classes ) : $classes;
 } );

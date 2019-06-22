@@ -21,16 +21,10 @@ $neutral-color: $a11y-gray;
 $primary-font: 'Work Sans', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
 
-$primary-color: $blood-red;
-//$secondary-color;
-//$tertiary-color;
-//$color-1;
-//$color-2;
-
-$guide-56: 3.5rem;
+$color-1: $blood-red;
 
 //accent-color;
-$link-color: $primary-color;
+$link-color: $color-1;
 $content-bg-color: hsl(0, 0%, 92%);
 
 @import '../../../../../assets/styles/source/theme';
@@ -45,6 +39,7 @@ $content-bg-color: hsl(0, 0%, 92%);
 
     /* Visual Design */
     font-size: 6rem;
+    line-height: 1;
 }
 
 //--------------------------------------------------------------
@@ -60,23 +55,30 @@ body {
     font-family: $primary-font;
 }
 
+.ntt--go-start-nav {
+    display: none;
+}
+
 //--------------------------------------------------------------
 // Front View & Page
 //--------------------------------------------------------------
 
-.ntt--front-view.page-view {
+.ntt--front-view {
+    
+    &.ntt--page {
 
-    .ntt--ntt--entity-secondary-nav {
-        display: none;
-    }
+        .ntt--entity-secondary-nav {
+            display: none;
+        }
 
-    .ntt--entity-secondary-info {
-        @extend %vh;
-        color: $neutral-color;
-        background-color: $ink-color;
-
-        a {
+        .ntt--entity-secondary-info {
+            @extend %vh;
             color: $neutral-color;
+            background-color: $ink-color;
+
+            a {
+                color: $neutral-color;
+            }
         }
     }
 }
@@ -106,7 +108,7 @@ body {
 // Entry
 //--------------------------------------------------------------
 
-.entry {
+.ntt--entry {
 
     .ntt--content {
         font-size: 1.125rem;
@@ -118,17 +120,18 @@ body {
 // Page View
 //--------------------------------------------------------------
 
-.page-view {
+.ntt--page {
 
     //--------------------------------------------------------------
     // Hide Stuff
     //--------------------------------------------------------------
 
-    .entry-nav,
-    .entry-primary-meta,
-    .comment-md,
-    .entry-header .comments-actions-snippet,
-    .ntt--entry-primary-meta {
+    .ntt--entry-nav,
+    .ntt--entry-primary-meta,
+    .ntt--comment-md,
+    .ntt--entry-header .ntt--comments-actions-snippet,
+    .ntt--entry-primary-meta,
+    .ntt--entity-view-heading {
         display: none;
     }
 
@@ -163,9 +166,7 @@ body {
 
     .ntt--entry-name {
         margin-top: 2rem;
-        text-align: center;
         color: $accent-color;
-        line-height: 1;
         text-transform: uppercase;
         word-break: normal;
         font-family: $secondary-font;
@@ -177,7 +178,7 @@ body {
 // Page: Works
 //--------------------------------------------------------------
 
-.page-entry--works {
+.ntt--page--works {
 
     //--------------------------------------------------------------
     // Entity
@@ -195,16 +196,12 @@ body {
     // Entry
     //--------------------------------------------------------------
 
-    .entry {
+    .ntt--entry {
         color: hsla(0, 0, 100%, .65);
 
         .ntt--content {
             font-size: 1.125rem;
         }
-    }
-
-    .ntt--entry-name {
-        margin-top: 1rem;
     }
 }
     
@@ -216,7 +213,7 @@ body {
     @include y-margin(2rem, 1rem);
 }
 
-.ntt--ntt--entity-primary-nav {
+.ntt--entity-primary-nav {
     border: .25rem solid hsla(0, 0%, 0%, .10);
     border-left: 0;
     border-right: 0;
@@ -226,7 +223,7 @@ body {
     justify-content: center;
 }
 
-.ntt--ntt--entity-secondary-nav {
+.ntt--entity-secondary-nav {
     background-color: $content-bg-color;
 
     ul {
@@ -238,11 +235,11 @@ body {
     }
 }
 
-.ntt--ntt--entity-secondary-nav {
+.ntt--entity-secondary-nav {
     @include y-padding(2rem);
 }
 
-.entity-secondary-nav-group---cr {
+.ntt--entity-secondary-nav-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -253,8 +250,8 @@ body {
     }
 }
 
-.entity-primary-nav,
-.ntt--ntt--entity-secondary-nav {
+.ntt--entity-primary-nav,
+.ntt--entity-secondary-nav {
     
     a {
         color: $ink-color;
@@ -286,7 +283,7 @@ body {
 // Brian Dys Works
 //--------------------------------------------------------------
 
-.brian-dys-works---cr {
+.brian-dys-works {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -337,7 +334,7 @@ body {
     }
 }
 
-.brian-dys-work-item---cr {
+.brian-dys-work-item {
     padding: 1rem;
     text-align: center;
 }
@@ -403,7 +400,7 @@ body {
     }
 }
 
-.brian-dys-intro---cr {
+.brian-dys-intro {
 
     > * {
 
@@ -434,6 +431,7 @@ body {
 }
 
 .ntt--entity-header {
+    align-self: flex-start;
     background-color: $paper-color;
 }
 
@@ -443,13 +441,19 @@ body {
         @include y-padding();
     }
 
-    .widget---cr > * {
+    .ntt--widget > * {
         @include y-margin();
     }
 
     .ntt--widget-name {
         display: none;
     }
+}
+
+.ntt--entity-description {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 //--------------------------------------------------------------
@@ -480,11 +484,11 @@ body {
     @include y-padding();
 }
 
-.entry {
+.ntt--entry {
     @include y-padding();
 }
 
-.ntt--content {
+.ntt--entry-full-content {
 
     abbr[title] {
         text-decoration: none;
@@ -585,6 +589,21 @@ body {
     @include y-margin(1em);
 }
 
+
+
+//--------------------------------------------------------------
+// Main Pages
+//--------------------------------------------------------------
+
+.ntt--page--works,
+.ntt--page--about,
+.ntt--page--contact {
+
+    .ntt--entry-name {
+        text-align: center;
+    }
+}
+
 //--------------------------------------------------------------
 // Media Query: Mobile Large Width and Below
 //--------------------------------------------------------------
@@ -595,11 +614,8 @@ body {
     // Brian Dys Works
     //--------------------------------------------------------------
 
-    .brian-dys-work-item---cr {
-        padding: 2rem;
-    }
-    
     .brian-dys-work-item {
+        padding: 2rem;
         margin: .5rem;
         background-color: hsla(0, 0%, 0%, .25);
     }
@@ -620,7 +636,7 @@ body {
     // Entry
     //--------------------------------------------------------------
 
-    .entry {
+    .ntt--entry {
 
         .ntt--content {
             font-size: 1.5rem;
@@ -694,12 +710,12 @@ body {
             justify-content: flex-end;
         }
 
-        .entity-secondary-nav,
+        .ntt--entity-secondary-nav,
         .ntt--entity-secondary-info {
             width: 65vw;
         }
 
-        .entity-secondary-nav,
+        .ntt--entity-secondary-nav,
         .ntt--entity-secondary-info {
             max-width: 52rem;
         }
@@ -709,7 +725,7 @@ body {
     // Entry
     //--------------------------------------------------------------
     
-    .entry {
+    .ntt--entry {
         position: relative;
     }
 
@@ -718,10 +734,6 @@ body {
     }
 
     .ntt--entry-full-content {
-        
-        > * {
-            @include x-padding(7rem, 5rem);
-        }
 
         > *:first-child {
             margin-top: 3rem;
@@ -733,7 +745,7 @@ body {
         justify-content: flex-end;
         padding-right: 0;
         
-        .content & {
+        .ntt--content & {
             @include y-margin(0, 2em);
         }
 
@@ -746,37 +758,6 @@ body {
         }
     }
     
-    .ntt--content {
-    
-        hr {
-            @include x-margin(7rem, 5rem);
-        }
-    }
-    
-    //--------------------------------------------------------------
-    // Brian Dys Works
-    //--------------------------------------------------------------
-    
-    .brian-dys-works {
-
-        .content & {
-            @include x-padding();
-            @include y-margin();
-        }
-    }
-    
-    .brian-dys-works---cr {
-        min-height: 100vh;
-    }
-    
-    .brian-dys-works-name {
-        @include vertical-name;
-    }
-    
-    .brian-dys-work-item---cr {
-        padding: 2rem;
-    }
-    
     //--------------------------------------------------------------
     // Entity Header
     //--------------------------------------------------------------
@@ -784,8 +765,11 @@ body {
     .ntt--entity-header {
         z-index: 1;
 
-        .cssgrid & {
-            justify-self: flex-end;
+        @supports (display: grid) {
+            
+            & {
+                justify-self: flex-end;
+            }
         }
     }
 
@@ -798,8 +782,11 @@ body {
             flex: 1 100%;
         }
 
-        .cssgrid & {
-            max-width: 28rem;
+        @supports (display: grid) {
+            
+            & {
+                max-width: 28rem;
+            }
         }
     }
     
@@ -815,14 +802,6 @@ body {
     }
 
     //--------------------------------------------------------------
-    // Entity Header
-    //--------------------------------------------------------------
-
-    .ntt--entity-header-aside {
-        margin-top: 3rem;
-    }
-
-    //--------------------------------------------------------------
     // Entity Primary Navigation
     //--------------------------------------------------------------
 
@@ -831,14 +810,14 @@ body {
     }
 
     //--------------------------------------------------------------
-    // Page View
+    // [Entry] Page
     //--------------------------------------------------------------
 
-    .page-view {
+    .ntt--page {
+        $x-content-gap: 2rem;
 
         .ntt--entry-name {
             padding: 0;
-            @include vertical-name;
         }
     
         .ntt--entry-axns {
@@ -869,13 +848,65 @@ body {
                 @include transition;
             }
         }
+
+        .ntt--entry-header {
+
+            > * {
+                @include x-padding($x-content-gap);
+            }
+        }
+
+        .ntt--entry-full-content {
+        
+            > * {
+                @include x-padding($x-content-gap);
+            }
+    
+            hr {
+                @include x-margin($x-content-gap);
+            }
+        }
     }
 
     //--------------------------------------------------------------
-    // Page: Works
+    // Main Pages
     //--------------------------------------------------------------
 
-    .page-entry--works {
+    .ntt--page--works,
+    .ntt--page--about,
+    .ntt--page--contact {
+
+        .ntt--entry-name {
+            @include vertical-name;
+            text-align: left;
+        }
+
+        .ntt--entry-header {
+
+            > * {
+                @include x-padding();
+            }
+        }
+
+        .ntt--entry-full-content {
+            $l-gap: 7rem;
+            $r-gap: 5rem;
+        
+            > * {
+                @include x-padding($l-gap, $r-gap);
+            }
+    
+            hr {
+                @include x-margin($l-gap, $r-gap);
+            }
+        }
+    }
+
+    //--------------------------------------------------------------
+    // Page Works
+    //--------------------------------------------------------------
+
+    .ntt--page--works {
 
         .ntt--entry {
             @include x-padding(6rem, 4rem);
@@ -883,7 +914,30 @@ body {
         }
 
         .ntt--entry-full-content {
-            margin-top: 0;
+
+            > * {
+                @include x-padding();
+                @include y-margin();
+            }
+        }
+    }
+    
+    .brian-dys-works {
+        min-height: 100vh;
+    }
+    
+    .brian-dys-work-item {
+        padding: 2rem;
+    }
+
+    //--------------------------------------------------------------
+    // [Page] Works
+    //--------------------------------------------------------------
+
+    .ntt--page--about {
+
+        .brian-dys-about-image {
+            @include x-padding();
         }
     }
 }

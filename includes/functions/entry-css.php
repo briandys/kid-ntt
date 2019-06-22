@@ -10,68 +10,60 @@ function ntt_kid_entry_css( $classes ) {
      * Entry Update Status
      */
     if ( get_the_modified_date( 'j F Y H i' ) !== get_the_date( 'j F Y H i' ) ) {
-        $classes[] = 'entry--updated';
+        $classes[] = 'ntt--updated-entry';
     }
 
     /**
      * Entry More Tag <!--more--> Ability Status
      */
     if ( strpos( $post->post_content, '<!--more-->' ) ) {
-        $classes[] = 'entry-more-tag--1';
+        $classes[] = 'ntt--entry-more-tag---1';
     }
 
     /**
      * Entry Author Default Avatar Status
      */
-    $avatar_css = 'entry-author-default-avatar';
-    
+
     if ( get_option( 'avatar_default' ) == 'blank' ) {
-        $classes[] = $avatar_css . '--blank';
+        $classes[] = 'ntt--entry-author-default-avatar---blank';
     } else {
-        $classes[] = $avatar_css . '--custom';
+        $classes[] = 'ntt--entry-author-default-avatar---custom';
     }
 
     /**
      * Entry Summary (Excerpt) Ability Status
      */
+
     if ( has_excerpt() ) {
-        $classes[] = 'entry-summary-content--1';
+        $classes[] = 'ntt--entry-summary-content---1';
     }
 
     /**
      * Entry Name Population Status
      */
+
     if ( ! get_the_title() ) {
-        $classes[] = 'entry-name--empty';
+        $classes[] = 'ntt--empty-entry-name';
     }
 
     /**
      * Entry Banner Visuals (Featured Image) Ability Status
      */
+
     if ( get_the_post_thumbnail() !== '' ) {
-        $classes[] = 'entry-banner-visuals--1';
+        $classes[] = 'ntt--entry-banner-visuals---1';
     } else {
-        $classes[] = 'entry-banner-visuals--0';
+        $classes[] = 'ntt--entry-banner-visuals---0';
     }
-
-    /**
-     * Entry Name View
-     */
-    if ( $post->post_title ) {
-        $post_name = $post->post_type. '-entry--'. $post->post_name;
-    } else {
-        $post_name = $post->post_type. '-entry-'. $post->post_name;
-    }
-
-    $classes[] = $post_name;
 
     /**
      * Sticky Post
      */
+
     if ( is_sticky() ) {
-        $classes[] = 'entry--sticky';
+        $classes[] = 'ntt--sticky-entry';
     } else {
-        $classes[] = 'entry--unsticky';
+        $classes[] = 'ntt--unsticky-entry';
     }
     
     return $classes;
@@ -81,7 +73,7 @@ add_filter( 'post_class', 'ntt_kid_entry_css' );
 /**
  * Entry CSS added to HTML
  */
-add_filter( 'ntt_html_css_wp_filter', function( $classes ) {
+add_filter( 'ntt_html_css_filter', function( $classes ) {
     return is_singular() ? ntt_kid_entry_css( $classes ) : $classes;
 } );
 
@@ -142,7 +134,7 @@ function ntt_kid_entry_css_status_classes( $classes ) {
 
     // Entry Banner Visuals / Featured Image Ability Status
     if ( '' !== get_the_post_thumbnail() ) {
-        $classes[] = 'entry-banner-visuals--1';
+        $classes[] = 'ntt--entry-banner-visuals---1';
     }
 
     // Entry Summary Content / Excerpt Ability Status
@@ -155,7 +147,7 @@ function ntt_kid_entry_css_status_classes( $classes ) {
 add_filter( 'post_class', 'ntt_kid_entry_css_status_classes' );
 
 // Entry CSS Status Classes added to HTML Element
-add_filter( 'ntt_html_css_wp_filter', function( $classes ) {
+add_filter( 'ntt_html_css_filter', function( $classes ) {
     return is_singular() ? ntt_kid_entry_css_status_classes( $classes ) : $classes;
 } );
 */

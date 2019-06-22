@@ -16,12 +16,12 @@ $GLOBALS['ntt_snaps_name_slug'] = sanitize_title( $GLOBALS['ntt_snaps_name'] );
  * NTT Kid Functions
  */
 
-$r_funcs = array(
+$r_functions = array(
     //'fonts',
 );
 
-foreach ( $r_funcs as $func ) {
-    require( get_stylesheet_directory(). '/includes/functions/'. $func. '.php' );
+foreach ( $r_functions as $function ) {
+    require( get_stylesheet_directory(). '/includes/functions/'. $function. '.php' );
 }
 
 /**
@@ -31,7 +31,9 @@ foreach ( $r_funcs as $func ) {
 $r_snap_functions = array(
     'functions-page',
     //'open-graph',
+    'html-canvas-mode',
     'prezo-mode',
+    'widgets',
 );
 
 foreach ( $r_snap_functions as $function ) {
@@ -45,7 +47,7 @@ function mr_universe_ntt_styles_scripts() {
 
     wp_enqueue_style( $GLOBALS['ntt_snaps_name_slug']. '-ntt-style', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/styles/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
 
-    wp_enqueue_script( $GLOBALS['ntt_snaps_name_slug']. '-ntt-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/scripts/main.js', array( 'jquery', 'ntt-script', ), null, true );
+    wp_enqueue_script( $GLOBALS['ntt_snaps_name_slug']. '-ntt-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/scripts/main.js', array( 'jquery', 'ntt-script', ), wp_get_theme()->get( 'Version' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'mr_universe_ntt_styles_scripts', 0 );
 
@@ -60,10 +62,13 @@ function mr_universe_ntt_font_families( $font_families ) {
 add_filter( 'ntt_kid_custom_fonts_wp_filter', 'mr_universe_ntt_font_families' );
  */
 
-function ntt_kid_cm_datetime_month_wp_filter() {
+/**
+ * DateTime - Month Format
+ */
+
+add_filter( 'ntt_cm_datetime_month_wp_filter', function() {
     return 'M';
-}
-add_filter( 'ntt_cm_datetime_month_wp_filter', 'ntt_kid_cm_datetime_month_wp_filter' );
+} );
 
 /**
  * HTML CSS
@@ -74,7 +79,7 @@ function mr_universe_ntt_html_css( $classes ) {
 
     return $classes;
 }
-add_filter( 'ntt_html_css_wp_filter', 'mr_universe_ntt_html_css' );
+add_filter( 'ntt_html_css_filter', 'mr_universe_ntt_html_css' );
 
 /**
  * Remove Password-Protected Posts Filter

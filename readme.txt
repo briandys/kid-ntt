@@ -10,5 +10,9 @@ A theme sitting on top of NTT.
 
 == Changelog ==
 
+= 0.7.0 =
+* Released: 19 June 2019
+* Refactoring Snaps
+
 = 0.0.0 =
 * Released: 23 January 2019

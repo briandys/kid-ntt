@@ -32,7 +32,7 @@ body {
 // Current Index View
 //--------------------------------------------------------------
 
-.ntt--current-index-view {
+.ntt--current-index {
     
     .ntt--entity-view-heading {
         display: none;
@@ -43,7 +43,7 @@ body {
 // Singular View
 //--------------------------------------------------------------
 
-.ntt--singular-view {
+.ntt--single-entry {
 
     .ntt--entry-banner-visuals {
 
@@ -142,7 +142,7 @@ body {
     }
 }
 
-.ntt--ntt--entity-primary-nav {
+.ntt--entity-primary-nav {
     @extend %border;
     border-left: 0;
     border-right: 0;
@@ -206,7 +206,7 @@ body {
     display: none;
 }
 
-.entry--updated {
+.ntt--updated-entry {
 
     .ntt--entry-modified-datetime {
         display: block;
@@ -312,7 +312,7 @@ p.has-drop-cap:not(:focus) {
 
 .ntt--current-index-view,
 .ntt--archive-index-view,
-.ntt--singular-view {
+.ntt--single-entry {
 
     .ntt--entry-summary-content {
         font-size: $large-font-size;
@@ -448,7 +448,7 @@ p.has-drop-cap:not(:focus) {
     line-height: 1;
 }
 
-.ntt--current-user--admin {
+.ntt--admin-user {
 
     .ntt--comment-name {
         display: block;
@@ -547,7 +547,7 @@ p.has-drop-cap:not(:focus) {
     @extend %faint-label;
 }
 
-.ntt--comments---empty {
+.ntt--empty-comments {
 
     .ntt--comments-main {
         display: none;
@@ -678,7 +678,7 @@ p.has-drop-cap:not(:focus) {
         flex-wrap: wrap;
     }
 
-    .ntt--ntt--entity-primary-nav {
+    .ntt--entity-primary-nav {
         @include y-padding(.5rem);
     }
 
@@ -689,15 +689,15 @@ p.has-drop-cap:not(:focus) {
         }
     }
 
-    .ntt--plural-view {
+    .ntt--multiple-entries {
 
         .entry {
             flex: 1 100%;
         }
 
-        &.ntt--first-page-view {
+        &.ntt--first-page {
             
-            .entry--sticky {
+            .ntt--sticky-entry {
                 flex: 1 50%;
 
                 .entry-main,
@@ -716,9 +716,9 @@ p.has-drop-cap:not(:focus) {
                 $sticky-banner-height: 50vh;
                 $sticky-banner-min-height: 20rem;
 
-                .entry-banner-visuals--1 {
+                .ntt--entry-banner-visuals---1 {
 
-                    &.entry--unsticky {
+                    &.ntt--unsticky-entry {
 
                         .ntt--entry {
                             display: grid;
@@ -789,7 +789,7 @@ p.has-drop-cap:not(:focus) {
                     }
                 }
 
-                .entry--sticky {
+                .ntt--sticky-entry {
 
                     .entry-main,
                     .ntt--entry-footer {
@@ -885,9 +885,9 @@ p.has-drop-cap:not(:focus) {
                     }
                 }
 
-                .entry-banner-visuals--0 {
+                .ntt--entry-banner-visuals---0 {
 
-                    &.entry--sticky {
+                    &.ntt--sticky-entry {
 
                         .ntt--entry-header {
                             height: $sticky-banner-height;

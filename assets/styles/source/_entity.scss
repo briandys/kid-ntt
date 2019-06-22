@@ -1,15 +1,22 @@
+//--------------------------------------------------------------
 // Hide Stuff
+//--------------------------------------------------------------
+
 .ntt--entity-start,
-.entity-end,
-.ntt--singular-view .ntt--entity-main-header {
+.ntt--entity-end,
+.ntt--single-entry .ntt--entity-main-header {
     display: none;
 }
+
+//--------------------------------------------------------------
+// Layout
+//--------------------------------------------------------------
 
 @supports (display: grid) {
 
     &,
     body,
-    .entity {
+    .ntt--entity {
         height: 100%;
     }
 
@@ -43,6 +50,10 @@
         grid-area: entity-end;
     }
 }
+
+//--------------------------------------------------------------
+// Entity Secondary Information
+//--------------------------------------------------------------
 
 .ntt--entity-secondary-info {
     color: $faint-color;
@@ -101,16 +112,16 @@
         display: inline-block;
     }
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
     }
 
-    .search-term---txt {
+    .ntt--search-term---txt {
         font-weight: bold;
     }
 }
 
-.entity-view-entry-count {
+.ntt--entry-count {
     padding: .5rem;
     line-height: 1;
     font-weight: bold;
@@ -168,21 +179,6 @@
         height: 3rem;
         background-color: $faint-color--lo;
     }
-
-    .js & {
-
-        img {
-            opacity: 0;
-            @include transition;
-        }
-    }
-
-    .window--loaded & {
-
-        img {
-            opacity: 1;
-        }
-    }
 }
 
 .cm-author-name {
@@ -196,15 +192,12 @@
     }
 }
 
-.ntt--none-view {
-
-    .ntt--entity-view-heading {
-        display: none;
-    }
-}
-
 .ntt--entity-view-heading {
     @include if-y-center;
     justify-content: center;
     padding: .5rem;
+
+    .ntt--zero-entry & {
+        display: none;
+    }
 }

@@ -6,11 +6,11 @@
 function ntt_kid_widgets() {
 		
 	// Markup
-	$widget_start_mu = '<div id="ntt--%1$s" class="ntt--%2$s widget cp" data-name="Widget">';
+	$widget_start_mu = '<div id="ntt--%1$s" class="ntt--%2$s ntt--widget ntt--cp" data-name="Widget">';
     $widget_end_mu = '</div>';
     
-    $title_mu_start = '<div class="ntt--widget-name obj" data-name="Widget Name">';
-        $title_mu_start .= '<span class="txt">';
+    $title_mu_start = '<div class="ntt--widget-name ntt--obj">';
+        $title_mu_start .= '<span class="ntt--txt">';
         $title_mu_end = '</span>';
 	$title_mu_end .= '</div>';
     
@@ -73,20 +73,16 @@ function ntt_kid_widgets() {
 }
 add_action( 'widgets_init', 'ntt_kid_widgets' );
 
-// Insert the Widgets via WordPress Hooks
-add_action( 'ntt_before_entity_primary_heading_wp_hook', 'ntt_kid_primary_menu_aside' );
-add_action( 'ntt_after_entity_primary_heading_wp_hook', 'ntt_kid_primary_axns_aside' );
-add_action( 'ntt_after_entry_content_wp_hook', 'ntt_kid_entry_main_aside' );
+// After initialization, insert Widgets via Hooks
+add_action( 'ntt_before_entity_primary_heading_hook', 'ntt_kid_primary_menu_aside' );
+add_action( 'ntt_after_entity_primary_heading_hook', 'ntt_kid_primary_axns_aside' );
+add_action( 'ntt_after_entry_content_hook', 'ntt_kid_entry_main_aside' );
 
 /**
- * HTML CSS
+ * Widgets HTML CSS
  */
 
 function ntt_kid_widgets_html_css( $classes ) {
-
-    /**
-     * Entity Widgets Ability Status
-     */
 
     $r_widgets = array(
         'primary-menu-aside',
@@ -104,4 +100,4 @@ function ntt_kid_widgets_html_css( $classes ) {
 
 	return $classes;
 }
-add_filter( 'ntt_html_css_wp_filter', 'ntt_kid_widgets_html_css' );
+add_filter( 'ntt_html_css_filter', 'ntt_kid_widgets_html_css' );

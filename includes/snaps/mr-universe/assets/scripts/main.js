@@ -1,5 +1,35 @@
 ( function() {
 
+    const html = document.documentElement;
+
+    /**
+     * Get Element Width Including Margin
+     * 
+     * http://youmightnotneedjquery.com/#outer_width_with_margin
+     */
+
+    function outerWidth(el) {
+        var width = el.offsetWidth;
+        var style = getComputedStyle(el);
+        
+        width += parseInt(style.marginLeft) + parseInt(style.marginRight);
+        return width;
+    }
+
+    /**
+     * Get Element Height Including Margin
+     * 
+     * http://youmightnotneedjquery.com/#outer_height
+     */
+
+    function outerHeight(el) {
+        var height = el.offsetHeight;
+        var style = getComputedStyle(el);
+
+        height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+        return height;
+    }
+
     /**
      * Monitor Scroll Y and Time on Page
      * 
@@ -114,14 +144,21 @@
      * https://alligator.io/js/intersection-observer/
      */
 
-    if ( document.querySelector('#custom_html-4') ) {
-        const searchwidth = outerWidth( document.querySelector('#custom_html-4'));
-        document.querySelector('#custom_html-4').style.right = '-' + searchwidth + 'px';
-        document.querySelector('#custom_html-4 .dismiss-action').addEventListener( 'click', () => {html.classList.remove('show-newsletter')}, false);
+    /*
+    if ( document.querySelector('#ntt--custom_html-4') ) {
+        const searchwidth = outerWidth( document.querySelector('#ntt--custom_html-4'));
+        document.querySelector('#ntt--custom_html-4').style.right = '-' + searchwidth + 'px';
+        document.querySelector('#ntt--custom_html-4').addEventListener( 'click', () => {
+            html.classList.remove('show-newsletter')
+        }, false);
     }
+    */
 
+    // Setup element to be observed
     const myImgs = document.querySelectorAll('.ntt--entity-footer');
 
+    // Setup what the observer does
+    // Once the viewport (from the top down) reaches .ntt--entity-footer, a class will be added to HTML element
     observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.intersectionRatio > 0) {
@@ -131,13 +168,18 @@
             }
         });
     });
-
-    /*
-    // https://stackoverflow.com/a/19693578
+    
+    // Call observer on the element
     myImgs.forEach(image => {
         observer.observe(image);
     });
-
+    
+    /**
+     * Display a random set of image
+     * 
+     * https://stackoverflow.com/a/19693578
+     */
+    /*
     var imagesArray = [
         'https://live.staticflickr.com/65535/47938401808_368f7a4f45_b.jpg',
         'https://live.staticflickr.com/65535/47951048638_a4dff3aab6_b.jpg',
@@ -145,12 +187,13 @@
         'https://live.staticflickr.com/65535/47979873141_7b1a8c2101_b.jpg'
     ];
 
-    function displayImage(){
+    function displayImage() {
         var num = Math.floor(Math.random() * (imagesArray.length));
         document.canvas.src = imagesArray[num];
     }
 
-    displayImage();
+    document.addEventListener( 'DOMContentLoaded', function() {
+		displayImage();
+    });
     */
-      
 } )();
