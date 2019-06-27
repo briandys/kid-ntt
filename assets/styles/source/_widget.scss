@@ -93,12 +93,11 @@
 // Navigation Menu
 //--------------------------------------------------------------
 
-
 .widget_nav_menu {
     @include x-padding();
 
     ul {
-        @include unlist
+        @include unlist;
         padding-left: 0;
     }
 

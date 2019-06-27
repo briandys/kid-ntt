@@ -6,10 +6,6 @@
     @include if-y-center;
 }
 
-.ntt--entry-author {
-    padding: .5rem;
-}
-
 .ntt--entry-md {
     @include y-padding(.5rem);
 }
@@ -18,6 +14,34 @@
 }
 
 .ntt--content {
+
+    > {
+
+        * {
+            @include x-padding(1rem);
+            @include y-margin(1em);
+            @extend %boundary;
+        }
+
+        ul,
+        ol {
+            padding-left: 2.5rem;
+        }
+
+        .ntt--note {
+            @include y-padding();
+            @include y-margin(1em);
+        }
+
+        .ntt--sub-content-entries {
+            @include x-padding();
+        }
+
+        .ntt--txt {
+            display: block;
+            @include y-margin(1em);
+        }
+    }
 
     &:empty {
         display: none;
@@ -90,36 +114,6 @@
     }
 }
 
-.ntt--content {
-
-    > {
-
-        * {
-            @include x-padding(1rem);
-            @include y-margin(1em);
-        }
-
-        ul,
-        ol {
-            padding-left: 2.5rem;
-        }
-
-        .ntt--note {
-            @include y-padding();
-            @include y-margin(1em);
-        }
-
-        .sub-content-entries {
-            @include x-padding();
-        }
-
-        .ntt--txt {
-            display: block;
-            @include y-margin(1em);
-        }
-    }
-}
-
 .ntt--entry-full-content {
     @extend %cf;
 
@@ -136,7 +130,7 @@
 // Sub-Content Entries
 //--------------------------------------------------------------
 
-.sub-content-entries-name {
+.ntt--sub-content-entries-name {
     display: none;
 }
 
@@ -154,7 +148,7 @@
 
 .entry--sub-content-entries-parent {
 
-    .ntt--entry-heading---cr {
+    .ntt--entry-heading{
         @include if-y-center;
 
         .ntt--entry-name {
@@ -254,7 +248,7 @@
 // Entry Categories
 //--------------------------------------------------------------
 
-.entry-categories---cr{
+.entry-categories {
     @include if-y-center;
 
     // For Uncategorized that isn't linked to its Category view
@@ -270,13 +264,14 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
 .ntt--entry-categories {
 
     ul {
-        @include unlist
+        @include unlist;
         display: flex;
         display: contents;
     }
@@ -287,6 +282,7 @@
 
     a {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
@@ -301,15 +297,19 @@
 }
 
 .ntt--entry-published-datetime-label,
-.entry-modified-datetime-label {
+.ntt--entry-modified-datetime-label {
     display: inline-block;
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
-.cm-date {
+.ntt--entry-published-date,
+.ntt--entry-published-time,
+.ntt--entry-modified-date,
+.ntt--entry-modified-time {
 
     a {
         display: inline-block;
@@ -318,45 +318,38 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
-.cm-time {
-    
-    a {
-        display: inline-block;
-        color: inherit;
-    }
-
-    .ntt--txt {
-        display: block;
-        padding: .5rem
-    }
-}
-
-.ntt--entry-author {
-    @include if-y-center;
-}
-
-.ntt--entry-author-avatar {
-    order: -1;
-}
-
-.ntt--entry-author {
-    order: -1;
-}
+//--------------------------------------------------------------
+// Entry Name
+//--------------------------------------------------------------
 
 .ntt--entry-name {
-    padding: 1rem;
+    @include space-around;
     margin: 0;
     font-size: 1rem;
     word-break: break-word;
+
+    a {
+        display: inline-block;
+    }
+
+    .ntt--txt {
+        @extend %block-pad;
+        @extend %boundary;
+    }
 }
 
 .entry-subname {
     display: inline-block;
     padding: 1rem;
 }
+
+//--------------------------------------------------------------
+// Entry Actions
+//--------------------------------------------------------------
 
 .ntt--entry-axns {
     user-select: none;
@@ -377,7 +370,11 @@
     }
 }
 
-.ntt--content-snippet {
+//--------------------------------------------------------------
+// Content Snippet
+//--------------------------------------------------------------
+
+.ntt--entry-content-snippet {
 
     p:empty {
         display: none;
@@ -400,33 +397,31 @@
 //--------------------------------------------------------------
 
 .ntt--entry-tags {
-    @include if-y-center;
-}
-
-.ntt--entry-tags {
 
     ul {
-        @include unlist
+        @include unlist;
         display: flex;
         display: contents;
     }
 
     li {
-        padding: .5rem;
+        @include space-around;
     }
     
     a {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
 .ntt--entry-tags-name {
     @include ib-y-center;
-    padding: .5rem;
+    @include space-around;
     font-weight: bold;
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
@@ -459,15 +454,6 @@
     }
 }
 
-.ntt--entries-page-indicator {
-    display: inline-block;
-    padding: .5rem;
-
-    .ntt--txt {
-        @extend %block-pad;
-    }
-}
-
 .ntt--entry-summary-content---1 {
 
     .ntt--entry-full-content {
@@ -494,7 +480,7 @@
     flex: 1 100%;
 }
 
-.ntt--entry-heading---cr {
+.ntt--entry-heading{
     @include if-y-center;
 
     .entry-name,
@@ -514,16 +500,26 @@
 }
 
 .ntt--show-more-axn {
-    padding: .5rem;
+    @include x-padding(.5rem);
     margin-bottom: 0;
 
     a {
         display: inline-block;
     }
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
+}
+
+//--------------------------------------------------------------
+// Entry Author
+//--------------------------------------------------------------
+
+.ntt--entry-author {
+    @include if-y-center;
+    padding: .5rem;
 }
 
 .ntt--entry-author-label {
@@ -531,6 +527,23 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
+    }
+}
+
+.ntt--entry-author-avatar {
+
+    .ntt--img {
+        display: block;
+        @extend %boundary;
+    }
+}
+
+.ntt--entry-author-name {
+
+    .ntt--txt {
+        @extend %block-pad;
+        @extend %boundary;
     }
 }
 

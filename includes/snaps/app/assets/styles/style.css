@@ -36,7 +36,7 @@
   background-color: red;
 }
 
-.primary-menu-aside---cr {
+.primary-menu-aside {
   display: none;
 }
 
@@ -52,7 +52,7 @@
         -ms-grid-row-align: center;
         align-self: center;
   }
-  .ntt--entity-primary-heading {
+  .ntt--entity-heading {
     grid-area: heading;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -66,7 +66,7 @@
   }
 }
 
-.primary-actions-aside---cr {
+.primary-actions-aside {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -75,7 +75,7 @@
           align-items: center;
 }
 
-.primary-actions-aside---cr .ntt--widget {
+.primary-actions-aside .ntt--widget {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -103,7 +103,7 @@
 }
 
 @supports (display: grid) {
-  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---1 .ntt--entity-primary-heading {
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---1 .ntt--entity-heading {
     display: -ms-grid;
     display: grid;
     grid-template: 'logo name' '. description' / auto 1fr;
@@ -128,7 +128,7 @@
 }
 
 @supports (display: grid) {
-  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---0 .ntt--entity-primary-heading {
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---1.ntt--entity-description---0 .ntt--entity-heading {
     display: -ms-grid;
     display: grid;
     grid-template: 'logo name' / auto 1fr;
@@ -148,7 +148,7 @@
 }
 
 @supports (display: grid) {
-  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---0.ntt--entity-description---1 .ntt--entity-primary-heading {
+  .ntt--entity-logo---1.ntt--entity-name-description---1.ntt--entity-name---0.ntt--entity-description---1 .ntt--entity-heading {
     display: -ms-grid;
     display: grid;
     grid-template: 'logo description' / auto 1fr;
@@ -167,7 +167,7 @@
   }
 }
 
-.ntt--entity-logo---0.ntt--entity-name-description---0 .ntt--entity-primary-heading {
+.ntt--entity-logo---0.ntt--entity-name-description---0 .ntt--entity-heading {
   padding: 0;
 }
 

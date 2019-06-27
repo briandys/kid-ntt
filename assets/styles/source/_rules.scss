@@ -87,3 +87,11 @@ $faint-border: 1px solid hsla(0, 0%, 0%, .125);
     border: $faint-border;
     border-radius: .125rem;
 }
+
+%boundary {
+    border: 1px solid black;
+}
+
+@mixin space-around {
+    padding: .5rem;
+}

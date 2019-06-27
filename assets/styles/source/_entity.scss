@@ -52,34 +52,11 @@
 }
 
 //--------------------------------------------------------------
-// Entity Secondary Information
+// Entity Heading
 //--------------------------------------------------------------
 
-.ntt--entity-secondary-info {
-    color: $faint-color;
-    
-    a {
-        display: inline-block;
-        color: $faint-color;
-    }
-
-    .ntt--entity-secondary-name,
-    .ntt--entity-copyright,
-    .ntt--entity-maker-tag {
-        display: inline-block;
-        vertical-align: middle;
-    }
-}
-
-.ntt--entity-secondary-info {
-    padding: .5rem;
-}
-
-.ntt--entity-primary-heading {
-    padding: .5rem;
-}
-
 .ntt--entity-name {
+    @include space-around;
     margin: 0;
     font-size: 1rem;
 
@@ -93,41 +70,18 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
 .ntt--entity-description {
-    display: inline-block;
+    display: block;
+    @include space-around;
 
     .ntt--txt {
         @extend %block-pad;
-    }
-}
-
-.ntt--entity-view-name {
-    display: inline-block;
-    vertical-align: middle;
-
-    a {
         display: inline-block;
-    }
-
-    .ntt--txt {
-        @extend %block-pad;
-    }
-
-    .ntt--search-term---txt {
-        font-weight: bold;
-    }
-}
-
-.ntt--entry-count {
-    padding: .5rem;
-    line-height: 1;
-    font-weight: bold;
-
-    .ntt--label-txt {
-        display: none;
+        @extend %boundary;
     }
 }
 
@@ -139,6 +93,53 @@
     }
 }
 
+//--------------------------------------------------------------
+// Entity View Heading
+//--------------------------------------------------------------
+
+.ntt--entity-view-heading {
+    @include if-y-center;
+    @include space-around;
+
+    .ntt--zero-entry & {
+        display: none;
+    }
+}
+
+.ntt--entity-view-name {
+    @include ib-y-center;
+
+    a {
+        display: inline-block;
+    }
+
+    .ntt--txt {
+        @extend %block-pad;
+        @extend %boundary;
+    }
+
+    .ntt--search-term---txt {
+        font-weight: bold;
+    }
+}
+
+.ntt--entry-count {
+    font-weight: bold;
+
+    .ntt--txt {
+        @extend %block-pad;
+        @extend %boundary;
+    }
+
+    .ntt--label-txt {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Banner Visuals
+//--------------------------------------------------------------
+
 .ntt--entity-banner-visuals---1 {
 
     .ntt--entity-banner-visuals {
@@ -146,25 +147,38 @@
     }
 }
 
-.ntt--entity-secondary-name {
+//--------------------------------------------------------------
+// Entity Secondary Information
+//--------------------------------------------------------------
 
-    .ntt--txt {
-        @extend %block-pad;
+.ntt--entity-secondary-info {
+    @include space-around;
+    color: $faint-color;
+    
+    a {
+        display: inline-block;
+        color: $faint-color;
     }
 }
 
-.ntt--entity-copyright {
-    display: inline-block;
-    padding: .5em;
-}
-
+.ntt--entity-secondary-name,
+.ntt--entity-copyright,
 .ntt--entity-maker-tag {
 
     .ntt--txt {
-        display: block;
-        padding: .5em;
+        @extend %block-pad;
+        @extend %boundary;
     }
 }
+
+.ntt--entity-secondary-name,
+.ntt--entity-copyright {
+    display: inline-block;
+}
+
+//--------------------------------------------------------------
+// Content Module
+//--------------------------------------------------------------
 
 .cm-author-avatar {
     
@@ -189,15 +203,5 @@
 
     .ntt--txt {
         @extend %block-pad;
-    }
-}
-
-.ntt--entity-view-heading {
-    @include if-y-center;
-    justify-content: center;
-    padding: .5rem;
-
-    .ntt--zero-entry & {
-        display: none;
     }
 }

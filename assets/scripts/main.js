@@ -46,7 +46,7 @@
      * If Entry's only content is an image, it will not appear in Search Results, leaving Content Snippet with empty elements—so might as well remove them.
      */
 
-    var $contentSnippet = $( '.ntt--content-snippet' );
+    var $contentSnippet = $( '.ntt--entry-content-snippet' );
     removeEmpty( $contentSnippet.find( '*' ) );
     removeEmpty( $contentSnippet );
 

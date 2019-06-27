@@ -1,5 +1,5 @@
 //--------------------------------------------------------------
-// NTT Kid Rules
+// Kid NTT Rules
 //--------------------------------------------------------------
 
 @import '../../../../../assets/styles/source/rules';
@@ -105,7 +105,7 @@ hr {
     flex-wrap: wrap;
 }
 
-.ntt--entity-primary-heading {
+.ntt--entity-heading {
     padding: 1rem;
 }
 
@@ -385,7 +385,7 @@ hr {
     }
 }
 
-.ntt--content-snippet {
+.ntt--entry-content-snippet {
 
     a {
         color: inherit;

@@ -5,7 +5,7 @@
 function ntt_kid_wp_customizer( $wp_customize ) {
 
     /**
-     * NTT Kid Settings
+     * Kid NTT Settings
      */
     
     $wp_customize->add_setting( 'ntt_kid_settings_snaps', array(

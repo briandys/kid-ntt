@@ -2,43 +2,19 @@
 // Comment
 //--------------------------------------------------------------
 
-.comment-edit-link {
-    display: inline-block;
-
-    .ntt--txt {
-        @extend %block-pad;
-    }
-}
-
 .ntt--comment-meta {
     @include if-y-center
 }
 
-.ntt--comment-author {
-    @include if-y-center;
-    padding: .5rem;
-}
-
 .ntt--comment-name {
-    padding: .5rem;
+    display: inline-block;
+    @include space-around;
     font-weight: bold;
 
     .ntt--txt {
-        display: inline-block;
-        padding: .5rem;
+        @extend %block-pad;
+        @extend %boundary;
     }
-}
-
-.ntt--comment-reply-axn {
-    padding: .5rem;
-}
-
-.ntt--comment-author {
-    order: -1;
-}
-
-.ntt--comment-author-avatar {
-    order: -1;
 }
 
 .ntt--comment-author-name {
@@ -52,6 +28,44 @@
     }
 }
 
+//--------------------------------------------------------------
+// Comment Author
+//--------------------------------------------------------------
+
+.ntt--comment-author {
+    @include if-y-center;
+    padding: .5rem;
+}
+
+.ntt--comment-author-label {
+    display: inline-block;
+
+    .ntt--txt {
+        @extend %block-pad;
+        @extend %boundary;
+    }
+}
+
+.ntt--comment-author-avatar {
+
+    .ntt--img {
+        display: block;
+        @extend %boundary;
+    }
+}
+
+.ntt--comment-author-name {
+
+    .ntt--txt {
+        @extend %block-pad;
+        @extend %boundary;
+    }
+}
+
+//--------------------------------------------------------------
+// Comments Count
+//--------------------------------------------------------------
+
 .ntt--comments-count {
 
     a {
@@ -60,6 +74,7 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
@@ -72,12 +87,12 @@
     }
 
     .ntt--comments-count {
-        padding: 1rem;
-        line-height: 1;
+        @include space-around;
         font-weight: bold;
 
         .ntt--txt {
-            @extend %count-box;
+            @extend %block-pad;
+            @extend %boundary;
         }
 
         a {
@@ -100,7 +115,7 @@
 .ntt--comments-actions-snippet {
 
     .ntt--comment-axn {
-        padding: .5rem;
+        @include space-around;
 
         a {
             display: inline-block;
@@ -115,22 +130,14 @@
         }
 
         .ntt--txt {
-            @include if-y-center;
-        }
-    
-        .ntt--comment-text {
-            display: block;
-            padding: .5em;
-        }
-            
-        .ntt--requirement-txt {
-            display: block;
-            padding: .5em;
+            @extend %block-pad;
+            @extend %boundary;
         }
     }
 }
 
 .ntt--comment-reply-axn {
+    @include space-around;
 
     a {
         display: inline-block;
@@ -145,23 +152,14 @@
     }
 
     .ntt--txt {
-        @include if-y-center;
-    }
-
-    .ntt--reply-text {
-        display: block;
-        padding: .5em;
-    }
-        
-    .ntt--requirement-txt {
-        display: block;
-        padding: .5em;
+        @extend %block-pad;
+        @extend %boundary;
     }
 }
 
 .ntt--comments-name {
     display: inline-block;
-    padding: .5rem;
+    @include space-around;
     @include y-margin();
     margin-right: -1rem;
     font-weight: normal;
@@ -169,11 +167,12 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
 .ntt--modify-comment-axn {
-    padding: .5rem;
+    @include space-around;
     
     a {
         display: inline-block;
@@ -181,14 +180,17 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
 .ntt--comment-composition-name {
-    padding: .5rem;
+    display: inline-block;
+    @include space-around;
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
     
 }
@@ -240,22 +242,13 @@
 
 .ntt--comment-form {
 
-    .ntt--form-field {
-        padding: .5rem;
-    }
-
-    .ntt--form-label {
+    label {
         display: inline-block;
-        line-height: 1;
 
         .ntt--txt {
-            @include if-y-center;
-            padding: .5rem;
+            @extend %block-pad;
+            @extend %boundary;
         }
-    }
-
-    .ntt--form-element {
-        padding: .5rem;
     }
 
     .form-submit {
@@ -277,28 +270,29 @@
     }
 }
 
+.ntt--form-field {
+    @include space-around;
+}
+
+.ntt--form-element {
+    @include space-around;
+    @extend %boundary;
+}
+
 .ntt--submit-comment-axn {
     margin: 1rem;
 }
 
-.ntt--logged-in-account {
-    display: inline-block;
-    vertical-align: middle;
-    padding: .5rem;
-
-    .ntt--label-txt {
-        @extend %block-pad;
-        display: inline-block;
-        margin-right: -1rem;
-    }
-}
+//--------------------------------------------------------------
+// Account Log Status
+//--------------------------------------------------------------
 
 .ntt--account-log-status {
     @include if-y-center;
 }
 
 .ntt--log-out-account-axn {
-    padding: .5rem;
+    @include space-around;
 
     a {
         display: inline-block;
@@ -306,16 +300,22 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
 .ntt--logged-in-account {
-    display: inline-block;
+    @include space-around;
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
+
+//--------------------------------------------------------------
+// Entry Header
+//--------------------------------------------------------------
 
 .ntt--entry-header {
 
@@ -364,7 +364,6 @@
 
 .ntt--comment-published-datetime {
     @include if-y-center;
-    flex: 1 100%;
     padding: .5rem;
 }
 
@@ -373,5 +372,20 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
+    }
+}
+
+.ntt--comment-published-date,
+.ntt--comment-published-time {
+
+    a {
+        display: inline-block;
+        color: inherit;
+    }
+
+    .ntt--txt {
+        @extend %block-pad;
+        @extend %boundary;
     }
 }

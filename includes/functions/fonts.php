@@ -20,7 +20,7 @@ add_filter( 'wp_resource_hints', 'ntt_kid_preconnect_google_fonts', 10, 2 );
 function ntt_kid_custom_fonts_url() {
     $font_families = array();
     //$font_families[] = 'Open+Sans';
-    $font_families = apply_filters( 'ntt_kid_custom_fonts_wp_filter', $font_families );
+    $font_families = apply_filters( 'kid_ntt_custom_fonts_filter', $font_families );
 
     $query_args = array(
         'family' => implode( '|', $font_families ),

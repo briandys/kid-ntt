@@ -42,45 +42,39 @@ function ntt_kid_functions_page() {
         if ( $the_query->have_posts() ) {
             ?>
             <div class="sub-content-entries cp" data-name="Sub-Content Entries">
-                <div class="sub-content-entries---cr">
-                    <div class="sub-content-entries-name obj">
-                            <span class="txt"><?php esc_html_e( 'Sub-Content Entries', 'ntt' ); ?></span>
-                        </div>
-                    <div class="sub-content-entries-group cp">
-                        <div class="sub-content-entries-group---cr">
-                            <?php
-                            while ( $the_query->have_posts() ) {
-                                $the_query->the_post();
-                                global $post;
-                                ?>
-                                <div id="sub-content-entry-<?php the_id(); ?>" class="sub-content-entry-<?php the_id(); ?> sub-content-entry cp" data-name="Sub-Content Entry">
-                                    <div class="sub-content-entry---cr">
-                                        <div class="sub-content-entry-name obj">
-                                            <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="u-url">
-                                                <span class="txt"><?php the_title(); ?></span>
-                                            </a>
-                                        </div>
-                                        <?php if ( $post->ntt_description ) {
-                                            ?>
-                                            <div class="sub-content-entry-description obj" data-name="Sub-Content Entry Description">
-                                                <?php echo wpautop( $post->ntt_description ); ?>
-                                            </div>
-                                            <?php
-                                        }
-                                        ?>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    }
-                                ?>
-                        </div>
+                <div class="sub-content-entries-name obj">
+                        <span class="txt"><?php esc_html_e( 'Sub-Content Entries', 'ntt' ); ?></span>
                     </div>
+                <div class="sub-content-entries-group cp">
                     <?php
-                    if ( $total_pages > 1 ) {
-                        ntt_sub_content_nav( $total_pages );
-                    }
+                    while ( $the_query->have_posts() ) {
+                        $the_query->the_post();
+                        global $post;
+                        ?>
+                        <div id="sub-content-entry-<?php the_id(); ?>" class="sub-content-entry-<?php the_id(); ?> sub-content-entry cp" data-name="Sub-Content Entry">
+                            <div class="sub-content-entry-name obj">
+                                <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="u-url">
+                                    <span class="ntt--txt"><?php the_title(); ?></span>
+                                </a>
+                            </div>
+                            <?php if ( $post->ntt_description ) {
+                                ?>
+                                <div class="sub-content-entry-description obj" data-name="Sub-Content Entry Description">
+                                    <?php echo wpautop( $post->ntt_description ); ?>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <?php
+                        }
                     ?>
                 </div>
+                <?php
+                if ( $total_pages > 1 ) {
+                    ntt_sub_content_nav( $total_pages );
+                }
+                ?>
             </div>
             <?php
         }

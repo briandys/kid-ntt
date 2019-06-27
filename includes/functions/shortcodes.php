@@ -114,9 +114,7 @@ function ntt_kid_percept_wp_shortcode( $atts ) {
                     $section_mu .= '<div class="cr">';
                         $section_mu .= '<div class="ntt-percept-name obj">'. esc_html( '%2$s' ). '</div>';
                         $section_mu .= '<div class="ntt-percept-content cp" data-name="NTT Percept Content">';
-                            $section_mu .= '<div class="ntt-percept-content---cr">';
-						        $section_mu .= '%1$s';
-					        $section_mu .= '</div>';
+                            $section_mu .= '%1$s';
                         $section_mu .= '</div>';
 					$section_mu .= '</div>';
 				$section_mu .= '</div>';

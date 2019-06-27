@@ -31,7 +31,7 @@ function a_stormy_sky_ntt_font_families( $font_families ) {
     
     return $font_families;
 }
-add_filter( 'ntt_kid_custom_fonts_wp_filter', 'a_stormy_sky_ntt_font_families' );
+add_filter( 'kid_ntt_custom_fonts_filter', 'a_stormy_sky_ntt_font_families' );
 
 function ntt_kid_cm_datetime_month_wp_filter() {
     return 'M';

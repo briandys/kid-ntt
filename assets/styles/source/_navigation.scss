@@ -75,34 +75,33 @@
 }
 
 .ntt--ntt--entry-breadcrumbs-nav-ancestors-group {
-    @include unlist
+    @include unlist;
     display: flex;
     display: contents;
 }
 
-.entries-nav,
+//--------------------------------------------------------------
+// Entries Navigation
+//--------------------------------------------------------------
+
+.ntt--entries-nav,
 .ntt--entry-subcontent-nav {
 
-    a {
-        display: inline-block;
+    ul {
+        @include unlist;
+        @include if-y-center;
     }
 
     li {
-        padding: .5rem;
-    }
+        @include space-around;
 
-    ul {
-        @include unlist
-        display: inline-flex;
-        align-items: center;
-        flex-wrap: wrap;
-    }
+        .page-numbers {
+            display: inline-block;
+        }
 
-    .page-numbers {
-
-        .l {
-            display: block;
-            padding: .5rem;
+        .ntt--txt {
+            @extend %block-pad;
+            @extend %boundary;
         }
     }
     
@@ -111,16 +110,37 @@
     }
 }
 
-.ntt--entity-primary-nav {
+.ntt--entries-page-indicator {
+    display: inline-block;
+    @include space-around;
+
+    .ntt--txt {
+        @extend %block-pad;
+        @extend %boundary;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Primary Navigation, Entity Secondary Navigation
+//--------------------------------------------------------------
+
+.ntt--entity-primary-nav,
+.ntt--entity-secondary-nav {
 
     ul {
-        @include unlist
+        @include unlist;
+        @include if-y-center;
     }
 
     li {
+        @include space-around;
 
         > ul {
             display: none; // Temporary: hide sub-navigation
+        }
+
+        .ntt--txt {
+            @extend %boundary;
         }
     }
 
@@ -135,14 +155,6 @@
     .current-menu-item,
     .current_page_item {
         font-weight: bold;
-    }
-}
-
-.ntt--entity-primary-nav-group {
-    @include if-y-center;
-
-    & > li {
-        padding: .5rem;
     }
 }
 
@@ -164,24 +176,20 @@
             }
         }
     }
+
+    .ntt--txt {
+        @extend %block-pad;
+        @extend %boundary;
+    }
+
+    .ntt--img {
+        display: inline-block;
+        @extend %boundary;
+    }
 }
 
-.entry-navi {
-    padding: .5rem;
-
-    .l {
-        display: flex;
-        flex-flow: column;
-    }
-
-    .property---line,
-    .value---line {
-        @extend %block-pad;
-    }
-
-    .img {
-        @extend %block-pad;
-    }
+.ntt--entry-navi {
+    @include space-around;
 }
 
 // Entry Content Navigation
@@ -196,7 +204,7 @@
     }
 
     ul {
-        @include unlist
+        @include unlist;
         display: inline-flex;
         flex-wrap: wrap;
         align-items: center;

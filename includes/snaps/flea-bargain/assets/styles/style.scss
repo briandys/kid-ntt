@@ -1,5 +1,5 @@
 //--------------------------------------------------------------
-// NTT Kid Rules
+// Kid NTT Rules
 //--------------------------------------------------------------
 
 @import '../../../../../assets/styles/source/rules';
@@ -104,7 +104,7 @@ hr {
     flex-wrap: wrap;
 }
 
-.ntt--entity-primary-heading {
+.ntt--entity-heading {
     padding: 1rem;
 }
 
@@ -434,7 +434,7 @@ hr {
     }
 }
 
-.ntt--content-snippet {
+.ntt--entry-content-snippet {
 
     a {
         color: inherit;
@@ -573,7 +573,7 @@ hr {
         padding: 0;
     }
 
-    .entry-modified-datetime-label {
+    .ntt--entry-modified-datetime-label {
         @extend %ir;
         position: absolute;
         right: 0;

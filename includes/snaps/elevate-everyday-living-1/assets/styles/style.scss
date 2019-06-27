@@ -182,7 +182,7 @@ body {
     }
 }
 
-.ntt--entry-heading---cr {
+.ntt--entry-heading{
 
     .entry-breadcrumbs-nav,
     .ntt--entry-categories {
@@ -217,7 +217,7 @@ body {
     }
 }
 
-.entry-modified-datetime-label {
+.ntt--entry-modified-datetime-label {
 
     .on---text {
         display: none;
@@ -232,7 +232,7 @@ body {
     @extend %faint-label;
 }
 
-.entry-modified-datetime-label {
+.ntt--entry-modified-datetime-label {
     @extend %faint-label;
 }
 
@@ -394,7 +394,7 @@ p.has-drop-cap:not(:focus) {
         }
     }
 
-    .ntt--content-snippet {
+    .ntt--entry-content-snippet {
         
         a {
             background-image: none;
@@ -505,13 +505,13 @@ p.has-drop-cap:not(:focus) {
     padding: .5rem 1rem;
 }
 
-.ntt--comment---cr {
+.ntt--comment{
     @extend %border;
 }
 
 .ntt--comments-thread-limit---max {
 
-    .ntt--comment---cr {
+    .ntt--comment{
         padding-bottom: 1rem;
     }
 }

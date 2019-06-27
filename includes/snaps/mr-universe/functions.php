@@ -13,7 +13,7 @@ $GLOBALS['ntt_snaps_name'] = 'Mr. Universe';
 $GLOBALS['ntt_snaps_name_slug'] = sanitize_title( $GLOBALS['ntt_snaps_name'] );
 
 /**
- * NTT Kid Functions
+ * Kid NTT Functions
  */
 
 $r_functions = array(
@@ -59,7 +59,7 @@ function mr_universe_ntt_font_families( $font_families ) {
     
     return $font_families;
 }
-add_filter( 'ntt_kid_custom_fonts_wp_filter', 'mr_universe_ntt_font_families' );
+add_filter( 'kid_ntt_custom_fonts_filter', 'mr_universe_ntt_font_families' );
  */
 
 /**
@@ -73,13 +73,11 @@ add_filter( 'ntt_cm_datetime_month_wp_filter', function() {
 /**
  * HTML CSS
  */
-function mr_universe_ntt_html_css( $classes ) {
 
+add_filter( 'ntt_html_css_filter', function( $classes ) {
     $classes[] = 'ntt--entry-datetime--boxy';
-
     return $classes;
-}
-add_filter( 'ntt_html_css_filter', 'mr_universe_ntt_html_css' );
+} );
 
 /**
  * Remove Password-Protected Posts Filter

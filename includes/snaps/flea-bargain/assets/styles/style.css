@@ -12,13 +12,13 @@
   white-space: nowrap;
 }
 
-.ntt--entry-datetime--boxy .entry-modified-datetime-label {
+.ntt--entry-datetime--boxy .ntt--entry-modified-datetime-label {
   background-color: transparent;
   border: 0;
   overflow: hidden;
 }
 
-.ntt--entry-datetime--boxy .entry-modified-datetime-label:before {
+.ntt--entry-datetime--boxy .ntt--entry-modified-datetime-label:before {
   content: '';
   display: block;
   width: 0;
@@ -148,7 +148,7 @@ hr {
       flex-wrap: wrap;
 }
 
-.ntt--entity-primary-heading {
+.ntt--entity-heading {
   padding: 1rem;
 }
 
@@ -415,7 +415,7 @@ hr {
   padding-top: 0;
 }
 
-.ntt--content-snippet a {
+.ntt--entry-content-snippet a {
   color: inherit;
 }
 
@@ -509,7 +509,7 @@ hr {
   padding: 0;
 }
 
-.ntt--entry-datetime--boxy .entry-modified-datetime-label {
+.ntt--entry-datetime--boxy .ntt--entry-modified-datetime-label {
   position: absolute;
   right: 0;
   top: 0;
@@ -522,11 +522,11 @@ hr {
   mix-blend-mode: soft-light;
 }
 
-.ntt--entry-datetime--boxy .entry-modified-datetime-label .l {
+.ntt--entry-datetime--boxy .ntt--entry-modified-datetime-label .l {
   padding: .5em .5em;
 }
 
-.ntt--entry-datetime--boxy .entry-modified-datetime-label .on---text {
+.ntt--entry-datetime--boxy .ntt--entry-modified-datetime-label .on---text {
   display: none;
 }
 

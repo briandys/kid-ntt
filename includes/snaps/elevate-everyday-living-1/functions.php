@@ -28,7 +28,7 @@ function eel_ntt_font_families( $font_families ) {
     
     return $font_families;
 }
-add_filter( 'ntt_kid_custom_fonts_wp_filter', 'eel_ntt_font_families' );
+add_filter( 'kid_ntt_custom_fonts_filter', 'eel_ntt_font_families' );
 
 /** 
  * Add Stuff with Entry Name

@@ -95,7 +95,7 @@ body {
   display: none;
 }
 
-.ntt--page .ntt--entry-heading---cr {
+.ntt--page .ntt--entry-heading {
   display: block;
 }
 
@@ -391,7 +391,7 @@ body {
   text-align: center;
 }
 
-.ntt--entity-primary-heading {
+.ntt--entity-heading {
   padding: 0;
 }
 
@@ -586,10 +586,6 @@ body {
   .ntt--entry {
     position: relative;
   }
-  .ntt--entry-md {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
   .ntt--entry-full-content > *:first-child {
     margin-top: 3rem;
   }
@@ -624,6 +620,9 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     padding: 3rem 2rem;
@@ -634,12 +633,12 @@ body {
             flex: 1 100%;
   }
   @supports (display: grid) {
-    .ntt--entity-header {
+    .ntt--entity-header > * {
       max-width: 28rem;
     }
   }
   @supports (display: grid) {
-    .ntt--entity-main {
+    .ntt--entity-main > * {
       max-width: 52rem;
     }
   }
@@ -731,11 +730,8 @@ body {
     margin-top: 0;
     margin-bottom: 0;
   }
-  .brian-dys-works {
-    min-height: 100vh;
-  }
   .brian-dys-work-item {
-    padding: 2rem;
+    padding: 1.75rem 2rem;
   }
   .ntt--page--about .brian-dys-about-image {
     padding-left: 0;

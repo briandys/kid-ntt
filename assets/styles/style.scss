@@ -2,12 +2,14 @@
 @import 'source/basic';
 
 @import 'source/comment';
-@import 'source/entry';
 @import 'source/entity';
+@import 'source/entry';
 @import 'source/navigation';
+@import 'source/note';
 @import 'source/widget';
-@import 'source/theme';
 
 @import 'source/media-query';
 
 @import 'source/features/search-compact';
+
+@import 'source/theme';

@@ -7,7 +7,7 @@ $GLOBALS['ntt_snaps_name'] = 'Brian Dys';
 $GLOBALS['ntt_snaps_name_slug'] = sanitize_title( $GLOBALS['ntt_snaps_name'] );
 
 /**
- * NTT Kid Functions
+ * Kid NTT Functions
  */
 
 $r_functions = array(
@@ -30,7 +30,7 @@ add_action( 'wp_enqueue_scripts', function() {
  * Font Families
  */
 
-add_filter( 'ntt_kid_custom_fonts_wp_filter', function( $font_families ) {
+add_filter( 'kid_ntt_custom_fonts_filter', function( $font_families ) {
     $font_families[] = 'Montserrat:400,800|Work+Sans:400,700&display=swap';
     return $font_families;
 } );

@@ -1,5 +1,5 @@
 //--------------------------------------------------------------
-// NTT Kid Rules
+// Kid NTT Rules
 //--------------------------------------------------------------
 
 @import '../../../../../assets/styles/source/rules';
@@ -23,7 +23,6 @@ $secondary-font: 'Montserrat', sans-serif;
 
 $color-1: $blood-red;
 
-//accent-color;
 $link-color: $color-1;
 $content-bg-color: hsl(0, 0%, 92%);
 
@@ -36,7 +35,6 @@ $content-bg-color: hsl(0, 0%, 92%);
     top: 0;
     margin: 3rem 0 0 -1.25rem;
     writing-mode: vertical-rl;
-
     /* Visual Design */
     font-size: 6rem;
     line-height: 1;
@@ -64,7 +62,7 @@ body {
 //--------------------------------------------------------------
 
 .ntt--front-view {
-    
+
     &.ntt--page {
 
         .ntt--entity-secondary-nav {
@@ -75,7 +73,7 @@ body {
             @extend %vh;
             color: $neutral-color;
             background-color: $ink-color;
-
+            
             a {
                 color: $neutral-color;
             }
@@ -134,26 +132,26 @@ body {
     .ntt--entity-view-heading {
         display: none;
     }
-
-    .ntt--entry-heading---cr {
+    
+    .ntt--entry-heading{
         display: block;
     }
-
+    
     .ntt--entry-axns {
         display: none;
     }
-
+    
     .post-edit-link {
-
+    
         &:hover {
             text-decoration: none;
-
+    
             .ntt--txt {
                 background-color: $accent-color;
                 border-color: $accent-color;
             }
         }
-
+    
         .ntt--txt {
             @include x-padding(.75rem);
             color: $paper-color;
@@ -163,7 +161,7 @@ body {
             @include transition;
         }
     }
-
+    
     .ntt--entry-name {
         margin-top: 2rem;
         color: $accent-color;
@@ -177,38 +175,30 @@ body {
 //--------------------------------------------------------------
 // Page: Works
 //--------------------------------------------------------------
-
 .ntt--page--works {
-
     //--------------------------------------------------------------
     // Entity
     //--------------------------------------------------------------
-
     .ntt--entity-main {
         background-color: $ink-color;
     }
-
     .ntt--entity-header-aside {
         display: block;
     }
-    
     //--------------------------------------------------------------
     // Entry
     //--------------------------------------------------------------
-
     .ntt--entry {
         color: hsla(0, 0, 100%, .65);
-
         .ntt--content {
             font-size: 1.125rem;
         }
     }
 }
-    
+
 //--------------------------------------------------------------
 // Entity Primary Navigation, Entity Secondary Navigation
 //--------------------------------------------------------------
-
 .ntt--entity-primary-nav {
     @include y-margin(2rem, 1rem);
 }
@@ -225,11 +215,9 @@ body {
 
 .ntt--entity-secondary-nav {
     background-color: $content-bg-color;
-
     ul {
         @include unlist;
     }
-
     .ntt--txt {
         @extend %block-pad;
     }
@@ -244,35 +232,29 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-
-    > li {
+    >li {
         padding: .5rem;
     }
 }
 
 .ntt--entity-primary-nav,
 .ntt--entity-secondary-nav {
-    
     a {
         color: $ink-color;
         text-transform: uppercase;
         font-weight: bold;
         font-size: 1.125rem;
         @include transition;
-
         &:hover {
             color: $accent-color;
             text-decoration: none;
         }
     }
-
     .ntt--txt {
         @include x-padding(.75rem);
     }
-
     .current-menu-item,
     .current_page_item {
-
         a {
             color: $accent-color;
         }
@@ -282,7 +264,6 @@ body {
 //--------------------------------------------------------------
 // Brian Dys Works
 //--------------------------------------------------------------
-
 .brian-dys-works {
     display: flex;
     flex-wrap: wrap;
@@ -291,41 +272,32 @@ body {
 
 .brian-dys-work-item {
     flex: 1 15rem;
-
     .title {
         font-weight: 800;
         font-size: 1.5rem;
         font-family: $secondary-font;
-
         a {
             color: $paper-color;
             @include transition;
-
             &:hover {
                 color: $accent-color;
                 text-decoration: none;
             }
         }
     }
-
     .sub-title {
         color: $neutral-color;
         font-family: $secondary-font;
     }
-
     .glyph {
         text-align: center;
-        
         a {
             display: inline-block;
-
             svg {
                 @include transition;
                 transition-timing-function: ease-in-out;
             }
-
             &:hover {
-                
                 svg {
                     transform: scale(1.05);
                 }
@@ -338,60 +310,47 @@ body {
     padding: 1rem;
     text-align: center;
 }
-    
+
 .glyph {
-
     svg {
-
         .brian-dys-rec-work & {
             max-width: 150px;
         }
-
         .brian-dys-uxd-work & {
             max-width: 160px;
         }
-
         .brian-dys-ntt-work & {
             max-width: 115px;
         }
-
         .brian-dys-hok-work & {
             max-width: 110px;
         }
     }
 }
-    
+
 //--------------------------------------------------------------
 // Brian Dys Intro
 //--------------------------------------------------------------
-
 .brian-dys-intro {
     text-align: center;
     line-height: 1.5;
     font-size: 1.125rem;
-
     .glyph {
         margin-left: .25rem;
-
         svg {
             width: 1.25rem;
             height: 1.25rem;
         }
     }
-
     .paymaya-label,
     .voyager-label {
         white-space: nowrap;
-
         a {
-
             svg {
                 @include transition;
                 transition-timing-function: ease-in-out;
             }
-
             &:hover {
-
                 svg {
                     transform: scale(1.1);
                 }
@@ -401,26 +360,20 @@ body {
 }
 
 .brian-dys-intro {
-
-    > * {
-
+    >* {
         &:first-child {
             margin-top: 0;
         }
-
         &:last-child {
             margin-bottom: 0;
         }
     }
-
 }
-    
+
 //--------------------------------------------------------------
 // Entity
 //--------------------------------------------------------------
-
 .ntt--entity-logo---1 {
-
     .ntt--entity-name {
         @include vh;
     }
@@ -436,15 +389,12 @@ body {
 }
 
 .ntt--entity-header-aside {
-
     .ntt--widget {
         @include y-padding();
     }
-
-    .ntt--widget > * {
+    .ntt--widget>* {
         @include y-margin();
     }
-
     .ntt--widget-name {
         display: none;
     }
@@ -459,8 +409,7 @@ body {
 //--------------------------------------------------------------
 // Entity Header
 //--------------------------------------------------------------
-
-.ntt--entity-primary-heading {
+.ntt--entity-heading {
     padding: 0;
 }
 
@@ -479,7 +428,6 @@ body {
 //--------------------------------------------------------------
 // Entry
 //--------------------------------------------------------------
-
 .ntt--entry-md {
     @include y-padding();
 }
@@ -489,17 +437,14 @@ body {
 }
 
 .ntt--entry-full-content {
-
     abbr[title] {
         text-decoration: none;
         border-bottom: 1px solid $neutral-color;
-
         &:hover {
             color: $accent-color;
             border-bottom: 0;
         }
     }
-
     hr {
         width: 4rem;
         @include x-padding();
@@ -507,57 +452,46 @@ body {
         height: auto;
         border-top-width: 2px;
     }
-
     [id*="contact-form"] {
-
         form {
             display: flex;
             flex-wrap: wrap;
             margin: -.5rem;
-
-            > * {
+            >* {
                 margin: .5rem;
                 width: 100%;
             }
         }
-
         label {
             display: inline-block;
             margin-bottom: .25rem;
             color: $neutral-color;
             font-size: 1.125rem;
-
             span {
                 @extend %vh;
             }
         }
-
         input,
         textarea {
             border-width: 2px;
             border-radius: 0;
             font-size: 1.125rem;
-
             &:focus {
                 outline: none;
                 border-color: $ink-color;
             }
         }
-
         textarea {
             height: 7.5rem;
             min-height: 7.5rem;
         }
-
         button {
             width: 100%;
             background-color: $ink-color;
         }
-
         .grunion-field-textarea-wrap {
             flex: 1 100%;
         }
-
         .contact-submit {
             margin-top: 1.5rem;
         }
@@ -565,7 +499,6 @@ body {
 }
 
 .ntt--entry-full-content {
-
     .initial-letter {
         position: relative;
         @include x-margin(-.05em, .1em);
@@ -574,31 +507,25 @@ body {
         font-family: $secondary-font;
         font-size: 5.5rem;
     }
-    
     p.has-drop-cap:not(:focus) {
-
         &:first-letter {
             @extend .initial-letter;
         }
     }
 }
-    
+
 .brian-dys-about-image {
     display: block;
     @include x-padding();
     @include y-margin(1em);
 }
 
-
-
 //--------------------------------------------------------------
 // Main Pages
 //--------------------------------------------------------------
-
 .ntt--page--works,
 .ntt--page--about,
 .ntt--page--contact {
-
     .ntt--entry-name {
         text-align: center;
     }
@@ -607,19 +534,15 @@ body {
 //--------------------------------------------------------------
 // Media Query: Mobile Large Width and Below
 //--------------------------------------------------------------
-
 @media only screen and (max-width: $mobile-l-vp) {
-    
     //--------------------------------------------------------------
     // Brian Dys Works
     //--------------------------------------------------------------
-
     .brian-dys-work-item {
         padding: 2rem;
         margin: .5rem;
         background-color: hsla(0, 0%, 0%, .25);
     }
-
     .brian-dys-works {
         padding: .5rem;
         @include y-margin();
@@ -629,36 +552,26 @@ body {
 //--------------------------------------------------------------
 // Media Query: Mobile Large Viewport Width and Up
 //--------------------------------------------------------------
-
 @media only screen and (min-width: $mobile-l-vp) {
-
     //--------------------------------------------------------------
     // Entry
     //--------------------------------------------------------------
-
     .ntt--entry {
-
         .ntt--content {
             font-size: 1.5rem;
             line-height: 1.8;
         }
     }
-    
     .ntt--content {
-    
         hr {
             border-top-width: 4px;
         }
-
         [id*="contact-form"] {
-
             form {
-    
-                > * {
+                >* {
                     flex: 1;
                 }
             }
-
             button {
                 width: auto;
             }
@@ -669,13 +582,10 @@ body {
 //--------------------------------------------------------------
 // Media Query: Tablet Width and Up
 //--------------------------------------------------------------
-
 @media only screen and (min-width: $tablet-vp) {
-
     //--------------------------------------------------------------
     // Brian Dys Works
     //--------------------------------------------------------------
-    
     .brian-dys-work-item {
         flex: 1 50%;
     }
@@ -684,71 +594,48 @@ body {
 //--------------------------------------------------------------
 // Media Query: Large Width and Up
 //--------------------------------------------------------------
-
 @include mq(l-vp) {
-
     //--------------------------------------------------------------
     // Layout
     //--------------------------------------------------------------
-    
     @supports (display: grid) {
-    
         .ntt--entity {
             display: grid;
-            grid-template:
-                'entity-start .'
-                'entity-header entity-main' minmax(100vh, 100%)
-                'entity-footer .'
-                'entity-end .'
-                / 35vw auto;
+            grid-template: 'entity-start .' 'entity-header entity-main' minmax(100vh, 100%) 'entity-footer .' 'entity-end .' / 35vw auto;
         }
-
         .ntt--entity-footer {
             grid-column: 1 / -1;
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-end;
         }
-
         .ntt--entity-secondary-nav,
         .ntt--entity-secondary-info {
             width: 65vw;
         }
-
         .ntt--entity-secondary-nav,
         .ntt--entity-secondary-info {
             max-width: 52rem;
         }
     }
-    
     //--------------------------------------------------------------
     // Entry
     //--------------------------------------------------------------
-    
     .ntt--entry {
         position: relative;
     }
-
-    .ntt--entry-md {
-        @include y-padding();
-    }
-
     .ntt--entry-full-content {
-
-        > *:first-child {
+        >*:first-child {
             margin-top: 3rem;
         }
     }
-    
     .brian-dys-about-image {
         display: flex;
         justify-content: flex-end;
         padding-right: 0;
-        
         .ntt--content & {
             @include y-margin(0, 2em);
         }
-
         img {
             width: 30rem;
             height: 16.875rem;
@@ -757,69 +644,58 @@ body {
             //mix-blend-mode: multiply;
         }
     }
-    
     //--------------------------------------------------------------
     // Entity Header
     //--------------------------------------------------------------
-    
     .ntt--entity-header {
         z-index: 1;
-
         @supports (display: grid) {
-            
             & {
                 justify-self: flex-end;
             }
         }
     }
-
     .ntt--entity-header {
         display: flex;
+        justify-content: flex-end;
         flex-wrap: wrap;
         padding: 3rem 2rem;
-
+        
         > * {
             flex: 1 100%;
         }
-
+        
         @supports (display: grid) {
-            
-            & {
+        
+            & > * {
                 max-width: 28rem;
             }
         }
     }
-    
     //--------------------------------------------------------------
     // Entity Main
     //--------------------------------------------------------------
-
     @supports (display: grid) {
-
         .ntt--entity-main {
-            max-width: 52rem;
+            >* {
+                max-width: 52rem;
+            }
         }
     }
-
     //--------------------------------------------------------------
     // Entity Primary Navigation
     //--------------------------------------------------------------
-
     .ntt--entity-primary-nav {
         margin-top: 3rem;
     }
-
     //--------------------------------------------------------------
     // [Entry] Page
     //--------------------------------------------------------------
-
     .ntt--page {
         $x-content-gap: 2rem;
-
         .ntt--entry-name {
             padding: 0;
         }
-    
         .ntt--entry-axns {
             display: none;
             position: fixed;
@@ -827,18 +703,14 @@ body {
             top: 0;
             padding: .5rem;
         }
-    
         .post-edit-link {
-    
             &:hover {
                 text-decoration: none;
-    
                 .ntt--txt {
                     background-color: $accent-color;
                     border-color: $accent-color;
                 }
             }
-    
             .ntt--txt {
                 @include x-padding(.75rem);
                 color: $paper-color;
@@ -848,94 +720,68 @@ body {
                 @include transition;
             }
         }
-
         .ntt--entry-header {
-
-            > * {
+            >* {
                 @include x-padding($x-content-gap);
             }
         }
-
         .ntt--entry-full-content {
-        
-            > * {
+            >* {
                 @include x-padding($x-content-gap);
             }
-    
             hr {
                 @include x-margin($x-content-gap);
             }
         }
     }
-
     //--------------------------------------------------------------
     // Main Pages
     //--------------------------------------------------------------
-
     .ntt--page--works,
     .ntt--page--about,
     .ntt--page--contact {
-
         .ntt--entry-name {
             @include vertical-name;
             text-align: left;
         }
-
         .ntt--entry-header {
-
-            > * {
+            >* {
                 @include x-padding();
             }
         }
-
         .ntt--entry-full-content {
             $l-gap: 7rem;
             $r-gap: 5rem;
-        
-            > * {
+            >* {
                 @include x-padding($l-gap, $r-gap);
             }
-    
             hr {
                 @include x-margin($l-gap, $r-gap);
             }
         }
     }
-
     //--------------------------------------------------------------
     // Page Works
     //--------------------------------------------------------------
-
     .ntt--page--works {
-
         .ntt--entry {
             @include x-padding(6rem, 4rem);
             @include y-padding();
         }
-
         .ntt--entry-full-content {
-
-            > * {
+            >* {
                 @include x-padding();
                 @include y-margin();
             }
         }
     }
-    
-    .brian-dys-works {
-        min-height: 100vh;
-    }
-    
     .brian-dys-work-item {
-        padding: 2rem;
+        padding: 1.75rem 2rem;
     }
-
     //--------------------------------------------------------------
     // [Page] Works
     //--------------------------------------------------------------
-
     .ntt--page--about {
-
         .brian-dys-about-image {
             @include x-padding();
         }

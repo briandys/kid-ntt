@@ -117,7 +117,7 @@ hr {
       flex-wrap: wrap;
 }
 
-.ntt--entity-primary-heading {
+.ntt--entity-heading {
   padding: 1rem;
 }
 
@@ -358,7 +358,7 @@ hr {
   padding-top: 0;
 }
 
-.ntt--content-snippet a {
+.ntt--entry-content-snippet a {
   color: inherit;
 }
 
