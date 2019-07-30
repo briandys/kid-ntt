@@ -367,6 +367,7 @@
 
     .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
@@ -430,7 +431,7 @@
     display: contents;
 }
 
-.ntt--populated-comments {
+.ntt--comments---populated {
 
     .ntt--entry-header {
         @include if-y-center;

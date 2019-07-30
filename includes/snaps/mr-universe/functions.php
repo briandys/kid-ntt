@@ -33,6 +33,7 @@ $r_snap_functions = array(
     //'open-graph',
     'html-canvas-mode',
     'prezo-mode',
+    'responsive-flickr',
     'widgets',
 );
 
@@ -66,7 +67,7 @@ add_filter( 'kid_ntt_custom_fonts_filter', 'mr_universe_ntt_font_families' );
  * DateTime - Month Format
  */
 
-add_filter( 'ntt_cm_datetime_month_wp_filter', function() {
+add_filter( 'ntt_cm_datetime_month_filter', function() {
     return 'M';
 } );
 

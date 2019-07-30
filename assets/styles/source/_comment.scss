@@ -197,14 +197,15 @@
 
 .ntt--cancel-reply-axn {
     display: none;
-    padding: .5rem;
+    @include space-around;
 
     a {
         display: inline-block;
     }
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
+        @extend %boundary;
     }
 }
 
@@ -329,33 +330,6 @@
             }
         }
     }
-}
-
-//--------------------------------------------------------------
-// Comments Navigation
-//--------------------------------------------------------------
-
-.ntt--comments-nav {
-    @include if-y-center;
-    display: flex;
-    flex: 1 100%;
-    @include y-padding(.5rem);
-}
-
-.ntt--comments-navi {
-    padding: .5rem;
-
-    a {
-        display: inline-block;
-    }
-
-    .ntt--txt {
-        @extend %block-pad;
-    }
-}
-
-.ntt--next-comments-navi {
-    order: 1;
 }
 
 //--------------------------------------------------------------

@@ -89,7 +89,7 @@ $faint-border: 1px solid hsla(0, 0%, 0%, .125);
 }
 
 %boundary {
-    border: 1px solid black;
+    _border: 1px solid black;
 }
 
 @mixin space-around {

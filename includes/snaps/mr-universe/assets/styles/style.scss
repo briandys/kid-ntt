@@ -471,7 +471,7 @@ hr {
             }
         }
     
-        &.ntt--empty-entry-name {
+        &.ntt--entry-name---empty {
             
             .entry-heading,
             .entry-author,
@@ -553,7 +553,7 @@ hr {
         display: none;
     }
 
-    .ntt--updated-entry {
+    .ntt--entry---updated {
 
         .ntt--entry-published-datetime {
             display: none;

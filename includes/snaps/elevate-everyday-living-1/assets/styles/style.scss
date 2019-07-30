@@ -206,7 +206,7 @@ body {
     display: none;
 }
 
-.ntt--updated-entry {
+.ntt--entry---updated {
 
     .ntt--entry-modified-datetime {
         display: block;
@@ -547,7 +547,7 @@ p.has-drop-cap:not(:focus) {
     @extend %faint-label;
 }
 
-.ntt--empty-comments {
+.ntt--comments---empty {
 
     .ntt--comments-main {
         display: none;
@@ -697,7 +697,7 @@ p.has-drop-cap:not(:focus) {
 
         &.ntt--first-page {
             
-            .ntt--sticky-entry {
+            .ntt--entry---sticky {
                 flex: 1 50%;
 
                 .entry-main,
@@ -718,7 +718,7 @@ p.has-drop-cap:not(:focus) {
 
                 .ntt--entry-banner-visuals---1 {
 
-                    &.ntt--unsticky-entry {
+                    &.ntt--entry---unsticky {
 
                         .ntt--entry {
                             display: grid;
@@ -789,7 +789,7 @@ p.has-drop-cap:not(:focus) {
                     }
                 }
 
-                .ntt--sticky-entry {
+                .ntt--entry---sticky {
 
                     .entry-main,
                     .ntt--entry-footer {
@@ -887,7 +887,7 @@ p.has-drop-cap:not(:focus) {
 
                 .ntt--entry-banner-visuals---0 {
 
-                    &.ntt--sticky-entry {
+                    &.ntt--entry---sticky {
 
                         .ntt--entry-header {
                             height: $sticky-banner-height;

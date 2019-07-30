@@ -18,6 +18,7 @@ $r_functions = array(
     // Primary
     'styles-scripts',
     // Secondary
+    'comments-css',
     'customizer',
     'custom-fields',
     'entry-css',
@@ -33,7 +34,7 @@ foreach ( $r_functions as $function ) {
 /**
  * Maker Tag Name
  */
-add_filter( 'ntt_entity_maker_tag_theme_name_wp_filter', function() {
+add_filter( 'ntt_entity_maker_tag_theme_name_filter', function() {
     return $GLOBALS['ntt_child_theme_name'];
 } );
 
@@ -41,6 +42,6 @@ add_filter( 'ntt_entity_maker_tag_theme_name_wp_filter', function() {
  * Maker Tag URL
  */
 
-add_filter( 'ntt_entity_maker_tag_theme_url_wp_filter', function() {
+add_filter( 'ntt_entity_maker_tag_theme_url_filter', function() {
     return $GLOBALS['ntt_child_theme_url'];
 } );

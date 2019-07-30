@@ -33,10 +33,10 @@ function a_stormy_sky_ntt_font_families( $font_families ) {
 }
 add_filter( 'kid_ntt_custom_fonts_filter', 'a_stormy_sky_ntt_font_families' );
 
-function ntt_kid_cm_datetime_month_wp_filter() {
+function ntt_kid_cm_datetime_month_filter() {
     return 'M';
 }
-add_filter( 'ntt_cm_datetime_month_wp_filter', 'ntt_kid_cm_datetime_month_wp_filter' );
+add_filter( 'ntt_cm_datetime_month_filter', 'ntt_kid_cm_datetime_month_filter' );
 
 /**
  * HTML CSS

@@ -33,7 +33,7 @@ $content-bg-color: hsl(0, 0%, 92%);
     position: absolute;
     left: 0;
     top: 0;
-    margin: 3rem 0 0 -1.25rem;
+    margin: 3rem 0 0 -1.35rem;
     writing-mode: vertical-rl;
     /* Visual Design */
     font-size: 6rem;
@@ -63,7 +63,7 @@ body {
 
 .ntt--front-view {
 
-    &.ntt--page {
+    &.ntt--page--view {
 
         .ntt--entity-secondary-nav {
             display: none;
@@ -118,7 +118,7 @@ body {
 // Page View
 //--------------------------------------------------------------
 
-.ntt--page {
+.ntt--page--view {
 
     //--------------------------------------------------------------
     // Hide Stuff
@@ -163,6 +163,7 @@ body {
     }
     
     .ntt--entry-name {
+        padding: 0;
         margin-top: 2rem;
         color: $accent-color;
         text-transform: uppercase;
@@ -175,19 +176,25 @@ body {
 //--------------------------------------------------------------
 // Page: Works
 //--------------------------------------------------------------
-.ntt--page--works {
+
+.ntt--page--works--view {
+    
     //--------------------------------------------------------------
     // Entity
     //--------------------------------------------------------------
+    
     .ntt--entity-main {
         background-color: $ink-color;
     }
+    
     .ntt--entity-header-aside {
         display: block;
     }
+    
     //--------------------------------------------------------------
     // Entry
     //--------------------------------------------------------------
+    
     .ntt--entry {
         color: hsla(0, 0, 100%, .65);
         .ntt--content {
@@ -214,17 +221,16 @@ body {
 }
 
 .ntt--entity-secondary-nav {
+    @include y-padding(2rem);
     background-color: $content-bg-color;
+    
     ul {
         @include unlist;
     }
+    
     .ntt--txt {
         @extend %block-pad;
     }
-}
-
-.ntt--entity-secondary-nav {
-    @include y-padding(2rem);
 }
 
 .ntt--entity-secondary-nav-group {
@@ -389,12 +395,15 @@ body {
 }
 
 .ntt--entity-header-aside {
+    
     .ntt--widget {
         @include y-padding();
     }
+    
     .ntt--widget>* {
         @include y-margin();
     }
+    
     .ntt--widget-name {
         display: none;
     }
@@ -523,9 +532,11 @@ body {
 //--------------------------------------------------------------
 // Main Pages
 //--------------------------------------------------------------
-.ntt--page--works,
-.ntt--page--about,
-.ntt--page--contact {
+
+.ntt--page--works--view,
+.ntt--page--about--view,
+.ntt--page--contact--view {
+    
     .ntt--entry-name {
         text-align: center;
     }
@@ -675,27 +686,36 @@ body {
     //--------------------------------------------------------------
     // Entity Main
     //--------------------------------------------------------------
+    
     @supports (display: grid) {
+    
         .ntt--entity-main {
-            >* {
+    
+            > * {
                 max-width: 52rem;
             }
         }
     }
+    
     //--------------------------------------------------------------
     // Entity Primary Navigation
     //--------------------------------------------------------------
+    
     .ntt--entity-primary-nav {
         margin-top: 3rem;
     }
+    
     //--------------------------------------------------------------
     // [Entry] Page
     //--------------------------------------------------------------
-    .ntt--page {
+    
+    .ntt--page-view {
         $x-content-gap: 2rem;
+    
         .ntt--entry-name {
             padding: 0;
         }
+    
         .ntt--entry-axns {
             display: none;
             position: fixed;
@@ -703,14 +723,18 @@ body {
             top: 0;
             padding: .5rem;
         }
+    
         .post-edit-link {
+    
             &:hover {
                 text-decoration: none;
+    
                 .ntt--txt {
                     background-color: $accent-color;
                     border-color: $accent-color;
                 }
             }
+    
             .ntt--txt {
                 @include x-padding(.75rem);
                 color: $paper-color;
@@ -720,8 +744,9 @@ body {
                 @include transition;
             }
         }
+    
         .ntt--entry-header {
-            >* {
+            > * {
                 @include x-padding($x-content-gap);
             }
         }
@@ -737,33 +762,41 @@ body {
     //--------------------------------------------------------------
     // Main Pages
     //--------------------------------------------------------------
-    .ntt--page--works,
-    .ntt--page--about,
-    .ntt--page--contact {
+    
+    .ntt--page--works--view,
+    .ntt--page--about--view,
+    .ntt--page--contact--view {
+        
         .ntt--entry-name {
             @include vertical-name;
             text-align: left;
         }
+    
         .ntt--entry-header {
-            >* {
+            > * {
                 @include x-padding();
             }
         }
+        
         .ntt--entry-full-content {
             $l-gap: 7rem;
             $r-gap: 5rem;
-            >* {
+        
+            > * {
                 @include x-padding($l-gap, $r-gap);
             }
+            
             hr {
                 @include x-margin($l-gap, $r-gap);
             }
         }
     }
+
     //--------------------------------------------------------------
     // Page Works
     //--------------------------------------------------------------
-    .ntt--page--works {
+    
+    .ntt--page--works--view {
         .ntt--entry {
             @include x-padding(6rem, 4rem);
             @include y-padding();

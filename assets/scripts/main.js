@@ -54,6 +54,8 @@
 
 ( function() {
 
+    const html = document.documentElement;
+
     /** 
      * Wrap Element
      * 
@@ -121,4 +123,82 @@
             el.classList.add( 'ntt--current-entries-navi' );
         }
     } );
+
+    /**
+     * Nav with Sub-menu
+     */
+
+    const nav = document.querySelectorAll( '.ntt--nav' );
+    const widgetNav = document.querySelectorAll( '.ntt--widget_nav_menu' );
+    
+    nav.forEach( function ( el ) {
+
+        if ( el.querySelector( '.sub-menu' ) !== null ) {
+            el.classList.add( 'ntt--nav---sub-menu' );
+        }
+    } );
+
+    widgetNav.forEach( function ( el ) {
+
+        if ( el.querySelector( '.sub-menu' ) !== null ) {
+            el.classList.add( 'ntt--nav---sub-menu' );
+        }
+    } );
+
+    /**
+     * Sub-menu
+     * 
+     * Prepends a control to hide and show the sub-menu
+     */
+
+    const subMenu = document.querySelectorAll( '.sub-menu' );
+    let i = 0;
+
+    subMenu.forEach( ( el ) => {
+        
+        i++;
+        const parent = el.parentNode;
+        
+        // Create Checkbox
+        const checkbox = document.createElement( 'input' );
+        checkbox.type = 'checkbox';
+        checkbox.id = 'ntt--sub-menu-checkbox-' + i;
+        checkbox.className = 'ntt--sub-menu-checkbox';
+        checkbox.setAttribute( 'arial-label', 'Show Menu' );
+
+        // Create Label
+        const label = document.createElement( 'label' );
+        label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i );
+        label.className = 'ntt--sub-menu-checkbox-label ntt--obj';
+        label.innerHTML = '<span class="ntt--txt">Show Menu</span>';
+        
+        // Insert in DOM
+        parent.insertBefore( label, el );
+        parent.insertBefore( checkbox, label );
+
+        parent.classList.add( 'ntt--sub-menu-ancestor' );
+    } );
+
+    /**
+     * Uncheck checkboxes when clicked outside the element
+     */
+    const subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor' );
+
+    window.addEventListener( 'click', function ( event ) {
+
+        subMenuAncestor.forEach( function ( el ) {
+
+            const targetEl = el.contains( event.target );
+        
+            if ( ! targetEl ) {
+                const input = el.getElementsByTagName('input');
+                
+                for( var i = 0; i < input.length; i++ ) { 
+                    if ( input[i].type == 'checkbox' ) { 
+                        input[i].checked = false; 
+                    }
+                }
+            }
+        } )
+    }, false);
 } )();

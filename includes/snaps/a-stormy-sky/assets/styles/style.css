@@ -308,11 +308,11 @@ hr {
   display: none;
 }
 
-.ntt--updated-entry .ntt--entry-published-datetime {
+.ntt--entry---updated .ntt--entry-published-datetime {
   display: none;
 }
 
-.ntt--updated-entry .ntt--entry-modified-datetime {
+.ntt--entry---updated .ntt--entry-modified-datetime {
   display: block;
 }
 
@@ -378,29 +378,29 @@ hr {
   margin-right: 0;
 }
 
-.ntt--multiple-entries .format-quote.ntt--empty-entry-name .entry-heading,
-.ntt--multiple-entries .format-quote.ntt--empty-entry-name .entry-author,
-.ntt--multiple-entries .format-quote.ntt--empty-entry-name .ntt--entry-categories {
+.ntt--multiple-entries .format-quote.ntt--entry-name---empty .entry-heading,
+.ntt--multiple-entries .format-quote.ntt--entry-name---empty .entry-author,
+.ntt--multiple-entries .format-quote.ntt--entry-name---empty .ntt--entry-categories {
   display: none;
 }
 
-.cssgrid.ntt--multiple-entries .format-quote.ntt--empty-entry-name.ntt--entry {
+.cssgrid.ntt--multiple-entries .format-quote.ntt--entry-name---empty.ntt--entry {
   display: -ms-grid;
   display: grid;
   grid-template: 'main header' / 1fr auto;
 }
 
-.cssgrid.ntt--multiple-entries .format-quote.ntt--empty-entry-name .ntt--entry-header {
+.cssgrid.ntt--multiple-entries .format-quote.ntt--entry-name---empty .ntt--entry-header {
   display: initial;
 }
 
-.cssgrid.ntt--multiple-entries .format-quote.ntt--empty-entry-name .entry-header {
+.cssgrid.ntt--multiple-entries .format-quote.ntt--entry-name---empty .entry-header {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
 }
 
-.cssgrid.ntt--multiple-entries .format-quote.ntt--empty-entry-name .ntt--entry-full-content > blockquote {
+.cssgrid.ntt--multiple-entries .format-quote.ntt--entry-name---empty .ntt--entry-full-content > blockquote {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }

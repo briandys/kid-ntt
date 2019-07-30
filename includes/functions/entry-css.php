@@ -2,15 +2,30 @@
 /**
  * Entry CSS
  */
+
 function ntt_kid_entry_css( $classes ) {
 
     global $post;
+
+    /**
+     * Entry Name
+     */
+
+    if ( $post->post_title ) {
+        $classes[] = 'ntt--'. $post->post_type. '--'. $post->post_name;
+    }
+
+    /**
+     * Entry Type View
+     */
+
+    $classes[] = 'ntt--'. $post->post_type;
     
     /**
      * Entry Update Status
      */
     if ( get_the_modified_date( 'j F Y H i' ) !== get_the_date( 'j F Y H i' ) ) {
-        $classes[] = 'ntt--updated-entry';
+        $classes[] = 'ntt--entry---updated';
     }
 
     /**
@@ -43,7 +58,7 @@ function ntt_kid_entry_css( $classes ) {
      */
 
     if ( ! get_the_title() ) {
-        $classes[] = 'ntt--empty-entry-name';
+        $classes[] = 'ntt--entry-name---empty';
     }
 
     /**
@@ -60,10 +75,13 @@ function ntt_kid_entry_css( $classes ) {
      * Sticky Post
      */
 
-    if ( is_sticky() ) {
-        $classes[] = 'ntt--sticky-entry';
-    } else {
-        $classes[] = 'ntt--unsticky-entry';
+    if ( is_single() ) {
+
+        if ( is_sticky() ) {
+            $classes[] = 'ntt--entry---sticky';
+        } else {
+            $classes[] = 'ntt--entry---unsticky';
+        }
     }
     
     return $classes;
@@ -72,9 +90,104 @@ add_filter( 'post_class', 'ntt_kid_entry_css' );
 
 /**
  * Entry CSS added to HTML
+ * 
+ * Duplicated from ntt_kid_entry_css()
  */
+
+function ntt_kid_entry_html_css( $classes ) {
+
+    global $post;
+
+    $css_suffix = '--view';
+
+    /**
+     * Entry ID
+     */
+
+    $classes[] = 'ntt--entry--'. $post->ID. $css_suffix;
+
+    /**
+     * Entry Name
+     */
+
+    if ( $post->post_title ) {
+        $classes[] = 'ntt--'. $post->post_type. '--'. $post->post_name. $css_suffix;
+    }
+
+    /**
+     * Entry Type View
+     */
+
+    $classes[] = 'ntt--'. $post->post_type. $css_suffix;
+    
+    /**
+     * Entry Update Status
+     */
+    if ( get_the_modified_date( 'j F Y H i' ) !== get_the_date( 'j F Y H i' ) ) {
+        $classes[] = 'ntt--entry---updated'. $css_suffix;
+    }
+
+    /**
+     * Entry More Tag <!--more--> Ability Status
+     */
+    if ( strpos( $post->post_content, '<!--more-->' ) ) {
+        $classes[] = 'ntt--entry-more-tag---1'. $css_suffix;
+    }
+
+    /**
+     * Entry Author Default Avatar Status
+     */
+
+    if ( get_option( 'avatar_default' ) == 'blank' ) {
+        $classes[] = 'ntt--entry-author-default-avatar---blank'. $css_suffix;
+    } else {
+        $classes[] = 'ntt--entry-author-default-avatar---custom'. $css_suffix;
+    }
+
+    /**
+     * Entry Summary (Excerpt) Ability Status
+     */
+
+    if ( has_excerpt() ) {
+        $classes[] = 'ntt--entry-summary-content---1'. $css_suffix;
+    }
+
+    /**
+     * Entry Name Population Status
+     */
+
+    if ( ! get_the_title() ) {
+        $classes[] = 'ntt--entry-name---empty'. $css_suffix;
+    }
+
+    /**
+     * Entry Banner Visuals (Featured Image) Ability Status
+     */
+
+    if ( get_the_post_thumbnail() !== '' ) {
+        $classes[] = 'ntt--entry-banner-visuals---1'. $css_suffix;
+    } else {
+        $classes[] = 'ntt--entry-banner-visuals---0'. $css_suffix;
+    }
+
+    /**
+     * Sticky Post
+     */
+
+    if ( is_single() ) {
+
+        if ( is_sticky() ) {
+            $classes[] = 'ntt--entry---sticky'. $css_suffix;
+        } else {
+            $classes[] = 'ntt--entry---unsticky'. $css_suffix;
+        }
+    }
+    
+    return $classes;
+}
+
 add_filter( 'ntt_html_css_filter', function( $classes ) {
-    return is_singular() ? ntt_kid_entry_css( $classes ) : $classes;
+    return is_singular() ? ntt_kid_entry_html_css( $classes ) : $classes;
 } );
 
 /**

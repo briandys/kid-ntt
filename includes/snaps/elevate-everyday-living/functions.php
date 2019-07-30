@@ -52,12 +52,12 @@ function eel_ntt_entry_banner_visuals_featured_image_size() {
 
     return $featured_image_size;
 }
-add_filter( 'ntt_entry_banner_visuals_featured_image_size_wp_filter', 'eel_ntt_entry_banner_visuals_featured_image_size' );
+add_filter( 'ntt_entry_banner_visuals_featured_image_size_filter', 'eel_ntt_entry_banner_visuals_featured_image_size' );
 
-function eel_ntt_cm_datetime_month_wp_filter() {
+function eel_ntt_cm_datetime_month_filter() {
     return 'M';
 }
-add_filter( 'ntt_cm_datetime_month_wp_filter', 'eel_ntt_cm_datetime_month_wp_filter' );
+add_filter( 'ntt_cm_datetime_month_filter', 'eel_ntt_cm_datetime_month_filter' );
 
 /**
  * HTML CSS

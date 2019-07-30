@@ -27,7 +27,7 @@ function ntt_kid_html_css( $classes ) {
      */
 
     if ( current_user_can( 'editor' ) || current_user_can( 'administrator' ) ) {
-        $classes[] = 'ntt--admin-user';
+        $classes[] = 'ntt--user---admin';
     }
 
     /**

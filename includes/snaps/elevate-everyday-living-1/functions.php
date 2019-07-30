@@ -47,8 +47,8 @@ function eel_ntt_complimentary_close() {
     if ( is_single() ) {
         ?>
         <div class="complimentary-close obj">
-            <span class="compliment---txt"><?php echo apply_filters( 'eel_ntt_complimentary_close_compliment_wp_filter', 'To your success,' ); ?></span>
-            <span class="author-name---txt"><?php echo apply_filters( 'eel_ntt_complimentary_close_author_name_wp_filter', get_the_author_meta( 'nickname' ) ); ?></span>
+            <span class="compliment---txt"><?php echo apply_filters( 'eel_ntt_complimentary_close_compliment_filter', 'To your success,' ); ?></span>
+            <span class="author-name---txt"><?php echo apply_filters( 'eel_ntt_complimentary_close_author_name_filter', get_the_author_meta( 'nickname' ) ); ?></span>
         </div>
         <?php
     }
@@ -68,4 +68,4 @@ function eel_ntt_entry_banner_visuals_featured_image_size() {
 
     return $featured_image_size;
 }
-add_filter( 'ntt_entry_banner_visuals_featured_image_size_wp_filter', 'eel_ntt_entry_banner_visuals_featured_image_size' );
+add_filter( 'ntt_entry_banner_visuals_featured_image_size_filter', 'eel_ntt_entry_banner_visuals_featured_image_size' );

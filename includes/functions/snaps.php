@@ -16,8 +16,8 @@ function ntt_get_snaps() {
         return array();
     }
 
-    $snaps[] = esc_html( 'ntt' );
     $snaps[] = esc_html( 'kid-ntt' );
+    $snaps[] = esc_html( 'ntt' );
 
     foreach ( $r_snaps as $snap ) {
         $snaps[] = esc_html( basename( $snap ) );
@@ -60,18 +60,18 @@ if ( $r_snaps === false ) {
 
 foreach ( $r_snaps as $key => $value ) {
 
-    // NTT
+    // Kid NTT
     if ( get_theme_mod( 'ntt_kid_settings_snaps' ) == 0 ) {
+        
+        return;
+
+    // NTT
+    } elseif ( get_theme_mod( 'ntt_kid_settings_snaps' ) == 1 ) {
         
         add_action( 'wp_enqueue_scripts', function() {
             wp_dequeue_style( 'ntt-kid-style' );
             wp_dequeue_script( 'ntt-kid-script' );
         }, 100 );
-
-    // Kid NTT
-    } elseif ( get_theme_mod( 'ntt_kid_settings_snaps' ) == 1 ) {
-        
-        return;
     
     // Snaps
     } elseif ( get_theme_mod( 'ntt_kid_settings_snaps' ) > 1 ) {
