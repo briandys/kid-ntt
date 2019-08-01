@@ -27,6 +27,7 @@ $link-color: $color-1;
 $content-bg-color: hsl(0, 0%, 92%);
 
 @import '../../../../../assets/styles/source/theme';
+@import 'source/uxd';
 
 @mixin vertical-name {
     /* Layout */
@@ -161,15 +162,18 @@ body {
             @include transition;
         }
     }
+
+    &.ntt--site-id--brian-dys {
     
-    .ntt--entry-name {
-        padding: 0;
-        margin-top: 2rem;
-        color: $accent-color;
-        text-transform: uppercase;
-        word-break: normal;
-        font-family: $secondary-font;
-        font-size: 2rem;
+        .ntt--entry-name {
+            padding: 0;
+            margin-top: 2rem;
+            color: $accent-color;
+            text-transform: uppercase;
+            word-break: normal;
+            font-family: $secondary-font;
+            font-size: 2rem;
+        }
     }
 }
 
@@ -379,8 +383,12 @@ body {
 //--------------------------------------------------------------
 // Entity
 //--------------------------------------------------------------
-.ntt--entity-logo---1 {
-    .ntt--entity-name {
+
+.ntt--entity-name {
+    text-align: center;
+    font-size: 2rem;
+
+    .ntt--entity-logo---1 & {
         @include vh;
     }
 }
@@ -391,6 +399,7 @@ body {
 
 .ntt--entity-header {
     align-self: flex-start;
+    width: 100%;
     background-color: $paper-color;
 }
 
@@ -536,9 +545,12 @@ body {
 .ntt--page--works--view,
 .ntt--page--about--view,
 .ntt--page--contact--view {
+
+    &.ntt--site-id--brian-dys {
     
-    .ntt--entry-name {
-        text-align: center;
+        .ntt--entry-name {
+            text-align: center;
+        }
     }
 }
 
@@ -711,9 +723,12 @@ body {
     
     .ntt--page-view {
         $x-content-gap: 2rem;
+
+        &.ntt--site-id--brian-dys {
     
-        .ntt--entry-name {
-            padding: 0;
+            .ntt--entry-name {
+                padding: 0;
+            }
         }
     
         .ntt--entry-axns {
@@ -766,10 +781,13 @@ body {
     .ntt--page--works--view,
     .ntt--page--about--view,
     .ntt--page--contact--view {
+
+        &.ntt--site-id--brian-dys {
         
-        .ntt--entry-name {
-            @include vertical-name;
-            text-align: left;
+            .ntt--entry-name {
+                @include vertical-name;
+                text-align: left;
+            }
         }
     
         .ntt--entry-header {

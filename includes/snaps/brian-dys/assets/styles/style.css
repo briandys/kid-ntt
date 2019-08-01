@@ -38,6 +38,74 @@ input[type="submit"] {
   color: #e60000;
 }
 
+.ntt--site-id--brian-dys-uxd {
+  background-color: #ebebeb;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entity-main-header,
+.ntt--site-id--brian-dys-uxd .ntt--entry-modified-datetime,
+.ntt--site-id--brian-dys-uxd .ntt--entry-author-label,
+.ntt--site-id--brian-dys-uxd .ntt--entry-published-time,
+.ntt--site-id--brian-dys-uxd .ntt--comments-actions-snippet,
+.ntt--site-id--brian-dys-uxd .ntt--entry-published-datetime-label,
+.ntt--site-id--brian-dys-uxd .ntt--entry-categories-name,
+.ntt--site-id--brian-dys-uxd .ntt--comment-md,
+.ntt--site-id--brian-dys-uxd .ntt--entry-author,
+.ntt--site-id--brian-dys-uxd .ntt--entries-page-indicator {
+  display: none;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entity {
+  background-color: #f2f2f2;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entry-author-avatar .ntt--img {
+  padding: .5rem;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entry-name {
+  font-size: 3rem;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entry {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entry-datetime,
+.ntt--site-id--brian-dys-uxd .ntt--entry-author,
+.ntt--site-id--brian-dys-uxd .ntt--entry-categories {
+  width: auto;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entry-name---empty .ntt--entry-heading {
+  display: none;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entries-nav ul {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entity-main-footer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entry-md {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--entity-name a {
+  color: inherit;
+}
+
+.ntt--site-id--brian-dys-uxd .ntt--content figure {
+  display: block;
+}
+
 html {
   background-color: #f2f2f2;
 }
@@ -123,7 +191,7 @@ body {
   transition: all .2s;
 }
 
-.ntt--page--view .ntt--entry-name {
+.ntt--page--view.ntt--site-id--brian-dys .ntt--entry-name {
   padding: 0;
   margin-top: 2rem;
   color: #e60000;
@@ -345,6 +413,11 @@ body {
   margin-bottom: 0;
 }
 
+.ntt--entity-name {
+  text-align: center;
+  font-size: 2rem;
+}
+
 .ntt--entity-logo---1 .ntt--entity-name {
   border: 0;
   clip: rect(0 0 0 0);
@@ -366,6 +439,7 @@ body {
 .ntt--entity-header {
   -ms-flex-item-align: start;
       align-self: flex-start;
+  width: 100%;
   background-color: #f2f2f2;
 }
 
@@ -509,9 +583,9 @@ body {
   margin-bottom: 1em;
 }
 
-.ntt--page--works--view .ntt--entry-name,
-.ntt--page--about--view .ntt--entry-name,
-.ntt--page--contact--view .ntt--entry-name {
+.ntt--page--works--view.ntt--site-id--brian-dys .ntt--entry-name,
+.ntt--page--about--view.ntt--site-id--brian-dys .ntt--entry-name,
+.ntt--page--contact--view.ntt--site-id--brian-dys .ntt--entry-name {
   text-align: center;
 }
 
@@ -643,7 +717,7 @@ body {
   .ntt--entity-primary-nav {
     margin-top: 3rem;
   }
-  .ntt--page-view .ntt--entry-name {
+  .ntt--page-view.ntt--site-id--brian-dys .ntt--entry-name {
     padding: 0;
   }
   .ntt--page-view .ntt--entry-axns {
@@ -682,9 +756,9 @@ body {
     margin-left: 2rem;
     margin-right: 2rem;
   }
-  .ntt--page--works--view .ntt--entry-name,
-  .ntt--page--about--view .ntt--entry-name,
-  .ntt--page--contact--view .ntt--entry-name {
+  .ntt--page--works--view.ntt--site-id--brian-dys .ntt--entry-name,
+  .ntt--page--about--view.ntt--site-id--brian-dys .ntt--entry-name,
+  .ntt--page--contact--view.ntt--site-id--brian-dys .ntt--entry-name {
     /* Layout */
     position: absolute;
     left: 0;

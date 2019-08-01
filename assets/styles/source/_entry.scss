@@ -406,6 +406,7 @@
     }
 
     li {
+        display: inline-block;
         @include space-around;
     }
     
@@ -460,10 +461,6 @@
     .ntt--entry-full-content {
         margin-top: 1em;
     }
-}
-
-.ntt--entry-datetime {
-    flex: 1 100%;
 }
 
 .ntt--entry-datetime {

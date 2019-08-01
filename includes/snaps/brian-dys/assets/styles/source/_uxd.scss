@@ -1,0 +1,77 @@
+.ntt--site-id--brian-dys-uxd {
+    background-color: #ebebeb;
+
+    .ntt--entity-main-header,
+    .ntt--entry-modified-datetime,
+    .ntt--entry-author-label,
+    .ntt--entry-published-time,
+    .ntt--comments-actions-snippet,
+    .ntt--entry-published-datetime-label,
+    .ntt--entry-categories-name,
+    .ntt--comment-md,
+    .ntt--entry-author,
+    .ntt--entries-page-indicator {
+        display: none;
+    }
+
+    .ntt--entity {
+        background-color: #f2f2f2;
+    }
+
+    .ntt--entry-author-avatar {
+    
+        .ntt--img {
+            padding: .5rem;
+        }
+    }
+
+    .ntt--entry-name {
+        font-size: 3rem;
+    }
+
+    .ntt--entry {
+        @include y-margin(2rem);
+    }
+
+    .ntt--entry-datetime,
+    .ntt--entry-author,
+    .ntt--entry-categories {
+        width: auto;
+    }
+
+    .ntt--entry-name---empty {
+
+        .ntt--entry-heading {
+            display: none;
+        }
+    }
+
+    .ntt--entries-nav {
+
+        ul {
+            justify-content: center;
+        }
+    }
+
+    .ntt--entity-main-footer {
+        @include y-margin(2rem);
+    }
+
+    .ntt--entry-md {
+        @include x-padding(2.5rem);
+    }
+
+    .ntt--entity-name {
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .ntt--content {
+        
+        figure {
+            display: block;
+        }
+    }
+}

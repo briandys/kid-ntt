@@ -873,6 +873,7 @@ label[for]:hover {
 }
 
 .ntt--entry-tags li {
+  display: inline-block;
   padding: .5rem;
 }
 
@@ -930,12 +931,6 @@ label[for]:hover {
 
 .ntt--entry-summary-content---1 .ntt--entry-full-content {
   margin-top: 1em;
-}
-
-.ntt--entry-datetime {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
 }
 
 .ntt--entry-datetime {
@@ -1485,17 +1480,6 @@ label[for]:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  .ntt--next-entry-navi .l {
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-  }
-  .ntt--next-entry-navi .value---line {
-    text-align: right;
   }
   .previous-entry-navi,
   .ntt--next-entry-navi {
