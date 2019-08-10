@@ -125,7 +125,7 @@
     } );
 
     /**
-     * Nav with Sub-menu
+     * Initialize Sub-menu CSS Class Name
      */
 
     const nav = document.querySelectorAll( '.ntt--nav' );
@@ -134,14 +134,14 @@
     nav.forEach( function ( el ) {
 
         if ( el.querySelector( '.sub-menu' ) !== null ) {
-            el.classList.add( 'ntt--nav---sub-menu' );
+            el.classList.add( 'ntt--nav---sub-menu--js' );
         }
     } );
 
     widgetNav.forEach( function ( el ) {
 
         if ( el.querySelector( '.sub-menu' ) !== null ) {
-            el.classList.add( 'ntt--nav---sub-menu' );
+            el.classList.add( 'ntt--nav---sub-menu--js' );
         }
     } );
 
@@ -193,12 +193,38 @@
             if ( ! targetEl ) {
                 const input = el.getElementsByTagName('input');
                 
-                for( var i = 0; i < input.length; i++ ) { 
-                    if ( input[i].type == 'checkbox' ) { 
+                for ( var i = 0; i < input.length; i++ ) { 
+                    if ( input[i].type === 'checkbox' ) { 
                         input[i].checked = false; 
                     }
                 }
             }
         } )
     }, false);
+    
+    /**
+     * Initialize Activity Status on Sub-menu
+     */
+    
+    ( function() {
+        
+        var input = document.querySelectorAll( '.ntt--nav---sub-menu--js input' );
+
+        for ( var i = 0, len = input.length; i < len; i++ ) {
+            
+            if ( input[i].type === 'checkbox' ) {
+                input[i].onclick = function() {
+                    const parent = this.parentNode;
+                    
+                    if ( this.checked ) {
+                        parent.classList.add( 'ntt--sub-menu---active' );
+                    } else {
+                        parent.classList.remove( 'ntt--sub-menu---active' );
+                    }
+                }
+            }
+        }
+    } ) ();
+
+    
 } )();

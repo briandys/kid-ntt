@@ -16,7 +16,7 @@
     font-weight: bold;
 }
 
-.widget_tag_cloud {
+.ntt--widget_tag_cloud {
 
     a {
         display: inline-block;
@@ -93,19 +93,16 @@
 // Navigation Menu
 //--------------------------------------------------------------
 
-.widget_nav_menu {
+.ntt--widget_nav_menu {
     @include x-padding();
 
     ul {
         @include unlist;
-        padding-left: 0;
+        @include if-y-center;
     }
 
     li {
-        display: inline-block;
-        vertical-align: middle;
-        @include y-padding();
-        @include x-margin(.5rem);
+        @include space-around;
     }
 
     a {

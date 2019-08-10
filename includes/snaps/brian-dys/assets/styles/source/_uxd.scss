@@ -33,6 +33,10 @@
         @include y-margin(2rem);
     }
 
+    .ntt--entry-categories {
+        @include if-y-center;
+    }
+
     .ntt--entry-datetime,
     .ntt--entry-author,
     .ntt--entry-categories {
@@ -53,14 +57,6 @@
         }
     }
 
-    .ntt--entity-main-footer {
-        @include y-margin(2rem);
-    }
-
-    .ntt--entry-md {
-        @include x-padding(2.5rem);
-    }
-
     .ntt--entity-name {
 
         a {
@@ -72,6 +68,45 @@
         
         figure {
             display: block;
+        }
+    }
+
+    &.ntt--page--topics--view {
+
+        .ntt--entry-full-content {
+
+            ul {
+                @include unlist;
+                @include if-y-center;
+
+                a {
+                    border: 2px solid $ink-color;
+                    border-radius: 10rem;
+                    padding: .5rem 1rem;
+                    @include transition;
+
+                    &:hover {
+                        text-decoration: none;
+                        background-color: $ink-color;
+                    }
+                }
+            }
+
+            li {
+                margin: 1rem;
+            }
+        }
+    }
+
+    @include mq(l-vp) {
+
+        .ntt--entity-main-footer {
+            @include x-padding(2.5rem);
+            @include y-margin(2rem);
+        }
+
+        .ntt--entry-md {
+            @include x-padding(2.5rem);
         }
     }
 }
