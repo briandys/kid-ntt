@@ -71,7 +71,7 @@ html {
 }
 
 body {
-  color: #1a1a1a;
+  color: #1c1c1c;
   font-family: "Work Sans", sans-serif;
 }
 
@@ -160,7 +160,7 @@ body {
 }
 
 .ntt--entity-header-aside .widget_nav_menu a {
-  color: #1a1a1a;
+  color: #1c1c1c;
 }
 
 .ntt--entity-header-aside .ntt--widget {
@@ -428,7 +428,7 @@ body {
 }
 
 .ntt--entry-tags a {
-  color: #1a1a1a;
+  color: #1c1c1c;
   background-color: #ffe6e6;
   line-height: 1;
 }
@@ -535,7 +535,7 @@ body {
 .ntt--entry-datetime--boxy .cm-date .ntt--txt {
   padding: .5em .75em;
   background-color: #ffe6e6;
-  color: #1a1a1a;
+  color: #1c1c1c;
 }
 
 .ntt--entry-datetime--boxy .cm-date .ntt--txt > * {

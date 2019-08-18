@@ -1315,14 +1315,26 @@ label[for]:hover {
   border-bottom: 0;
 }
 
+.ntt--nav---sub-menu--js .ntt--sub-menu-ancestor .sub-menu a,
 .ntt--nav---sub-menu--js .ntt--sub-menu-ancestor .sub-menu .ntt--txt {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  min-height: 48px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-ancestor .sub-menu .sub-menu {
-  margin-left: 1rem;
+  margin-left: .5rem;
+  margin-top: -.25rem;
 }
 
 .ntt--nav---sub-menu--js > div > ul > .ntt--sub-menu-ancestor .ntt--sub-menu---active {
