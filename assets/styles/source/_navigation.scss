@@ -245,14 +245,18 @@
 // Show the Sub-menu on DOM Load
 .ntt--nav {
 
-    .sub-menu {
+    @at-root .ntt--dom---unloaded & {
+        visibility: hidden;
+    }
+    
+    @at-root .ntt--dom---loaded & {
+        visibility: visible;
+    }
 
-        @at-root .dom---unloaded & {
-            visibility: hidden;
-        }
+    .sub-menu {
         
-        @at-root .dom---loaded & {
-            visibility: visible;
+        @at-root .no-js & {
+            @extend %vh; // Temporary until there's a design for sub-menu items persistently showing
         }
     }
 }

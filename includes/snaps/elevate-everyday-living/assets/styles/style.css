@@ -84,6 +84,11 @@ body {
   border-radius: 100rem;
 }
 
+.ntt--entity-logo {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .ntt--entity-name {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -115,7 +120,7 @@ body {
 
 .ntt--entity-primary-nav {
   padding: .25rem;
-  margin-top: .5rem;
+  margin-top: .75rem;
   font-weight: bold;
   font-size: 1.25rem;
   font-family: "Playfair Display", serif;
@@ -146,18 +151,17 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
   min-height: 2.375rem;
 }
 
-.ntt--entity-primary-nav .current-menu-item .ntt--txt,
-.ntt--entity-primary-nav .current_page_item .ntt--txt {
+.ntt--entity-primary-nav .current-menu-item > a .ntt--txt,
+.ntt--entity-primary-nav .current_page_item > a .ntt--txt {
   position: relative;
 }
 
-.ntt--entity-primary-nav .current-menu-item .ntt--txt:before,
-.ntt--entity-primary-nav .current_page_item .ntt--txt:before {
+.ntt--entity-primary-nav .current-menu-item > a .ntt--txt:before,
+.ntt--entity-primary-nav .current_page_item > a .ntt--txt:before {
   content: '';
   position: absolute;
   left: 0;
@@ -177,6 +181,8 @@ body {
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox {
   background-position-y: 55%;
   background-size: .75rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox:checked {
@@ -184,11 +190,12 @@ body {
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-ancestor .sub-menu {
+  min-width: 180px;
   font-size: 1rem;
   border: 0;
   background-color: #ffe6e6;
   border: 1px solid rgba(0, 0, 0, 0.0625);
-  border-radius: .125rem;
+  border-radius: 0.25rem;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-ancestor .sub-menu .ntt--txt {
@@ -200,9 +207,14 @@ body {
   border-bottom: 0;
 }
 
+.ntt--nav---sub-menu--js .ntt--sub-menu-ancestor .sub-menu a:hover {
+  background-color: #fff0f0;
+  border-radius: 0.25rem;
+}
+
 .ntt--entity-header-aside .ntt--widget_nav_menu {
   padding: .25rem;
-  margin-bottom: .5rem;
+  margin-bottom: .75rem;
 }
 
 .ntt--entity-header-aside .ntt--widget_nav_menu > * {
@@ -245,6 +257,7 @@ body {
 }
 
 .ntt--entity-secondary-info {
+  text-align: center;
   font-size: .875rem;
 }
 

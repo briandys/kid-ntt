@@ -226,5 +226,25 @@
         }
     } ) ();
 
+    /**
+     * Detect Tabbing and Mouse Usage
+     * https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+     */
     
+    function handleFirstTab( e ) {
+        
+        if ( e.keyCode === 9 ) {
+            html.classList.add('ntt--nav-mode---tab--js');
+            window.removeEventListener('keydown', handleFirstTab);
+            window.addEventListener('mousedown', handleMouseDownOnce);
+        }
+    }
+      
+    function handleMouseDownOnce() {
+        html.classList.remove('ntt--nav-mode---tab--js');
+        window.removeEventListener('mousedown', handleMouseDownOnce);
+        window.addEventListener('keydown', handleFirstTab);
+    }
+    
+    window.addEventListener('keydown', handleFirstTab);
 } )();

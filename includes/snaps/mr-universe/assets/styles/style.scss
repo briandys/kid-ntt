@@ -134,7 +134,7 @@ hr {
     @include transition;
     transition-delay: .3s;
 
-    .dom---loaded & {
+    .ntt--dom---loaded & {
         position: fixed;
         right: 0;
         bottom: 0;
