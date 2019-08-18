@@ -21,18 +21,19 @@ $cherry-blossom-light-pink: hsl(0, 100%, 95%);
 // Generic Variables
 //--------------------------------------------------------------
 
+//------------ Colors
 $ink-color: $almost-black;
 $paper-color: white;
 $neutral-color: $a11y-gray;
 $accent-color: $cherry-blossom-dark-pink;
 $faint-accent-color: $cherry-blossom-light-pink;
-
-$primary-font: 'Work Sans', sans-serif;
-$secondary-font: 'Playfair Display', serif;
-
 $primary-color: $cherry-blossom-pink;
 $secondary-color: $cherry-blossom-dark-pink;
 $tertiary-color: $cherry-blossom-light-pink;
+
+//------------ Fonts
+$primary-font: 'Work Sans', sans-serif;
+$secondary-font: 'Playfair Display', serif;
 $entry-content-font-size: 1.125em;
 $large-font-size: 1.125em;
 
@@ -43,7 +44,7 @@ $large-font-size: 1.125em;
 $link-color: $accent-color;
 
 //--------------------------------------------------------------
-// Generic Variables
+// Redeclare theme to detect the variables above
 //--------------------------------------------------------------
 
 @import '../../../../../assets/styles/source/theme';
@@ -81,74 +82,6 @@ body {
 }
 
 //--------------------------------------------------------------
-// Entity Secondary Info
-//--------------------------------------------------------------
-
-.ntt--entity-secondary-info {
-    color: $neutral-color;
-    font-size: .875rem;
-
-    a {
-        color: $neutral-color;
-    }
-}
-
-//--------------------------------------------------------------
-// Entity Primary Description
-//--------------------------------------------------------------
-
-.ntt--entity-description {
-    color: $neutral-color;
-    font-size: .875rem;
-    letter-spacing: .045em;
-}
-
-//--------------------------------------------------------------
-// Entity Primary Navigation
-//--------------------------------------------------------------
-
-.ntt--entity-primary-nav {
-    font-size: 1.25rem;
-    font-family: $secondary-font;
-
-    a {
-        color: inherit;
-        @include transition;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
-    .current-menu-item,
-    .current_page_item {
-
-        .ntt--txt {
-            position: relative;
-            
-            &:before {
-                content: '';
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                height: 1.25rem;
-                background-color: $faint-accent-color;
-                z-index: -1;
-            }
-        }
-    }
-}
-
-.ntt--entity-primary-nav {
-    border-top: .125rem solid $faint-accent-color;
-}
-
-.ntt--entity-primary-nav-group {
-    justify-content: center;
-}
-
-//--------------------------------------------------------------
 // Entity Header
 //--------------------------------------------------------------
 
@@ -162,45 +95,178 @@ body {
 }
 
 //--------------------------------------------------------------
-// Entity Header Aside
+// Entity Heading
 //--------------------------------------------------------------
 
-.ntt--entity-header-aside {
-    order: -1;
-    @include y-padding();
+.ntt--entity-heading {
+    position: relative;
+    @include y-padding(1rem);
+    text-align: center;
 
-    > * {
-        @include y-margin();
-    }
-
-    .widget_nav_menu {
-
-        a {
-            color: $ink-color;
-        }
-    }
-
-    .ntt--widget {
-        @include y-padding();
+    &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: calc(100% - 2rem);
+        height: .125rem;
+        background-color: $faint-accent-color;
+        border-radius: 100rem;
     }
 }
 
-//--------------------------------------------------------------
-// Entity
-//--------------------------------------------------------------
-
 .ntt--entity-name {
-    font-size: 2.375rem;
-}
-
-.ntt--entity-name {
+    @include x-padding(1rem);
     font-family: $secondary-font;
     font-weight: normal;
+    font-size: 2.375rem; // For wider viewport
+    font-size: 1.5rem;
 
     a {
         color: inherit;
     }
+
+    .ntt--txt {
+        padding: 0;
+    }
 }
+
+.ntt--entity-description {
+    @include x-padding(1rem);
+    color: $neutral-color;
+    font-size: .875rem;
+    letter-spacing: .045em;
+
+    .ntt--txt {
+        padding: 0;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Primary Navigation
+//--------------------------------------------------------------
+
+.ntt--entity-primary-nav {
+    padding: .25rem;
+    margin-top: .5rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+    font-family: $secondary-font;
+
+    a {
+        color: inherit;
+        @include transition;
+
+        &:hover {
+            text-decoration: none;
+            color: $accent-color;
+        }
+    }
+
+    li {
+        padding: 0 .75rem;
+
+        .ntt--txt {
+            @include if-y-center;
+            @include x-padding();
+            min-height: 2.375rem;
+        }
+    }
+    
+    .current-menu-item,
+    .current_page_item {
+
+        .ntt--txt {
+            position: relative;
+            
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 1rem;
+                background-color: $faint-accent-color;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+.ntt--entity-primary-nav-group {
+    justify-content: center;
+}
+
+//--------------------------------------------------------------
+// Navigation - Sub-menu
+//--------------------------------------------------------------
+
+.ntt--nav---sub-menu--js {
+    
+    .ntt--sub-menu-checkbox {
+        background-position-y: 55%;
+        background-size: .75rem;
+
+        &:checked {
+            background-position-y: 50%;
+        }
+    }
+
+    .ntt--sub-menu-ancestor {
+        
+        .sub-menu {
+            font-size: 1rem;
+            border: 0;
+            background-color: $faint-accent-color;
+            border: 1px solid hsla(0, 0%, 0%, .0625);
+            border-radius: .125rem;
+
+            .ntt--txt {
+                @include x-padding(.75rem);
+            }
+
+            li {
+                border-bottom: 0;
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Header Aside
+//--------------------------------------------------------------
+
+.ntt--entity-header-aside {
+
+    .ntt--widget_nav_menu {
+        padding: .25rem;
+        margin-bottom: .5rem;
+
+        > * {
+            @include y-margin();
+        }
+
+        li {
+            padding: 0 .75rem;
+        }
+
+        a {
+            @include if-y-center;
+            @include x-padding();
+            min-height: 2.375rem;
+            color: $ink-color;
+        }
+
+        .menu {
+            justify-content: center;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Main Header
+//--------------------------------------------------------------
 
 .ntt--entity-view-name {
     font-size: $large-font-size;
@@ -210,1179 +276,14 @@ body {
     }
 }
 
-.entity-view-heading,
-.ntt--entity-header,
+//--------------------------------------------------------------
+// Entity Secondary Info
+//--------------------------------------------------------------
+
 .ntt--entity-secondary-info {
-    text-align: center;
-}
-
-.ntt--entity-header-aside {
-
-    .ntt--search {
-        @include x-margin(auto);
-        max-width: 25rem;
-    }
-}
-
-//--------------------------------------------------------------
-// Entry
-//--------------------------------------------------------------
-
-.ntt--entry-header {
-    justify-content: space-between;
-}
-
-.ntt--entry-name {
-    font-size: 2.375rem;
-    font-family: $secondary-font;
+    font-size: .875rem;
 
     a {
-        color: inherit;
-    }
-}
-
-//--------------------------------------------------------------
-// Entry Subname
-//--------------------------------------------------------------
-
-.entry-subname {
-    font-size: 1.75rem;
-    color: $neutral-color;
-}
-
-//--------------------------------------------------------------
-// Entry DateTime
-//--------------------------------------------------------------
-
-.ntt--entry-datetime {
-    flex: none;
-}
-
-//--------------------------------------------------------------
-// Entry Author, Comment Author
-//--------------------------------------------------------------
-
-.entry-author,
-.ntt--comment-author {
-    order: initial;
-    
-    a {
-        color: inherit;
-    }
-}
-
-//--------------------------------------------------------------
-// Entry Content
-//--------------------------------------------------------------
-
-.ntt--entry-content {
-    font-size: $entry-content-font-size;
-    line-height: 1.8;
-    
-    a {
-        color: inherit;
-        background-image: linear-gradient(0deg, $tertiary-color 25%, transparent 0);
-
-        &:hover {
-            text-decoration: none;
-            background-image: linear-gradient(0deg, $primary-color 25%, transparent 0);
-        }
-
-        &[href*="flickr.com/"] {
-            display: block;
-            background-image: none;
-        }
-    }
-
-    blockquote {
-        @include y-padding(.5em);
-        @include x-margin();
-        font-size: 1.75em;
-
-        p {
-            text-align: left;
-
-            &:first-of-type {
-                margin-top: 0;
-            }
-
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-        }
-
-        cite {
-            display: block;
-            text-align: right;
-            font-weight: bold;
-            font-style: normal;
-            font-family: $secondary-font;
-        }
-    }
-
-    p {
-        text-align: justify;
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: $secondary-font;
-    }
-
-    // https://type-scale.com/
-    
-    h2 {
-        font-size: 1.953em;
-    }
-
-    h3 {
-        font-size: 1.563em;
-    }
-
-    h4 {
-        font-size: 1.25em;
-    }
-
-    h5, h6 {
-        font-size: 1em;
-    }
-
-    .ntt--show-more-axn {
-
-        a {
-            background-image: none;
-
-            &:hover {
-                background-image: none;
-            }
-        }
-    }
-
-    .ntt--entry-content-snippet {
-        
-        a {
-            background-image: none;
-    
-            &:hover {
-                background-image: none;
-            }
-        }
-    }
-}
-
-.ntt--content {
-
-    ul {
-        list-style: none;
-    }
-
-    > {
-
-        ul {
-            list-style: none;
-            padding-left: 3rem;
-
-            li {
-                position: relative;
-                @include y-margin(.75em);
-
-                &:before {
-                    content: '\2022';
-                    position: absolute;
-                    right: 100%;
-                    top: 0;
-                    margin-right: 1rem;
-                    color: $primary-color;
-                    font-size: 2rem;
-                    line-height: 1;
-                }
-            }
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Comment
-//--------------------------------------------------------------
-
-.ntt--comment-published-datetime {
-    flex: none;
-}
-
-.entry-header {
-
-    .ntt--comments-count {
-
-        a {
-            color: inherit;
-            text-decoration: none;
-    
-            &:hover {
-    
-                .ntt--label-txt {
-                    text-decoration: underline;
-                }
-            }
-        }
-    
-        .ntt--txt {
-            display: inline-flex;
-            align-items: center;
-        }
-    
-        .count-txt {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: .25rem .5rem;
-            min-width: 2rem;
-            min-height: 1.75rem;
-            background-color: $tertiary-color;
-            font-weight: bold;
-    
-            position: relative;
-    
-            &:before {
-                content: '';
-                position: absolute;
-                left: 50%;
-                top: 100%;
-                transform: translateX(-50%);
-    
-                /* Triangle */
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 0 .5rem .5rem 0;
-                border-color: transparent $tertiary-color transparent transparent;
-            }
-        }
-    
-        .ntt--label-txt {
-            margin-left: .5rem;
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Captions
-//--------------------------------------------------------------
-
-.ntt {
-
-    .wp-caption,
-    .wp-block-image {
-
-        figcaption {
-            color: $neutral-color;
-            font-size: 1rem;
-            text-align: justify;
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Entry Tags
-//--------------------------------------------------------------
-
-.ntt--entry-tags {
-
-    a {
-        color: $ink-color;
-        background-color: $tertiary-color;
-        line-height: 1;
-    }
-}
-
-.ntt--entry-tags-name {
-    font-family: $secondary-font;
-}
-
-//--------------------------------------------------------------
-// Index Views
-//--------------------------------------------------------------
-
-.ntt--current-index-view,
-.ntt--archive-index-view  {
-    
-    .ntt--entity-view-heading {
-        display: none;
-    }
-}
-
-//--------------------------------------------------------------
-// Singular View
-//--------------------------------------------------------------
-
-.ntt--single-entry {
-
-    .ntt--entry-banner-visuals {
-
-        img {
-            width: 100%;
-            height: 30vh;
-            object-fit: cover;
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Page View
-//--------------------------------------------------------------
-
-.page-view {
-
-    .entry-nav,
-    .entry-primary-meta,
-    .ntt--comment-md {
-        display: none;
-    }
-
-    .entry-header {
-
-        .ntt--comments-actions-snippet {
-            display: none;
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Show More Action
-//--------------------------------------------------------------
-
-.ntt--show-more-axn {
-    padding: 1rem;
-
-    a {
-        color: $secondary-color;
-        @include transition;
-
-        &:hover {
-            color: $paper-color;
-
-            .l {
-                background-color: $secondary-color;
-            }
-        }
-    }
-
-    .txt {
-        padding: .75rem 1rem;
-        border: 2px solid $secondary-color;
-        line-height: 1;
-
-    }
-}
-
-//--------------------------------------------------------------
-// [Style Feature] Entry DateTime - Boxy
-//--------------------------------------------------------------
-
-.ntt--entry-datetime--boxy {
-
-    .ntt--entry-published-datetime-label,
-    .cm-time,
-    .ntt--entry-modified-datetime {
-        display: none;
-    }
-
-    .ntt--entry---updated {
-
-        .ntt--entry-published-datetime {
-            display: none;
-        }
-
-        .ntt--entry-modified-datetime {
-            display: block;
-        }
-    }
-
-    .ntt--entry-published-datetime {
-        padding: 0;
-    }
-
-    .ntt--entry-modified-datetime {
-        position: relative;
-        padding: 0;
-    }
-
-    .ntt--entry-modified-datetime-label {
-        @extend %ir;
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin-right: .25em;
-        margin-top: .25em;
-        width: .5em;
-        height: .5em;
-        background-color: $secondary-color;
-        border-radius: 100rem;
-        mix-blend-mode: hard-light;
-        opacity: .5;
-
-        .ntt--txt {
-            padding: .5em .5em;
-        }
-
-        .on---text {
-            display: none;
-        }
-    }
-
-    .cm-datetime {
-        padding: 1rem;
-    }
-
-    .cm-date {
-
-        .ntt--txt {
-            padding: .5em .75em;
-            background-color: $tertiary-color;
-            color: $ink-color;
-
-            > * {
-                display: block;
-                text-align: center;
-                line-height: 1;
-            }
-        }
-
-        a {
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
-        .day-txt {
-            font-size: 1.5em;
-        }
-
-        .month-txt {
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: .875em;
-        }
-
-        .year-txt {
-            font-size: .875em;
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Media Query: Tablet Viewport Width and Up
-//--------------------------------------------------------------
-
-@media only screen and (min-width: $tablet-vp) {
-
-    //--------------------------------------------------------------
-    // Entity Header Aside
-    //--------------------------------------------------------------
-
-    .ntt--entity-header-aside {
-
-        .widget_nav_menu {
-
-            ul {
-                text-align: right;
-            }
-        }
-    }
-
-    //--------------------------------------------------------------
-    // Entity Main
-    //--------------------------------------------------------------
-
-    .ntt--entity-main {
-        @include x-margin(auto);
-        max-width: 45em;
-    }
-
-    .ntt--entity-main-main-aside---1,
-    .entry-main-aside--1 {
-        
-        .ntt--entity-main {
-            max-width: none;
-        }
-    }
-
-    //--------------------------------------------------------------
-    // Entry
-    //--------------------------------------------------------------
-
-    .ntt--content {
-
-        blockquote {
-            position: relative;
-            padding-left: 3em;
-
-            &:before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 5em;
-                height: 100%;
-                background-color: $tertiary-color;
-                z-index: -1;
-            }
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Media Query: Laptop Large Viewport Width and Up
-//--------------------------------------------------------------
-
-@media only screen and (min-width: $laptop-l-vp) {
-
-    //--------------------------------------------------------------
-    // Entity
-    //--------------------------------------------------------------
-
-    .ntt--entity {
-        @include x-margin(auto);
-        max-width: $laptop-vp;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//--------------------------------------------------------------
-// Entry
-//--------------------------------------------------------------
-
-.entry {
-    @include y-margin(1rem);
-
-    .ntt--current-index-view & {
-        
-        &:first-of-type {
-            margin-top: 0;
-        }
-    }
-}
-
-.entry-header {
-
-    .ntt--comment-axn {
-        display: none;
-    }
-
-    .ntt--disabled-comments-note {
-        display: none;
-    }
-}
-
-.ntt--entry-heading{
-
-    .entry-breadcrumbs-nav,
-    .ntt--entry-categories {
-        flex: 1 100%;
-    }
-}
-
-.ntt--entries-page-indicator {
-    display: none;
-}
-
-//--------------------------------------------------------------
-// Entry DateTime
-//--------------------------------------------------------------
-
-
-
-.ntt--entry-modified-datetime {
-    display: none;
-}
-
-.ntt--entry---updated {
-
-    .ntt--entry-modified-datetime {
-        display: block;
-    }
-
-    .ntt--entry-published-datetime {
-        display: none;
-    }
-}
-
-.ntt--entry-modified-datetime-label {
-
-    .on---text {
-        display: none;
-    }
-}
-
-.ntt--entry-author-label {
-    @extend %faint-label;
-}
-
-.entry-published-datetime-label {
-    @extend %faint-label;
-}
-
-.ntt--entry-modified-datetime-label {
-    @extend %faint-label;
-}
-
-.cm-author-avatar {
-
-    .img {
-        border-radius: 50%;
-        overflow: hidden;
-    }
-}
-
-//--------------------------------------------------------------
-// Entry Primary Meta
-//--------------------------------------------------------------
-
-.ntt--entry-primary-meta {
-
-    .ntt--entry-categories {
-        display: none;
-    }
-}
-
-.ntt--modify-entry-axn {
-
-    a {
-        padding: .5rem;
-        color: white;
-    }
-
-    .ntt--txt {
-        padding: .25em .75em;
-        background-color: $accent-color;
-        border-radius: .125em;
-    }
-}
-
-//--------------------------------------------------------------
-// Drop Cap, Initial Letter
-//--------------------------------------------------------------
-
-.ntt--entry-full-content {
-
-    .initial-letter {
-        margin-top: -.1em;
-        margin-right: .1em;
-        font-size: 8rem;
-    }
-}
-
-p.has-drop-cap:not(:focus) {
-
-    &:first-letter {
-        @extend .initial-letter;
-    }
-}
-
-//--------------------------------------------------------------
-// Entry Summary Content
-//--------------------------------------------------------------
-
-.ntt--current-index-view,
-.ntt--archive-index-view,
-.ntt--single-entry {
-
-    .ntt--entry-summary-content {
-        font-size: $large-font-size;
-    }
-}
-
-//--------------------------------------------------------------
-// Comments
-//--------------------------------------------------------------
-
-.ntt--comment-composition-name {
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.ntt--comment-name {
-    display: none;
-    font-weight: bold;
-    font-size: 1.5rem;
-    line-height: 1;
-}
-
-.ntt--admin-user {
-
-    .ntt--comment-name {
-        display: block;
-    }
-}
-
-.ntt--comment-author-label {
-    display: none;
-}
-
-.ntt--modify-comment-axn {
-    @extend .ntt--modify-entry-axn;
-}
-
-.ntt--comments-name {
-    font-size: $large-font-size;
-    font-weight: bold;
-}
-
-.ntt--comments-header {
-
-    .ntt--comments-count {
-        
-        a {
-            color: inherit;
-        }
-    }
-}
-
-.ntt--comment-reply-axn {
-        
-    .ntt--requirement-txt {
-        @extend %faint-label;
-        @include ib-y-center;
-    }
-}
-
-.ntt--comment-axn {
-        
-    .ntt--requirement-txt {
-        @extend %faint-label;
-        @include ib-y-center;
-    }
-}
-
-.ntt--comment-form {
-
-    .field-label---txt {
-        font-weight: bold;
-    }
-}
-
-.comment {
-    padding: .5rem 1rem;
-}
-
-.ntt--comment{
-    @extend %border;
-}
-
-.ntt--comments-thread-limit---max {
-
-    .ntt--comment{
-        padding-bottom: 1rem;
-    }
-}
-
-.ntt--cancel-reply-axn {
-
-    a {
-        color: $faint-color;
-    }
-
-    .ntt--reply-text {
-        display: none;
-    }
-}
-
-.ntt--comment-published-datetime {
-    flex-basis: auto;
-}
-
-.comment-respond {
-    margin: .5rem 1rem;
-    @extend %border;
-}
-
-.ntt--log-out-account-axn {
-
-    a {
-        color: $faint-color;
-    }
-}
-
-.ntt--comment-published-datetime-label {
-    @extend %faint-label;
-}
-
-.ntt--comments---empty {
-
-    .ntt--comments-main {
-        display: none;
-    }
-
-    .entry-header {
-
-        .ntt--comments-actions-snippet {
-            display: none;
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Note
-//--------------------------------------------------------------
-
-.ntt--note {
-    padding: 1rem;
-}
-
-.ntt--note {
-    padding: .03125rem;
-    background-color: aliceblue;
-}
-
-//--------------------------------------------------------------
-// Widget Blog Subscription
-//--------------------------------------------------------------
-
-.widget_blog_subscription {
-    padding: 1rem;
-    background-color: hsla(11, 100%, 93%, .25);
-    border-radius: .125rem;
-
-    .ntt--widget-name {
-        margin-bottom: 0;
-    }
-
-    button {
-        width: 100%;
-        background-color: $cherry-blossom-pink;
-    }
-}
-
-//--------------------------------------------------------------
-// Complimentary Close
-//--------------------------------------------------------------
-
-.complimentary-close {
-    display: inline-flex;
-    flex-direction: column;
-    margin-top: 1rem;
-
-    .compliment---txt {
-        font-weight: bold;
-    }
-    
-    .author-name---txt {
-        display: inline-block;
-        transform: rotate(-2deg);
-        font-size: 3rem;
-        font-family: 'Great Vibes';
-    }
-}
-
-.akismet_comment_form_privacy_notice {
-    @include x-margin(1rem);
-}
-
-//--------------------------------------------------------------
-// Small Width and Up
-//--------------------------------------------------------------
-
-@include mq(s-vp) {
-
-    .widget_blog_subscription {
-
-        form {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            @include x-margin(auto);
-            max-width: 30rem;
-
-            p {
-                @include y-margin();
-            }
-        }
-
-        #subscribe-text {
-            flex: 1 100%;
-        }
-
-        #subscribe-email {
-            flex: 1 70%;
-
-            input {
-                width: 100%;
-            }
-        }
-    
-        input[type="email"] {
-            border-right: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-    
-        button {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-    }
-}
-
-//--------------------------------------------------------------
-// Medium Width and Up
-//--------------------------------------------------------------
-
-@include mq(m-vp) {
-
-    .ntt--entity-name {
-        font-size: 3rem;
-    }
-
-    .ntt--entries {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .ntt--entity-primary-nav {
-        @include y-padding(.5rem);
-    }
-
-    .ntt--entity-main-main-aside---1 {
-
-        .ntt--entity {
-            @include x-padding(1rem);
-        }
-    }
-
-    .ntt--multiple-entries {
-
-        .entry {
-            flex: 1 100%;
-        }
-
-        &.ntt--first-page {
-            
-            .ntt--entry---sticky {
-                flex: 1 50%;
-
-                .entry-main,
-                .ntt--entry-footer {
-                    display: none;
-                }
-
-                &:first-of-type {
-                    flex: 1 100%;
-                }
-            }
-
-            // Sticky Entry
-            @supports (display: grid) {
-                $unsticky-banner-height: 30rem;
-                $sticky-banner-height: 50vh;
-                $sticky-banner-min-height: 20rem;
-
-                .ntt--entry-banner-visuals---1 {
-
-                    &.ntt--entry---unsticky {
-
-                        .ntt--entry {
-                            display: grid;
-                            grid-template:
-                                'banner heading .'
-                                'banner actions .'
-                                'banner meta comments'
-                                'banner main .' 1fr
-                                'footer . .'
-                                / 40% auto 1fr;
-                        }
-            
-                        .entry-header,
-                        .ntt--entry-header {
-                            display: contents;
-                        }
-            
-                        .ntt--entry-banner {
-                            grid-area: banner;
-                            width: 100%;
-                            height: $unsticky-banner-height;
-                        }
-
-                        .ntt--entry-banner {
-                            @include y-padding();
-                        }
-            
-                        .entry-heading {
-                            grid-area: heading;
-                            grid-column: heading / -1;
-                        }
-            
-                        .entry-header {
-            
-                            .ntt--entry-axns {
-                                grid-area: actions;
-                                grid-column: actions / -1;
-                                align-self: center;
-                            }
-            
-                            .ntt--comments-actions-snippet {
-                                grid-area: comments;
-                                align-self: center;
-                            }
-                        }
-                        
-                        .ntt--entry-primary-meta {
-                            grid-area: meta;
-                        }
-            
-                        .ntt--entry-main {
-                            grid-area: main;
-                            grid-column: main / -1;
-                        }
-            
-                        .ntt--entry-footer {
-                            grid-area: footer;
-                            grid-column: footer / -1;
-                        }
-                    
-                        .ntt--entry-banner-visuals {
-                
-                            img {
-                                height: $unsticky-banner-height;
-                                object-fit: cover;
-                            }
-                        }
-                    }
-                }
-
-                .ntt--entry---sticky {
-
-                    .entry-main,
-                    .ntt--entry-footer {
-                        display: none;
-                    }
-
-                    .ntt--entry-header {
-                        display: grid;
-                        grid-template:
-                            'heading .' 1fr
-                            'actions .'
-                            'meta comments'
-                            'main .'
-                            / auto 1fr;
-                    }
-            
-                    .entry-heading {
-                        grid-area: heading;
-                        grid-column: heading / -1;
-                        align-self: flex-end;
-                    }
-
-                    .entry-header {
-            
-                        .ntt--entry-axns {
-                            grid-area: actions;
-                            grid-column: actions / -1;
-                            align-self: center;
-                        }
-        
-                        .ntt--comments-actions-snippet {
-                            grid-area: comments;
-                            align-self: center;
-                        }
-                    }
-                        
-                    .ntt--entry-primary-meta {
-                        grid-area: meta;
-                    }
-
-                    .ntt--entry-banner {
-                        grid-area: heading;
-                        grid-row: heading / -1;
-                        grid-column: heading / -1;
-                        z-index: -1;
-                        width: 100%;
-                        height: $sticky-banner-height;
-                        min-height: $sticky-banner-min-height;
-                    }
-
-                    .ntt--entry-banner-visuals {
-                        @include x-padding();
-                        margin-bottom: 0;
-            
-                        img {
-                            height: $sticky-banner-height;
-                            min-height: $sticky-banner-min-height;
-                            object-fit: cover;
-                        }
-                    }
-
-                    .ntt--entry-name {
-
-                        a {
-
-                            &:hover {
-                                text-decoration: none;
-
-                                .ntt--txt {
-                                    background-image: linear-gradient(0deg, hsl(10, 100%, 90%) 65%, transparent 0);
-                                }
-                            }
-                        }
-
-                        .ntt--txt {
-                            background-image: linear-gradient(0deg, hsla(11, 100%, 93%, .9) 65%, transparent 0);
-                        }
-                    }
-
-                    &:first-of-type {
-                        $first-sticky-banner-height: 70vh;
-        
-                        .ntt--entry-banner {
-                            height: $first-sticky-banner-height;
-                        }
-        
-                        .ntt--entry-banner-visuals {
-                
-                            img {
-                                height: $first-sticky-banner-height;
-                            }
-                        }
-                    }
-                }
-
-                .ntt--entry-banner-visuals---0 {
-
-                    &.ntt--entry---sticky {
-
-                        .ntt--entry-header {
-                            height: $sticky-banner-height;
-                            min-height: $sticky-banner-min-height;
-                            background-color: hsla(11, 100%, 93%, .25);
-                        }
-                    }
-                }
-            }
-        }
+        color: $neutral-color;
     }
 }

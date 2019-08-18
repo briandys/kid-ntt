@@ -55,8 +55,16 @@
 // Entity Heading
 //--------------------------------------------------------------
 
+.ntt--entity-logo {
+    padding: 1rem;
+
+    a {
+        display: inline-block;
+    }
+}
+
 .ntt--entity-name {
-    @include space-around;
+    padding: .5rem;
     margin: 0;
     font-size: 1rem;
 
@@ -70,26 +78,15 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
 .ntt--entity-description {
-    display: block;
-    @include space-around;
+    display: inline-block;
+    padding: .5rem;
 
     .ntt--txt {
         @extend %block-pad;
-        display: inline-block;
-        @extend %boundary;
-    }
-}
-
-.ntt--entity-logo {
-
-    img {
-        padding: .5rem;
-        width: auto;
     }
 }
 
