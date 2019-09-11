@@ -1,4 +1,8 @@
 <?php
+
+$GLOBALS['ntt_snaps_name'] = 'Elevate Everyday Living';
+$GLOBALS['ntt_snaps_name_slug'] = sanitize_title( $GLOBALS['ntt_snaps_name'] );
+
 /**
  * Functions
  */
@@ -16,6 +20,10 @@ foreach ( $r_funcs as $func ) {
 function eel_ntt_styles_scripts() {
 
     wp_enqueue_style( 'eel-ntt-style', get_stylesheet_directory_uri(). '/includes/snaps/elevate-everyday-living/assets/styles/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
+
+    wp_enqueue_script( $GLOBALS['ntt_snaps_name_slug']. '-ntt-instafeed-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/scripts/instafeed.min.js', array( 'ntt-script' ), wp_get_theme()->get( 'Version' ), true );
+
+    wp_enqueue_script( $GLOBALS['ntt_snaps_name_slug']. '-ntt-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/scripts/main.js', array( $GLOBALS['ntt_snaps_name_slug']. '-ntt-instafeed-script' ), wp_get_theme()->get( 'Version' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'eel_ntt_styles_scripts', 0 );
 

@@ -37,7 +37,7 @@
   padding: .5rem;
 }
 
-.ntt--comment-name .ntt--txt, .ntt--comment-author-label .ntt--txt, .ntt--comment-author-avatar .ntt--img, .ntt--comment-author-name .ntt--txt, .ntt--comments-count .ntt--txt, .ntt--comments-header .ntt--comments-count .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--comments-name .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-composition-name .ntt--txt, .ntt--cancel-reply-axn .ntt--txt, .ntt--comment-form label .ntt--txt, .ntt--form-element, .ntt--log-out-account-axn .ntt--txt, .ntt--logged-in-account .ntt--txt, .ntt--comment-published-datetime-label .ntt--txt, .ntt--comment-published-date .ntt--txt,
+.ntt--comment-name .ntt--txt, .ntt--comment-author-label .ntt--txt, .ntt--comment-author-avatar .ntt--img, .ntt--comment-author-name .ntt--txt, .ntt--comments-count .ntt--txt, .ntt--comments-header .ntt--comments-count .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--comments-name .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-composition-name .ntt--txt, .ntt--cancel-reply-axn .ntt--txt, .ntt--comment-form label .ntt--txt, .ntt--comment-form .ntt--form-element, .ntt--log-out-account-axn .ntt--txt, .ntt--logged-in-account .ntt--txt, .ntt--comment-published-datetime-label .ntt--txt, .ntt--comment-published-date .ntt--txt,
 .ntt--comment-published-time .ntt--txt, .ntt--entity-view-name .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
 .ntt--entity-copyright .ntt--txt,
 .ntt--entity-maker-tag .ntt--txt, .ntt--content > *, .ntt--entry-categories-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
@@ -351,11 +351,11 @@ label[for]:hover {
   margin-bottom: 1rem;
 }
 
-.ntt--form-field {
+.ntt--comment-form .ntt--form-field {
   padding: .5rem;
 }
 
-.ntt--form-element {
+.ntt--comment-form .ntt--form-element {
   padding: .5rem;
 }
 
@@ -1376,62 +1376,41 @@ label[for]:hover {
   font-weight: bold;
 }
 
-.ntt--widget_tag_cloud a {
-  display: inline-block;
-  padding: .5rem;
-}
-
 .ntt--entry-main-aside {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-top: 2rem;
 }
 
-.ntt--widget .ntt--search {
-  padding-left: 0;
-  padding-right: 0;
+.ntt--search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
-.ntt--search {
-  padding: .5rem;
+.ntt--search .text-input {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.ntt--search button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .ntt--search-label {
-  display: inline-block;
+  display: none;
 }
 
-.ntt--search-label .ntt--txt {
-  display: block;
-  padding: .5rem;
-}
-
-.ntt--search-textbox {
-  padding: .5rem;
-}
-
-.ntt--submit-search-axn {
-  padding: .5rem;
-}
-
-.ntt--widget .ntt--search {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.ntt--widget .ntt--search-label .ntt--txt {
+.ntt--search-field {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
   padding: 0;
-  margin-bottom: .5rem;
-}
-
-.ntt--widget .ntt--search-textbox {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.ntt--widget .ntt--submit-search-axn {
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 0;
 }
 
 .ntt--widget_nav_menu {
@@ -1455,6 +1434,11 @@ label[for]:hover {
 }
 
 .ntt--widget_nav_menu li {
+  padding: .5rem;
+}
+
+.ntt--widget_tag_cloud a {
+  display: inline-block;
   padding: .5rem;
 }
 
@@ -1559,67 +1543,6 @@ label[for]:hover {
     display: -ms-flexbox;
     display: flex;
   }
-}
-
-.ntt--search---compact .ntt--search {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-
-.ntt--search---compact .ntt--search .ntt--search-field {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
-  padding: 0;
-}
-
-.ntt--search---compact .ntt--search .text-input {
-  border-right: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.ntt--search---compact .ntt--search button {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.ntt--search---compact .ntt--search-textbox {
-  padding-right: 0;
-  padding-bottom: 0;
-}
-
-.ntt--search---compact .ntt--content .search---cr,
-.ntt--search---compact .ntt--content .search-field-textbox,
-.ntt--search---compact .ntt--content .ntt--submit-search-axn {
-  padding: 0;
-}
-
-.ntt--search---compact .ntt--submit-search-axn {
-  padding-left: 0;
-  padding-bottom: 0;
-}
-
-.ntt--search---compact .ntt--search-label {
-  display: none;
-}
-
-.ntt--search---compact .widget_search .ntt--widget-name {
-  display: none;
-}
-
-.ntt--search---compact .widget_search .ntt--search-textbox {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.ntt--search---compact .widget_search .ntt--submit-search-axn {
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 a {

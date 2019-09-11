@@ -1,5 +1,9 @@
+//--------------------------------------------------------------
+// Widget
+//--------------------------------------------------------------
+
 .ntt--widget {
-    padding: .03125rem 1rem;
+    padding: .03125rem 1rem; // Small top and bottom padding for > * margin to take effect
     
     > * {
         @include y-margin(1em);
@@ -16,24 +20,9 @@
     font-weight: bold;
 }
 
-.ntt--widget_tag_cloud {
-
-    a {
-        display: inline-block;
-        padding: .5rem;
-    }
-}
-
 .ntt--entry-main-aside {
     @include y-padding(.5rem);
     margin-top: 2rem;
-}
-
-.ntt--widget {
-
-    .ntt--search {
-        @include x-padding(0);
-    }
 }
 
 //--------------------------------------------------------------
@@ -41,52 +30,28 @@
 //--------------------------------------------------------------
 
 .ntt--search {
-    padding: .5rem;
+    display: flex;
+    align-items: flex-end;
+
+    .text-input {
+        border-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    button {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
 }
 
 .ntt--search-label {
-    display: inline-block;
-
-    .ntt--txt {
-        display: block;
-        padding: .5rem;
-    }
+    display: none;
 }
-
-.ntt--search-textbox {
-    padding: .5rem;
-}
-
-.ntt--submit-search-axn {
-    padding: .5rem;
-}
-
-//--------------------------------------------------------------
-// Search Widget
-//--------------------------------------------------------------
-
-.ntt--widget {
-
-    .ntt--search {
-        @include y-padding(0);
-    }
-
-    .ntt--search-label {
     
-        .ntt--txt {
-            padding: 0;
-            margin-bottom: .5rem;
-        }
-    }
-
-    .ntt--search-textbox {
-        @include x-padding(0);
-    }
-
-    .ntt--submit-search-axn {
-        @include x-padding(0);
-        padding-bottom: 0;
-    }
+.ntt--search-field {
+    flex: 1 100%;
+    padding: 0;
 }
 
 //--------------------------------------------------------------
@@ -107,5 +72,17 @@
 
     a {
         @extend %block-pad;
+    }
+}
+
+//--------------------------------------------------------------
+// Tag Cloud
+//--------------------------------------------------------------
+
+.ntt--widget_tag_cloud {
+
+    a {
+        display: inline-block;
+        padding: .5rem;
     }
 }

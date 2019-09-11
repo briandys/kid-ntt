@@ -50,12 +50,6 @@ function ntt_kid_html_css( $classes ) {
         $classes[] = 'ntt--entity-description---0';
     }
 
-    /**
-     * Feature: Compact Search
-     */
-    
-    $classes[] = 'ntt--search---compact';
-
     return $classes;
 }
 add_filter( 'ntt_html_css_filter', 'ntt_kid_html_css' );

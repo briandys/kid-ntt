@@ -269,15 +269,15 @@
         @include x-padding(1rem);
         @include y-margin(1rem);
     }
-}
 
-.ntt--form-field {
-    @include space-around;
-}
+    .ntt--form-field {
+        @include space-around;
+    }
 
-.ntt--form-element {
-    @include space-around;
-    @extend %boundary;
+    .ntt--form-element {
+        @include space-around;
+        @extend %boundary;
+    }
 }
 
 .ntt--submit-comment-axn {

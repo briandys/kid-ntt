@@ -198,6 +198,8 @@
                         input[i].checked = false; 
                     }
                 }
+
+                el.classList.remove( 'ntt--sub-menu---active' );
             }
         } )
     }, false);

@@ -4,32 +4,6 @@
 
 .ntt--search---compact {
 
-    .ntt--search {
-        display: flex;
-        align-items: flex-end;
-    
-        .ntt--search-field {
-            flex: 1 100%;
-            padding: 0;
-        }
-    
-        .text-input {
-            border-right: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-    
-        button {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-    }
-
-    .ntt--search-textbox {
-        padding-right: 0;
-        padding-bottom: 0;
-    }
-
     .ntt--content {
 
         .search---cr,
@@ -42,10 +16,6 @@
     .ntt--submit-search-axn {
         padding-left: 0;
         padding-bottom: 0;
-    }
-
-    .ntt--search-label {
-        display: none;
     }
 
     .widget_search {
