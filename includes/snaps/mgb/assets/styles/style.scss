@@ -1,0 +1,529 @@
+//--------------------------------------------------------------
+// Kid NTT Rules
+//--------------------------------------------------------------
+
+@import '../../../../../assets/styles/source/rules';
+
+//--------------------------------------------------------------
+// Snap Rules
+//--------------------------------------------------------------
+
+//--------------------------------------------------------------
+// Absolute Variables
+//--------------------------------------------------------------
+
+$mgb-gray: #707070;
+
+$mgb-light-pink: #FFF4F2;
+$mgb-pink: #FFB3CC;
+$mgb-dark-pink: #ff578f;
+
+$mgb-peach: #DE756E;
+$mgb-light-peach: #FFF3F2;
+
+//--------------------------------------------------------------
+// Generic Variables
+//--------------------------------------------------------------
+
+//------------ Colors
+$ink-color: $almost-black;
+$paper-color: white;
+$mid-color: $mgb-gray;
+
+$primary-base-color: $mgb-pink;
+$secondary-base-color: $mgb-peach;
+
+$accent-color: $mgb-peach;
+$faint-accent-color: $mgb-light-peach;
+
+//------------ Fonts
+$primary-font: 'Open Sans', sans-serif;
+$secondary-font: 'Sanchez', serif;
+
+$large-font-size: 1.125em;
+
+//--------------------------------------------------------------
+// Specific Variables
+//--------------------------------------------------------------
+
+$link-color: $accent-color;
+
+$entity-bg: $mgb-light-peach;
+
+$base-font: $primary-font;
+$entry-heading-font: $secondary-font;
+
+$type-scale-ratio: 1.25;
+$entry-content-font-size: 1em;
+
+$h1-font-size: $type-scale-ratio * $entry-content-font-size;
+$h2-font-size: $type-scale-ratio * $h1-font-size;
+$h3-font-size: $type-scale-ratio * $h2-font-size;
+
+
+
+$entry-content-color: $mid-color;
+
+//--------------------------------------------------------------
+// Redeclare theme to detect the variables above
+//--------------------------------------------------------------
+
+@import '../../../../../assets/styles/source/theme';
+
+//--------------------------------------------------------------
+// Hide Stuff
+//--------------------------------------------------------------
+
+.ntt--entity-logo---1 {
+
+    .ntt--entity-name {
+        display: none;
+    }
+
+    .ntt--entity-description {
+        display: none;
+    }
+}
+
+.entry-author-glabel,
+.ntt--entry-published-datetime-label,
+.cm-time,
+.entry-categories-name,
+.ntt--comment-published-datetime-label {
+    display: none;
+}
+
+//--------------------------------------------------------------
+// Basic
+//--------------------------------------------------------------
+
+html {
+    line-height: 1.5;
+    background-color: $mgb-light-pink;
+}
+
+body {
+    color: $ink-color;
+    font-family: $primary-font;
+}
+
+//--------------------------------------------------------------
+// Entity Header
+//--------------------------------------------------------------
+
+.ntt--entity-header {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+        flex: 1 100%;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Heading
+//--------------------------------------------------------------
+
+.ntt--entity-heading {
+    position: relative;
+    @include y-padding(1rem);
+    text-align: center;
+}
+
+.ntt--entity-logo {
+    @include y-padding(.5rem);
+
+    img {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+.ntt--entity-name {
+    @include x-padding(1rem);
+    font-family: $secondary-font;
+    font-weight: normal;
+    font-size: 2.375rem; // For wider viewport
+    font-size: 1.5rem;
+
+    a {
+        color: inherit;
+    }
+
+    .ntt--txt {
+        padding: 0;
+    }
+}
+
+.ntt--entity-description {
+    @include x-padding(1rem);
+    color: $mid-color;
+    font-size: .875rem;
+    letter-spacing: .045em;
+
+    .ntt--txt {
+        padding: 0;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Primary Navigation
+//--------------------------------------------------------------
+
+.ntt--entity-primary-nav {
+    padding: 1rem .25rem;
+    font-size: 1.125rem;
+    font-family: $secondary-font;
+    color: $mgb-gray;
+
+    a {
+        color: inherit;
+        @include transition;
+
+        &:hover {
+            text-decoration: none;
+            color: $ink-color;
+        }
+    }
+
+    li {
+        padding: 0 .75rem;
+
+        .ntt--txt {
+            @include if-y-center;
+            padding: 0;
+            min-height: 2.375rem;
+        }
+    }
+    
+    .current-menu-item,
+    .current_page_item {
+
+        > a {
+
+            .ntt--txt {
+                position: relative;
+                
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: .25rem;
+                    background-color: $mgb-pink;
+                    z-index: -1;
+                }
+            }
+        }
+    }
+}
+
+.ntt--entity-primary-nav-group {
+    justify-content: center;
+}
+
+//--------------------------------------------------------------
+// Navigation - Sub-menu - JS
+//--------------------------------------------------------------
+
+.ntt--nav---sub-menu--js {
+    
+    .ntt--sub-menu-checkbox {
+        background-position-y: 55%;
+        background-size: .75rem;
+        @include transition;
+
+        &:checked {
+            background-position-y: 50%;
+        }
+    }
+
+    .ntt--sub-menu-ancestor {
+        
+        .sub-menu {
+            $sub-menu-corner-radius: .25rem;
+
+            min-width: 180px;
+            font-size: 1rem;
+            border: 0;
+            background-color: $faint-accent-color;
+            border: 1px solid hsla(0, 0%, 0%, .0625);
+            border-radius: $sub-menu-corner-radius;
+
+            .ntt--txt {
+                @include x-padding(.75rem);
+            }
+
+            li {
+                border-bottom: 0;
+            }
+
+            a {
+
+                &:hover {
+                    background-color: hsl(0, 100%, 97%);
+                    border-radius: $sub-menu-corner-radius;
+
+                    &:first-child {
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Header Aside
+//--------------------------------------------------------------
+
+.ntt--entity-header-aside {
+
+    .ntt--widget_nav_menu {
+        padding: 1rem .25rem;
+        margin-top: -1rem;
+
+        > * {
+            @include y-margin();
+        }
+
+        li {
+            padding: 0 .75rem;
+        }
+
+        a {
+            @include if-y-center;
+            @include x-padding();
+            min-height: 2.375rem;
+            color: $ink-color;
+        }
+
+        .menu {
+            justify-content: center;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Main Header
+//--------------------------------------------------------------
+
+.ntt--entity-view-name {
+    font-size: $large-font-size;
+
+    a {
+        color: inherit;
+    }
+}
+
+.ntt--current-index {
+
+    .ntt--entity-view-heading {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry
+//--------------------------------------------------------------
+
+.ntt--entry-name {
+    font-size: 1.563em;
+    font-family: $secondary-font;
+    font-weight: normal;
+
+    a {
+        color: inherit;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Secondary Info
+//--------------------------------------------------------------
+
+.ntt--entity-secondary-info {
+    text-align: center;
+    font-size: .875rem;
+
+    a {
+        color: $mid-color;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    .ntt--entity-logo {
+        @include x-padding(1.5rem);
+
+        img {
+            max-width: 360px;
+        }
+    }
+
+    .ntt--entity-primary-nav {
+        @include x-padding(.75rem);
+    }
+
+    .ntt--entity-heading {
+    
+        &::before {
+            width: calc(100% - 3rem);
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Page View
+//--------------------------------------------------------------
+
+.ntt--page--view {
+
+    .ntt--entry-primary-meta,
+    .ntt--comments-actions-snippet,
+    .ntt--comment-md,
+    .ntt--entry-nav {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Home View
+//--------------------------------------------------------------
+
+.ntt--page--home--view {
+
+    .ntt--entry-header,
+    .ntt--comment-md,
+    .ntt--entry-nav {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Full Content
+//--------------------------------------------------------------
+
+.ntt--entry-full-content {
+    color: $entry-content-color;
+    line-height: 1.8;
+
+    > {
+
+        *:first-child {
+            margin-top: 0;
+        }
+
+        figure,
+        #instafeed {
+            @include x-padding();
+        }
+
+        #{$headings} {
+            font-family: $secondary-font;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        h4 {
+            font-size: 18px;
+        }
+    }
+
+    hr {
+        position: relative;
+        @include x-padding();
+        @include y-margin(2rem);
+        border: 0;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            background-color: #FFCCDD;
+            min-width: 64px;
+            height: 2px;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Secondary Information
+//--------------------------------------------------------------
+
+.ntt--entity-secondary-info {
+    font-size: .75rem;
+    color: hsla(0, 0%, 0%, .35);
+
+    a {
+        color: hsla(0, 0%, 0%, .35);
+    }
+}
+
+.ntt--entity-maker-tag {
+    display: inline-block;
+}
+
+//--------------------------------------------------------------
+// Custom Content
+//--------------------------------------------------------------
+
+#instafeed {
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+        flex: 1 25%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.txt-axn {
+    text-align: center;
+
+    a {
+        display: inline-block;
+        padding: 8px 16px;
+        color: $mgb-gray;
+        font-weight: 600;
+        border: 2px solid #FFB3CC;
+        border-radius: 8px;
+        @include transition;
+
+        &:hover {
+            text-decoration: none;
+            background-color: #FFB3CC;
+            color: white;
+        }
+
+        &:active {
+            background-color: #E68AA8;
+            color: hsla(0, 0, 100%, .96);
+            border-color: #E68AA8;
+        }
+    }
+}
+
+.short-description {
+    text-align: center;
+    font-size: 24px;
+    color: $mgb-gray;
+    font-family: $secondary-font;
+}

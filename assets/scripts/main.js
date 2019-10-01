@@ -56,6 +56,14 @@
 
     const html = document.documentElement;
 
+    /**
+     * Adding, removing, and testing for classes
+     * https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/
+     */
+    function hasClass(el, className) {
+        return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
+    }
+
     /** 
      * Wrap Element
      * 

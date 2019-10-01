@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['ntt_snaps_name'] = 'Elevate Everyday Living';
+$GLOBALS['ntt_snaps_name'] = 'MGB';
 $GLOBALS['ntt_snaps_name_slug'] = sanitize_title( $GLOBALS['ntt_snaps_name'] );
 
 /**
@@ -17,7 +17,7 @@ foreach ( $r_funcs as $func ) {
 /**
  * Styles, Scripts
  */
-function eel_ntt_styles_scripts() {
+function mgb_ntt_styles_scripts() {
 
     wp_enqueue_style( $GLOBALS['ntt_snaps_name_slug']. '-ntt-style', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/styles/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
 
@@ -25,32 +25,32 @@ function eel_ntt_styles_scripts() {
 
     wp_enqueue_script( $GLOBALS['ntt_snaps_name_slug']. '-ntt-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/scripts/main.js', array( $GLOBALS['ntt_snaps_name_slug']. '-ntt-instafeed-script' ), wp_get_theme()->get( 'Version' ), true );
 }
-add_action( 'wp_enqueue_scripts', 'eel_ntt_styles_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'mgb_ntt_styles_scripts', 0 );
 
 /**
  * Font Families
  */
-function eel_ntt_font_families( $font_families ) {
+function mgb_ntt_font_families( $font_families ) {
     
-    $font_families[] = 'Playfair+Display:400,700|Work+Sans:400,600&display=swap';
+    $font_families[] = 'Open+Sans:400,600,700|Sanchez&display=swap';
     
     return $font_families;
 }
-add_filter( 'kid_ntt_custom_fonts_filter', 'eel_ntt_font_families' );
+add_filter( 'kid_ntt_custom_fonts_filter', 'mgb_ntt_font_families' );
 
 /** 
  * Insert Elements After Entry Name
  */
-function eel_ntt_before_entry_name() {
+function mgb_ntt_before_entry_name() {
     ntt_entry_categories();
     ntt_entry_breadcrumbs_nav();
 }
-add_action( 'ntt_before_entry_name_wp_hook', 'eel_ntt_before_entry_name' );
+add_action( 'ntt_before_entry_name_wp_hook', 'mgb_ntt_before_entry_name' );
 
 /**
  * Entry Banner Visuals Featured Image Size
  */
-function eel_ntt_entry_banner_visuals_featured_image_size() {
+function mgb_ntt_entry_banner_visuals_featured_image_size() {
 
     if ( is_singular() ) {
         $featured_image_size = 'ntt-large';
@@ -60,20 +60,20 @@ function eel_ntt_entry_banner_visuals_featured_image_size() {
 
     return $featured_image_size;
 }
-add_filter( 'ntt_entry_banner_visuals_featured_image_size_filter', 'eel_ntt_entry_banner_visuals_featured_image_size' );
+add_filter( 'ntt_entry_banner_visuals_featured_image_size_filter', 'mgb_ntt_entry_banner_visuals_featured_image_size' );
 
-function eel_ntt_cm_datetime_month_filter() {
+function mgb_ntt_cm_datetime_month_filter() {
     return 'M';
 }
-add_filter( 'ntt_cm_datetime_month_filter', 'eel_ntt_cm_datetime_month_filter' );
+add_filter( 'ntt_cm_datetime_month_filter', 'mgb_ntt_cm_datetime_month_filter' );
 
 /**
  * HTML CSS
  */
-function eel_ntt_html_css( $classes ) {
+function mgb_ntt_html_css( $classes ) {
 
-    $classes[] = 'ntt--entry-datetime--boxy';
+    // $classes[] = 'ntt--entry-datetime--boxy';
 
     return $classes;
 }
-add_filter( 'ntt_html_css_filter', 'eel_ntt_html_css' );
+add_filter( 'ntt_html_css_filter', 'mgb_ntt_html_css' );
