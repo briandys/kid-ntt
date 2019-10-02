@@ -40,29 +40,44 @@ $faint-accent-color: $mgb-light-peach;
 $primary-font: 'Open Sans', sans-serif;
 $secondary-font: 'Sanchez', serif;
 
-$large-font-size: 1.125em;
-
 //--------------------------------------------------------------
 // Specific Variables
 //--------------------------------------------------------------
 
+//------------ Base
+
+$base-font-family: $primary-font;
 $link-color: $accent-color;
+$base-font-size: 1rem;
+
+$line-height-display: 1.25;
+$line-height-body: 1.5;
+
+$font-display-factor-xxl: 4;
+$font-display-factor-xl: 3.5;
+$font-display-factor-l: 3;
+$font-display-factor-m: 2.5;
+$font-display-factor-s: 2;
+$font-display-factor-xs: 1.5;
+$font-display-factor-xxs: 1.125;
+
+$font-body-factor-l: 1.125;
+$font-body-factor-m: 1;
+$font-body-factor-s: .875;
+$font-body-factor-xs: .75;
+
+$font-cta: $base-font-size;
+
+//------------ Entity Specifics
 
 $entity-bg: $mgb-light-peach;
 
-$base-font: $primary-font;
-$entry-heading-font: $secondary-font;
+//------------ Content Specifics
 
-$type-scale-ratio: 1.25;
-$entry-content-font-size: 1em;
-
-$h1-font-size: $type-scale-ratio * $entry-content-font-size;
-$h2-font-size: $type-scale-ratio * $h1-font-size;
-$h3-font-size: $type-scale-ratio * $h2-font-size;
-
-
-
-$entry-content-color: $mid-color;
+$content-color: $mid-color;
+$content-heading-font-family: $secondary-font;
+$content-body-font-family: $base-font-family;
+$content-link-color: $link-color;
 
 //--------------------------------------------------------------
 // Redeclare theme to detect the variables above
@@ -89,8 +104,17 @@ $entry-content-color: $mid-color;
 .ntt--entry-published-datetime-label,
 .cm-time,
 .entry-categories-name,
-.ntt--comment-published-datetime-label {
+.ntt--comment-published-datetime-label,
+.ntt--entry-categories-name,
+.ntt--comment-md {
     display: none;
+}
+
+.ntt--entry-primary-meta {
+
+    .ntt--entry-categories {
+        display: none;
+    }
 }
 
 //--------------------------------------------------------------
@@ -99,12 +123,22 @@ $entry-content-color: $mid-color;
 
 html {
     line-height: 1.5;
-    background-color: $mgb-light-pink;
+    background-color: $entity-bg;
 }
 
 body {
     color: $ink-color;
-    font-family: $primary-font;
+    font-family: $base-font-family;
+    @include font-body(m);
+}
+
+//--------------------------------------------------------------
+// Entity Header
+//--------------------------------------------------------------
+
+.ntt--entity {
+    max-width: 768px;
+    @include x-margin(auto);
 }
 
 //--------------------------------------------------------------
@@ -114,6 +148,7 @@ body {
 .ntt--entity-header {
     display: flex;
     flex-wrap: wrap;
+    @include x-padding(.5rem); // Wider gutter
 
     > * {
         flex: 1 100%;
@@ -171,7 +206,7 @@ body {
 //--------------------------------------------------------------
 
 .ntt--entity-primary-nav {
-    padding: 1rem .25rem;
+    @include y-padding(1rem);
     font-size: 1.125rem;
     font-family: $secondary-font;
     color: $mgb-gray;
@@ -187,7 +222,7 @@ body {
     }
 
     li {
-        padding: 0 .75rem;
+        @include x-padding(1rem);
 
         .ntt--txt {
             @include if-y-center;
@@ -309,32 +344,258 @@ body {
 // Entity Main Header
 //--------------------------------------------------------------
 
-.ntt--entity-view-name {
-    font-size: $large-font-size;
+.ntt--entity-main-header {
+    @include x-padding(.5rem); // Wider gutter
+}
 
-    a {
-        color: inherit;
+.ntt--entity-view-heading {
+    justify-content: center;
+
+    .ntt--current-index & {
+        display: none;
     }
 }
 
-.ntt--current-index {
+.ntt--entity-view-name {
+    @include font-display(s);
+    font-family: $secondary-font;
 
-    .ntt--entity-view-heading {
+    .ntt--key-line {
         display: none;
     }
+}
+
+.ntt--entry-count {
+    padding: .5rem;
+
+    .ntt--txt {
+        @include if-y-center;
+        justify-content: center;
+        padding: .2rem .5rem;
+        min-width: 2rem;
+        min-height: 2rem;
+        text-align: center;
+        color: #DE756E;
+        border: 2px solid #DE756E;
+        border-radius: .25rem;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Main Footer
+//--------------------------------------------------------------
+
+.ntt--entity-main-footer {
+    @include x-padding(.5rem); // Wider gutter
+}
+
+//--------------------------------------------------------------
+// Entity Footer
+//--------------------------------------------------------------
+
+.ntt--entity-footer {
+    @include x-padding(.5rem); // Wider gutter
 }
 
 //--------------------------------------------------------------
 // Entry
 //--------------------------------------------------------------
 
+.ntt--entry {
+
+    .ntt--multiple-entries & {
+        margin-top: 4rem;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
 .ntt--entry-name {
-    font-size: 1.563em;
+    @include font-display(s);
     font-family: $secondary-font;
     font-weight: normal;
 
     a {
         color: inherit;
+    }
+}
+
+.ntt--entry-subname {
+    @include font-display(xs);
+    font-family: $secondary-font;
+    color: $mid-color;
+}
+
+.ntt--entry-heading {
+
+    .ntt--entry-categories {
+        margin-bottom: -1rem;
+    }
+}
+
+.ntt--entry-datetime {
+    align-self: flex-start;
+}
+
+.ntt--entry-published-datetime {
+    padding: 1rem;
+}
+
+.ntt--entry-author {
+    @include x-padding(1rem);
+}
+
+.ntt {
+
+    .wp-caption,
+    .wp-block-image {
+
+        figcaption {
+            padding: 1rem 1.5rem; // Wider gutter
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Header
+//--------------------------------------------------------------
+
+.ntt--entry-header {
+    display: grid;
+    grid-template:
+        'entry-categories entry-categories'
+        'entry-name entry-datetime'
+        'entry-subname entry-datetime'
+        'entry-axns entry-axns'
+        'entry-author entry-author'
+        'entry-summary-content entry-summary-content'
+        / 1fr auto;
+    @include x-padding(.5rem); // Wider gutter
+    
+    .ntt--comments-actions-snippet {
+        display: none;
+    }
+}
+
+.ntt--entry-heading,
+.ntt--entry-primary-meta {
+    display: contents;
+}
+
+.ntt--entry-heading {
+
+    .ntt--entry-categories {
+        grid-area: entry-categories;
+    }
+}
+
+.ntt--entry-name {
+    grid-area: entry-name;
+    align-self: flex-start;
+}
+
+.ntt--entry-subname {
+    grid-area: entry-subname;
+}
+
+.ntt--entry-axns {
+    grid-area: entry-axns;
+}
+
+.ntt--entry-primary-meta {
+
+    .ntt--entry-datetime {
+        grid-area: entry-datetime;
+    }
+
+    .ntt--entry-author {
+        grid-area: entry-author;
+    }
+}
+
+.ntt--entry-summary-content {
+    grid-area: entry-summary-content;
+}
+
+//--------------------------------------------------------------
+// Entry Footer
+//--------------------------------------------------------------
+
+.ntt--entry-footer {
+    @include x-padding(.5rem); // Wider gutter
+}
+
+//--------------------------------------------------------------
+// Content Module Date
+//--------------------------------------------------------------
+
+.ntt--entry-published-datetime-label,
+.ntt--cm-time,
+.ntt--entry-modified-datetime {
+    display: none;
+}
+
+.ntt--cm-date {
+
+    .ntt--txt {
+        padding: .35rem .75rem;
+        min-width: 56px;
+        text-align: center;
+        background-color: #FFE8E6;
+        color: $mid-color;
+        border-radius: .25rem;
+    }
+
+    .ntt--day-txt,
+    .ntt--month-txt,
+    .ntt--year-txt {
+        display: block;
+        text-align: center;
+        line-height: 1;
+    }
+
+    a {
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .ntt--day-txt {
+        font-size: 1.5rem;
+    }
+
+    .ntt--month-txt {
+        font-size: .875rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .ntt--year-txt {
+        font-size: .875rem;
+    }
+}
+
+//--------------------------------------------------------------
+// Content Module Author
+//--------------------------------------------------------------
+
+.ntt--cm-entry-author-label {
+    display: none;
+}
+
+.ntt--cm-author-avatar {
+    margin-right: .5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.ntt--cm-author-name {
+
+    a {
+        color: $mid-color;
     }
 }
 
@@ -401,17 +662,17 @@ body {
 }
 
 //--------------------------------------------------------------
-// Entry Full Content
+// Entry Content
 //--------------------------------------------------------------
 
-.ntt--entry-full-content {
-    color: $entry-content-color;
+.ntt--content {
+    color: $content-color;
     line-height: 1.8;
 
     > {
 
-        *:first-child {
-            margin-top: 0;
+        * {
+            @include x-padding(1.5rem); // Wider gutter
         }
 
         figure,
@@ -420,25 +681,37 @@ body {
         }
 
         #{$headings} {
-            font-family: $secondary-font;
+            font-family: $content-heading-font-family;
             font-weight: normal;
         }
 
         h1 {
-            font-size: 32px;
+            @include font-display(m);
         }
 
         h2 {
-            font-size: 24px;
+            @include font-display(s);
         }
 
         h3 {
-            font-size: 20px;
+            @include font-display(xs);
         }
 
         h4 {
-            font-size: 18px;
+            @include font-display(xxs);
         }
+
+        h5 {
+            @include font-display(xxs);
+        }
+
+        h6 {
+            @include font-display(xxs);
+        }
+    }
+
+    a {
+        color: $content-link-color;
     }
 
     hr {
@@ -452,9 +725,73 @@ body {
             position: absolute;
             left: 50%;
             background-color: #FFCCDD;
-            min-width: 64px;
-            height: 2px;
+            min-width: 4rem;
+            height: .25rem;
             transform: translateX(-50%);
+        }
+    }
+
+    blockquote {
+        position: relative;
+        padding: 1rem 3rem;
+        @include x-margin();
+        @include font-display(xs);
+        line-height: $line-height-body;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            width: 96px;
+            height: 100%;
+            background-color: #FFE8E6;
+        }
+
+        cite {
+            font-style: normal;
+            @include font-body(m);
+            font-weight: bold;
+
+            a {
+                color: #DE756E;
+            }
+        }
+    }
+
+    p.has-drop-cap:not(:focus):first-letter {
+        font-size: 4.4em;
+        font-family: $secondary-font;
+        color: #DE756E;
+    }
+
+    .ntt--show-more-axn {
+        margin-top: 2em;
+
+        .ntt--txt {
+            padding: .25rem 1rem;
+            border: 2px solid #DE756E;
+            border-left: 0;
+            border-right: 0;
+            @include transition;
+
+            &:hover {
+                background-color: #DE756E;
+                color: white;
+                border-radius: .25rem;
+            }
+        }
+    }
+}
+
+.ntt--entry-summary-content {
+    @include font-body(l);
+    
+    > {
+
+        * {
+            @include x-padding(1rem); // Wider gutter
         }
     }
 }
@@ -464,6 +801,7 @@ body {
 //--------------------------------------------------------------
 
 .ntt--entity-secondary-info {
+    margin-top: 4rem;
     font-size: .75rem;
     color: hsla(0, 0%, 0%, .35);
 

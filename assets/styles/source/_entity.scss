@@ -14,7 +14,7 @@
 
 @supports (display: grid) {
 
-    &,
+    html,
     body,
     .ntt--entity {
         height: 100%;
@@ -112,7 +112,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 
     .ntt--search-term---txt {
@@ -125,7 +124,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 
     .ntt--label-txt {
@@ -164,7 +162,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 

@@ -36,7 +36,6 @@
 
 .ntt--entry-breadcrumbs-nav-ancestors-group {
     display: flex;
-    display: contents;
 
     li {
         margin-right: 1rem;
@@ -77,7 +76,6 @@
 .ntt--ntt--entry-breadcrumbs-nav-ancestors-group {
     @include unlist;
     display: flex;
-    display: contents;
 }
 
 //--------------------------------------------------------------
@@ -101,7 +99,6 @@
 
         .ntt--txt {
             @extend %block-pad;
-            @extend %boundary;
         }
     }
     
@@ -116,7 +113,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -137,7 +133,7 @@
 
         .ntt--txt {
             @extend %block-pad;
-            @extend %boundary;
+            text-align: center;
         }
     }
 
@@ -159,7 +155,7 @@
         &:hover {
             text-decoration: none;
 
-            .value---line {
+            .ntt--entry-name-txt {
                 text-decoration: underline;
             }
         }
@@ -167,12 +163,10 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 
     .ntt--img {
         display: inline-block;
-        @extend %boundary;
     }
 }
 
@@ -229,7 +223,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 

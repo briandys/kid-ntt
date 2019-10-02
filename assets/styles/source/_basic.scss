@@ -30,6 +30,13 @@ a {
     &:hover {
         text-decoration: underline;
     }
+
+    label {
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 img {

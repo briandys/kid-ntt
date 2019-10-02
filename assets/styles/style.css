@@ -12,12 +12,12 @@
   white-space: nowrap;
 }
 
-.ntt--entry-full-content:before, .ntt--entry-full-content .initial-letter:before {
+.ntt--entry-full-content:before {
   content: " ";
   display: table;
 }
 
-.ntt--entry-full-content:after, .ntt--entry-full-content .initial-letter:after {
+.ntt--entry-full-content:after {
   content: " ";
   display: table;
   clear: both;
@@ -30,24 +30,11 @@
 .ntt--entry-modified-datetime-label .ntt--txt, .ntt--entry-published-date .ntt--txt,
 .ntt--entry-published-time .ntt--txt,
 .ntt--entry-modified-date .ntt--txt,
-.ntt--entry-modified-time .ntt--txt, .ntt--entry-name .ntt--txt, .ntt--modify-entry-axn .ntt--txt, .ntt--entry-tags a, .ntt--entry-tags-name .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--entry-author-label .ntt--txt, .ntt--entry-author-name .ntt--txt, .post-navigation .l, .ntt--entry-breadcrumbs-navi .ntt--txt, .ntt--entries-nav li .ntt--txt,
+.ntt--entry-modified-time .ntt--txt, .ntt--entry-name .ntt--txt, .ntt--entry-subname .ntt--txt, .ntt--modify-entry-axn .ntt--txt, .ntt--entry-tags a, .ntt--entry-tags-name .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--entry-author-label .ntt--txt, .ntt--entry-author-name .ntt--txt, .post-navigation .l, .ntt--entry-breadcrumbs-navi .ntt--txt, .ntt--entries-nav li .ntt--txt,
 .ntt--entry-subcontent-nav li .ntt--txt, .ntt--entries-page-indicator .ntt--txt, .ntt--entity-primary-nav li .ntt--txt,
 .ntt--entity-secondary-nav li .ntt--txt, .ntt--entry-nav .ntt--txt, .ntt--entry-content-nav .l, .ntt--comments-navi .ntt--txt, .ntt--widget_nav_menu a {
   display: block;
   padding: .5rem;
-}
-
-.ntt--comment-name .ntt--txt, .ntt--comment-author-label .ntt--txt, .ntt--comment-author-avatar .ntt--img, .ntt--comment-author-name .ntt--txt, .ntt--comments-count .ntt--txt, .ntt--comments-header .ntt--comments-count .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--comments-name .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-composition-name .ntt--txt, .ntt--cancel-reply-axn .ntt--txt, .ntt--comment-form label .ntt--txt, .ntt--comment-form .ntt--form-element, .ntt--log-out-account-axn .ntt--txt, .ntt--logged-in-account .ntt--txt, .ntt--comment-published-datetime-label .ntt--txt, .ntt--comment-published-date .ntt--txt,
-.ntt--comment-published-time .ntt--txt, .ntt--entity-view-name .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
-.ntt--entity-copyright .ntt--txt,
-.ntt--entity-maker-tag .ntt--txt, .ntt--content > *, .ntt--entry-categories-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
-.ntt--entry-modified-datetime-label .ntt--txt, .ntt--entry-published-date .ntt--txt,
-.ntt--entry-published-time .ntt--txt,
-.ntt--entry-modified-date .ntt--txt,
-.ntt--entry-modified-time .ntt--txt, .ntt--entry-name .ntt--txt, .ntt--modify-entry-axn .ntt--txt, .ntt--entry-tags a, .ntt--entry-tags-name .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--entry-author-label .ntt--txt, .ntt--entry-author-avatar .ntt--img, .ntt--entry-author-name .ntt--txt, .ntt--entries-nav li .ntt--txt,
-.ntt--entry-subcontent-nav li .ntt--txt, .ntt--entries-page-indicator .ntt--txt, .ntt--entity-primary-nav li .ntt--txt,
-.ntt--entity-secondary-nav li .ntt--txt, .ntt--entry-nav .ntt--txt, .ntt--entry-nav .ntt--img, .ntt--comments-navi .ntt--txt, .ntt--note > * {
-  _border: 1px solid black;
 }
 
 *,
@@ -79,6 +66,10 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+a label:hover {
+  cursor: pointer;
 }
 
 img {
@@ -425,7 +416,7 @@ label[for]:hover {
 }
 
 @supports (display: grid) {
-  
+  html,
   body,
   .ntt--entity {
     height: 100%;
@@ -743,20 +734,6 @@ label[for]:hover {
   margin-top: 0;
 }
 
-.ntt--entry-full-content .initial-letter, .ntt--entry-full-content p.has-drop-cap:not(:focus):first-letter {
-  float: left;
-  margin-top: -.0625em;
-  margin-right: .0625em;
-  font-size: 5rem;
-  text-transform: uppercase;
-  font-style: normal;
-  line-height: 1;
-}
-
-.ntt--entry-full-content p.has-drop-cap:not(:focus):after {
-  padding-top: 0;
-}
-
 .ntt--entry-content form {
   font-size: 1rem;
 }
@@ -791,11 +768,14 @@ label[for]:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  display: contents;
 }
 
 .ntt--entry-categories li {
   padding: .5rem;
+}
+
+.ntt--entry-categories a {
+  display: inline-block;
 }
 
 .ntt--entry-published-datetime,
@@ -826,6 +806,9 @@ label[for]:hover {
 }
 
 .ntt--entry-name {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
   padding: .5rem;
   margin: 0;
   font-size: 1rem;
@@ -836,9 +819,9 @@ label[for]:hover {
   display: inline-block;
 }
 
-.entry-subname {
+.ntt--entry-subname {
   display: inline-block;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .ntt--entry-axns {
@@ -875,7 +858,6 @@ label[for]:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  display: contents;
 }
 
 .ntt--entry-tags li {
@@ -894,10 +876,9 @@ label[for]:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  display: contents;
 }
 
-.ntt--comments---populated .ntt--entry-header {
+.ntt--entry-header {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -909,9 +890,9 @@ label[for]:hover {
   width: 100%;
 }
 
-.ntt--comments---populated .entry-heading,
-.ntt--comments---populated .entry-axns,
-.ntt--comments---populated .ntt--entry-banner {
+.entry-heading,
+.entry-axns,
+.ntt--entry-banner {
   -webkit-box-flex: 1;
       -ms-flex: 1 100%;
           flex: 1 100%;
@@ -970,7 +951,13 @@ label[for]:hover {
 }
 
 .ntt--entry-heading .entry-name,
-.ntt--entry-heading .entry-subname {
+.ntt--entry-heading .ntt--entry-subname {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+}
+
+.ntt--entry-heading .ntt--entry-categories {
   -webkit-box-flex: 1;
       -ms-flex: 1 100%;
           flex: 1 100%;
@@ -1064,7 +1051,6 @@ label[for]:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  display: contents;
 }
 
 .ntt--entry-breadcrumbs-nav-ancestors-group li {
@@ -1103,7 +1089,6 @@ label[for]:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  display: contents;
 }
 
 .ntt--entries-nav ul,
@@ -1163,6 +1148,11 @@ label[for]:hover {
   padding: .5rem;
 }
 
+.ntt--entity-primary-nav li .ntt--txt,
+.ntt--entity-secondary-nav li .ntt--txt {
+  text-align: center;
+}
+
 .ntt--entity-primary-nav a,
 .ntt--entity-secondary-nav a {
   display: inline-block;
@@ -1177,7 +1167,7 @@ label[for]:hover {
   text-decoration: none;
 }
 
-.ntt--entry-nav a:hover .value---line {
+.ntt--entry-nav a:hover .ntt--entry-name-txt {
   text-decoration: underline;
 }
 

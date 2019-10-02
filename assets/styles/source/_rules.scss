@@ -97,10 +97,74 @@ $faint-border: 1px solid hsla(0, 0%, 0%, .125);
     border-radius: .125rem;
 }
 
-%boundary {
-    _border: 1px solid black;
-}
-
 @mixin space-around {
     padding: .5rem;
+}
+
+@mixin font-display-xxl {
+    font-size: $base-font-size * $font-display-factor-xxl;
+    line-height: $line-height-display;
+}
+
+@mixin font-display($size) {
+  
+    @if $size == xxl {
+
+        font-size: $base-font-size * $font-display-factor-xxl;
+        line-height: $line-height-display;
+    
+    } @else if $size == xl {
+
+        font-size: $base-font-size * $font-display-factor-xl;
+        line-height: $line-height-display;
+
+    } @else if $size == l {
+
+        font-size: $base-font-size * $font-display-factor-l;
+        line-height: $line-height-display;
+
+    } @else if $size == m {
+
+        font-size: $base-font-size * $font-display-factor-m;
+        line-height: $line-height-display;
+    
+    } @else if $size == s {
+
+        font-size: $base-font-size * $font-display-factor-s;
+        line-height: $line-height-display;
+    
+    } @else if $size == xs {
+
+        font-size: $base-font-size * $font-display-factor-xs;
+        line-height: $line-height-display;
+    
+    } @else if $size == xxs {
+
+        font-size: $base-font-size * $font-display-factor-xxs;
+        line-height: $line-height-display;
+    }
+}
+
+@mixin font-body($size) {
+  
+    @if $size == l {
+
+        font-size: $base-font-size * $font-body-factor-l;
+        line-height: $line-height-body;
+    
+    } @else if $size == m {
+
+        font-size: $base-font-size * $font-body-factor-m;
+        line-height: $line-height-body;
+
+    } @else if $size == s {
+
+        font-size: $base-font-size * $font-body-factor-xs;
+        line-height: $line-height-body;
+
+    } @else if $size == xs {
+
+        font-size: $base-font-size * $font-body-factor-m;
+        line-height: $line-height-body;
+    }
 }

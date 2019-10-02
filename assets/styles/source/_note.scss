@@ -6,6 +6,5 @@
     
     > * {
         @include x-padding(1rem);
-        @extend %boundary;
     }
 }

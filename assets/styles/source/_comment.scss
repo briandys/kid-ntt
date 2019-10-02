@@ -13,7 +13,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -42,7 +41,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -50,7 +48,6 @@
 
     .ntt--img {
         display: block;
-        @extend %boundary;
     }
 }
 
@@ -58,7 +55,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -74,7 +70,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -92,7 +87,6 @@
 
         .ntt--txt {
             @extend %block-pad;
-            @extend %boundary;
         }
 
         a {
@@ -131,7 +125,6 @@
 
         .ntt--txt {
             @extend %block-pad;
-            @extend %boundary;
         }
     }
 }
@@ -153,7 +146,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -167,7 +159,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -180,7 +171,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -190,7 +180,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
     
 }
@@ -205,7 +194,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -248,7 +236,6 @@
 
         .ntt--txt {
             @extend %block-pad;
-            @extend %boundary;
         }
     }
 
@@ -276,7 +263,6 @@
 
     .ntt--form-element {
         @include space-around;
-        @extend %boundary;
     }
 }
 
@@ -301,7 +287,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -310,7 +295,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -346,7 +330,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -360,6 +343,5 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }

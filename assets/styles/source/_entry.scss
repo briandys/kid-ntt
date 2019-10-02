@@ -20,7 +20,6 @@
         * {
             @include x-padding(1rem);
             @include y-margin(1em);
-            @extend %boundary;
         }
 
         ul,
@@ -212,31 +211,6 @@
     }
 }
 
-.ntt--entry-full-content {
-
-    .initial-letter {
-        @extend %cf;
-        float: left;
-        margin-top: -.0625em;
-        margin-right: .0625em;
-        font-size: 5rem;
-        text-transform: uppercase;
-        font-style: normal;
-        line-height: 1;
-    }
-
-    p.has-drop-cap:not(:focus) {
-
-        &:first-letter {
-            @extend .initial-letter;
-        }
-
-        &:after {
-            padding-top: 0;
-        }
-    }
-}
-
 .ntt--entry-content {
 
     form {
@@ -264,7 +238,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -273,7 +246,6 @@
     ul {
         @include unlist;
         display: flex;
-        display: contents;
     }
 
     li {
@@ -282,7 +254,7 @@
 
     a {
         @extend %block-pad;
-        @extend %boundary;
+        display: inline-block;
     }
 }
 
@@ -302,7 +274,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -318,7 +289,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -327,6 +297,7 @@
 //--------------------------------------------------------------
 
 .ntt--entry-name {
+    flex: 1 100%;
     @include space-around;
     margin: 0;
     font-size: 1rem;
@@ -338,13 +309,16 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
-.entry-subname {
+.ntt--entry-subname {
     display: inline-block;
-    padding: 1rem;
+    @include space-around;
+
+    .ntt--txt {
+        @extend %block-pad;
+    }
 }
 
 //--------------------------------------------------------------
@@ -367,7 +341,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -402,7 +375,6 @@
     ul {
         @include unlist;
         display: flex;
-        display: contents;
     }
 
     li {
@@ -412,7 +384,6 @@
     
     a {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -423,26 +394,21 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
 .ntt--entry-tag-group {
     display: flex;
-    display: contents;
 }
 
-.ntt--comments---populated {
+.ntt--entry-header {
+    @include if-y-center;
+}
 
-    .ntt--entry-header {
-        @include if-y-center;
-    }
-
-    .entry-heading,
-    .entry-axns,
-    .ntt--entry-banner {
-        flex: 1 100%;
-    }
+.entry-heading,
+.entry-axns,
+.ntt--entry-banner {
+    flex: 1 100%;
 }
 
 .entry-header {
@@ -482,7 +448,11 @@
     @include if-y-center;
 
     .entry-name,
-    .entry-subname {
+    .ntt--entry-subname {
+        flex: 1 100%;
+    }
+
+    .ntt--entry-categories {
         flex: 1 100%;
     }
 }
@@ -507,7 +477,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -525,7 +494,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
@@ -533,7 +501,6 @@
 
     .ntt--img {
         display: block;
-        @extend %boundary;
     }
 }
 
@@ -541,7 +508,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-        @extend %boundary;
     }
 }
 
