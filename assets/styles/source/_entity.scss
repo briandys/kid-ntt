@@ -14,12 +14,6 @@
 
 @supports (display: grid) {
 
-    html,
-    body,
-    .ntt--entity {
-        height: 100%;
-    }
-
     .ntt--entity {
         display: grid;
         grid-template:
@@ -28,6 +22,7 @@
             'entity-main' 1fr
             'entity-footer'
             'entity-end';
+        min-height: 100vh;
     }
     
     .ntt--entity-start {

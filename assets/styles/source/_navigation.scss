@@ -1,9 +1,20 @@
+//--------------------------------------------------------------
+// Navigation
+//--------------------------------------------------------------
+
+.ntt--nav {
+    
+    ul {
+        @include unlist;
+    }
+    
+}
+
 .ntt--nav-name {
     display: none;
 }
 
-.navigation,
-.nav {
+.navigation {
 
     .screen-reader-text {
         display: none;
@@ -17,7 +28,7 @@
         display: inline-block;
     }
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
     }
 }
@@ -27,6 +38,7 @@
 //--------------------------------------------------------------
 
 .ntt--entry-breadcrumbs-nav {
+    flex: 1 100%;
     padding: .5rem;
 }
 
@@ -117,15 +129,24 @@
 }
 
 //--------------------------------------------------------------
-// Entity Primary Navigation, Entity Secondary Navigation
+// Entity Primary Navigation
+// Entity Secondary Navigation
+// Widget Navigation Menu
+//
+// These are the navigations that can have sub-menus
 //--------------------------------------------------------------
 
 .ntt--entity-primary-nav,
-.ntt--entity-secondary-nav {
+.ntt--entity-secondary-nav,
+.ntt--widget_nav_menu {
 
-    ul {
-        @include unlist;
-        @include if-y-center;
+    // Show the Sub-menu on DOM Load
+    @at-root .js.ntt--dom---unloaded & {
+        visibility: hidden;
+    }
+    
+    @at-root .js.ntt--dom---loaded & {
+        visibility: visible;
     }
 
     li {
@@ -133,12 +154,153 @@
 
         .ntt--txt {
             @extend %block-pad;
-            text-align: center;
         }
     }
 
     a {
         display: inline-block;
+        white-space: nowrap;
+    }
+
+    .children,
+    .sub-menu {
+        margin-left: 1rem;
+    }
+}
+
+.ntt--widget_nav_menu {
+
+    ul {
+        @include unlist;
+    }
+
+    a {
+        @extend %block-pad;
+    }
+}
+
+//--------------------------------------------------------------
+// Sub-Menu
+// JS-created CSS class name: .ntt--nav---sub-menu--js
+//--------------------------------------------------------------
+
+.ntt--nav---sub-menu--js {
+
+    ul {
+        @include if-y-center;
+    }
+
+    .ntt--sub-menu-checkbox-label--js {
+        @extend %vh;
+    }
+    
+    .ntt--sub-menu-checkbox--js {
+        // Reset
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: 0;
+    
+        // Visual Design - Nature
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M92.9 26a7.4 7.4 0 0 0-10.3 0L50 58.6 17.4 26A7.3 7.3 0 1 0 7.1 36.3L44.9 74a7.1 7.1 0 0 0 5.1 2.1c1.9.1 3.7-.7 5.1-2.1l37.8-37.8a7.2 7.2 0 0 0 0-10.2z'/%3E%3C/svg%3E");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        width: $sub-menu-arrow-size;
+        height: $sub-menu-arrow-size;
+    
+        // Visual Design - Layout
+        position: absolute;
+        right: 0;
+    
+        &:hover {
+            cursor: pointer;
+        }
+    
+        &:checked {
+            transform: rotate(180deg);
+    
+            ~  {
+    
+                .ntt--sub-menu--js {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .ntt--sub-menu-ancestor--js {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding-right: $sub-menu-arrow-size;
+    
+        a {
+            display: block;
+            width: 100%;
+        }
+    
+        li {
+            padding: 0;
+            min-width: 100%;
+        }
+    }
+    
+    .ntt--sub-menu--js {
+        display: none;
+        position: absolute;
+        margin-left: 0;
+        top: 100%;
+        width: auto;
+        background-color: white;
+        border: 1px solid black;
+        z-index: 1;
+
+        li {
+            border-bottom: 1px solid black;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+
+        a,
+        .ntt--txt {
+            @include if-y-center;
+            min-height: 48px;
+        }
+
+        // Indent Sub-menu
+        .ntt--sub-menu--js {
+            margin-left: .5rem;
+            margin-top: -.25rem;
+        }
+
+        .ntt--sub-menu-ancestor--js {
+            padding-right: $sub-menu-arrow-size;
+
+            .ntt--sub-menu--js {
+                width: 100%;
+            }
+        }
+    }
+
+    // Target the siblings of active menu items, excluding top-level menu items
+    > div {
+
+        > ul {
+
+            > .ntt--sub-menu-ancestor--js {
+    
+                .ntt--sub-menu---active--js {
+                    border-bottom: 0;
+                        
+                    ~ li {
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -184,7 +346,7 @@
         display: inline-block;
     }
 
-    .l {
+    .ntt--txt {
         @extend %block-pad;
     }
 
@@ -228,142 +390,4 @@
 
 .ntt--next-comments-navi {
     order: 1;
-}
-
-//--------------------------------------------------------------
-// Sub-Menu
-// JS-created CSS class name: .ntt--nav---sub-menu--js
-//--------------------------------------------------------------
-
-// Show the Sub-menu on DOM Load
-.ntt--nav {
-
-    @at-root .ntt--dom---unloaded & {
-        visibility: hidden;
-    }
-    
-    @at-root .ntt--dom---loaded & {
-        visibility: visible;
-    }
-
-    .sub-menu {
-        
-        @at-root .no-js & {
-            @extend %vh; // Temporary until there's a design for sub-menu items persistently showing
-        }
-    }
-}
-
-.ntt--nav---sub-menu--js {
-
-    $arrow-size: 38px;
-
-    .ntt--sub-menu-checkbox-label {
-        @extend %vh;
-    }
-
-    .ntt--sub-menu-checkbox {
-        // Reset
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        border: 0;
-
-        // Visual Design - Nature
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M92.9 26a7.4 7.4 0 0 0-10.3 0L50 58.6 17.4 26A7.3 7.3 0 1 0 7.1 36.3L44.9 74a7.1 7.1 0 0 0 5.1 2.1c1.9.1 3.7-.7 5.1-2.1l37.8-37.8a7.2 7.2 0 0 0 0-10.2z'/%3E%3C/svg%3E");
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: 1rem;
-        width: $arrow-size;
-        height: $arrow-size;
-
-        // Visual Design - Layout
-        position: absolute;
-        right: 0;
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        &:checked {
-            transform: rotate(180deg);
-
-            ~  {
-
-                .sub-menu {
-                    display: block;
-                }
-            }
-        }
-    }
-
-    .ntt--sub-menu-ancestor {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        padding-right: $arrow-size;
-
-        a {
-            display: block;
-            width: 100%;
-        }
-
-        li {
-            padding: 0;
-            min-width: 100%;
-        }
-
-        .sub-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            min-width: 240px;
-            background-color: white;
-            border: 1px solid black;
-            z-index: 1;
-
-            li {
-                border-bottom: 1px solid black;
-
-                &:last-child {
-                    border-bottom: 0;
-                }
-            }
-
-            a,
-            .ntt--txt {
-                @include if-y-center;
-                min-height: 48px;
-                
-                // Show text ellipsis if beyond container width
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            // Indent Sub-menu
-            .sub-menu {
-                margin-left: .5rem;
-                margin-top: -.25rem;
-            }
-        }
-    }
-
-    // Target the siblings of active menu items, excluding top-level menu items
-    > div {
-
-        > ul {
-
-            > .ntt--sub-menu-ancestor {
-    
-                .ntt--sub-menu---active {
-                    border-bottom: 0;
-                        
-                    ~ li {
-                        display: none;
-                    }
-                }
-            }
-        }
-    }
 }

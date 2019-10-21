@@ -145,7 +145,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
   padding: 0;
   min-height: 2.375rem;
 }
@@ -230,7 +229,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
   padding-left: 0;
   padding-right: 0;
   min-height: 2.375rem;

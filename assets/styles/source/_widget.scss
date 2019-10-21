@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 
 .ntt--widget {
-    padding: .03125rem 1rem; // Small top and bottom padding for > * margin to take effect
+    @include x-padding(1rem); // Small top and bottom padding for > * margin to take effect
     
     > * {
         @include y-margin(1em);
@@ -55,27 +55,6 @@
 }
 
 //--------------------------------------------------------------
-// Navigation Menu
-//--------------------------------------------------------------
-
-.ntt--widget_nav_menu {
-    @include x-padding();
-
-    ul {
-        @include unlist;
-        @include if-y-center;
-    }
-
-    li {
-        @include space-around;
-    }
-
-    a {
-        @extend %block-pad;
-    }
-}
-
-//--------------------------------------------------------------
 // Tag Cloud
 //--------------------------------------------------------------
 
@@ -84,5 +63,21 @@
     a {
         display: inline-block;
         padding: .5rem;
+    }
+}
+
+//--------------------------------------------------------------
+// Navigation Menu
+//--------------------------------------------------------------
+
+.ntt--widget_nav_menu {
+    @include x-padding();
+
+    ul {
+        @include unlist;
+    }
+
+    > * {
+        @include y-margin();
     }
 }

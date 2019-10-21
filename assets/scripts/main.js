@@ -141,7 +141,7 @@
     
     nav.forEach( function ( el ) {
 
-        if ( el.querySelector( '.sub-menu' ) !== null ) {
+        if ( el.querySelector( '.children, .sub-menu' ) !== null ) {
             el.classList.add( 'ntt--nav---sub-menu--js' );
         }
     } );
@@ -153,13 +153,20 @@
         }
     } );
 
+    const currentNavItem = document.querySelectorAll( '.current-menu-item, .current_page_item' );
+    
+    currentNavItem.forEach( function ( el ) {
+
+        el.classList.add( 'ntt--sub-menu-current-item--js' );
+    } );
+
     /**
      * Sub-menu
      * 
      * Prepends a control to hide and show the sub-menu
      */
 
-    const subMenu = document.querySelectorAll( '.sub-menu' );
+    const subMenu = document.querySelectorAll( '.children, .sub-menu' );
     let i = 0;
 
     subMenu.forEach( ( el ) => {
@@ -170,27 +177,28 @@
         // Create Checkbox
         const checkbox = document.createElement( 'input' );
         checkbox.type = 'checkbox';
-        checkbox.id = 'ntt--sub-menu-checkbox-' + i;
-        checkbox.className = 'ntt--sub-menu-checkbox';
+        checkbox.id = 'ntt--sub-menu-checkbox-' + i + '--js';
+        checkbox.className = 'ntt--sub-menu-checkbox--js';
         checkbox.setAttribute( 'arial-label', 'Show Menu' );
 
         // Create Label
         const label = document.createElement( 'label' );
-        label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i );
-        label.className = 'ntt--sub-menu-checkbox-label ntt--obj';
+        label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i + '--js' );
+        label.className = 'ntt--sub-menu-checkbox-label--js ntt--obj';
         label.innerHTML = '<span class="ntt--txt">Show Menu</span>';
         
         // Insert in DOM
         parent.insertBefore( label, el );
         parent.insertBefore( checkbox, label );
 
-        parent.classList.add( 'ntt--sub-menu-ancestor' );
+        el.classList.add( 'ntt--sub-menu--js' );
+        parent.classList.add( 'ntt--sub-menu-ancestor--js' );
     } );
 
     /**
      * Uncheck checkboxes when clicked outside the element
      */
-    const subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor' );
+    const subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor--js' );
 
     window.addEventListener( 'click', function ( event ) {
 
@@ -207,7 +215,7 @@
                     }
                 }
 
-                el.classList.remove( 'ntt--sub-menu---active' );
+                el.classList.remove( 'ntt--sub-menu---active--js' );
             }
         } )
     }, false);
@@ -227,9 +235,9 @@
                     const parent = this.parentNode;
                     
                     if ( this.checked ) {
-                        parent.classList.add( 'ntt--sub-menu---active' );
+                        parent.classList.add( 'ntt--sub-menu---active--js' );
                     } else {
-                        parent.classList.remove( 'ntt--sub-menu---active' );
+                        parent.classList.remove( 'ntt--sub-menu---active--js' );
                     }
                 }
             }

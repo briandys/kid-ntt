@@ -35,6 +35,8 @@ $tablet-vp: 48em;
 $laptop-vp: 64em;
 $laptop-l-vp: 90em;
 
+$sub-menu-arrow-size: 2.375rem;
+
 %faint-label {
     color: $faint-color;
     text-transform: uppercase;
@@ -79,7 +81,6 @@ $faint-border: 1px solid hsla(0, 0%, 0%, .125);
     display: inline-flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 100%;
 }
 
 %block-pad {
