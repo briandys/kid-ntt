@@ -1150,7 +1150,6 @@ label[for]:hover {
 .ntt--entity-secondary-nav a,
 .ntt--widget_nav_menu a {
   display: inline-block;
-  white-space: nowrap;
 }
 
 .ntt--entity-primary-nav .children,
@@ -1279,6 +1278,10 @@ label[for]:hover {
 
 .ntt--nav---sub-menu--js > div > ul > .ntt--sub-menu-ancestor--js .ntt--sub-menu---active--js ~ li {
   display: none;
+}
+
+.ntt--nav---sub-menu--js.ntt--entity-primary-nav a, .ntt--nav---sub-menu--js.ntt--entity-secondary-nav a, .ntt--nav---sub-menu--js.ntt--widget_nav_menu a {
+  white-space: nowrap;
 }
 
 .ntt--entry-nav a {

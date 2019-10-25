@@ -159,7 +159,6 @@
 
     a {
         display: inline-block;
-        white-space: nowrap;
     }
 
     .children,
@@ -300,6 +299,15 @@
                     }
                 }
             }
+        }
+    }
+
+    &.ntt--entity-primary-nav,
+    &.ntt--entity-secondary-nav,
+    &.ntt--widget_nav_menu {
+
+        a {
+            white-space: nowrap;
         }
     }
 }

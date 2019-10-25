@@ -36,6 +36,8 @@ $secondary-base-color: $mgb-peach;
 $accent-color: $mgb-peach;
 $faint-accent-color: $mgb-light-peach;
 
+$primary-color: $accent-color;
+
 //------------ Fonts
 $primary-font: 'Open Sans', sans-serif;
 $secondary-font: 'Sanchez', serif;
@@ -132,6 +134,13 @@ body {
     @include font-body(m);
 }
 
+button,
+input,
+select,
+textarea {
+    border-radius: .25rem;
+}
+
 //--------------------------------------------------------------
 // Entity Header
 //--------------------------------------------------------------
@@ -220,9 +229,12 @@ body {
 
 //--------------------------------------------------------------
 // Entity Primary Navigation
+// Entity Secondary Navigation
 //--------------------------------------------------------------
 
-.ntt--entity-primary-nav {
+.ntt--entity-primary-nav,
+.ntt--entity-secondary-nav {
+    @include y-padding(1rem);
     font-size: 1.125rem;
     font-family: $secondary-font;
     color: $mgb-gray;
@@ -230,11 +242,6 @@ body {
     @media only screen and (min-width: 768px) {
         @include x-padding(.75rem);
     }
-}
-
-.ntt--entity-primary-nav,
-.ntt--entity-secondary-nav {
-    @include y-padding(1rem);
 
     li {
         @include x-padding(1rem);
@@ -254,7 +261,8 @@ body {
     }
     
     .current-menu-item,
-    .current_page_item {
+    .current_page_item,
+    .current_page_ancestor {
 
         > a {
 
@@ -269,7 +277,21 @@ body {
                     width: 100%;
                     height: .25rem;
                     background-color: $mgb-pink;
+                    border-radius: 100rem;
                     z-index: -1;
+                }
+            }
+        }
+    }
+
+    .current_page_ancestor {
+
+        > a {
+
+            .ntt--txt {
+
+                &:before {
+                    background-color: hsla(0, 0%, 0%, .0625);
                 }
             }
         }
@@ -338,11 +360,35 @@ body {
                     position: relative;
                     
                     &:before {
-                        display: none;
+                        left: 0;
+                        top: 0;
+                        bottom: auto;
+                        width: .25rem;
+                        height: 100%;
+                        z-index: auto;
                     }
                 }
             }
 
+        }
+
+        .current_page_ancestor {
+
+            > a {
+
+                .ntt--txt {
+
+                    &:before {
+                        left: 0;
+                        top: 0;
+                        bottom: auto;
+                        width: .25rem;
+                        height: 100%;
+                        z-index: auto;
+                        background-color: hsla(0, 0%, 0%, .0625);
+                    }
+                }
+            }
         }
     }
 
@@ -376,6 +422,7 @@ body {
 
         > ul {
             justify-content: center;
+            width: 100%;
         }
     }
 }
@@ -545,11 +592,15 @@ body {
         'entry-subname entry-datetime'
         'entry-axns entry-axns'
         'entry-author entry-author'
+        'entry-banner entry-banner'
         'entry-summary-content entry-summary-content'
         / 1fr auto;
-    @include x-padding(.5rem); // Wider gutter
     
     .ntt--comments-actions-snippet {
+        display: none;
+    }
+
+    > .ntt--entry-breadcrumbs-nav {
         display: none;
     }
 }
@@ -563,35 +614,46 @@ body {
 
     .ntt--entry-categories {
         grid-area: entry-categories;
+        @include x-padding(.5rem); // Wider gutter
     }
 }
 
 .ntt--entry-name {
     grid-area: entry-name;
     align-self: flex-start;
+    @include x-padding(1rem); // Wider gutter
 }
 
 .ntt--entry-subname {
     grid-area: entry-subname;
+    @include x-padding(1rem); // Wider gutter
 }
 
 .ntt--entry-axns {
     grid-area: entry-axns;
+    @include x-padding(1rem); // Wider gutter
 }
 
 .ntt--entry-primary-meta {
 
     .ntt--entry-datetime {
         grid-area: entry-datetime;
+        @include x-padding(.5rem); // Wider gutter
     }
 
     .ntt--entry-author {
         grid-area: entry-author;
+        @include x-padding(1.5rem); // Wider gutter
     }
+}
+
+.ntt--entry-banner {
+    grid-area: entry-banner;
 }
 
 .ntt--entry-summary-content {
     grid-area: entry-summary-content;
+    @include x-padding(.5rem); // Wider gutter
 }
 
 //--------------------------------------------------------------
@@ -852,13 +914,21 @@ body {
 }
 
 .ntt--entry-summary-content {
-    @include font-body(l);
+    @include font-body(m);
+    line-height: 1.8;
     
     > {
 
         * {
             @include x-padding(1rem); // Wider gutter
         }
+    }
+}
+
+.ntt--entry-content-snippet {
+
+    a {
+        color: $content-color;
     }
 }
 
