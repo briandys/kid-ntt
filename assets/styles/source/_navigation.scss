@@ -149,6 +149,10 @@
         visibility: visible;
     }
 
+    ul {
+        @include if-y-center;
+    }
+
     li {
         @include space-around;
 
@@ -184,10 +188,6 @@
 //--------------------------------------------------------------
 
 .ntt--nav---sub-menu--js {
-
-    ul {
-        @include if-y-center;
-    }
 
     .ntt--sub-menu-checkbox-label--js {
         @extend %vh;
@@ -251,6 +251,7 @@
         margin-left: 0;
         top: 100%;
         width: auto;
+        min-width: 100%;
         background-color: white;
         border: 1px solid black;
         z-index: 1;
@@ -277,10 +278,6 @@
 
         .ntt--sub-menu-ancestor--js {
             padding-right: $sub-menu-arrow-size;
-
-            .ntt--sub-menu--js {
-                width: 100%;
-            }
         }
     }
 

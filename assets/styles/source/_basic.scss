@@ -27,11 +27,17 @@ body {
     text-rendering: optimizeSpeed;
 }
 
-html.js:not(.ntt--nav-mode---tab--js) button:focus,
-html.js:not(.ntt--nav-mode---tab--js) input:focus,
-html.js:not(.ntt--nav-mode---tab--js) select:focus,
-html.js:not(.ntt--nav-mode---tab--js) textarea:focus {
-    outline: none;
+html {
+
+    &.js:not(.ntt--nav-mode---tab--js) {
+        
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+        }
+    }
 }
 
 a {
@@ -62,13 +68,12 @@ button,
 input,
 select,
 textarea {
-    padding: .5em;
+    padding: .5em .75em;
     width: 100%;
     min-height: 3rem;
     font: inherit;
-    border: 1px solid $faint-color--hi;
-    border-radius: .125rem;
-    line-height: 1;
+    font-size: 1rem;
+    line-height: 1.25;
 }
 
 [type="checkbox"],
@@ -80,6 +85,7 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    padding-right: 2em;
     background-color: white;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6.8 10.7a1.6 1.6 0 0 0 2.2 0l7-7 7 7a1.6 1.6 0 0 0 2.2 0 1.6 1.6 0 0 0 0-2.2L17 .5a1.5 1.5 0 0 0-1-.5 1.4 1.4 0 0 0-1.2.5l-8 8a1.6 1.6 0 0 0 0 2.2zm18.4 10.6a1.6 1.6 0 0 0-2.2 0l-7 7-7-7a1.6 1.6 0 0 0-2.1 0 1.6 1.6 0 0 0 0 2.2l8 8a1.5 1.5 0 0 0 1.1.5 1.4 1.4 0 0 0 1.1-.5l8-8a1.6 1.6 0 0 0 .1-2.2z'/%3E%3C/svg%3E");
 	background-position: calc(100% - .5rem) 50%;

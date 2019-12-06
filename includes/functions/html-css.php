@@ -17,9 +17,9 @@ function ntt_kid_html_css( $classes ) {
      */
 
     if ( ! is_paged() ) {
-        $classes[] = 'ntt--first-page';
+        $classes[] = 'ntt--page---first';
     } else {
-        $classes[] = 'ntt--subsequent-page';
+        $classes[] = 'ntt--page---subsequent';
     }
 
     /**

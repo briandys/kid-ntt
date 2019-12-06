@@ -77,7 +77,7 @@ $entity-bg: #FFFAFA;
 //------------ Content Specifics
 
 $content-color: $mid-color;
-$content-heading-font-family: $secondary-font;
+$secondary-font-family: $secondary-font;
 $content-body-font-family: $base-font-family;
 $content-link-color: $link-color;
 
@@ -397,6 +397,7 @@ textarea {
 
         .ntt--sub-menu--js {
             margin-top: -.5rem;
+            min-width: 100%;
         }
     }
 
@@ -589,7 +590,7 @@ textarea {
     grid-template:
         'entry-categories entry-categories'
         'entry-name entry-datetime'
-        'entry-subname entry-datetime'
+        'entry-subname entry-subname'
         'entry-axns entry-axns'
         'entry-author entry-author'
         'entry-banner entry-banner'
@@ -615,6 +616,10 @@ textarea {
     .ntt--entry-categories {
         grid-area: entry-categories;
         @include x-padding(.5rem); // Wider gutter
+    }
+
+    .ntt--entry-breadcrumbs-nav {
+        @include x-padding(1rem);
     }
 }
 
@@ -653,7 +658,18 @@ textarea {
 
 .ntt--entry-summary-content {
     grid-area: entry-summary-content;
-    @include x-padding(.5rem); // Wider gutter
+    @include y-margin(1rem);
+    margin-bottom: -1rem;
+    @include font-body(l);
+    line-height: 1.8;
+    font-family: $secondary-font-family;
+
+    > {
+
+        * {
+            @include x-padding(1rem); // Wider gutter
+        }
+    }
 }
 
 //--------------------------------------------------------------
@@ -780,6 +796,10 @@ textarea {
 // Entry Content
 //--------------------------------------------------------------
 
+.ntt--entry-content {
+    @include y-margin(1rem);
+}
+
 .ntt--content {
     color: $content-color;
     line-height: 1.8;
@@ -805,7 +825,7 @@ textarea {
     }
 
     #{$headings} {
-        font-family: $content-heading-font-family;
+        font-family: $secondary-font-family;
         font-weight: normal;
     }
 
@@ -891,7 +911,6 @@ textarea {
 
     .ntt--show-more-axn {
         margin-top: 2em;
-        text-align: center;
 
         .ntt--txt {
             padding: .25rem 1rem;
@@ -906,22 +925,14 @@ textarea {
                 border-radius: .25rem;
             }
         }
-
-        @media only screen and (min-width: 768px) {
-            text-align: left;
-        }
     }
-}
 
-.ntt--entry-summary-content {
-    @include font-body(m);
-    line-height: 1.8;
-    
-    > {
+    .ntt--post--post-format-status & {
+        @include font-display(s);
+    }
 
-        * {
-            @include x-padding(1rem); // Wider gutter
-        }
+    .twitter-tweet {
+        width: auto !important;
     }
 }
 
@@ -951,10 +962,119 @@ textarea {
 }
 
 //--------------------------------------------------------------
+// Entry Tags
+//--------------------------------------------------------------
+
+.ntt--entry-tags {
+    @include y-padding(1rem);
+}
+
+.ntt--entry-tags-name {
+    display: none;
+}
+
+.ntt--entry-tags-group {
+    @include x-padding(.5rem);
+}
+
+.ntt--entry-tags {
+
+    a {
+        @include if-y-center;
+        justify-content: center;
+        padding: .2rem .5rem;
+        min-width: 2rem;
+        min-height: 2rem;
+        text-align: center;
+        color: #DE756E;
+        border: 1px solid #DE756E;
+        border-radius: .25rem;
+    }
+}
+
+//--------------------------------------------------------------
+// Entries Navigation
+//--------------------------------------------------------------
+
+.ntt--entries-nav {
+    
+    .ntt--page-text {
+        display: none;
+    }
+
+    .navigation {
+
+        ul {
+            justify-content: center;
+        }
+
+        .ntt--txt {
+            padding: 0;
+        }
+    }
+
+    .ntt--page-number-txt {
+        @include if-y-center;
+        justify-content: center;
+        padding: .2rem .5rem;
+        min-width: 2rem;
+        min-height: 2rem;
+        text-align: center;
+        color: #DE756E;
+        border: 1px solid #DE756E;
+        border-radius: .25rem;
+    }
+
+    .prev,
+    .next {
+
+        .ntt--txt {
+            position: relative;
+            @include if-y-center;
+
+            &:before {
+                content: '';
+                position: absolute;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M92.9 26a7.4 7.4 0 0 0-10.3 0L50 58.6 17.4 26A7.3 7.3 0 1 0 7.1 36.3L44.9 74a7.1 7.1 0 0 0 5.1 2.1c1.9.1 3.7-.7 5.1-2.1l37.8-37.8a7.2 7.2 0 0 0 0-10.2z'/%3E%3C/svg%3E");
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: .75rem;
+                width: $sub-menu-arrow-size;
+                height: $sub-menu-arrow-size;
+            }
+        }
+    }
+
+    .prev {
+
+        .ntt--txt {
+            padding-left: $sub-menu-arrow-size;
+
+            &:before {
+                left: 0;
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .next {
+
+        .ntt--txt {
+            padding-right: $sub-menu-arrow-size;
+
+            &:before {
+                right: 0;
+                transform: rotate(-90deg);
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
 // Custom Content
 //--------------------------------------------------------------
 
-// From About
+// From About Page
 #instafeed {
     display: flex;
     flex-wrap: wrap;
@@ -1004,7 +1124,7 @@ textarea {
     font-family: $secondary-font;
 }
 
-// From Contact
+// From Contact Page
 .ntt--content {
 
     .contact-form {
@@ -1079,7 +1199,7 @@ textarea {
     }
 }
 
-// From Gallery
+// From Gallery Page
 // https://css-tricks.com/adaptive-photo-layout-with-flexbox/
 .ntt--page--gallery--view {
 

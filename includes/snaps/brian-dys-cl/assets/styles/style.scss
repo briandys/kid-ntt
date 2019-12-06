@@ -1,0 +1,145 @@
+/*
+Snap Name: Brian Dys CL
+Version: 0.0.2
+*/
+
+//--------------------------------------------------------------
+// Kid NTT Rules
+//--------------------------------------------------------------
+
+@import '../../../../../assets/styles/source/rules';
+
+//--------------------------------------------------------------
+// Snap Rules
+//--------------------------------------------------------------
+
+//--------------------------------------------------------------
+// Absolute Variables
+//--------------------------------------------------------------
+
+$mgb-gray: #707070;
+
+$mgb-light-pink: #FFF4F2;
+$mgb-pink: #FFB3CC;
+$mgb-dark-pink: #ff578f;
+
+$mgb-peach: #DE756E;
+$mgb-light-peach: #FFF3F2;
+
+//--------------------------------------------------------------
+// Generic Variables
+//--------------------------------------------------------------
+
+//------------ Colors
+$mid-color: $mgb-gray;
+
+$primary-base-color: $mgb-pink;
+$secondary-base-color: $mgb-peach;
+
+$accent-color: $mgb-peach;
+$faint-accent-color: $mgb-light-peach;
+
+$primary-color: $accent-color;
+
+//------------ Fonts
+$primary-font: 'Open Sans', sans-serif;
+$secondary-font: 'Sanchez', serif;
+
+//--------------------------------------------------------------
+// Specific Variables
+//--------------------------------------------------------------
+
+//------------ Base
+
+$base-font-family: $primary-font;
+
+$base-font-size: 1rem;
+
+$line-height-display: 1.25;
+$line-height-body: 1.5;
+
+$font-display-factor-xxl: 4;
+$font-display-factor-xl: 3.5;
+$font-display-factor-l: 3;
+$font-display-factor-m: 2.5;
+$font-display-factor-s: 2;
+$font-display-factor-xs: 1.5;
+$font-display-factor-xxs: 1.125;
+
+$font-body-factor-l: 1.125;
+$font-body-factor-m: 1;
+$font-body-factor-s: .875;
+$font-body-factor-xs: .75;
+
+$font-cta: $base-font-size;
+
+//------------ Entity Specifics
+$ink-color: #747474;
+$paper-color: #2f2f2f;
+$link-color: #ababab;
+
+
+$entity-bg-color: #2f2f2f;
+
+//--------------------------------------------------------------
+// New Variables (delete all before these)
+//--------------------------------------------------------------
+
+//------------ Fonts
+$primary-font-family: 'Open Sans', sans-serif;
+$secondary-font-family: 'Sanchez', serif;
+
+//------------ Texts
+$body-text---sm: .875rem;
+$body-text---md: 1rem;
+$body-text---lg: 1.125rem;
+
+$display-text---xxs: 1.125rem;
+$display-text---xs: 1.5rem;
+$display-text---sm: 2rem;
+$display-text---md: 2.5rem;
+$display-text---lg: 3rem;
+$display-text---xl: 3.5rem;
+$display-text---xxl: 4rem;
+
+//------------ Viewports
+$viewport-width---mobile: 320px;
+$viewport-width---tablet: 768px;
+$viewport-width---laptop: 1024px;
+
+//------------ Colors
+$surface-color: white;
+$on-surface-color: #1c1c1c;
+
+$accent-color: $panda-blue;
+$accent-color---alpha-lo: hsla(215, 100%, 45%, .125);
+$accent-color---alpha-md: hsla(215, 100%, 45%, .25);
+$accent-color---alpha-hi: hsla(215, 100%, 45%, .5);
+
+$mid-color: $a11y-gray;
+
+//------------ Content
+$content-text-color: $mid-color;
+$content-line-height: $line-height---lg;
+
+//--------------------------------------------------------------
+// Redeclare theme to detect the variables above
+//--------------------------------------------------------------
+
+@import '../../../../../assets/styles/source/theme';
+
+//--------------------------------------------------------------
+// Styles
+//--------------------------------------------------------------
+
+@import 'source/basic';
+
+@import 'source/content-module';
+@import 'source/custom';
+@import 'source/entity';
+@import 'source/entry';
+@import 'source/navigation';
+@import 'source/view';
+
+
+

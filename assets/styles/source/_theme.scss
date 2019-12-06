@@ -1,52 +1,38 @@
 //--------------------------------------------------------------
-// Links
+// Theme
 //--------------------------------------------------------------
 
-a {
-    color: $link-color;
+html {
+    background-color: $surface-color;
 }
 
-//--------------------------------------------------------------
-// Form Elements
-//--------------------------------------------------------------
+body {
+    color: $on-surface-color;
+}
+
+a {
+    color: $accent-color;
+}
 
 button,
 input[type="submit"] {
-    background-color: $primary-color;
+    background-color: $accent-color;
 }
 
-//--------------------------------------------------------------
-// Entry
-//--------------------------------------------------------------
-
-.ntt--entry-nav {
-
-    .ntt--entry-name-txt {
-        color: $link-color;
-    }
+button,
+input,
+select,
+textarea {
+    border: 1px solid $on-surface-color---alpha-md;
 }
 
-//--------------------------------------------------------------
-// Comments Actions Snippet
-//--------------------------------------------------------------
+//------------ Content
 
-.ntt--comments-actions-snippet {
-
-    .ntt--comment-axn {
-    
-        .ntt--comment-text {
-            color: $link-color;
-        }
-    }
+.ntt--content {
+    color: $content-text-color;
+    line-height: $content-line-height;
 }
 
-//--------------------------------------------------------------
-// Comment
-//--------------------------------------------------------------
-
-.ntt--comment-reply-axn {
-
-    .ntt--reply-text {
-        color: $link-color;
-    }
+.ntt--entry-content-snippet a {
+    color: $content-text-color;
 }

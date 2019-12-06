@@ -25,6 +25,7 @@
         ul,
         ol {
             padding-left: 2.5rem;
+            margin-left: .5em;
         }
 
         .ntt--note {
@@ -68,7 +69,7 @@
         @include x-margin();
         
         &[style*="width"] {
-            width: 100% !important;
+            width: auto !important;
         }
     }
     
@@ -104,12 +105,28 @@
         pre {
             padding: 1rem;
             margin: 0;
-            background-color: $faint-color--lo;
+            background-color: hsla(0, 0%, 0%, 0.0325);
         }
     }
 
     form {
         font-size: 1rem;
+    }
+
+    @at-root .ntt & .alignleft {
+        float: left;
+        margin: 0 1.5em 1.5em 0;
+    }
+    
+    @at-root .ntt & .aligncenter {
+        display: block;
+        @include x-margin(auto);
+        text-align: center;
+    }
+    
+    @at-root .ntt & .alignright {
+        float: right;
+        margin: 0 0 1.5em 1.5em;
     }
 }
 
@@ -117,7 +134,7 @@
     @extend %cf;
 
     .wp-block-gallery {
-        padding-left: 1rem;
+        padding-left: 0;
 
         .blocks-gallery-item {
             margin: 0;
@@ -189,6 +206,7 @@
     .wp-caption,
     .wp-block-image {
         
+        /*
         .aligncenter {
             margin-top: 0;
         }
@@ -204,6 +222,7 @@
             margin-left: 0;
             margin-top: 0;
         }
+        */
 
         figcaption {
             @extend .wp-caption-text;
@@ -245,7 +264,7 @@
 
     ul {
         @include unlist;
-        display: flex;
+        @include if-y-center;
     }
 
     li {
@@ -372,11 +391,6 @@
 
 .ntt--entry-tags {
 
-    ul {
-        @include unlist;
-        display: flex;
-    }
-
     li {
         display: inline-block;
         @include space-around;
@@ -397,12 +411,17 @@
     }
 }
 
-.ntt--entry-tag-group {
-    display: flex;
+.ntt--entry-tags-group {
+    @include unlist;
+    @include if-y-center;
 }
 
 .ntt--entry-header {
     @include if-y-center;
+
+    > * {
+        flex: 1 100%;
+    }
 }
 
 .entry-heading,
@@ -427,10 +446,6 @@
     .ntt--entry-full-content {
         margin-top: 1em;
     }
-}
-
-.ntt--entry-datetime {
-    @include if-y-center;
 }
 
 .ntt--entry-published-date {

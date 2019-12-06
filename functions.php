@@ -8,7 +8,7 @@
  */
 
 $GLOBALS['ntt_child_theme_name'] = 'Kid NTT';
-$GLOBALS['ntt_child_theme_url'] = 'http://briandys.com/ntt/';
+$GLOBALS['ntt_child_theme_url'] = '//briandys.com/ntt/';
 
 /**
  * Functions

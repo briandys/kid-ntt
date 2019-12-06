@@ -46,9 +46,59 @@
     }
 }
 
+@supports (display: grid) {
+
+    @media only screen and (min-width: 880px) {
+    
+        .ntt--entity-main-main-aside---1 {
+
+            .ntt--entity-main-main {
+                display: grid;
+                grid-template:
+                    'entry-md entity-main-main-aside'
+                    / 2fr 1fr;
+            }
+        
+            .ntt--entry-md {
+                grid-area: entry-md;
+            }
+        
+            .ntt--entity-main-main-aside {
+                grid-area: entity-main-main-aside;
+            }
+        }
+    }
+}
+
+.ntt--widget_nav_menu {
+
+    .ntt--widget-name {
+        padding: .5rem;
+
+        .ntt--txt {
+            padding: .5rem;
+        }
+    }
+}
+
 //--------------------------------------------------------------
 // Entity Heading
 //--------------------------------------------------------------
+
+//--------------------------------------------------------------
+// Hide Stuff
+//--------------------------------------------------------------
+
+.ntt--entity-logo---1 {
+
+    .ntt--entity-name {
+        display: none;
+    }
+
+    .ntt--entity-description {
+        display: none;
+    }
+}
 
 .ntt--entity-logo {
     padding: 1rem;

@@ -166,7 +166,7 @@
      * Prepends a control to hide and show the sub-menu
      */
 
-    const subMenu = document.querySelectorAll( '.children, .sub-menu' );
+    const subMenu = document.querySelectorAll( '.ntt--nav .children, .ntt--nav .sub-menu, .ntt--widget_nav_menu .sub-menu' );
     let i = 0;
 
     subMenu.forEach( ( el ) => {

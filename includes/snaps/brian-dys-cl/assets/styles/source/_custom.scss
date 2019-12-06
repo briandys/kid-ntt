@@ -1,0 +1,128 @@
+//--------------------------------------------------------------
+// Custom Content
+//--------------------------------------------------------------
+
+// From About Page
+#instafeed {
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+        flex: 1 25%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// From Home
+.txt-axn {
+    text-align: center;
+
+    a {
+        display: inline-block;
+        padding: 8px 16px;
+        color: $mgb-gray;
+        font-weight: 600;
+        border: 2px solid #FFB3CC;
+        border-radius: 8px;
+        @include transition;
+
+        &:hover {
+            text-decoration: none;
+            background-color: #FFB3CC;
+            color: white;
+        }
+
+        &:active {
+            background-color: #E68AA8;
+            color: hsla(0, 0, 100%, .96);
+            border-color: #E68AA8;
+        }
+    }
+}
+
+.short-description {
+    text-align: center;
+    font-size: 24px;
+    color: $mgb-gray;
+    font-family: $secondary-font;
+}
+
+// From Contact Page
+.ntt--content {
+
+    .contact-form {
+        
+        label {
+
+            span {
+                color: transparent;
+                
+                &:before {
+                    content: '*';
+                    margin-left: .5rem;
+                    color: #ff0000;
+                }
+            }
+
+            &.checkbox,
+            &.checkbox-multiple,
+            &.radio {
+                @include if-y-center;
+            }
+        }
+
+        input[type=checkbox],
+        input[type=radio] {
+            margin-right: 1rem;
+            margin-bottom: 0;
+            width: auto;
+        }
+
+        textarea {
+            width: 50%;
+            min-height: 6.5rem;
+            height: 0;
+        }
+
+        button {
+            background-color: #DE756E;
+            color: white;
+            border-radius: .25rem;
+        }
+
+        .grunion-field-wrap {
+            margin: 2rem 0;
+        }
+
+        .contact-submit {
+            margin: 0;
+            margin-top: 3rem;
+        }
+    }
+
+    div[id^="contact-form"] {
+
+        .contact-form-submission {
+            font-size: inherit;
+            margin-bottom: 0;
+            padding: 0;
+
+            &:before {
+                display: none;
+            }
+
+            p {
+                @include y-margin(1em);
+            }
+
+            br {
+                display: none;
+            }
+        }
+    }
+}

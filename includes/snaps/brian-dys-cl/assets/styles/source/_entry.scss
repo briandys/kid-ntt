@@ -1,0 +1,321 @@
+//--------------------------------------------------------------
+// Entry
+//--------------------------------------------------------------
+
+.ntt--entry {
+
+    .ntt--multiple-entries & {
+        margin-top: 4rem;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+.ntt--entry-name {
+    @include font-display(s);
+    font-family: $secondary-font;
+    font-weight: normal;
+}
+
+.ntt--entry-subname {
+    @include font-display(xs);
+    font-family: $secondary-font;
+    color: $mid-color;
+}
+
+.ntt--entry-heading {
+
+    .ntt--entry-categories {
+        margin-bottom: -1rem;
+    }
+}
+
+.ntt--entry-datetime {
+    align-self: flex-start;
+}
+
+.ntt--entry-published-datetime {
+    padding: 1rem;
+}
+
+.ntt--entry-author {
+    @include x-padding(1rem);
+}
+
+.ntt {
+
+    .wp-caption,
+    .wp-block-image {
+
+        figcaption {
+            padding: 1rem 1.5rem; // Wider gutter
+            text-align: center;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Header
+//--------------------------------------------------------------
+
+.ntt--entry-header {
+    display: grid;
+    grid-template:
+        'entry-categories entry-categories'
+        'entry-name entry-datetime'
+        'entry-subname entry-subname'
+        'entry-axns entry-axns'
+        'entry-author entry-author'
+        'entry-banner entry-banner'
+        'entry-summary-content entry-summary-content'
+        / 1fr auto;
+    
+    .ntt--comments-actions-snippet {
+        display: none;
+    }
+
+    > .ntt--entry-breadcrumbs-nav {
+        display: none;
+    }
+}
+
+.ntt--entry-heading,
+.ntt--entry-primary-meta {
+    display: contents;
+}
+
+.ntt--entry-heading {
+
+    .ntt--entry-categories {
+        grid-area: entry-categories;
+        @include x-padding(.5rem); // Wider gutter
+    }
+
+    .ntt--entry-breadcrumbs-nav {
+        @include x-padding(1rem);
+    }
+}
+
+.ntt--entry-name {
+    grid-area: entry-name;
+    align-self: flex-start;
+    @include x-padding(1rem); // Wider gutter
+}
+
+.ntt--entry-subname {
+    grid-area: entry-subname;
+    @include x-padding(1rem); // Wider gutter
+}
+
+.ntt--entry-axns {
+    grid-area: entry-axns;
+    @include x-padding(1rem); // Wider gutter
+}
+
+.ntt--entry-primary-meta {
+
+    .ntt--entry-datetime {
+        grid-area: entry-datetime;
+        @include x-padding(.5rem); // Wider gutter
+    }
+
+    .ntt--entry-author {
+        grid-area: entry-author;
+        @include x-padding(1.5rem); // Wider gutter
+    }
+}
+
+.ntt--entry-banner {
+    grid-area: entry-banner;
+}
+
+.ntt--entry-summary-content {
+    grid-area: entry-summary-content;
+    @include y-margin(1rem);
+    margin-bottom: -1rem;
+    @include font-body(l);
+    line-height: 1.8;
+    font-family: $secondary-font-family;
+
+    > {
+
+        * {
+            @include x-padding(1rem); // Wider gutter
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Footer
+//--------------------------------------------------------------
+
+.ntt--entry-footer {
+    @include x-padding(.5rem); // Wider gutter
+}
+
+//--------------------------------------------------------------
+// Entry Content
+//--------------------------------------------------------------
+
+.ntt--entry-content {
+    @include y-margin(1rem);
+}
+
+.ntt--content {
+    
+    > {
+
+        figure,
+        #instafeed {
+            @include x-padding();
+        }
+
+        p + figure {
+            margin-top: 3em;
+        }
+
+        figure + figure {
+            margin-top: 2em;
+        }
+    }
+
+    #{$headings} {
+        font-family: $secondary-font-family;
+        font-weight: normal;
+    }
+
+    h1 {
+        font-size: $display-text---md;
+    }
+
+    h2 {
+        font-size: $display-text---sm;
+    }
+
+    h3 {
+        font-size: $display-text---xs;
+    }
+
+    h4 {
+        font-size: $display-text---xxs;
+    }
+
+    h5 {
+        font-size: $display-text---xxs;
+    }
+
+    h6 {
+        font-size: $display-text---xxs;
+    }
+
+    hr {
+        position: relative;
+        @include x-padding();
+        @include y-margin(2rem);
+        border: 0;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            background-color: $mid-color;
+            min-width: 4rem;
+            height: .25rem;
+            transform: translateX(-50%);
+        }
+    }
+
+    blockquote {
+        position: relative;
+        padding: 1rem 3rem;
+        @include x-margin();
+        @include font-display(xs);
+        line-height: $line-height-body;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            width: 96px;
+            height: 100%;
+            background-color: #FFE8E6;
+        }
+
+        cite {
+            font-style: normal;
+            @include font-body(m);
+            font-weight: bold;
+
+            a {
+                color: #DE756E;
+            }
+        }
+    }
+
+    p.has-drop-cap:not(:focus):first-letter {
+        font-size: 4.4em;
+        font-family: $secondary-font;
+        color: #DE756E;
+    }
+
+    .ntt--show-more-axn {
+        margin-top: 2em;
+
+        .ntt--txt {
+            padding: .25rem 1rem;
+            border: 2px solid #DE756E;
+            border-left: 0;
+            border-right: 0;
+            @include transition;
+
+            &:hover {
+                background-color: #DE756E;
+                color: white;
+                border-radius: .25rem;
+            }
+        }
+    }
+
+    .ntt--post--post-format-status & {
+        @include font-display(s);
+    }
+
+    .twitter-tweet {
+        width: auto !important;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Tags
+//--------------------------------------------------------------
+
+.ntt--entry-tags {
+    @include y-padding(1rem);
+}
+
+.ntt--entry-tags-name {
+    display: none;
+}
+
+.ntt--entry-tags-group {
+    @include x-padding(.5rem);
+}
+
+.ntt--entry-tags {
+
+    a {
+        @include if-y-center;
+        justify-content: center;
+        padding: .2rem .5rem;
+        min-width: 2rem;
+        min-height: 2rem;
+        text-align: center;
+        color: #DE756E;
+        border: 1px solid #DE756E;
+        border-radius: .25rem;
+    }
+}

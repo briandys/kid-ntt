@@ -2,15 +2,23 @@
 // NTT Rules
 //--------------------------------------------------------------
 
-@import '/Applications/XAMPP/xamppfiles/htdocs/projects/ntt/wp-content/themes/ntt/assets/styles/source/rules';
+@import '/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/ntt/assets/styles/source/rules';
 
 //--------------------------------------------------------------
 // Kid NTT Rules
 //--------------------------------------------------------------
 
 //--------------------------------------------------------------
-// Absolute Variables
+// [Absolute Variables] Colors
 //--------------------------------------------------------------
+
+$chikka-orange: hsl(30, 100%, 50%);
+$panda-blue: hsl(215, 100%, 45%);
+$panda-purple: hsl(270, 100%, 35%);
+$record-red: rgb(229, 0, 0);
+$uhog-green: hsl(120, 100%, 25%);
+$eerie-black: hsl(0, 0%, 11%);
+$baby-powder: hsl(60, 67%, 99%);
 
 $almost-black: hsl(225, 6%, 13%);
 $almost-white: hsl(0, 0%, 95%);
@@ -36,6 +44,34 @@ $laptop-vp: 64em;
 $laptop-l-vp: 90em;
 
 $sub-menu-arrow-size: 2.375rem;
+
+$ink-color: $almost-black;
+$paper-color: $almost-white;
+
+$surface-color: white;
+$on-surface-color: $almost-black;
+$accent-color: $panda-blue;
+
+
+
+$on-surface-color---alpha-lo: hsla(0, 0%, 0%, .0625);
+$on-surface-color---alpha-md: hsla(0, 0%, 0%, .125);
+$on-surface-color---alpha-hi: hsla(0, 0%, 0%, .25);
+
+$line-height---sm: 1.25;
+$line-height---md: 1.5;
+$line-height---lg: 1.8;
+
+$corner-radius---s: .125rem;
+$corner-radius---m: .25rem;
+$corner-radius---l: .5rem;
+
+$content-text-color: $on-surface-color;
+$content-line-height: $line-height---md;
+
+//--------------------------------------------------------------
+// Rules
+//--------------------------------------------------------------
 
 %faint-label {
     color: $faint-color;

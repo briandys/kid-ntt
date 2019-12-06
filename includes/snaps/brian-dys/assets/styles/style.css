@@ -1,4 +1,4 @@
-.ntt--front-view.ntt--page--view .ntt--entity-secondary-info, .ntt--entry-full-content [id*="contact-form"] label span {
+.ntt--view---front.ntt--page--view .ntt--entity-secondary-info, .ntt--entry-full-content [id*="contact-form"] label span {
   border: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -17,25 +17,37 @@
   padding: .5rem;
 }
 
+html {
+  background-color: white;
+}
+
+body {
+  color: #1f2023;
+}
+
 a {
   color: #e60000;
 }
 
 button,
 input[type="submit"] {
-  background-color: #0060e6;
+  background-color: #e60000;
 }
 
-.ntt--entry-nav .ntt--entry-name-txt {
-  color: #e60000;
+button,
+input,
+select,
+textarea {
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.ntt--comments-actions-snippet .ntt--comment-axn .ntt--comment-text {
-  color: #e60000;
+.ntt--content {
+  color: #1f2023;
+  line-height: 1.5;
 }
 
-.ntt--comment-reply-axn .ntt--reply-text {
-  color: #e60000;
+.ntt--entry-content-snippet a {
+  color: #1f2023;
 }
 
 .ntt--site-id--brian-dys-uxd {
@@ -164,16 +176,16 @@ body {
   display: none;
 }
 
-.ntt--front-view.ntt--page--view .ntt--entity-secondary-nav {
+.ntt--view---front.ntt--page--view .ntt--entity-secondary-nav {
   display: none;
 }
 
-.ntt--front-view.ntt--page--view .ntt--entity-secondary-info {
+.ntt--view---front.ntt--page--view .ntt--entity-secondary-info {
   color: #757575;
   background-color: #1c1c1c;
 }
 
-.ntt--front-view.ntt--page--view .ntt--entity-secondary-info a {
+.ntt--view---front.ntt--page--view .ntt--entity-secondary-info a {
   color: #757575;
 }
 

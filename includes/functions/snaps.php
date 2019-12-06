@@ -16,7 +16,7 @@ function ntt_get_snaps() {
         return array();
     }
 
-    $snaps[] = esc_html( 'kid-ntt' );
+    $snaps[] = esc_html( 'default' );
     $snaps[] = esc_html( 'ntt' );
 
     foreach ( $r_snaps as $snap ) {

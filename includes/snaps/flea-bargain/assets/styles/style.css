@@ -49,25 +49,37 @@
   background: linear-gradient(to right, #632f75 0%, #2d1241 25%, #2d0311 50%, #5e1216 75%, #ec5942 100%);
 }
 
+html {
+  background-color: white;
+}
+
+body {
+  color: #1f2023;
+}
+
 a {
-  color: #ec5942;
+  color: #0060e6;
 }
 
 button,
 input[type="submit"] {
-  background-color: #ec5942;
+  background-color: #0060e6;
 }
 
-.ntt--entry-nav .ntt--entry-name-txt {
-  color: #ec5942;
+button,
+input,
+select,
+textarea {
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.ntt--comments-actions-snippet .ntt--comment-axn .ntt--comment-text {
-  color: #ec5942;
+.ntt--content {
+  color: #1f2023;
+  line-height: 1.5;
 }
 
-.ntt--comment-reply-axn .ntt--reply-text {
-  color: #ec5942;
+.ntt--entry-content-snippet a {
+  color: #1f2023;
 }
 
 html {
