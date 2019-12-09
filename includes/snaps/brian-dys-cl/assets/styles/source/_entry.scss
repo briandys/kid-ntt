@@ -15,13 +15,13 @@
 
 .ntt--entry-name {
     @include font-display(s);
-    font-family: $secondary-font;
+    font-family: $secondary-font-family;
     font-weight: normal;
 }
 
 .ntt--entry-subname {
     @include font-display(xs);
-    font-family: $secondary-font;
+    font-family: $secondary-font-family;
     color: $mid-color;
 }
 
@@ -60,89 +60,93 @@
 // Entry Header
 //--------------------------------------------------------------
 
-.ntt--entry-header {
-    display: grid;
-    grid-template:
-        'entry-categories entry-categories'
-        'entry-name entry-datetime'
-        'entry-subname entry-subname'
-        'entry-axns entry-axns'
-        'entry-author entry-author'
-        'entry-banner entry-banner'
-        'entry-summary-content entry-summary-content'
-        / 1fr auto;
-    
-    .ntt--comments-actions-snippet {
-        display: none;
+@supports (display: grid) {
+
+    .ntt--entry-header {
+        display: grid;
+        grid-template:
+            'entry-categories entry-categories'
+            'entry-name entry-datetime'
+            'entry-subname entry-subname'
+            'entry-axns entry-axns'
+            'entry-author entry-author'
+            'entry-banner entry-banner'
+            'entry-summary-content entry-summary-content'
+            / 1fr auto;
+        
+        .ntt--comments-actions-snippet {
+            display: none;
+        }
+
+        > .ntt--entry-breadcrumbs-nav {
+            display: none;
+        }
     }
 
-    > .ntt--entry-breadcrumbs-nav {
-        display: none;
-    }
-}
-
-.ntt--entry-heading,
-.ntt--entry-primary-meta {
-    display: contents;
-}
-
-.ntt--entry-heading {
-
-    .ntt--entry-categories {
-        grid-area: entry-categories;
-        @include x-padding(.5rem); // Wider gutter
+    .ntt--entry-heading,
+    .ntt--entry-primary-meta {
+        display: contents;
     }
 
-    .ntt--entry-breadcrumbs-nav {
-        @include x-padding(1rem);
-    }
-}
+    .ntt--entry-heading {
 
-.ntt--entry-name {
-    grid-area: entry-name;
-    align-self: flex-start;
-    @include x-padding(1rem); // Wider gutter
-}
+        .ntt--entry-categories {
+            grid-area: entry-categories;
+        }
 
-.ntt--entry-subname {
-    grid-area: entry-subname;
-    @include x-padding(1rem); // Wider gutter
-}
-
-.ntt--entry-axns {
-    grid-area: entry-axns;
-    @include x-padding(1rem); // Wider gutter
-}
-
-.ntt--entry-primary-meta {
-
-    .ntt--entry-datetime {
-        grid-area: entry-datetime;
-        @include x-padding(.5rem); // Wider gutter
+        .ntt--entry-breadcrumbs-nav {
+            @include x-padding(1rem);
+        }
     }
 
-    .ntt--entry-author {
-        grid-area: entry-author;
-        @include x-padding(1.5rem); // Wider gutter
+    .ntt--entry-name {
+        grid-area: entry-name;
+        align-self: flex-start;
     }
-}
 
-.ntt--entry-banner {
-    grid-area: entry-banner;
+    .ntt--entry-subname {
+        grid-area: entry-subname;
+    }
+
+    .ntt--entry-axns {
+        grid-area: entry-axns;
+    }
+
+    .ntt--entry-primary-meta {
+
+        .ntt--entry-datetime {
+            grid-area: entry-datetime;
+        }
+
+        .ntt--entry-author {
+            grid-area: entry-author;
+        }
+    }
+
+    .ntt--entry-banner {
+        grid-area: entry-banner;
+    }
+
+    .ntt--entry-summary-content {
+
+        .ntt--current-index &,
+        .ntt--archive-index & {
+            grid-area: entry-summary-content;
+        }
+    }
 }
 
 .ntt--entry-summary-content {
-    grid-area: entry-summary-content;
-    @include y-margin(1rem);
-    margin-bottom: -1rem;
-    @include font-body(l);
-    line-height: 1.8;
-    font-family: $secondary-font-family;
 
-    > {
+    .ntt--current-index &,
+    .ntt--archive-index & {
+        @include y-margin(1rem);
+        font-size: $display-text---xs;
+        line-height: $line-height---md;
+        font-family: $secondary-font-family;
 
-        * {
-            @include x-padding(1rem); // Wider gutter
+        > *:last-child {
+            margin-bottom: 0;
         }
     }
 }
@@ -232,7 +236,7 @@
         padding: 1rem 3rem;
         @include x-margin();
         @include font-display(xs);
-        line-height: $line-height-body;
+        line-height: $line-height---md;
 
         &:before {
             content: '';
@@ -258,7 +262,7 @@
 
     p.has-drop-cap:not(:focus):first-letter {
         font-size: 4.4em;
-        font-family: $secondary-font;
+        font-family: $secondary-font-family;
         color: #DE756E;
     }
 

@@ -146,7 +146,7 @@
 
 .ntt--entity-view-name {
     @include font-display(s);
-    font-family: $secondary-font;
+    font-family: $secondary-font-family;
 
     .ntt--key-line {
         display: none;
