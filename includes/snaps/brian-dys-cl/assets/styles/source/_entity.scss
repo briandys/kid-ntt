@@ -87,10 +87,10 @@
 //--------------------------------------------------------------
 
 .ntt--entity-name {
-    @include x-padding(1rem);
+    margin-top: .5rem;
     font-family: $secondary-font-family;
     font-weight: normal;
-    font-size: $display-text---xs;
+    font-size: $text---xl;
 
     a {
         color: inherit;
@@ -106,9 +106,9 @@
 //--------------------------------------------------------------
 
 .ntt--entity-description {
-    @include x-padding(1rem);
+    margin-top: -1rem;
     color: $mid-color;
-    font-size: .875rem;
+    font-size: $text---sm;
     letter-spacing: .045em;
 
     .ntt--txt {
@@ -117,23 +117,11 @@
 }
 
 //--------------------------------------------------------------
-// Entity Header Aside
-//--------------------------------------------------------------
-
-.ntt--entity-header-aside {
-    @include y-padding(1rem);
-
-    .ntt--widget_nav_menu {
-        margin-top: -1rem;
-    }
-}
-
-//--------------------------------------------------------------
 // Entity Main Header
 //--------------------------------------------------------------
 
 .ntt--entity-main-header {
-    @include x-padding(.5rem); // Wider gutter
+    @include x-padding(1rem);
 }
 
 .ntt--entity-view-heading {
@@ -163,9 +151,9 @@
         min-width: 2rem;
         min-height: 2rem;
         text-align: center;
-        color: #DE756E;
-        border: 2px solid #DE756E;
-        border-radius: .25rem;
+        background-color: $on-surface-color---alpha-lo;
+        color: $mid-color;
+        border-radius: $corner-radius---m;
     }
 }
 

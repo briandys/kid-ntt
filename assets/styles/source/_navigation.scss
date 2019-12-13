@@ -154,7 +154,7 @@
     }
 
     li {
-        @include space-around;
+        @include x-padding(.5rem);
 
         .ntt--txt {
             @extend %block-pad;
@@ -253,7 +253,7 @@
         width: auto;
         min-width: 100%;
         background-color: white;
-        border: 1px solid black;
+        border: 1px solid $on-surface-color---alpha-md;
         z-index: 1;
 
         li {

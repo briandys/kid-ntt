@@ -24,7 +24,7 @@
 }
 
 .ntt--comment-name .ntt--txt, .ntt--comment-author-name .ntt--txt, .ntt--comment-author-label .ntt--txt, .ntt--comments-count .ntt--txt, .ntt--comments-header .ntt--comments-count .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--comments-name .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-composition-name .ntt--txt, .ntt--cancel-reply-axn .ntt--txt, .ntt--comment-form label .ntt--txt, .ntt--log-out-account-axn .ntt--txt, .ntt--logged-in-account .ntt--txt, .ntt--comment-published-datetime-label .ntt--txt, .ntt--comment-published-date .ntt--txt,
-.ntt--comment-published-time .ntt--txt, .ntt--entity-name .ntt--txt, .ntt--entity-description .ntt--txt, .ntt--entity-view-name .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
+.ntt--comment-published-time .ntt--txt, .ntt--entity-name .ntt--txt, .ntt--entity-description .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
 .ntt--entity-copyright .ntt--txt,
 .ntt--entity-maker-tag .ntt--txt, .cm-author-name .ntt--txt, .sub-content-ntt--entry-name .ntt--txt, .ntt--entry-categories-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
 .ntt--entry-modified-datetime-label .ntt--txt, .ntt--entry-published-date .ntt--txt,
@@ -513,7 +513,6 @@ label[for]:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: .5rem;
 }
 
 .ntt--zero-entry .ntt--entity-view-heading {
@@ -835,14 +834,9 @@ label[for]:hover {
 
 .ntt--entry-published-datetime,
 .ntt--entry-modified-datetime {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   padding: .5rem;
 }
 
@@ -1018,8 +1012,8 @@ label[for]:hover {
 }
 
 .ntt--show-more-axn {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-bottom: 0;
 }
 
@@ -1207,7 +1201,8 @@ label[for]:hover {
 .ntt--entity-primary-nav li,
 .ntt--entity-secondary-nav li,
 .ntt--widget_nav_menu li {
-  padding: .5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .ntt--entity-primary-nav a,
@@ -1288,7 +1283,7 @@ label[for]:hover {
   width: auto;
   min-width: 100%;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   z-index: 1;
 }
 

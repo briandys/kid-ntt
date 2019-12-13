@@ -141,7 +141,6 @@
 
 .ntt--entity-view-heading {
     @include if-y-center;
-    @include space-around;
 
     .ntt--zero-entry & {
         display: none;
@@ -153,10 +152,6 @@
 
     a {
         display: inline-block;
-    }
-
-    .ntt--txt {
-        @extend %block-pad;
     }
 
     .ntt--search-term---txt {

@@ -283,7 +283,7 @@
 
 .ntt--entry-published-datetime,
 .ntt--entry-modified-datetime {
-    @include if-y-center;
+    display: flex;
     padding: .5rem;
 }
 
@@ -483,7 +483,7 @@
 }
 
 .ntt--show-more-axn {
-    @include x-padding(.5rem);
+    @include x-padding(1rem);
     margin-bottom: 0;
 
     a {

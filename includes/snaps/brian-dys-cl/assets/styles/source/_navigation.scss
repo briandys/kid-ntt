@@ -5,26 +5,15 @@
 //--------------------------------------------------------------
 
 .ntt--entity-primary-nav,
-.ntt--entity-secondary-nav,
-.ntt--widget_nav_menu {
+.ntt--entity-secondary-nav {
+    font-size: $text---lg;
+    font-family: $secondary-font-family;
 
     li {
-        @include space-around;
 
         .ntt--txt {
             @include x-padding();
         }
-    }
-}
-
-.ntt--entity-primary-nav,
-.ntt--entity-secondary-nav {
-    @include y-padding(1rem);
-    font-size: $display-text---xxs;
-    font-family: $secondary-font-family;
-
-    li {
-        @include x-padding(1rem);
     }
 
     a {
@@ -93,7 +82,6 @@
     }
 
     .ntt--sub-menu--js {
-        font-size: 1rem;
         border: 0;
         background-color: $surface-color;
         border: 1px solid $on-surface-color---alpha-md;
@@ -202,14 +190,13 @@
 //--------------------------------------------------------------
 
 .ntt--widget_nav_menu {
-    padding: 1rem .25rem;
 
     > * {
         @include y-margin();
     }
 
     li {
-        padding: 0 .75rem;
+        padding: 0 .5rem;
     }
 
     a {

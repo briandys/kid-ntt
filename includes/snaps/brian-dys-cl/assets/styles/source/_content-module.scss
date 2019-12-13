@@ -14,9 +14,9 @@
         padding: .35rem .75rem;
         min-width: 56px;
         text-align: center;
-        background-color: #FFE8E6;
+        background-color: $accent-color---alpha-lo;
         color: $mid-color;
-        border-radius: .25rem;
+        border-radius: $corner-radius---m;
     }
 
     .ntt--day-txt,
@@ -60,6 +60,9 @@
 
 .ntt--cm-author-avatar {
     margin-right: .5rem;
+    max-width: 48px;
+    max-height: 48px;
+    background-color: $on-surface-color---alpha-lo;
     border-radius: 50%;
     overflow: hidden;
 }
