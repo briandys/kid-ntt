@@ -99,6 +99,7 @@ textarea {
   font: inherit;
   font-size: 1rem;
   line-height: 1.25;
+  border-radius: 0.125rem;
 }
 
 [type="checkbox"],
@@ -189,6 +190,10 @@ label[for]:hover {
 
 .ntt--comments-count a {
   display: inline-block;
+}
+
+.ntt--comments-count a:hover .ntt--count-txt {
+  text-decoration: underline;
 }
 
 .ntt--comments-header {
@@ -493,10 +498,6 @@ label[for]:hover {
 
 .ntt--entity-name a {
   display: inline-block;
-}
-
-.ntt--entity-name a:hover {
-  text-decoration: none;
 }
 
 .ntt--entity-description {
@@ -1278,17 +1279,12 @@ label[for]:hover {
 .ntt--nav---sub-menu--js .ntt--sub-menu--js {
   display: none;
   position: absolute;
+  z-index: 1;
   margin-left: 0;
   top: 100%;
   width: auto;
   min-width: 100%;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  z-index: 1;
-}
-
-.ntt--nav---sub-menu--js .ntt--sub-menu--js li {
-  border-bottom: 1px solid black;
+  border-radius: 0.125rem;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu--js li:last-child {
@@ -1601,4 +1597,21 @@ textarea {
 
 .ntt--entry-content-snippet a {
   color: #1f2023;
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu--js {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu--js li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.ntt--entry-nav a .ntt--entry-name-txt {
+  color: #0060e6;
+}
+
+.ntt--entry-nav a:hover .ntt--entry-name-txt {
+  color: #0060e6;
 }

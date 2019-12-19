@@ -36,3 +36,38 @@ textarea {
 .ntt--entry-content-snippet a {
     color: $content-text-color;
 }
+
+.ntt--nav---sub-menu--js {
+    
+    .ntt--sub-menu--js {
+        background-color: $surface-color;
+        border: 1px solid $on-surface-color---alpha-md;
+
+        li {
+            border-bottom: 1px solid $on-surface-color---alpha-md;
+        }
+    }
+}
+
+.ntt--entry-nav {
+
+    a {
+
+        .ntt--entry-name-txt {
+            color: $accent-color;
+        }
+    }
+}
+
+.ntt--entry-nav {
+
+    a {
+
+        &:hover {
+
+            .ntt--entry-name-txt {
+                color: $accent-color;
+            }
+        }
+    }
+}

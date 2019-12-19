@@ -66,6 +66,13 @@
 
     a {
         display: inline-block;
+
+        &:hover {
+
+            .ntt--count-txt {
+                text-decoration: underline;
+            }
+        }
     }
 
     .ntt--txt {

@@ -82,6 +82,23 @@ textarea {
   color: #1f2023;
 }
 
+.ntt--nav---sub-menu--js .ntt--sub-menu--js {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu--js li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.ntt--entry-nav a .ntt--entry-name-txt {
+  color: #0060e6;
+}
+
+.ntt--entry-nav a:hover .ntt--entry-name-txt {
+  color: #0060e6;
+}
+
 html {
   background-color: #F1F3F6;
 }

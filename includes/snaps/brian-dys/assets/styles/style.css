@@ -50,6 +50,23 @@ textarea {
   color: #1f2023;
 }
 
+.ntt--nav---sub-menu--js .ntt--sub-menu--js {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu--js li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.ntt--entry-nav a .ntt--entry-name-txt {
+  color: #e60000;
+}
+
+.ntt--entry-nav a:hover .ntt--entry-name-txt {
+  color: #e60000;
+}
+
 .ntt--site-id--brian-dys-uxd {
   background-color: #ebebeb;
 }
