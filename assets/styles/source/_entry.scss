@@ -1,3 +1,9 @@
+
+
+.ntt--entry-categories-name {
+    display: none;
+}
+
 //--------------------------------------------------------------
 // Entry
 //--------------------------------------------------------------
@@ -10,7 +16,7 @@
     @include y-padding(.5rem);
 }
 .ntt--entry {
-    @include y-padding(.5rem);
+    @include y-padding(2rem);
 }
 
 .ntt--content {
@@ -250,16 +256,6 @@
     }
 }
 
-.ntt--entry-categories-name {
-    @include ib-y-center;
-    padding: .5rem;
-    font-weight: bold;
-
-    .ntt--txt {
-        @extend %block-pad;
-    }
-}
-
 .ntt--entry-categories {
 
     ul {
@@ -319,7 +315,7 @@
     flex: 1 100%;
     @include space-around;
     margin: 0;
-    font-size: 1rem;
+    font-size: $text---xl;
     word-break: break-word;
 
     a {

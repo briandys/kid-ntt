@@ -154,7 +154,7 @@
     }
 
     li {
-        @include x-padding(.5rem);
+        padding: .5rem;
 
         .ntt--txt {
             @extend %block-pad;
@@ -249,7 +249,7 @@
         display: none;
         position: absolute;
         z-index: 1;
-        margin-left: 0;
+        margin-left: .5rem;
         top: 100%;
         width: auto;
         min-width: 100%;
@@ -270,7 +270,6 @@
 
         // Indent Sub-menu
         .ntt--sub-menu--js {
-            margin-left: .5rem;
             margin-top: -.25rem;
         }
 

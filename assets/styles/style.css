@@ -24,9 +24,9 @@
 }
 
 .ntt--comment-name .ntt--txt, .ntt--comment-author-name .ntt--txt, .ntt--comment-author-label .ntt--txt, .ntt--comments-count .ntt--txt, .ntt--comments-header .ntt--comments-count .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--comments-name .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-composition-name .ntt--txt, .ntt--cancel-reply-axn .ntt--txt, .ntt--comment-form label .ntt--txt, .ntt--log-out-account-axn .ntt--txt, .ntt--logged-in-account .ntt--txt, .ntt--comment-published-datetime-label .ntt--txt, .ntt--comment-published-date .ntt--txt,
-.ntt--comment-published-time .ntt--txt, .ntt--entity-name .ntt--txt, .ntt--entity-description .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
+.ntt--comment-published-time .ntt--txt, .ntt--entity-name .ntt--txt, .ntt--entity-description .ntt--txt, .ntt--entity-view-name .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
 .ntt--entity-copyright .ntt--txt,
-.ntt--entity-maker-tag .ntt--txt, .cm-author-name .ntt--txt, .sub-content-ntt--entry-name .ntt--txt, .ntt--entry-categories-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
+.ntt--entity-maker-tag .ntt--txt, .cm-author-name .ntt--txt, .sub-content-ntt--entry-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
 .ntt--entry-modified-datetime-label .ntt--txt, .ntt--entry-published-date .ntt--txt,
 .ntt--entry-published-time .ntt--txt,
 .ntt--entry-modified-date .ntt--txt,
@@ -490,10 +490,13 @@ label[for]:hover {
   display: inline-block;
 }
 
-.ntt--entity-name {
+.ntt--entity-heading {
   padding: .5rem;
+}
+
+.ntt--entity-name {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .ntt--entity-name a {
@@ -502,7 +505,6 @@ label[for]:hover {
 
 .ntt--entity-description {
   display: inline-block;
-  padding: .5rem;
 }
 
 .ntt--entity-view-heading {
@@ -514,8 +516,10 @@ label[for]:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: .5rem;
 }
 
+.ntt--current-index .ntt--entity-view-heading,
 .ntt--zero-entry .ntt--entity-view-heading {
   display: none;
 }
@@ -576,6 +580,10 @@ label[for]:hover {
   display: inline-block;
 }
 
+.ntt--entry-categories-name {
+  display: none;
+}
+
 .ntt--entry-primary-meta {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -593,8 +601,8 @@ label[for]:hover {
 }
 
 .ntt--entry {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .ntt--content > * {
@@ -804,13 +812,6 @@ label[for]:hover {
   padding: 1rem;
 }
 
-.ntt--entry-categories-name {
-  display: inline-block;
-  vertical-align: middle;
-  padding: .5rem;
-  font-weight: bold;
-}
-
 .ntt--entry-categories ul {
   list-style: none;
   margin: 0;
@@ -860,7 +861,7 @@ label[for]:hover {
           flex: 1 100%;
   padding: .5rem;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.5rem;
   word-break: break-word;
 }
 
@@ -1202,8 +1203,7 @@ label[for]:hover {
 .ntt--entity-primary-nav li,
 .ntt--entity-secondary-nav li,
 .ntt--widget_nav_menu li {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: .5rem;
 }
 
 .ntt--entity-primary-nav a,
@@ -1280,7 +1280,7 @@ label[for]:hover {
   display: none;
   position: absolute;
   z-index: 1;
-  margin-left: 0;
+  margin-left: .5rem;
   top: 100%;
   width: auto;
   min-width: 100%;
@@ -1305,7 +1305,6 @@ label[for]:hover {
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu--js .ntt--sub-menu--js {
-  margin-left: .5rem;
   margin-top: -.25rem;
 }
 

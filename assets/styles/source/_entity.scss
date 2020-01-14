@@ -108,10 +108,13 @@
     }
 }
 
-.ntt--entity-name {
+.ntt--entity-heading {
     padding: .5rem;
+}
+
+.ntt--entity-name {
     margin: 0;
-    font-size: 1rem;
+    font-size: $text---xl;
 
     a {
         display: inline-block;
@@ -124,7 +127,6 @@
 
 .ntt--entity-description {
     display: inline-block;
-    padding: .5rem;
 
     .ntt--txt {
         @extend %block-pad;
@@ -137,7 +139,9 @@
 
 .ntt--entity-view-heading {
     @include if-y-center;
+    padding: .5rem;
 
+    .ntt--current-index &,
     .ntt--zero-entry & {
         display: none;
     }
@@ -148,6 +152,10 @@
 
     a {
         display: inline-block;
+    }
+
+    .ntt--txt {
+        @extend %block-pad;
     }
 
     .ntt--search-term---txt {
