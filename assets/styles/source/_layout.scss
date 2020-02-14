@@ -1,0 +1,70 @@
+
+@supports (display: grid) {
+
+    @include mq(880px) {
+    
+        .ntt--entity-main-main-aside---1 {
+
+            .ntt--entity-main-main {
+                display: grid;
+                grid-template:
+                    'entry-md entity-main-main-aside'
+                    / 2fr 1fr;
+            }
+        
+            .ntt--entry-md {
+                grid-area: entry-md;
+            }
+        
+            .ntt--entity-main-main-aside {
+                grid-area: entity-main-main-aside;
+            }
+
+            .ntt--entity-main-footer {
+                display: grid;
+                grid-template:
+                    'entity-main-footer .'
+                    / 2fr 1fr;
+            }
+
+            .ntt--entry-nav {
+                grid-area: entity-main-footer;
+            }
+        }
+
+        .ntt--single-entry {
+
+            &.ntt--entity-main-main-aside---1 {
+
+                .ntt--entity-main-main {
+                    grid-template:
+                        'entity-main-main-aside entry-md'
+                        / 1fr 3fr;
+                }
+
+                .ntt--entity-main-footer {
+                    grid-template:
+                        '. entity-main-footer'
+                        / 1fr 3fr;
+                }
+            }
+        }
+    }
+}
+
+.ntt--entity-main-header {
+    padding-top: 2rem;
+}
+
+.ntt--entry {
+    @include y-padding(2rem);
+}
+
+.ntt--widget {
+    @include y-padding(1rem);
+}
+
+.ntt--widget-name {
+    @include y-padding(1rem);
+    @include y-margin();
+}

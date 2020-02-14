@@ -1,4 +1,6 @@
-
+//--------------------------------------------------------------
+// Hide Stuff
+//--------------------------------------------------------------
 
 .ntt--entry-categories-name {
     display: none;
@@ -10,13 +12,6 @@
 
 .ntt--entry-primary-meta {
     @include if-y-center;
-}
-
-.ntt--entry-md {
-    @include y-padding(.5rem);
-}
-.ntt--entry {
-    @include y-padding(2rem);
 }
 
 .ntt--content {
@@ -203,8 +198,7 @@
     margin: 0;
     margin-top: .5em;
     text-align: left;
-    color: $faint-color;
-    font-size: .75em;
+    color: $mid-color;
 }
 
 .ntt {
@@ -437,10 +431,34 @@
     }
 }
 
+//--------------------------------------------------------------
+// Entry Banner Visuals
+//--------------------------------------------------------------
+
+.ntt--entry-banner-visuals {
+    margin: 0;
+
+    figcaption {
+        @extend .wp-caption-text;
+        margin: 1rem 1rem 0;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Summary Content
+//--------------------------------------------------------------
+
 .ntt--entry-summary-content---1 {
 
     .ntt--entry-full-content {
         margin-top: 1em;
+    }
+}
+
+.ntt--entry-summary-content {
+
+    > * {
+        font-size: $text---xl;
     }
 }
 

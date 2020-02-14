@@ -126,7 +126,7 @@ textarea {
   margin-right: .5rem;
   max-width: 48px;
   max-height: 48px;
-  background-color: rgba(0, 0, 0, 0.0625);
+  background-color: rgba(0, 0, 0, 0.03125);
   border-radius: 50%;
   overflow: hidden;
 }
@@ -404,7 +404,7 @@ textarea {
   min-width: 2rem;
   min-height: 2rem;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.0625);
+  background-color: rgba(0, 0, 0, 0.03125);
   color: #757575;
   border-radius: 0.25rem;
 }
@@ -856,7 +856,7 @@ textarea {
   width: .25rem;
   height: 100%;
   z-index: auto;
-  background-color: rgba(0, 0, 0, 0.0625);
+  background-color: rgba(0, 0, 0, 0.03125);
 }
 
 .ntt--nav---sub-menu--js.ntt--entity-primary-nav .ntt--sub-menu--js, .ntt--nav---sub-menu--js.ntt--entity-secondary-nav .ntt--sub-menu--js {

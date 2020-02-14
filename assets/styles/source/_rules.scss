@@ -66,6 +66,18 @@ $font-body-factor-m: 1;
 $font-body-factor-s: .875;
 $font-body-factor-xs: .75;
 
+
+
+
+//--------------------------------------------------------------
+// Remove unused variables above; get all from Brian Dys CL and transfer here
+//--------------------------------------------------------------
+
+//------------ Viewports
+$viewport-width---mobile: 320px;
+$viewport-width---tablet: 768px;
+$viewport-width---laptop: 1024px;
+
 //------------ Texts
 $text---sm: .875rem;
 $text---md: 1rem;
@@ -79,22 +91,17 @@ $text---yl: 3rem;
 $text---yyl: 3.5rem;
 $text---yyyl: 4rem;
 
-
-
-
-
-
-
-
-
-
 $surface-color: white;
 $on-surface-color: $almost-black;
+
 $accent-color: $panda-blue;
+$accent-color---alpha-lo: hsla(215, 100%, 45%, .125);
+$accent-color---alpha-md: hsla(215, 100%, 45%, .25);
+$accent-color---alpha-hi: hsla(215, 100%, 45%, .5);
 
+$mid-color: $a11y-gray;
 
-
-$on-surface-color---alpha-lo: hsla(0, 0%, 0%, .0625);
+$on-surface-color---alpha-lo: hsla(0, 0%, 0%, .03125);
 $on-surface-color---alpha-md: hsla(0, 0%, 0%, .125);
 $on-surface-color---alpha-hi: hsla(0, 0%, 0%, .25);
 

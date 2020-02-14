@@ -646,3 +646,9 @@ body {
     max-width: none;
   }
 }
+
+@media only screen and (min-width: xl-vp) {
+  .ntt--entity {
+    max-width: 80em;
+  }
+}

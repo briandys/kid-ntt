@@ -1,0 +1,29 @@
+//--------------------------------------------------------------
+// Content Module
+//--------------------------------------------------------------
+
+.cm-author-avatar {
+    
+    a {
+        display: inline-block;
+    }
+ 
+    .img {
+        display: block;
+        margin: .5rem;
+        width: 3rem;
+        height: 3rem;
+        background-color: $faint-color--lo;
+    }
+}
+
+.cm-author-name {
+
+    a {
+        display: inline-block;
+    }
+
+    .ntt--txt {
+        @extend %block-pad;
+    }
+}

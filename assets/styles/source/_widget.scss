@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 
 .ntt--widget {
-    @include x-padding(1rem); // Small top and bottom padding for > * margin to take effect
+    @include x-padding(1rem);
     
     > * {
         @include y-margin(1em);
@@ -12,6 +12,17 @@
     ul,
     ol {
         padding-left: 1.5rem;
+    }
+}
+
+.ntt--widget_nav_menu {
+
+    .ntt--widget-name {
+        padding: .5rem;
+
+        .ntt--txt {
+            padding: .5rem;
+        }
     }
 }
 

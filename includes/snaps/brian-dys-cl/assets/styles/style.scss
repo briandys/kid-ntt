@@ -17,34 +17,18 @@ Version: 0.0.2
 $primary-font-family: 'Open Sans', sans-serif;
 $secondary-font-family: 'Sanchez', serif;
 
-//------------ Texts
-$text---sm: .875rem;
-$text---md: 1rem;
-$text---lg: 1.125rem;
 
-$text---xl: 1.5rem;
-$text---xxl: 2rem;
-$text---xxxl: 2.5rem;
 
-$text---yl: 3rem;
-$text---yyl: 3.5rem;
-$text---yyyl: 4rem;
 
-//------------ Viewports
-$viewport-width---mobile: 320px;
-$viewport-width---tablet: 768px;
-$viewport-width---laptop: 1024px;
+
+
 
 //------------ Colors
 $surface-color: white;
 $on-surface-color: #1c1c1c;
 
 $accent-color: $panda-blue;
-$accent-color---alpha-lo: hsla(215, 100%, 45%, .125);
-$accent-color---alpha-md: hsla(215, 100%, 45%, .25);
-$accent-color---alpha-hi: hsla(215, 100%, 45%, .5);
 
-$mid-color: $a11y-gray;
 
 //------------ Content
 $content-text-color: $mid-color;

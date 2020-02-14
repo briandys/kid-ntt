@@ -24,9 +24,9 @@
 }
 
 .ntt--comment-name .ntt--txt, .ntt--comment-author-name .ntt--txt, .ntt--comment-author-label .ntt--txt, .ntt--comments-count .ntt--txt, .ntt--comments-header .ntt--comments-count .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--comments-name .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-composition-name .ntt--txt, .ntt--cancel-reply-axn .ntt--txt, .ntt--comment-form label .ntt--txt, .ntt--log-out-account-axn .ntt--txt, .ntt--logged-in-account .ntt--txt, .ntt--comment-published-datetime-label .ntt--txt, .ntt--comment-published-date .ntt--txt,
-.ntt--comment-published-time .ntt--txt, .ntt--entity-name .ntt--txt, .ntt--entity-description .ntt--txt, .ntt--entity-view-name .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
+.ntt--comment-published-time .ntt--txt, .cm-author-name .ntt--txt, .ntt--entity-name .ntt--txt, .ntt--entity-description .ntt--txt, .ntt--entity-view-name .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
 .ntt--entity-copyright .ntt--txt,
-.ntt--entity-maker-tag .ntt--txt, .cm-author-name .ntt--txt, .sub-content-ntt--entry-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
+.ntt--entity-maker-tag .ntt--txt, .sub-content-ntt--entry-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
 .ntt--entry-modified-datetime-label .ntt--txt, .ntt--entry-published-date .ntt--txt,
 .ntt--entry-published-time .ntt--txt,
 .ntt--entry-modified-date .ntt--txt,
@@ -420,10 +420,31 @@ label[for]:hover {
   color: inherit;
 }
 
+.cm-author-avatar a {
+  display: inline-block;
+}
+
+.cm-author-avatar .img {
+  display: block;
+  margin: .5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.0625);
+}
+
+.cm-author-name a {
+  display: inline-block;
+}
+
 .ntt--entity-start,
 .ntt--entity-end,
 .ntt--single-entry .ntt--entity-main-header {
   display: none;
+}
+
+.ntt--entity-main-main-aside {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 @supports (display: grid) {
@@ -448,30 +469,6 @@ label[for]:hover {
   .ntt--entity-end {
     grid-area: entity-end;
   }
-}
-
-@supports (display: grid) {
-  @media only screen and (min-width: 880px) {
-    .ntt--entity-main-main-aside---1 .ntt--entity-main-main {
-      display: -ms-grid;
-      display: grid;
-      grid-template: 'entry-md entity-main-main-aside' / 2fr 1fr;
-    }
-    .ntt--entity-main-main-aside---1 .ntt--entry-md {
-      grid-area: entry-md;
-    }
-    .ntt--entity-main-main-aside---1 .ntt--entity-main-main-aside {
-      grid-area: entity-main-main-aside;
-    }
-  }
-}
-
-.ntt--widget_nav_menu .ntt--widget-name {
-  padding: .5rem;
-}
-
-.ntt--widget_nav_menu .ntt--widget-name .ntt--txt {
-  padding: .5rem;
 }
 
 .ntt--entity-logo---1 .ntt--entity-name {
@@ -527,6 +524,7 @@ label[for]:hover {
 .ntt--entity-view-name {
   display: inline-block;
   vertical-align: middle;
+  font-size: 1.5rem;
 }
 
 .ntt--entity-view-name a {
@@ -535,6 +533,10 @@ label[for]:hover {
 
 .ntt--entity-view-name .ntt--search-term---txt {
   font-weight: bold;
+}
+
+.ntt--archive-index .ntt--entity-view-name .ntt--key-line {
+  display: none;
 }
 
 .ntt--entry-count {
@@ -564,20 +566,8 @@ label[for]:hover {
   display: inline-block;
 }
 
-.cm-author-avatar a {
-  display: inline-block;
-}
-
-.cm-author-avatar .img {
-  display: block;
-  margin: .5rem;
-  width: 3rem;
-  height: 3rem;
-  background-color: rgba(0, 0, 0, 0.0625);
-}
-
-.cm-author-name a {
-  display: inline-block;
+.ntt--entity-footer {
+  background-color: rgba(0, 0, 0, 0.03125);
 }
 
 .ntt--entry-categories-name {
@@ -593,16 +583,6 @@ label[for]:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.ntt--entry-md {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.ntt--entry {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 
 .ntt--content > * {
@@ -764,12 +744,11 @@ label[for]:hover {
 }
 
 .wp-caption-text, .ntt .wp-caption figcaption,
-.ntt .wp-block-image figcaption {
+.ntt .wp-block-image figcaption, .ntt--entry-banner-visuals figcaption {
   margin: 0;
   margin-top: .5em;
   text-align: left;
-  color: rgba(0, 0, 0, 0.5);
-  font-size: .75em;
+  color: #757575;
 }
 
 .ntt .wp-caption,
@@ -969,8 +948,20 @@ label[for]:hover {
           flex: 1 100%;
 }
 
+.ntt--entry-banner-visuals {
+  margin: 0;
+}
+
+.ntt--entry-banner-visuals figcaption {
+  margin: 1rem 1rem 0;
+}
+
 .ntt--entry-summary-content---1 .ntt--entry-full-content {
   margin-top: 1em;
+}
+
+.ntt--entry-summary-content > * {
+  font-size: 1.5rem;
 }
 
 .entry-heading {
@@ -1420,6 +1411,14 @@ label[for]:hover {
   padding-left: 1.5rem;
 }
 
+.ntt--widget_nav_menu .ntt--widget-name {
+  padding: .5rem;
+}
+
+.ntt--widget_nav_menu .ntt--widget-name .ntt--txt {
+  padding: .5rem;
+}
+
 .ntt--widget-name {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1484,13 +1483,58 @@ label[for]:hover {
   margin-bottom: 0;
 }
 
-@media only screen and (min-width: 48em) {
-  /*
-    .ntt--entity {
-        @include x-margin(auto);
-        max-width: $m-vp;
+@supports (display: grid) {
+  @media only screen and (min-width: 880px) {
+    .ntt--entity-main-main-aside---1 .ntt--entity-main-main {
+      display: -ms-grid;
+      display: grid;
+      grid-template: 'entry-md entity-main-main-aside' / 2fr 1fr;
     }
-    */
+    .ntt--entity-main-main-aside---1 .ntt--entry-md {
+      grid-area: entry-md;
+    }
+    .ntt--entity-main-main-aside---1 .ntt--entity-main-main-aside {
+      grid-area: entity-main-main-aside;
+    }
+    .ntt--entity-main-main-aside---1 .ntt--entity-main-footer {
+      display: -ms-grid;
+      display: grid;
+      grid-template: 'entity-main-footer .' / 2fr 1fr;
+    }
+    .ntt--entity-main-main-aside---1 .ntt--entry-nav {
+      grid-area: entity-main-footer;
+    }
+    .ntt--single-entry.ntt--entity-main-main-aside---1 .ntt--entity-main-main {
+      grid-template: 'entity-main-main-aside entry-md' / 1fr 3fr;
+    }
+    .ntt--single-entry.ntt--entity-main-main-aside---1 .ntt--entity-main-footer {
+      grid-template: '. entity-main-footer' / 1fr 3fr;
+    }
+  }
+}
+
+.ntt--entity-main-header {
+  padding-top: 2rem;
+}
+
+.ntt--entry {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.ntt--widget {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.ntt--widget-name {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 48em) {
   .ntt .wp-caption .alignleft,
   .ntt .wp-block-image .alignleft {
     float: left;
@@ -1500,13 +1544,6 @@ label[for]:hover {
   .ntt .wp-block-image .alignright {
     float: right;
     margin-left: 1em;
-  }
-  .entry-main-aside--1 {
-    /*
-        .ntt--entity {
-            max-width: none;
-        }
-        */
   }
   .entry-main-aside--1 .ntt--entry-main {
     display: -webkit-box;

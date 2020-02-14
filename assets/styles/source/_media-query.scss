@@ -1,13 +1,6 @@
 // 48em and up
 @include mq(m-vp) {
 
-    /*
-    .ntt--entity {
-        @include x-margin(auto);
-        max-width: $m-vp;
-    }
-    */
-
     .ntt {
         
         .wp-caption,
@@ -26,12 +19,6 @@
     }
 
     .entry-main-aside--1 {
-        
-        /*
-        .ntt--entity {
-            max-width: none;
-        }
-        */
 
         .ntt--entry-main {
             display: flex;
@@ -96,14 +83,4 @@
             }
         }
     }
-}
-
-// 80em and up
-@include mq(xl-vp) {
-
-    /*
-    .ntt--entity {
-        max-width: $xl-vp;
-    }
-    */
 }
