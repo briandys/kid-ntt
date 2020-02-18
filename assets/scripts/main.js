@@ -265,4 +265,58 @@
     }
     
     window.addEventListener('keydown', handleFirstTab);
+
+    /**
+     * Intersection Observer Targeting IDs
+     * https://codepen.io/bramus/pen/ExaEqMJ
+     */
+    
+    window.addEventListener('DOMContentLoaded', () => {
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.intersectionRatio > 0) {
+                    document.querySelector(`a[href="#${id}"]`).classList.add('ntt--intersected');
+                } else {
+                    document.querySelector(`a[href="#${id}"]`).classList.remove('ntt--intersected');
+                }
+            });
+        });
+    
+        // Track all sections that have an 'id' applied
+        document.querySelectorAll('section[id]').forEach((section) => {
+            observer.observe(section);
+        });
+    });
+
+    /**
+     * Intersection Observer
+     * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+     */
+
+    let entityFooter;
+
+    window.addEventListener('load', (event) => {
+        entityFooter = document.querySelector('.ntt--entity-footer');
+    
+        createObserver();
+    }, false);
+
+    function createObserver() {
+        let observer;
+      
+        observer = new IntersectionObserver(handleIntersect);
+        observer.observe(entityFooter);
+    }
+
+    function handleIntersect(entries, observer) {
+        entries.forEach((entry) => {
+            if (entry.intersectionRatio > 0) {
+                entry.target.classList.add('ntt--intersected');
+            } else {
+                entry.target.classList.remove('ntt--intersected');
+            }
+        });
+    }
 } )();

@@ -14,3 +14,35 @@
 @import 'source/media-query';
 
 @import 'source/theme';
+
+.ntt--post--table-of-contents--view {
+
+    .ntt--entry-full-content {
+
+        nav {
+            position: fixed;
+            right: 0;
+            top: 0;
+            background-color: aliceblue;
+
+            a {
+                @include transition;
+                transition-duration: 2s;
+            }
+
+            .ntt--intersected {
+                background-color: red;
+            }
+        }
+    }
+}
+
+.ntt--entity-footer {
+    opacity: 0;
+    @include transition;
+    transition-duration: 2s;
+
+    &.ntt--intersected {
+        opacity: 1;
+    }
+}
