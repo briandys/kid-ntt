@@ -30,7 +30,6 @@ foreach ( $r_functions as $function ) {
 
 $r_snap_functions = array(
     'functions-page',
-    //'open-graph',
     'html-canvas-mode',
     'prezo-mode',
     'responsive-flickr',

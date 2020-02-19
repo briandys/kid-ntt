@@ -278,8 +278,11 @@
                 const id = entry.target.getAttribute('id');
                 if (entry.intersectionRatio > 0) {
                     document.querySelector(`a[href="#${id}"]`).classList.add('ntt--intersected');
+                    entry.target.classList.remove('ntt--not-intersected');
+                    entry.target.classList.add('ntt--intersected');
                 } else {
                     document.querySelector(`a[href="#${id}"]`).classList.remove('ntt--intersected');
+                    entry.target.classList.remove('ntt--intersected');
                 }
             });
         });
@@ -287,6 +290,7 @@
         // Track all sections that have an 'id' applied
         document.querySelectorAll('section[id]').forEach((section) => {
             observer.observe(section);
+            section.classList.add('ntt--not-intersected');
         });
     });
 

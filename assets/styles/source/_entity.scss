@@ -180,15 +180,12 @@
 .ntt--entity-secondary-name,
 .ntt--entity-copyright,
 .ntt--entity-maker-tag {
+    display: inline-block;
 
     .ntt--txt {
         @extend %block-pad;
+        font-size: $text---sm;
     }
-}
-
-.ntt--entity-secondary-name,
-.ntt--entity-copyright {
-    display: inline-block;
 }
 
 //--------------------------------------------------------------

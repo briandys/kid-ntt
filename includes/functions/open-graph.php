@@ -26,10 +26,10 @@ function ntt_kid_open_graph() {
     6. Default Image
     */
 
+    // Singular
     if ( is_singular() ) {
         global $post;
     
-        // Open Graph Array
         $og = array(
             'title'     => get_the_title(),
             'type'      => 'article',
@@ -37,7 +37,6 @@ function ntt_kid_open_graph() {
             'site_name' => get_bloginfo( 'name' ),
         );
     
-        // Open Graph
         foreach ( $og as $key => $value ) {
             echo '<meta property="og:'. $key.'" content="'. $value.'" />';
         }
@@ -45,6 +44,7 @@ function ntt_kid_open_graph() {
         /**
          * Get Image
          * 
+         * Priority List
          * 1. Featured Image
          * 2. First Image in Content
          * 3. Custom Logo
@@ -72,7 +72,7 @@ function ntt_kid_open_graph() {
             $dom->loadHTML( $content );
             libxml_clear_errors();
             $images = $dom->getElementsByTagName( 'img' );
-            $image = $images->item(0);
+            $image = $images->item( 0 );
 
             if ( $image ) {
                 $image_src = $image->getAttribute( 'src' );
@@ -98,6 +98,8 @@ function ntt_kid_open_graph() {
         /**
          * Get Meta Description
          * 
+         * Priority List
+         * 
          * 1. Excerpt
          * 2. Content
          * 3. Site Description
@@ -111,32 +113,8 @@ function ntt_kid_open_graph() {
         } else {
             $meta_description = '';
         }
-
-        /*
-        // Get Open Graph Image
-        if ( has_post_thumbnail( $post->ID ) ) {
-            $image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
-            $image_src = $image_src[0];
-        } else {
-            
-            if ( $content = $post->post_content) {
-                $dom = new DOMDocument;
-                libxml_use_internal_errors( true );
-                $dom->loadHTML( $content );
-                libxml_clear_errors();
-                $images = $dom->getElementsByTagName( 'img' );
-                $image = $images->item(0);
-
-                if ( $image ) {
-                    $image_src = $image->getAttribute( 'src' );
-                }
-            }
-        }
-        */
-        
-        
     
-    // For Plural Entries
+    // Plural
     } else {
         $og = array(
             'title' => get_bloginfo( 'name' ),

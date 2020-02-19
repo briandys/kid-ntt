@@ -23,6 +23,7 @@ $r_functions = array(
     'custom-fields',
     'entry-css',
     'html-css',
+    'open-graph',
     'shortcodes',
     'snaps',
 );

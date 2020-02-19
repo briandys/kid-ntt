@@ -18,13 +18,14 @@ add_filter( 'ntt_html_css_filter', 'ntt_kid_custom_field_html_css' );
 
 /**
  * Entry Subname Custom Field
- * Key: ntt_cf_entry_subname
+ * Adds a sub-title under Entry Name
+ * Key: ntt_entry_subname
  * 
  * Adds Entry Subname
  */
-function ntt_kid_custom_field_entry_subname() {
+function ntt_kid_wp_cf_entry_subname() {
     
-    $entry_subname_post_meta = get_post_meta( get_the_ID(), 'ntt_cf_entry_subname', true );
+    $entry_subname_post_meta = get_post_meta( get_the_ID(), 'ntt_entry_subname', true );
 
     if ( $entry_subname_post_meta !== '' ) {
         $entry_subname_mu = '<div class="ntt--entry-subname ntt--obj" data-name="Entry Subname">';
@@ -36,7 +37,7 @@ function ntt_kid_custom_field_entry_subname() {
 
     echo $entry_subname_mu;
 }
-add_action( 'ntt_after_entry_name_wp_hook', 'ntt_kid_custom_field_entry_subname', 0 );
+add_action( 'ntt_after_entry_name_wp_hook', 'ntt_kid_wp_cf_entry_subname', 0 );
 
 /**
  * Entry Feature Return True

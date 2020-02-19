@@ -46,3 +46,17 @@
         opacity: 1;
     }
 }
+
+section {
+    @include transition;
+    transition-delay: .2s;
+    transition-duration: 1s;
+}
+
+section.ntt--not-intersected {
+    opacity: 0;
+}
+
+section.ntt--intersected {
+    opacity: 1;
+}
