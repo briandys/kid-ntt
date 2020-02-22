@@ -68,3 +68,111 @@
     @include y-padding(1rem);
     @include y-margin();
 }
+
+//--------------------------------------------------------------
+// Comment Form
+//--------------------------------------------------------------
+
+.ntt--comment-form {
+
+    .ntt--form-field {
+        position: relative;
+
+        label {
+            position: absolute;
+            margin-left: calc(1.25rem + 1px);
+            margin-top: calc(1.75rem + 1px);
+            @include transition;
+
+            @at-root .js.ntt--dom---unloaded & {
+                visibility: hidden;
+            }
+            
+            @at-root .js.ntt--dom---loaded & {
+                visibility: visible;
+            }
+
+            .ntt--txt {
+                padding: 0;
+                
+                > * {
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        &:focus-within,
+        &.ntt--form-field---populated--js {
+
+            label {
+                margin-top: 1rem;
+                font-size: $text---sm;
+                color: $mid-color;
+            }
+        }
+
+        .text-input {
+            min-height: 4rem;
+            padding-top: 2rem;
+            text-overflow: ellipsis;
+
+            &::placeholder {
+                color: transparent;
+            }
+        }
+    }
+
+    .ntt--required-txt {
+        display: none;
+    }
+
+    .ntt--optional-txt {
+        padding: .25rem .5rem;
+        font-size: $text---xs;
+        color: $mid-color;
+        text-transform: uppercase;
+        background-color: $on-surface-color---alpha-lo;
+        border-radius: $corner-radius---sm;
+    }
+
+    // If user is logged in
+    .ntt--user---admin & {
+        position: relative;
+
+        .form-submit {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+
+            input[type="submit"] {
+                margin: 0;
+            }
+        }
+
+        textarea {
+            padding-right: 7.5rem;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Content Module - Author Avatar
+//--------------------------------------------------------------
+
+.ntt--cm-author-avatar {
+ 
+    .ntt--img {
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Navigation
+//--------------------------------------------------------------
+
+.ntt--entry-nav-name {
+    font-size: $text---xl;
+}

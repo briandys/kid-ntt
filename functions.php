@@ -47,6 +47,10 @@ add_filter( 'ntt_entity_maker_tag_theme_url_filter', function() {
     return $GLOBALS['ntt_child_theme_url'];
 } );
 
+add_filter( 'ntt_entry_nav_name_filter', function() {
+    return __( 'Can\'t Get Enough?', 'ntt' );
+} );
+
 function ntt_entry_header_content() {
 
     ntt_entry_categories();

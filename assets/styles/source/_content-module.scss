@@ -2,22 +2,21 @@
 // Content Module
 //--------------------------------------------------------------
 
-.cm-author-avatar {
+.ntt--cm-author-avatar {
     
     a {
         display: inline-block;
     }
  
-    .img {
+    .ntt--img {
         display: block;
-        margin: .5rem;
         width: 3rem;
         height: 3rem;
-        background-color: $faint-color--lo;
+        background-color: $on-surface-color---alpha-lo;
     }
 }
 
-.cm-author-name {
+.ntt--cm-author-name {
 
     a {
         display: inline-block;

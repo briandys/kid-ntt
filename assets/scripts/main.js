@@ -54,6 +54,28 @@
 
 ( function() {
 
+    /**
+     * element.closest Polyfill for IE9+
+     * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+     */
+
+    if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.msMatchesSelector || 
+                                    Element.prototype.webkitMatchesSelector;
+    }
+      
+    if (!Element.prototype.closest) {
+        Element.prototype.closest = function(s) {
+            var el = this;
+              
+            do {
+                if (el.matches(s)) return el;
+                el = el.parentElement || el.parentNode;
+            } while (el !== null && el.nodeType === 1);
+            return null;
+        };
+    }
+
     const html = document.documentElement;
 
     /**
@@ -323,4 +345,73 @@
             }
         });
     }
+
+    /**
+     * Assign Population Status of Input Elements
+     */
+
+    ( function() {
+
+        let inputs = document.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
+        let input = null;
+        let formField = '.ntt--form-field';
+
+        for ( var i = 0, len = inputs.length; i < len; i++ ) {
+            input = inputs[i];
+
+            if ( ! input.value ) {
+                input.closest( formField ).classList.add('ntt--form-field---empty--js');
+            } else {
+                input.closest( formField ).classList.add('ntt--form-field---populated--js');
+            }
+        }
+    } ) ();
+
+    /**
+     * Assign Listeners to Input Elements
+     * https://stackoverflow.com/a/47944959
+     */
+
+    ( function() {
+
+        if ( hasClass(html, 'ntt--comment-creation---1--view') ) {
+            
+            const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
+            const inputDelegate = delegate('.text-input');
+            const commentForm = document.getElementById('commentform');
+            let formField = '.ntt--form-field';
+            let focusInTxt = 'ntt--form-field---focusin--js';
+            let focusOutTxt = 'ntt--form-field---focusout--js';
+            let emptyTxt = 'ntt--form-field---empty--js';
+            let populatedTxt = 'ntt--form-field---populated--js';
+
+            // Focus In
+            commentForm.addEventListener('focusin', inputDelegate((el) => {
+                el.target.closest( formField ).classList.add(focusInTxt);
+                el.target.closest( formField ).classList.remove(focusOutTxt);
+
+                if ( ! el.target.value ) {
+                    el.target.closest( formField ).classList.add(emptyTxt);
+                    el.target.closest( formField ).classList.remove(populatedTxt);
+                } else {
+                    el.target.closest( formField ).classList.add(populatedTxt);
+                    el.target.closest( formField ).classList.remove(emptyTxt);
+                }
+            }));
+
+            // Focus Out
+            commentForm.addEventListener('focusout', inputDelegate((el) => {
+                el.target.closest( formField ).classList.add(focusOutTxt);
+                el.target.closest( formField ).classList.remove(focusInTxt);
+
+                if ( ! el.target.value ) {
+                    el.target.closest( formField ).classList.add(emptyTxt);
+                    el.target.closest( formField ).classList.remove(populatedTxt);
+                } else {
+                    el.target.closest( formField ).classList.add(populatedTxt);
+                    el.target.closest( formField ).classList.remove(emptyTxt);
+                }
+            }));
+        }
+    } ) ();
 } )();

@@ -44,13 +44,6 @@
     }
 }
 
-.ntt--comment-author-avatar {
-
-    .ntt--img {
-        display: block;
-    }
-}
-
 .ntt--comment-author-name {
 
     .ntt--txt {
@@ -233,7 +226,7 @@
 }
 
 //--------------------------------------------------------------
-// Comments Form
+// Comment Form
 //--------------------------------------------------------------
 
 .ntt--comment-form {
@@ -275,6 +268,20 @@
 
 .ntt--submit-comment-axn {
     margin: 1rem;
+}
+
+.comment-form-cookies-consent {
+    display: inline-flex;
+    align-items: baseline;
+    margin: 1rem 0;
+
+    input {
+        margin-left: 1rem;
+    }
+
+    label {
+        padding: 1rem;
+    }
 }
 
 //--------------------------------------------------------------

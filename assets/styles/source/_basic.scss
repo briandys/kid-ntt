@@ -19,15 +19,8 @@
     }
 }
 
-body {
-    min-height: 100vh;
-    overflow-anchor: auto;
-    scroll-behavior: smooth;
-    font-family: sans-serif;
-    text-rendering: optimizeSpeed;
-}
-
 html {
+    scroll-behavior: smooth;
 
     &.js:not(.ntt--nav-mode---tab--js) {
         
@@ -38,6 +31,13 @@ html {
             outline: none;
         }
     }
+}
+
+body {
+    min-height: 100vh;
+    overflow-anchor: auto;
+    font-family: sans-serif;
+    text-rendering: optimizeSpeed;
 }
 
 a {
@@ -79,6 +79,7 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
+    width: auto;
     min-height: auto;
 }
 
@@ -109,6 +110,7 @@ input[type="submit"] {
     display: inline-block;
     padding: .75rem 1.25rem;
     width: auto;
+    min-height: 2.75rem;
     color: white;
     border: 0;
 
