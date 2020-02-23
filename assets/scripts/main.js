@@ -134,6 +134,20 @@
     } );
 
     /**
+     * Get Element Height Including Margin
+     * 
+     * http://youmightnotneedjquery.com/#outer_height
+     */
+
+    function outerHeight(el) {
+        var height = el.offsetHeight;
+        var style = getComputedStyle(el);
+
+        height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+        return height;
+    }
+
+    /**
      * Entries Navigation
      */
 
@@ -271,80 +285,85 @@
      * https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
      */
     
-    function handleFirstTab( e ) {
-        
-        if ( e.keyCode === 9 ) {
-            html.classList.add('ntt--nav-mode---tab--js');
-            window.removeEventListener('keydown', handleFirstTab);
-            window.addEventListener('mousedown', handleMouseDownOnce);
+    ( function() {
+
+        function handleFirstTab( e ) {
+            
+            if ( e.keyCode === 9 ) {
+                html.classList.add('ntt--nav-mode---tab--js');
+                window.removeEventListener('keydown', handleFirstTab);
+                window.addEventListener('mousedown', handleMouseDownOnce);
+            }
         }
-    }
-      
-    function handleMouseDownOnce() {
-        html.classList.remove('ntt--nav-mode---tab--js');
-        window.removeEventListener('mousedown', handleMouseDownOnce);
+        
+        function handleMouseDownOnce() {
+            html.classList.remove('ntt--nav-mode---tab--js');
+            window.removeEventListener('mousedown', handleMouseDownOnce);
+            window.addEventListener('keydown', handleFirstTab);
+        }
+        
         window.addEventListener('keydown', handleFirstTab);
-    }
-    
-    window.addEventListener('keydown', handleFirstTab);
+    })();
 
     /**
      * Intersection Observer Targeting IDs
      * https://codepen.io/bramus/pen/ExaEqMJ
      */
-    
-    window.addEventListener('DOMContentLoaded', () => {
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                const id = entry.target.getAttribute('id');
-                if (entry.intersectionRatio > 0) {
-                    document.querySelector(`a[href="#${id}"]`).classList.add('ntt--intersected');
-                    entry.target.classList.remove('ntt--not-intersected');
-                    entry.target.classList.add('ntt--intersected');
-                } else {
-                    document.querySelector(`a[href="#${id}"]`).classList.remove('ntt--intersected');
-                    entry.target.classList.remove('ntt--intersected');
-                }
+    ( function() {
+        window.addEventListener('DOMContentLoaded', () => {
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    if (entry.intersectionRatio > 0) {
+                        document.querySelector(`a[href="#${id}"]`).classList.add('ntt--intersected--js');
+                        entry.target.classList.remove('ntt--not-intersected--js');
+                        entry.target.classList.add('ntt--intersected--js');
+                    } else {
+                        document.querySelector(`a[href="#${id}"]`).classList.remove('ntt--intersected--js');
+                        entry.target.classList.remove('ntt--intersected--js');
+                    }
+                });
+            });
+        
+            // Track all sections that have an 'id' applied
+            document.querySelectorAll('section[id]').forEach((section) => {
+                observer.observe(section);
+                section.classList.add('ntt--not-intersected--js');
             });
         });
-    
-        // Track all sections that have an 'id' applied
-        document.querySelectorAll('section[id]').forEach((section) => {
-            observer.observe(section);
-            section.classList.add('ntt--not-intersected');
-        });
-    });
+    })();
 
     /**
-     * Intersection Observer
+     * Intersection Observer for Entity Footer
      * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
      */
 
-    let entityFooter;
+    ( function() {
+        let entityFooter;
 
-    window.addEventListener('load', (event) => {
-        entityFooter = document.querySelector('.ntt--entity-footer');
-    
-        createObserver();
-    }, false);
+        window.addEventListener('load', (event) => {
+            entityFooter = document.querySelector('.ntt--entity-footer');
+            createObserver();
+        }, false);
 
-    function createObserver() {
-        let observer;
-      
-        observer = new IntersectionObserver(handleIntersect);
-        observer.observe(entityFooter);
-    }
+        function createObserver() {
+            let observer;
+            observer = new IntersectionObserver(handleIntersect);
+            observer.observe(entityFooter);
+        }
 
-    function handleIntersect(entries, observer) {
-        entries.forEach((entry) => {
-            if (entry.intersectionRatio > 0) {
-                entry.target.classList.add('ntt--intersected');
-            } else {
-                entry.target.classList.remove('ntt--intersected');
-            }
-        });
-    }
+        function handleIntersect(entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.intersectionRatio > 0) {
+                    entry.target.classList.add('ntt--intersected--js');
+                } else {
+                    entry.target.classList.remove('ntt--intersected--js');
+                }
+            });
+        }
+    })();
 
     /**
      * Assign Population Status of Input Elements
@@ -365,16 +384,16 @@
                 input.closest( formField ).classList.add('ntt--form-field---populated--js');
             }
         }
-    } ) ();
+    })();
 
     /**
-     * Assign Listeners to Input Elements
+     * Assign Listeners to Comment Input Elements
      * https://stackoverflow.com/a/47944959
      */
 
     ( function() {
 
-        if ( hasClass(html, 'ntt--comment-creation---1--view') ) {
+        if ( html.classList.contains('ntt--comment-creation---1--view') ) {
             
             const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
             const inputDelegate = delegate('.text-input');
@@ -412,6 +431,130 @@
                     el.target.closest( formField ).classList.remove(emptyTxt);
                 }
             }));
+        }
+    })();
+
+    /**
+     * Display a Random Image from a Set
+     * .ntt--js--random-image
+     * https://stackoverflow.com/a/19693578
+     */
+    
+    ( function() {
+        
+        if ( html.classList.contains('ntt--js--random-image') ) {
+            window.addEventListener('DOMContentLoaded', function() {
+                
+                var imagesArray = [
+                    '<a href="https://www.flickr.com/photos/briansahagun/3386389393" title="Nobody"><img src="https://live.staticflickr.com/3555/3386389393_084c05a47d_z.jpg" width="640" height="480" alt="Nobody"></a>',
+                    '<a href="https://www.flickr.com/photos/briansahagun/3380918261" title="Fishbowl"><img src="https://live.staticflickr.com/3449/3380918261_752d542889_z.jpg" width="640" height="480" alt="Fishbowl"></a>',
+                    '<a href="https://www.flickr.com/photos/briansahagun/3377609579" title="Tie the Knot"><img src="https://live.staticflickr.com/3417/3377609579_505cddb043_z.jpg" width="640" height="427" alt="Tie the Knot"></a>'
+                ];
+                
+                var num = Math.floor(Math.random() * (imagesArray.length));
+                document.getElementById('canvas').innerHTML = imagesArray[num];
+            });
+        }
+    })();
+
+    /**
+     * Data Scroll Y
+     * .ntt--js--data-scroll-y
+     * 
+     * Sticky Header
+     * .ntt--js--sticky-header
+     * https://pqina.nl/blog/using-smart-css-to-time-your-wonderful-newsletter-popup/
+     */
+
+    ( function() {
+
+        if ( html.classList.contains('ntt--js--data-scroll-y') || html.classList.contains('ntt--js--sticky-header') ) {
+
+            // The debounce function receives our function as a parameter
+            const debounce = (fn) => {
+
+                // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+                let frame;
+
+                // The debounce function returns a new function that can receive a variable number of arguments
+                return (...params) => {
+                    
+                    // If the frame variable has been defined, clear it now, and queue for next frame
+                    if (frame) { 
+                    cancelAnimationFrame(frame);
+                    }
+
+                    // Queue our function call for the next frame
+                    frame = requestAnimationFrame(() => {
+                    
+                    // Call our function and pass any params we received
+                    fn(...params);
+                    });
+                } 
+            };
+
+            // Returns an array of steps from value to 0
+            const stack = (value, step) => {
+                value = Math.floor(value / step) * step;
+                const parts = [value];
+                while (value > 0) {
+                    value -= step;
+                    parts.push(value);
+                }
+                return parts.reverse();
+            }
+
+            // Creates an environment store at a certain element
+            const createEnvStore = (props, root = document.documentElement) => {
+                const data = root.dataset;
+                const sync = () => {
+                    Object.entries(props).forEach(([key, value]) => {
+                        data[key] = Array.isArray(value) ? value.join(' ') : value;
+                    })
+                }
+                sync();
+                return (key, value) => {
+                    props[key] = value;
+                    sync();
+                    console.log(data);
+                }
+            };
+
+            // Set default environment parameters
+            const updateEnv = createEnvStore({
+                'scrollY': window.scrollY,
+                'scrollYPercentage': 0
+            });
+
+            // Listen for new scroll events, here we debounce our scroll handler function for performance reasons
+            document.addEventListener('scroll', debounce(() => {
+
+                let entityHeaderHeight = outerHeight(document.querySelector('.ntt--entity-header'));
+
+                console.log(entityHeaderHeight);
+                
+                const scrollOffset = window.scrollY;
+                const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollProgress = Math.min(1, scrollOffset / pageHeight);
+                const scrollSteps = 1;
+                
+                // Set current scroll offset (we use this to make the floating header)
+                updateEnv('scrollY', scrollOffset);
+                
+                // Calculate current progress in percentages
+                updateEnv('scrollYPercentage', stack(Math.round(scrollProgress * 100), scrollSteps));
+
+                if ( html.classList.contains('ntt--js--sticky-header') ) {
+                    
+                    if ( scrollOffset > entityHeaderHeight ) {
+                        html.classList.add( 'ntt--sticky-header---active--js' );
+                        html.style.marginTop = entityHeaderHeight + 'px';
+                    } else {
+                        html.classList.remove( 'ntt--sticky-header---active--js' );
+                        html.style.marginTop = '0';
+                    }
+                }
+            }), { passive: true });
         }
     } ) ();
 } )();

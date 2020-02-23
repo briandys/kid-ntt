@@ -195,3 +195,18 @@
 .ntt--entity-footer {
     background-color: $on-surface-color---alpha-lo;
 }
+
+//--------------------------------------------------------------
+// Entity Header Aside
+//--------------------------------------------------------------
+
+.ntt--entity-header-aside {
+
+    .ntt--widget:only-of-type {
+        padding-bottom: 0;
+
+        > * {
+            margin-bottom: 0;
+        }
+    }
+}

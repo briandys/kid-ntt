@@ -176,3 +176,208 @@
 .ntt--entry-nav-name {
     font-size: $text---xl;
 }
+
+.ntt--entity-header {
+    @include transition;
+}
+
+//--------------------------------------------------------------
+// Sticky Header - JS
+// Data Scroll Y - JS
+//--------------------------------------------------------------
+
+.ntt--js--sticky-header {
+
+    &.ntt--sticky-header---active--js {
+
+        &[data-scroll-y-percentage] {
+
+            .ntt--entity-header {
+
+                // Page Length Progress Bar
+                &::after {
+                    content: '';
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    height: .125rem;
+                    width: 0%;
+                    background-color: transparent;
+                    @include transition;
+                    opacity: .5;
+                    transform: translate3d(0px, 0px, 0px);
+                }
+            }
+        }
+
+        @for $i from 5 through 100 {
+
+            @if $i % 1 == 0 {
+                $width: percentage($i / 100);
+                $hue: $i * 3.6;
+            
+                &[data-scroll-y-percentage~="#{$i}"] {
+
+                    .ntt--entity-header {
+
+                        &::after {
+                            width: $width;
+                            background-color: hsla($hue, 100%, 50%, .5);
+                        }
+                    }
+                }
+            }
+        }
+
+        .ntt--entity-heading {
+            @include y-padding();
+        }
+
+        .ntt--entity-header {
+            display: flex;
+            align-items: center;
+            grid-template:
+                'entity-heading entity-primary-nav';
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            background-color: white;
+            animation-name: fade-in;
+            animation-duration: .2s;
+
+            // Shadow
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 100%;
+                width: 100%;
+                height: .5rem;
+                // https://www.colorzilla.com/gradient-editor/#000000+0,ffffff+100&1+0,0+100
+                background: -moz-linear-gradient(top,  hsla(0,0%,0%,1) 0%, hsla(0,0%,100%,0) 100%);
+                background: -webkit-linear-gradient(top,  hsla(0,0%,0%,1) 0%,hsla(0,0%,100%,0) 100%);
+                background: linear-gradient(to bottom,  hsla(0,0%,0%,1) 0%,hsla(0,0%,100%,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00ffffff',GradientType=0 );
+                opacity: .125;
+            }
+        }
+
+        .ntt--entity-description {
+            display: none;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+        
+            to {
+                opacity: 1;
+            }
+        }
+
+        .ntt--nav---sub-menu--js {
+
+            > div > ul > li > .ntt--sub-menu--js {
+                margin-top: -.25rem;
+            }
+        }
+    }
+}
+
+.ntt--js--data-scroll-y {
+    
+    &[data-scroll-y-percentage]:before {
+        content: '';
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: .125rem;
+        width: 0%;
+        background-color: transparent;
+        @include transition;
+        opacity: .5;
+        transform: translate3d(0px, 0px, 0px);
+    }
+
+    @for $i from 5 through 100 {
+
+        @if $i % 1 == 0 {
+            $width: percentage($i / 100);
+            $hue: $i * 3.6;
+        
+            &[data-scroll-y-percentage~="#{$i}"]:before {
+                width: $width;
+                background-color: hsla($hue, 100%, 50%, .5);
+            }
+        }
+    }
+}
+
+
+
+.ntt--post--table-of-contents--view {
+
+    .ntt--entry-full-content {
+
+        nav {
+            position: fixed;
+            right: 0;
+            top: 0;
+            background-color: aliceblue;
+
+            a {
+                @include transition;
+                transition-duration: 2s;
+            }
+
+            .ntt--intersected--js {
+                background-color: red;
+            }
+        }
+    }
+}
+
+.ntt--entity-footer {
+    opacity: 0;
+    @include transition;
+    transition-duration: 2s;
+
+    &.ntt--intersected--js {
+        opacity: 1;
+    }
+}
+
+section {
+    @include transition;
+    transition-delay: .2s;
+    transition-duration: 1s;
+}
+
+section.ntt--not-intersected--js {
+    opacity: 0;
+}
+
+section.ntt--intersected--js {
+    opacity: 1;
+}
+
+section:target {
+    animation-name: target-fade;
+    animation-duration: 2s;
+
+    @keyframes target-fade {
+        from {
+            background-color: transparent;
+        }
+
+        50% {
+            background-color: $accent-color---alpha-lo;
+        }
+
+        to {
+            background-color: transparent;
+        }
+    }
+}
