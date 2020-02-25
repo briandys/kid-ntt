@@ -7,14 +7,13 @@
 ( function() {
 
     const html = document.documentElement;
-    const body = document.body;
 
     if ( html.classList.contains('ntt--f5e--html-to-canvas') ) {
         
         const wildCard = document.getElementById('ntt--wild-card');
         const capture = document.getElementById('content');
         
-        if (! body.contains(document.getElementById('ntt--wild-card-toolbar---js')) ) {
+        if (! html.contains(document.getElementById('ntt--wild-card-toolbar---js')) ) {
             let toolbar = document.createElement('div');
             toolbar.id = 'ntt--wild-card-toolbar---js';
             toolbar.className = 'ntt--wild-card-toolbar---js';

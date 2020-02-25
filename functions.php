@@ -13,6 +13,7 @@ $GLOBALS['ntt_child_theme_url'] = '//briandys.com/ntt/';
  * Features Slug
  */
 $GLOBALS['ntt_kid_f5e_html_to_canvas_slug'] = 'html-to-canvas';
+$GLOBALS['ntt_kid_f5e_instafeed_slug'] = 'instafeed';
 $GLOBALS['ntt_kid_f5e_prezo_mode_slug'] = 'prezo-mode';
 $GLOBALS['ntt_kid_f5e_scroll_y_slug'] = 'scroll-y';
 
@@ -27,6 +28,7 @@ $r_functions = array(
     'customizer',
     'custom-fields',
     'entry-css',
+    //'fonts',
     'html-css',
     'open-graph',
     'shortcodes',
@@ -42,6 +44,7 @@ foreach ( $r_functions as $function ) {
  */
 $r_features = array(
     $GLOBALS['ntt_kid_f5e_html_to_canvas_slug'],
+    $GLOBALS['ntt_kid_f5e_instafeed_slug'],
     $GLOBALS['ntt_kid_f5e_prezo_mode_slug'],
     $GLOBALS['ntt_kid_f5e_scroll_y_slug'],
 );
@@ -49,6 +52,16 @@ $r_features = array(
 foreach ( $r_features as $feature ) {
     require( get_stylesheet_directory(). '/includes/features/'. $feature. '/functions.php' );
 }
+
+/**
+ * Font Families
+ */
+/*
+add_filter( 'kid_ntt_custom_fonts_filter', function( $font_families ) {
+    $font_families[] = 'Hind|Open+Sans+Condensed:700';
+    return $font_families;
+} );
+*/
 
 /**
  * String Position with Needles in Array
@@ -138,3 +151,45 @@ function ntt_kid_responsive_flickr( $content ) {
     return $content;
 }
 add_filter( 'the_content', 'ntt_kid_responsive_flickr' );
+
+/**
+ * DateTime - Month Format
+ */
+add_filter( 'ntt_cm_datetime_month_filter', function() {
+    return 'M';
+} );
+
+/**
+ * Complimentary Close
+ */
+/*
+function eel_ntt_complimentary_close() {
+
+    if ( is_single() ) {
+        ?>
+        <div class="complimentary-close obj">
+            <span class="compliment---txt"><?php echo apply_filters( 'eel_ntt_complimentary_close_compliment_filter', 'To your success,' ); ?></span>
+            <span class="author-name---txt"><?php echo apply_filters( 'eel_ntt_complimentary_close_author_name_filter', get_the_author_meta( 'nickname' ) ); ?></span>
+        </div>
+        <?php
+    }
+}
+add_action( 'ntt_after_the_content_wp_hook', 'eel_ntt_complimentary_close');
+*/
+
+/**
+ * Entry Banner Visuals Featured Image Size
+ */
+/*
+function eel_ntt_entry_banner_visuals_featured_image_size() {
+
+    if ( is_singular() ) {
+        $featured_image_size = 'ntt-large';
+    } else {
+        $featured_image_size = 'ntt-large';
+    }
+
+    return $featured_image_size;
+}
+add_filter( 'ntt_entry_banner_visuals_featured_image_size_filter', 'eel_ntt_entry_banner_visuals_featured_image_size' );
+*/
