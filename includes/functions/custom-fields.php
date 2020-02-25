@@ -2,8 +2,7 @@
 /**
  * HTML CSS Custom Field
  * Key: ntt_html_css
- * 
- * Adds CSS in HTML Tag
+ * Adds CSS in HTML Tag.
  */
 function ntt_kid_custom_field_html_css( $classes ) {
     
@@ -15,6 +14,22 @@ function ntt_kid_custom_field_html_css( $classes ) {
     return $classes;
 }
 add_filter( 'ntt_html_css_filter', 'ntt_kid_custom_field_html_css' );
+
+/**
+ * Feature Custom Field
+ * Key: ntt_feature
+ * Any value found in custom field named, ntt_feature, will be added as CSS class names in HTML element.
+ */
+function ntt_kid_html_css__feature( $classes ) {
+    
+    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
+
+    if ( $html_css_post_meta !== '' ) {
+        $classes[] = esc_attr( $html_css_post_meta );
+    }
+    return $classes;
+}
+add_filter( 'ntt_html_css_filter', 'ntt_kid_html_css__feature' );
 
 /**
  * Entry Subname Custom Field

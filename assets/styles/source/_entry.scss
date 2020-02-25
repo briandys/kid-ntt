@@ -459,8 +459,15 @@
 
 .ntt--entry-summary-content {
 
-    > * {
-        font-size: $text---xl;
+    > {
+        
+        * {
+            font-size: $text---xl;
+        }
+
+        .ntt--show-more-axn {
+            font-size: $text---md;
+        }
     }
 }
 
@@ -499,7 +506,7 @@
 }
 
 .ntt--show-more-axn {
-    @include x-padding(1rem);
+    @include x-padding(.5rem);
     margin-bottom: 0;
 
     a {

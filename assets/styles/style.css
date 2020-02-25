@@ -413,10 +413,6 @@ label[for]:hover {
   padding: .5rem;
 }
 
-.post-password-required .ntt--entry-header .ntt--comments-actions-snippet .ntt--comments-count {
-  padding: 1rem;
-}
-
 .ntt--comment-published-datetime {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -999,6 +995,10 @@ label[for]:hover {
   font-size: 1.5rem;
 }
 
+.ntt--entry-summary-content > .ntt--show-more-axn {
+  font-size: 1rem;
+}
+
 .entry-heading {
   -webkit-box-flex: 1;
       -ms-flex: 1 100%;
@@ -1040,8 +1040,8 @@ label[for]:hover {
 }
 
 .ntt--show-more-axn {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   margin-bottom: 0;
 }
 
@@ -1683,1059 +1683,6 @@ label[for]:hover {
   transition: all .2s;
 }
 
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage] .ntt--entity-header::after {
-  content: '';
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: .125rem;
-  width: 0%;
-  background-color: transparent;
-  -webkit-transition: all .2s;
-  transition: all .2s;
-  opacity: .5;
-  -webkit-transform: translate3d(0px, 0px, 0px);
-          transform: translate3d(0px, 0px, 0px);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="5"] .ntt--entity-header::after {
-  width: 5%;
-  background-color: rgba(255, 77, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="6"] .ntt--entity-header::after {
-  width: 6%;
-  background-color: rgba(255, 92, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="7"] .ntt--entity-header::after {
-  width: 7%;
-  background-color: rgba(255, 107, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="8"] .ntt--entity-header::after {
-  width: 8%;
-  background-color: rgba(255, 122, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="9"] .ntt--entity-header::after {
-  width: 9%;
-  background-color: rgba(255, 138, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="10"] .ntt--entity-header::after {
-  width: 10%;
-  background-color: rgba(255, 153, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="11"] .ntt--entity-header::after {
-  width: 11%;
-  background-color: rgba(255, 168, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="12"] .ntt--entity-header::after {
-  width: 12%;
-  background-color: rgba(255, 184, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="13"] .ntt--entity-header::after {
-  width: 13%;
-  background-color: rgba(255, 199, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="14"] .ntt--entity-header::after {
-  width: 14%;
-  background-color: rgba(255, 214, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="15"] .ntt--entity-header::after {
-  width: 15%;
-  background-color: rgba(255, 230, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="16"] .ntt--entity-header::after {
-  width: 16%;
-  background-color: rgba(255, 245, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="17"] .ntt--entity-header::after {
-  width: 17%;
-  background-color: rgba(250, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="18"] .ntt--entity-header::after {
-  width: 18%;
-  background-color: rgba(235, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="19"] .ntt--entity-header::after {
-  width: 19%;
-  background-color: rgba(219, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="20"] .ntt--entity-header::after {
-  width: 20%;
-  background-color: rgba(204, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="21"] .ntt--entity-header::after {
-  width: 21%;
-  background-color: rgba(189, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="22"] .ntt--entity-header::after {
-  width: 22%;
-  background-color: rgba(173, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="23"] .ntt--entity-header::after {
-  width: 23%;
-  background-color: rgba(158, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="24"] .ntt--entity-header::after {
-  width: 24%;
-  background-color: rgba(143, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="25"] .ntt--entity-header::after {
-  width: 25%;
-  background-color: rgba(128, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="26"] .ntt--entity-header::after {
-  width: 26%;
-  background-color: rgba(112, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="27"] .ntt--entity-header::after {
-  width: 27%;
-  background-color: rgba(97, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="28"] .ntt--entity-header::after {
-  width: 28%;
-  background-color: rgba(82, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="29"] .ntt--entity-header::after {
-  width: 29%;
-  background-color: rgba(66, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="30"] .ntt--entity-header::after {
-  width: 30%;
-  background-color: rgba(51, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="31"] .ntt--entity-header::after {
-  width: 31%;
-  background-color: rgba(36, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="32"] .ntt--entity-header::after {
-  width: 32%;
-  background-color: rgba(20, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="33"] .ntt--entity-header::after {
-  width: 33%;
-  background-color: rgba(5, 255, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="34"] .ntt--entity-header::after {
-  width: 34%;
-  background-color: rgba(0, 255, 10, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="35"] .ntt--entity-header::after {
-  width: 35%;
-  background-color: rgba(0, 255, 26, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="36"] .ntt--entity-header::after {
-  width: 36%;
-  background-color: rgba(0, 255, 41, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="37"] .ntt--entity-header::after {
-  width: 37%;
-  background-color: rgba(0, 255, 56, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="38"] .ntt--entity-header::after {
-  width: 38%;
-  background-color: rgba(0, 255, 71, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="39"] .ntt--entity-header::after {
-  width: 39%;
-  background-color: rgba(0, 255, 87, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="40"] .ntt--entity-header::after {
-  width: 40%;
-  background-color: rgba(0, 255, 102, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="41"] .ntt--entity-header::after {
-  width: 41%;
-  background-color: rgba(0, 255, 117, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="42"] .ntt--entity-header::after {
-  width: 42%;
-  background-color: rgba(0, 255, 133, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="43"] .ntt--entity-header::after {
-  width: 43%;
-  background-color: rgba(0, 255, 148, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="44"] .ntt--entity-header::after {
-  width: 44%;
-  background-color: rgba(0, 255, 163, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="45"] .ntt--entity-header::after {
-  width: 45%;
-  background-color: rgba(0, 255, 179, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="46"] .ntt--entity-header::after {
-  width: 46%;
-  background-color: rgba(0, 255, 194, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="47"] .ntt--entity-header::after {
-  width: 47%;
-  background-color: rgba(0, 255, 209, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="48"] .ntt--entity-header::after {
-  width: 48%;
-  background-color: rgba(0, 255, 224, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="49"] .ntt--entity-header::after {
-  width: 49%;
-  background-color: rgba(0, 255, 240, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="50"] .ntt--entity-header::after {
-  width: 50%;
-  background-color: rgba(0, 255, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="51"] .ntt--entity-header::after {
-  width: 51%;
-  background-color: rgba(0, 240, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="52"] .ntt--entity-header::after {
-  width: 52%;
-  background-color: rgba(0, 224, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="53"] .ntt--entity-header::after {
-  width: 53%;
-  background-color: rgba(0, 209, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="54"] .ntt--entity-header::after {
-  width: 54%;
-  background-color: rgba(0, 194, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="55"] .ntt--entity-header::after {
-  width: 55%;
-  background-color: rgba(0, 179, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="56"] .ntt--entity-header::after {
-  width: 56%;
-  background-color: rgba(0, 163, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="57"] .ntt--entity-header::after {
-  width: 57%;
-  background-color: rgba(0, 148, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="58"] .ntt--entity-header::after {
-  width: 58%;
-  background-color: rgba(0, 133, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="59"] .ntt--entity-header::after {
-  width: 59%;
-  background-color: rgba(0, 117, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="60"] .ntt--entity-header::after {
-  width: 60%;
-  background-color: rgba(0, 102, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="61"] .ntt--entity-header::after {
-  width: 61%;
-  background-color: rgba(0, 87, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="62"] .ntt--entity-header::after {
-  width: 62%;
-  background-color: rgba(0, 71, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="63"] .ntt--entity-header::after {
-  width: 63%;
-  background-color: rgba(0, 56, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="64"] .ntt--entity-header::after {
-  width: 64%;
-  background-color: rgba(0, 41, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="65"] .ntt--entity-header::after {
-  width: 65%;
-  background-color: rgba(0, 26, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="66"] .ntt--entity-header::after {
-  width: 66%;
-  background-color: rgba(0, 10, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="67"] .ntt--entity-header::after {
-  width: 67%;
-  background-color: rgba(5, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="68"] .ntt--entity-header::after {
-  width: 68%;
-  background-color: rgba(20, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="69"] .ntt--entity-header::after {
-  width: 69%;
-  background-color: rgba(36, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="70"] .ntt--entity-header::after {
-  width: 70%;
-  background-color: rgba(51, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="71"] .ntt--entity-header::after {
-  width: 71%;
-  background-color: rgba(66, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="72"] .ntt--entity-header::after {
-  width: 72%;
-  background-color: rgba(82, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="73"] .ntt--entity-header::after {
-  width: 73%;
-  background-color: rgba(97, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="74"] .ntt--entity-header::after {
-  width: 74%;
-  background-color: rgba(112, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="75"] .ntt--entity-header::after {
-  width: 75%;
-  background-color: rgba(128, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="76"] .ntt--entity-header::after {
-  width: 76%;
-  background-color: rgba(143, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="77"] .ntt--entity-header::after {
-  width: 77%;
-  background-color: rgba(158, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="78"] .ntt--entity-header::after {
-  width: 78%;
-  background-color: rgba(173, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="79"] .ntt--entity-header::after {
-  width: 79%;
-  background-color: rgba(189, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="80"] .ntt--entity-header::after {
-  width: 80%;
-  background-color: rgba(204, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="81"] .ntt--entity-header::after {
-  width: 81%;
-  background-color: rgba(219, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="82"] .ntt--entity-header::after {
-  width: 82%;
-  background-color: rgba(235, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="83"] .ntt--entity-header::after {
-  width: 83%;
-  background-color: rgba(250, 0, 255, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="84"] .ntt--entity-header::after {
-  width: 84%;
-  background-color: rgba(255, 0, 245, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="85"] .ntt--entity-header::after {
-  width: 85%;
-  background-color: rgba(255, 0, 230, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="86"] .ntt--entity-header::after {
-  width: 86%;
-  background-color: rgba(255, 0, 214, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="87"] .ntt--entity-header::after {
-  width: 87%;
-  background-color: rgba(255, 0, 199, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="88"] .ntt--entity-header::after {
-  width: 88%;
-  background-color: rgba(255, 0, 184, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="89"] .ntt--entity-header::after {
-  width: 89%;
-  background-color: rgba(255, 0, 168, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="90"] .ntt--entity-header::after {
-  width: 90%;
-  background-color: rgba(255, 0, 153, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="91"] .ntt--entity-header::after {
-  width: 91%;
-  background-color: rgba(255, 0, 138, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="92"] .ntt--entity-header::after {
-  width: 92%;
-  background-color: rgba(255, 0, 122, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="93"] .ntt--entity-header::after {
-  width: 93%;
-  background-color: rgba(255, 0, 107, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="94"] .ntt--entity-header::after {
-  width: 94%;
-  background-color: rgba(255, 0, 92, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="95"] .ntt--entity-header::after {
-  width: 95%;
-  background-color: rgba(255, 0, 77, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="96"] .ntt--entity-header::after {
-  width: 96%;
-  background-color: rgba(255, 0, 61, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="97"] .ntt--entity-header::after {
-  width: 97%;
-  background-color: rgba(255, 0, 46, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="98"] .ntt--entity-header::after {
-  width: 98%;
-  background-color: rgba(255, 0, 31, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="99"] .ntt--entity-header::after {
-  width: 99%;
-  background-color: rgba(255, 0, 15, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js[data-scroll-y-percentage~="100"] .ntt--entity-header::after {
-  width: 100%;
-  background-color: rgba(255, 0, 0, 0.5);
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js .ntt--entity-heading {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js .ntt--entity-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  grid-template: 'entity-heading entity-primary-nav';
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  background-color: white;
-  -webkit-animation-name: fade-in;
-          animation-name: fade-in;
-  -webkit-animation-duration: .2s;
-          animation-duration: .2s;
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js .ntt--entity-header::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 100%;
-  width: 100%;
-  height: .5rem;
-  background: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(255, 255, 255, 0)));
-  background: linear-gradient(to bottom, black 0%, rgba(255, 255, 255, 0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00ffffff',GradientType=0 );
-  opacity: .125;
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js .ntt--entity-description {
-  display: none;
-}
-
-@-webkit-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.ntt--js--sticky-header.ntt--sticky-header---active--js .ntt--nav---sub-menu--js > div > ul > li > .ntt--sub-menu--js {
-  margin-top: -.25rem;
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage]:before {
-  content: '';
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: .125rem;
-  width: 0%;
-  background-color: transparent;
-  -webkit-transition: all .2s;
-  transition: all .2s;
-  opacity: .5;
-  -webkit-transform: translate3d(0px, 0px, 0px);
-          transform: translate3d(0px, 0px, 0px);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="5"]:before {
-  width: 5%;
-  background-color: rgba(255, 77, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="6"]:before {
-  width: 6%;
-  background-color: rgba(255, 92, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="7"]:before {
-  width: 7%;
-  background-color: rgba(255, 107, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="8"]:before {
-  width: 8%;
-  background-color: rgba(255, 122, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="9"]:before {
-  width: 9%;
-  background-color: rgba(255, 138, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="10"]:before {
-  width: 10%;
-  background-color: rgba(255, 153, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="11"]:before {
-  width: 11%;
-  background-color: rgba(255, 168, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="12"]:before {
-  width: 12%;
-  background-color: rgba(255, 184, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="13"]:before {
-  width: 13%;
-  background-color: rgba(255, 199, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="14"]:before {
-  width: 14%;
-  background-color: rgba(255, 214, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="15"]:before {
-  width: 15%;
-  background-color: rgba(255, 230, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="16"]:before {
-  width: 16%;
-  background-color: rgba(255, 245, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="17"]:before {
-  width: 17%;
-  background-color: rgba(250, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="18"]:before {
-  width: 18%;
-  background-color: rgba(235, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="19"]:before {
-  width: 19%;
-  background-color: rgba(219, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="20"]:before {
-  width: 20%;
-  background-color: rgba(204, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="21"]:before {
-  width: 21%;
-  background-color: rgba(189, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="22"]:before {
-  width: 22%;
-  background-color: rgba(173, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="23"]:before {
-  width: 23%;
-  background-color: rgba(158, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="24"]:before {
-  width: 24%;
-  background-color: rgba(143, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="25"]:before {
-  width: 25%;
-  background-color: rgba(128, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="26"]:before {
-  width: 26%;
-  background-color: rgba(112, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="27"]:before {
-  width: 27%;
-  background-color: rgba(97, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="28"]:before {
-  width: 28%;
-  background-color: rgba(82, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="29"]:before {
-  width: 29%;
-  background-color: rgba(66, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="30"]:before {
-  width: 30%;
-  background-color: rgba(51, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="31"]:before {
-  width: 31%;
-  background-color: rgba(36, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="32"]:before {
-  width: 32%;
-  background-color: rgba(20, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="33"]:before {
-  width: 33%;
-  background-color: rgba(5, 255, 0, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="34"]:before {
-  width: 34%;
-  background-color: rgba(0, 255, 10, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="35"]:before {
-  width: 35%;
-  background-color: rgba(0, 255, 26, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="36"]:before {
-  width: 36%;
-  background-color: rgba(0, 255, 41, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="37"]:before {
-  width: 37%;
-  background-color: rgba(0, 255, 56, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="38"]:before {
-  width: 38%;
-  background-color: rgba(0, 255, 71, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="39"]:before {
-  width: 39%;
-  background-color: rgba(0, 255, 87, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="40"]:before {
-  width: 40%;
-  background-color: rgba(0, 255, 102, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="41"]:before {
-  width: 41%;
-  background-color: rgba(0, 255, 117, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="42"]:before {
-  width: 42%;
-  background-color: rgba(0, 255, 133, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="43"]:before {
-  width: 43%;
-  background-color: rgba(0, 255, 148, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="44"]:before {
-  width: 44%;
-  background-color: rgba(0, 255, 163, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="45"]:before {
-  width: 45%;
-  background-color: rgba(0, 255, 179, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="46"]:before {
-  width: 46%;
-  background-color: rgba(0, 255, 194, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="47"]:before {
-  width: 47%;
-  background-color: rgba(0, 255, 209, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="48"]:before {
-  width: 48%;
-  background-color: rgba(0, 255, 224, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="49"]:before {
-  width: 49%;
-  background-color: rgba(0, 255, 240, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="50"]:before {
-  width: 50%;
-  background-color: rgba(0, 255, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="51"]:before {
-  width: 51%;
-  background-color: rgba(0, 240, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="52"]:before {
-  width: 52%;
-  background-color: rgba(0, 224, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="53"]:before {
-  width: 53%;
-  background-color: rgba(0, 209, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="54"]:before {
-  width: 54%;
-  background-color: rgba(0, 194, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="55"]:before {
-  width: 55%;
-  background-color: rgba(0, 179, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="56"]:before {
-  width: 56%;
-  background-color: rgba(0, 163, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="57"]:before {
-  width: 57%;
-  background-color: rgba(0, 148, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="58"]:before {
-  width: 58%;
-  background-color: rgba(0, 133, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="59"]:before {
-  width: 59%;
-  background-color: rgba(0, 117, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="60"]:before {
-  width: 60%;
-  background-color: rgba(0, 102, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="61"]:before {
-  width: 61%;
-  background-color: rgba(0, 87, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="62"]:before {
-  width: 62%;
-  background-color: rgba(0, 71, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="63"]:before {
-  width: 63%;
-  background-color: rgba(0, 56, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="64"]:before {
-  width: 64%;
-  background-color: rgba(0, 41, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="65"]:before {
-  width: 65%;
-  background-color: rgba(0, 26, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="66"]:before {
-  width: 66%;
-  background-color: rgba(0, 10, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="67"]:before {
-  width: 67%;
-  background-color: rgba(5, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="68"]:before {
-  width: 68%;
-  background-color: rgba(20, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="69"]:before {
-  width: 69%;
-  background-color: rgba(36, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="70"]:before {
-  width: 70%;
-  background-color: rgba(51, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="71"]:before {
-  width: 71%;
-  background-color: rgba(66, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="72"]:before {
-  width: 72%;
-  background-color: rgba(82, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="73"]:before {
-  width: 73%;
-  background-color: rgba(97, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="74"]:before {
-  width: 74%;
-  background-color: rgba(112, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="75"]:before {
-  width: 75%;
-  background-color: rgba(128, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="76"]:before {
-  width: 76%;
-  background-color: rgba(143, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="77"]:before {
-  width: 77%;
-  background-color: rgba(158, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="78"]:before {
-  width: 78%;
-  background-color: rgba(173, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="79"]:before {
-  width: 79%;
-  background-color: rgba(189, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="80"]:before {
-  width: 80%;
-  background-color: rgba(204, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="81"]:before {
-  width: 81%;
-  background-color: rgba(219, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="82"]:before {
-  width: 82%;
-  background-color: rgba(235, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="83"]:before {
-  width: 83%;
-  background-color: rgba(250, 0, 255, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="84"]:before {
-  width: 84%;
-  background-color: rgba(255, 0, 245, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="85"]:before {
-  width: 85%;
-  background-color: rgba(255, 0, 230, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="86"]:before {
-  width: 86%;
-  background-color: rgba(255, 0, 214, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="87"]:before {
-  width: 87%;
-  background-color: rgba(255, 0, 199, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="88"]:before {
-  width: 88%;
-  background-color: rgba(255, 0, 184, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="89"]:before {
-  width: 89%;
-  background-color: rgba(255, 0, 168, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="90"]:before {
-  width: 90%;
-  background-color: rgba(255, 0, 153, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="91"]:before {
-  width: 91%;
-  background-color: rgba(255, 0, 138, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="92"]:before {
-  width: 92%;
-  background-color: rgba(255, 0, 122, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="93"]:before {
-  width: 93%;
-  background-color: rgba(255, 0, 107, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="94"]:before {
-  width: 94%;
-  background-color: rgba(255, 0, 92, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="95"]:before {
-  width: 95%;
-  background-color: rgba(255, 0, 77, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="96"]:before {
-  width: 96%;
-  background-color: rgba(255, 0, 61, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="97"]:before {
-  width: 97%;
-  background-color: rgba(255, 0, 46, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="98"]:before {
-  width: 98%;
-  background-color: rgba(255, 0, 31, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="99"]:before {
-  width: 99%;
-  background-color: rgba(255, 0, 15, 0.5);
-}
-
-.ntt--js--data-scroll-y[data-scroll-y-percentage~="100"]:before {
-  width: 100%;
-  background-color: rgba(255, 0, 0, 0.5);
-}
-
 .ntt--post--table-of-contents--view .ntt--entry-full-content nav {
   position: fixed;
   right: 0;
@@ -2814,6 +1761,112 @@ section:target {
   }
 }
 
+.ntt--f5e--sticky--header---active--js .ntt--entity-heading {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.ntt--f5e--sticky--header---active--js .ntt--entity-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template: 'entity-heading entity-primary-nav';
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+.ntt--f5e--sticky--header---active--js .ntt--entity-header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: .5rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to bottom, black 0%, rgba(255, 255, 255, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00ffffff',GradientType=0 );
+  opacity: .0625;
+}
+
+.ntt--f5e--sticky--header---active--js .ntt--entity-description {
+  display: none;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.ntt--f5e--sticky--header---active--js .ntt--nav---sub-menu--js > div > ul > li > .ntt--sub-menu--js {
+  margin-top: -.25rem;
+}
+
+.ntt--multiple-entries .ntt--entry .post-password-form {
+  display: none;
+}
+
+.ntt--entry .post-password-form label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+}
+
+.ntt--entry .post-password-form p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.ntt--entry .post-password-form p:last-child {
+  margin-bottom: 0;
+}
+
+.ntt--entry .post-password-form input[type="password"] {
+  margin-bottom: 0;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.ntt--entry .post-password-form input[type="submit"] {
+  margin-top: 0;
+  height: 3rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 @media only screen and (min-width: 48em) {
   .ntt .wp-caption .alignleft,
   .ntt .wp-block-image .alignleft {
@@ -2880,6 +1933,17 @@ section:target {
     display: -ms-flexbox;
     display: flex;
   }
+}
+
+.ntt--wild-card-toolbar---js {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: .5rem;
+}
+
+.ntt--wild-card-toolbar---js > * {
+  margin: .5rem;
 }
 
 html {

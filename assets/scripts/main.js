@@ -7,7 +7,7 @@
 
 	wrapTextNode = function( $elem ) {
 		var $textNodeMU = $( '<span />', { 'class': 'ntt--txt' } );
-		$elem.contents().filter( function() {
+		$elem.contents().filter(function() {
 			return this.nodeType === 3;
 		} ).wrap( $textNodeMU );
 	}
@@ -18,7 +18,7 @@
 	 */
 
 	removeEmpty = function( $elem ) {
-		$elem.each( function() {
+		$elem.each(function() {
 			var $this = $( this );
 			if ( $this.html().replace(/\s|&nbsp;/g, '' ).length == 0 ) {
 				$this.remove();
@@ -52,7 +52,7 @@
 
 } )( jQuery );
 
-( function() {
+(function() {
 
     /**
      * element.closest Polyfill for IE9+
@@ -77,6 +77,7 @@
     }
 
     const html = document.documentElement;
+    const body = document.body;
 
     /**
      * Adding, removing, and testing for classes
@@ -132,20 +133,6 @@
         skin.className = 'ntt--code-wrapper ntt--obj';
         wrap( el, skin );
     } );
-
-    /**
-     * Get Element Height Including Margin
-     * 
-     * http://youmightnotneedjquery.com/#outer_height
-     */
-
-    function outerHeight(el) {
-        var height = el.offsetHeight;
-        var style = getComputedStyle(el);
-
-        height += parseInt(style.marginTop) + parseInt(style.marginBottom);
-        return height;
-    }
 
     /**
      * Entries Navigation
@@ -260,7 +247,7 @@
      * Initialize Activity Status on Sub-menu
      */
     
-    ( function() {
+    (function() {
         
         var input = document.querySelectorAll( '.ntt--nav---sub-menu--js input' );
 
@@ -278,14 +265,14 @@
                 }
             }
         }
-    } ) ();
+    })();
 
     /**
      * Detect Tabbing and Mouse Usage
      * https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
      */
     
-    ( function() {
+    (function() {
 
         function handleFirstTab( e ) {
             
@@ -310,7 +297,7 @@
      * https://codepen.io/bramus/pen/ExaEqMJ
      */
 
-    ( function() {
+    (function() {
         window.addEventListener('DOMContentLoaded', () => {
 
             const observer = new IntersectionObserver(entries => {
@@ -340,7 +327,7 @@
      * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
      */
 
-    ( function() {
+    (function() {
         let entityFooter;
 
         window.addEventListener('load', (event) => {
@@ -369,7 +356,7 @@
      * Assign Population Status of Input Elements
      */
 
-    ( function() {
+    (function() {
 
         let inputs = document.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
         let input = null;
@@ -391,7 +378,7 @@
      * https://stackoverflow.com/a/47944959
      */
 
-    ( function() {
+    (function() {
 
         if ( html.classList.contains('ntt--comment-creation---1--view') ) {
             
@@ -440,7 +427,7 @@
      * https://stackoverflow.com/a/19693578
      */
     
-    ( function() {
+    (function() {
         
         if ( html.classList.contains('ntt--js--random-image') ) {
             window.addEventListener('DOMContentLoaded', function() {
@@ -457,104 +444,62 @@
         }
     })();
 
-    /**
-     * Data Scroll Y
-     * .ntt--js--data-scroll-y
-     * 
-     * Sticky Header
-     * .ntt--js--sticky-header
-     * https://pqina.nl/blog/using-smart-css-to-time-your-wonderful-newsletter-popup/
-     */
+    /*
 
-    ( function() {
+    For Sticky Header
 
-        if ( html.classList.contains('ntt--js--data-scroll-y') || html.classList.contains('ntt--js--sticky-header') ) {
 
-            // The debounce function receives our function as a parameter
-            const debounce = (fn) => {
+    var MYNS = MYNS || {};
 
-                // This holds the requestAnimationFrame reference, so we can cancel it if we wish
-                let frame;
+    MYNS.subns = (function() {
+        var internalState = "Message";
 
-                // The debounce function returns a new function that can receive a variable number of arguments
-                return (...params) => {
-                    
-                    // If the frame variable has been defined, clear it now, and queue for next frame
-                    if (frame) { 
-                    cancelAnimationFrame(frame);
-                    }
+        var privateMethod = function() {
+            // Do private stuff, or build internal.
+            return internalState;
+        };
+        var publicMethod = function() {
+            return privateMethod() + " stuff";
+        };
 
-                    // Queue our function call for the next frame
-                    frame = requestAnimationFrame(() => {
-                    
-                    // Call our function and pass any params we received
-                    fn(...params);
-                    });
-                } 
-            };
+        return {
+            someProperty: console.log('prop value'),
+            publicMethod: publicMethod
+        };
+    })();
 
-            // Returns an array of steps from value to 0
-            const stack = (value, step) => {
-                value = Math.floor(value / step) * step;
-                const parts = [value];
-                while (value > 0) {
-                    value -= step;
-                    parts.push(value);
+    var transitionFn = {
+        
+        here: function( classTarget, listenerProperty, listenerTarget ) {
+            
+            listenerTarget.addEventListener('transitionend', () => {
+                if ( event.propertyName == listenerProperty ) {
+                    console.log('Transition ended');
                 }
-                return parts.reverse();
-            }
-
-            // Creates an environment store at a certain element
-            const createEnvStore = (props, root = document.documentElement) => {
-                const data = root.dataset;
-                const sync = () => {
-                    Object.entries(props).forEach(([key, value]) => {
-                        data[key] = Array.isArray(value) ? value.join(' ') : value;
-                    })
-                }
-                sync();
-                return (key, value) => {
-                    props[key] = value;
-                    sync();
-                    console.log(data);
-                }
-            };
-
-            // Set default environment parameters
-            const updateEnv = createEnvStore({
-                'scrollY': window.scrollY,
-                'scrollYPercentage': 0
             });
+        },
 
-            // Listen for new scroll events, here we debounce our scroll handler function for performance reasons
-            document.addEventListener('scroll', debounce(() => {
+        there: function( $elem, $property, $target )
+        {
+            if ( $target.hasClass( here_class ) ) {
 
-                let entityHeaderHeight = outerHeight(document.querySelector('.ntt--entity-header'));
-
-                console.log(entityHeaderHeight);
-                
-                const scrollOffset = window.scrollY;
-                const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollProgress = Math.min(1, scrollOffset / pageHeight);
-                const scrollSteps = 1;
-                
-                // Set current scroll offset (we use this to make the floating header)
-                updateEnv('scrollY', scrollOffset);
-                
-                // Calculate current progress in percentages
-                updateEnv('scrollYPercentage', stack(Math.round(scrollProgress * 100), scrollSteps));
-
-                if ( html.classList.contains('ntt--js--sticky-header') ) {
-                    
-                    if ( scrollOffset > entityHeaderHeight ) {
-                        html.classList.add( 'ntt--sticky-header---active--js' );
-                        html.style.marginTop = entityHeaderHeight + 'px';
-                    } else {
-                        html.classList.remove( 'ntt--sticky-header---active--js' );
-                        html.style.marginTop = '0';
+                $elem.on( transition_end_event, function() {
+                    if ( event.propertyName == $property )
+                    {
+                        transitionFn.thereClass( $target );
                     }
-                }
-            }), { passive: true });
+                } );
+            }
         }
-    } ) ();
-} )();
+    };
+
+    const eh = document.querySelector('.ntt--entity-header');
+
+    transitionFn.here(eh, '', eh);
+
+    /*
+    eh.addEventListener('transitionend', () => {
+        console.log('Transition ended');
+    });
+    */
+})();

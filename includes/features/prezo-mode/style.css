@@ -1,0 +1,27 @@
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entry-content {
+  font-size: 1.5rem;
+}
+
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entry-content > * {
+  color: black;
+}
+
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entity-header,
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entry-header,
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--comment-md,
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entity-main-footer,
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entity-footer,
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entity-header-aside,
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entity-main-main-aside {
+  display: none;
+}
+
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entry-full-content .wp-block-gallery .blocks-gallery-item {
+  padding: .5rem;
+  max-height: 100vh;
+}
+
+.ntt--f5e--prezo-mode.ntt--f5e--prezo-mode---active--js .ntt--entry-full-content .wp-block-gallery .blocks-gallery-item img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}

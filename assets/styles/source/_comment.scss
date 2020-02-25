@@ -322,10 +322,6 @@
 
         .ntt--comments-count {
             padding: .5rem;
-
-            @at-root .post-password-required & {
-                padding: 1rem;
-            }
         }
     }
 }
