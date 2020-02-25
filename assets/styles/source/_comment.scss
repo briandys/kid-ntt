@@ -164,6 +164,7 @@
 
 .ntt--modify-comment-axn {
     @include space-around;
+    user-select: none;
     
     a {
         display: inline-block;

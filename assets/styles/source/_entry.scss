@@ -15,6 +15,7 @@
 }
 
 .ntt--content {
+    word-break: break-word;
 
     > {
 
@@ -41,6 +42,10 @@
         .ntt--txt {
             display: block;
             @include y-margin(1em);
+        }
+
+        a[href*="flickr.com/"] {
+            display: block;
         }
     }
 
@@ -128,6 +133,11 @@
     @at-root .ntt & .alignright {
         float: right;
         margin: 0 0 1.5em 1.5em;
+    }
+
+    a[href*="flickr.com/"] {
+        pointer-events: none;
+        cursor: default;
     }
 }
 
@@ -340,11 +350,8 @@
     user-select: none;
 }
 
-.ntt--entry-axns {
-    padding: .5rem;
-}
-
 .ntt--modify-entry-axn {
+    padding: .5rem;
 
     a {
         display: inline-block;

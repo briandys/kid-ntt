@@ -130,9 +130,10 @@ add_filter( 'posts_where', 'ntt_kid_remove_password_protected_posts_filter' );
  * Responsive Flickr
  * Make the embed code of Flickr generate responsive images.
  * http://modernblackhand.com/index.php/en/responsive-flickr-embed-photos/
+ * https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
  */
 function ntt_kid_responsive_flickr( $content ) {
-    $content = preg_replace( '/src=\"(.*staticflickr\.com.*)(_.*)\.jpg\"/i', 'src="$1_b.jpg" srcset="$1_n.jpg 320w, $1_z.jpg 640w, $1_b.jpg 1024w, $1_h.jpg 1600w" sizes="(max-width: 1600px) 100vw, 1600px"', $content , -1 );
+    $content = preg_replace( '/src=\"(.*staticflickr\.com.*)(_.*)\.jpg\"/i', 'src="$1_b.jpg" srcset="$1_n.jpg 320w, $1_z.jpg 640w, $1_b.jpg 1024w" sizes="(min-width: 880px) 100vw, 100vw"', $content , -1 );
     
     return $content;
 }

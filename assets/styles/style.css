@@ -278,6 +278,10 @@ label[for]:hover {
 
 .ntt--modify-comment-axn {
   padding: .5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .ntt--modify-comment-axn a {
@@ -436,7 +440,7 @@ label[for]:hover {
 }
 
 .ntt--cm-author-avatar a {
-  display: inline-block;
+  display: block;
 }
 
 .ntt--cm-author-avatar .ntt--img {
@@ -614,6 +618,10 @@ label[for]:hover {
           align-items: center;
 }
 
+.ntt--content {
+  word-break: break-word;
+}
+
 .ntt--content > * {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -643,6 +651,10 @@ label[for]:hover {
   display: block;
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.ntt--content > a[href*="flickr.com/"] {
+  display: block;
 }
 
 .ntt--content:empty {
@@ -721,6 +733,11 @@ label[for]:hover {
 .ntt .ntt--content .alignright {
   float: right;
   margin: 0 0 1.5em 1.5em;
+}
+
+.ntt--content a[href*="flickr.com/"] {
+  pointer-events: none;
+  cursor: default;
 }
 
 .ntt--entry-full-content .wp-block-gallery {
@@ -891,7 +908,7 @@ label[for]:hover {
           user-select: none;
 }
 
-.ntt--entry-axns {
+.ntt--modify-entry-axn {
   padding: .5rem;
 }
 
@@ -1665,8 +1682,9 @@ label[for]:hover {
   margin: 0;
 }
 
-.ntt--user---admin .ntt--comment-form textarea {
+.ntt--user---admin .ntt--comment-form textarea.text-input {
   padding-right: 7.5rem;
+  min-height: 6rem;
 }
 
 .ntt--cm-author-avatar .ntt--img {
@@ -1865,6 +1883,51 @@ section:target {
   height: 3rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.ntt--modify-entry-axn,
+.ntt--modify-comment-axn,
+.ntt--comment-reply-axn {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.ntt--modify-entry-axn a:hover,
+.ntt--modify-comment-axn a:hover,
+.ntt--comment-reply-axn a:hover {
+  text-decoration: none;
+}
+
+.ntt--modify-entry-axn .ntt--txt,
+.ntt--modify-comment-axn .ntt--txt,
+.ntt--comment-reply-axn .ntt--txt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .5rem 1rem;
+  min-height: 2.375rem;
+  min-width: 2.375rem;
+  border: 0.125rem solid #0060e6;
+  border-radius: 0.125rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.ntt--modify-entry-axn .ntt--txt:hover,
+.ntt--modify-comment-axn .ntt--txt:hover,
+.ntt--comment-reply-axn .ntt--txt:hover {
+  background-color: #0060e6;
+  color: white;
+}
+
+.ntt--comment-reply-axn a:hover .ntt--reply-text {
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 48em) {
