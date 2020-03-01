@@ -1957,6 +1957,21 @@ section:target {
   display: none;
 }
 
+.ntt--comments-actions-snippet .ntt--comment-axn a:hover .ntt--comment-text {
+  text-decoration: none;
+}
+
+.ntt--comment-published-datetime-label,
+.ntt--comment-author-label {
+  display: none;
+}
+
+.ntt--comments-group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .ntt--wild-card-toolbar---js {
   position: fixed;
   right: 0;

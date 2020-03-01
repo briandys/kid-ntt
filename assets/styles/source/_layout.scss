@@ -402,3 +402,26 @@ section:target {
         }
     }
 }
+
+.ntt--comments-actions-snippet .ntt--comment-axn {
+
+    a:hover {
+        
+        .ntt--comment-text {
+            text-decoration: none;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Comments
+//--------------------------------------------------------------
+
+.ntt--comment-published-datetime-label,
+.ntt--comment-author-label {
+    display: none;
+}
+
+.ntt--comments-group {
+    @include unlist;
+}

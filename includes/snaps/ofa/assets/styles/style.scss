@@ -298,6 +298,10 @@ body {
     display: none;
 }
 
+.ntt--cm-datetime {
+    padding: 1rem;
+}
+
 //--------------------------------------------------------------
 // Comment
 //--------------------------------------------------------------
@@ -332,6 +336,42 @@ body {
     }
 }
 
+.ntt--single-comment {
+    margin: 1rem;
+    background-color: $on-surface-color---alpha-xs;
+    border-radius: $corner-radius---s;
+}
+
+.ntt--cancel-reply-axn {
+    margin-top: 1rem;
+}
+
+.ntt--comment-meta {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: normal;
+    width: 100%;
+}
+
+.ntt--comment-datetime {
+    order: 1;
+}
+
+.ntt--comment-author {
+    flex-wrap: nowrap;
+    align-items: normal;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.ntt--comment-author-name {
+    margin-top: .25rem;
+}
+
+.ntt--comment-reply-axn {
+    @include y-padding(1rem);
+}
+
 //--------------------------------------------------------------
 // Note
 //--------------------------------------------------------------
@@ -341,6 +381,10 @@ body {
     @include y-padding(1rem);
     background-color: aliceblue;
     border-radius: $corner-radius---s;
+
+    .ntt--content > & {
+        padding: 1rem 0;
+    }
 
     > * {
 
