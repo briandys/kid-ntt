@@ -81,9 +81,9 @@ $viewport-width---laptop: 1024px;
 //------------ Texts
 $text---xs: .75rem;
 
-$text---sm: .875rem;
-$text---md: 1rem;
-$text---lg: 1.125rem;
+$text---s: .875rem;
+$text---m: 1rem;
+$text---l: 1.125rem;
 
 $text---xl: 1.5rem;
 $text---xxl: 2rem;
@@ -97,15 +97,16 @@ $surface-color: white;
 $on-surface-color: $almost-black;
 
 $accent-color: $panda-blue;
-$accent-color---alpha-lo: hsla(215, 100%, 45%, .125);
-$accent-color---alpha-md: hsla(215, 100%, 45%, .25);
-$accent-color---alpha-hi: hsla(215, 100%, 45%, .5);
+$accent-color---alpha-s: hsla(215, 100%, 45%, .125);
+$accent-color---alpha-m: hsla(215, 100%, 45%, .25);
+$accent-color---alpha-l: hsla(215, 100%, 45%, .5);
 
 $mid-color: $a11y-gray;
 
-$on-surface-color---alpha-lo: hsla(0, 0%, 0%, .03125);
-$on-surface-color---alpha-md: hsla(0, 0%, 0%, .125);
-$on-surface-color---alpha-hi: hsla(0, 0%, 0%, .25);
+$on-surface-color---alpha-xs: hsla(0, 0%, 0%, .015625);
+$on-surface-color---alpha-s: hsla(0, 0%, 0%, .03125);
+$on-surface-color---alpha-m: hsla(0, 0%, 0%, .125);
+$on-surface-color---alpha-l: hsla(0, 0%, 0%, .25);
 
 $line-height---sm: 1.25;
 $line-height---md: 1.5;

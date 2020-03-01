@@ -1,415 +1,355 @@
-//--------------------------------------------------------------
-// Kid NTT Rules
-//--------------------------------------------------------------
-
 @import '../../../../../assets/styles/source/rules';
 
-//--------------------------------------------------------------
-// Snap Rules
-//--------------------------------------------------------------
-
-//--------------------------------------------------------------
-// Absolute Variables
-//--------------------------------------------------------------
-
-$blood-red: hsl(0, 100%, 45%);
-$cherry-blossom-dark-pink: hsl(0, 100%, 68%);
-$cherry-blossom-pink: hsl(0, 100%, 80%);
-$cherry-blossom-light-pink: hsl(0, 100%, 95%);
-
-//--------------------------------------------------------------
-// Generic Variables
-//--------------------------------------------------------------
-
-//------------ Colors
-$ink-color: $almost-black;
-$paper-color: white;
-$neutral-color: $a11y-gray;
-$accent-color: $cherry-blossom-dark-pink;
-$faint-accent-color: $cherry-blossom-light-pink;
-$primary-color: $cherry-blossom-pink;
-$secondary-color: $cherry-blossom-dark-pink;
-$tertiary-color: $cherry-blossom-light-pink;
-
-//------------ Fonts
-$primary-font: 'Work Sans', sans-serif;
-$secondary-font: 'Playfair Display', serif;
-$entry-content-font-size: 1.125em;
-$large-font-size: 1.125em;
-
-//--------------------------------------------------------------
-// Specific Variables
-//--------------------------------------------------------------
-
-$link-color: $accent-color;
-
-//--------------------------------------------------------------
-// Redeclare theme to detect the variables above
-//--------------------------------------------------------------
+$accent-color: $panda-blue;
 
 @import '../../../../../assets/styles/source/theme';
 
-//--------------------------------------------------------------
-// Hide Stuff
-//--------------------------------------------------------------
-
-.ntt--entity-logo---1 {
-
-    .ntt--entity-name {
-        display: none;
-    }
-}
-
-.entry-author-glabel,
-.ntt--entry-published-datetime-label,
-.cm-time,
-.entry-categories-name,
-.ntt--comment-published-datetime-label {
-    display: none;
-}
-
-//--------------------------------------------------------------
-// Basic
-//--------------------------------------------------------------
-
-html {
-    line-height: 1.5;
-    background-color: $paper-color;
-}
-
 body {
-    color: $ink-color;
-    font-family: $primary-font;
-}
-
-//--------------------------------------------------------------
-// Entity Header
-//--------------------------------------------------------------
-
-.ntt--entity-header {
-    display: flex;
-    flex-wrap: wrap;
-
-    > * {
-        flex: 1 100%;
-    }
-}
-
-//--------------------------------------------------------------
-// Entity Heading
-//--------------------------------------------------------------
-
-.ntt--entity-heading {
-    position: relative;
-    @include y-padding(1rem);
-    text-align: center;
-
-    &::before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        width: calc(100% - 2rem);
-        height: .125rem;
-        background-color: $faint-accent-color;
-        border-radius: 100rem;
-    }
-}
-
-.ntt--entity-logo {
-    @include y-padding(.5rem);
-
-    img {
-        width: 100%;
-        max-width: 320px;
-    }
-}
-
-.ntt--entity-name {
-    @include x-padding(1rem);
-    font-family: $secondary-font;
-    font-weight: normal;
-    font-size: 2.375rem; // For wider viewport
-    font-size: 1.5rem;
-
-    a {
-        color: inherit;
-    }
-
-    .ntt--txt {
-        padding: 0;
-    }
+    font-family: 'Spartan';
 }
 
 .ntt--entity-description {
-    @include x-padding(1rem);
-    color: $neutral-color;
-    font-size: .875rem;
-    letter-spacing: .045em;
+    display: none;
+}
 
-    .ntt--txt {
-        padding: 0;
+@supports (display: grid) {
+
+    @include mq(880px) {
+
+        .ntt--entity-header {
+            display: grid;
+            grid-template:
+                'subscribe social-media entry-name primary-secondary search primary-all'
+                'primary-nav . . . . .'
+                / auto auto 1fr auto auto auto;
+
+            #ntt--custom_html-2 {
+                grid-area: subscribe;
+            }
+
+            #ntt--nav_menu-4 {
+                grid-area: social-media;
+            }
+
+            .ntt--entity-primary-nav {
+                grid-area: primary-nav;
+                grid-column: primary-nav / -1;
+                justify-self: center;
+            }
+
+            .ntt--entity-heading {
+                grid-area: entry-name;
+                justify-self: center;
+            }
+
+            #ntt--nav_menu-2 {
+                grid-area: primary-secondary;
+            }
+
+            #ntt--search-3 {
+                grid-area: search;
+            }
+
+            #ntt--nav_menu-3 {
+                grid-area: primary-all;
+            }
+        }
+
+        .ntt--entity-header-aside {
+            display: contents;
+        }
     }
 }
 
-//--------------------------------------------------------------
-// Entity Primary Navigation
-//--------------------------------------------------------------
+.ntt--entity-header {
+    border-bottom: 1px solid $on-surface-color---alpha-m;
+}
 
-.ntt--entity-primary-nav {
-    padding: 1rem .25rem;
-    font-weight: bold;
-    font-size: 1.25rem;
-    font-family: $secondary-font;
+.ntt--entity-name {
+    text-transform: uppercase;
+    letter-spacing: .125em;
 
     a {
-        color: inherit;
-        @include transition;
+        color: $on-surface-color;
+    }
+}
+
+.ntt--entry-name {
+    font-family: 'Playfair Display';
+    font-size: $text---xxl;
+}
+
+.ntt--entity-primary-nav {
+    font-family: 'Playfair Display';
+
+    a {
+        color: $on-surface-color;
+        font-size: $text---xl;
+        font-weight: bold;
+    }
+}
+
+.ntt--entity-header-aside {
+    display: none;
+}
+
+.ntt--content {
+    line-height: 1.8;
+
+    a {
+        font-weight: bold;
+        border-bottom: .125rem solid $accent-color;
 
         &:hover {
             text-decoration: none;
-            color: $accent-color;
+            border-bottom: 0;
         }
     }
+}
 
-    li {
-        padding: 0 .75rem;
+.ntt--entry-header {
 
-        .ntt--txt {
-            @include if-y-center;
-            padding: 0;
-            min-height: 2.375rem;
+    > {
+        * {
+            max-width: 880px;
+            @include x-margin(auto);
         }
-    }
-    
-    .current-menu-item,
-    .current_page_item {
 
-        > a {
+        .ntt--entry-banner {
+            max-width: none;
 
-            .ntt--txt {
-                position: relative;
-                
-                &:before {
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    width: 100%;
-                    height: 1rem;
-                    background-color: $faint-accent-color;
-                    z-index: -1;
-                }
+            img {
+                width: 100%;
+                height: 75vh;
+                min-height: 20rem;
+                object-fit: cover;
             }
         }
     }
 }
 
-.ntt--entity-primary-nav-group {
-    justify-content: center;
-}
+.ntt--entry-full-content {
 
-//--------------------------------------------------------------
-// Navigation - Sub-menu - JS
-//--------------------------------------------------------------
-
-.ntt--nav---sub-menu--js {
-    
-    .ntt--sub-menu-checkbox {
-        background-position-y: 55%;
-        background-size: .75rem;
-        @include transition;
-
-        &:checked {
-            background-position-y: 50%;
+    > {
+        * {
+            max-width: 880px;
+            @include x-margin(auto);
         }
-    }
 
-    .ntt--sub-menu-ancestor {
-        
-        .sub-menu {
-            $sub-menu-corner-radius: .25rem;
-
-            min-width: 180px;
-            font-size: 1rem;
-            border: 0;
-            background-color: $faint-accent-color;
-            border: 1px solid hsla(0, 0%, 0%, .0625);
-            border-radius: $sub-menu-corner-radius;
-
-            .ntt--txt {
-                @include x-padding(.75rem);
-            }
-
-            li {
-                border-bottom: 0;
-            }
-
-            a {
-
-                &:hover {
-                    background-color: hsl(0, 100%, 97%);
-                    border-radius: $sub-menu-corner-radius;
-
-                    &:first-child {
-                        
-                    }
-                }
-            }
+        .wp-block-image {
+            max-width: 880px;
+            @include x-margin(auto);
         }
     }
 }
 
-//--------------------------------------------------------------
-// Entity Header Aside
-//--------------------------------------------------------------
+.ntt--entry-footer,
+.ntt--entity-main-footer {
 
-.ntt--entity-header-aside {
-
-    .ntt--widget_nav_menu {
-        padding: 1rem .25rem;
-        margin-top: -1rem;
-
-        > * {
-            @include y-margin();
-        }
-
-        li {
-            padding: 0 .75rem;
-        }
-
-        a {
-            @include if-y-center;
-            @include x-padding();
-            min-height: 2.375rem;
-            color: $ink-color;
-        }
-
-        .menu {
-            justify-content: center;
+    > {
+        * {
+            max-width: 880px;
+            @include x-margin(auto);
         }
     }
 }
-
-//--------------------------------------------------------------
-// Entity Main Header
-//--------------------------------------------------------------
-
-.ntt--entity-view-name {
-    font-size: $large-font-size;
-
-    a {
-        color: inherit;
-    }
-}
-
-.ntt--current-index {
-
-    .ntt--entity-view-heading {
-        display: none;
-    }
-}
-
-//--------------------------------------------------------------
-// Entry
-//--------------------------------------------------------------
-
-.ntt--entry-name {
-    font-size: 1.563em;
-
-    a {
-        color: inherit;
-        font-family: $secondary-font;
-    }
-}
-
-//--------------------------------------------------------------
-// Content
-//--------------------------------------------------------------
-
-.ntt--content {
-
-    h1 {
-        font-size: 3.052em;
-    }
-
-    h2 {
-        font-size: 2.441em;
-    }
-
-    h3 {
-        font-size: 1.953em;
-    }
-
-    h4 {
-        font-size: 1.563em;
-    }
-
-    h5 {
-        font-size: 1.25em;
-    }
-
-    h6 {
-        font-weight: normal;
-        text-transform: uppercase;
-        font-size: 1.25em;
-    }
-}
-
-//--------------------------------------------------------------
-// Entity Secondary Info
-//--------------------------------------------------------------
 
 .ntt--entity-secondary-info {
-    text-align: center;
-    font-size: .875rem;
-
-    a {
-        color: $neutral-color;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-
-    .ntt--entity-logo {
-        @include x-padding(1.5rem);
-
-        img {
-            max-width: 360px;
-        }
-    }
-
-    .ntt--entity-primary-nav {
-        @include x-padding(.75rem);
-    }
-
-    .ntt--entity-heading {
-    
-        &::before {
-            width: calc(100% - 3rem);
-        }
-    }
+        text-align: center;
 }
 
 //--------------------------------------------------------------
-// Temp: Mrs. Gift Boxes
+// Entry Navigation
 //--------------------------------------------------------------
 
-.ntt--entity--mrs-gift-boxes {
+.ntt--entry-nav {
+    @include x-margin();
 
-    #instafeed {
-        display: flex;
-        flex-wrap: wrap;
-
-        a {
-            flex: 1 25%;
-        }
+    .ntt--img {
+        display: block;
+        margin: .5rem;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: $on-surface-color---alpha-s;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+    }
+}
+
+.ntt--entry-nav-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.ntt--entry-navi {
+    flex: 1 50%;
+
+    a {
+        display: flex;
+    }
+
+    .ntt--txt {
+        @include y-margin(.5rem);
+    }
+
+    .ntt--label-txt {
+        display: block;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .ntt--delimiter-txt {
+        display: none;
+    }
+}
+
+.ntt--next-entry-navi {
+    order: 1;
+
+    .ntt--txt {
+        flex: 1;
+        text-align: right;
+    }
+
+    a {
+        justify-content: flex-end;
+    }
+}
+
+.ntt--previous-entry-navi {
+
+    .ntt--txt {
+        flex: 1;
+    }
+
+    .ntt--img {
+        order: -1;
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Main Main Aside
+//--------------------------------------------------------------
+
+.ntt--entity-main-main-aside {
+
+    .ntt--widget {
+        @include x-margin(1rem);
+        background-color: $on-surface-color---alpha-xs;
+        border-radius: $corner-radius---s;
+    }
+}
+
+//--------------------------------------------------------------
+// Content Module Date
+//--------------------------------------------------------------
+
+.ntt--cm-date {
+
+    a {
+
+        &:hover {
+            text-decoration: none;
+
+            .ntt--txt {
+                border-color: $on-surface-color;
+            }
+        }
+    }
+
+    .ntt--txt {
+        @include x-padding(.75rem);
+        text-align: center;
+        line-height: 1.2;
+        border: 1px solid $on-surface-color---alpha-l;
+        @include transition;
+        border-radius: $corner-radius---s;
+        
+        > * {
+            display: block;
+        }
+    }
+
+    .ntt--day-txt {
+        font-weight: bold;
+        font-size: $text---xl;
+    }
+
+    .ntt--month-txt {
+        text-transform: uppercase;
+        letter-spacing: .125em;
+    }
+
+    .ntt--year-txt {
+        font-size: $text---xs;
+        color: $mid-color;
+    }
+}
+
+.ntt--entry-modified-datetime,
+.ntt--entry-published-datetime-label {
+    display: none;
+}
+
+//--------------------------------------------------------------
+// Comment
+//--------------------------------------------------------------
+
+.comment-respond {
+    margin: 1rem;
+    background-color: $on-surface-color---alpha-xs;
+    border-radius: $corner-radius---s;
+}
+
+.ntt--comment-composition-name {
+    font-weight: bold;
+}
+
+.ntt--comment-composition-name {
+    margin-top: 1rem;
+}
+
+.ntt--comment-form {
+
+    .form-submit {
+        display: flex;
+
+    }
+
+    .ntt--submit-comment-axn {
+        width: 100%;
+
+        @include mq(880px) {
+            width: auto;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Note
+//--------------------------------------------------------------
+
+.ntt--note {
+    margin: 1rem;
+    @include y-padding(1rem);
+    background-color: aliceblue;
+    border-radius: $corner-radius---s;
+
+    > * {
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 }

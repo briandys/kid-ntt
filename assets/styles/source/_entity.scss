@@ -109,6 +109,7 @@
 .ntt--entity-view-heading {
     @include if-y-center;
     padding: .5rem;
+    padding-top: 2rem;
 
     .ntt--current-index &,
     .ntt--zero-entry & {
@@ -184,7 +185,7 @@
 
     .ntt--txt {
         @extend %block-pad;
-        font-size: $text---sm;
+        font-size: $text---s;
     }
 }
 
@@ -193,7 +194,7 @@
 //--------------------------------------------------------------
 
 .ntt--entity-footer {
-    background-color: $on-surface-color---alpha-lo;
+    background-color: $on-surface-color---alpha-s;
 }
 
 //--------------------------------------------------------------

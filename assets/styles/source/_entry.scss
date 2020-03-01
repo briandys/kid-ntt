@@ -335,7 +335,7 @@
     display: inline-block;
     @include space-around;
     margin-top: -1rem;
-    font-size: $text---lg;
+    font-size: $text---l;
 
     .ntt--txt {
         @extend %block-pad;
@@ -473,7 +473,7 @@
         }
 
         .ntt--show-more-axn {
-            font-size: $text---md;
+            font-size: $text---m;
         }
     }
 }

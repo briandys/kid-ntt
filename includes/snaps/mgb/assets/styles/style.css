@@ -48,6 +48,23 @@ textarea {
   color: #DE756E;
 }
 
+.ntt--modify-entry-axn .ntt--txt,
+.ntt--modify-comment-axn .ntt--txt,
+.ntt--comment-reply-axn .ntt--txt,
+.ntt--show-more-axn .ntt--txt,
+.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt {
+  border: 0.125rem solid #DE756E;
+}
+
+.ntt--modify-entry-axn .ntt--txt:hover,
+.ntt--modify-comment-axn .ntt--txt:hover,
+.ntt--comment-reply-axn .ntt--txt:hover,
+.ntt--show-more-axn .ntt--txt:hover,
+.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt:hover {
+  background-color: #DE756E;
+  color: white;
+}
+
 .ntt--entity-logo---1 .ntt--entity-name {
   display: none;
 }

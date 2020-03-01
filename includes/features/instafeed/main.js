@@ -3,10 +3,20 @@
      * http://instafeedjs.com/
      */
     const html = document.documentElement;
-    const body = document.body;
 
-    if ( html.classList.contains('ntt--f5e--instafeed')) {
+    if (html.classList.contains('ntt--f5e--instafeed')) {
+        const entityFooter = document.querySelector('.ntt--entity-footer');
+        var instafeedTarget = document.getElementById('ntt--f5e--instafeed--js');
 
+        if (! instafeedTarget) {
+            let instaFeed = document.createElement( 'div' );
+            instaFeed.id = 'ntt--f5e--instafeed--js';
+            instaFeed.className = 'ntt--f5e--instafeed--js';
+            entityFooter.prepend( instaFeed );
+        }
+
+        instafeedTarget = document.getElementById('ntt--f5e--instafeed--js');
+        
         var feed = new Instafeed( {
             get: 'user',
             userId: '5371345175',
@@ -14,7 +24,7 @@
             limit: '4',
             resolution: 'standard_resolution',
             sortBy: 'most-recent',
-            target: 'instafeedx'
+            target: instafeedTarget
         } );
         feed.run();
     }
