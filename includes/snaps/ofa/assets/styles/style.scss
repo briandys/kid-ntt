@@ -8,8 +8,17 @@ body {
     font-family: 'Spartan';
 }
 
+.ntt--entity-heading {
+    text-align: center;
+}
+
+.ntt--entity-name {
+    margin-top: 1rem;
+}
+
 .ntt--entity-description {
-    display: none;
+    color: $mid-color;
+    font-size: $text---s;
 }
 
 @supports (display: grid) {
@@ -89,11 +98,7 @@ body {
     }
 }
 
-.ntt--entity-header-aside {
-    display: none;
-}
-
-.ntt--content {
+.ntt--entry-full-content {
     line-height: 1.8;
 
     a {
@@ -102,6 +107,14 @@ body {
 
         &:hover {
             text-decoration: none;
+            border-bottom: 0;
+        }
+    }
+
+    .ntt--show-more-axn {
+
+        a {
+            font-weight: normal;
             border-bottom: 0;
         }
     }
@@ -138,7 +151,11 @@ body {
 
         .wp-block-image {
             max-width: 880px;
-            @include x-margin(auto);
+            margin: 4rem auto;
+        }
+
+        blockquote {
+            @include x-padding(calc(1rem + 1em));
         }
     }
 }
@@ -149,9 +166,26 @@ body {
     > {
         * {
             max-width: 880px;
+            width: 100%;
             @include x-margin(auto);
         }
     }
+}
+
+.ntt--entity-main-header {
+
+    > {
+        * {
+            display: flex;
+            width: 100%;
+            max-width: 880px;
+            @include x-margin(auto);
+        }
+    }
+}
+
+.ntt--comments-header {
+    width: 100%;
 }
 
 //--------------------------------------------------------------
@@ -159,7 +193,6 @@ body {
 //--------------------------------------------------------------
 
 .ntt--entry-nav {
-    @include x-margin();
 
     .ntt--img {
         display: block;
@@ -377,6 +410,65 @@ body {
     @include y-padding(1rem);
 }
 
+.ntt--entry-count,
+.ntt--comments-count {
+
+    .ntt--label-txt {
+        display: none;
+    }
+
+    .ntt--count-txt {
+        @include if-y-center;
+        justify-content: center;
+        padding: .5rem .75rem;
+        min-width: 2.5rem;
+        min-height: 2rem;
+        background-color: $on-surface-color---alpha-s;
+        color: $on-surface-color;
+        border-radius: $corner-radius---s;
+        font-size: $text---m;
+        font-weight: bold;
+        line-height: normal;
+        @include transition;
+    }
+    
+    a:hover {
+        text-decoration: none;
+        
+        .ntt--count-txt {
+            background-color: $accent-color;
+            color: $surface-color;
+            text-decoration: none;
+
+            &::before {
+                border-top-color: $accent-color;
+            }
+        }
+    }
+}
+
+.ntt--comments-count {
+    
+    .ntt--count-txt {
+        position: relative;
+        border-bottom-left-radius: 0;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 100%;
+            // Triangle
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: .5rem .5rem 0 0;
+            border-color: $on-surface-color---alpha-s transparent transparent transparent;
+            @include transition;
+        }
+    }
+}
+
 //--------------------------------------------------------------
 // Note
 //--------------------------------------------------------------
@@ -400,5 +492,45 @@ body {
         &:last-child {
             margin-bottom: 0;
         }
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Primary Meta
+//--------------------------------------------------------------
+
+.ntt--entry-primary-meta {
+    flex-wrap: nowrap;
+}
+
+.ntt--comments---empty.ntt--comment-creation---1 {
+
+    .ntt--entry-header {
+
+        .ntt--comments-actions-snippet {
+            display: none;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Feature: Sticky Header
+//--------------------------------------------------------------
+
+.ntt--f5e--sticky--header {
+    
+    .ntt--entity-header {
+        border-bottom: 0;
+    }
+}
+
+//--------------------------------------------------------------
+// Navigation Sub-menu
+//--------------------------------------------------------------
+    
+.ntt--nav---sub-menu--js {
+    
+    > div > ul > li > .ntt--sub-menu--js {
+        margin-top: -.25rem;
     }
 }

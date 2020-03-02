@@ -69,8 +69,17 @@ body {
   font-family: 'Spartan';
 }
 
+.ntt--entity-heading {
+  text-align: center;
+}
+
+.ntt--entity-name {
+  margin-top: 1rem;
+}
+
 .ntt--entity-description {
-  display: none;
+  color: #757575;
+  font-size: 0.875rem;
 }
 
 @supports (display: grid) {
@@ -140,21 +149,22 @@ body {
   font-weight: bold;
 }
 
-.ntt--entity-header-aside {
-  display: none;
-}
-
-.ntt--content {
+.ntt--entry-full-content {
   line-height: 1.8;
 }
 
-.ntt--content a {
+.ntt--entry-full-content a {
   font-weight: bold;
   border-bottom: 0.125rem solid #0060e6;
 }
 
-.ntt--content a:hover {
+.ntt--entry-full-content a:hover {
   text-decoration: none;
+  border-bottom: 0;
+}
+
+.ntt--entry-full-content .ntt--show-more-axn a {
+  font-weight: normal;
   border-bottom: 0;
 }
 
@@ -184,20 +194,34 @@ body {
 
 .ntt--entry-full-content > .wp-block-image {
   max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 4rem auto;
+}
+
+.ntt--entry-full-content > blockquote {
+  padding-left: calc(1rem + 1em);
+  padding-right: calc(1rem + 1em);
 }
 
 .ntt--entry-footer > *,
 .ntt--entity-main-footer > * {
   max-width: 880px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.ntt--entry-nav {
-  margin-left: 0;
-  margin-right: 0;
+.ntt--entity-main-header > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ntt--comments-header {
+  width: 100%;
 }
 
 .ntt--entry-nav .ntt--img {
@@ -426,6 +450,73 @@ body {
   padding-bottom: 1rem;
 }
 
+.ntt--entry-count .ntt--label-txt,
+.ntt--comments-count .ntt--label-txt {
+  display: none;
+}
+
+.ntt--entry-count .ntt--count-txt,
+.ntt--comments-count .ntt--count-txt {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: .5rem .75rem;
+  min-width: 2.5rem;
+  min-height: 2rem;
+  background-color: rgba(0, 0, 0, 0.03125);
+  color: #1f2023;
+  border-radius: 0.125rem;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: normal;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.ntt--entry-count a:hover,
+.ntt--comments-count a:hover {
+  text-decoration: none;
+}
+
+.ntt--entry-count a:hover .ntt--count-txt,
+.ntt--comments-count a:hover .ntt--count-txt {
+  background-color: #0060e6;
+  color: white;
+  text-decoration: none;
+}
+
+.ntt--entry-count a:hover .ntt--count-txt::before,
+.ntt--comments-count a:hover .ntt--count-txt::before {
+  border-top-color: #0060e6;
+}
+
+.ntt--comments-count .ntt--count-txt {
+  position: relative;
+  border-bottom-left-radius: 0;
+}
+
+.ntt--comments-count .ntt--count-txt::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: .5rem .5rem 0 0;
+  border-color: rgba(0, 0, 0, 0.03125) transparent transparent transparent;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
 .ntt--note {
   margin: 1rem;
   padding-top: 1rem;
@@ -444,4 +535,21 @@ body {
 
 .ntt--note > *:last-child {
   margin-bottom: 0;
+}
+
+.ntt--entry-primary-meta {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.ntt--comments---empty.ntt--comment-creation---1 .ntt--entry-header .ntt--comments-actions-snippet {
+  display: none;
+}
+
+.ntt--f5e--sticky--header .ntt--entity-header {
+  border-bottom: 0;
+}
+
+.ntt--nav---sub-menu--js > div > ul > li > .ntt--sub-menu--js {
+  margin-top: -.25rem;
 }

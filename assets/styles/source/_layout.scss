@@ -221,8 +221,6 @@
     @include transition;
 }
 
-
-
 .ntt--post--table-of-contents--view {
 
     .ntt--entry-full-content {
@@ -288,7 +286,7 @@ section:target {
     }
 }
 
-.ntt--f5e--sticky--header---active--js {
+.ntt--f5e--sticky--header {
 
     .ntt--entity-heading {
         @include y-padding();
@@ -457,10 +455,7 @@ section:target {
 .ntt--entry-header {
 
     .ntt--comments-actions-snippet {
-
-        .ntt--comment-axn {
-            display: none;
-        }
+        display: none;
     }
 }
 
@@ -471,5 +466,29 @@ section:target {
         .ntt--comment-text {
             text-decoration: none;
         }
+    }
+}
+
+
+.ntt--entry-main {
+    margin-top: 2rem;
+}
+
+.ntt--entry-footer {
+    margin-top: 2rem;
+}
+
+.ntt--comments---empty--view {
+
+    .ntt--comments-count {
+        display: none;
+    }
+}
+
+.ntt--cancel-reply-axn,
+.ntt--log-out-account-axn {
+
+    .ntt--txt {
+        font-size: $text---s;
     }
 }

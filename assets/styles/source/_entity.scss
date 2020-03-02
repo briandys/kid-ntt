@@ -171,6 +171,11 @@
 .ntt--entity-secondary-info {
     @include space-around;
     color: $faint-color;
+    text-align: center;
+
+    .ntt--entity-main-main-aside---1 & {
+        text-align: left;
+    }
     
     a {
         display: inline-block;

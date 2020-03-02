@@ -54,6 +54,13 @@
     }
 
     blockquote {
+        font-size: $text---xl;
+
+        cite {
+            font-size: $text---l;
+            font-style: normal;
+            font-weight: bold;
+        }
 
         > * {
 
@@ -416,7 +423,7 @@
 }
 
 .ntt--entry-header {
-    @include if-y-center;
+    @include f-y-center;
 
     > * {
         flex: 1 100%;
@@ -437,6 +444,13 @@
 
     .ntt--disabled-comments-note {
         flex: 1 100%;
+    }
+}
+
+.ntt--entry-name---empty {
+
+    .ntt--entry-name {
+        display: none;
     }
 }
 
@@ -530,7 +544,6 @@
 //--------------------------------------------------------------
 
 .ntt--entry-author {
-    flex: 1 100%;
     @include if-y-center;
     padding: .5rem;
 }
