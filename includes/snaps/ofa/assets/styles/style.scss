@@ -154,10 +154,6 @@ body {
     }
 }
 
-.ntt--entity-secondary-info {
-        text-align: center;
-}
-
 //--------------------------------------------------------------
 // Entry Navigation
 //--------------------------------------------------------------
@@ -336,10 +332,19 @@ body {
     }
 }
 
-.ntt--single-comment {
+.ntt--comment {
     margin: 1rem;
     background-color: $on-surface-color---alpha-xs;
     border-radius: $corner-radius---s;
+}
+
+.ntt--comment-approval---unapproved {
+    background-color: $surface-color;
+    border: 1px dashed $on-surface-color---alpha-m;
+}
+
+.ntt--content .ntt--unapproved-comments-note {
+    margin-top: 0;
 }
 
 .ntt--cancel-reply-axn {

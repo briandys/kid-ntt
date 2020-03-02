@@ -195,10 +195,6 @@ body {
   margin-right: auto;
 }
 
-.ntt--entity-secondary-info {
-  text-align: center;
-}
-
 .ntt--entry-nav {
   margin-left: 0;
   margin-right: 0;
@@ -374,10 +370,19 @@ body {
   }
 }
 
-.ntt--single-comment {
+.ntt--comment {
   margin: 1rem;
   background-color: rgba(0, 0, 0, 0.015625);
   border-radius: 0.125rem;
+}
+
+.ntt--comment-approval---unapproved {
+  background-color: white;
+  border: 1px dashed rgba(0, 0, 0, 0.125);
+}
+
+.ntt--content .ntt--unapproved-comments-note {
+  margin-top: 0;
 }
 
 .ntt--cancel-reply-axn {

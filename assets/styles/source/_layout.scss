@@ -48,7 +48,7 @@
 }
 
 //--------------------------------------------------------------
-// Comment Form
+// Comments
 //--------------------------------------------------------------
 
 .ntt--comment-form {
@@ -87,6 +87,18 @@
                 font-size: $text---s;
                 color: $mid-color;
             }
+
+            .ntt--optional-txt {
+                font-size: $text---xxs;
+            }
+
+            .ntt--comment-author-message-textbox {
+                padding-top: 2rem;
+            }
+
+            textarea.text-input {
+                min-height: calc(5.5rem + .125rem);
+            }
         }
 
         .text-input {
@@ -98,6 +110,13 @@
                 color: transparent;
             }
         }
+
+        textarea.text-input {
+            @include y-padding();
+            min-height: calc(7.5rem + .125rem);
+            background-color: transparent;
+            border: 0;
+        }
     }
 
     .ntt--required-txt {
@@ -105,7 +124,7 @@
     }
 
     .ntt--optional-txt {
-        padding: .25rem .5rem;
+        padding: .25em .5em;
         font-size: $text---xs;
         color: $mid-color;
         text-transform: uppercase;
@@ -116,6 +135,7 @@
     // If user is logged in
     .ntt--user---admin & {
         position: relative;
+        padding-bottom: 1rem;
 
         .form-submit {
             position: absolute;
@@ -130,10 +150,51 @@
         }
 
         textarea.text-input {
-            padding-right: 7.5rem;
-            min-height: calc(6rem + .125rem);
+            padding-right: 8rem;
+        }
+
+        .ntt--comment-author-message-field {
+            margin-bottom: 0;
+        }
+
+        .ntt--comment-author {
+            margin-top: 0;
+        }
+
+        .ntt--account-logged-in-status {
+            @include if-y-center;
         }
     }
+
+    .ntt--comment-author-message-field {
+        margin: 1rem;
+        padding: 0;
+        background-color: $surface-color;
+        border: 1px solid $on-surface-color---alpha-m;
+
+        label {
+            margin-left: calc(.75rem + 1px);
+            margin-top: calc(1.25rem + 1px);
+        }
+
+        &:focus-within,
+        &.ntt--form-field---populated--js {
+
+            label {
+                margin-top: .5rem;
+            }
+        }
+    }
+
+    .ntt--comment-author-message-textbox {
+        padding: 0;
+    }
+}
+
+.ntt--comment-published-datetime-label,
+.ntt--comment-form .ntt--comment-author-label,
+.ntt--comment .ntt--comment-author-label {
+    display: none;
 }
 
 //--------------------------------------------------------------
@@ -411,17 +472,4 @@ section:target {
             text-decoration: none;
         }
     }
-}
-
-//--------------------------------------------------------------
-// Comments
-//--------------------------------------------------------------
-
-.ntt--comment-published-datetime-label,
-.ntt--comment-author-label {
-    display: none;
-}
-
-.ntt--comments-group {
-    @include unlist;
 }

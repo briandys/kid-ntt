@@ -302,14 +302,14 @@ label[for]:hover {
   display: inline-block;
 }
 
-.ntt--comments-group ul {
+.ntt--comments ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.ntt--comments-group ul ul {
-  padding-left: 1rem;
+.ntt--comments-group ul {
+  margin-left: 1rem;
 }
 
 .ntt--comments-group .comment-respond {
@@ -1630,6 +1630,18 @@ label[for]:hover {
   color: #757575;
 }
 
+.ntt--comment-form .ntt--form-field:focus-within .ntt--optional-txt, .ntt--comment-form .ntt--form-field.ntt--form-field---populated--js .ntt--optional-txt {
+  font-size: 0.625rem;
+}
+
+.ntt--comment-form .ntt--form-field:focus-within .ntt--comment-author-message-textbox, .ntt--comment-form .ntt--form-field.ntt--form-field---populated--js .ntt--comment-author-message-textbox {
+  padding-top: 2rem;
+}
+
+.ntt--comment-form .ntt--form-field:focus-within textarea.text-input, .ntt--comment-form .ntt--form-field.ntt--form-field---populated--js textarea.text-input {
+  min-height: calc(5.5rem + .125rem);
+}
+
 .ntt--comment-form .ntt--form-field .text-input {
   min-height: 4rem;
   padding-top: 2rem;
@@ -1652,12 +1664,20 @@ label[for]:hover {
   color: transparent;
 }
 
+.ntt--comment-form .ntt--form-field textarea.text-input {
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: calc(7.5rem + .125rem);
+  background-color: transparent;
+  border: 0;
+}
+
 .ntt--comment-form .ntt--required-txt {
   display: none;
 }
 
 .ntt--comment-form .ntt--optional-txt {
-  padding: .25rem .5rem;
+  padding: .25em .5em;
   font-size: 0.75rem;
   color: #757575;
   text-transform: uppercase;
@@ -1667,6 +1687,7 @@ label[for]:hover {
 
 .ntt--user---admin .ntt--comment-form {
   position: relative;
+  padding-bottom: 1rem;
 }
 
 .ntt--user---admin .ntt--comment-form .form-submit {
@@ -1682,8 +1703,52 @@ label[for]:hover {
 }
 
 .ntt--user---admin .ntt--comment-form textarea.text-input {
-  padding-right: 7.5rem;
-  min-height: calc(6rem + .125rem);
+  padding-right: 8rem;
+}
+
+.ntt--user---admin .ntt--comment-form .ntt--comment-author-message-field {
+  margin-bottom: 0;
+}
+
+.ntt--user---admin .ntt--comment-form .ntt--comment-author {
+  margin-top: 0;
+}
+
+.ntt--user---admin .ntt--comment-form .ntt--account-logged-in-status {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ntt--comment-form .ntt--comment-author-message-field {
+  margin: 1rem;
+  padding: 0;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.ntt--comment-form .ntt--comment-author-message-field label {
+  margin-left: calc(.75rem + 1px);
+  margin-top: calc(1.25rem + 1px);
+}
+
+.ntt--comment-form .ntt--comment-author-message-field:focus-within label, .ntt--comment-form .ntt--comment-author-message-field.ntt--form-field---populated--js label {
+  margin-top: .5rem;
+}
+
+.ntt--comment-form .ntt--comment-author-message-textbox {
+  padding: 0;
+}
+
+.ntt--comment-published-datetime-label,
+.ntt--comment-form .ntt--comment-author-label,
+.ntt--comment .ntt--comment-author-label {
+  display: none;
 }
 
 .ntt--cm-author-avatar .ntt--img {
@@ -1959,17 +2024,6 @@ section:target {
 
 .ntt--comments-actions-snippet .ntt--comment-axn a:hover .ntt--comment-text {
   text-decoration: none;
-}
-
-.ntt--comment-published-datetime-label,
-.ntt--comment-author-label {
-  display: none;
-}
-
-.ntt--comments-group {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .ntt--wild-card-toolbar---js {
