@@ -337,6 +337,10 @@
     .ntt--img {
         display: inline-block;
     }
+
+    .ntt--page--view & {
+        display: none;
+    }
 }
 
 .ntt--entry-navi {

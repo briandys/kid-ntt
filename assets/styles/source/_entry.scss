@@ -12,6 +12,10 @@
 
 .ntt--entry-primary-meta {
     @include if-y-center;
+
+    .ntt--page-view {
+        display: none;
+    }
 }
 
 .ntt--content {
@@ -26,8 +30,7 @@
 
         ul,
         ol {
-            padding-left: 2.5rem;
-            margin-left: .5em;
+            padding-left: calc(2.5rem + .5em);
         }
 
         .ntt--note {
@@ -54,7 +57,7 @@
     }
 
     blockquote {
-        font-size: $text---xl;
+        font-size: $text---xxl;
 
         cite {
             font-size: $text---l;
@@ -79,7 +82,6 @@
     }
 
     figure {
-        @include x-margin();
         
         &[style*="width"] {
             width: auto !important;

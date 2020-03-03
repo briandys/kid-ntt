@@ -152,6 +152,10 @@ label[for]:hover {
   cursor: pointer;
 }
 
+.ntt--comments---empty--view.ntt--comment-creation---0--view .ntt--comment-md {
+  display: none;
+}
+
 .ntt--comment-meta {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -629,6 +633,10 @@ label[for]:hover {
           align-items: center;
 }
 
+.ntt--entry-primary-meta .ntt--page-view {
+  display: none;
+}
+
 .ntt--content {
   word-break: break-word;
 }
@@ -642,8 +650,7 @@ label[for]:hover {
 
 .ntt--content > ul,
 .ntt--content > ol {
-  padding-left: 2.5rem;
-  margin-left: .5em;
+  padding-left: calc(2.5rem + .5em);
 }
 
 .ntt--content > .ntt--note {
@@ -673,7 +680,7 @@ label[for]:hover {
 }
 
 .ntt--content blockquote {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .ntt--content blockquote cite {
@@ -688,11 +695,6 @@ label[for]:hover {
 
 .ntt--content blockquote > *:last-child {
   margin-bottom: 0;
-}
-
-.ntt--content figure {
-  margin-left: 0;
-  margin-right: 0;
 }
 
 .ntt--content figure[style*="width"] {
@@ -1411,6 +1413,10 @@ label[for]:hover {
   display: inline-block;
 }
 
+.ntt--page--view .ntt--entry-nav {
+  display: none;
+}
+
 .ntt--entry-navi {
   padding: .5rem;
 }
@@ -2022,17 +2028,6 @@ section:target {
 
 .ntt--comment-reply-axn a:hover .ntt--reply-text {
   text-decoration: none;
-}
-
-.ntt--entry-more-tag---1 .ntt--entry-summary-content {
-  display: contents;
-}
-
-.ntt--entry-more-tag---1 .ntt--entry-summary-content .ntt--entry-content-snippet,
-.ntt--entry-more-tag---1 .ntt--entry-summary-content .ntt--show-more-axn {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
 }
 
 .ntt--entry-header .ntt--comments-actions-snippet {
