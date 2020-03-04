@@ -115,7 +115,7 @@ function ntt_entry_header_content() {
 
     ntt_entry_banner();
     ntt_entry_primary_meta();
-    ntt_comments_actions_snippet();
+    ntt__tag__comments_actions_snippet();
 }
 
 function ntt_entry_primary_meta_content() {
@@ -174,7 +174,7 @@ function eel_ntt_complimentary_close() {
         <?php
     }
 }
-add_action( 'ntt_after_the_content_wp_hook', 'eel_ntt_complimentary_close');
+add_action( 'ntt__wp_hook__the_content___after', 'eel_ntt_complimentary_close');
 */
 
 /**

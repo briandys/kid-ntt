@@ -173,7 +173,6 @@ function ntt_kid_random_number_wp_shortcode( $atts ) {
  *
  * @return string The obfuscated email address. 
  */
-
 function ntt_kid_hide_email_from_spambots_wp_shortcode( $atts , $content = null ) {
 	if ( ! is_email( $content ) ) {
 		return;

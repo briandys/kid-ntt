@@ -45,7 +45,7 @@ function mgb_ntt_before_entry_name() {
     ntt_entry_categories();
     ntt_entry_breadcrumbs_nav();
 }
-add_action( 'ntt_before_entry_name_wp_hook', 'mgb_ntt_before_entry_name' );
+add_action( 'ntt__wp_hook__entry_name___before', 'mgb_ntt_before_entry_name' );
 
 /**
  * Entry Banner Visuals Featured Image Size

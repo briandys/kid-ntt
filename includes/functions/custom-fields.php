@@ -52,7 +52,7 @@ function ntt_kid_wp_cf_entry_subname() {
 
     echo $entry_subname_mu;
 }
-add_action( 'ntt_after_entry_name_wp_hook', 'ntt_kid_wp_cf_entry_subname', 0 );
+add_action( 'ntt__wp_hook__entry_name___after', 'ntt_kid_wp_cf_entry_subname', 0 );
 
 /**
  * Entry Feature Return True
