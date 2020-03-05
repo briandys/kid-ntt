@@ -130,6 +130,12 @@ body {
             border-bottom: 0;
         }
     }
+
+    .wp-block-image > a,
+    .wp-block-file__button {
+        font-weight: normal;
+        border-bottom: 0;
+    }
 }
 
 .ntt--entry-header {

@@ -7,7 +7,7 @@
  * Get Snaps
  */
 
-function ntt_get_snaps() {
+function ntt__kid__function__snaps() {
     
     $snaps = array();
     $r_snaps = array_filter( glob( get_stylesheet_directory(). '/includes/snaps/*' ), 'is_dir' );
@@ -25,7 +25,7 @@ function ntt_get_snaps() {
 
     return $snaps;
 }
-add_action( 'wp_head', 'ntt_get_snaps' );
+add_action( 'wp_head', 'ntt__kid__function__snaps' );
 
 /**
  * Snaps HTML CSS
@@ -33,7 +33,7 @@ add_action( 'wp_head', 'ntt_get_snaps' );
 
 function ntt_kid_snaps_html_css( $classes ) {
 
-    $r_snaps = ntt_get_snaps();
+    $r_snaps = ntt__kid__function__snaps();
 
     if ( $r_snaps === false ) {
         return array();
@@ -52,7 +52,7 @@ function ntt_kid_snaps_html_css( $classes ) {
  * Snaps Directory
  */
 
-$r_snaps = ntt_get_snaps();
+$r_snaps = ntt__kid__function__snaps();
 
 if ( $r_snaps === false ) {
     return array();

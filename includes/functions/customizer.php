@@ -16,9 +16,9 @@ function ntt_kid_wp_customizer( $wp_customize ) {
 
     $wp_customize->add_control( 'ntt_kid_settings_snaps', array(
         'label'     => 'Snaps',
-        'section'   => 'ntt_settings',
+        'section'   => 'ntt__wp_theme__settings',
         'type'      => 'select',
-        'choices'   => ntt_get_snaps(),
+        'choices'   => ntt__kid__function__snaps(),
     ) );
 }
 add_action( 'customize_register', 'ntt_kid_wp_customizer' );

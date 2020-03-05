@@ -1,12 +1,12 @@
 <?php
 /**
  * HTML CSS Custom Field
- * Key: ntt_html_css
+ * Key: ntt__function__view__css
  * Adds CSS in HTML Tag.
  */
 function ntt_kid_custom_field_html_css( $classes ) {
     
-    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_html_css', true );
+    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt__function__view__css', true );
 
     if ( $html_css_post_meta !== '' ) {
         $classes[] = esc_attr( $html_css_post_meta );

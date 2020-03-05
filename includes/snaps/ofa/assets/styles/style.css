@@ -182,6 +182,12 @@ body {
   border-bottom: 0;
 }
 
+.ntt--entry-full-content .wp-block-image > a,
+.ntt--entry-full-content .wp-block-file__button {
+  font-weight: normal;
+  border-bottom: 0;
+}
+
 .ntt--entry-header > * {
   max-width: 880px;
   margin-left: auto;

@@ -42,8 +42,8 @@ add_filter( 'kid_ntt_custom_fonts_filter', 'mgb_ntt_font_families' );
  * Insert Elements After Entry Name
  */
 function mgb_ntt_before_entry_name() {
-    ntt_entry_categories();
-    ntt_entry_breadcrumbs_nav();
+    ntt__tag__entry_categories();
+    ntt__tag__entry_breadcrumbs_nav();
 }
 add_action( 'ntt__wp_hook__entry_name___before', 'mgb_ntt_before_entry_name' );
 
