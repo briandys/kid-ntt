@@ -3,7 +3,7 @@
  * HTML CSS
  */
 
-function ntt_kid_html_css( $classes ) {
+function ntt__kid_ntt__function__view__css( $classes ) {
 
     /**
      * Entity Name
@@ -52,4 +52,4 @@ function ntt_kid_html_css( $classes ) {
 
     return $classes;
 }
-add_filter( 'ntt_html_css_filter', 'ntt_kid_html_css' );
+add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__function__view__css' );

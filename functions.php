@@ -16,6 +16,8 @@ $GLOBALS['ntt_kid_f5e_html_to_canvas_slug'] = 'html-to-canvas';
 $GLOBALS['ntt_kid_f5e_instafeed_slug'] = 'instafeed';
 $GLOBALS['ntt_kid_f5e_prezo_mode_slug'] = 'prezo-mode';
 $GLOBALS['ntt_kid_f5e_scroll_y_slug'] = 'scroll-y';
+$GLOBALS['ntt_kid_f5e_scroll_y_slug'] = 'scroll-y';
+$GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug'] = 'user-functions';
 
 /**
  * Functions
@@ -33,6 +35,7 @@ $r_functions = array(
     'open-graph',
     'shortcodes',
     'snaps',
+    //'user-functions',
 );
 
 foreach ( $r_functions as $function ) {
@@ -47,6 +50,7 @@ $r_features = array(
     $GLOBALS['ntt_kid_f5e_instafeed_slug'],
     $GLOBALS['ntt_kid_f5e_prezo_mode_slug'],
     $GLOBALS['ntt_kid_f5e_scroll_y_slug'],
+    $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug'],
 );
 
 foreach ( $r_features as $feature ) {
@@ -102,7 +106,7 @@ add_filter( 'ntt_entry_nav_name_filter', function() {
     return __( 'Can\'t Get Enough?', 'ntt' );
 } );
 
-function ntt_entry_header_content() {
+function ntt__tag__entry_header__content() {
 
     ntt__tag__entry_categories();
     ntt__tag__entry_breadcrumbs_nav();
@@ -129,7 +133,7 @@ function ntt__tag__entry_primary_meta__content() {
  * Removes posts that are password-protected from the index
  * https://aspengrovestudios.com/how-to-customize-password-protected-pages/
  */
-function ntt_kid_remove_password_protected_posts_filter( $where = '' ) {
+function ntt__kid_ntt__function__remove_password_protected_posts( $where = '' ) {
 
     if ( ! is_single() && ! current_user_can( 'edit_private_posts' ) && ! is_admin() ) {
         $where .= " AND post_password = ''";
@@ -137,7 +141,7 @@ function ntt_kid_remove_password_protected_posts_filter( $where = '' ) {
  
     return $where;
 }
-add_filter( 'posts_where', 'ntt_kid_remove_password_protected_posts_filter' );
+add_filter( 'posts_where', 'ntt__kid_ntt__function__remove_password_protected_posts' );
 
 /**
  * Responsive Flickr
@@ -145,12 +149,12 @@ add_filter( 'posts_where', 'ntt_kid_remove_password_protected_posts_filter' );
  * http://modernblackhand.com/index.php/en/responsive-flickr-embed-photos/
  * https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
  */
-function ntt_kid_responsive_flickr( $content ) {
+function ntt__kid_ntt__function__responsive_flickr( $content ) {
     $content = preg_replace( '/src=\"(.*staticflickr\.com.*)(_.*)\.jpg\"/i', 'src="$1_b.jpg" srcset="$1_n.jpg 320w, $1_z.jpg 640w, $1_b.jpg 1024w" sizes="(min-width: 880px) 100vw, 100vw"', $content , -1 );
     
     return $content;
 }
-add_filter( 'the_content', 'ntt_kid_responsive_flickr' );
+add_filter( 'the_content', 'ntt__kid_ntt__function__responsive_flickr' );
 
 /**
  * DateTime - Month Format

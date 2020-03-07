@@ -11,7 +11,7 @@ $GLOBALS['ntt_kid_f5e_instafeed_enqueue_slug'] = 'ntt-kid-f5e--'. $GLOBALS['ntt_
 /**
  * NTT Feature Validation
  */
-function ntt_kid_f5e_instafeed() {
+function ntt__kid_ntt__feature__instafeed__validation() {
     $post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
     $theme_mod = get_theme_mod( 'ntt_settings_features' );
 
@@ -27,9 +27,9 @@ function ntt_kid_f5e_instafeed() {
 /**
  * Styles, Scripts
  */
-function ntt_kid_f5e_instafeed_styles_scripts() {
+function ntt__kid_ntt__feature__instafeed__styles_scripts() {
 
-    if ( ntt_kid_f5e_instafeed() ) {
+    if ( ntt__kid_ntt__feature__instafeed__validation() ) {
 
         wp_enqueue_style( $GLOBALS['ntt_kid_f5e_instafeed_enqueue_slug']. '-style', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_instafeed_slug']. '/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
         
@@ -38,4 +38,4 @@ function ntt_kid_f5e_instafeed_styles_scripts() {
         wp_enqueue_script( $GLOBALS['ntt_kid_f5e_instafeed_enqueue_slug']. '-script', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_instafeed_slug']. '/main.js', array( $GLOBALS['ntt_kid_f5e_instafeed_enqueue_slug']. '-library-script', ), wp_get_theme()->get( 'Version' ), true );
     }
 }
-add_action( 'wp_enqueue_scripts', 'ntt_kid_f5e_instafeed_styles_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__instafeed__styles_scripts', 0 );

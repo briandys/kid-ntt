@@ -2,18 +2,18 @@
 /**
  * Open Graph XMLNS
  */
-function ntt_kid_open_graph_xmlns( $output ) {
+function ntt__kid_ntt__function__open_graph_xmlns( $output ) {
     return $output. '
     xmlns="https://www.w3.org/1999/xhtml"
     xmlns:og="https://ogp.me/"
     ';
 }
-add_filter( 'language_attributes', 'ntt_kid_open_graph_xmlns' );
+add_filter( 'language_attributes', 'ntt__kid_ntt__function__open_graph_xmlns' );
 
 /**
  * Open Graph
  */
-function ntt_kid_open_graph() {
+function ntt__kid_ntt__function__open_graph() {
 
     /*
     For Home
@@ -157,4 +157,4 @@ function ntt_kid_open_graph() {
         echo '<meta name="description" content="'. esc_attr( $meta_description ). '">';
     }
 }
-add_action( 'wp_head', 'ntt_kid_open_graph' );
+add_action( 'wp_head', 'ntt__kid_ntt__function__open_graph' );

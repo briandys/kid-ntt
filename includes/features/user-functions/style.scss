@@ -1,0 +1,66 @@
+@import '../../../assets/styles/source/rules';
+
+.ntt--user-functions {
+
+    details {
+        @include y-margin(1rem);
+        @include transition;
+
+        h2,
+        h3,
+        h4 {
+            display: inline-block;
+            vertical-align: middle;
+            @include y-margin();
+        }
+
+        .ntt--count {
+            @include if-y-center;
+            justify-content: center;
+            padding: .5rem .75rem;
+            min-width: 2.5rem;
+            min-height: 2rem;
+            background-color: $on-surface-color---alpha-s;
+            color: $on-surface-color;
+            border-radius: $corner-radius---s;
+            font-size: $text---m;
+            line-height: normal;
+            @include transition;
+
+        }
+    }
+
+    summary {
+        display: inline-block;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &::marker {
+            color: $accent-color;
+        }
+        
+        &::-webkit-details-marker {
+            color: $accent-color;
+        }
+    }
+}
+
+.ntt--user-functions-heading {
+    display: inline-block;
+}
+
+.ntt--user-functions-count {
+    @include if-y-center;
+    justify-content: center;
+    padding: .5rem .75rem;
+    min-width: 2.5rem;
+    min-height: 2rem;
+    background-color: $on-surface-color---alpha-s;
+    color: $on-surface-color;
+    border-radius: $corner-radius---s;
+    font-size: $text---m;
+    line-height: normal;
+    @include transition;
+}

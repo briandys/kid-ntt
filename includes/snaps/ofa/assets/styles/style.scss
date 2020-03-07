@@ -138,16 +138,28 @@ body {
     }
 }
 
+//--------------------------------------------------------------
+// Content Maximum Width
+//--------------------------------------------------------------
+
+.ntt--entity-main-main-aside---0 {
+
+    .ntt--entity-main {
+
+        > {
+            * {
+                max-width: 880px;
+                @include x-margin(auto);
+            }
+        }
+    }
+}
+    
 .ntt--entry-header {
 
     > {
-        * {
-            max-width: 880px;
-            @include x-margin(auto);
-        }
 
         .ntt--entry-banner {
-            max-width: none;
 
             img {
                 width: 100%;
@@ -158,18 +170,12 @@ body {
         }
     }
 }
-
+    
 .ntt--entry-full-content {
 
     > {
-        * {
-            max-width: 880px;
-            @include x-margin(auto);
-        }
 
         .wp-block-image {
-            max-width: 880px;
-            @include x-margin(auto);
 
             @at-root .ntt--single-entry & {
                 @include y-margin(4rem);
@@ -181,33 +187,15 @@ body {
         }
     }
 }
-
-.ntt--entry-footer,
-.ntt--entity-main-footer {
-
-    > {
-        * {
-            max-width: 880px;
-            width: 100%;
-            @include x-margin(auto);
-        }
-    }
-}
-
+    
 .ntt--entity-main-header {
 
     > {
         * {
             display: flex;
             width: 100%;
-            max-width: 880px;
-            @include x-margin(auto);
         }
     }
-}
-
-.ntt--comments-header {
-    width: 100%;
 }
 
 //--------------------------------------------------------------
@@ -489,6 +477,10 @@ body {
             @include transition;
         }
     }
+}
+
+.ntt--comments-header {
+    width: 100%;
 }
 
 //--------------------------------------------------------------

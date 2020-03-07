@@ -11,7 +11,7 @@ $GLOBALS['ntt_kid_f5e_scroll_y_enqueue_slug'] = 'ntt-kid-f5e--'. $GLOBALS['ntt_k
  * NTT Feature Validation
  * Checks if the feature is in Custom Fields
  */
-function ntt_kid_f5e_scroll_y() {
+function ntt__kid_ntt__feature__scroll_y__validation() {
     $post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
     $theme_mod = get_theme_mod( 'ntt_settings_features' );
 
@@ -28,13 +28,13 @@ function ntt_kid_f5e_scroll_y() {
  * Styles, Scripts
  * Enqueues the styles and scripts
  */
-function ntt_kid_f5e_scroll_y_styles_scripts() {
+function ntt__kid_ntt__feature__scroll_y__styles_scripts() {
 
-    if ( ntt_kid_f5e_scroll_y() ) {
+    if ( ntt__kid_ntt__feature__scroll_y__validation() ) {
 
         wp_enqueue_style( $GLOBALS['ntt_kid_f5e_scroll_y_enqueue_slug']. '-style', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_scroll_y_slug']. '/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
 
         wp_enqueue_script( $GLOBALS['ntt_kid_f5e_scroll_y_enqueue_slug']. '-script', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_scroll_y_slug']. '/main.js', array(), wp_get_theme()->get( 'Version' ), true );
     }
 }
-add_action( 'wp_enqueue_scripts', 'ntt_kid_f5e_scroll_y_styles_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__scroll_y__styles_scripts', 0 );

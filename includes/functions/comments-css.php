@@ -7,7 +7,7 @@
  * Comments Status HTML CSS
  */
 
-function ntt_kid_comments_status_html_css( $classes ) {
+function ntt__kid_ntt__function__comments_status__css( $classes ) {
 
     $css_suffix = '--view';
 
@@ -31,5 +31,5 @@ function ntt_kid_comments_status_html_css( $classes ) {
 }
 
 add_filter( 'ntt_html_css_filter', function( $classes ) {
-    return is_singular() ? ntt_kid_comments_status_html_css( $classes ) : $classes;
+    return is_singular() ? ntt__kid_ntt__function__comments_status__css( $classes ) : $classes;
 } );

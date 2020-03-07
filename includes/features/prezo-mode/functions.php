@@ -10,7 +10,7 @@ $GLOBALS['ntt_kid_f5e_prezo_mode_enqueue_slug'] = 'ntt-kid-f5e--'. $GLOBALS['ntt
 /**
  * NTT Feature Validation
  */
-function ntt_kid_f5e_prezo_mode() {
+function ntt__kid_ntt__feature__prezo_mode__validation() {
     $post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
     $theme_mod = get_theme_mod( 'ntt_settings_features' );
 
@@ -26,13 +26,13 @@ function ntt_kid_f5e_prezo_mode() {
 /**
  * Styles, Scripts
  */
-function ntt_kid_f5e_prezo_mode_styles_scripts() {
+function ntt__kid_ntt__feature__prezo_mode__styles_scripts() {
 
-    if ( ntt_kid_f5e_prezo_mode() ) {
+    if ( ntt__kid_ntt__feature__prezo_mode__validation() ) {
 
         wp_enqueue_style( $GLOBALS['ntt_kid_f5e_prezo_mode_enqueue_slug']. '-style', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_prezo_mode_slug']. '/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
 
         wp_enqueue_script( $GLOBALS['ntt_kid_f5e_prezo_mode_enqueue_slug']. '-script', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_prezo_mode_slug']. '/main.js', array(), wp_get_theme()->get( 'Version' ), true );
     }
 }
-add_action( 'wp_enqueue_scripts', 'ntt_kid_f5e_prezo_mode_styles_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__prezo_mode__styles_scripts', 0 );

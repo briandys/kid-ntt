@@ -64,7 +64,8 @@ html {
 html.js:not(.ntt--nav-mode---tab--js) button:focus,
 html.js:not(.ntt--nav-mode---tab--js) input:focus,
 html.js:not(.ntt--nav-mode---tab--js) select:focus,
-html.js:not(.ntt--nav-mode---tab--js) textarea:focus {
+html.js:not(.ntt--nav-mode---tab--js) textarea:focus,
+html.js:not(.ntt--nav-mode---tab--js) summary:focus {
   outline: none;
 }
 

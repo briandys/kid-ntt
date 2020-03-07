@@ -2,7 +2,7 @@
 /**
  * WP Customizer
  */
-function ntt_kid_wp_customizer( $wp_customize ) {
+function ntt__kid_ntt__wp_customizer( $wp_customize ) {
 
     /**
      * Kid NTT Settings
@@ -16,9 +16,9 @@ function ntt_kid_wp_customizer( $wp_customize ) {
 
     $wp_customize->add_control( 'ntt_kid_settings_snaps', array(
         'label'     => 'Snaps',
-        'section'   => 'ntt__wp_theme__settings',
+        'section'   => 'ntt__wp_theme',
         'type'      => 'select',
-        'choices'   => ntt__kid__function__snaps(),
+        'choices'   => ntt__kid_ntt__snaps(),
     ) );
 }
-add_action( 'customize_register', 'ntt_kid_wp_customizer' );
+add_action( 'customize_register', 'ntt__kid_ntt__wp_customizer' );

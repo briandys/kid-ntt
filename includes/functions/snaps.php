@@ -7,7 +7,7 @@
  * Get Snaps
  */
 
-function ntt__kid__function__snaps() {
+function ntt__kid_ntt__snaps() {
     
     $snaps = array();
     $r_snaps = array_filter( glob( get_stylesheet_directory(). '/includes/snaps/*' ), 'is_dir' );
@@ -25,15 +25,15 @@ function ntt__kid__function__snaps() {
 
     return $snaps;
 }
-add_action( 'wp_head', 'ntt__kid__function__snaps' );
+add_action( 'wp_head', 'ntt__kid_ntt__snaps' );
 
 /**
  * Snaps HTML CSS
  */
 
-function ntt_kid_snaps_html_css( $classes ) {
+function ntt__kid_ntt__snaps_view__css( $classes ) {
 
-    $r_snaps = ntt__kid__function__snaps();
+    $r_snaps = ntt__kid_ntt__snaps();
 
     if ( $r_snaps === false ) {
         return array();
@@ -52,7 +52,7 @@ function ntt_kid_snaps_html_css( $classes ) {
  * Snaps Directory
  */
 
-$r_snaps = ntt__kid__function__snaps();
+$r_snaps = ntt__kid_ntt__snaps();
 
 if ( $r_snaps === false ) {
     return array();
@@ -81,7 +81,7 @@ foreach ( $r_snaps as $key => $value ) {
             require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' );
             
             add_filter( 'ntt_html_css_filter', function( $classes ) {
-                return ntt_kid_snaps_html_css( $classes );
+                return ntt__kid_ntt__snaps_view__css( $classes );
             } );
         }
     }

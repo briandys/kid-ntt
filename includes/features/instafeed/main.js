@@ -26,6 +26,7 @@
             sortBy: 'most-recent',
             target: instafeedTarget
         } );
+        
         feed.run();
     }
 })();

@@ -8,22 +8,21 @@
  * 
  * List down all WordPress Shortcodes functions and their corresponding shortcode name (the one enclosed in [brackets] and is used while composing entries).
  */
-
-function ntt_kid_wp_shortcodes_init() {
+function ntt__kid_ntt__wp_shortcode__initialization() {
     
     $r_wp_shortcodes = array(
-        'get_search_form'                               => 'ntt_search_widget',
-        'ntt_kid_percept_wp_shortcode'                  => 'ntt_percept',
-        'ntt_kid_menu_wp_shortcode'                     => 'ntt_menu',
-        'ntt_kid_random_number_wp_shortcode'            => 'ntt_rand',
-        'ntt_kid_hide_email_from_spambots_wp_shortcode' => 'ntt_email',
+        'get_search_form'                                 => 'ntt_search_widget',
+        'ntt__kid_ntt__wp_shortcode__percept'             => 'ntt_percept',
+        'ntt__kid_ntt__wp_shortcode__nav_menu'            => 'ntt_menu',
+        'ntt__kid_ntt__wp_shortcode__random_number'       => 'ntt_rand',
+        'ntt__kid_ntt__wp_shortcode__email_anti_spambots' => 'ntt_email',
     );
     
     foreach ( $r_wp_shortcodes as $func => $wp_shortcode ) {
         add_shortcode( $wp_shortcode, $func );
     }
 }
-add_action( 'init', 'ntt_kid_wp_shortcodes_init' );
+add_action( 'init', 'ntt__kid_ntt__wp_shortcode__initialization' );
 
 /**
  * NTT Percept Shortcode
@@ -33,7 +32,7 @@ add_action( 'init', 'ntt_kid_wp_shortcodes_init' );
  * To display a particular entry: [ntt_percept post_id="<post id>"]
  * To display a custom field: [ntt_percept "custom_field_name"]
  */
-function ntt_kid_percept_wp_shortcode( $atts ) {
+function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
     
     $atts = array_change_key_case( ( array ) $atts, CASE_LOWER );
  
@@ -139,7 +138,7 @@ function ntt_kid_percept_wp_shortcode( $atts ) {
  * 
  * Usage: [ntt_menu name="menu-name"]
  */
-function ntt_kid_menu_wp_shortcode( $atts, $content = null ) {
+function ntt__kid_ntt__wp_shortcode__nav_menu( $atts, $content = null ) {
 	extract( shortcode_atts( array( 'name' => null, ), $atts ) );
 	$menu = wp_nav_menu( array( 'menu' => $name, 'echo' => false ) );
 	return $menu;
@@ -154,7 +153,7 @@ function ntt_kid_menu_wp_shortcode( $atts, $content = null ) {
  * Usage: [ntt_rand]
  * Setting at 4 digits: [ntt_rand 4]
  */
-function ntt_kid_random_number_wp_shortcode( $atts ) {
+function ntt__kid_ntt__wp_shortcode__random_number( $atts ) {
     
     if ( ! isset( $atts[0] ) ) {
         $digits = '2';
@@ -173,7 +172,7 @@ function ntt_kid_random_number_wp_shortcode( $atts ) {
  *
  * @return string The obfuscated email address. 
  */
-function ntt_kid_hide_email_from_spambots_wp_shortcode( $atts , $content = null ) {
+function ntt__kid_ntt__wp_shortcode__email_anti_spambots( $atts , $content = null ) {
 	if ( ! is_email( $content ) ) {
 		return;
 	}
@@ -184,7 +183,7 @@ function ntt_kid_hide_email_from_spambots_wp_shortcode( $atts , $content = null 
 
 	return sprintf( '<a href="%s">%s</a>', esc_url( $email_link, array( 'mailto' ) ), esc_html( $content ) );
 }
-add_shortcode( 'email', 'ntt_kid_hide_email_from_spambots_wp_shortcode' );
+add_shortcode( 'email', 'ntt__kid_ntt__wp_shortcode__email_anti_spambots' );
 
 /**
  * Enable the Text Widget and Custom HTML Widget to run WP Shortcodes

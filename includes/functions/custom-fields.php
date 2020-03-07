@@ -1,26 +1,26 @@
 <?php
 /**
  * HTML CSS Custom Field
- * Key: ntt__function__view__css
+ * Key: ntt_html_css
  * Adds CSS in HTML Tag.
  */
-function ntt_kid_custom_field_html_css( $classes ) {
+function ntt__kid_ntt__wp_custom_field__css( $classes ) {
     
-    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt__function__view__css', true );
+    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_html_css', true );
 
     if ( $html_css_post_meta !== '' ) {
         $classes[] = esc_attr( $html_css_post_meta );
     }
     return $classes;
 }
-add_filter( 'ntt_html_css_filter', 'ntt_kid_custom_field_html_css' );
+add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__wp_custom_field__css' );
 
 /**
  * Feature Custom Field
  * Key: ntt_feature
  * Any value found in custom field named, ntt_feature, will be added as CSS class names in HTML element.
  */
-function ntt_kid_html_css__feature( $classes ) {
+function ntt__kid_ntt__wp_custom_field__feature_view__css( $classes ) {
     
     $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
 
@@ -29,7 +29,7 @@ function ntt_kid_html_css__feature( $classes ) {
     }
     return $classes;
 }
-add_filter( 'ntt_html_css_filter', 'ntt_kid_html_css__feature' );
+add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__wp_custom_field__feature_view__css' );
 
 /**
  * Entry Subname Custom Field
@@ -38,7 +38,7 @@ add_filter( 'ntt_html_css_filter', 'ntt_kid_html_css__feature' );
  * 
  * Adds Entry Subname
  */
-function ntt_kid_wp_cf_entry_subname() {
+function ntt__kid_ntt__wp_custom_field__entry_subname() {
     
     $entry_subname_post_meta = get_post_meta( get_the_ID(), 'ntt_entry_subname', true );
 
@@ -52,12 +52,12 @@ function ntt_kid_wp_cf_entry_subname() {
 
     echo $entry_subname_mu;
 }
-add_action( 'ntt__wp_hook__entry_name___after', 'ntt_kid_wp_cf_entry_subname', 0 );
+add_action( 'ntt__wp_hook__entry_name___after', 'ntt__kid_ntt__wp_custom_field__entry_subname', 0 );
 
 /**
  * Entry Feature Return True
  */
-function ntt_kid_cf_entry_feature() {
+function ntt__kid_ntt__wp_custom_field__entry__feature() {
     $post_meta = get_post_meta( get_the_ID(), 'ntt_cf_entry_feature', true );
     $post_meta = trim( preg_replace( '/\s+/', '', $post_meta ) );
     
@@ -65,17 +65,17 @@ function ntt_kid_cf_entry_feature() {
 }
 
 // Entry Feature HTML CSS
-function ntt_kid_cf_entry_feature_html_css( $classes ) {
+function ntt__kid_ntt__wp_custom_field__entry__feature__css( $classes ) {
 
-    if ( ntt_kid_cf_entry_feature() ) {
+    if ( ntt__kid_ntt__wp_custom_field__entry__feature() ) {
         $classes[] = get_post_meta( get_the_ID(), 'ntt_cf_entry_feature', true );
     }
 
     return $classes;
 }
-add_filter( 'post_class', 'ntt_kid_cf_entry_feature_html_css' );
+add_filter( 'post_class', 'ntt__kid_ntt__wp_custom_field__entry__feature__css' );
 
 // Entry CSS added to HTML
 add_filter( 'ntt_html_css_filter', function( $classes ) {
-    return ( is_singular() && ntt_kid_cf_entry_feature() ) ? ntt_kid_cf_entry_feature_html_css( $classes ) : $classes;
+    return ( is_singular() && ntt__kid_ntt__wp_custom_field__entry__feature() ) ? ntt__kid_ntt__wp_custom_field__entry__feature__css( $classes ) : $classes;
 } );

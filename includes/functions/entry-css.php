@@ -3,7 +3,7 @@
  * Entry CSS
  */
 
-function ntt_kid_entry_css( $classes ) {
+function ntt__kid_ntt__function__entry__css( $classes ) {
 
     global $post;
 
@@ -86,15 +86,15 @@ function ntt_kid_entry_css( $classes ) {
     
     return $classes;
 }
-add_filter( 'post_class', 'ntt_kid_entry_css' );
+add_filter( 'post_class', 'ntt__kid_ntt__function__entry__css' );
 
 /**
  * Entry CSS added to HTML
  * 
- * Duplicated from ntt_kid_entry_css()
+ * Duplicated from ntt__kid_ntt__function__entry__css()
  */
 
-function ntt_kid_entry_html_css( $classes ) {
+function ntt__kid_ntt__function__entry_view__css( $classes ) {
 
     global $post;
 
@@ -187,7 +187,7 @@ function ntt_kid_entry_html_css( $classes ) {
 }
 
 add_filter( 'ntt_html_css_filter', function( $classes ) {
-    return is_singular() ? ntt_kid_entry_html_css( $classes ) : $classes;
+    return is_singular() ? ntt__kid_ntt__function__entry_view__css( $classes ) : $classes;
 } );
 
 /**
