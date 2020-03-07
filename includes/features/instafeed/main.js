@@ -4,18 +4,18 @@
      */
     const html = document.documentElement;
 
-    if (html.classList.contains('ntt--f5e--instafeed')) {
+    if (html.classList.contains('ntt--kid-ntt--feature--instafeed')) {
         const entityFooter = document.querySelector('.ntt--entity-footer');
-        var instafeedTarget = document.getElementById('ntt--f5e--instafeed--js');
+        var instafeedTarget = document.getElementById('ntt--kid-ntt--feature--instafeed--js');
 
         if (! instafeedTarget) {
             let instaFeed = document.createElement( 'div' );
-            instaFeed.id = 'ntt--f5e--instafeed--js';
-            instaFeed.className = 'ntt--f5e--instafeed--js';
+            instaFeed.id = 'ntt--kid-ntt--feature--instafeed--js';
+            instaFeed.className = 'ntt--kid-ntt--feature--instafeed--js';
             entityFooter.prepend( instaFeed );
         }
 
-        instafeedTarget = document.getElementById('ntt--f5e--instafeed--js');
+        instafeedTarget = document.getElementById('ntt--kid-ntt--feature--instafeed--js');
         
         var feed = new Instafeed( {
             get: 'user',

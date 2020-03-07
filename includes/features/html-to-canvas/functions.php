@@ -1,12 +1,11 @@
 <?php
 /**
  * HTML to Canvas
- * .ntt--f5e--html-to-canvas
  * Adds a button to save screenshot of the page.
  * https://html2canvas.hertzen.com
  */
-$GLOBALS['ntt_kid_f5e_html_to_canvas_css_name'] = 'ntt--f5e--'. $GLOBALS['ntt_kid_f5e_html_to_canvas_slug'];
-$GLOBALS['ntt_kid_f5e_html_to_canvas_enqueue_slug'] = 'ntt-kid-f5e--'. $GLOBALS['ntt_kid_f5e_html_to_canvas_slug'];
+$GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__prefixed_name'] = $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix']. $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__name'];
+$GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__version'] = '1.0.0';
 
 /**
  * NTT Feature Validation
@@ -16,7 +15,7 @@ function ntt__kid_ntt__feature__html_to_canvas__validation() {
     $theme_mod = get_theme_mod( 'ntt_settings_features' );
 
     $ntt_f5e_array = array(
-        $GLOBALS['ntt_kid_f5e_html_to_canvas_css_name'],
+        $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__prefixed_name'],
     );
 
     if ( strpos_array( $post_meta, $ntt_f5e_array ) || strpos_array( $theme_mod, $ntt_f5e_array ) ) {
@@ -26,16 +25,22 @@ function ntt__kid_ntt__feature__html_to_canvas__validation() {
 
 /**
  * Styles, Scripts
+ * Enqueues the styles and scripts
  */
 function ntt__kid_ntt__feature__html_to_canvas__styles_scripts() {
 
+    $name = $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__name'];
+    $prefixed_name = $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__prefixed_name'];
+    $version = $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__version'];
+    $theme_version = wp_get_theme()->get( 'Version' );
+
     if ( ntt__kid_ntt__feature__html_to_canvas__validation() ) {
 
-        wp_enqueue_style( $GLOBALS['ntt_kid_f5e_html_to_canvas_enqueue_slug']. '-style', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_html_to_canvas_slug']. '/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
-        
-        wp_enqueue_script( $GLOBALS['ntt_kid_f5e_html_to_canvas_enqueue_slug']. '-library-script', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_html_to_canvas_slug']. '/html2canvas.min.js', array(), wp_get_theme()->get( 'Version' ), true );
+        wp_enqueue_style( $prefixed_name. '--style', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/style.min.css', array( 'ntt-kid-style' ), $version. '-'. $theme_version );
 
-        wp_enqueue_script( $GLOBALS['ntt_kid_f5e_html_to_canvas_enqueue_slug']. '-script', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_html_to_canvas_slug']. '/main.js', array( $GLOBALS['ntt_kid_f5e_html_to_canvas_enqueue_slug']. '-library-script', ), wp_get_theme()->get( 'Version' ), true );
+        wp_enqueue_script( $prefixed_name. '--library-script', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/html2canvas.min.js', array(), $version. '-'. $theme_version, true );
+
+        wp_enqueue_script( $prefixed_name. '--script', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/main.js', array( $prefixed_name. '--library-script' ), $version. '-'. $theme_version, true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__html_to_canvas__styles_scripts', 0 );

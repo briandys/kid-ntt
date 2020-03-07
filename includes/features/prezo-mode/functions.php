@@ -1,11 +1,10 @@
 <?php
 /**
  * Prezo Mode
- * .ntt--f5e--prezo-mode
  * Adds a button to toggle Prezo Mode.
  */
-$GLOBALS['ntt_kid_f5e_prezo_mode_css_name'] = 'ntt--f5e--'. $GLOBALS['ntt_kid_f5e_prezo_mode_slug'];
-$GLOBALS['ntt_kid_f5e_prezo_mode_enqueue_slug'] = 'ntt-kid-f5e--'. $GLOBALS['ntt_kid_f5e_prezo_mode_slug'];
+$GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__prefixed_name'] = $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix']. $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'];
+$GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__version'] = '1.0.0';
 
 /**
  * NTT Feature Validation
@@ -15,7 +14,7 @@ function ntt__kid_ntt__feature__prezo_mode__validation() {
     $theme_mod = get_theme_mod( 'ntt_settings_features' );
 
     $ntt_f5e_array = array(
-        $GLOBALS['ntt_kid_f5e_prezo_mode_css_name'],
+        $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__prefixed_name'],
     );
 
     if ( strpos_array( $post_meta, $ntt_f5e_array ) || strpos_array( $theme_mod, $ntt_f5e_array ) ) {
@@ -25,14 +24,20 @@ function ntt__kid_ntt__feature__prezo_mode__validation() {
 
 /**
  * Styles, Scripts
+ * Enqueues the styles and scripts
  */
 function ntt__kid_ntt__feature__prezo_mode__styles_scripts() {
 
+    $name = $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'];
+    $prefixed_name = $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__prefixed_name'];
+    $version = $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__version'];
+    $theme_version = wp_get_theme()->get( 'Version' );
+
     if ( ntt__kid_ntt__feature__prezo_mode__validation() ) {
 
-        wp_enqueue_style( $GLOBALS['ntt_kid_f5e_prezo_mode_enqueue_slug']. '-style', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_prezo_mode_slug']. '/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
+        wp_enqueue_style( $prefixed_name. '--style', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/style.min.css', array( 'ntt-kid-style' ), $version. '-'. $theme_version );
 
-        wp_enqueue_script( $GLOBALS['ntt_kid_f5e_prezo_mode_enqueue_slug']. '-script', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt_kid_f5e_prezo_mode_slug']. '/main.js', array(), wp_get_theme()->get( 'Version' ), true );
+        wp_enqueue_script( $prefixed_name. '--script', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/main.js', array(), $version. '-'. $theme_version, true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__prezo_mode__styles_scripts', 0 );

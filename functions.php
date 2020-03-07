@@ -13,12 +13,12 @@ $GLOBALS['ntt__gvar__child_theme__version'] = '1.0.0';
 /**
  * Features Global Variables
  */
-$GLOBALS['ntt__gvar__kid_ntt__feature__sanitized_name_prefix'] = 'ntt--kid-ntt--feature--';
-$GLOBALS['ntt_kid_f5e_html_to_canvas_slug'] = 'html-to-canvas';
-$GLOBALS['ntt_kid_f5e_instafeed_slug'] = 'instafeed';
-$GLOBALS['ntt_kid_f5e_prezo_mode_slug'] = 'prezo-mode';
-$GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__slug'] = 'scroll-y';
-$GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug'] = 'user-functions';
+$GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix'] = 'ntt--kid-ntt--feature--';
+$GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__name'] = 'html-to-canvas';
+$GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'] = 'instafeed';
+$GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'] = 'prezo-mode';
+$GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'] = 'scroll-y';
+$GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'] = 'user-functions';
 
 /**
  * Functions
@@ -46,11 +46,11 @@ foreach ( $r_functions as $function ) {
  * Features
  */
 $r_features = array(
-    $GLOBALS['ntt_kid_f5e_html_to_canvas_slug'],
-    $GLOBALS['ntt_kid_f5e_instafeed_slug'],
-    $GLOBALS['ntt_kid_f5e_prezo_mode_slug'],
-    $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__slug'],
-    $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug'],
+    $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__name'],
+    $GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'],
+    $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'],
+    $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'],
+    $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'],
 );
 
 foreach ( $r_features as $feature ) {

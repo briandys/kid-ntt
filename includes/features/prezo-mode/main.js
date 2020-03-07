@@ -2,7 +2,7 @@
 
     const html = document.documentElement;
 
-    if ( html.classList.contains('ntt--f5e--prezo-mode')) {
+    if ( html.classList.contains('ntt--kid-ntt--feature--prezo-mode')) {
 
         const wildCard = document.getElementById('ntt--wild-card');
         
@@ -17,12 +17,12 @@
 
         const prezoAxn = document.createElement( 'button' );
         prezoAxn.innerHTML = 'Prezo';
-        prezoAxn.id = 'ntt--f5e--js--prezo-mode-axn--js';
-        prezoAxn.className = 'ntt--f5e--js--prezo-mode-axn--js';
+        prezoAxn.id = 'ntt--kid-ntt--feature--prezo-mode-axn--js';
+        prezoAxn.className = 'ntt--kid-ntt--feature--prezo-mode-axn--js';
         toolbar.appendChild( prezoAxn );
         
         prezoAxn.addEventListener( 'click', () => {
-            html.classList.toggle( 'ntt--f5e--prezo-mode---active--js' );
+            html.classList.toggle( 'ntt--kid-ntt--feature--prezo-mode---active--js' );
         }, false);
     }
 })();

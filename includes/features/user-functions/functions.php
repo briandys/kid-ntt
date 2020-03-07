@@ -6,8 +6,8 @@
  * https://www.php.net/manual/en/function.get-defined-functions.php
  * https://stackoverflow.com/a/10474285
  */
-$GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__css_name'] = 'ntt--kid-ntt--feature--'. $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug'];
-$GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__enqueue_slug'] = 'ntt--kid-ntt--feature--'. $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug'];
+$GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__prefixed_name'] = $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix']. $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'];
+$GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__version'] = '1.0.0';
 
 /**
  * NTT Feature Validation
@@ -16,7 +16,7 @@ function ntt__kid_ntt__feature__user_functions__validation() {
     $post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
 
     $ntt_f5e_array = array(
-        $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__css_name'],
+        $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__prefixed_name'],
     );
 
     if ( strpos_array( $post_meta, $ntt_f5e_array ) ) {
@@ -399,13 +399,35 @@ add_action( 'ntt__wp_hook__the_content___after', 'ntt__kid_ntt__feature__user_fu
 /**
  * Styles, Scripts
  */
+/*
 function ntt__kid_ntt__feature__user_functions__styles_scripts() {
 
     if ( is_page() && ntt__kid_ntt__feature__user_functions__validation() ) {
 
-        wp_enqueue_style( $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__enqueue_slug']. '-style', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug']. '/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
+        wp_enqueue_style( $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__enqueue_slug']. '-style', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name']. '/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
 
-        wp_enqueue_script( $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__enqueue_slug']. '-script', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug']. '/main.js', array(), wp_get_theme()->get( 'Version' ), true );
+        wp_enqueue_script( $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__enqueue_slug']. '-script', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name']. '/main.js', array(), wp_get_theme()->get( 'Version' ), true );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__user_functions__styles_scripts', 0 );
+*/
+
+/**
+ * Styles, Scripts
+ * Enqueues the styles and scripts
+ */
+function ntt__kid_ntt__feature__user_functions__styles_scripts() {
+
+    $name = $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'];
+    $prefixed_name = $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__prefixed_name'];
+    $version = $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__version'];
+    $theme_version = wp_get_theme()->get( 'Version' );
+
+    if ( is_page() && ntt__kid_ntt__feature__user_functions__validation() ) {
+
+        wp_enqueue_style( $prefixed_name. '--style', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/style.min.css', array( 'ntt-kid-style' ), $version. '-'. $theme_version );
+
+        wp_enqueue_script( $prefixed_name. '--script', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/main.js', array(), $version. '-'. $theme_version, true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__user_functions__styles_scripts', 0 );

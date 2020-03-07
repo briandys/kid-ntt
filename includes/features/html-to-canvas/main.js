@@ -8,7 +8,7 @@
 
     const html = document.documentElement;
 
-    if ( html.classList.contains('ntt--f5e--html-to-canvas') ) {
+    if ( html.classList.contains('ntt--kid-ntt--feature--html-to-canvas') ) {
         
         const wildCard = document.getElementById('ntt--wild-card');
         const capture = document.getElementById('content');
@@ -24,8 +24,8 @@
 
         const downloadAxn = document.createElement('button');
         downloadAxn.innerHTML = 'Download';
-        downloadAxn.id = 'ntt--f5e--html-to-canvas--download-axn---js';
-        downloadAxn.className = 'ntt--f5e--html-to-canvas--download-axn---js';
+        downloadAxn.id = 'ntt--kid-ntt--feature--html-to-canvas-download-axn--js';
+        downloadAxn.className = 'ntt--kid-ntt--feature--html-to-canvas-download-axn--js';
         downloadAxn.setAttribute('data-html2canvas-ignore', 'true');
         toolbar.appendChild(downloadAxn);
         
