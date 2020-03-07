@@ -6,17 +6,18 @@
 /**
  * Child Theme Settings
  */
-$GLOBALS['ntt_child_theme_name'] = 'Kid NTT';
-$GLOBALS['ntt_child_theme_url'] = '//briandys.com/ntt/';
+$GLOBALS['ntt__gvar__child_theme__name'] = 'Kid NTT';
+$GLOBALS['ntt__gvar__child_theme__url'] = '//briandys.com/ntt/';
+$GLOBALS['ntt__gvar__child_theme__version'] = '1.0.0';
 
 /**
- * Features Slug
+ * Features Global Variables
  */
+$GLOBALS['ntt__gvar__kid_ntt__feature__sanitized_name_prefix'] = 'ntt--kid-ntt--feature--';
 $GLOBALS['ntt_kid_f5e_html_to_canvas_slug'] = 'html-to-canvas';
 $GLOBALS['ntt_kid_f5e_instafeed_slug'] = 'instafeed';
 $GLOBALS['ntt_kid_f5e_prezo_mode_slug'] = 'prezo-mode';
-$GLOBALS['ntt_kid_f5e_scroll_y_slug'] = 'scroll-y';
-$GLOBALS['ntt_kid_f5e_scroll_y_slug'] = 'scroll-y';
+$GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__slug'] = 'scroll-y';
 $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug'] = 'user-functions';
 
 /**
@@ -35,7 +36,6 @@ $r_functions = array(
     'open-graph',
     'shortcodes',
     'snaps',
-    //'user-functions',
 );
 
 foreach ( $r_functions as $function ) {
@@ -49,7 +49,7 @@ $r_features = array(
     $GLOBALS['ntt_kid_f5e_html_to_canvas_slug'],
     $GLOBALS['ntt_kid_f5e_instafeed_slug'],
     $GLOBALS['ntt_kid_f5e_prezo_mode_slug'],
-    $GLOBALS['ntt_kid_f5e_scroll_y_slug'],
+    $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__slug'],
     $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__slug'],
 );
 
@@ -92,14 +92,14 @@ function strpos_array( $haystack, $needles ) {
  * Maker Tag Name
  */
 add_filter( 'ntt_entity_maker_tag_theme_name_filter', function() {
-    return $GLOBALS['ntt_child_theme_name'];
+    return $GLOBALS['ntt__gvar__child_theme__name'];
 } );
 
 /**
  * Maker Tag URL
  */
 add_filter( 'ntt_entity_maker_tag_theme_url_filter', function() {
-    return $GLOBALS['ntt_child_theme_url'];
+    return $GLOBALS['ntt__gvar__child_theme__url'];
 } );
 
 add_filter( 'ntt_entry_nav_name_filter', function() {

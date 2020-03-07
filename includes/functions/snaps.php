@@ -41,7 +41,7 @@ function ntt__kid_ntt__snaps_view__css( $classes ) {
 
     foreach ( $r_snaps as $key => $value ) {
         if ( get_theme_mod( 'ntt_kid_settings_snaps' ) == $key ) {
-            $classes[] = 'ntt--'. sanitize_title( $GLOBALS['ntt_child_theme_name'] ). '--'. basename( $value );
+            $classes[] = 'ntt--'. sanitize_title( $GLOBALS['ntt__gvar__child_theme__name'] ). '--'. basename( $value );
         }
     }
 

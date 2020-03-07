@@ -6,7 +6,7 @@
     const html = document.documentElement;
     const body = document.body;
 
-    if (html.classList.contains('ntt--f5e--scroll-y')) {
+    if (html.classList.contains('ntt--kid-ntt--feature--scroll-y')) {
 
         // The debounce function receives our function as a parameter
         const debounce = (fn) => {

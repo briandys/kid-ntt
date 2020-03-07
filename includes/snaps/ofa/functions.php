@@ -2,6 +2,7 @@
 
 $GLOBALS['ntt_snaps_name'] = 'OFA';
 $GLOBALS['ntt_snaps_name_slug'] = sanitize_title( $GLOBALS['ntt_snaps_name'] );
+$GLOBALS['ntt__gvar__kid_ntt__snaps__version'] = '1.0.0';
 
 /**
  * Functions
@@ -19,7 +20,7 @@ foreach ( $r_funcs as $func ) {
  */
 function ntt__kid_ntt__snaps__ofa_ntt__function__styles_scripts() {
 
-    wp_enqueue_style( $GLOBALS['ntt_snaps_name_slug']. '-ntt-style', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/styles/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
+    wp_enqueue_style( $GLOBALS['ntt_snaps_name_slug']. '-ntt-style', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/styles/style.min.css', array( 'ntt-kid-style' ), $GLOBALS['ntt__gvar__kid_ntt__snaps__version']. '-'. wp_get_theme()->get( 'Version' ) );
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__snaps__ofa_ntt__function__styles_scripts', 0 );
 
