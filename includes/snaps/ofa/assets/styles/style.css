@@ -1,3 +1,45 @@
+.ofa--bryce-cascades-preschool-flexi-30 {
+  border: 2px solid black;
+  border-radius: 50%;
+  min-width: 10rem;
+  min-height: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  word-break: normal;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.ntt--post--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entity-header,
+.ntt--post--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entity-footer,
+.ntt--post--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entry-header,
+.ntt--page--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entity-header,
+.ntt--page--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entity-footer,
+.ntt--page--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entry-header {
+  display: none;
+}
+
+.ntt--post--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entry-full-content,
+.ntt--page--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entry-full-content {
+  text-align: center;
+}
+
+.ntt--post--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entry-full-content .ggsi,
+.ntt--page--adam-bryce-for-gingersnaps2020modelsearch--view .ntt--entry-full-content .ggsi {
+  margin-top: 2em !important;
+  margin-bottom: 2em !important;
+}
+
 html {
   background-color: white;
 }
@@ -321,9 +363,9 @@ body {
 }
 
 .ntt--cm-date .ntt--txt {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding: .5em .75em;
   text-align: center;
+  font-size: 0.75rem;
   line-height: 1.2;
   border: 1px solid rgba(0, 0, 0, 0.25);
   -webkit-transition: all .2s;
@@ -337,16 +379,17 @@ body {
 
 .ntt--cm-date .ntt--day-txt {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 .ntt--cm-date .ntt--month-txt {
+  font-size: 1em;
   text-transform: uppercase;
   letter-spacing: .125em;
 }
 
 .ntt--cm-date .ntt--year-txt {
-  font-size: 0.75rem;
+  font-size: 1em;
   color: #757575;
 }
 
@@ -411,33 +454,13 @@ body {
 .ntt--comment-meta {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: normal;
       -ms-flex-align: normal;
           align-items: normal;
-  width: 100%;
-}
-
-.ntt--comment-datetime {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
 }
 
 .ntt--comment-author {
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-align: normal;
-      -ms-flex-align: normal;
-          align-items: normal;
-  margin-top: 1rem;
   padding: 1rem;
-}
-
-.ntt--comment-author-name {
-  margin-top: .25rem;
 }
 
 .ntt--comment-reply-axn {
@@ -514,6 +537,24 @@ body {
 
 .ntt--comments-header {
   width: 100%;
+}
+
+.ntt--comment-name {
+  margin-top: 1rem;
+}
+
+.ntt--comments-group .children {
+  position: relative;
+}
+
+.ntt--comments-group .children::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: .5rem;
+  height: 100%;
+  background-color: rgba(0, 96, 230, 0.125);
 }
 
 .ntt--note {

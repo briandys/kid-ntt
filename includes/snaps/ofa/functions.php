@@ -2,7 +2,7 @@
 
 $GLOBALS['ntt_snaps_name'] = 'OFA';
 $GLOBALS['ntt_snaps_name_slug'] = sanitize_title( $GLOBALS['ntt_snaps_name'] );
-$GLOBALS['ntt__gvar__kid_ntt__snaps__version'] = '1.0.0';
+$GLOBALS['ntt__gvar__kid_ntt__snaps__version'] = '1.0.1';
 
 /**
  * Functions
@@ -38,3 +38,25 @@ add_filter( 'kid_ntt_custom_fonts_filter', 'ntt__kid_ntt__snaps__ofa_ntt__functi
 add_filter( 'ntt_entry_author_label_filter', function() {
     return 'By';
 } );
+
+function ntt__tag__entry_header__structure() {
+
+    ntt__tag__entry_categories();
+    ntt__tag__entry_breadcrumbs_nav();
+    ntt__tag__entry_heading();
+    ntt__tag__entry_actions();
+    
+    if ( ( ( is_singular() || is_home() || is_archive() ) && has_excerpt() ) || is_search() ) {
+        ntt__tag__entry_secondary_meta__structure();
+    }
+
+    ntt__tag__entry_banner();
+    ntt__tag__entry_primary_meta();
+    ntt__tag__comments_actions_snippet();
+}
+
+function ntt__tag__entry_primary_meta__structure() {
+
+    ntt__tag__entry_datetime(); 
+    ntt__tag__entry_author();  
+}

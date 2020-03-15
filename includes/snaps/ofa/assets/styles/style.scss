@@ -2,6 +2,8 @@
 
 $accent-color: $panda-blue;
 
+@import 'custom';
+
 @import '../../../../../assets/styles/source/theme';
 
 body {
@@ -304,8 +306,9 @@ body {
     }
 
     .ntt--txt {
-        @include x-padding(.75rem);
+        padding: .5em .75em;
         text-align: center;
+        font-size: $text---xs;
         line-height: 1.2;
         border: 1px solid $on-surface-color---alpha-l;
         @include transition;
@@ -318,16 +321,17 @@ body {
 
     .ntt--day-txt {
         font-weight: bold;
-        font-size: $text---xl;
+        font-size: to-em($text---xl);
     }
 
     .ntt--month-txt {
+        font-size: to-em($text---m);
         text-transform: uppercase;
         letter-spacing: .125em;
     }
 
     .ntt--year-txt {
-        font-size: $text---xs;
+        font-size: to-em($text---m);
         color: $mid-color;
     }
 }
@@ -396,24 +400,11 @@ body {
 
 .ntt--comment-meta {
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: normal;
-    width: 100%;
-}
-
-.ntt--comment-datetime {
-    order: 1;
 }
 
 .ntt--comment-author {
-    flex-wrap: nowrap;
-    align-items: normal;
-    margin-top: 1rem;
     padding: 1rem;
-}
-
-.ntt--comment-author-name {
-    margin-top: .25rem;
 }
 
 .ntt--comment-reply-axn {
@@ -481,6 +472,27 @@ body {
 
 .ntt--comments-header {
     width: 100%;
+}
+
+.ntt--comment-name {
+    margin-top: 1rem;
+}
+
+.ntt--comments-group {
+
+    .children {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: .5rem;
+            height: 100%;
+            background-color: $accent-color---alpha-s;
+        }
+    }
 }
 
 //--------------------------------------------------------------

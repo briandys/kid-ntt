@@ -106,28 +106,6 @@ add_filter( 'ntt_entry_nav_name_filter', function() {
     return __( 'Can\'t Get Enough?', 'ntt' );
 } );
 
-function ntt__tag__entry_header__content() {
-
-    ntt__tag__entry_categories();
-    ntt__tag__entry_breadcrumbs_nav();
-    ntt__tag__entry_heading();
-    ntt__tag__entry_actions();
-    
-    if ( ( ( is_singular() || is_home() || is_archive() ) && has_excerpt() ) || is_search() ) {
-        ntt__tag__entry_secondary_meta__content();
-    }
-
-    ntt__tag__entry_banner();
-    ntt__tag__entry_primary_meta();
-    ntt__tag__comments_actions_snippet();
-}
-
-function ntt__tag__entry_primary_meta__content() {
-
-    ntt__tag__entry_author();
-    ntt__tag__entry_datetime();   
-}
-
 /**
  * Remove Password-Protected Posts Filter
  * Removes posts that are password-protected from the index

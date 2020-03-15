@@ -73,6 +73,19 @@ $font-body-factor-xs: .75;
 // Remove unused variables above; get all from Brian Dys CL and transfer here
 //--------------------------------------------------------------
 
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+// Convert Unitless Number to em
+@function to-em($number) {
+    @return strip-unit($number) * 1em;
+}
+
 //------------ Viewports
 $viewport-width---mobile: 320px;
 $viewport-width---tablet: 768px;

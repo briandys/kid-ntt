@@ -197,6 +197,13 @@
     display: none;
 }
 
+.ntt--empty-comments-note {
+
+    .ntt--comments---empty--view.ntt--comment-creation---1--view & {
+        display: none;
+    }
+}
+
 //--------------------------------------------------------------
 // Content Module - Author Avatar
 //--------------------------------------------------------------

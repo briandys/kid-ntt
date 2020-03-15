@@ -1,0 +1,34 @@
+.ofa--bryce-cascades-preschool-flexi-30 {
+    $dimension: 10rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    min-width: $dimension;
+    min-height: $dimension;
+    max-width: $dimension;
+    max-height: $dimension;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    word-break: normal;
+    flex-wrap: wrap;
+}
+
+.ntt--post--adam-bryce-for-gingersnaps2020modelsearch--view,
+.ntt--page--adam-bryce-for-gingersnaps2020modelsearch--view {
+
+    .ntt--entity-header,
+    .ntt--entity-footer,
+    .ntt--entry-header {
+        display: none;
+    }
+
+    .ntt--entry-full-content {
+        text-align: center;
+
+        .ggsi {
+            margin-top: 2em !important;
+            margin-bottom: 2em !important;
+        }
+    }
+}

@@ -210,16 +210,11 @@
 // Subcomments
 //--------------------------------------------------------------
 
-.ntt--comments {
-    
-    ul {
-        @include unlist;
-    }
-}
-
 .ntt--comments-group {
+    @include unlist;
 
-    ul {
+    .children {
+        @include unlist;
         margin-left: 1rem;
     }
 

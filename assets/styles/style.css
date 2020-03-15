@@ -308,13 +308,16 @@ label[for]:hover {
   display: inline-block;
 }
 
-.ntt--comments ul {
+.ntt--comments-group {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.ntt--comments-group ul {
+.ntt--comments-group .children {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   margin-left: 1rem;
 }
 
@@ -1772,6 +1775,10 @@ label[for]:hover {
 .ntt--comment-published-datetime-label,
 .ntt--comment-form .ntt--comment-author-label,
 .ntt--comment .ntt--comment-author-label {
+  display: none;
+}
+
+.ntt--comments---empty--view.ntt--comment-creation---1--view .ntt--empty-comments-note {
   display: none;
 }
 
