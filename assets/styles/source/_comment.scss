@@ -362,3 +362,14 @@
         @extend %block-pad;
     }
 }
+
+//--------------------------------------------------------------
+// Comment Content
+//--------------------------------------------------------------
+
+.ntt--comment-full-content {
+
+    .ntt--comment-creation---0 &  {
+        padding-bottom: .02px; // Hack so that the margin-bottom of the last block will take effect
+    }
+}

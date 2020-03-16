@@ -14,6 +14,7 @@
     flex-wrap: wrap;
 }
 
+
 .ntt--post--adam-bryce-for-gingersnaps2020modelsearch--view,
 .ntt--page--adam-bryce-for-gingersnaps2020modelsearch--view {
 
@@ -24,11 +25,95 @@
     }
 
     .ntt--entry-full-content {
-        text-align: center;
 
         .ggsi {
             margin-top: 2em !important;
             margin-bottom: 2em !important;
+            padding-left: 1rem !important;
+            padding-bottom: 1rem !important;
+
+            .ggs-embed-modal__stretcher {
+                display: flex !important;
+            }
         }
+    }
+}
+
+.ntt {
+    
+    #jp-relatedposts {
+        margin-top: 4rem;
+        @include x-padding();
+        padding-top: 0;
+
+        h3.jp-relatedposts-headline {
+            margin: 0;
+            margin-bottom: 1rem;
+            @include x-padding(1rem);
+            font-size: $text---xl;
+            font-weight: normal;
+
+            em {
+                font-weight: normal;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+
+        .jp-relatedposts-items-visual {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: 0;
+
+            .jp-relatedposts-post {
+                float: none;
+                flex: 1 33%;
+                width: auto;
+                margin-bottom: 0;
+                padding: 1rem;
+                opacity: 1;
+
+                .jp-relatedposts-post-title {
+                    font-size: $text---xl;
+                    font-family: 'Playfair Display';
+                    line-height: $line-height---s;
+                    
+                    a {
+                        color: $on-surface-color;
+                        font-weight: bold;
+                        border-bottom: 0;
+                    }
+                }
+            }
+
+            h4.jp-relatedposts-post-title {
+                font-size: $text---m;
+                line-height: $line-height---l;
+                margin-bottom: 1em;
+            }
+
+            .jp-relatedposts-post-thumbs {
+                display: flex;
+                flex-direction: column;
+
+                .jp-relatedposts-post-title {
+                    order: -1;
+                }
+            }
+        }
+
+        .jp-relatedposts-items {
+            
+            p {
+                font-size: $text---m;
+                line-height: $line-height---l;
+            }
+        }
+    }
+
+    .jp-relatedposts-post-a {
+        border-bottom: 0;
     }
 }

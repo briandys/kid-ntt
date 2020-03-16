@@ -448,6 +448,10 @@ label[for]:hover {
   color: inherit;
 }
 
+.ntt--comment-creation---0 .ntt--comment-full-content {
+  padding-bottom: .02px;
+}
+
 .ntt--cm-author-avatar a {
   display: block;
 }
@@ -652,6 +656,10 @@ label[for]:hover {
   margin-bottom: 1em;
 }
 
+.ntt--content > *:first-child {
+  margin-top: 1rem;
+}
+
 .ntt--content > ul,
 .ntt--content > ol {
   padding-left: calc(2.5rem + .5em);
@@ -727,7 +735,6 @@ label[for]:hover {
 
 .ntt--content pre {
   overflow: auto;
-  white-space: pre-wrap;
 }
 
 .ntt--content .ntt--pre-wrapper {
@@ -765,6 +772,10 @@ label[for]:hover {
 .ntt--content a[href*="flickr.com/"] {
   pointer-events: none;
   cursor: default;
+}
+
+.ntt--content .wp-block-image {
+  margin: 2em 0;
 }
 
 .ntt--entry-full-content .wp-block-gallery {
@@ -1090,6 +1101,7 @@ label[for]:hover {
 .ntt--show-more-axn {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  margin-top: 2em;
   margin-bottom: 0;
 }
 
@@ -1358,8 +1370,7 @@ label[for]:hover {
   border-bottom: 0;
 }
 
-.ntt--nav---sub-menu--js .ntt--sub-menu--js a,
-.ntt--nav---sub-menu--js .ntt--sub-menu--js .ntt--txt {
+.ntt--nav---sub-menu--js .ntt--sub-menu--js a {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1369,11 +1380,21 @@ label[for]:hover {
       -ms-flex-align: center;
           align-items: center;
   min-height: 48px;
+  white-space: nowrap;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu--js .ntt--txt {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
+  min-height: 48px;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu--js .ntt--sub-menu--js {
@@ -1390,10 +1411,6 @@ label[for]:hover {
 
 .ntt--nav---sub-menu--js > div > ul > .ntt--sub-menu-ancestor--js .ntt--sub-menu---active--js ~ li {
   display: none;
-}
-
-.ntt--nav---sub-menu--js.ntt--entity-primary-nav a, .ntt--nav---sub-menu--js.ntt--entity-secondary-nav a, .ntt--nav---sub-menu--js.ntt--widget_nav_menu a {
-  white-space: nowrap;
 }
 
 .ntt--entry-nav {

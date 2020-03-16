@@ -262,14 +262,16 @@
             }
         }
 
-        a,
-        .ntt--txt {
+        a {
             @include if-y-center;
             min-height: 48px;
+            white-space: nowrap;
         }
 
         .ntt--txt {
+            @include if-y-center;
             @include x-padding(1rem);
+            min-height: 48px;
         }
 
         // Indent Sub-menu
@@ -297,15 +299,6 @@
                     }
                 }
             }
-        }
-    }
-
-    &.ntt--entity-primary-nav,
-    &.ntt--entity-secondary-nav,
-    &.ntt--widget_nav_menu {
-
-        a {
-            white-space: nowrap;
         }
     }
 }

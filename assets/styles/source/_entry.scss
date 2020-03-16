@@ -26,6 +26,10 @@
         * {
             @include x-padding(1rem);
             @include y-margin(1em);
+
+            &:first-child {
+                margin-top: 1rem;
+            }
         }
 
         ul,
@@ -110,7 +114,6 @@
 
     pre {
         overflow: auto;
-        white-space: pre-wrap;
     }
 
     .ntt--pre-wrapper {
@@ -147,6 +150,10 @@
     a[href*="flickr.com/"] {
         pointer-events: none;
         cursor: default;
+    }
+
+    .wp-block-image {
+        margin: 2em 0;
     }
 }
 
@@ -530,6 +537,7 @@
 
 .ntt--show-more-axn {
     @include x-padding(.5rem);
+    margin-top: 2em;
     margin-bottom: 0;
 
     a {

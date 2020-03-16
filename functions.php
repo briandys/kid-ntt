@@ -128,7 +128,7 @@ add_filter( 'posts_where', 'ntt__kid_ntt__function__remove_password_protected_po
  * https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
  */
 function ntt__kid_ntt__function__responsive_flickr( $content ) {
-    $content = preg_replace( '/src=\"(.*staticflickr\.com.*)(_.*)\.jpg\"/i', 'src="$1_b.jpg" srcset="$1_n.jpg 320w, $1_z.jpg 640w, $1_b.jpg 1024w" sizes="(min-width: 880px) 100vw, 100vw"', $content , -1 );
+    $content = preg_replace( '/src=\"(.*staticflickr\.com.*)(_.*)\.jpg\"/i', 'src="$1_b.jpg" srcset="$1_n.jpg 320w, $1_z.jpg 640w, $1_b.jpg 1024w"', $content , -1 );
     
     return $content;
 }
