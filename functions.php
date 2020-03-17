@@ -102,10 +102,6 @@ add_filter( 'ntt_entity_maker_tag_theme_url_filter', function() {
     return $GLOBALS['ntt__gvar__child_theme__url'];
 } );
 
-add_filter( 'ntt_entry_nav_name_filter', function() {
-    return __( 'Can\'t Get Enough?', 'ntt' );
-} );
-
 /**
  * Remove Password-Protected Posts Filter
  * Removes posts that are password-protected from the index
