@@ -1,64 +1,68 @@
-( function( $ ) {
+/**
+ * Use Namespaces and Objects
+ * http://garystorey.com/2015/07/10/whats-wrong-with-your-javascript/
+ */
 
-	/**
+(function($, window, document, undefined) {
+    'use strict';
+    
+    /**
 	 * Wrap Text Node
 	 * https://stackoverflow.com/a/18727318
 	 */
-
-	wrapTextNode = function( $elem ) {
-		var $textNodeMU = $( '<span />', { 'class': 'ntt--txt' } );
+	var wrapTextNode = function($elem) {
+		var $textNodeMU = $('<span />', { 'class': 'ntt--txt' });
 		$elem.contents().filter(function() {
 			return this.nodeType === 3;
-		} ).wrap( $textNodeMU );
+        } ).wrap($textNodeMU);
 	}
 
 	/**
 	 * Remove Empty Elements
 	 * https://stackoverflow.com/a/18727318
 	 */
-
-	removeEmpty = function( $elem ) {
+	var removeEmpty = function($elem) {
 		$elem.each(function() {
-			var $this = $( this );
-			if ( $this.html().replace(/\s|&nbsp;/g, '' ).length == 0 ) {
+			var $this = $(this);
+			if ($this.html().replace(/\s|&nbsp;/g, '' ).length == 0) {
 				$this.remove();
 			}
 		} );
-	}
-
-    /**
-     * All text nodes will be wrapped in txt CSS class name. If empty, remove it.
-     */
-
-	var $content = $( '.ntt--content' );
-	wrapTextNode( $content );
-    removeEmpty( $content.find( '.ntt--txt' ) );
-
-    /**
-     * All text nodes will be wrapped in .txt. If empty, remove it.
-     */
-
-	var $categories = $( '.ntt--entry-categories' );
-	wrapTextNode( $categories );
-    removeEmpty( $categories.find( '.ntt--txt' ) );
+    }
     
     /**
-     * If Entry's only content is an image, it will not appear in Search Results, leaving Content Snippet with empty elements—so might as well remove them.
+     * Remove Extra Space
+     * https://stackoverflow.com/a/16974697
+     * https://www.tutorialrepublic.com/faq/how-to-remove-white-spaces-from-a-string-in-jquery.php
      */
+    var removeExtraSpace = function($elem) {
+		$elem.each(function() {
+            var myStr = $(this).text();
+            var trimStr = myStr.replace(/\s+/g,' ').trim();
+            $( this ).html(trimStr);
+		} );
+	}
 
-    var $contentSnippet = $( '.ntt--entry-content-snippet' );
-    removeEmpty( $contentSnippet.find( '*' ) );
-    removeEmpty( $contentSnippet );
+    // All text nodes will be wrapped in txt CSS class name. If empty, remove it.
+	var $content = $('.ntt--content');
+	wrapTextNode($content);
+    removeEmpty($content.find('.ntt--txt'));
+    removeExtraSpace($content.find('.ntt--txt'));
 
-} )( jQuery );
-
-(function() {
+    // All text nodes will be wrapped in .txt. If empty, remove it.
+	var $categories = $('.ntt--entry-categories');
+	wrapTextNode($categories);
+    removeEmpty($categories.find('.ntt--txt'));
+    
+    // If Entry's only content is an image, it will not appear in Search Results, leaving Content Snippet with empty elements—so might as well remove them.
+    var $contentSnippet = $('.ntt--entry-content-snippet');
+    removeEmpty($contentSnippet.find('*'));
+    removeEmpty($contentSnippet);
 
     /**
      * element.closest Polyfill for IE9+
      * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
      */
-
     if (!Element.prototype.matches) {
         Element.prototype.matches = Element.prototype.msMatchesSelector || 
                                     Element.prototype.webkitMatchesSelector;
@@ -89,10 +93,8 @@
 
     /** 
      * Wrap Element
-     * 
      * https://plainjs.com/javascript/manipulation/wrap-an-html-structure-around-an-element-28/
      */
-
     function wrap(el, wrapper) {
         el.parentNode.insertBefore(wrapper, el);
         wrapper.appendChild(el);
@@ -101,19 +103,17 @@
     /**
      * Wrap Table <table>
      */
-
     const contentTable = document.querySelectorAll( '.ntt--content > table' );
 
-    contentTable.forEach( ( el ) => {
+    contentTable.forEach((el) => {
         var skin = document.createElement( 'div' );
         skin.className = 'ntt--table-wrapper ntt--obj';
-        wrap( el, skin );
-    } );
+        wrap(el, skin);
+    });
 
     /**
      * Wrap Preformatted Text <pre>
      */
-
     const contentPre = document.querySelectorAll( '.ntt--content > pre' );
     
     contentPre.forEach( ( el ) => {
@@ -125,7 +125,6 @@
     /**
      * Wrap Code <code>
      */
-
     const contentCode = document.querySelectorAll( '.ntt--content code' );
     
     contentCode.forEach( ( el ) => {
@@ -135,9 +134,23 @@
     } );
 
     /**
+     * Wrap Video <iframe>
+     * https://css-tricks.com/fluid-width-video/
+     */
+    var videoPlayers = ['iframe[src*="youtube.com"]', 'iframe[src*="vimeo.com"]'];
+    var contentVideoIframe = document.querySelectorAll(videoPlayers.join(","));
+    
+    if(contentVideoIframe.length) {
+        contentVideoIframe.forEach((el) => {
+            var skin = document.createElement('div');
+            skin.className = 'ntt--video-iframe-skin--js';
+            wrap(el, skin);
+        });
+    }
+
+    /**
      * Entries Navigation
      */
-
     const entriesNavi = document.querySelectorAll( '.ntt--entries-nav li' );
 
     entriesNavi.forEach( ( el ) => {
@@ -158,7 +171,6 @@
     /**
      * Initialize Sub-menu CSS Class Name
      */
-
     const nav = document.querySelectorAll( '.ntt--nav' );
     const widgetNav = document.querySelectorAll( '.ntt--widget_nav_menu' );
     
@@ -188,7 +200,6 @@
      * 
      * Prepends a control to hide and show the sub-menu
      */
-
     const subMenu = document.querySelectorAll( '.ntt--nav .children, .ntt--nav .sub-menu, .ntt--widget_nav_menu .sub-menu' );
     let i = 0;
 
@@ -246,7 +257,6 @@
     /**
      * Initialize Activity Status on Sub-menu
      */
-    
     (function() {
         
         var input = document.querySelectorAll( '.ntt--nav---sub-menu--js input' );
@@ -271,7 +281,6 @@
      * Detect Tabbing and Mouse Usage
      * https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
      */
-    
     (function() {
 
         function handleFirstTab( e ) {
@@ -296,7 +305,6 @@
      * Intersection Observer Targeting IDs
      * https://codepen.io/bramus/pen/ExaEqMJ
      */
-
     (function() {
         window.addEventListener('DOMContentLoaded', () => {
 
@@ -326,7 +334,6 @@
      * Intersection Observer for Entity Footer
      * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
      */
-
     (function() {
         let entityFooter;
 
@@ -355,7 +362,6 @@
     /**
      * Assign Population Status of Input Elements
      */
-
     (function() {
 
         let inputs = document.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
@@ -377,7 +383,6 @@
      * Assign Listeners to Comment Input Elements
      * https://stackoverflow.com/a/47944959
      */
-
     (function() {
 
         if ( html.classList.contains('ntt--comment-creation---1--view') ) {
@@ -426,7 +431,6 @@
      * .ntt--js--random-image
      * https://stackoverflow.com/a/19693578
      */
-    
     (function() {
         
         if ( html.classList.contains('ntt--js--random-image') ) {
@@ -502,4 +506,17 @@
         console.log('Transition ended');
     });
     */
+})( jQuery, window, document );
+
+/*
+( function( $ ) {
+
+	
+
+} )( jQuery );
+
+(function() {
+
+    
 })();
+*/

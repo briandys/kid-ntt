@@ -353,9 +353,9 @@ body {
 }
 
 .ntt--entry-navi a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .ntt--entry-navi .ntt--txt {

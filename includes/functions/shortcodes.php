@@ -55,18 +55,18 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
 
     
     // From Custom Fields
-    if ( null !== $content || isset( $atts[0] ) ) {
+    if ( $content !== null || isset( $atts[0] ) ) {
 		
 		// If content = '' is set
-        if ( null !== $content && ! isset( $atts[0] ) ) {
+        if ( $content !== null && ! isset( $atts[0] ) ) {
             $content = $content;
         // If root attribute is set
-        } elseif ( null === $content && isset( $atts[0] ) ) {
+        } elseif ( $content === null && isset( $atts[0] ) ) {
             $content = esc_attr( $atts[0] );
         }
         
         // If no Post is defined, use the current Post
-        if ( null === $post && null === $post_id && null === $page && null === $page_id ) {
+        if ( $post === null && $post_id === null && $page === null && $page_id === null ) {
             global $post;
             $post_id = $post->ID;
         // If Post ID or Name is defined, get the ID of that
@@ -97,7 +97,7 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
 	} else {
         
         // Gatekeeper
-        if ( null === $post && null === $post_id && null === $page && null === $page_id ) {
+        if ( $post === null && $post_id === null && $page === null && $page_id === null ) {
             return;
         }
         
@@ -106,22 +106,24 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
         if ( $the_query->have_posts() ) {
 			
 			while ( $the_query->have_posts() ) {
-			
+            
+                global $post;
 				$the_query->the_post();
 
-                $section_mu = '<div class="ntt-percept ntt-percept--'. '%3$s'.' cp" data-source-url="'. esc_url( get_the_permalink() ).'" data-name="NTT Percept">';
-                    $section_mu .= '<div class="cr">';
-                        $section_mu .= '<div class="ntt-percept-name obj">'. esc_html( '%2$s' ). '</div>';
-                        $section_mu .= '<div class="ntt-percept-content cp" data-name="NTT Percept Content">';
-                            $section_mu .= '%1$s';
-                        $section_mu .= '</div>';
-					$section_mu .= '</div>';
+                $section_mu = '<div class="ntt--percept---'. $post->post_type.'--%3$s ntt--'. $post->post_type. '--%3$s'. ' ntt--percept ntt--cp" data-source-url="'. esc_url( get_the_permalink() ).'" data-name="NTT Percept">';
+                    $section_mu .= '<div class="ntt--percept--entry-name ntt--obj" data-name="NTT Percept Entry Name">';
+                        $section_mu .= '<a href="'. esc_url( get_the_permalink() ).'" target="_blank" rel="noreferrer noopener" aria-label="'. esc_attr( '%2$s' ).' (opens in a new tab)">'. esc_html( '%2$s' ). '</a>';
+                    $section_mu .= '</div>';
+                    $section_mu .= '<div class="ntt--percept--entry-content ntt--cp" data-name="NTT Percept Entry Content">';
+                        $section_mu .= '%1$s';
+                    $section_mu .= '</div>';
 				$section_mu .= '</div>';
 
                 $percept_section = sprintf( $section_mu,
                     apply_filters( 'the_content', do_shortcode( get_the_content() ) ),
                     get_the_title(),
-                    sanitize_title( get_the_title() )
+                    sanitize_title( get_the_title() ),
+                    'ntt--'. $post->post_type. '---'. sanitize_title( get_the_title() )
                 );
                 
                 return $percept_section;

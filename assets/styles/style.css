@@ -656,7 +656,7 @@ label[for]:hover {
   margin-bottom: 1em;
 }
 
-.ntt--content > *:first-child {
+.ntt .ntt--content > *:first-child {
   margin-top: 1rem;
 }
 
@@ -709,8 +709,18 @@ label[for]:hover {
   margin-bottom: 0;
 }
 
+.ntt--content figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .ntt--content figure[style*="width"] {
   width: auto !important;
+}
+
+.ntt--content figure.is-type-video {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .ntt--content table {
@@ -786,6 +796,21 @@ label[for]:hover {
   margin: 0;
 }
 
+.ntt--video-iframe-skin--js {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+}
+
+.ntt--video-iframe-skin--js iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .ntt--sub-content-entries-name {
   display: none;
 }
@@ -828,7 +853,8 @@ label[for]:hover {
 }
 
 .wp-caption-text, .ntt .wp-caption figcaption,
-.ntt .wp-block-image figcaption, .ntt--entry-banner-visuals figcaption {
+.ntt .wp-block-image figcaption,
+.ntt .wp-block-embed figcaption, .ntt--entry-banner-visuals figcaption {
   margin: 0;
   margin-top: .5em;
   text-align: left;
@@ -836,7 +862,8 @@ label[for]:hover {
 }
 
 .ntt .wp-caption,
-.ntt .wp-block-image {
+.ntt .wp-block-image,
+.ntt .wp-block-embed {
   /*
         .aligncenter {
             margin-top: 0;
