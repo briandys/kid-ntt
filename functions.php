@@ -171,3 +171,15 @@ function eel_ntt_entry_banner_visuals_featured_image_size() {
 }
 add_filter( 'ntt_entry_banner_visuals_featured_image_size_filter', 'eel_ntt_entry_banner_visuals_featured_image_size' );
 */
+
+/*
+function show_only_private_post_for_logged_in_users( $query ) {
+
+    if ( ! $query->is_main_query() || is_admin() ) {
+        return;
+    } else {
+        $query->set( 'post_status', 'private' );
+    }
+}
+add_action( 'pre_get_posts', 'show_only_private_post_for_logged_in_users' );
+*/

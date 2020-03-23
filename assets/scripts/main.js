@@ -45,7 +45,7 @@
 
     // All text nodes will be wrapped in txt CSS class name. If empty, remove it.
 	var $content = $('.ntt--content');
-	wrapTextNode($content);
+    wrapTextNode($content);
     removeEmpty($content.find('.ntt--txt'));
     removeExtraSpace($content.find('.ntt--txt'));
 
@@ -171,7 +171,7 @@
     /**
      * Initialize Sub-menu CSS Class Name
      */
-    const nav = document.querySelectorAll( '.ntt--nav' );
+    const nav = document.querySelectorAll( '.ntt--nav, .ntt--widget_nav_menu' );
     const widgetNav = document.querySelectorAll( '.ntt--widget_nav_menu' );
     
     nav.forEach( function ( el ) {
@@ -213,13 +213,14 @@
         checkbox.type = 'checkbox';
         checkbox.id = 'ntt--sub-menu-checkbox-' + i + '--js';
         checkbox.className = 'ntt--sub-menu-checkbox--js';
-        checkbox.setAttribute( 'arial-label', 'Show Menu' );
+        checkbox.setAttribute( 'title', 'Toggle Menu' );
+        checkbox.setAttribute( 'arial-label', 'Toggle Menu' );
 
         // Create Label
         const label = document.createElement( 'label' );
         label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i + '--js' );
         label.className = 'ntt--sub-menu-checkbox-label--js ntt--obj';
-        label.innerHTML = '<span class="ntt--txt">Show Menu</span>';
+        label.innerHTML = '<span class="ntt--txt">Toggle Menu</span>';
         
         // Insert in DOM
         parent.insertBefore( label, el );
@@ -334,6 +335,7 @@
      * Intersection Observer for Entity Footer
      * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
      */
+    /*
     (function() {
         let entityFooter;
 
@@ -358,6 +360,7 @@
             });
         }
     })();
+    */
 
     /**
      * Assign Population Status of Input Elements

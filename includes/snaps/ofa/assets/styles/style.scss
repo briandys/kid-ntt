@@ -1,6 +1,6 @@
 @import '../../../../../assets/styles/source/rules';
 
-$accent-color: $panda-blue;
+$text-link-color: $on-surface-color;
 
 @import 'custom';
 //@import 'jetpack';
@@ -15,69 +15,17 @@ body {
     text-align: center;
 }
 
-.ntt--entity-name {
-    margin-top: 1rem;
-}
-
 .ntt--entity-description {
     color: $mid-color;
     font-size: $text---s;
 }
 
-.ntt--entity-primary-nav-group {
-    justify-content: center;
-}
-
-@supports (display: grid) {
-
-    @include mq(880px) {
-
-        .ntt--entity-header {
-            display: grid;
-            grid-template:
-                'subscribe social-media entry-name primary-secondary search primary-all'
-                'primary-nav . . . . .'
-                / auto auto 1fr auto auto auto;
-
-            #ntt--custom_html-2 {
-                grid-area: subscribe;
-            }
-
-            #ntt--nav_menu-4 {
-                grid-area: social-media;
-            }
-
-            .ntt--entity-primary-nav {
-                grid-area: primary-nav;
-                grid-column: primary-nav / -1;
-                justify-self: center;
-            }
-
-            .ntt--entity-heading {
-                grid-area: entry-name;
-                justify-self: center;
-            }
-
-            #ntt--nav_menu-2 {
-                grid-area: primary-secondary;
-            }
-
-            #ntt--search-3 {
-                grid-area: search;
-            }
-
-            #ntt--nav_menu-3 {
-                grid-area: primary-all;
-            }
-        }
-
-        .ntt--entity-header-aside {
-            display: contents;
-        }
-    }
-}
+//--------------------------------------------------------------
+// Entity Header
+//--------------------------------------------------------------
 
 .ntt--entity-header {
+    @include y-padding(1rem);
     border-bottom: 1px solid $on-surface-color---alpha-m;
 }
 
@@ -95,7 +43,12 @@ body {
     font-size: $text---xxl;
 }
 
+//--------------------------------------------------------------
+// Entity Primary Navigation
+//--------------------------------------------------------------
+
 .ntt--entity-primary-nav {
+    text-align: center;
     font-family: 'Playfair Display';
 
     a {
@@ -105,22 +58,137 @@ body {
     }
 
     // Top-level Navigation Item
-    > div > ul {
+    > div {
         
-        > li {
+        > ul {
         
-            > a {
-                font-size: $text---xl;
-                text-align: center;
+            > li {
+            
+                > a {
+                    font-size: $text---xl;
+                    text-align: center;
+                }
+            }
+
+            > .ntt--sub-menu-ancestor--js {
+            
+                > a {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+.ntt--entity-primary-nav-group {
+    justify-content: center;
+}
+
+.ntt--entity-secondary-nav {
+    text-align: center;
+}
+
+//--------------------------------------------------------------
+// Entity Footer
+//--------------------------------------------------------------
+
+.ntt--entity-footer {
+
+    //--------------------------------------------------------------
+    // Widget Navigation Menu
+    //--------------------------------------------------------------
+
+    .ntt--widget_nav_menu {
+        text-align: center;
+    }
+
+    //--------------------------------------------------------------
+    // Sub-Menu
+    //--------------------------------------------------------------
+
+    .ntt--nav---sub-menu--js {
+        
+        .ntt--sub-menu-checkbox--js {
+            transform: rotate(180deg);
+        
+            &:checked {
+                transform: rotate(0deg);
+    
+                ~  {
+        
+                    .ntt--sub-menu--js {
+                        display: flex;
+                        flex-direction: column-reverse;
+                    }
+                }
+            }
+        }
+        
+        .ntt--sub-menu--js {
+            top: auto; // Reset
+            bottom: 100%;
+    
+            li {
+    
+                &:first-child {
+                    border-bottom-width: 0;
+                }
+    
+                &:last-child {
+                    border-bottom-width: 1px;
+                }
+    
+                &:only-child {
+                    border-bottom-width: 0;
+                }
+            }
+            
+            .ntt--sub-menu--js {
+                margin-top: 0; // Reset
+                margin-bottom: -.25rem;
             }
         }
 
-        > .ntt--sub-menu-ancestor--js {
+        // Target the siblings of active menu items, excluding top-level menu items
+        > div {
+
+            > ul {
+
+                > {
+
+                    li {
+
+                        > .ntt--sub-menu--js {
+                            margin-top: 0; // Reset
+                            margin-bottom: -.25rem;
+                        }
+                    }
+                    
+                    .ntt--sub-menu-ancestor--js {
         
-            > a {
-                text-align: left;
+                        .ntt--sub-menu---active--js {
+                            border-top-width: 0;
+                            border-bottom-width: 1px;
+
+                            &:only-child {
+                                border-bottom-width: 0;
+                            }
+                        }
+                    }
+                }
             }
         }
+    }
+}
+
+//--------------------------------------------------------------
+// Entity Header Aside
+//--------------------------------------------------------------
+
+.ntt--entity-header-aside {
+
+    .ntt--widget_nav_menu {
+        text-align: center;
     }
 }
 
@@ -197,8 +265,8 @@ body {
 }
 
 .ntt--entry-navi {
-    flex: 1 50%;
-
+    flex: 1 100%;
+    
     a {
         display: inline-flex;
     }
@@ -216,10 +284,17 @@ body {
     .ntt--delimiter-txt {
         display: none;
     }
+
+    .ntt--entry-name-txt {
+        font-size: $text---xl;
+        font-family: 'Playfair Display';
+        line-height: $line-height---s;
+    }
 }
 
 .ntt--next-entry-navi {
     order: 1;
+    text-align: right;
 
     .ntt--txt {
         flex: 1;
@@ -458,29 +533,24 @@ body {
     }
 }
 
-//--------------------------------------------------------------
-// Note
-//--------------------------------------------------------------
+.ntt--entry-header {
+    
+    .ntt--comments-actions-snippet {
+        display: none;
+    }
+}
 
-.ntt--note {
-    margin: 1rem;
-    @include y-padding(1rem);
-    background-color: aliceblue;
-    border-radius: $corner-radius---s;
+.ntt--comments---empty--view {
+    
+    &.ntt--comment-creation---0--view {
 
-    .ntt--content > & {
-        padding: 1rem 0;
+        .ntt--comment-md {
+            display: none;
+        }
     }
 
-    > * {
-
-        &:first-child {
-            margin-top: 0;
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
+    .ntt--comments-count {
+        display: none;
     }
 }
 
@@ -489,6 +559,7 @@ body {
 //--------------------------------------------------------------
 
 .ntt--entry-primary-meta {
+    flex-direction: row;
     flex-wrap: nowrap;
 }
 
@@ -514,17 +585,6 @@ body {
 
     .ntt--entity-name {
         margin-top: 0;
-    }
-}
-
-//--------------------------------------------------------------
-// Navigation Sub-menu
-//--------------------------------------------------------------
-    
-.ntt--nav---sub-menu--js {
-    
-    > div > ul > li > .ntt--sub-menu--js {
-        margin-top: -.25rem;
     }
 }
 
@@ -669,7 +729,7 @@ body {
     }
 }
 
-.ntt--entry-footer {
+.ntt--comment-md {
     margin-top: 4rem;
 }
 
@@ -678,6 +738,7 @@ body {
 //--------------------------------------------------------------
 
 .ntt--content {
+    font-size: $text---l;
     line-height: $line-height---l;
 
     > *:first-child {
@@ -685,10 +746,10 @@ body {
     }
 
     a {
-        font-weight: bold;
-        border-bottom: .125rem solid $accent-color;
+        border-bottom: .125rem solid $accent-color---alpha-m;
 
         &:hover {
+            color: $accent-color;
             text-decoration: none;
             border-bottom: 0;
         }
@@ -706,10 +767,26 @@ body {
     }
 
     blockquote {
-        @include y-margin(2em);
+        position: relative;
+        margin: 2em 0;
         @include x-padding(calc(1rem + 1em));
+        font-size: $text---xl;
+
+        &::before {
+            content: '“';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            transform: translate(1rem, -3.5rem);
+            color: $on-surface-color---alpha-m;
+            font-size: 6em;
+            line-height: 1;
+            font-family: serif;
+        }
 
         cite {
+            display: inline-block;
 
             em {
                 font-style: normal;
@@ -718,7 +795,6 @@ body {
 
         a {
             color: $on-surface-color;
-            border-bottom-color: $on-surface-color---alpha-l;
         }
     }
     
@@ -744,7 +820,7 @@ body {
         position: relative;
         margin: 0 .1em 0 -.05em;
         margin-top: .25em; // Inherent to font-family: 'Spartan';
-        font-size: 5.5rem;
+        font-size: 5.5em;
     }
     
     // Jetpack
@@ -756,6 +832,34 @@ body {
 
         &::after {
             padding-top: 1em;
+        }
+    }
+}
+
+
+    
+@include mq($tablet-viewport-width) {
+
+    //--------------------------------------------------------------
+    // Navigation
+    //--------------------------------------------------------------
+    
+    .ntt--entry-navi {
+        flex: 1 50%;
+    }
+
+    //--------------------------------------------------------------
+    // Content
+    //--------------------------------------------------------------
+
+    .ntt--content {
+
+        blockquote {
+            @include x-margin(2em);
+
+            &::before {
+                transform: translate(-2rem, -3rem);
+            }
         }
     }
 }

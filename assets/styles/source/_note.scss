@@ -1,10 +1,26 @@
 //--------------------------------------------------------------
-// Notes
+// Note
 //--------------------------------------------------------------
 
 .ntt--note {
-    
+    margin: 1rem;
+    @include y-padding(1rem);
+    background-color: aliceblue;
+    border-radius: $corner-radius---s;
+
+    .ntt--content > & {
+        padding: 1rem 0;
+    }
+
     > * {
         @include x-padding(1rem);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }

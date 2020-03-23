@@ -1,7 +1,13 @@
 
-@supports (display: grid) {
 
-    @include mq(880px) {
+
+@include mq($tablet-viewport-width) {
+
+    //--------------------------------------------------------------
+    // Layout
+    //--------------------------------------------------------------
+
+    @supports (display: grid) {
     
         .ntt--entity-main-main-aside---1 {
 
@@ -29,6 +35,38 @@
 
             .ntt--entry-nav {
                 grid-area: entity-main-footer;
+            }
+        }
+    }
+
+    //--------------------------------------------------------------
+    // Comments
+    //--------------------------------------------------------------
+
+    .ntt--comment-form {
+
+        .ntt--user---admin & {
+            position: relative;
+            padding-bottom: 1rem;
+
+            .form-submit {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                margin-right: 2rem;
+                margin-bottom: 2rem;
+
+                input[type="submit"] {
+                    margin: 0;
+                }
+            }
+
+            textarea.text-input {
+                padding-right: 8rem;
+            }
+
+            .ntt--comment-author-message-field {
+                margin-bottom: 0;
             }
         }
     }
@@ -132,40 +170,6 @@
         border-radius: $corner-radius---sm;
     }
 
-    // If user is logged in
-    .ntt--user---admin & {
-        position: relative;
-        padding-bottom: 1rem;
-
-        .form-submit {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            margin-right: 2rem;
-            margin-bottom: 2rem;
-
-            input[type="submit"] {
-                margin: 0;
-            }
-        }
-
-        textarea.text-input {
-            padding-right: 8rem;
-        }
-
-        .ntt--comment-author-message-field {
-            margin-bottom: 0;
-        }
-
-        .ntt--comment-author {
-            margin-top: 0;
-        }
-
-        .ntt--account-logged-in-status {
-            @include if-y-center;
-        }
-    }
-
     .ntt--comment-author-message-field {
         margin: 1rem;
         padding: 0;
@@ -188,6 +192,13 @@
 
     .ntt--comment-author-message-textbox {
         padding: 0;
+    }
+
+    .ntt--user---admin & {
+
+        .ntt--account-logged-in-status {
+            @include if-y-center;
+        }
     }
 }
 
@@ -247,16 +258,6 @@
                 background-color: red;
             }
         }
-    }
-}
-
-.ntt--entity-footer {
-    opacity: 0;
-    @include transition;
-    transition-duration: 2s;
-
-    &.ntt--intersected--js {
-        opacity: 1;
     }
 }
 
@@ -447,13 +448,6 @@ section:target {
     }
 }
 
-.ntt--entry-header {
-
-    .ntt--comments-actions-snippet {
-        display: none;
-    }
-}
-
 .ntt--comments-actions-snippet .ntt--comment-axn {
 
     a:hover {
@@ -471,13 +465,6 @@ section:target {
 
 .ntt--entry-footer {
     margin-top: 2rem;
-}
-
-.ntt--comments---empty--view {
-
-    .ntt--comments-count {
-        display: none;
-    }
 }
 
 .ntt--cancel-reply-axn,

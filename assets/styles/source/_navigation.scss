@@ -253,12 +253,16 @@
         top: 100%;
         width: auto;
         min-width: 100%;
+        border-width: 1px;
+        border-style: solid;
         border-radius: $corner-radius---sm;
 
         li {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
 
             &:last-child {
-                border-bottom: 0;
+                border-bottom-width: 0;
             }
         }
 
@@ -292,14 +296,28 @@
             > .ntt--sub-menu-ancestor--js {
     
                 .ntt--sub-menu---active--js {
-                    border-bottom: 0;
+                    border-bottom-width: 0;
                         
                     ~ li {
-                        display: none;
+                        // This hack will retain the width of the text to force the width of the parent
+                        display: block;
+                        visibility: hidden;
+                        height: 0;
                     }
                 }
             }
         }
+    }
+
+    &.ntt--widget_nav_menu {
+    
+        .ntt--sub-menu--js {
+    
+            a {
+                @include x-padding(1rem);
+            }
+        }
+        
     }
 }
 

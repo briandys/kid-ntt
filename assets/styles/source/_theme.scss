@@ -11,7 +11,7 @@ body {
 }
 
 a {
-    color: $accent-color;
+    color: $text-link-color;
 }
 
 button,
@@ -37,14 +37,19 @@ textarea {
     color: $content-text-color;
 }
 
+//--------------------------------------------------------------
+// Sub-Menu
+// JS-created CSS class name: .ntt--nav---sub-menu--js
+//--------------------------------------------------------------
+
 .ntt--nav---sub-menu--js {
     
     .ntt--sub-menu--js {
         background-color: $surface-color;
-        border: 1px solid $on-surface-color---alpha-m;
+        border-color: $on-surface-color---alpha-m;
 
         li {
-            border-bottom: 1px solid $on-surface-color---alpha-m;
+            border-bottom-color: $on-surface-color---alpha-m;
         }
     }
 }
@@ -54,7 +59,7 @@ textarea {
     a {
 
         .ntt--entry-name-txt {
-            color: $accent-color;
+            color: $text-link-color;
         }
     }
 }
@@ -66,7 +71,7 @@ textarea {
         &:hover {
 
             .ntt--entry-name-txt {
-                color: $accent-color;
+                color: $text-link-color;
             }
         }
     }
@@ -81,6 +86,10 @@ textarea {
 .ntt--comment-reply-axn,
 .ntt--show-more-axn,
 .ntt--comments-actions-snippet .ntt--comment-axn {
+
+    a {
+        color: $accent-color;
+    }
 
     .ntt--txt {
         border: .125rem solid $accent-color;

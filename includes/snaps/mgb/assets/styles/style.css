@@ -7,7 +7,7 @@ body {
 }
 
 a {
-  color: #DE756E;
+  color: #0060e6;
 }
 
 button,
@@ -33,18 +33,26 @@ textarea {
 
 .ntt--nav---sub-menu--js .ntt--sub-menu--js {
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-color: rgba(0, 0, 0, 0.125);
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu--js li {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom-color: rgba(0, 0, 0, 0.125);
 }
 
 .ntt--entry-nav a .ntt--entry-name-txt {
-  color: #DE756E;
+  color: #0060e6;
 }
 
 .ntt--entry-nav a:hover .ntt--entry-name-txt {
+  color: #0060e6;
+}
+
+.ntt--modify-entry-axn a,
+.ntt--modify-comment-axn a,
+.ntt--comment-reply-axn a,
+.ntt--show-more-axn a,
+.ntt--comments-actions-snippet .ntt--comment-axn a {
   color: #DE756E;
 }
 

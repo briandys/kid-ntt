@@ -2,13 +2,6 @@
 // Comment
 //--------------------------------------------------------------
 
-.ntt--comment-md {
-
-    .ntt--comments---empty--view.ntt--comment-creation---0--view & {
-        display: none;
-    }
-}
-
 .ntt--comment-meta {
     @include if-y-center
 }
@@ -82,7 +75,9 @@
 }
 
 .ntt--comments-header {
-    @include if-y-center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
     .ntt--comments-actions-snippet {
         display: flex;

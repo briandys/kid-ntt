@@ -69,6 +69,10 @@ $font-body-factor-xs: .75;
 
 
 
+
+
+
+
 //--------------------------------------------------------------
 // Remove unused variables above; get all from Brian Dys CL and transfer here
 //--------------------------------------------------------------
@@ -87,9 +91,12 @@ $font-body-factor-xs: .75;
 }
 
 //------------ Viewports
-$viewport-width---mobile: 320px;
-$viewport-width---tablet: 768px;
-$viewport-width---laptop: 1024px;
+$mobile-viewport-width---s: 320px;
+$mobile-viewport-width---m: 375px;
+$mobile-viewport-width---l: 425px;
+$tablet-viewport-width: 768px;
+$laptop-viewport-width: 1024px;
+$laptop-viewport-width---l: 1440px;
 
 //------------ Texts
 $text---xxs: .625rem;
@@ -136,6 +143,8 @@ $corner-radius---lg: .5rem;
 
 $content-text-color: $on-surface-color;
 $content-line-height: $line-height---m;
+
+$text-link-color: $accent-color;
 
 //--------------------------------------------------------------
 // Rules
