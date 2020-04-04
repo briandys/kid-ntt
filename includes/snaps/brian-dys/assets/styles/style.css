@@ -1,15 +1,40 @@
+/* Screen Reader Text ------------------------ */
 .ntt--view---front.ntt--page--view .ntt--entity-secondary-info, .ntt--entry-full-content [id*="contact-form"] label span {
   border: 0;
-  clip: rect(0 0 0 0);
+  clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
   clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
   padding: 0;
-  position: absolute;
+  position: absolute !important;
   width: 1px;
-  white-space: nowrap;
+  word-wrap: normal !important;
+  word-break: normal;
+}
+
+.ntt--view---front.ntt--page--view .ntt--entity-secondary-info:focus, .ntt--entry-full-content [id*="contact-form"] label span:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  -webkit-clip-path: none;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  height: auto;
+  right: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
 }
 
 .ntt--entity-secondary-nav .ntt--txt {
@@ -71,7 +96,8 @@ textarea {
 .ntt--modify-comment-axn a,
 .ntt--comment-reply-axn a,
 .ntt--show-more-axn a,
-.ntt--comments-actions-snippet .ntt--comment-axn a {
+.ntt--comments-actions-snippet .ntt--comment-axn a,
+.ntt--go-content-navi a a {
   color: #e60000;
 }
 
@@ -79,7 +105,9 @@ textarea {
 .ntt--modify-comment-axn .ntt--txt,
 .ntt--comment-reply-axn .ntt--txt,
 .ntt--show-more-axn .ntt--txt,
-.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt {
+.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt,
+.ntt--go-content-navi a .ntt--txt {
+  background-color: white;
   border: 0.125rem solid #e60000;
 }
 
@@ -87,7 +115,8 @@ textarea {
 .ntt--modify-comment-axn .ntt--txt:hover,
 .ntt--comment-reply-axn .ntt--txt:hover,
 .ntt--show-more-axn .ntt--txt:hover,
-.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt:hover {
+.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt:hover,
+.ntt--go-content-navi a .ntt--txt:hover {
   background-color: #e60000;
   color: white;
 }
@@ -179,8 +208,8 @@ textarea {
   border: 2px solid #1c1c1c;
   border-radius: 10rem;
   padding: .5rem 1rem;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
 }
 
 .ntt--site-id--brian-dys-uxd.ntt--page--topics--view .ntt--entry-full-content ul a:hover {
@@ -286,8 +315,8 @@ body {
   background-color: #1c1c1c;
   text-transform: uppercase;
   border: 1px solid white;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
 }
 
 .ntt--page--view.ntt--site-id--brian-dys .ntt--entry-name {
@@ -367,8 +396,8 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.125rem;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
 }
 
 .ntt--entity-primary-nav a:hover,
@@ -415,8 +444,8 @@ body {
 
 .brian-dys-work-item .title a {
   color: #f2f2f2;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
 }
 
 .brian-dys-work-item .title a:hover {
@@ -438,8 +467,8 @@ body {
 }
 
 .brian-dys-work-item .glyph a svg {
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
 }
@@ -492,8 +521,8 @@ body {
 
 .brian-dys-intro .paymaya-label a svg,
 .brian-dys-intro .voyager-label a svg {
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
 }
@@ -519,16 +548,17 @@ body {
 
 .ntt--entity-logo---1 .ntt--entity-name {
   border: 0;
-  clip: rect(0 0 0 0);
+  clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
   clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
   padding: 0;
-  position: absolute;
+  position: absolute !important;
   width: 1px;
-  white-space: nowrap;
+  word-wrap: normal !important;
+  word-break: normal;
 }
 
 .ntt--entity-logo {
@@ -848,8 +878,8 @@ body {
     background-color: #1c1c1c;
     text-transform: uppercase;
     border: 1px solid white;
-    -webkit-transition: all .2s;
-    transition: all .2s;
+    -webkit-transition: all 0.15s linear;
+    transition: all 0.15s linear;
   }
   .ntt--page-view .ntt--entry-header > * {
     padding-left: 2rem;

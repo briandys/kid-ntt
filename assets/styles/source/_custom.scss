@@ -419,7 +419,8 @@ section:target {
 .ntt--modify-comment-axn,
 .ntt--comment-reply-axn,
 .ntt--show-more-axn,
-.ntt--comments-actions-snippet .ntt--comment-axn {
+.ntt--comments-actions-snippet .ntt--comment-axn,
+.ntt--go-content-navi a {
     @include x-padding(1rem);
 
     a:hover {
@@ -458,6 +459,18 @@ section:target {
     }
 }
 
+.ntt--go-content-navi {
+    
+    a {
+        display: inline-block;
+        margin: 1rem;
+        @include x-padding();
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-decoration: none;
+    }
+}
 
 .ntt--entry-main {
     margin-top: 2rem;

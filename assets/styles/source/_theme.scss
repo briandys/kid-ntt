@@ -85,13 +85,15 @@ textarea {
 .ntt--modify-comment-axn,
 .ntt--comment-reply-axn,
 .ntt--show-more-axn,
-.ntt--comments-actions-snippet .ntt--comment-axn {
+.ntt--comments-actions-snippet .ntt--comment-axn,
+.ntt--go-content-navi a {
 
     a {
         color: $accent-color;
     }
 
     .ntt--txt {
+        background-color: $surface-color;
         border: .125rem solid $accent-color;
 
         &:hover {

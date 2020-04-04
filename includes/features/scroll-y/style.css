@@ -1,3 +1,4 @@
+/* Screen Reader Text ------------------------ */
 .ntt--kid-ntt--feature--scroll-y[data-scroll-y-percentage]::before {
   content: '';
   position: fixed;
@@ -6,8 +7,8 @@
   height: .125rem;
   width: 0%;
   background-color: transparent;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
   opacity: .5;
   -webkit-transform: translate3d(0px, 0px, 0px);
           transform: translate3d(0px, 0px, 0px);

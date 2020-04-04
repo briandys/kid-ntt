@@ -97,30 +97,6 @@
             @include y-margin(2em);
         }
     }
-    
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-        width: 100%;
-    }
-
-    tbody {
-        border: $faint-border;
-
-        th {
-            text-align: left;
-        }
-    }
-
-    th,
-    td {
-        padding: .5rem;
-        border: $faint-border;
-    }
-
-    pre {
-        overflow: auto;
-    }
 
     .ntt--pre-wrapper {
         max-width: 100vw;

@@ -1,8 +1,9 @@
 = Kid NTT =
-Author: Brian Dys
-Requires at least: WordPress 4.7
+Author: Brian Dys CL
+Tested up to: 5.3
+Stable tag: 1.0
 License: GNU General Public License
-License URI: LICENSE
+License URI: http://www.gnu.org/licenses/gpl.html
 
 == Description ==
 

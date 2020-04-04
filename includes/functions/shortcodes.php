@@ -46,7 +46,7 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
     ), $atts ) );
     
     $args = array(
-        'post_status'   => 'publish',
+        'post_status'   => array( 'publish', 'private' ),
         'name'          => sanitize_title( $post ),
         'p'             => $post_id,
         'pagename'      => sanitize_title( $page ),

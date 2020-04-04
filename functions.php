@@ -138,6 +138,53 @@ add_filter( 'ntt_cm_datetime_month_filter', function() {
 } );
 
 /**
+ * Sub-pages
+ */
+function ntt__kid_ntt__function__sub_pages() {
+    
+    if ( is_page_template( 'templates/sub-pages.php' ) ) {   
+        global $post;
+        $parent = $post->ID;
+        $args = array(
+            'post_type'     => 'page',
+            'post_status'   => 'publish',
+            'post_parent'   => $parent,
+            'orderby'       => 'menu_order',
+            'order'         => 'ASC'
+        );
+
+        $the_query = new WP_Query( $args );
+
+        if ( $the_query->have_posts() ) {   
+            
+            while ( $the_query->have_posts() ) {
+                $the_query->the_post();
+                get_template_part( 'content', get_post_format() );
+            }
+        }
+        wp_reset_postdata();
+    }
+}
+add_action( 'ntt__wp_hook__entry_full_content___after', 'ntt__kid_ntt__function__sub_pages' );
+
+/**
+ * Fix skip link focus in IE11.
+ *
+ * This does not enqueue the script because it is tiny and because it is only for IE11,
+ * thus it does not warrant having an entire dedicated blocking script being loaded.
+ *
+ * @link https://git.io/vWdr2
+ */
+function ntt__kid_ntt__function__skip_link_focus_fix() {
+	?>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
+	<?php
+}
+add_action( 'wp_print_footer_scripts', 'ntt__kid_ntt__function__skip_link_focus_fix' );
+
+/**
  * Complimentary Close
  */
 /*
@@ -170,16 +217,4 @@ function eel_ntt_entry_banner_visuals_featured_image_size() {
     return $featured_image_size;
 }
 add_filter( 'ntt_entry_banner_visuals_featured_image_size_filter', 'eel_ntt_entry_banner_visuals_featured_image_size' );
-*/
-
-/*
-function show_only_private_post_for_logged_in_users( $query ) {
-
-    if ( ! $query->is_main_query() || is_admin() ) {
-        return;
-    } else {
-        $query->set( 'post_status', 'private' );
-    }
-}
-add_action( 'pre_get_posts', 'show_only_private_post_for_logged_in_users' );
 */
