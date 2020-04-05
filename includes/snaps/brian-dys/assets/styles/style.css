@@ -92,33 +92,38 @@ textarea {
   color: #0060e6;
 }
 
-.ntt--modify-entry-axn a,
-.ntt--modify-comment-axn a,
-.ntt--comment-reply-axn a,
-.ntt--show-more-axn a,
-.ntt--comments-actions-snippet .ntt--comment-axn a,
-.ntt--go-content-navi a a {
+.ntt--modify-entry-axn a, .ntt--modify-comment-axn a, .ntt--comment-reply-axn a, .ntt--show-more-axn a, .ntt--comments-actions-snippet .ntt--comment-axn a, .ntt--go-content-navi a {
   color: #e60000;
 }
 
-.ntt--modify-entry-axn .ntt--txt,
-.ntt--modify-comment-axn .ntt--txt,
-.ntt--comment-reply-axn .ntt--txt,
-.ntt--show-more-axn .ntt--txt,
-.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt,
-.ntt--go-content-navi a .ntt--txt {
+.ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--show-more-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {
+  color: white;
+}
+
+.ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
   background-color: white;
   border: 0.125rem solid #e60000;
 }
 
-.ntt--modify-entry-axn .ntt--txt:hover,
-.ntt--modify-comment-axn .ntt--txt:hover,
-.ntt--comment-reply-axn .ntt--txt:hover,
-.ntt--show-more-axn .ntt--txt:hover,
-.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt:hover,
-.ntt--go-content-navi a .ntt--txt:hover {
+.ntt--modify-entry-axn .ntt--txt:hover, .ntt--modify-comment-axn .ntt--txt:hover, .ntt--comment-reply-axn .ntt--txt:hover, .ntt--show-more-axn .ntt--txt:hover, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt:hover, .ntt--go-content-navi .ntt--txt:hover {
   background-color: #e60000;
+}
+
+.ntt--go-content-navi a {
   color: white;
+}
+
+.ntt--go-content-navi a:hover {
+  color: #e60000;
+}
+
+.ntt--go-content-navi .ntt--txt {
+  background-color: #e60000;
+}
+
+.ntt--go-content-navi .ntt--txt:hover {
+  background-color: white;
+  border: 0.125rem solid #e60000;
 }
 
 .ntt--site-id--brian-dys-uxd {

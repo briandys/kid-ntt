@@ -5,6 +5,70 @@
 
 (function($, window, document, undefined) {
     'use strict';
+
+    var ntt = ntt || {};
+
+    // polyfill closest
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
+    if ( ! Element.prototype.closest ) {
+        Element.prototype.closest = function( s ) {
+            var el = this;
+
+            do {
+                if ( el.matches( s ) ) {
+                    return el;
+                }
+
+                el = el.parentElement || el.parentNode;
+            } while ( el !== null && el.nodeType === 1 );
+
+            return null;
+        };
+    }
+
+    // polyfill forEach
+    // https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill
+    if ( window.NodeList && ! NodeList.prototype.forEach ) {
+        NodeList.prototype.forEach = function( callback, thisArg ) {
+            var i;
+            var len = this.length;
+
+            thisArg = thisArg || window;
+
+            for ( i = 0; i < len; i++ ) {
+                callback.call( thisArg, this[ i ], i, this );
+            }
+        };
+    }
+
+    // event "polyfill"
+    ntt.createEvent = function( eventName ) {
+        var event;
+        if ( typeof window.Event === 'function' ) {
+            event = new Event( eventName );
+        } else {
+            event = document.createEvent( 'Event' );
+            event.initEvent( eventName, true, false );
+        }
+        return event;
+    };
+
+    // matches "polyfill"
+    // https://developer.mozilla.org/es/docs/Web/API/Element/matches
+    if ( ! Element.prototype.matches ) {
+        Element.prototype.matches =
+            Element.prototype.matchesSelector ||
+            Element.prototype.mozMatchesSelector ||
+            Element.prototype.msMatchesSelector ||
+            Element.prototype.oMatchesSelector ||
+            Element.prototype.webkitMatchesSelector ||
+            function( s ) {
+                var matches = ( this.document || this.ownerDocument ).querySelectorAll( s ),
+                    i = matches.length;
+                while ( --i >= 0 && matches.item( i ) !== this ) {}
+                return i > -1;
+            };
+    }
     
     /**
 	 * Wrap Text Node
@@ -137,6 +201,7 @@
      * Wrap Video <iframe>
      * https://css-tricks.com/fluid-width-video/
      */
+    /*
     var videoPlayers = ['iframe[src*="youtube.com"]', 'iframe[src*="vimeo.com"]'];
     var contentVideoIframe = document.querySelectorAll(videoPlayers.join(","));
     
@@ -147,167 +212,235 @@
             wrap(el, skin);
         });
     }
+    */
 
-    /**
-     * Entries Navigation
-     */
-    const entriesNavi = document.querySelectorAll( '.ntt--entries-nav li' );
+    /*	-----------------------------------------------------------------------------------------------
+    Intrinsic Ratio Embeds
+    From Twenty Twenty
+    --------------------------------------------------------------------------------------------------- */
 
-    entriesNavi.forEach( ( el ) => {
-        
-        if ( el.querySelector( '.next' ) ) {
-            el.classList.add( 'ntt--next-entries-navi' );
+    ntt.intrinsicRatioVideos = {
+
+        init: function() {
+            this.makeFit();
+
+            window.addEventListener( 'resize', function() {
+                this.makeFit();
+            }.bind( this ) );
+        },
+
+        makeFit: function() {
+            document.querySelectorAll( 'iframe, object, video' ).forEach( function( video ) {
+                var ratio, iTargetWidth,
+                    container = video.parentNode;
+
+                // Skip videos we want to ignore.
+                if ( video.classList.contains( 'intrinsic-ignore' ) || video.parentNode.classList.contains( 'intrinsic-ignore' ) ) {
+                    return true;
+                }
+
+                if ( ! video.dataset.origwidth ) {
+                    // Get the video element proportions.
+                    video.setAttribute( 'data-origwidth', video.width );
+                    video.setAttribute( 'data-origheight', video.height );
+                }
+
+                iTargetWidth = container.offsetWidth;
+
+                // Get ratio from proportions.
+                ratio = iTargetWidth / video.dataset.origwidth;
+
+                // Scale based on ratio, thus retaining proportions.
+                video.style.width = iTargetWidth + 'px';
+                video.style.height = ( video.dataset.origheight * ratio ) + 'px';
+            } );
         }
 
-        if ( el.querySelector( '.prev' ) ) {
-            el.classList.add( 'ntt--previous-entries-navi' );
-        }
+    }; // ntt.instrinsicRatioVideos
 
-        if ( el.querySelector( '.current' ) ) {
-            el.classList.add( 'ntt--current-entries-navi' );
-        }
-    } );
+    /*	-----------------------------------------------------------------------------------------------
+	Entries Navigation
+    --------------------------------------------------------------------------------------------------- */
+    ntt.entriesNav = {
 
-    /**
-     * Initialize Sub-menu CSS Class Name
-     */
-    const nav = document.querySelectorAll( '.ntt--nav, .ntt--widget_nav_menu' );
-    const widgetNav = document.querySelectorAll( '.ntt--widget_nav_menu' );
-    
-    nav.forEach( function ( el ) {
+        init: function() {
 
-        if ( el.querySelector( '.children, .sub-menu' ) !== null ) {
-            el.classList.add( 'ntt--nav---sub-menu--js' );
-        }
-    } );
+            const entriesNavi = document.querySelectorAll( '.ntt--entries-nav li' );
 
-    widgetNav.forEach( function ( el ) {
-
-        if ( el.querySelector( '.sub-menu' ) !== null ) {
-            el.classList.add( 'ntt--nav---sub-menu--js' );
-        }
-    } );
-
-    const currentNavItem = document.querySelectorAll( '.current-menu-item, .current_page_item' );
-    
-    currentNavItem.forEach( function ( el ) {
-
-        el.classList.add( 'ntt--sub-menu-current-item--js' );
-    } );
-
-    /**
-     * Sub-menu
-     * 
-     * Prepends a control to hide and show the sub-menu
-     */
-    const subMenu = document.querySelectorAll( '.ntt--nav .children, .ntt--nav .sub-menu, .ntt--widget_nav_menu .sub-menu' );
-    let i = 0;
-
-    subMenu.forEach( ( el ) => {
-        
-        i++;
-        const parent = el.parentNode;
-        
-        // Create Checkbox
-        const checkbox = document.createElement( 'input' );
-        checkbox.type = 'checkbox';
-        checkbox.id = 'ntt--sub-menu-checkbox-' + i + '--js';
-        checkbox.className = 'ntt--sub-menu-checkbox--js';
-        checkbox.setAttribute( 'title', 'Toggle Menu' );
-        checkbox.setAttribute( 'arial-label', 'Toggle Menu' );
-
-        // Create Label
-        const label = document.createElement( 'label' );
-        label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i + '--js' );
-        label.className = 'ntt--sub-menu-checkbox-label--js ntt--obj';
-        label.innerHTML = '<span class="ntt--txt">Toggle Menu</span>';
-        
-        // Insert in DOM
-        parent.insertBefore( label, el );
-        parent.insertBefore( checkbox, label );
-
-        el.classList.add( 'ntt--sub-menu--js' );
-        parent.classList.add( 'ntt--sub-menu-ancestor--js' );
-    } );
-
-    /**
-     * Uncheck checkboxes when clicked outside the element
-     */
-    const subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor--js' );
-
-    window.addEventListener( 'click', function ( event ) {
-
-        subMenuAncestor.forEach( function ( el ) {
-
-            const targetEl = el.contains( event.target );
-        
-            if ( ! targetEl ) {
-                const input = el.getElementsByTagName('input');
+            entriesNavi.forEach( ( el ) => {
                 
-                for ( var i = 0; i < input.length; i++ ) { 
-                    if ( input[i].type === 'checkbox' ) { 
-                        input[i].checked = false; 
-                    }
+                if ( el.querySelector( '.next' ) ) {
+                    el.classList.add( 'ntt--next-entries-navi' );
                 }
 
-                el.classList.remove( 'ntt--sub-menu---active--js' );
-            }
-        } )
-    }, false);
-    
-    /**
-     * Initialize Activity Status on Sub-menu
-     */
-    (function() {
-        
-        var input = document.querySelectorAll( '.ntt--nav---sub-menu--js input' );
+                if ( el.querySelector( '.prev' ) ) {
+                    el.classList.add( 'ntt--previous-entries-navi' );
+                }
 
-        for ( var i = 0, len = input.length; i < len; i++ ) {
+                if ( el.querySelector( '.current' ) ) {
+                    el.classList.add( 'ntt--current-entries-navi' );
+                }
+            } );
+        }
+    }; // ntt.entriesNav
+
+    /*	-----------------------------------------------------------------------------------------------
+	Sub-menu
+    --------------------------------------------------------------------------------------------------- */
+    ntt.subMenu = {
+
+        init: function() {
+            this.initCssClassNames();
+            this.toggleMenu();
+            this.uncheckOnOutsideClick();
+            this.initActivityStatus();
+        },
+
+        initCssClassNames: function() {
+
+            // Initialize Sub-menu CSS Class Name
+            const nav = document.querySelectorAll( '.ntt--nav, .ntt--widget_nav_menu' );
+            const widgetNav = document.querySelectorAll( '.ntt--widget_nav_menu' );
+            const currentNavItem = document.querySelectorAll( '.current-menu-item, .current_page_item' );
             
-            if ( input[i].type === 'checkbox' ) {
-                input[i].onclick = function() {
-                    const parent = this.parentNode;
-                    
-                    if ( this.checked ) {
-                        parent.classList.add( 'ntt--sub-menu---active--js' );
-                    } else {
-                        parent.classList.remove( 'ntt--sub-menu---active--js' );
+            nav.forEach( function ( el ) {
+
+                if ( el.querySelector( '.children, .sub-menu' ) !== null ) {
+                    el.classList.add( 'ntt--nav---sub-menu--js' );
+                }
+            } );
+
+            widgetNav.forEach( function ( el ) {
+
+                if ( el.querySelector( '.sub-menu' ) !== null ) {
+                    el.classList.add( 'ntt--nav---sub-menu--js' );
+                }
+            } );
+            
+            currentNavItem.forEach( function ( el ) {
+                el.classList.add( 'ntt--sub-menu-current-item--js' );
+            } );
+        },
+
+        toggleMenu: function() {
+
+            // Prepends a control to hide and show the sub-menu
+            const subMenu = document.querySelectorAll( '.ntt--nav .children, .ntt--nav .sub-menu, .ntt--widget_nav_menu .sub-menu' );
+            
+            var i = 0;
+
+            subMenu.forEach( ( el ) => {
+                
+                i++;
+                const parent = el.parentNode;
+                
+                // Create Checkbox
+                const checkbox = document.createElement( 'input' );
+                checkbox.type = 'checkbox';
+                checkbox.id = 'ntt--sub-menu-checkbox-' + i + '--js';
+                checkbox.className = 'ntt--sub-menu-checkbox--js';
+                checkbox.setAttribute( 'title', 'Toggle Menu' );
+                checkbox.setAttribute( 'arial-label', 'Toggle Menu' );
+
+                // Create Label
+                const label = document.createElement( 'label' );
+                label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i + '--js' );
+                label.className = 'ntt--sub-menu-checkbox-label--js ntt--obj';
+                label.innerHTML = '<span class="ntt--txt">Toggle Menu</span>';
+                
+                // Insert in DOM
+                parent.insertBefore( label, el );
+                parent.insertBefore( checkbox, label );
+
+                el.classList.add( 'ntt--sub-menu--js' );
+                parent.classList.add( 'ntt--sub-menu-ancestor--js' );
+            } );
+        },
+
+        uncheckOnOutsideClick: function() {
+
+            // Uncheck checkboxes when clicked outside the element
+            const subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor--js' );
+
+            window.addEventListener( 'click', function ( event ) {
+
+                subMenuAncestor.forEach( function ( el ) {
+
+                    const targetEl = el.contains( event.target );
+                
+                    if ( ! targetEl ) {
+                        const input = el.getElementsByTagName('input');
+                        
+                        for ( var i = 0; i < input.length; i++ ) { 
+                            if ( input[i].type === 'checkbox' ) { 
+                                input[i].checked = false; 
+                            }
+                        }
+
+                        el.classList.remove( 'ntt--sub-menu---active--js' );
+                    }
+                } )
+            }, false);
+        },
+
+        initActivityStatus: function() {
+
+            var input = document.querySelectorAll( '.ntt--nav---sub-menu--js input' );
+
+            for ( var i = 0, len = input.length; i < len; i++ ) {
+                
+                if ( input[i].type === 'checkbox' ) {
+                    input[i].onclick = function() {
+                        const parent = this.parentNode;
+                        
+                        if ( this.checked ) {
+                            parent.classList.add( 'ntt--sub-menu---active--js' );
+                        } else {
+                            parent.classList.remove( 'ntt--sub-menu---active--js' );
+                        }
                     }
                 }
             }
         }
-    })();
+    }; // ntt.subMenu
 
-    /**
-     * Detect Tabbing and Mouse Usage
-     * https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
-     */
-    (function() {
+    /*	-----------------------------------------------------------------------------------------------
+    Detect Tabbing and Mouse Usage
+    https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+    --------------------------------------------------------------------------------------------------- */
+    ntt.detectTabbing = {
 
-        function handleFirstTab( e ) {
-            
-            if ( e.keyCode === 9 ) {
-                html.classList.add('ntt--nav-mode---tab--js');
-                window.removeEventListener('keydown', handleFirstTab);
-                window.addEventListener('mousedown', handleMouseDownOnce);
-            }
-        }
-        
-        function handleMouseDownOnce() {
+        init: function() {
+            this.handleFirstTab();
+            this.handleMouseDownOnce();
+
+            window.addEventListener('keydown', function(event) {
+                if ( event.keyCode === 9 ) {
+                    ntt.detectTabbing.handleFirstTab();
+                }
+            });
+        },
+
+        handleFirstTab: function() {
+            html.classList.add('ntt--nav-mode---tab--js');
+            window.removeEventListener('keydown', ntt.detectTabbing.handleFirstTab);
+            window.addEventListener('mousedown', ntt.detectTabbing.handleMouseDownOnce);
+        },
+
+        handleMouseDownOnce: function() {
             html.classList.remove('ntt--nav-mode---tab--js');
-            window.removeEventListener('mousedown', handleMouseDownOnce);
-            window.addEventListener('keydown', handleFirstTab);
+            window.removeEventListener('mousedown', ntt.detectTabbing.handleMouseDownOnce);
+            window.addEventListener('keydown', ntt.detectTabbing.handleFirstTab);
         }
-        
-        window.addEventListener('keydown', handleFirstTab);
-    })();
+    }; // ntt.detectTabbing
 
-    /**
-     * Intersection Observer Targeting IDs
-     * https://codepen.io/bramus/pen/ExaEqMJ
-     */
-    (function() {
-        window.addEventListener('DOMContentLoaded', () => {
+    /*	-----------------------------------------------------------------------------------------------
+    Intersection Observer Targeting IDs
+    https://codepen.io/bramus/pen/ExaEqMJ
+    --------------------------------------------------------------------------------------------------- */
+    ntt.sectionIdIntersection = {
+
+        init: function() {
 
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -328,198 +461,191 @@
                 observer.observe(section);
                 section.classList.add('ntt--not-intersected--js');
             });
-        });
-    })();
-
-    /**
-     * Intersection Observer for Entity Footer
-     * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
-     */
-    /*
-    (function() {
-        let entityFooter;
-
-        window.addEventListener('load', (event) => {
-            entityFooter = document.querySelector('.ntt--entity-footer');
-            createObserver();
-        }, false);
-
-        function createObserver() {
-            let observer;
-            observer = new IntersectionObserver(handleIntersect);
-            observer.observe(entityFooter);
         }
+    }; // ntt.sectionIdIntersection
 
-        function handleIntersect(entries, observer) {
-            entries.forEach((entry) => {
-                if (entry.intersectionRatio > 0) {
-                    entry.target.classList.add('ntt--intersected--js');
+    /*	-----------------------------------------------------------------------------------------------
+    Assign Population Status of Input Elements
+    --------------------------------------------------------------------------------------------------- */
+    ntt.inputPopulationStatus = {
+
+        init: function() {
+            var inputs = document.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
+            var input = null;
+            var formField = '.ntt--form-field';
+
+            for ( var i = 0, len = inputs.length; i < len; i++ ) {
+                input = inputs[i];
+
+                if ( ! input.value ) {
+                    input.closest( formField ).classList.add('ntt--form-field---empty--js');
                 } else {
-                    entry.target.classList.remove('ntt--intersected--js');
+                    input.closest( formField ).classList.add('ntt--form-field---populated--js');
                 }
-            });
-        }
-    })();
-    */
-
-    /**
-     * Assign Population Status of Input Elements
-     */
-    (function() {
-
-        let inputs = document.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
-        let input = null;
-        let formField = '.ntt--form-field';
-
-        for ( var i = 0, len = inputs.length; i < len; i++ ) {
-            input = inputs[i];
-
-            if ( ! input.value ) {
-                input.closest( formField ).classList.add('ntt--form-field---empty--js');
-            } else {
-                input.closest( formField ).classList.add('ntt--form-field---populated--js');
             }
         }
-    })();
+    }; // ntt.inputPopulationStatus
 
-    /**
-     * Assign Listeners to Comment Input Elements
-     * https://stackoverflow.com/a/47944959
-     */
-    (function() {
+    /*	-----------------------------------------------------------------------------------------------
+    Intersection Observer for Entity Footer
+    https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+    --------------------------------------------------------------------------------------------------- */
+    ntt.entityFooterIntersection = {
 
-        if ( html.classList.contains('ntt--comment-creation---1--view') ) {
-            
-            const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
-            const inputDelegate = delegate('.text-input');
-            const commentForm = document.getElementById('commentform');
-            let formField = '.ntt--form-field';
-            let focusInTxt = 'ntt--form-field---focusin--js';
-            let focusOutTxt = 'ntt--form-field---focusout--js';
-            let emptyTxt = 'ntt--form-field---empty--js';
-            let populatedTxt = 'ntt--form-field---populated--js';
+        init: function() {
+            var entityFooter;
 
-            // Focus In
-            commentForm.addEventListener('focusin', inputDelegate((el) => {
-                el.target.closest( formField ).classList.add(focusInTxt);
-                el.target.closest( formField ).classList.remove(focusOutTxt);
+            window.addEventListener('load', (event) => {
+                entityFooter = document.querySelector('.ntt--entity-footer');
+                createObserver();
+            }, false);
 
-                if ( ! el.target.value ) {
-                    el.target.closest( formField ).classList.add(emptyTxt);
-                    el.target.closest( formField ).classList.remove(populatedTxt);
-                } else {
-                    el.target.closest( formField ).classList.add(populatedTxt);
-                    el.target.closest( formField ).classList.remove(emptyTxt);
-                }
-            }));
-
-            // Focus Out
-            commentForm.addEventListener('focusout', inputDelegate((el) => {
-                el.target.closest( formField ).classList.add(focusOutTxt);
-                el.target.closest( formField ).classList.remove(focusInTxt);
-
-                if ( ! el.target.value ) {
-                    el.target.closest( formField ).classList.add(emptyTxt);
-                    el.target.closest( formField ).classList.remove(populatedTxt);
-                } else {
-                    el.target.closest( formField ).classList.add(populatedTxt);
-                    el.target.closest( formField ).classList.remove(emptyTxt);
-                }
-            }));
-        }
-    })();
-
-    /**
-     * Display a Random Image from a Set
-     * .ntt--js--random-image
-     * https://stackoverflow.com/a/19693578
-     */
-    (function() {
-        
-        if ( html.classList.contains('ntt--js--random-image') ) {
-            window.addEventListener('DOMContentLoaded', function() {
-                
-                var imagesArray = [
-                    '<a href="https://www.flickr.com/photos/briansahagun/3386389393" title="Nobody"><img src="https://live.staticflickr.com/3555/3386389393_084c05a47d_z.jpg" width="640" height="480" alt="Nobody"></a>',
-                    '<a href="https://www.flickr.com/photos/briansahagun/3380918261" title="Fishbowl"><img src="https://live.staticflickr.com/3449/3380918261_752d542889_z.jpg" width="640" height="480" alt="Fishbowl"></a>',
-                    '<a href="https://www.flickr.com/photos/briansahagun/3377609579" title="Tie the Knot"><img src="https://live.staticflickr.com/3417/3377609579_505cddb043_z.jpg" width="640" height="427" alt="Tie the Knot"></a>'
-                ];
-                
-                var num = Math.floor(Math.random() * (imagesArray.length));
-                document.getElementById('canvas').innerHTML = imagesArray[num];
-            });
-        }
-    })();
-
-    /*
-
-    For Sticky Header
-
-
-    var MYNS = MYNS || {};
-
-    MYNS.subns = (function() {
-        var internalState = "Message";
-
-        var privateMethod = function() {
-            // Do private stuff, or build internal.
-            return internalState;
-        };
-        var publicMethod = function() {
-            return privateMethod() + " stuff";
-        };
-
-        return {
-            someProperty: console.log('prop value'),
-            publicMethod: publicMethod
-        };
-    })();
-
-    var transitionFn = {
-        
-        here: function( classTarget, listenerProperty, listenerTarget ) {
-            
-            listenerTarget.addEventListener('transitionend', () => {
-                if ( event.propertyName == listenerProperty ) {
-                    console.log('Transition ended');
-                }
-            });
-        },
-
-        there: function( $elem, $property, $target )
-        {
-            if ( $target.hasClass( here_class ) ) {
-
-                $elem.on( transition_end_event, function() {
-                    if ( event.propertyName == $property )
-                    {
-                        transitionFn.thereClass( $target );
-                    }
-                } );
+            function createObserver() {
+                var observer;
+                observer = new IntersectionObserver(handleIntersect);
+                observer.observe(entityFooter);
             }
-        }
-    };
-
-    const eh = document.querySelector('.ntt--entity-header');
-
-    transitionFn.here(eh, '', eh);
-
-    /*
-    eh.addEventListener('transitionend', () => {
-        console.log('Transition ended');
-    });
-    */
-})( jQuery, window, document );
-
-/*
-( function( $ ) {
-
-	
-
-} )( jQuery );
-
-(function() {
-
     
-})();
-*/
+            function handleIntersect(entries, observer) {
+                entries.forEach((entry) => {
+                    if (entry.intersectionRatio > 0) {
+                        html.classList.add('ntt--entity-footer--intersected--js');
+                    } else {
+                        html.classList.remove('ntt--entity-footer--intersected--js');
+                    }
+                });
+            }
+        }
+    }; // ntt.entityFooterIntersection
+
+    /*	-----------------------------------------------------------------------------------------------
+    Assign Population Status of Input Elements
+    --------------------------------------------------------------------------------------------------- */
+    ntt.inputPopulationStatus = {
+
+        init: function() {
+            var inputs = document.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
+            var input = null;
+            var formField = '.ntt--form-field';
+
+            for ( var i = 0, len = inputs.length; i < len; i++ ) {
+                input = inputs[i];
+
+                if ( ! input.value ) {
+                    input.closest( formField ).classList.add('ntt--form-field---empty--js');
+                } else {
+                    input.closest( formField ).classList.add('ntt--form-field---populated--js');
+                }
+            }
+        }
+    }; // ntt.inputPopulationStatus
+
+    /*	-----------------------------------------------------------------------------------------------
+    Assign Listeners to Comment Input Elements
+    https://stackoverflow.com/a/47944959
+    --------------------------------------------------------------------------------------------------- */
+    ntt.commentInputElementsListener = {
+
+        init: function() {
+
+            if ( html.classList.contains('ntt--comment-creation---1--view') ) {
+            
+                const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
+                const inputDelegate = delegate('.text-input');
+                const commentForm = document.getElementById('commentform');
+                var formField = '.ntt--form-field';
+                var focusInTxt = 'ntt--form-field---focusin--js';
+                var focusOutTxt = 'ntt--form-field---focusout--js';
+                var emptyTxt = 'ntt--form-field---empty--js';
+                var populatedTxt = 'ntt--form-field---populated--js';
+    
+                // Focus In
+                commentForm.addEventListener('focusin', inputDelegate((el) => {
+                    el.target.closest( formField ).classList.add(focusInTxt);
+                    el.target.closest( formField ).classList.remove(focusOutTxt);
+    
+                    if ( ! el.target.value ) {
+                        el.target.closest( formField ).classList.add(emptyTxt);
+                        el.target.closest( formField ).classList.remove(populatedTxt);
+                    } else {
+                        el.target.closest( formField ).classList.add(populatedTxt);
+                        el.target.closest( formField ).classList.remove(emptyTxt);
+                    }
+                }));
+    
+                // Focus Out
+                commentForm.addEventListener('focusout', inputDelegate((el) => {
+                    el.target.closest( formField ).classList.add(focusOutTxt);
+                    el.target.closest( formField ).classList.remove(focusInTxt);
+    
+                    if ( ! el.target.value ) {
+                        el.target.closest( formField ).classList.add(emptyTxt);
+                        el.target.closest( formField ).classList.remove(populatedTxt);
+                    } else {
+                        el.target.closest( formField ).classList.add(populatedTxt);
+                        el.target.closest( formField ).classList.remove(emptyTxt);
+                    }
+                }));
+
+                commentForm.removeAttribute('novalidate');
+            }
+        }
+    }; // ntt.commentInputElementsListener
+
+    /*	-----------------------------------------------------------------------------------------------
+    Display a Random Image from a Set
+    .ntt--js--random-image
+    https://stackoverflow.com/a/19693578
+    --------------------------------------------------------------------------------------------------- */
+    ntt.displayRandomImage = {
+
+        init: function() {
+
+            if ( html.classList.contains('ntt--js--random-image') ) {
+                window.addEventListener('DOMContentLoaded', function() {
+                    
+                    var imagesArray = [
+                        '<a href="https://www.flickr.com/photos/briansahagun/3386389393" title="Nobody"><img src="https://live.staticflickr.com/3555/3386389393_084c05a47d_z.jpg" width="640" height="480" alt="Nobody"></a>',
+                        '<a href="https://www.flickr.com/photos/briansahagun/3380918261" title="Fishbowl"><img src="https://live.staticflickr.com/3449/3380918261_752d542889_z.jpg" width="640" height="480" alt="Fishbowl"></a>',
+                        '<a href="https://www.flickr.com/photos/briansahagun/3377609579" title="Tie the Knot"><img src="https://live.staticflickr.com/3417/3377609579_505cddb043_z.jpg" width="640" height="427" alt="Tie the Knot"></a>'
+                    ];
+                    
+                    var num = Math.floor(Math.random() * (imagesArray.length));
+                    document.getElementById('canvas').innerHTML = imagesArray[num];
+                });
+            }
+        }
+    }; // ntt.displayRandomImage
+    
+
+    /**
+     * Is the DOM ready?
+     *
+     * This implementation is coming from https://gomakethings.com/a-native-javascript-equivalent-of-jquerys-ready-method/
+     *
+     * @param {Function} fn Callback function to run.
+     */
+    function nttDomReady( fn ) {
+        if ( typeof fn !== 'function' ) {
+            return;
+        }
+
+        if ( document.readyState === 'interactive' || document.readyState === 'complete' ) {
+            return fn();
+        }
+
+        document.addEventListener( 'DOMContentLoaded', fn, false );
+    }
+
+    nttDomReady( function() {
+        ntt.entriesNav.init();
+        ntt.subMenu.init();
+        ntt.detectTabbing.init();
+        ntt.entityFooterIntersection.init();
+        ntt.inputPopulationStatus.init();
+        ntt.commentInputElementsListener.init();
+        ntt.displayRandomImage.init();
+        ntt.sectionIdIntersection.init();
+        ntt.intrinsicRatioVideos.init();
+    } );
+})( jQuery, window, document );

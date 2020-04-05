@@ -147,6 +147,12 @@ $content-line-height: $line-height---m;
 $text-link-color: $accent-color;
 
 //--------------------------------------------------------------
+// Elements
+//--------------------------------------------------------------
+
+$secondary-action--elements: '.ntt--modify-entry-axn, .ntt--modify-comment-axn, .ntt--comment-reply-axn, .ntt--show-more-axn, .ntt--comments-actions-snippet .ntt--comment-axn, .ntt--go-content-navi';
+
+//--------------------------------------------------------------
 // Rules
 //--------------------------------------------------------------
 
@@ -200,6 +206,11 @@ $faint-border: 1px solid hsla(0, 0%, 0%, .125);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+}
+
+@mixin block-pad {
+    display: block;
+    padding: .5rem;
 }
 
 %block-pad {

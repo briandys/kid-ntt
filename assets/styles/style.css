@@ -1,5 +1,5 @@
 /* Screen Reader Text ------------------------ */
-.ntt--content span[id^=more-], .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js, .ntt--go-content-navi a:not(:focus) {
+.ntt--content span[id^=more-], .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js, .ntt--go-content-nav:not(:focus-within), .ntt--go-content-navi a:not(:focus) {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
@@ -14,7 +14,7 @@
   word-break: normal;
 }
 
-.ntt--content span:focus[id^=more-], .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js:focus, .ntt--go-content-navi a:focus:not(:focus) {
+.ntt--content span:focus[id^=more-], .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js:focus, .ntt--go-content-nav:focus:not(:focus-within), .ntt--go-content-navi a:focus:not(:focus) {
   background-color: #f1f1f1;
   border-radius: 3px;
   -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -1683,6 +1683,36 @@ th {
           order: 1;
 }
 
+.ntt--go-content-navi a {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: block;
+  padding: .5rem;
+  margin: 1rem;
+  padding: 0;
+  text-decoration: none;
+}
+
+.js .ntt--go-start-nav {
+  display: none;
+}
+
+.js.ntt--entity-footer--intersected--js .ntt--go-start-nav {
+  display: block;
+}
+
+.ntt--go-start-nav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: block;
+  padding: .5rem;
+  margin: 1rem;
+  padding: 0;
+  text-decoration: none;
+}
+
 .ntt--note {
   margin: 1rem;
   padding-top: 1rem;
@@ -2192,31 +2222,16 @@ section:target {
   border-bottom-left-radius: 0;
 }
 
-.ntt--modify-entry-axn,
-.ntt--modify-comment-axn,
-.ntt--comment-reply-axn,
-.ntt--show-more-axn,
-.ntt--comments-actions-snippet .ntt--comment-axn,
-.ntt--go-content-navi a {
+.ntt--modify-entry-axn, .ntt--modify-comment-axn, .ntt--comment-reply-axn, .ntt--show-more-axn, .ntt--comments-actions-snippet .ntt--comment-axn, .ntt--go-content-navi {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.ntt--modify-entry-axn a:hover,
-.ntt--modify-comment-axn a:hover,
-.ntt--comment-reply-axn a:hover,
-.ntt--show-more-axn a:hover,
-.ntt--comments-actions-snippet .ntt--comment-axn a:hover,
-.ntt--go-content-navi a a:hover {
+.ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--show-more-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {
   text-decoration: none;
 }
 
-.ntt--modify-entry-axn .ntt--txt,
-.ntt--modify-comment-axn .ntt--txt,
-.ntt--comment-reply-axn .ntt--txt,
-.ntt--show-more-axn .ntt--txt,
-.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt,
-.ntt--go-content-navi a .ntt--txt {
+.ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2239,17 +2254,6 @@ section:target {
 }
 
 .ntt--comments-actions-snippet .ntt--comment-axn a:hover .ntt--comment-text {
-  text-decoration: none;
-}
-
-.ntt--go-content-navi a {
-  display: inline-block;
-  margin: 1rem;
-  padding-left: 0;
-  padding-right: 0;
-  position: fixed;
-  left: 0;
-  top: 0;
   text-decoration: none;
 }
 
@@ -2327,31 +2331,36 @@ textarea {
   color: #0060e6;
 }
 
-.ntt--modify-entry-axn a,
-.ntt--modify-comment-axn a,
-.ntt--comment-reply-axn a,
-.ntt--show-more-axn a,
-.ntt--comments-actions-snippet .ntt--comment-axn a,
-.ntt--go-content-navi a a {
+.ntt--modify-entry-axn a, .ntt--modify-comment-axn a, .ntt--comment-reply-axn a, .ntt--show-more-axn a, .ntt--comments-actions-snippet .ntt--comment-axn a, .ntt--go-content-navi a {
   color: #0060e6;
 }
 
-.ntt--modify-entry-axn .ntt--txt,
-.ntt--modify-comment-axn .ntt--txt,
-.ntt--comment-reply-axn .ntt--txt,
-.ntt--show-more-axn .ntt--txt,
-.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt,
-.ntt--go-content-navi a .ntt--txt {
+.ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--show-more-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {
+  color: white;
+}
+
+.ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
   background-color: white;
   border: 0.125rem solid #0060e6;
 }
 
-.ntt--modify-entry-axn .ntt--txt:hover,
-.ntt--modify-comment-axn .ntt--txt:hover,
-.ntt--comment-reply-axn .ntt--txt:hover,
-.ntt--show-more-axn .ntt--txt:hover,
-.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt:hover,
-.ntt--go-content-navi a .ntt--txt:hover {
+.ntt--modify-entry-axn .ntt--txt:hover, .ntt--modify-comment-axn .ntt--txt:hover, .ntt--comment-reply-axn .ntt--txt:hover, .ntt--show-more-axn .ntt--txt:hover, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt:hover, .ntt--go-content-navi .ntt--txt:hover {
   background-color: #0060e6;
+}
+
+.ntt--go-content-navi a {
   color: white;
+}
+
+.ntt--go-content-navi a:hover {
+  color: #0060e6;
+}
+
+.ntt--go-content-navi .ntt--txt {
+  background-color: #0060e6;
+}
+
+.ntt--go-content-navi .ntt--txt:hover {
+  background-color: white;
+  border: 0.125rem solid #0060e6;
 }

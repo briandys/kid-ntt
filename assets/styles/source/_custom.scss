@@ -415,12 +415,7 @@ section:target {
 // Actions
 //--------------------------------------------------------------
 
-.ntt--modify-entry-axn,
-.ntt--modify-comment-axn,
-.ntt--comment-reply-axn,
-.ntt--show-more-axn,
-.ntt--comments-actions-snippet .ntt--comment-axn,
-.ntt--go-content-navi a {
+#{$secondary-action--elements} {
     @include x-padding(1rem);
 
     a:hover {
@@ -456,19 +451,6 @@ section:target {
         .ntt--comment-text {
             text-decoration: none;
         }
-    }
-}
-
-.ntt--go-content-navi {
-    
-    a {
-        display: inline-block;
-        margin: 1rem;
-        @include x-padding();
-        position: fixed;
-        left: 0;
-        top: 0;
-        text-decoration: none;
     }
 }
 

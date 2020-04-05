@@ -24,14 +24,11 @@ $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'] = 'user-functions'
  * Functions
  */
 $r_functions = array(
-    // Primary
     'styles-scripts',
-    // Secondary
     'comments-css',
     'customizer',
     'custom-fields',
     'entry-css',
-    //'fonts',
     'html-css',
     'open-graph',
     'shortcodes',

@@ -422,16 +422,54 @@
 // Go to Content Navigation
 //--------------------------------------------------------------
 
+.ntt--go-content-nav {
+
+    &:not(:focus-within) {
+        @extend %vh;
+    }
+}
+
 .ntt--go-content-navi {
 
     a {
+        position: fixed;
+        left: 0;
+        top: 0;
+        @include block-pad;
+        margin: 1rem;
+        padding: 0;
+        text-decoration: none;
         
         &:not(:focus) {
             @extend %vh;
         }
+    }
+}
 
-        &:focus {
-            
+//--------------------------------------------------------------
+// Go to Start Navigation
+//--------------------------------------------------------------
+
+.js {
+
+    .ntt--go-start-nav {
+        display: none;
+    }
+
+    &.ntt--entity-footer--intersected--js  {
+        
+        .ntt--go-start-nav {
+            display: block;
         }
     }
+}
+
+.ntt--go-start-nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    @include block-pad;
+    margin: 1rem;
+    padding: 0;
+    text-decoration: none;
 }
