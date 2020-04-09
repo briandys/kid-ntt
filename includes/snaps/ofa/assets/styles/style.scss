@@ -741,8 +741,12 @@ body {
     font-size: $text---l;
     line-height: $line-height---l;
 
-    > *:first-child {
-        margin-top: 0;
+    > * {
+        @include y-margin(1.5em);
+
+        &::first-child {
+            margin-top: 0;
+        }
     }
 
     a {

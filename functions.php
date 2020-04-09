@@ -21,6 +21,18 @@ $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'] = 'scroll-y';
 $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'] = 'user-functions';
 
 /**
+ * Classes
+ */
+
+$r_classes = array(
+    'class-svg-icons',
+);
+
+foreach ( $r_classes as $class ) {
+    require( get_stylesheet_directory(). '/classes/'. $class. '.php' );
+}
+
+/**
  * Functions
  */
 $r_functions = array(
@@ -33,6 +45,7 @@ $r_functions = array(
     'open-graph',
     'shortcodes',
     'snaps',
+    'svg-icons',
 );
 
 foreach ( $r_functions as $function ) {

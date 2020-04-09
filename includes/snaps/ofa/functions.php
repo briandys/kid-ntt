@@ -36,7 +36,7 @@ function ntt__kid_ntt__snaps__ofa_ntt__function__custom_fonts( $font_families ) 
 add_filter( 'kid_ntt_custom_fonts_filter', 'ntt__kid_ntt__snaps__ofa_ntt__function__custom_fonts' );
 
 add_filter( 'ntt_entry_author_label_filter', function() {
-    return 'By';
+    return __( 'By', 'ntt' );
 } );
 
 function ntt__tag__entry_header__structure() {

@@ -8,6 +8,9 @@
 
     var ntt = ntt || {};
 
+    const html = document.documentElement;
+    const body = document.body;
+
     // polyfill closest
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
     if ( ! Element.prototype.closest ) {
@@ -69,6 +72,26 @@
                 return i > -1;
             };
     }
+
+    // Add a class to the body for when touch is enabled for browsers that don't support media queries
+    // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
+    ntt.touchEnabled = {
+
+        init: function() {
+            var matchMedia = function() {
+                // Include the 'heartz' as a way to have a non matching MQ to help terminate the join. See <https://git.io/vznFH>.
+                var prefixes = [ '-webkit-', '-moz-', '-o-', '-ms-' ];
+                var query = [ '(', prefixes.join( 'touch-enabled),(' ), 'heartz', ')' ].join( '' );
+                return window.matchMedia && window.matchMedia( query ).matches;
+            };
+
+            if ( ( 'ontouchstart' in window ) || ( window.DocumentTouch && document instanceof window.DocumentTouch ) || matchMedia() ) {
+                html.classList.add( 'ntt--touch-enabled--js' );
+            } else {
+                html.classList.add( 'ntt--not-touch-enabled--js' );
+            }
+        }
+    }; // ntt.touchEnabled
     
     /**
 	 * Wrap Text Node
@@ -144,9 +167,6 @@
         };
     }
 
-    const html = document.documentElement;
-    const body = document.body;
-
     /**
      * Adding, removing, and testing for classes
      * https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/
@@ -213,6 +233,11 @@
         });
     }
     */
+
+    const goStartNav = document.getElementById( 'ntt--go-start-nav' );
+    var goStartTxt = goStartNav.querySelector( '.ntt--txt' );
+    var goStartNavIco = nttData.goStartNavIco;
+    goStartTxt.insertAdjacentHTML('afterend', goStartNavIco);
 
     /*	-----------------------------------------------------------------------------------------------
     Intrinsic Ratio Embeds
@@ -333,20 +358,23 @@
                 
                 i++;
                 const parent = el.parentNode;
+
+                var $icon = nttData.subNavTogBtnIco;
+                var $toggleMenuTxt = nttData.toggleMenuTxt;
                 
                 // Create Checkbox
                 const checkbox = document.createElement( 'input' );
                 checkbox.type = 'checkbox';
                 checkbox.id = 'ntt--sub-menu-checkbox-' + i + '--js';
                 checkbox.className = 'ntt--sub-menu-checkbox--js';
-                checkbox.setAttribute( 'title', 'Toggle Menu' );
-                checkbox.setAttribute( 'arial-label', 'Toggle Menu' );
+                checkbox.setAttribute( 'title', $toggleMenuTxt );
+                checkbox.setAttribute( 'arial-label', $toggleMenuTxt );
 
                 // Create Label
                 const label = document.createElement( 'label' );
                 label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i + '--js' );
                 label.className = 'ntt--sub-menu-checkbox-label--js ntt--obj';
-                label.innerHTML = '<span class="ntt--txt">Toggle Menu</span>';
+                label.innerHTML = '<span class="ntt--txt">' + $toggleMenuTxt + '</span>';
                 
                 // Insert in DOM
                 parent.insertBefore( label, el );
@@ -502,13 +530,13 @@
 
             function createObserver() {
                 var observer;
-                observer = new IntersectionObserver(handleIntersect);
+                observer = new IntersectionObserver(handleIntersect, {rootMargin: "0px 0px 160px 0px"});
                 observer.observe(entityFooter);
             }
     
             function handleIntersect(entries, observer) {
                 entries.forEach((entry) => {
-                    if (entry.intersectionRatio > 0) {
+                    if (entry.isIntersecting) {
                         html.classList.add('ntt--entity-footer--intersected--js');
                     } else {
                         html.classList.remove('ntt--entity-footer--intersected--js');
@@ -638,6 +666,7 @@
     }
 
     nttDomReady( function() {
+        ntt.touchEnabled.init();
         ntt.entriesNav.init();
         ntt.subMenu.init();
         ntt.detectTabbing.init();

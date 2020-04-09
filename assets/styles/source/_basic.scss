@@ -5,7 +5,7 @@
 html {
     scroll-behavior: smooth;
 
-    &.js:not(.ntt--nav-mode---tab--js) {
+    &.ntt--js:not(.ntt--nav-mode---tab--js) {
         
         button:focus,
         input:focus,

@@ -141,11 +141,11 @@
 .ntt--widget_nav_menu {
 
     // Show the Sub-menu on DOM Load
-    @at-root .js.ntt--dom---unloaded & {
+    @at-root .ntt--js.ntt--dom---unloaded--js & {
         visibility: hidden;
     }
     
-    @at-root .js.ntt--dom---loaded & {
+    @at-root .ntt--js.ntt--dom---loaded--js & {
         visibility: visible;
     }
 
@@ -450,7 +450,7 @@
 // Go to Start Navigation
 //--------------------------------------------------------------
 
-.js {
+.ntt--js {
 
     .ntt--go-start-nav {
         display: none;
@@ -472,4 +472,8 @@
     margin: 1rem;
     padding: 0;
     text-decoration: none;
+
+    .ntt--txt {
+        @extend %vh;
+    }
 }

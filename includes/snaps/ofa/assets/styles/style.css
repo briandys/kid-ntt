@@ -790,7 +790,12 @@ body {
   line-height: 1.8;
 }
 
-.ntt--content > *:first-child {
+.ntt--content > * {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.ntt--content > *::first-child {
   margin-top: 0;
 }
 
