@@ -9,15 +9,12 @@ function ntt__kid_ntt__function__styles_scripts() {
 
     wp_enqueue_script( 'ntt-kid-script', get_stylesheet_directory_uri(). '/assets/scripts/main.js', array( 'jquery', 'ntt-script', ), wp_get_theme()->get( 'Version' ). '-'. wp_get_theme( get_template() )->get( 'Version' ), true );
 
-    $search_icon = ntt__kid_ntt__function__get_theme_svg( 'arrow-up' );
+    $arrow_up_icon = ntt__kid_ntt__function__get_theme_svg( 'arrow-up' );
 
-    $applicator_l10n['subNavTogBtnShowL']    = __( 'Show Sub-Nav', 'applicator' );
-    $applicator_l10n['subNavTogBtnHideL']    = __( 'Hide Sub-Nav', 'applicator' );
-    
-
-
-    $ntt_l10n['goStartNavIco']    = $search_icon;
-    $ntt_l10n['toggleMenuTxt']      = __( 'Toggle Menu', 'ntt' );
+    $ntt_l10n = array(
+        'goStartNavIco' => $arrow_up_icon,
+        'toggleMenuTxt' => __( 'Toggle Menu', 'ntt' ),
+    );
     
     wp_localize_script( 'ntt-kid-script', 'nttData', $ntt_l10n );
 }

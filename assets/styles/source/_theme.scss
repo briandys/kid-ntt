@@ -81,8 +81,8 @@ textarea {
 // Actions
 //--------------------------------------------------------------
 
-@mixin secondary-action {
-
+#{$secondary-action--elements} {
+    
     a {
         color: $accent-color;
 
@@ -102,5 +102,25 @@ textarea {
     .ntt--txt {
         background-color: $surface-color;
         border: .125rem solid $accent-color;
+    }
+}
+
+.ntt--go-content-navi {
+
+    a {
+        color: $surface-color;
+
+        &:hover {
+            color: $accent-color;
+
+            .ntt--txt {
+                background-color: $surface-color;
+                border: .125rem solid $accent-color;
+            }
+        }
+    }
+
+    .ntt--txt {
+        background-color: $accent-color;
     }
 }

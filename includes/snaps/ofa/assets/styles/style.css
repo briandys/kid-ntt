@@ -123,56 +123,6 @@
   border-bottom: 0;
 }
 
-html {
-  background-color: white;
-}
-
-body {
-  color: #1f2023;
-}
-
-a {
-  color: #1f2023;
-}
-
-button,
-input[type="submit"] {
-  background-color: #0060e6;
-}
-
-button,
-input,
-select,
-textarea {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-}
-
-.ntt--content {
-  color: #1f2023;
-  line-height: 1.5;
-}
-
-.ntt--entry-content-snippet a {
-  color: #1f2023;
-}
-
-.ntt--nav---sub-menu--js .ntt--sub-menu--js {
-  background-color: white;
-  border-color: rgba(0, 0, 0, 0.125);
-}
-
-.ntt--nav---sub-menu--js .ntt--sub-menu--js li {
-  border-bottom-color: rgba(0, 0, 0, 0.125);
-}
-
-.ntt--entry-nav a .ntt--entry-name-txt {
-  color: #1f2023;
-}
-
-.ntt--entry-nav a:hover .ntt--entry-name-txt {
-  color: #1f2023;
-}
-
 body {
   font-family: 'Spartan';
 }
@@ -780,13 +730,21 @@ body {
 }
 
 .ntt--content a {
-  border-bottom: 0.125rem solid rgba(0, 96, 230, 0.25);
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  -webkit-transition-property: color, -webkit-box-shadow;
+  transition-property: color, -webkit-box-shadow;
+  transition-property: color, box-shadow;
+  transition-property: color, box-shadow, -webkit-box-shadow;
+  -webkit-box-shadow: inset 0 -0.25em 0 0 rgba(0, 96, 230, 0.25);
+          box-shadow: inset 0 -0.25em 0 0 rgba(0, 96, 230, 0.25);
 }
 
 .ntt--content a:hover {
   color: #0060e6;
   text-decoration: none;
-  border-bottom: 0;
+  -webkit-box-shadow: inset 0 -3em 0 0 rgba(0, 96, 230, 0.25);
+          box-shadow: inset 0 -3em 0 0 rgba(0, 96, 230, 0.25);
 }
 
 .ntt--content a[href*="flickr.com/"] {
@@ -839,11 +797,6 @@ body {
   margin-top: 0;
 }
 
-.ntt--content .ntt--show-more-axn a {
-  font-weight: normal;
-  border-bottom: 0;
-}
-
 .ntt--content .wp-block-image > a,
 .ntt--content .wp-block-file__button {
   font-weight: normal;
@@ -859,6 +812,12 @@ body {
 
 .ntt--content p.has-drop-cap:not(:focus)::after {
   padding-top: 1em;
+}
+
+.ntt--show-more-axn a {
+  font-weight: normal;
+  -webkit-box-shadow: 0;
+          box-shadow: 0;
 }
 
 .ntt--entry-summary-content .ntt--entry-content-snippet a {
@@ -879,4 +838,93 @@ body {
     -webkit-transform: translate(-2rem, -3rem);
             transform: translate(-2rem, -3rem);
   }
+}
+
+html {
+  background-color: white;
+}
+
+body {
+  color: #1f2023;
+}
+
+a {
+  color: #1f2023;
+}
+
+button,
+input[type="submit"] {
+  background-color: #0060e6;
+}
+
+button,
+input,
+select,
+textarea {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.ntt--content {
+  color: #1f2023;
+  line-height: 1.5;
+}
+
+.ntt--entry-content-snippet a {
+  color: #1f2023;
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu--js {
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.125);
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu--js li {
+  border-bottom-color: rgba(0, 0, 0, 0.125);
+}
+
+.ntt--entry-nav a .ntt--entry-name-txt {
+  color: #1f2023;
+}
+
+.ntt--entry-nav a:hover .ntt--entry-name-txt {
+  color: #1f2023;
+}
+
+.ntt--modify-entry-axn a, .ntt--modify-comment-axn a, .ntt--comment-reply-axn a, .ntt--show-more-axn a, .ntt--comments-actions-snippet .ntt--comment-axn a, .ntt--go-content-navi a {
+  color: #0060e6;
+}
+
+.ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--show-more-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {
+  color: white;
+}
+
+.ntt--modify-entry-axn a:hover .ntt--txt, .ntt--modify-comment-axn a:hover .ntt--txt, .ntt--comment-reply-axn a:hover .ntt--txt, .ntt--show-more-axn a:hover .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn a:hover .ntt--txt, .ntt--go-content-navi a:hover .ntt--txt {
+  background-color: #0060e6;
+}
+
+.ntt--modify-entry-axn a:active, .ntt--modify-comment-axn a:active, .ntt--comment-reply-axn a:active, .ntt--show-more-axn a:active, .ntt--comments-actions-snippet .ntt--comment-axn a:active, .ntt--go-content-navi a:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
+  background-color: white;
+  border: 0.125rem solid #0060e6;
+}
+
+.ntt--go-content-navi a {
+  color: white;
+}
+
+.ntt--go-content-navi a:hover {
+  color: #0060e6;
+}
+
+.ntt--go-content-navi a:hover .ntt--txt {
+  background-color: white;
+  border: 0.125rem solid #0060e6;
+}
+
+.ntt--go-content-navi .ntt--txt {
+  background-color: #0060e6;
 }

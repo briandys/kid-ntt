@@ -3,10 +3,10 @@
  * http://garystorey.com/2015/07/10/whats-wrong-with-your-javascript/
  */
 
-(function($, window, document, undefined) {
+( function( $, window, document, undefined ) {
     'use strict';
 
-    var ntt = ntt || {};
+    var kidNtt = kidNtt || {};
 
     const html = document.documentElement;
     const body = document.body;
@@ -46,7 +46,7 @@
     }
 
     // event "polyfill"
-    ntt.createEvent = function( eventName ) {
+    kidNtt.createEvent = function( eventName ) {
         var event;
         if ( typeof window.Event === 'function' ) {
             event = new Event( eventName );
@@ -76,7 +76,7 @@
 
     // Add a class to the body for when touch is enabled for browsers that don't support media queries
     // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
-    ntt.touchEnabled = {
+    kidNtt.touchEnabled = {
 
         init: function() {
             var matchMedia = function() {
@@ -87,12 +87,12 @@
             };
 
             if ( ( 'ontouchstart' in window ) || ( window.DocumentTouch && document instanceof window.DocumentTouch ) || matchMedia() ) {
-                html.classList.add( 'ntt--touch-enabled--js' );
+                html.classList.add( 'ntt--touch-input---1--js' );
             } else {
-                html.classList.add( 'ntt--not-touch-enabled--js' );
+                html.classList.add( 'ntt--touch-input---0--js' );
             }
         }
-    }; // ntt.touchEnabled
+    }; // kidNtt.touchEnabled
     
     /**
 	 * Wrap Text Node
@@ -245,7 +245,7 @@
     From Twenty Twenty
     --------------------------------------------------------------------------------------------------- */
 
-    ntt.intrinsicRatioVideos = {
+    kidNtt.intrinsicRatioVideos = {
 
         init: function() {
             this.makeFit();
@@ -282,12 +282,12 @@
             } );
         }
 
-    }; // ntt.instrinsicRatioVideos
+    }; // kidNtt.instrinsicRatioVideos
 
     /*	-----------------------------------------------------------------------------------------------
 	Entries Navigation
     --------------------------------------------------------------------------------------------------- */
-    ntt.entriesNav = {
+    kidNtt.entriesNav = {
 
         init: function() {
 
@@ -308,12 +308,12 @@
                 }
             } );
         }
-    }; // ntt.entriesNav
+    }; // kidNtt.entriesNav
 
     /*	-----------------------------------------------------------------------------------------------
 	Sub-menu
     --------------------------------------------------------------------------------------------------- */
-    ntt.subMenu = {
+    kidNtt.subMenu = {
 
         init: function() {
             this.initCssClassNames();
@@ -431,13 +431,13 @@
                 }
             }
         }
-    }; // ntt.subMenu
+    }; // kidNtt.subMenu
 
     /*	-----------------------------------------------------------------------------------------------
     Detect Tabbing and Mouse Usage
     https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
     --------------------------------------------------------------------------------------------------- */
-    ntt.detectTabbing = {
+    kidNtt.detectTabbing = {
 
         init: function() {
             this.handleFirstTab();
@@ -445,29 +445,29 @@
 
             window.addEventListener('keydown', function(event) {
                 if ( event.keyCode === 9 ) {
-                    ntt.detectTabbing.handleFirstTab();
+                    kidNtt.detectTabbing.handleFirstTab();
                 }
             });
         },
 
         handleFirstTab: function() {
             html.classList.add('ntt--nav-mode---tab--js');
-            window.removeEventListener('keydown', ntt.detectTabbing.handleFirstTab);
-            window.addEventListener('mousedown', ntt.detectTabbing.handleMouseDownOnce);
+            window.removeEventListener('keydown', kidNtt.detectTabbing.handleFirstTab);
+            window.addEventListener('mousedown', kidNtt.detectTabbing.handleMouseDownOnce);
         },
 
         handleMouseDownOnce: function() {
             html.classList.remove('ntt--nav-mode---tab--js');
-            window.removeEventListener('mousedown', ntt.detectTabbing.handleMouseDownOnce);
-            window.addEventListener('keydown', ntt.detectTabbing.handleFirstTab);
+            window.removeEventListener('mousedown', kidNtt.detectTabbing.handleMouseDownOnce);
+            window.addEventListener('keydown', kidNtt.detectTabbing.handleFirstTab);
         }
-    }; // ntt.detectTabbing
+    }; // kidNtt.detectTabbing
 
     /*	-----------------------------------------------------------------------------------------------
     Intersection Observer Targeting IDs
     https://codepen.io/bramus/pen/ExaEqMJ
     --------------------------------------------------------------------------------------------------- */
-    ntt.sectionIdIntersection = {
+    kidNtt.sectionIdIntersection = {
 
         init: function() {
 
@@ -491,13 +491,13 @@
                 section.classList.add('ntt--not-intersected--js');
             });
         }
-    }; // ntt.sectionIdIntersection
+    }; // kidNtt.sectionIdIntersection
 
     /*	-----------------------------------------------------------------------------------------------
     Intersection Observer for Entity Footer
     https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
     --------------------------------------------------------------------------------------------------- */
-    ntt.entityFooterIntersection = {
+    kidNtt.entityFooterIntersection = {
 
         init: function() {
             var entityFooter;
@@ -523,12 +523,12 @@
                 });
             }
         }
-    }; // ntt.entityFooterIntersection
+    }; // kidNtt.entityFooterIntersection
 
     /*	-----------------------------------------------------------------------------------------------
     Assign Population Status of Input Elements
     --------------------------------------------------------------------------------------------------- */
-    ntt.inputPopulationStatus = {
+    kidNtt.inputPopulationStatus = {
 
         init: function() {
             var inputs = document.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
@@ -545,13 +545,13 @@
                 }
             }
         }
-    }; // ntt.inputPopulationStatus
+    }; // kidNtt.inputPopulationStatus
 
     /*	-----------------------------------------------------------------------------------------------
     Assign Listeners to Comment Input Elements
     https://stackoverflow.com/a/47944959
     --------------------------------------------------------------------------------------------------- */
-    ntt.commentInputElements = {
+    kidNtt.commentInputElements = {
 
         init: function() {
 
@@ -622,14 +622,14 @@
                 commentForm.removeAttribute('novalidate');
             }
         }
-    }; // ntt.commentInputElements
+    }; // kidNtt.commentInputElements
 
     /*	-----------------------------------------------------------------------------------------------
     Display a Random Image from a Set
     .ntt--js--random-image
     https://stackoverflow.com/a/19693578
     --------------------------------------------------------------------------------------------------- */
-    ntt.displayRandomImage = {
+    kidNtt.displayRandomImage = {
 
         init: function() {
 
@@ -647,7 +647,7 @@
                 });
             }
         }
-    }; // ntt.displayRandomImage
+    }; // kidNtt.displayRandomImage
     
 
     /**
@@ -670,15 +670,15 @@
     }
 
     nttDomReady( function() {
-        ntt.touchEnabled.init();
-        ntt.entriesNav.init();
-        ntt.subMenu.init();
-        ntt.detectTabbing.init();
-        ntt.entityFooterIntersection.init();
-        //ntt.inputPopulationStatus.init();
-        ntt.commentInputElements.init();
-        ntt.displayRandomImage.init();
-        ntt.sectionIdIntersection.init();
-        ntt.intrinsicRatioVideos.init();
+        kidNtt.touchEnabled.init();
+        kidNtt.entriesNav.init();
+        kidNtt.subMenu.init();
+        kidNtt.detectTabbing.init();
+        kidNtt.entityFooterIntersection.init();
+        //kidNtt.inputPopulationStatus.init();
+        kidNtt.commentInputElements.init();
+        kidNtt.displayRandomImage.init();
+        kidNtt.sectionIdIntersection.init();
+        kidNtt.intrinsicRatioVideos.init();
     } );
-})( jQuery, window, document );
+} )( jQuery, window, document );
