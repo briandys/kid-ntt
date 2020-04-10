@@ -733,6 +733,32 @@ body {
     margin-top: 4rem;
 }
 
+.ntt--entry-tags {
+    margin-top: -1rem;
+
+    a {
+
+        &::before {
+            content: '#';
+            margin-right: .25em;
+        }
+    }
+}
+
+.ntt--tag-archive-index {
+
+    .ntt--entity-view-name {
+        
+        .ntt--tag-txt {
+
+            &::before {
+                content: '#';
+                margin-right: .25em;
+            }
+        }
+    }
+}
+
 //--------------------------------------------------------------
 // Content
 //--------------------------------------------------------------
@@ -840,7 +866,15 @@ body {
     }
 }
 
+.ntt--entry-summary-content {
 
+    .ntt--entry-content-snippet {
+
+        a {
+            border-bottom: 0;
+        }
+    }
+}
     
 @include mq($tablet-viewport-width) {
 

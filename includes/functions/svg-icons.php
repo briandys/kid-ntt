@@ -1,10 +1,8 @@
 <?php
 /**
- * Twenty Twenty SVG Icon helper functions
+ * SVG Icon helper functions
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * From Twenty Twenty
  */
 
 /**

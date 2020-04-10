@@ -81,42 +81,26 @@ textarea {
 // Actions
 //--------------------------------------------------------------
 
-#{$secondary-action--elements} {
+@mixin secondary-action {
 
     a {
         color: $accent-color;
 
         &:hover {
             color: $surface-color;
+
+            .ntt--txt {
+                background-color: $accent-color;
+            }
+        }
+
+        &:active {
+            @include active-scale;
         }
     }
 
     .ntt--txt {
         background-color: $surface-color;
         border: .125rem solid $accent-color;
-
-        &:hover {
-            background-color: $accent-color;
-        }
-    }
-}
-
-.ntt--go-content-navi {
-
-    a {
-        color: $surface-color;
-
-        &:hover {
-            color: $accent-color;
-        }
-    }
-
-    .ntt--txt {
-        background-color: $accent-color;
-
-        &:hover {
-            background-color: $surface-color;
-            border: .125rem solid $accent-color;
-        }
     }
 }

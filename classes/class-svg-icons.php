@@ -2,9 +2,7 @@
 /**
  * Custom icons for this theme.
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * From Twenty Twenty
  */
 
 /**
@@ -29,7 +27,7 @@ class NTT_SVG_Icons {
             $arr = array();
         }
         if ( array_key_exists( $icon, $arr ) ) {
-            $repl = '<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" ';
+            $repl = '<svg class="ntt--icon" aria-hidden="true" role="img" focusable="false" ';
             $svg  = preg_replace( '/^<svg /', $repl, trim( $arr[ $icon ] ) ); // Add extra attributes to SVG code.
             $svg  = str_replace( '#1A1A1B', $color, $svg );   // Replace the color.
             $svg  = str_replace( '#', '%23', $svg );          // Urlencode hashes.
@@ -73,6 +71,7 @@ class NTT_SVG_Icons {
      * @var array
      */
     public static $ui_icons = array(
+        'arrow-up'          => '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M12.8 48.4a6.4 6.4 0 008.9 0l22-22v62.3c0 3.5 2.8 6.3 6.3 6.3s6.3-2.8 6.3-6.3V26.4l22 22a6.4 6.4 0 008.9 0 6.4 6.4 0 000-8.9L54.4 6.8C53.2 5.6 51.6 5 50 5s-3.2.6-4.4 1.8L12.8 39.6a6.3 6.3 0 000 8.8z"/></svg>',
         'arrow-down'         => '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24">
     <polygon fill="#FFF" points="721.105 856 721.105 874.315 728.083 867.313 730.204 869.41 719.59 880 709 869.41 711.074 867.313 718.076 874.315 718.076 856" transform="translate(-709 -856)"/>
     </svg>',

@@ -10,6 +10,7 @@
 
     const html = document.documentElement;
     const body = document.body;
+    const commentForm = document.getElementById('commentform');
 
     // polyfill closest
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
@@ -493,28 +494,6 @@
     }; // ntt.sectionIdIntersection
 
     /*	-----------------------------------------------------------------------------------------------
-    Assign Population Status of Input Elements
-    --------------------------------------------------------------------------------------------------- */
-    ntt.inputPopulationStatus = {
-
-        init: function() {
-            var inputs = document.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
-            var input = null;
-            var formField = '.ntt--form-field';
-
-            for ( var i = 0, len = inputs.length; i < len; i++ ) {
-                input = inputs[i];
-
-                if ( ! input.value ) {
-                    input.closest( formField ).classList.add('ntt--form-field---empty--js');
-                } else {
-                    input.closest( formField ).classList.add('ntt--form-field---populated--js');
-                }
-            }
-        }
-    }; // ntt.inputPopulationStatus
-
-    /*	-----------------------------------------------------------------------------------------------
     Intersection Observer for Entity Footer
     https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
     --------------------------------------------------------------------------------------------------- */
@@ -572,15 +551,40 @@
     Assign Listeners to Comment Input Elements
     https://stackoverflow.com/a/47944959
     --------------------------------------------------------------------------------------------------- */
-    ntt.commentInputElementsListener = {
+    ntt.commentInputElements = {
 
         init: function() {
+
+            if ( commentForm ) {
+                this.populationStatus();
+                this.focusListener();
+            }
+        },
+
+        populationStatus: function() {
+            
+            var inputs = commentForm.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
+            var input = null;
+            var formField = '.ntt--form-field';
+
+            for ( var i = 0, len = inputs.length; i < len; i++ ) {
+                input = inputs[i];
+
+                if ( ! input.value ) {
+                    input.closest( formField ).classList.add('ntt--form-field---empty--js');
+                } else {
+                    input.closest( formField ).classList.add('ntt--form-field---populated--js');
+                }
+            }
+        },
+        
+        focusListener: function() {
 
             if ( html.classList.contains('ntt--comment-creation---1--view') ) {
             
                 const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
                 const inputDelegate = delegate('.text-input');
-                const commentForm = document.getElementById('commentform');
+                
                 var formField = '.ntt--form-field';
                 var focusInTxt = 'ntt--form-field---focusin--js';
                 var focusOutTxt = 'ntt--form-field---focusout--js';
@@ -618,7 +622,7 @@
                 commentForm.removeAttribute('novalidate');
             }
         }
-    }; // ntt.commentInputElementsListener
+    }; // ntt.commentInputElements
 
     /*	-----------------------------------------------------------------------------------------------
     Display a Random Image from a Set
@@ -671,8 +675,8 @@
         ntt.subMenu.init();
         ntt.detectTabbing.init();
         ntt.entityFooterIntersection.init();
-        ntt.inputPopulationStatus.init();
-        ntt.commentInputElementsListener.init();
+        //ntt.inputPopulationStatus.init();
+        ntt.commentInputElements.init();
         ntt.displayRandomImage.init();
         ntt.sectionIdIntersection.init();
         ntt.intrinsicRatioVideos.init();

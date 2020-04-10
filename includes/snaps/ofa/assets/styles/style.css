@@ -173,40 +173,6 @@ textarea {
   color: #1f2023;
 }
 
-.ntt--modify-entry-axn a, .ntt--modify-comment-axn a, .ntt--comment-reply-axn a, .ntt--show-more-axn a, .ntt--comments-actions-snippet .ntt--comment-axn a, .ntt--go-content-navi a {
-  color: #0060e6;
-}
-
-.ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--show-more-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {
-  color: white;
-}
-
-.ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
-  background-color: white;
-  border: 0.125rem solid #0060e6;
-}
-
-.ntt--modify-entry-axn .ntt--txt:hover, .ntt--modify-comment-axn .ntt--txt:hover, .ntt--comment-reply-axn .ntt--txt:hover, .ntt--show-more-axn .ntt--txt:hover, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt:hover, .ntt--go-content-navi .ntt--txt:hover {
-  background-color: #0060e6;
-}
-
-.ntt--go-content-navi a {
-  color: white;
-}
-
-.ntt--go-content-navi a:hover {
-  color: #0060e6;
-}
-
-.ntt--go-content-navi .ntt--txt {
-  background-color: #0060e6;
-}
-
-.ntt--go-content-navi .ntt--txt:hover {
-  background-color: white;
-  border: 0.125rem solid #0060e6;
-}
-
 body {
   font-family: 'Spartan';
 }
@@ -785,6 +751,20 @@ body {
   margin-top: 4rem;
 }
 
+.ntt--entry-tags {
+  margin-top: -1rem;
+}
+
+.ntt--entry-tags a::before {
+  content: '#';
+  margin-right: .25em;
+}
+
+.ntt--tag-archive-index .ntt--entity-view-name .ntt--tag-txt::before {
+  content: '#';
+  margin-right: .25em;
+}
+
 .ntt--content {
   font-size: 1.125rem;
   line-height: 1.8;
@@ -879,6 +859,10 @@ body {
 
 .ntt--content p.has-drop-cap:not(:focus)::after {
   padding-top: 1em;
+}
+
+.ntt--entry-summary-content .ntt--entry-content-snippet a {
+  border-bottom: 0;
 }
 
 @media only screen and (min-width: 768px) {
