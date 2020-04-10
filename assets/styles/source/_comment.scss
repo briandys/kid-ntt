@@ -290,6 +290,10 @@
 // Account Log Status
 //--------------------------------------------------------------
 
+.ntt--account-logged-in-status {
+    @include x-padding(.5rem);
+}
+
 .ntt--account-log-status {
     @include if-y-center;
 }

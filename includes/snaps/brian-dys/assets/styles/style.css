@@ -105,8 +105,8 @@ textarea {
 }
 
 .ntt--modify-entry-axn a:active, .ntt--modify-comment-axn a:active, .ntt--comment-reply-axn a:active, .ntt--show-more-axn a:active, .ntt--comments-actions-snippet .ntt--comment-axn a:active, .ntt--go-content-navi a:active {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {

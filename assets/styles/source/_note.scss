@@ -24,3 +24,17 @@
         }
     }
 }
+
+.ntt--comments---populated.post-password-required {
+
+    .ntt--entry-header {
+
+        .ntt--comments-count {
+            margin: 1rem;
+            @include x-padding(1rem);
+            @include y-padding(1rem);
+            background-color: aliceblue;
+            border-radius: $corner-radius---s;
+        }
+    }
+}

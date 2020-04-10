@@ -156,6 +156,14 @@ body {
   font-size: 2rem;
 }
 
+.ntt--entry-breadcrumbs-nav-ancestors-group .ntt--entry-breadcrumbs-navi:last-child .ntt--icon {
+  display: none;
+}
+
+.ntt--entry-breadcrumbs-navi---current {
+  display: none;
+}
+
 .ntt--entity-primary-nav {
   text-align: center;
   font-family: 'Playfair Display';
@@ -190,14 +198,9 @@ body {
   text-align: center;
 }
 
-.ntt--entity-footer .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.ntt--entity-footer .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:checked {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+.ntt--entity-footer .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:hover ~ .ntt--icon {
+  -webkit-transform: scale(1.25) rotate(180deg);
+          transform: scale(1.25) rotate(180deg);
 }
 
 .ntt--entity-footer .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:checked ~ .ntt--sub-menu--js {
@@ -208,6 +211,16 @@ body {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
+}
+
+.ntt--entity-footer .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:checked ~ .ntt--icon {
+  -webkit-transform: scale(1.25) rotate(0deg);
+          transform: scale(1.25) rotate(0deg);
+}
+
+.ntt--entity-footer .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js ~ .ntt--icon {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .ntt--entity-footer .ntt--nav---sub-menu--js .ntt--sub-menu--js {
@@ -473,7 +486,7 @@ body {
 }
 
 .ntt--comment-author {
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .ntt--comment-reply-axn {
@@ -903,8 +916,8 @@ textarea {
 }
 
 .ntt--modify-entry-axn a:active, .ntt--modify-comment-axn a:active, .ntt--comment-reply-axn a:active, .ntt--show-more-axn a:active, .ntt--comments-actions-snippet .ntt--comment-axn a:active, .ntt--go-content-navi a:active {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {

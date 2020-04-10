@@ -103,12 +103,18 @@ function ntt__kid_ntt__function__open_graph() {
          * 1. Excerpt
          * 2. Content
          * 3. Site Description
+         * 4. Current Theme Description
+         * 5. Parent Theme Description
          */
         if ( $excerpt = $post->post_excerpt ) {
             $meta_description = $excerpt;
         } elseif ( $content = $post->post_content ) {
             $meta_description = $content;
         } elseif ( $description = get_bloginfo( 'description' ) ) {
+            $meta_description = $description;
+        } elseif ( $description = wp_get_theme()->get( 'Description' ) ) {
+            $meta_description = $description;
+        } elseif ( $description = wp_get_theme( get_template() )->get( 'Description' ) ) {
             $meta_description = $description;
         } else {
             $meta_description = '';
@@ -136,8 +142,20 @@ function ntt__kid_ntt__function__open_graph() {
             $image_src = '';
         }
 
-        // Get Meta Description
+        /**
+         * Get Meta Description
+         * 
+         * Priority List
+         * 
+         * 1. Site Description
+         * 2. Current Theme Description
+         * 3. Parent Theme Description
+         */
         if ( $description = get_bloginfo( 'description' ) ) {
+            $meta_description = $description;
+        } elseif ( $description = wp_get_theme()->get( 'Description' ) ) {
+            $meta_description = $description;
+        } elseif ( $description = wp_get_theme( get_template() )->get( 'Description' ) ) {
             $meta_description = $description;
         } else {
             $meta_description = '';

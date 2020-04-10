@@ -41,6 +41,27 @@ body {
 }
 
 //--------------------------------------------------------------
+// Breadcrumbs Navigation
+//--------------------------------------------------------------
+
+.ntt--entry-breadcrumbs-nav-ancestors-group {
+
+    .ntt--entry-breadcrumbs-navi {
+
+        &:last-child {
+
+            .ntt--icon {
+                display: none;
+            }
+        }
+    }
+}
+
+.ntt--entry-breadcrumbs-navi---current {
+    display: none;
+}
+
+//--------------------------------------------------------------
 // Entity Primary Navigation
 //--------------------------------------------------------------
 
@@ -106,18 +127,28 @@ body {
     .ntt--nav---sub-menu--js {
         
         .ntt--sub-menu-checkbox--js {
-            transform: rotate(180deg);
+
+            &:hover {
+    
+                ~ .ntt--icon {
+                    transform: scale(1.25) rotate(180deg);
+                }
+            }
         
             &:checked {
-                transform: rotate(0deg);
     
-                ~  {
-        
-                    .ntt--sub-menu--js {
-                        display: flex;
-                        flex-direction: column-reverse;
-                    }
+                ~ .ntt--sub-menu--js {
+                    display: flex;
+                    flex-direction: column-reverse;
                 }
+
+                ~ .ntt--icon {
+                    transform: scale(1.25) rotate(0deg);
+                }
+            }
+
+            ~ .ntt--icon {
+                transform: rotate(180deg);
             }
         }
         
@@ -439,7 +470,7 @@ body {
 }
 
 .ntt--comment-author {
-    padding: 1rem;
+    padding: .5rem;
 }
 
 .ntt--comment-reply-axn {

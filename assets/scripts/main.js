@@ -237,8 +237,17 @@
 
     const goStartNav = document.getElementById( 'ntt--go-start-nav' );
     var goStartTxt = goStartNav.querySelector( '.ntt--txt' );
-    var goStartNavIco = nttData.goStartNavIco;
-    goStartTxt.insertAdjacentHTML('afterend', goStartNavIco);
+    var arrowUpIcon = nttData.arrowUpIcon;
+    goStartTxt.insertAdjacentHTML('afterend', arrowUpIcon);
+
+    const breadcrumbsNav = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
+    var chevronRightIcon = nttData.chevronRightIcon;
+
+    if ( breadcrumbsNav ) {
+        breadcrumbsNav.querySelectorAll( '.ntt--txt' ).forEach( function( el ) {
+            el.insertAdjacentHTML('afterend', chevronRightIcon);
+        } );
+    }
 
     /*	-----------------------------------------------------------------------------------------------
     Intrinsic Ratio Embeds
@@ -360,26 +369,27 @@
                 i++;
                 const parent = el.parentNode;
 
-                var $icon = nttData.subNavTogBtnIco;
-                var $toggleMenuTxt = nttData.toggleMenuTxt;
+                var chevronDownIcon = nttData.chevronDownIcon;
+                var toggleMenuTxt = nttData.toggleMenuTxt;
                 
                 // Create Checkbox
                 const checkbox = document.createElement( 'input' );
                 checkbox.type = 'checkbox';
                 checkbox.id = 'ntt--sub-menu-checkbox-' + i + '--js';
                 checkbox.className = 'ntt--sub-menu-checkbox--js';
-                checkbox.setAttribute( 'title', $toggleMenuTxt );
-                checkbox.setAttribute( 'arial-label', $toggleMenuTxt );
+                checkbox.setAttribute( 'title', toggleMenuTxt );
+                checkbox.setAttribute( 'arial-label', toggleMenuTxt );
 
                 // Create Label
                 const label = document.createElement( 'label' );
                 label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i + '--js' );
                 label.className = 'ntt--sub-menu-checkbox-label--js ntt--obj';
-                label.innerHTML = '<span class="ntt--txt">' + $toggleMenuTxt + '</span>';
+                label.innerHTML = '<span class="ntt--txt">' + toggleMenuTxt + '</span>';
                 
                 // Insert in DOM
                 parent.insertBefore( label, el );
                 parent.insertBefore( checkbox, label );
+                checkbox.insertAdjacentHTML( 'afterend', chevronDownIcon );
 
                 el.classList.add( 'ntt--sub-menu--js' );
                 parent.classList.add( 'ntt--sub-menu-ancestor--js' );

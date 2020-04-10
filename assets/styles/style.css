@@ -572,6 +572,11 @@ th {
   padding: 1rem;
 }
 
+.ntt--account-logged-in-status {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .ntt--account-log-status {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1330,38 +1335,24 @@ th {
   margin-right: 1rem;
 }
 
-.ntt--entry-breadcrumbs-nav-ancestors-group .ntt--txt {
+.ntt--entry-breadcrumbs-nav-ancestors-group a {
   position: relative;
 }
 
-.ntt--entry-breadcrumbs-nav-ancestors-group .ntt--txt:after {
-  content: '';
+.ntt--entry-breadcrumbs-nav-ancestors-group a .ntt--icon {
   position: absolute;
   left: 100%;
   top: 50%;
   z-index: -1;
-  width: 1rem;
-  height: 1rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M29.7 8.3c-.9-.9-2.3-.9-3.3 0L16 18.8 5.6 8.3c-1-.9-2.4-.9-3.3 0s-1 2.4 0 3.3l12 12c.5.5 1 .8 1.7.8.6 0 1.2-.3 1.6-.7l12.1-12.1c1-1 1-2.4 0-3.3z'/%3E%3C/svg%3E");
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: .75rem;
-  -webkit-transform: translatey(-50%) rotate(-90deg);
-          transform: translatey(-50%) rotate(-90deg);
-  opacity: .25;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-left: .25rem;
+  width: .75rem;
+  fill: rgba(0, 0, 0, 0.25);
 }
 
 .ntt--entry-breadcrumbs-navi a {
   display: inline-block;
-}
-
-.ntt--ntt--entry-breadcrumbs-nav-ancestors-group {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .ntt--entries-nav ul,
@@ -1452,22 +1443,23 @@ th {
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js {
+  position: absolute;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   border: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M92.9 26a7.4 7.4 0 0 0-10.3 0L50 58.6 17.4 26A7.3 7.3 0 1 0 7.1 36.3L44.9 74a7.1 7.1 0 0 0 5.1 2.1c1.9.1 3.7-.7 5.1-2.1l37.8-37.8a7.2 7.2 0 0 0 0-10.2z'/%3E%3C/svg%3E");
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: 1rem;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  right: 0;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:hover {
   cursor: pointer;
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:hover ~ .ntt--icon {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:checked {
@@ -1477,6 +1469,26 @@ th {
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:checked ~ .ntt--sub-menu--js {
   display: block;
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:checked ~ .ntt--icon {
+  -webkit-transform: scale(1.25) rotate(180deg);
+          transform: scale(1.25) rotate(180deg);
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js ~ .ntt--icon {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  margin-right: 1.125rem;
+  width: .75rem;
+  fill: #1f2023;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-ancestor--js {
@@ -1707,8 +1719,8 @@ th {
 }
 
 .ntt--go-start-nav a:active {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .ntt--go-start-nav a:hover {
@@ -1747,6 +1759,16 @@ th {
 
 .ntt--note > *:last-child {
   margin-bottom: 0;
+}
+
+.ntt--comments---populated.post-password-required .ntt--entry-header .ntt--comments-count {
+  margin: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: aliceblue;
+  border-radius: 0.125rem;
 }
 
 .ntt--widget {
@@ -2370,8 +2392,8 @@ textarea {
 }
 
 .ntt--modify-entry-axn a:active, .ntt--modify-comment-axn a:active, .ntt--comment-reply-axn a:active, .ntt--show-more-axn a:active, .ntt--comments-actions-snippet .ntt--comment-axn a:active, .ntt--go-content-navi a:active {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
