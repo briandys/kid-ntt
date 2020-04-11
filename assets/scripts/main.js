@@ -9,7 +9,6 @@
     var kidNtt = kidNtt || {};
 
     const html = document.documentElement;
-    const body = document.body;
     const commentForm = document.getElementById('commentform');
 
     // polyfill closest
@@ -74,79 +73,6 @@
             };
     }
 
-    // Add a class to the body for when touch is enabled for browsers that don't support media queries
-    // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
-    kidNtt.touchEnabled = {
-
-        init: function() {
-            var matchMedia = function() {
-                // Include the 'heartz' as a way to have a non matching MQ to help terminate the join. See <https://git.io/vznFH>.
-                var prefixes = [ '-webkit-', '-moz-', '-o-', '-ms-' ];
-                var query = [ '(', prefixes.join( 'touch-enabled),(' ), 'heartz', ')' ].join( '' );
-                return window.matchMedia && window.matchMedia( query ).matches;
-            };
-
-            if ( ( 'ontouchstart' in window ) || ( window.DocumentTouch && document instanceof window.DocumentTouch ) || matchMedia() ) {
-                html.classList.add( 'ntt--touch-input---1--js' );
-            } else {
-                html.classList.add( 'ntt--touch-input---0--js' );
-            }
-        }
-    }; // kidNtt.touchEnabled
-    
-    /**
-	 * Wrap Text Node
-	 * https://stackoverflow.com/a/18727318
-	 */
-	var wrapTextNode = function($elem) {
-		var $textNodeMU = $('<span />', { 'class': 'ntt--txt' });
-		$elem.contents().filter(function() {
-			return this.nodeType === 3;
-        } ).wrap($textNodeMU);
-	}
-
-	/**
-	 * Remove Empty Elements
-	 * https://stackoverflow.com/a/18727318
-	 */
-	var removeEmpty = function($elem) {
-		$elem.each(function() {
-			var $this = $(this);
-			if ($this.html().replace(/\s|&nbsp;/g, '' ).length == 0) {
-				$this.remove();
-			}
-		} );
-    }
-    
-    /**
-     * Remove Extra Space
-     * https://stackoverflow.com/a/16974697
-     * https://www.tutorialrepublic.com/faq/how-to-remove-white-spaces-from-a-string-in-jquery.php
-     */
-    var removeExtraSpace = function($elem) {
-		$elem.each(function() {
-            var myStr = $(this).text();
-            var trimStr = myStr.replace(/\s+/g,' ').trim();
-            $( this ).html(trimStr);
-		} );
-	}
-
-    // All text nodes will be wrapped in txt CSS class name. If empty, remove it.
-	var $content = $('.ntt--content');
-    wrapTextNode($content);
-    removeEmpty($content.find('.ntt--txt'));
-    removeExtraSpace($content.find('.ntt--txt'));
-
-    // All text nodes will be wrapped in .txt. If empty, remove it.
-	var $categories = $('.ntt--entry-categories');
-	wrapTextNode($categories);
-    removeEmpty($categories.find('.ntt--txt'));
-    
-    // If Entry's only content is an image, it will not appear in Search Results, leaving Content Snippet with empty elements—so might as well remove them.
-    var $contentSnippet = $('.ntt--entry-content-snippet');
-    removeEmpty($contentSnippet.find('*'));
-    removeEmpty($contentSnippet);
-
     /**
      * element.closest Polyfill for IE9+
      * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
@@ -176,47 +102,111 @@
         return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
     }
 
-    /** 
-     * Wrap Element
+    // Add a class to the body for when touch is enabled for browsers that don't support media queries
+    // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
+    kidNtt.touchEnabled = {
+
+        init: function() {
+            var matchMedia = function() {
+                // Include the 'heartz' as a way to have a non matching MQ to help terminate the join. See <https://git.io/vznFH>.
+                var prefixes = [ '-webkit-', '-moz-', '-o-', '-ms-' ];
+                var query = [ '(', prefixes.join( 'touch-enabled),(' ), 'heartz', ')' ].join( '' );
+                return window.matchMedia && window.matchMedia( query ).matches;
+            };
+
+            if ( ( 'ontouchstart' in window ) || ( window.DocumentTouch && document instanceof window.DocumentTouch ) || matchMedia() ) {
+                html.classList.add( 'ntt--touch-input---1--js' );
+            } else {
+                html.classList.add( 'ntt--touch-input---0--js' );
+            }
+        }
+    }; // kidNtt.touchEnabled
+    
+    /**
+	 * Wrap Text Node
+	 * https://stackoverflow.com/a/18727318
+	 */
+    kidNtt.wrapTextNode = function( $el ) {
+		var $textNode = $( '<span />', { 'class': 'ntt--txt' } );
+		$el.contents().filter( function() {
+			return this.nodeType === 3;
+        } ).wrap( $textNode );
+	};
+
+	/**
+	 * Remove Empty Elements
+	 * https://stackoverflow.com/a/18727318
+	 */
+	kidNtt.removeEmpty = function( $el ) {
+		$el.each( function() {
+			var $this = $( this );
+			if ( $this.html().replace( /\s|&nbsp;/g, '' ).length == 0 ) {
+				$this.remove();
+			}
+		} );
+    };
+    
+    /**
+     * Remove Extra Space
+     * https://stackoverflow.com/a/16974697
+     * https://www.tutorialrepublic.com/faq/how-to-remove-white-spaces-from-a-string-in-jquery.php
+     */
+    kidNtt.removeExtraSpace = function( $el ) {
+		$el.each( function() {
+            var myStr = $( this ).text();
+            var trimStr = myStr.replace( /\s+/g, ' ' ).trim();
+            $( this ).html( trimStr );
+		} );
+    };
+
+    /** Wrap Element
      * https://plainjs.com/javascript/manipulation/wrap-an-html-structure-around-an-element-28/
      */
-    function wrap(el, wrapper) {
-        el.parentNode.insertBefore(wrapper, el);
-        wrapper.appendChild(el);
-    }
+    kidNtt.wrapElement = function( el, skinEl = 'span', className = 'ntt--txt' ) {
 
-    /**
-     * Wrap Table <table>
-     */
-    const contentTable = document.querySelectorAll( '.ntt--content > table' );
+        el.forEach( ( el ) => {
+            var skin = document.createElement( skinEl );
+            skin.className = className;
 
-    contentTable.forEach((el) => {
-        var skin = document.createElement( 'div' );
-        skin.className = 'ntt--table-wrapper ntt--obj';
-        wrap(el, skin);
-    });
+            el.parentNode.insertBefore( skin, el );
+            skin.appendChild( el );
+        } );
 
-    /**
-     * Wrap Preformatted Text <pre>
-     */
-    const contentPre = document.querySelectorAll( '.ntt--content > pre' );
+        
+    };
     
-    contentPre.forEach( ( el ) => {
-        var skin = document.createElement( 'div' );
-        skin.className = 'ntt--pre-wrapper ntt--obj';
-        wrap( el, skin );
-    } );
-
-    /**
-     * Wrap Code <code>
-     */
-    const contentCode = document.querySelectorAll( '.ntt--content code' );
+    /*	-----------------------------------------------------------------------------------------------
+    Text Content Processing
+    Wrap text nodes, remove empty tags, etc.
+    --------------------------------------------------------------------------------------------------- */
     
-    contentCode.forEach( ( el ) => {
-        var skin = document.createElement( 'span' );
-        skin.className = 'ntt--code-wrapper ntt--obj';
-        wrap( el, skin );
-    } );
+    kidNtt.textContentProcessing = {
+
+        init: function() {
+
+            // All text nodes will be wrapped in txt CSS class name. If empty, remove it.
+            var $content = $( '.ntt--content' );
+            kidNtt.wrapTextNode( $content);
+            kidNtt.removeEmpty( $content.find( 'p, .ntt--txt' ) );
+            kidNtt.removeExtraSpace( $content.find( 'p, .ntt--txt' ) );
+            kidNtt.removeEmpty( $content );
+
+            // All text nodes will be wrapped in .ntt--txt. If empty, remove it.
+            var $entryCategories = $( '.ntt--entry-categories' );
+            kidNtt.wrapTextNode( $entryCategories );
+            kidNtt.removeEmpty( $entryCategories.find( '.ntt--txt' ) );
+
+            var contentPre = document.querySelectorAll( '.ntt--content > pre' );
+            contentPre
+            kidNtt.wrapElement( contentPre, 'div', 'ntt--pre-el-skin--js' );
+
+            var contentTable = document.querySelectorAll( '.ntt--content > table' );
+            kidNtt.wrapElement( contentTable, 'div', 'ntt--table-el-skin--js' );
+
+            var contentCode = document.querySelectorAll( '.ntt--content code' );
+            kidNtt.wrapElement( contentCode, 'span', 'ntt--code-el-skin--js' );
+        }
+    }; // kidNtt.textContentProcessing
 
     /**
      * Wrap Video <iframe>
@@ -327,8 +317,13 @@
         init: function() {
             this.initCssClassNames();
             this.toggleMenu();
-            this.uncheckOnOutsideClick();
+            this.uncheckInputOnExternalClicks();
             this.initActivityStatus();
+
+            window.addEventListener( 'load', function() {
+                kidNtt.subMenu.uncheckInput();
+                kidNtt.subMenu.uncheckInputOnEscKey();
+            } );
         },
 
         initCssClassNames: function() {
@@ -396,15 +391,43 @@
             } );
         },
 
-        uncheckOnOutsideClick: function() {
+        uncheckInput: function() {
 
-            // Uncheck checkboxes when clicked outside the element
             const subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor--js' );
 
+            subMenuAncestor.forEach( function ( el ) {
+                
+                const input = el.getElementsByTagName('input');
+                    
+                for ( var i = 0; i < input.length; i++ ) { 
+                    if ( input[i].type === 'checkbox' ) { 
+                        input[i].checked = false; 
+                    }
+                }
+                el.classList.remove( 'ntt--sub-menu---active--js' );
+            } );
+        },
+
+        uncheckInputOnEscKey: function() {
+
+            document.addEventListener( 'keyup', function ( event ) {
+                    
+                var activeNav = document.querySelectorAll( '.ntt--sub-menu---active--js' );
+                
+                if ( activeNav.length && event.keyCode === 27 ) {
+                    kidNtt.subMenu.uncheckInput();
+                }
+            } );
+        },
+
+        uncheckInputOnExternalClicks: function() {
+
             window.addEventListener( 'click', function ( event ) {
+                
+                // Uncheck checkboxes when clicked outside this element
+                const subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor--js' );
 
                 subMenuAncestor.forEach( function ( el ) {
-
                     const targetEl = el.contains( event.target );
                 
                     if ( ! targetEl ) {
@@ -415,10 +438,9 @@
                                 input[i].checked = false; 
                             }
                         }
-
                         el.classList.remove( 'ntt--sub-menu---active--js' );
                     }
-                } )
+                } );
             }, false);
         },
 
@@ -519,7 +541,7 @@
 
             function createObserver() {
                 var observer;
-                observer = new IntersectionObserver(handleIntersect, {rootMargin: "0px 0px 160px 0px"});
+                observer = new IntersectionObserver(handleIntersect, {rootMargin: "0px 0px 0px 0px"});
                 observer.observe(entityFooter);
             }
     
@@ -680,12 +702,12 @@
     }
 
     nttDomReady( function() {
+        kidNtt.textContentProcessing.init();
         kidNtt.touchEnabled.init();
         kidNtt.entriesNav.init();
         kidNtt.subMenu.init();
         kidNtt.detectTabbing.init();
         kidNtt.entityFooterIntersection.init();
-        //kidNtt.inputPopulationStatus.init();
         kidNtt.commentInputElements.init();
         kidNtt.displayRandomImage.init();
         kidNtt.sectionIdIntersection.init();

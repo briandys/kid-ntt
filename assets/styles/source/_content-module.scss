@@ -30,3 +30,181 @@
 .ntt--cm-time {
     display: none;
 }
+
+//--------------------------------------------------------------
+// Content Snippet
+//--------------------------------------------------------------
+
+.ntt--entry-content-snippet {
+
+    p:empty {
+        display: none;
+    }
+
+    a {
+
+        &:empty {
+            display: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Content
+//--------------------------------------------------------------
+
+.ntt--content {
+    line-height: $line-height---m;
+
+    &:empty {
+        display: none;
+    }
+
+    > * {
+        @include x-padding(1rem);
+        @include y-margin(1em);
+
+        @at-root .ntt &:first-child {
+            margin-top: 1rem;
+        }
+    }
+
+    > ul,
+    > ol {
+        padding-left: calc(2.5rem + .5em);
+    }
+
+    > .ntt--note {
+        @include y-padding();
+        @include y-margin(1em);
+    }
+
+    > .ntt--sub-content-entries {
+        @include x-padding();
+    }
+
+    > .ntt--txt {
+        display: block;
+        @include y-margin(1em);
+    }
+
+    > a[href*="flickr.com/"] {
+        display: block;
+    }
+
+    a[href*="flickr.com/"] {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    blockquote {
+        font-size: $text---xxl;
+
+        cite {
+            font-size: $text---l;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        > * {
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    span[id^=more-] {
+        @extend %vh;
+    }
+
+    figure {
+        @include x-margin();
+        
+        &[style*="width"] {
+            width: auto !important;
+        }
+
+        &.is-type-video {
+            @include y-margin(2em);
+        }
+    }
+
+    form {
+        font-size: 1rem;
+    }
+
+    @at-root .ntt & .alignleft {
+        float: left;
+        margin: 0 1.5em 1.5em 0;
+    }
+    
+    @at-root .ntt & .aligncenter {
+        display: block;
+        @include x-margin(auto);
+        text-align: center;
+    }
+    
+    @at-root .ntt & .alignright {
+        float: right;
+        margin: 0 0 1.5em 1.5em;
+    }
+
+    .wp-block-image,
+    .wp-block-table,
+    .ntt--table-el-skin--js,
+    .ntt--pre-el-skin--js {
+        margin: 2em 0;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.ntt--pre-el-skin--js {
+    max-width: 100vw;
+    overflow: auto;
+
+    pre {
+        padding: 1rem;
+        margin: 0;
+        background-color: hsla(0, 0%, 0%, 0.0325);
+    }
+}
+
+.ntt--table-el-skin--js {
+    overflow-x: auto;
+
+    table {
+        width: 100%;
+    }
+}
+
+.ntt--pre-el-skin--js {
+    display: grid;
+}
+
+//--------------------------------------------------------------
+// Entry Full Content
+//--------------------------------------------------------------
+
+.ntt--entry-full-content {
+    @extend %cf;
+
+    .wp-block-gallery {
+        padding-left: 0;
+
+        .blocks-gallery-item {
+            margin: 0;
+        }
+    }
+}

@@ -18,138 +18,6 @@
         display: none;
     }
 }
-
-.ntt--content {
-    word-break: break-word;
-
-    > {
-
-        * {
-            @include x-padding(1rem);
-            @include y-margin(1em);
-
-            @at-root .ntt &:first-child {
-                margin-top: 1rem;
-            }
-        }
-
-        ul,
-        ol {
-            padding-left: calc(2.5rem + .5em);
-        }
-
-        .ntt--note {
-            @include y-padding();
-            @include y-margin(1em);
-        }
-
-        .ntt--sub-content-entries {
-            @include x-padding();
-        }
-
-        .ntt--txt {
-            display: block;
-            @include y-margin(1em);
-        }
-
-        a[href*="flickr.com/"] {
-            display: block;
-        }
-    }
-
-    &:empty {
-        display: none;
-    }
-
-    blockquote {
-        font-size: $text---xxl;
-
-        cite {
-            font-size: $text---l;
-            font-style: normal;
-            font-weight: bold;
-        }
-
-        > * {
-
-            &:first-child {
-                margin-top: 0;
-            }
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-    }
-
-    span[id^=more-] {
-        @extend %vh;
-    }
-
-    figure {
-        @include x-margin();
-        
-        &[style*="width"] {
-            width: auto !important;
-        }
-
-        &.is-type-video {
-            @include y-margin(2em);
-        }
-    }
-
-    .ntt--pre-wrapper {
-        max-width: 100vw;
-        overflow: auto;
-
-        pre {
-            padding: 1rem;
-            margin: 0;
-            background-color: hsla(0, 0%, 0%, 0.0325);
-        }
-    }
-
-    form {
-        font-size: 1rem;
-    }
-
-    @at-root .ntt & .alignleft {
-        float: left;
-        margin: 0 1.5em 1.5em 0;
-    }
-    
-    @at-root .ntt & .aligncenter {
-        display: block;
-        @include x-margin(auto);
-        text-align: center;
-    }
-    
-    @at-root .ntt & .alignright {
-        float: right;
-        margin: 0 0 1.5em 1.5em;
-    }
-
-    a[href*="flickr.com/"] {
-        pointer-events: none;
-        cursor: default;
-    }
-
-    .wp-block-image {
-        margin: 2em 0;
-    }
-}
-
-.ntt--entry-full-content {
-    @extend %cf;
-
-    .wp-block-gallery {
-        padding-left: 0;
-
-        .blocks-gallery-item {
-            margin: 0;
-        }
-    }
-}
     
 //--------------------------------------------------------------
 // Sub-Content Entries
@@ -320,7 +188,6 @@
     @include space-around;
     margin: 0;
     font-size: $text---xl;
-    word-break: break-word;
 
     a {
         display: inline-block;
@@ -359,28 +226,6 @@
 
     .ntt--txt {
         @extend %block-pad;
-    }
-}
-
-//--------------------------------------------------------------
-// Content Snippet
-//--------------------------------------------------------------
-
-.ntt--entry-content-snippet {
-
-    p:empty {
-        display: none;
-    }
-
-    a {
-
-        &:empty {
-            display: none;
-        }
-
-        &:hover {
-            text-decoration: none;
-        }
     }
 }
 

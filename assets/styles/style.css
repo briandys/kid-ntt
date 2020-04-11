@@ -649,6 +649,165 @@ th {
   display: none;
 }
 
+.ntt--entry-content-snippet p:empty {
+  display: none;
+}
+
+.ntt--entry-content-snippet a:empty {
+  display: none;
+}
+
+.ntt--entry-content-snippet a:hover {
+  text-decoration: none;
+}
+
+.ntt--content {
+  line-height: 1.5;
+}
+
+.ntt--content:empty {
+  display: none;
+}
+
+.ntt--content > * {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.ntt .ntt--content > *:first-child {
+  margin-top: 1rem;
+}
+
+.ntt--content > ul,
+.ntt--content > ol {
+  padding-left: calc(2.5rem + .5em);
+}
+
+.ntt--content > .ntt--note {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.ntt--content > .ntt--sub-content-entries {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ntt--content > .ntt--txt {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.ntt--content > a[href*="flickr.com/"] {
+  display: block;
+}
+
+.ntt--content a[href*="flickr.com/"] {
+  pointer-events: none;
+  cursor: default;
+}
+
+.ntt--content blockquote {
+  font-size: 2rem;
+}
+
+.ntt--content blockquote cite {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.ntt--content blockquote > *:first-child {
+  margin-top: 0;
+}
+
+.ntt--content blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+.ntt--content figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.ntt--content figure[style*="width"] {
+  width: auto !important;
+}
+
+.ntt--content figure.is-type-video {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.ntt--content form {
+  font-size: 1rem;
+}
+
+.ntt .ntt--content .alignleft {
+  float: left;
+  margin: 0 1.5em 1.5em 0;
+}
+
+.ntt .ntt--content .aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.ntt .ntt--content .alignright {
+  float: right;
+  margin: 0 0 1.5em 1.5em;
+}
+
+.ntt--content .wp-block-image,
+.ntt--content .wp-block-table,
+.ntt--content .ntt--table-el-skin--js,
+.ntt--content .ntt--pre-el-skin--js {
+  margin: 2em 0;
+}
+
+.ntt--content > *:last-child {
+  margin-bottom: 0;
+}
+
+.ntt--pre-el-skin--js {
+  max-width: 100vw;
+  overflow: auto;
+}
+
+.ntt--pre-el-skin--js pre {
+  padding: 1rem;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.0325);
+}
+
+.ntt--table-el-skin--js {
+  overflow-x: auto;
+}
+
+.ntt--table-el-skin--js table {
+  width: 100%;
+}
+
+.ntt--pre-el-skin--js {
+  display: -ms-grid;
+  display: grid;
+}
+
+.ntt--entry-full-content .wp-block-gallery {
+  padding-left: 0;
+}
+
+.ntt--entry-full-content .wp-block-gallery .blocks-gallery-item {
+  margin: 0;
+}
+
 .ntt--single-entry .ntt--entity-main-header {
   display: none;
 }
@@ -820,133 +979,6 @@ th {
   display: none;
 }
 
-.ntt--content {
-  word-break: break-word;
-}
-
-.ntt--content > * {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-.ntt .ntt--content > *:first-child {
-  margin-top: 1rem;
-}
-
-.ntt--content > ul,
-.ntt--content > ol {
-  padding-left: calc(2.5rem + .5em);
-}
-
-.ntt--content > .ntt--note {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-.ntt--content > .ntt--sub-content-entries {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.ntt--content > .ntt--txt {
-  display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-.ntt--content > a[href*="flickr.com/"] {
-  display: block;
-}
-
-.ntt--content:empty {
-  display: none;
-}
-
-.ntt--content blockquote {
-  font-size: 2rem;
-}
-
-.ntt--content blockquote cite {
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: bold;
-}
-
-.ntt--content blockquote > *:first-child {
-  margin-top: 0;
-}
-
-.ntt--content blockquote > *:last-child {
-  margin-bottom: 0;
-}
-
-.ntt--content figure {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.ntt--content figure[style*="width"] {
-  width: auto !important;
-}
-
-.ntt--content figure.is-type-video {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.ntt--content .ntt--pre-wrapper {
-  max-width: 100vw;
-  overflow: auto;
-}
-
-.ntt--content .ntt--pre-wrapper pre {
-  padding: 1rem;
-  margin: 0;
-  background-color: rgba(0, 0, 0, 0.0325);
-}
-
-.ntt--content form {
-  font-size: 1rem;
-}
-
-.ntt .ntt--content .alignleft {
-  float: left;
-  margin: 0 1.5em 1.5em 0;
-}
-
-.ntt .ntt--content .aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.ntt .ntt--content .alignright {
-  float: right;
-  margin: 0 0 1.5em 1.5em;
-}
-
-.ntt--content a[href*="flickr.com/"] {
-  pointer-events: none;
-  cursor: default;
-}
-
-.ntt--content .wp-block-image {
-  margin: 2em 0;
-}
-
-.ntt--entry-full-content .wp-block-gallery {
-  padding-left: 0;
-}
-
-.ntt--entry-full-content .wp-block-gallery .blocks-gallery-item {
-  margin: 0;
-}
-
 .ntt--sub-content-entries-name {
   display: none;
 }
@@ -1089,7 +1121,6 @@ th {
   padding: .5rem;
   margin: 0;
   font-size: 1.5rem;
-  word-break: break-word;
 }
 
 .ntt--entry-name a {
@@ -1116,18 +1147,6 @@ th {
 
 .ntt--modify-entry-axn a {
   display: inline-block;
-}
-
-.ntt--entry-content-snippet p:empty {
-  display: none;
-}
-
-.ntt--entry-content-snippet a:empty {
-  display: none;
-}
-
-.ntt--entry-content-snippet a:hover {
-  text-decoration: none;
 }
 
 .ntt--entry-tags li {
@@ -1697,7 +1716,7 @@ th {
   bottom: 0;
   display: block;
   padding: .5rem;
-  margin: 1rem;
+  margin: 2rem;
   padding: 0;
   text-decoration: none;
 }
@@ -2355,7 +2374,6 @@ textarea {
 
 .ntt--content {
   color: #1f2023;
-  line-height: 1.5;
 }
 
 .ntt--entry-content-snippet a {

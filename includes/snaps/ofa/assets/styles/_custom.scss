@@ -58,6 +58,7 @@
 
         .jp-relatedposts-items-visual {
             display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
             margin-right: 0;
 
@@ -85,7 +86,7 @@
             h4.jp-relatedposts-post-title {
                 font-size: $text---m;
                 line-height: $line-height---l;
-                margin-bottom: 1em;
+                @include y-margin(1em);
             }
 
             .jp-relatedposts-post-thumbs {
@@ -108,6 +109,28 @@
     }
 
     .jp-relatedposts-post-a {
-        border-bottom: 0;
+        box-shadow: none;
+
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    .jp-relatedposts-post-excerpt {
+        margin-bottom: 0;
+        max-height: none !important;
+    }
+}
+
+@include mq($tablet-viewport-width) {
+
+    .ntt {
+    
+        #jp-relatedposts {
+    
+            .jp-relatedposts-items-visual {
+                flex-direction: row;
+            }
+        }
     }
 }

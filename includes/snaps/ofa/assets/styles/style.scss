@@ -216,7 +216,15 @@ body {
 .ntt--entity-header-aside {
 
     .ntt--widget_nav_menu {
-        text-align: center;
+
+        .ntt--widget-name {
+            text-align: center;
+        }
+        
+        .menu {
+            display: flex;
+            justify-content: center;
+        }
     }
 }
 
@@ -811,12 +819,15 @@ body {
         &:hover {
             color: $accent-color;
             text-decoration: none;
-            // border-bottom: 0;
             box-shadow: inset 0 -3em 0 0 $accent-color---alpha-m;
         }
 
         &[href*="flickr.com/"] {
-            border-bottom: 0;
+            box-shadow: none;
+
+            &:hover {
+                box-shadow: none;
+            }
         }
     }
 
@@ -873,7 +884,7 @@ body {
         position: relative;
         margin: 0 .1em 0 -.05em;
         margin-top: .25em; // Inherent to font-family: 'Spartan';
-        font-size: 5.5em;
+        font-size: 6em;
     }
     
     // Jetpack

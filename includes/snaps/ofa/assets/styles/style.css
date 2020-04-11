@@ -64,6 +64,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-right: 0;
@@ -95,6 +99,7 @@
 .ntt #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
   font-size: 1rem;
   line-height: 1.8;
+  margin-top: 1em;
   margin-bottom: 1em;
 }
 
@@ -120,7 +125,27 @@
 }
 
 .ntt .jp-relatedposts-post-a {
-  border-bottom: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.ntt .jp-relatedposts-post-a:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.ntt .jp-relatedposts-post-excerpt {
+  margin-bottom: 0;
+  max-height: none !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .ntt #jp-relatedposts .jp-relatedposts-items-visual {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 body {
@@ -259,8 +284,17 @@ body {
   border-bottom-width: 0;
 }
 
-.ntt--entity-header-aside .ntt--widget_nav_menu {
+.ntt--entity-header-aside .ntt--widget_nav_menu .ntt--widget-name {
   text-align: center;
+}
+
+.ntt--entity-header-aside .ntt--widget_nav_menu .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .ntt--entity-main-main-aside---0 .ntt--entity-main > * {
@@ -761,7 +795,13 @@ body {
 }
 
 .ntt--content a[href*="flickr.com/"] {
-  border-bottom: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.ntt--content a[href*="flickr.com/"]:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .ntt--content hr {
@@ -820,7 +860,7 @@ body {
   position: relative;
   margin: 0 .1em 0 -.05em;
   margin-top: .25em;
-  font-size: 5.5em;
+  font-size: 6em;
 }
 
 .ntt--content p.has-drop-cap:not(:focus)::after {
@@ -879,7 +919,6 @@ textarea {
 
 .ntt--content {
   color: #1f2023;
-  line-height: 1.5;
 }
 
 .ntt--entry-content-snippet a {
