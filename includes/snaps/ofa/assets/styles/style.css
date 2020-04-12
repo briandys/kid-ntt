@@ -100,8 +100,10 @@
 .ntt #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
   font-size: 1rem;
   line-height: 1.8;
-  margin-top: 1em;
+  margin-top: 0;
   margin-bottom: 1em;
+  border-top: 8px solid aliceblue;
+  padding-top: 2rem;
 }
 
 .ntt #jp-relatedposts .jp-relatedposts-items-visual .jp-relatedposts-post-thumbs {
@@ -123,6 +125,17 @@
 .ntt #jp-relatedposts .jp-relatedposts-items p {
   font-size: 1rem;
   line-height: 1.8;
+}
+
+.ntt #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-date {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: #757575;
+}
+
+.ntt #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-context {
+  margin-top: 0;
+  opacity: 1;
 }
 
 .ntt .jp-relatedposts-post-a {

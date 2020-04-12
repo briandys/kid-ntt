@@ -87,7 +87,10 @@
             h4.jp-relatedposts-post-title {
                 font-size: $text---m;
                 line-height: $line-height---l;
-                @include y-margin(1em);
+                margin-top: 0;
+                margin-bottom: 1em;
+                border-top: 8px solid aliceblue;
+                padding-top: 2rem;
             }
 
             .jp-relatedposts-post-thumbs {
@@ -105,6 +108,20 @@
             p {
                 font-size: $text---m;
                 line-height: $line-height---l;
+            }
+
+            .jp-relatedposts-post {
+                
+                .jp-relatedposts-post-date {
+                    margin-bottom: 0;
+                    font-size: $text---s;
+                    color: $mid-color;
+                }
+
+                .jp-relatedposts-post-context {
+                    margin-top: 0;
+                    opacity: 1;
+                }
             }
         }
     }
