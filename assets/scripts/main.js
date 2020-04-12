@@ -184,23 +184,27 @@
             this.handleFirstTab();
             this.handleMouseDownOnce();
 
-            window.addEventListener('keydown', function(event) {
+            window.addEventListener( 'keydown', function( event ) {
                 if ( event.keyCode === 9 ) {
                     kidNtt.detectTabbing.handleFirstTab();
                 }
-            });
+            } );
         },
 
         handleFirstTab: function() {
-            html.classList.add('ntt--nav-mode---tab--js');
-            window.removeEventListener('keydown', kidNtt.detectTabbing.handleFirstTab);
-            window.addEventListener('mousedown', kidNtt.detectTabbing.handleMouseDownOnce);
+            html.classList.add( 'ntt--nav-mode---tab--js' );
+            window.removeEventListener( 'keydown', kidNtt.detectTabbing.handleFirstTab );
+            window.addEventListener( 'mousedown', kidNtt.detectTabbing.handleMouseDownOnce );
         },
 
         handleMouseDownOnce: function() {
-            html.classList.remove('ntt--nav-mode---tab--js');
-            window.removeEventListener('mousedown', kidNtt.detectTabbing.handleMouseDownOnce);
-            window.addEventListener('keydown', kidNtt.detectTabbing.handleFirstTab);
+            html.classList.remove( 'ntt--nav-mode---tab--js' );
+            window.removeEventListener( 'mousedown', kidNtt.detectTabbing.handleMouseDownOnce );
+            window.addEventListener( 'keydown', function( event ) {
+                if ( event.keyCode === 9 ) {
+                    kidNtt.detectTabbing.handleFirstTab();
+                }
+            } );
         }
     }; // kidNtt.detectTabbing
     
@@ -288,9 +292,11 @@
 
         init: function() {
             
-            this.initCssClassNames();
-            this.adjacentPageControl();
-            this.entriesPageMenu();
+            if ( entriesNav ) {
+                this.initCssClassNames();
+                this.adjacentPageControl();
+                this.entriesPageMenu();
+            }
         },
 
         initCssClassNames: function() {
@@ -401,7 +407,7 @@
             entriesPageIndicatorTxt.insertAdjacentHTML( 'afterend', nttData.chevronUpDownIcon );
 
             function toggleActivityStatus() {
-                var currentEntriesNavi = entriesNav.querySelector( '.ntt--current-entries-navi--js .ntt--txt' );
+                var currentEntriesNavi = entriesNav.querySelector( '.ntt--current-entries-navi--js .page-numbers' );
                 var activeClass = 'ntt--entries-page-menu---active';
 
                 if ( entriesNav.classList.contains( activeClass) ) {
@@ -649,7 +655,7 @@
 
             function createObserver() {
                 var observer;
-                observer = new IntersectionObserver(handleIntersect, {rootMargin: "0px 0px 0px 0px"});
+                observer = new IntersectionObserver( handleIntersect, { rootMargin: "0px 0px 0px 0px" } );
                 observer.observe(entityFooter);
             }
     

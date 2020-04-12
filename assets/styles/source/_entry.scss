@@ -101,8 +101,14 @@
         }
         */
 
-        figcaption {
-            @extend .wp-caption-text;
+        .aligncenter,
+        .alignleft,
+        .alignright {
+            
+            figcaption {
+                @extend .wp-caption-text;
+                display: block;
+            }
         }
     }
 }

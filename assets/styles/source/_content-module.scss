@@ -37,7 +37,7 @@
 
 .ntt--entry-content-snippet {
 
-    p:empty {
+    &:empty {
         display: none;
     }
 

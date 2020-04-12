@@ -4,17 +4,6 @@
 
 html {
     scroll-behavior: smooth;
-
-    &.ntt--js:not(.ntt--nav-mode---tab--js) {
-        
-        button:focus,
-        input:focus,
-        select:focus,
-        textarea:focus,
-        summary:focus {
-            outline: none;
-        }
-    }
 }
 
 body {
@@ -45,6 +34,17 @@ body {
 		animation-duration: 0s !important;
 		transition-duration: 0s !important;
 	}
+}
+
+.ntt--js:not(.ntt--nav-mode---tab--js) {
+        
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus,
+    summary:focus {
+        outline: none;
+    }
 }
 
 //--------------------------------------------------------------

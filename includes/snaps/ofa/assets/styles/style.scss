@@ -884,7 +884,7 @@ body {
         position: relative;
         margin: 0 .1em 0 -.05em;
         margin-top: .25em; // Inherent to font-family: 'Spartan';
-        font-size: 6em;
+        font-size: 5.5em;
     }
     
     // Jetpack
@@ -919,203 +919,29 @@ body {
     }
 }
 
-.ntt--entity-main-footer {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+//--------------------------------------------------------------
+// Entries Navigation
+// From JS
+//--------------------------------------------------------------
 
 .ntt--js {
 
-    &.ntt--dom---unloaded--js {
-
-        .ntt--entries-nav {
-            visibility: hidden;
-        }
-    }
-
     .ntt--entries-nav {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @include y-margin(2rem);
-    
-        .navigation,
-        .nav-links {
-            display: contents;
-        }
-    
-        &.ntt--entries-page-menu---active {
-    
-            .ntt--entries-page-menu--js {
-                visibility: visible;
-            }
-        }
-    }
-    
-    .ntt--entries-page-indicator {
-        position: relative;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        padding-right: 3rem;
-        user-select: none;
-    
-        &:hover {
-            cursor: pointer;
-    
-            .ntt--icon {
-                transform: scale(1.25);
-            }
-        }
-        
-        .ntt--page-text,
-        .ntt--current-page-txt {
-            font-weight: bold;
-        }
-
-        .ntt--of-text,
-        .ntt--total-pages-txt {
-            color: $mid-color
-        }
-    
-        .ntt--txt {
-            @include x-padding();
-        }
-    
-        .ntt--icon {
-            position: absolute;
-            right: 0;
-            margin-right: 1rem;
-            width: 1rem;
-            @include transition;
-            transition-property: transform;
-        }
-    }
-    
-    .ntt--entries-adjacent-page-control--js {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        user-select: none;
-
-        li {
-            padding: 0;
-        }
-    
-        a {
-            position: relative;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 3rem;
-            height: 3rem;
-    
-            &:hover {
-    
-                .ntt--icon {
-                    transform: scale(1.25);
-                }
-            }
-    
-            &:active {
-    
-                .ntt--icon {
-                    transform: scale(1.125);
-                }
-            }
-        }
-    
-        .ntt--txt {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            color: transparent;
-        }
-        
-        .ntt--icon {
-            width: 1.25rem;
-            @include transition;
-            transition-property: transform;
-            z-index: -1;
-        }
-    }
-    
-    .ntt--previous-entries-navi--js {
-
-        .ntt--icon {
-            order: -1;
-        }
-    }
-
-    .ntt--next-entries-navi-placeholder--js,
-    .ntt--previous-entries-navi-placeholder--js {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 3rem;
-        height: 3rem;
-
-        &:hover {
-            cursor: not-allowed;
-        }
-
-        .ntt--icon {
-            fill: $on-surface-color---alpha-l;
-        }
-    }
-    
-    .ntt--entries-page-menu--js {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        
-        margin: 2px 0 0 calc(-.5rem - 1px);
-        
-        background-color: $surface-color;
-        border: 1px solid $on-surface-color---alpha-m;
-        border-radius: $corner-radius---sm;
-        box-shadow: 0 .25rem .5rem -.25rem $on-surface-color---alpha-m;
-        
-        user-select: none;
-        
-        visibility: hidden;
-
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 1rem;
-            background: -moz-linear-gradient(top,  hsla(0,0%,100%,1) 0%, hsla(0,0%,100%,0) 100%);
-            background: -webkit-linear-gradient(top,  hsla(0,0%,100%,1) 0%,hsla(0,0%,100%,0) 100%);
-            background: linear-gradient(to bottom,  hsla(0,0%,100%,1) 0%,hsla(0,0%,100%,0) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
-            opacity: .75;
-        }
-
-        &::before {
-            top: 0;
-        }
-
-        &::after {
-            bottom: 0;
-            transform: rotate(180deg);
-        }
-
-        ul {
-            display: inline-flex;
-            flex-wrap: nowrap;
-            flex-direction: column;
-            align-items: flex-start;
-            height: calc(160px - 48px);
-            overflow: auto;
-        }
+        @include x-margin(auto);
     }
 }
+
+//--------------------------------------------------------------
+// Go to Start Navigation
+//--------------------------------------------------------------
+
+.ntt--go-start-nav {
+    margin: 1rem;
+}
+
+//--------------------------------------------------------------
+// Media Query
+//--------------------------------------------------------------
 
 @include mq($tablet-viewport-width) {
 
