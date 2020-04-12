@@ -123,14 +123,14 @@
 // From JS
 //--------------------------------------------------------------
 
-.ntt--js {
+.ntt--dom---unloaded--js {
 
-    &.ntt--dom---unloaded--js {
-
-        .ntt--entries-nav {
-            visibility: hidden;
-        }
+    .ntt--entries-nav {
+        visibility: hidden;
     }
+}
+
+.ntt--js {
 
     &:not(.ntt--nav-mode---tab--js) {
         
@@ -360,11 +360,11 @@
 .ntt--widget_nav_menu {
 
     // Show the Sub-menu on DOM Load
-    @at-root .ntt--js.ntt--dom---unloaded--js & {
+    @at-root .ntt--dom---unloaded--js & {
         visibility: hidden;
     }
     
-    @at-root .ntt--js.ntt--dom---loaded--js & {
+    @at-root .ntt--dom---loaded--js & {
         visibility: visible;
     }
 

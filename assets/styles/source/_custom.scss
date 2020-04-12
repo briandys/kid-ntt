@@ -100,11 +100,11 @@
             margin-top: calc(1.75rem + 1px);
             @include transition;
 
-            @at-root .ntt--js.ntt--dom---unloaded--js & {
+            @at-root .ntt--dom---unloaded--js & {
                 visibility: hidden;
             }
             
-            @at-root .ntt--js.ntt--dom---loaded--js & {
+            @at-root .ntt--dom---loaded--js & {
                 visibility: visible;
             }
 

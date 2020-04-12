@@ -1438,7 +1438,7 @@ th {
   padding: .5rem;
 }
 
-.ntt--js.ntt--dom---unloaded--js .ntt--entries-nav {
+.ntt--dom---unloaded--js .ntt--entries-nav {
   visibility: hidden;
 }
 
@@ -1693,14 +1693,14 @@ th {
   text-decoration: none;
 }
 
-.ntt--js.ntt--dom---unloaded--js .ntt--entity-primary-nav, .ntt--js.ntt--dom---unloaded--js
-.ntt--entity-secondary-nav, .ntt--js.ntt--dom---unloaded--js
+.ntt--dom---unloaded--js .ntt--entity-primary-nav, .ntt--dom---unloaded--js
+.ntt--entity-secondary-nav, .ntt--dom---unloaded--js
 .ntt--widget_nav_menu {
   visibility: hidden;
 }
 
-.ntt--js.ntt--dom---loaded--js .ntt--entity-primary-nav, .ntt--js.ntt--dom---loaded--js
-.ntt--entity-secondary-nav, .ntt--js.ntt--dom---loaded--js
+.ntt--dom---loaded--js .ntt--entity-primary-nav, .ntt--dom---loaded--js
+.ntt--entity-secondary-nav, .ntt--dom---loaded--js
 .ntt--widget_nav_menu {
   visibility: visible;
 }
@@ -2241,11 +2241,11 @@ th {
   transition: all 0.15s linear;
 }
 
-.ntt--js.ntt--dom---unloaded--js .ntt--comment-form .ntt--form-field label {
+.ntt--dom---unloaded--js .ntt--comment-form .ntt--form-field label {
   visibility: hidden;
 }
 
-.ntt--js.ntt--dom---loaded--js .ntt--comment-form .ntt--form-field label {
+.ntt--dom---loaded--js .ntt--comment-form .ntt--form-field label {
   visibility: visible;
 }
 
