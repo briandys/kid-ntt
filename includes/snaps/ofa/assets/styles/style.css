@@ -79,6 +79,7 @@
       -ms-flex: 1 33%;
           flex: 1 33%;
   width: auto;
+  height: 100%;
   margin-bottom: 0;
   padding: 1rem;
   opacity: 1;
