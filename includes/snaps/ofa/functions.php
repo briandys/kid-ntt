@@ -2,7 +2,7 @@
 
 $GLOBALS['ntt_snaps_name'] = 'OFA';
 $GLOBALS['ntt_snaps_name_slug'] = sanitize_title( $GLOBALS['ntt_snaps_name'] );
-$GLOBALS['ntt__gvar__kid_ntt__snaps__version'] = '1.0.9';
+$GLOBALS['ntt__gvar__kid_ntt__snaps__version'] = '1.1.0';
 
 /**
  * Functions
