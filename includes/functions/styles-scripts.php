@@ -11,8 +11,10 @@ function ntt__kid_ntt__function__styles_scripts() {
 
     $ntt_l10n = array(
         'arrowUpIcon' => ntt__kid_ntt__function__get_theme_svg( 'arrow-up' ),
-        'chevronDownIcon' => ntt__kid_ntt__function__get_theme_svg( 'chevron-down' ),
+        'chevronLeftIcon' => ntt__kid_ntt__function__get_theme_svg( 'chevron-left' ),
         'chevronRightIcon' => ntt__kid_ntt__function__get_theme_svg( 'chevron-right' ),
+        'chevronDownIcon' => ntt__kid_ntt__function__get_theme_svg( 'chevron-down' ),
+        'chevronUpDownIcon' => ntt__kid_ntt__function__get_theme_svg( 'chevron-up-down' ),
         'toggleMenuTxt' => __( 'Toggle Menu', 'ntt' ),
     );
     

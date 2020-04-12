@@ -416,22 +416,7 @@ section:target {
 //--------------------------------------------------------------
 
 #{$secondary-action--elements} {
-    @include x-padding(1rem);
-
-    a:hover {
-        text-decoration: none;
-    }
-
-    .ntt--txt {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: .5rem 1rem;
-        min-height: 2.375rem;
-        min-width: 2.375rem;
-        border-radius: $corner-radius---sm;
-        @include transition;
-    }
+    @include secondary-action;
 }
 
 .ntt--comment-reply-axn {

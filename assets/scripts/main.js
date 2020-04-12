@@ -9,7 +9,8 @@
     var kidNtt = kidNtt || {};
 
     const html = document.documentElement;
-    const commentForm = document.getElementById('commentform');
+    const commentForm = document.getElementById( 'commentform' );
+    const entriesNav = document.getElementById( 'ntt--entries-nav' );
 
     // polyfill closest
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
@@ -101,26 +102,6 @@
     function hasClass(el, className) {
         return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
     }
-
-    // Add a class to the body for when touch is enabled for browsers that don't support media queries
-    // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
-    kidNtt.touchEnabled = {
-
-        init: function() {
-            var matchMedia = function() {
-                // Include the 'heartz' as a way to have a non matching MQ to help terminate the join. See <https://git.io/vznFH>.
-                var prefixes = [ '-webkit-', '-moz-', '-o-', '-ms-' ];
-                var query = [ '(', prefixes.join( 'touch-enabled),(' ), 'heartz', ')' ].join( '' );
-                return window.matchMedia && window.matchMedia( query ).matches;
-            };
-
-            if ( ( 'ontouchstart' in window ) || ( window.DocumentTouch && document instanceof window.DocumentTouch ) || matchMedia() ) {
-                html.classList.add( 'ntt--touch-input---1--js' );
-            } else {
-                html.classList.add( 'ntt--touch-input---0--js' );
-            }
-        }
-    }; // kidNtt.touchEnabled
     
     /**
 	 * Wrap Text Node
@@ -171,9 +152,57 @@
             el.parentNode.insertBefore( skin, el );
             skin.appendChild( el );
         } );
-
-        
     };
+
+    // Add a class to the body for when touch is enabled for browsers that don't support media queries
+    // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
+    kidNtt.touchEnabled = {
+
+        init: function() {
+            var matchMedia = function() {
+                // Include the 'heartz' as a way to have a non matching MQ to help terminate the join. See <https://git.io/vznFH>.
+                var prefixes = [ '-webkit-', '-moz-', '-o-', '-ms-' ];
+                var query = [ '(', prefixes.join( 'touch-enabled),(' ), 'heartz', ')' ].join( '' );
+                return window.matchMedia && window.matchMedia( query ).matches;
+            };
+
+            if ( ( 'ontouchstart' in window ) || ( window.DocumentTouch && document instanceof window.DocumentTouch ) || matchMedia() ) {
+                html.classList.add( 'ntt--touch-input---1--js' );
+            } else {
+                html.classList.add( 'ntt--touch-input---0--js' );
+            }
+        }
+    }; // kidNtt.touchEnabled
+
+    /*	-----------------------------------------------------------------------------------------------
+    Detect Tabbing and Mouse Usage
+    https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+    --------------------------------------------------------------------------------------------------- */
+    kidNtt.detectTabbing = {
+
+        init: function() {
+            this.handleFirstTab();
+            this.handleMouseDownOnce();
+
+            window.addEventListener('keydown', function(event) {
+                if ( event.keyCode === 9 ) {
+                    kidNtt.detectTabbing.handleFirstTab();
+                }
+            });
+        },
+
+        handleFirstTab: function() {
+            html.classList.add('ntt--nav-mode---tab--js');
+            window.removeEventListener('keydown', kidNtt.detectTabbing.handleFirstTab);
+            window.addEventListener('mousedown', kidNtt.detectTabbing.handleMouseDownOnce);
+        },
+
+        handleMouseDownOnce: function() {
+            html.classList.remove('ntt--nav-mode---tab--js');
+            window.removeEventListener('mousedown', kidNtt.detectTabbing.handleMouseDownOnce);
+            window.addEventListener('keydown', kidNtt.detectTabbing.handleFirstTab);
+        }
+    }; // kidNtt.detectTabbing
     
     /*	-----------------------------------------------------------------------------------------------
     Text Content Processing
@@ -207,37 +236,6 @@
             kidNtt.wrapElement( contentCode, 'span', 'ntt--code-el-skin--js' );
         }
     }; // kidNtt.textContentProcessing
-
-    /**
-     * Wrap Video <iframe>
-     * https://css-tricks.com/fluid-width-video/
-     */
-    /*
-    var videoPlayers = ['iframe[src*="youtube.com"]', 'iframe[src*="vimeo.com"]'];
-    var contentVideoIframe = document.querySelectorAll(videoPlayers.join(","));
-    
-    if(contentVideoIframe.length) {
-        contentVideoIframe.forEach((el) => {
-            var skin = document.createElement('div');
-            skin.className = 'ntt--video-iframe-skin--js';
-            wrap(el, skin);
-        });
-    }
-    */
-
-    const goStartNav = document.getElementById( 'ntt--go-start-nav' );
-    var goStartTxt = goStartNav.querySelector( '.ntt--txt' );
-    var arrowUpIcon = nttData.arrowUpIcon;
-    goStartTxt.insertAdjacentHTML('afterend', arrowUpIcon);
-
-    const breadcrumbsNav = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
-    var chevronRightIcon = nttData.chevronRightIcon;
-
-    if ( breadcrumbsNav ) {
-        breadcrumbsNav.querySelectorAll( '.ntt--txt' ).forEach( function( el ) {
-            el.insertAdjacentHTML('afterend', chevronRightIcon);
-        } );
-    }
 
     /*	-----------------------------------------------------------------------------------------------
     Intrinsic Ratio Embeds
@@ -289,24 +287,164 @@
     kidNtt.entriesNav = {
 
         init: function() {
+            
+            this.initCssClassNames();
+            this.adjacentPageControl();
+            this.entriesPageMenu();
+        },
 
-            const entriesNavi = document.querySelectorAll( '.ntt--entries-nav li' );
+        initCssClassNames: function() {
+            
+            var entriesNaviNext = entriesNav.querySelector( '.next' );
+            var entriesNaviPrev = entriesNav.querySelector( '.prev' );
+            var entriesNaviCurrent = entriesNav.querySelector( '.current' );
+            
+            if ( entriesNaviNext ) {
+                entriesNaviNext.closest( 'li' ).classList.add( 'ntt--next-entries-navi--js' );
+            }
 
-            entriesNavi.forEach( ( el ) => {
+            if ( entriesNaviPrev ) {
+                entriesNaviPrev.closest( 'li' ).classList.add( 'ntt--previous-entries-navi--js' );
+            }
+
+            if ( entriesNaviCurrent ) {
+                entriesNaviCurrent.closest( 'li' ).classList.add( 'ntt--current-entries-navi--js' );
+            }
+        },
+
+        adjacentPageControl: function() {
+
+            // Adjacent Page Control
+            var entriesNavContainer = entriesNav.querySelector( '.nav-links' );
+            var pageNumbersList = entriesNav.querySelector( 'ul.page-numbers' );
+            var prevNavi = entriesNav.querySelector( '.ntt--previous-entries-navi--js' );
+            var nextNavi = entriesNav.querySelector( '.ntt--next-entries-navi--js' );
+            
+            // Create Adjacent Page Control
+            var adjacentPageControl = document.createElement( 'div' );
+            adjacentPageControl.className = 'ntt--entries-adjacent-page-control--js';
+            entriesNavContainer.insertBefore( adjacentPageControl, pageNumbersList.nextSibling );
+
+            // Create list inside Adjacent Page Control
+            var adjacentPageControlList = document.createElement( 'ul' );
+            adjacentPageControl.insertAdjacentHTML( 'afterbegin', adjacentPageControlList.outerHTML );
+            
+            var adjacentPageControlList = adjacentPageControl.querySelector( 'ul' );
+            
+            // Put Next Navigation Item in Adjacent Page Control List
+            if ( nextNavi ) {
+                var nextNaviClone = nextNavi.cloneNode(true).outerHTML;
+                adjacentPageControlList.insertAdjacentHTML( 'afterbegin', nextNaviClone );
+                nextNavi.remove();
                 
-                if ( el.querySelector( '.next' ) ) {
-                    el.classList.add( 'ntt--next-entries-navi' );
-                }
+                var nextNaviTxt = entriesNav.querySelector( '.ntt--next-entries-navi--js .ntt--txt' );
+                nextNaviTxt.insertAdjacentHTML( 'afterend', nttData.chevronRightIcon );
+            } else {
+                entriesNav.classList.add( 'ntt--next-entries-navi---0--js' );
+                
+                var naviPlaceholder = document.createElement( 'span' );
+                naviPlaceholder.className = 'ntt--next-entries-navi-placeholder--js';
+                adjacentPageControl.insertBefore( naviPlaceholder, adjacentPageControlList.nextSibling );
+                naviPlaceholder.insertAdjacentHTML( 'afterbegin', nttData.chevronRightIcon );
+            }
+            
+            // Put Previous Navigation Item in Adjacent Page Control List
+            if ( prevNavi ) {
+                var prevNaviClone = prevNavi.cloneNode(true).outerHTML;
+                adjacentPageControlList.insertAdjacentHTML( 'afterbegin', prevNaviClone );
+                prevNavi.remove();
 
-                if ( el.querySelector( '.prev' ) ) {
-                    el.classList.add( 'ntt--previous-entries-navi' );
-                }
+                var prevNaviTxt = entriesNav.querySelector( '.ntt--previous-entries-navi--js .ntt--txt' );
+                prevNaviTxt.insertAdjacentHTML( 'afterend', nttData.chevronLeftIcon );
+            } else {
+                entriesNav.classList.add( 'ntt--previous-entries-navi---0--js' );
+                
+                var naviPlaceholder = document.createElement( 'span' );
+                naviPlaceholder.className = 'ntt--previous-entries-navi-placeholder--js';
+                adjacentPageControl.insertBefore( naviPlaceholder, adjacentPageControlList );
+                naviPlaceholder.insertAdjacentHTML( 'afterbegin', nttData.chevronLeftIcon );
+            }
+        },
 
-                if ( el.querySelector( '.current' ) ) {
-                    el.classList.add( 'ntt--current-entries-navi' );
+        entriesPageMenu: function() {
+            
+            // Create Entries Page Menu
+            var adjacentPageControl = entriesNav.querySelector( 'ntt--entries-adjacent-page-control--js' );
+            var entriesNavContainer = entriesNav.querySelector( '.nav-links' );
+            var entriesPageMenu = document.createElement( 'div' );
+            entriesPageMenu.id = 'ntt--entries-page-menu--js';
+            entriesPageMenu.className = 'ntt--entries-page-menu--js';
+            entriesNavContainer.insertBefore( entriesPageMenu, adjacentPageControl );
+            
+            var entriesPageMenuList = entriesNav.querySelector( 'ul.page-numbers' );
+            entriesPageMenu.insertAdjacentHTML( 'afterbegin', entriesPageMenuList.outerHTML );
+            entriesPageMenuList.remove();
+
+            function currentNaviIntoView() {
+                var entriesPageMenuList = entriesNav.querySelector( 'ul.page-numbers' );
+                var currentEntriesNavi = entriesNav.querySelector( '.ntt--current-entries-navi--js' );
+                var naviHeight = currentEntriesNavi.offsetHeight;
+                entriesPageMenuList.scrollTop = currentEntriesNavi.offsetTop - ( naviHeight / 2 );
+            }
+
+            window.addEventListener( 'load', currentNaviIntoView() );
+
+            // Click event listener for Entries Page Indicator
+            var entriesPageIndicator = entriesNav.querySelector( '.ntt--entries-page-indicator' );
+            entriesPageIndicator.setAttribute( 'id', 'ntt--entries-page-indicator' );
+            entriesPageIndicator.setAttribute( 'role', 'button' );
+            entriesPageIndicator.setAttribute( 'tabindex', '0' );
+            entriesPageIndicator.setAttribute( 'aria-controls', 'ntt--entries-page-menu--js' );
+            entriesPageIndicator.setAttribute( 'aria-expanded', 'false' );
+            
+            var entriesPageIndicatorTxt = entriesPageIndicator.querySelector( '.ntt--txt' );
+            entriesPageIndicatorTxt.insertAdjacentHTML( 'afterend', nttData.chevronUpDownIcon );
+
+            function toggleActivityStatus() {
+                var currentEntriesNavi = entriesNav.querySelector( '.ntt--current-entries-navi--js .ntt--txt' );
+                var activeClass = 'ntt--entries-page-menu---active';
+
+                if ( entriesNav.classList.contains( activeClass) ) {
+                    entriesPageIndicator.setAttribute( 'aria-expanded', 'false' );
+                    entriesNav.classList.remove( activeClass );
+                } else {
+                    entriesPageIndicator.setAttribute( 'aria-expanded', 'true' );
+                    entriesNav.classList.add( activeClass );
+                    currentEntriesNavi.setAttribute( 'tabindex', '-1' );
+                    currentEntriesNavi.focus();
+                    currentNaviIntoView();
+                }
+            };
+            
+            // On click
+            entriesPageIndicator.addEventListener( 'click', function() {
+                toggleActivityStatus();
+            } );
+            
+            // On enter or spacebar
+            entriesPageIndicator.addEventListener( 'keyup', function( event ) {
+                if ( ( event.keyCode === 13 ) || ( event.keyCode === 32 ) ) {
+                    toggleActivityStatus();
                 }
             } );
-        }
+
+            // On escape
+            document.addEventListener( 'keyup', function( event ) {
+                if ( entriesNav.classList.contains( 'ntt--entries-page-menu---active') && event.key === 'Escape' ) {
+                    toggleActivityStatus();
+                    entriesPageIndicator.focus();
+                }
+            } );
+
+            // On external click
+            window.addEventListener( 'click', function ( event ) {
+                
+                if ( entriesNav.classList.contains( 'ntt--entries-page-menu---active') && ( ! entriesPageIndicator.contains( event.target ) && ! entriesPageMenu.contains( event.target ) ) ) {
+                    toggleActivityStatus();
+                    entriesPageIndicator.focus();
+                }
+            }, false);
+        },
     }; // kidNtt.entriesNav
 
     /*	-----------------------------------------------------------------------------------------------
@@ -317,7 +455,7 @@
         init: function() {
             this.initCssClassNames();
             this.toggleMenu();
-            this.uncheckInputOnExternalClicks();
+            this.uncheckInputOnExternalClick();
             this.initActivityStatus();
 
             window.addEventListener( 'load', function() {
@@ -414,13 +552,13 @@
                     
                 var activeNav = document.querySelectorAll( '.ntt--sub-menu---active--js' );
                 
-                if ( activeNav.length && event.keyCode === 27 ) {
+                if ( activeNav.length && event.key === 'Escape' ) {
                     kidNtt.subMenu.uncheckInput();
                 }
             } );
         },
 
-        uncheckInputOnExternalClicks: function() {
+        uncheckInputOnExternalClick: function() {
 
             window.addEventListener( 'click', function ( event ) {
                 
@@ -464,36 +602,6 @@
             }
         }
     }; // kidNtt.subMenu
-
-    /*	-----------------------------------------------------------------------------------------------
-    Detect Tabbing and Mouse Usage
-    https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
-    --------------------------------------------------------------------------------------------------- */
-    kidNtt.detectTabbing = {
-
-        init: function() {
-            this.handleFirstTab();
-            this.handleMouseDownOnce();
-
-            window.addEventListener('keydown', function(event) {
-                if ( event.keyCode === 9 ) {
-                    kidNtt.detectTabbing.handleFirstTab();
-                }
-            });
-        },
-
-        handleFirstTab: function() {
-            html.classList.add('ntt--nav-mode---tab--js');
-            window.removeEventListener('keydown', kidNtt.detectTabbing.handleFirstTab);
-            window.addEventListener('mousedown', kidNtt.detectTabbing.handleMouseDownOnce);
-        },
-
-        handleMouseDownOnce: function() {
-            html.classList.remove('ntt--nav-mode---tab--js');
-            window.removeEventListener('mousedown', kidNtt.detectTabbing.handleMouseDownOnce);
-            window.addEventListener('keydown', kidNtt.detectTabbing.handleFirstTab);
-        }
-    }; // kidNtt.detectTabbing
 
     /*	-----------------------------------------------------------------------------------------------
     Intersection Observer Targeting IDs
@@ -680,7 +788,27 @@
             }
         }
     }; // kidNtt.displayRandomImage
-    
+
+    kidNtt.insertIcons = {
+
+        init: function() {
+            const goStartNav = document.getElementById( 'ntt--go-start-nav' );
+
+            if ( goStartNav ) {
+                var goStartTxt = goStartNav.querySelector( '.ntt--txt' );
+                goStartTxt.insertAdjacentHTML( 'afterend', nttData.arrowUpIcon );
+            }
+            
+            const breadcrumbsNav = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
+            
+            if ( breadcrumbsNav ) {
+                var chevronRightIcon = nttData.chevronRightIcon;
+                breadcrumbsNav.querySelectorAll( '.ntt--txt' ).forEach( function( el ) {
+                    el.insertAdjacentHTML( 'afterend', chevronRightIcon );
+                } );
+            }
+        }
+    }; // kidNtt.insertIcons
 
     /**
      * Is the DOM ready?
@@ -702,15 +830,16 @@
     }
 
     nttDomReady( function() {
-        kidNtt.textContentProcessing.init();
         kidNtt.touchEnabled.init();
+        kidNtt.detectTabbing.init();
+        kidNtt.textContentProcessing.init();
         kidNtt.entriesNav.init();
         kidNtt.subMenu.init();
-        kidNtt.detectTabbing.init();
         kidNtt.entityFooterIntersection.init();
         kidNtt.commentInputElements.init();
         kidNtt.displayRandomImage.init();
         kidNtt.sectionIdIntersection.init();
         kidNtt.intrinsicRatioVideos.init();
+        kidNtt.insertIcons.init();
     } );
 } )( jQuery, window, document );
