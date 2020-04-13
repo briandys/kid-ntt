@@ -473,20 +473,20 @@
         initCssClassNames: function() {
 
             // Initialize Sub-menu CSS Class Name
-            const nav = document.querySelectorAll( '.ntt--nav, .ntt--widget_nav_menu' );
-            const widgetNav = document.querySelectorAll( '.ntt--widget_nav_menu' );
-            const currentNavItem = document.querySelectorAll( '.current-menu-item, .current_page_item' );
+            var nav = document.querySelectorAll( '.ntt--nav, .ntt--widget_nav_menu' );
+            var widgetNav = document.querySelectorAll( '.ntt--widget_nav_menu' );
+            var currentNavItem = document.querySelectorAll( '.current-menu-item, .current_page_item' );
             
             nav.forEach( function ( el ) {
 
-                if ( el.querySelector( '.children, .sub-menu' ) !== null ) {
+                if ( el.querySelector( '.children, .sub-menu' ) ) {
                     el.classList.add( 'ntt--nav---sub-menu--js' );
                 }
             } );
 
             widgetNav.forEach( function ( el ) {
 
-                if ( el.querySelector( '.sub-menu' ) !== null ) {
+                if ( el.querySelector( '.sub-menu' ) ) {
                     el.classList.add( 'ntt--nav---sub-menu--js' );
                 }
             } );
@@ -499,20 +499,19 @@
         toggleMenu: function() {
 
             // Prepends a control to hide and show the sub-menu
-            const subMenu = document.querySelectorAll( '.ntt--nav .children, .ntt--nav .sub-menu, .ntt--widget_nav_menu .sub-menu' );
+            var subMenu = document.querySelectorAll( '.ntt--nav .children, .ntt--nav .sub-menu, .ntt--widget_nav_menu .sub-menu' );
             
             var i = 0;
 
             subMenu.forEach( ( el ) => {
                 
                 i++;
-                const parent = el.parentNode;
-
+                var parent = el.parentNode;
                 var chevronDownIcon = nttData.chevronDownIcon;
                 var toggleMenuTxt = nttData.toggleMenuTxt;
                 
                 // Create Checkbox
-                const checkbox = document.createElement( 'input' );
+                var checkbox = document.createElement( 'input' );
                 checkbox.type = 'checkbox';
                 checkbox.id = 'ntt--sub-menu-checkbox-' + i + '--js';
                 checkbox.className = 'ntt--sub-menu-checkbox--js';
@@ -520,7 +519,7 @@
                 checkbox.setAttribute( 'arial-label', toggleMenuTxt );
 
                 // Create Label
-                const label = document.createElement( 'label' );
+                var label = document.createElement( 'label' );
                 label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i + '--js' );
                 label.className = 'ntt--sub-menu-checkbox-label--js ntt--obj';
                 label.innerHTML = '<span class="ntt--txt">' + toggleMenuTxt + '</span>';
@@ -536,12 +535,11 @@
         },
 
         uncheckInput: function() {
-
-            const subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor--js' );
+            var subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor--js' );
 
             subMenuAncestor.forEach( function ( el ) {
                 
-                const input = el.getElementsByTagName('input');
+                var input = el.getElementsByTagName('input');
                     
                 for ( var i = 0; i < input.length; i++ ) { 
                     if ( input[i].type === 'checkbox' ) { 
@@ -555,7 +553,6 @@
         uncheckInputOnEscKey: function() {
 
             document.addEventListener( 'keyup', function ( event ) {
-                    
                 var activeNav = document.querySelectorAll( '.ntt--sub-menu---active--js' );
                 
                 if ( activeNav.length && event.key === 'Escape' ) {
@@ -569,13 +566,13 @@
             window.addEventListener( 'click', function ( event ) {
                 
                 // Uncheck checkboxes when clicked outside this element
-                const subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor--js' );
+                var subMenuAncestor = document.querySelectorAll( '.ntt--sub-menu-ancestor--js' );
 
                 subMenuAncestor.forEach( function ( el ) {
-                    const targetEl = el.contains( event.target );
+                    var targetEl = el.contains( event.target );
                 
                     if ( ! targetEl ) {
-                        const input = el.getElementsByTagName('input');
+                        var input = el.getElementsByTagName('input');
                         
                         for ( var i = 0; i < input.length; i++ ) { 
                             if ( input[i].type === 'checkbox' ) { 
@@ -589,14 +586,14 @@
         },
 
         initActivityStatus: function() {
-
             var input = document.querySelectorAll( '.ntt--nav---sub-menu--js input' );
 
             for ( var i = 0, len = input.length; i < len; i++ ) {
                 
                 if ( input[i].type === 'checkbox' ) {
+                    
                     input[i].onclick = function() {
-                        const parent = this.parentNode;
+                        var parent = this.parentNode;
                         
                         if ( this.checked ) {
                             parent.classList.add( 'ntt--sub-menu---active--js' );
@@ -617,10 +614,12 @@
 
         init: function() {
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    const id = entry.target.getAttribute('id');
-                    if (entry.intersectionRatio > 0) {
+            var observer = new IntersectionObserver( entries => {
+                
+                entries.forEach( entry => {
+                    var id = entry.target.getAttribute('id');
+                    
+                    if ( entry.intersectionRatio > 0 ) {
                         document.querySelector(`a[href="#${id}"]`).classList.add('ntt--intersected--js');
                         entry.target.classList.remove('ntt--not-intersected--js');
                         entry.target.classList.add('ntt--intersected--js');
@@ -646,27 +645,23 @@
     kidNtt.entityFooterIntersection = {
 
         init: function() {
-            var entityFooter;
+            var entityFooter = document.querySelector('.ntt--entity-footer');
 
-            window.addEventListener('load', (event) => {
-                entityFooter = document.querySelector('.ntt--entity-footer');
-                createObserver();
-            }, false);
-
-            function createObserver() {
-                var observer;
-                observer = new IntersectionObserver( handleIntersect, { rootMargin: "0px 0px 0px 0px" } );
-                observer.observe(entityFooter);
-            }
-    
-            function handleIntersect(entries, observer) {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        html.classList.add('ntt--entity-footer--intersected--js');
-                    } else {
-                        html.classList.remove('ntt--entity-footer--intersected--js');
-                    }
-                });
+            if ( entityFooter ) {
+                var observer = new IntersectionObserver( handleIntersect, { rootMargin: "0px 0px 0px 0px" } );
+            
+                observer.observe( entityFooter );
+        
+                function handleIntersect( entries ) {
+                    
+                    entries.forEach( ( entry ) => {
+                        if ( entry.isIntersecting ) {
+                            html.classList.add('ntt--entity-footer--intersected--js');
+                        } else {
+                            html.classList.remove('ntt--entity-footer--intersected--js');
+                        }
+                    } );
+                }
             }
         }
     }; // kidNtt.entityFooterIntersection
@@ -726,11 +721,10 @@
         
         focusListener: function() {
 
-            if ( html.classList.contains('ntt--comment-creation---1--view') ) {
+            if ( html.classList.contains( 'ntt--comment-creation---1--view' ) ) {
             
-                const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
-                const inputDelegate = delegate('.text-input');
-                
+                var delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
+                var inputDelegate = delegate('.text-input');
                 var formField = '.ntt--form-field';
                 var focusInTxt = 'ntt--form-field---focusin--js';
                 var focusOutTxt = 'ntt--form-field---focusout--js';
@@ -765,7 +759,7 @@
                     }
                 }));
 
-                commentForm.removeAttribute('novalidate');
+                commentForm.removeAttribute( 'novalidate' );
             }
         }
     }; // kidNtt.commentInputElements
@@ -780,17 +774,14 @@
         init: function() {
 
             if ( html.classList.contains('ntt--js--random-image') ) {
-                window.addEventListener('DOMContentLoaded', function() {
-                    
-                    var imagesArray = [
-                        '<a href="https://www.flickr.com/photos/briansahagun/3386389393" title="Nobody"><img src="https://live.staticflickr.com/3555/3386389393_084c05a47d_z.jpg" width="640" height="480" alt="Nobody"></a>',
-                        '<a href="https://www.flickr.com/photos/briansahagun/3380918261" title="Fishbowl"><img src="https://live.staticflickr.com/3449/3380918261_752d542889_z.jpg" width="640" height="480" alt="Fishbowl"></a>',
-                        '<a href="https://www.flickr.com/photos/briansahagun/3377609579" title="Tie the Knot"><img src="https://live.staticflickr.com/3417/3377609579_505cddb043_z.jpg" width="640" height="427" alt="Tie the Knot"></a>'
-                    ];
-                    
-                    var num = Math.floor(Math.random() * (imagesArray.length));
-                    document.getElementById('canvas').innerHTML = imagesArray[num];
-                });
+                var imagesArray = [
+                    '<a href="https://www.flickr.com/photos/briansahagun/3386389393" title="Nobody"><img src="https://live.staticflickr.com/3555/3386389393_084c05a47d_z.jpg" width="640" height="480" alt="Nobody"></a>',
+                    '<a href="https://www.flickr.com/photos/briansahagun/3380918261" title="Fishbowl"><img src="https://live.staticflickr.com/3449/3380918261_752d542889_z.jpg" width="640" height="480" alt="Fishbowl"></a>',
+                    '<a href="https://www.flickr.com/photos/briansahagun/3377609579" title="Tie the Knot"><img src="https://live.staticflickr.com/3417/3377609579_505cddb043_z.jpg" width="640" height="427" alt="Tie the Knot"></a>'
+                ];
+                
+                var num = Math.floor(Math.random() * (imagesArray.length));
+                document.getElementById('canvas').innerHTML = imagesArray[num];
             }
         }
     }; // kidNtt.displayRandomImage
@@ -798,14 +789,14 @@
     kidNtt.insertIcons = {
 
         init: function() {
-            const goStartNav = document.getElementById( 'ntt--go-start-nav' );
+            var goStartNav = document.getElementById( 'ntt--go-start-nav' );
 
             if ( goStartNav ) {
                 var goStartTxt = goStartNav.querySelector( '.ntt--txt' );
                 goStartTxt.insertAdjacentHTML( 'afterend', nttData.arrowUpIcon );
             }
             
-            const breadcrumbsNav = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
+            var breadcrumbsNav = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
             
             if ( breadcrumbsNav ) {
                 var chevronRightIcon = nttData.chevronRightIcon;
