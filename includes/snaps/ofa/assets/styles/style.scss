@@ -117,7 +117,15 @@ body {
     //--------------------------------------------------------------
 
     .ntt--widget_nav_menu {
-        text-align: center;
+    
+        .ntt--widget-name {
+            text-align: center;
+        }
+        
+        .menu {
+            display: flex;
+            justify-content: center;
+        }
     }
 
     //--------------------------------------------------------------

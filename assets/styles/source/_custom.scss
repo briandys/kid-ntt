@@ -1,77 +1,3 @@
-
-
-
-@include mq($tablet-viewport-width) {
-
-    //--------------------------------------------------------------
-    // Layout
-    //--------------------------------------------------------------
-
-    @supports (display: grid) {
-    
-        .ntt--entity-main-main-aside---1 {
-
-            .ntt--entity-main-main {
-                display: grid;
-                grid-template:
-                    'entry-md entity-main-main-aside'
-                    / 2fr 1fr;
-            }
-        
-            .ntt--entry-md {
-                grid-area: entry-md;
-            }
-        
-            .ntt--entity-main-main-aside {
-                grid-area: entity-main-main-aside;
-            }
-
-            .ntt--entity-main-footer {
-                display: grid;
-                grid-template:
-                    'entity-main-footer .'
-                    / 2fr 1fr;
-            }
-
-            .ntt--entry-nav {
-                grid-area: entity-main-footer;
-            }
-        }
-    }
-
-    //--------------------------------------------------------------
-    // Comments
-    //--------------------------------------------------------------
-
-    .ntt--comment-form {
-
-        .ntt--user---admin & {
-            position: relative;
-            padding-bottom: 1rem;
-
-            .form-submit {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                margin-right: 2rem;
-                margin-bottom: 2rem;
-
-                input[type="submit"] {
-                    margin: 0;
-                }
-            }
-
-            textarea.text-input {
-                padding-right: 8rem;
-            }
-
-            .ntt--comment-author-message-field {
-                margin-bottom: 0;
-            }
-        }
-    }
-}
-
 .ntt--entry {
     @include y-padding(2rem);
 }
@@ -90,6 +16,10 @@
 //--------------------------------------------------------------
 
 .ntt--comment-form {
+
+    @at-root .ntt--dom---unloaded--js & {
+        visibility: hidden;
+    }
 
     .ntt--form-field {
         position: relative;
@@ -452,6 +382,81 @@ section:target {
 
     .ntt--txt {
         font-size: $text---s;
+    }
+}
+
+//--------------------------------------------------------------
+// Media Query
+//--------------------------------------------------------------
+
+@include mq($tablet-viewport-width) {
+
+    //--------------------------------------------------------------
+    // Layout
+    //--------------------------------------------------------------
+
+    @supports (display: grid) {
+    
+        .ntt--entity-main-main-aside---1 {
+
+            .ntt--entity-main-main {
+                display: grid;
+                grid-template:
+                    'entry-md entity-main-main-aside'
+                    / 2fr 1fr;
+            }
+        
+            .ntt--entry-md {
+                grid-area: entry-md;
+            }
+        
+            .ntt--entity-main-main-aside {
+                grid-area: entity-main-main-aside;
+            }
+
+            .ntt--entity-main-footer {
+                display: grid;
+                grid-template:
+                    'entity-main-footer .'
+                    / 2fr 1fr;
+            }
+
+            .ntt--entry-nav {
+                grid-area: entity-main-footer;
+            }
+        }
+    }
+
+    //--------------------------------------------------------------
+    // Comments
+    //--------------------------------------------------------------
+
+    .ntt--comment-form {
+
+        .ntt--user---admin & {
+            position: relative;
+            padding-bottom: 1rem;
+
+            .form-submit {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                margin-right: 2rem;
+                margin-bottom: 2rem;
+
+                input[type="submit"] {
+                    margin: 0;
+                }
+            }
+
+            textarea.text-input {
+                padding-right: 8rem;
+            }
+
+            .ntt--comment-author-message-field {
+                margin-bottom: 0;
+            }
+        }
     }
 }
 

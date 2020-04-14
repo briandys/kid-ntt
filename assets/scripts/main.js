@@ -220,8 +220,8 @@
             // All text nodes will be wrapped in txt CSS class name. If empty, remove it.
             var $content = $( '.ntt--content' );
             kidNtt.wrapTextNode( $content);
-            kidNtt.removeEmpty( $content.find( 'p, .ntt--txt' ) );
-            kidNtt.removeExtraSpace( $content.find( 'p, .ntt--txt' ) );
+            kidNtt.removeEmpty( $content.find( '.ntt--txt' ) );
+            kidNtt.removeExtraSpace( $content.find( '.ntt--txt' ) );
             kidNtt.removeEmpty( $content );
 
             // All text nodes will be wrapped in .ntt--txt. If empty, remove it.
@@ -402,6 +402,7 @@
             entriesPageIndicator.setAttribute( 'tabindex', '0' );
             entriesPageIndicator.setAttribute( 'aria-controls', 'ntt--entries-page-menu--js' );
             entriesPageIndicator.setAttribute( 'aria-expanded', 'false' );
+            entriesPageIndicator.setAttribute( 'title', nttData.toggleMenuTxt );
             
             var entriesPageIndicatorTxt = entriesPageIndicator.querySelector( '.ntt--txt' );
             entriesPageIndicatorTxt.insertAdjacentHTML( 'afterend', nttData.chevronUpDownIcon );

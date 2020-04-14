@@ -70,45 +70,18 @@
 // Figures, Images, Captions
 //--------------------------------------------------------------
 
-.wp-caption-text {
-    margin: 0;
-    margin-top: .5em;
-    text-align: left;
-    color: $mid-color;
-}
-
 .ntt {
 
     .wp-caption,
     .wp-block-image,
     .wp-block-embed {
-        
-        /*
-        .aligncenter {
-            margin-top: 0;
-        }
-
-        .alignleft {
-            float: none;
-            margin-right: 0;
-            margin-top: 0;
-        }
-
-        .alignright {
-            float: none;
-            margin-left: 0;
-            margin-top: 0;
-        }
-        */
-
-        .aligncenter,
-        .alignleft,
-        .alignright {
             
-            figcaption {
-                @extend .wp-caption-text;
-                display: block;
-            }
+        figcaption {
+            display: block;
+            margin: 0;
+            margin-top: .5em;
+            text-align: left;
+            color: $mid-color;
         }
     }
 }
@@ -303,7 +276,7 @@
     margin: 0;
 
     figcaption {
-        @extend .wp-caption-text;
+        //@extend .wp-caption-text;
         margin: 1rem 1rem 0;
     }
 }

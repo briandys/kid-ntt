@@ -233,8 +233,17 @@ body {
   text-align: center;
 }
 
-.ntt--entity-footer .ntt--widget_nav_menu {
+.ntt--entity-footer .ntt--widget_nav_menu .ntt--widget-name {
   text-align: center;
+}
+
+.ntt--entity-footer .ntt--widget_nav_menu .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .ntt--entity-footer .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:hover ~ .ntt--icon {
