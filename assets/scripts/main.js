@@ -154,6 +154,60 @@
         } );
     };
 
+    /**
+     * Helper for making DOM elements
+     * https://giffmex.org/gifts/tiddlyblink.html
+     * tag: tag name
+     * options: see below
+     * Options include:
+     * namespace: defaults to http://www.w3.org/1999/xhtml
+     * attributes: hashmap of attribute values
+     * style: hashmap of styles
+     * text: text to add as a child node
+     * children: array of further child nodes
+     * innerHTML: optional HTML for element
+     * class: class name(s)
+     * document: defaults to current document
+     */
+    kidNtt.domMaker = function( tag,options ) {
+        var doc = options.document || document;
+        var element = doc.createElementNS(options.namespace || "http://www.w3.org/1999/xhtml",tag);
+        
+        if ( options['id'] ) {
+            element.id = options['id'];
+        }
+        
+        if ( options['class'] ) {
+            element.className = options['class'];
+        }
+        
+        if ( options['type'] ) {
+            element.type = options['type'];
+        }
+
+        if ( options.text ) {
+            element.appendChild( doc.createTextNode( options.text ) );
+        }
+
+        $.each( options.children, function( child ) {
+            element.appendChild( child );
+        });
+
+        if ( options.innerHTML ) {
+            element.innerHTML = options.innerHTML;
+        }
+
+        $.each( options.attributes, function( attribute, name ) {
+            element.setAttribute( attribute, name );
+        } );
+
+        $.each( options.style, function( value, name ) {
+            element.style[name] = value;
+        } );
+
+        return element;
+    };
+
     // Add a class to the body for when touch is enabled for browsers that don't support media queries
     // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
     kidNtt.touchEnabled = {
@@ -327,12 +381,13 @@
             var nextNavi = entriesNav.querySelector( '.ntt--next-entries-navi--js' );
             
             // Create Adjacent Page Control
-            var adjacentPageControl = document.createElement( 'div' );
-            adjacentPageControl.className = 'ntt--entries-adjacent-page-control--js';
+            var adjacentPageControl = kidNtt.domMaker( 'div', {
+                'class': 'ntt--entries-adjacent-page-control--js'
+            } );
             entriesNavContainer.insertBefore( adjacentPageControl, pageNumbersList.nextSibling );
 
             // Create list inside Adjacent Page Control
-            var adjacentPageControlList = document.createElement( 'ul' );
+            var adjacentPageControlList = kidNtt.domMaker( 'ul', {} );
             adjacentPageControl.insertAdjacentHTML( 'afterbegin', adjacentPageControlList.outerHTML );
             
             var adjacentPageControlList = adjacentPageControl.querySelector( 'ul' );
@@ -348,8 +403,9 @@
             } else {
                 entriesNav.classList.add( 'ntt--next-entries-navi---0--js' );
                 
-                var naviPlaceholder = document.createElement( 'span' );
-                naviPlaceholder.className = 'ntt--next-entries-navi-placeholder--js';
+                var naviPlaceholder = kidNtt.domMaker( 'span', {
+                    'class': 'ntt--next-entries-navi-placeholder--js'
+                } );
                 adjacentPageControl.insertBefore( naviPlaceholder, adjacentPageControlList.nextSibling );
                 naviPlaceholder.insertAdjacentHTML( 'afterbegin', nttData.chevronRightIcon );
             }
@@ -365,8 +421,9 @@
             } else {
                 entriesNav.classList.add( 'ntt--previous-entries-navi---0--js' );
                 
-                var naviPlaceholder = document.createElement( 'span' );
-                naviPlaceholder.className = 'ntt--previous-entries-navi-placeholder--js';
+                var naviPlaceholder = kidNtt.domMaker( 'span', {
+                    'class': 'ntt--previous-entries-navi-placeholder--js'
+                } );
                 adjacentPageControl.insertBefore( naviPlaceholder, adjacentPageControlList );
                 naviPlaceholder.insertAdjacentHTML( 'afterbegin', nttData.chevronLeftIcon );
             }
@@ -377,9 +434,11 @@
             // Create Entries Page Menu
             var adjacentPageControl = entriesNav.querySelector( 'ntt--entries-adjacent-page-control--js' );
             var entriesNavContainer = entriesNav.querySelector( '.nav-links' );
-            var entriesPageMenu = document.createElement( 'div' );
-            entriesPageMenu.id = 'ntt--entries-page-menu--js';
-            entriesPageMenu.className = 'ntt--entries-page-menu--js';
+            
+            var entriesPageMenu = kidNtt.domMaker( 'div', {
+                'id': 'ntt--entries-page-menu--js',
+                'class': 'ntt--entries-page-menu--js'
+            } );
             entriesNavContainer.insertBefore( entriesPageMenu, adjacentPageControl );
             
             var entriesPageMenuList = entriesNav.querySelector( 'ul.page-numbers' );
@@ -512,18 +571,22 @@
                 var toggleMenuTxt = nttData.toggleMenuTxt;
                 
                 // Create Checkbox
-                var checkbox = document.createElement( 'input' );
-                checkbox.type = 'checkbox';
-                checkbox.id = 'ntt--sub-menu-checkbox-' + i + '--js';
-                checkbox.className = 'ntt--sub-menu-checkbox--js';
-                checkbox.setAttribute( 'title', toggleMenuTxt );
-                checkbox.setAttribute( 'arial-label', toggleMenuTxt );
+                var checkbox = kidNtt.domMaker( 'input', {
+                    'type': 'checkbox',
+                    'id': 'ntt--sub-menu-checkbox-' + i + '--js',
+                    'class': 'ntt--sub-menu-checkbox--js',
+                    attributes: { 
+                        'title': toggleMenuTxt,
+                        'arial-label': toggleMenuTxt }
+                } );
 
                 // Create Label
-                var label = document.createElement( 'label' );
-                label.setAttribute( 'for', 'ntt--sub-menu-checkbox-' + i + '--js' );
-                label.className = 'ntt--sub-menu-checkbox-label--js ntt--obj';
-                label.innerHTML = '<span class="ntt--txt">' + toggleMenuTxt + '</span>';
+                var label = kidNtt.domMaker( 'label', {
+                    'class': 'ntt--sub-menu-checkbox-label--js',
+                    attributes: { 
+                        'for': 'ntt--sub-menu-checkbox-' + i + '--js' },
+                    innerHTML: '<span class="ntt--txt">' + toggleMenuTxt + '</span>'
+                } );
                 
                 // Insert in DOM
                 parent.insertBefore( label, el );
