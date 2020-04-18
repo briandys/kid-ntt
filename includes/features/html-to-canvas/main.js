@@ -5,63 +5,85 @@
  * https://html2canvas.hertzen.com
  * https://github.com/eKoopmans/html2pdf.js/
  */
-( function() {
+( function( $, window, document, undefined ) {
+    'use strict';
+
+    var kidNtt = kidNtt || {};
 
     const html = document.documentElement;
 
-    if ( html.classList.contains('ntt--kid-ntt--feature--html-to-canvas') ) {
-        
-        const wildCard = document.getElementById( 'ntt--wild-card' );
-        const capture = document.getElementById( 'content' );
-        const ignoreElements = document.querySelector( '.ntt--entry-footer' );
-        
-        if ( ! html.contains( document.getElementById( 'ntt--wild-card-toolbar---js' ) ) ) {
-            let toolbar = document.createElement('div');
-            toolbar.id = 'ntt--wild-card-toolbar---js';
-            toolbar.className = 'ntt--wild-card-toolbar---js';
-            wildCard.appendChild(toolbar);
-        }
+    kidNtt.htmlToCanvas = {
 
-        const toolbar = document.getElementById('ntt--wild-card-toolbar---js');
+        init: function() {
 
-        const downloadAxn = document.createElement('button');
-        downloadAxn.innerHTML = nttData.downloadScreenshotTxt;
-        downloadAxn.id = 'ntt--kid-ntt--feature--html-to-canvas-download-axn--js';
-        downloadAxn.className = 'ntt--kid-ntt--feature--html-to-canvas-download-axn--js';
-        downloadAxn.setAttribute('data-html2canvas-ignore', 'true');
-        toolbar.appendChild( downloadAxn );
-        
-        downloadAxn.addEventListener('click', () => {
+            if ( html.classList.contains( 'ntt--kid-ntt--feature--html-to-canvas' ) ) {
+                this.createButton();
+            }
+        },
+
+        createButton: function() {
+
+            var wildCard = document.getElementById( 'ntt--wild-card' );
+            var content = document.getElementById( 'content' );
+            var capture = content;
+            var toolbar = document.getElementById('ntt--wild-card-toolbar---js');
             
-            let options = {
-                scale: 2,
-                backgroundColor: '#ffffff',
-                useCORS: true,
-                ignoreElements: ( el ) => el == ignoreElements
-            };
+            // If there is no toolbar, create one
+            if ( ! toolbar ) {
+                var toolbar = document.createElement( 'div' );
+                toolbar.id = 'ntt--wild-card-toolbar---js';
+                toolbar.className = 'ntt--wild-card-toolbar---js';
+                wildCard.appendChild( toolbar );
+            }
+    
+            // Create the download button
+            var downloadAxn = document.createElement( 'button' );
+            downloadAxn.id = 'ntt--kid-ntt--feature--html-to-canvas-download-axn--js';
+            downloadAxn.className = 'ntt--kid-ntt--feature--html-to-canvas-download-axn--js';
+            downloadAxn.setAttribute('data-html2canvas-ignore', 'true');
+            downloadAxn.innerHTML = nttData.loadingIndicator;
+            toolbar.appendChild( downloadAxn );
             
-            html2canvas( capture, options ).then(function( canvas ) {
-                saveAs( canvas.toDataURL(), 'ntt--html-to-canvas.png' );
-            });
-        });
-        
-        function saveAs( uri, filename ) {
+            // Create the button's click event
+            downloadAxn.addEventListener( 'click', () => {
+                
+                let options = {
+                    scale: 2.5,
+                    backgroundColor: '#ffffff',
+                    useCORS: true,
+                    ignoreElements: function ( el ) {
+                        return el == content.querySelector( '.jp-relatedposts' ) || el == content.querySelector( '.ntt--entry-footer' );
+                    }
+                };
+                
+                html2canvas( capture, options ).then( function( canvas ) {
+                    kidNtt.htmlToCanvas.saveAs( canvas.toDataURL(), 'ntt--html-to-canvas.png' );
+                } );
+            } );
+        },
+
+        saveAs: function( uri, filename ) {
             var link = document.createElement( 'a' );
+            
             if ( typeof link.download === 'string' ) {
                 link.href = uri;
                 link.download = filename;
 
-                //Firefox requires the link to be in the body
+                // Firefox requires the link to be in the body
                 document.body.appendChild( link );
 
-                //simulate click
+                // Simulate click
                 link.click();
 
-                //remove the link when done
+                // Remove the link when done
                 document.body.removeChild( link );
             } else {
-                window.open( uri) ;
+                window.open( uri ) ;
             }
         }
-    }
-})();
+    }; // kidNtt.htmlToCanvas
+
+    window.addEventListener( 'load', function() {
+        kidNtt.htmlToCanvas.init();
+    } );
+} )( jQuery, window, document );

@@ -10,12 +10,13 @@ function ntt__kid_ntt__function__styles_scripts() {
     wp_enqueue_script( 'ntt-kid-script', get_stylesheet_directory_uri(). '/assets/scripts/main.js', array( 'jquery', 'ntt-script', ), wp_get_theme()->get( 'Version' ). '-'. wp_get_theme( get_template() )->get( 'Version' ), true );
 
     $ntt_l10n = array(
-        'arrowUpIcon' => ntt__kid_ntt__function__get_theme_svg( 'arrow-up' ),
-        'chevronLeftIcon' => ntt__kid_ntt__function__get_theme_svg( 'chevron-left' ),
-        'chevronRightIcon' => ntt__kid_ntt__function__get_theme_svg( 'chevron-right' ),
-        'chevronDownIcon' => ntt__kid_ntt__function__get_theme_svg( 'chevron-down' ),
-        'chevronUpDownIcon' => ntt__kid_ntt__function__get_theme_svg( 'chevron-up-down' ),
-        'toggleMenuTxt' => __( 'Toggle Menu', 'ntt' ),
+        'arrowUpIcon'           => ntt__kid_ntt__function__get_theme_svg( 'arrow-up' ),
+        'chevronLeftIcon'       => ntt__kid_ntt__function__get_theme_svg( 'chevron-left' ),
+        'chevronRightIcon'      => ntt__kid_ntt__function__get_theme_svg( 'chevron-right' ),
+        'chevronDownIcon'       => ntt__kid_ntt__function__get_theme_svg( 'chevron-down' ),
+        'chevronUpDownIcon'     => ntt__kid_ntt__function__get_theme_svg( 'chevron-up-down' ),
+        'loadingIndicator'      => ntt__kid_ntt__function__get_theme_svg( 'loading-indicator' ),
+        'toggleMenuTxt'         => __( 'Toggle Menu', 'ntt' ),
         'downloadScreenshotTxt' => __( 'Download Screenshot', 'ntt' ),
     );
     

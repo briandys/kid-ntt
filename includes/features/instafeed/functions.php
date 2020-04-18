@@ -48,3 +48,25 @@ function ntt__kid_ntt__feature__instafeed__styles_scripts() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__instafeed__styles_scripts', 0 );
+
+// View CSS
+function ntt__kid_ntt__feature__instafeed__view__css( $classes ) {
+    
+    if ( ntt__kid_ntt__feature__instafeed__validation() ) {
+        $classes[] = esc_attr( $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__prefixed_name'] );
+    }
+    
+    return $classes;
+}
+add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__feature__instafeed__view__css' );
+
+// Entry CSS
+function ntt__kid_ntt__feature__instafeed__entry__css( $classes ) {
+    
+    if ( is_singular() && ntt__kid_ntt__feature__instafeed__validation() ) {
+        $classes[] = esc_attr( $GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__prefixed_name']. '--entry' );
+    }
+    
+    return $classes;
+}
+add_filter( 'post_class', 'ntt__kid_ntt__feature__instafeed__entry__css' );

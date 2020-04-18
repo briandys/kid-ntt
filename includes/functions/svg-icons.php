@@ -46,6 +46,15 @@ function ntt__kid_ntt__function__get_theme_svg( $svg_name, $group = 'ui', $color
                 'd'         => true,
                 'transform' => true,
             ),
+            'animateTransform' => array(
+                'attributeType' => true,
+                'attributeName' => true,
+                'type'          => true,
+                'from'          => true,
+                'to'            => true,
+                'dur'           => true,
+                'repeatCount'   => true,
+            ),
             'polygon' => array(
                 'fill'      => true,
                 'fill-rule' => true,

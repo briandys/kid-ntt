@@ -1,10 +1,10 @@
-(function() {
+( function() {
     /**
      * http://instafeedjs.com/
      */
     const html = document.documentElement;
 
-    if (html.classList.contains('ntt--kid-ntt--feature--instafeed')) {
+    if ( html.classList.contains( 'ntt--kid-ntt--feature--instafeed' ) ) {
         const entityFooter = document.querySelector('.ntt--entity-footer');
         var instafeedTarget = document.getElementById('ntt--kid-ntt--feature--instafeed--js');
 
@@ -29,4 +29,4 @@
         
         feed.run();
     }
-})();
+} )();
