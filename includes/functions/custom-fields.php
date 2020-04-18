@@ -1,5 +1,21 @@
 <?php
 /**
+ * Feature Custom Field
+ * Key: ntt_feature
+ * Any value found in Custom Field named, ntt_feature, will be added as CSS class names in HTML element.
+ */
+function ntt__kid_ntt__wp_custom_field__feature_view__css( $classes ) {
+    
+    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
+
+    if ( $html_css_post_meta !== '' ) {
+        $classes[] = esc_attr( $html_css_post_meta );
+    }
+    return $classes;
+}
+// add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__wp_custom_field__feature_view__css' );
+
+/**
  * HTML CSS Custom Field
  * Key: ntt_html_css
  * Adds CSS in HTML Tag.
@@ -14,22 +30,6 @@ function ntt__kid_ntt__wp_custom_field__css( $classes ) {
     return $classes;
 }
 add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__wp_custom_field__css' );
-
-/**
- * Feature Custom Field
- * Key: ntt_feature
- * Any value found in custom field named, ntt_feature, will be added as CSS class names in HTML element.
- */
-function ntt__kid_ntt__wp_custom_field__feature_view__css( $classes ) {
-    
-    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
-
-    if ( $html_css_post_meta !== '' ) {
-        $classes[] = esc_attr( $html_css_post_meta );
-    }
-    return $classes;
-}
-add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__wp_custom_field__feature_view__css' );
 
 /**
  * Entry Subname Custom Field
