@@ -901,7 +901,8 @@ body {
 }
 
 .ntt--entry-summary-content .ntt--entry-content-snippet a {
-  border-bottom: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .ntt--js .ntt--entries-nav {

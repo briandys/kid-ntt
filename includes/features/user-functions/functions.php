@@ -398,22 +398,6 @@ add_action( 'ntt__wp_hook__the_content___after', 'ntt__kid_ntt__feature__user_fu
 
 /**
  * Styles, Scripts
- */
-/*
-function ntt__kid_ntt__feature__user_functions__styles_scripts() {
-
-    if ( is_page() && ntt__kid_ntt__feature__user_functions__validation() ) {
-
-        wp_enqueue_style( $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__enqueue_slug']. '-style', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name']. '/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
-
-        wp_enqueue_script( $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__enqueue_slug']. '-script', get_stylesheet_directory_uri(). '/includes/features/'. $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name']. '/main.js', array(), wp_get_theme()->get( 'Version' ), true );
-    }
-}
-add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__user_functions__styles_scripts', 0 );
-*/
-
-/**
- * Styles, Scripts
  * Enqueues the styles and scripts
  */
 function ntt__kid_ntt__feature__user_functions__styles_scripts() {
@@ -431,3 +415,25 @@ function ntt__kid_ntt__feature__user_functions__styles_scripts() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__user_functions__styles_scripts', 0 );
+
+// View CSS
+function ntt__kid_ntt__feature__user_functions__view__css( $classes ) {
+    
+    if ( is_page() && ntt__kid_ntt__feature__user_functions__validation() ) {
+        $classes[] = esc_attr( $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__prefixed_name'] );
+    }
+    
+    return $classes;
+}
+add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__feature__user_functions__view__css' );
+
+// Entry CSS
+function ntt__kid_ntt__feature__user_functions__entry__css( $classes ) {
+    
+    if ( ntt__kid_ntt__feature__user_functions__validation() ) {
+        $classes[] = esc_attr( $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__prefixed_name']. '--entry' );
+    }
+    
+    return $classes;
+}
+add_filter( 'post_class', 'ntt__kid_ntt__feature__user_functions__entry__css' );
