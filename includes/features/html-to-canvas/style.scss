@@ -1,8 +1,41 @@
 @import '../../../assets/styles/source/rules';
 
-.ntt--kid-ntt--feature--html-to-canvas {
+.ntt--html-to-canvas-download-axn--js {
+    position: relative;
 
-    .ntt--kid-ntt--feature--html-to-canvas-download-axn--js {
-        
+    .ntt--loading-indicator-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        fill: $surface-color;
+
+        path {
+            animation: loading-indicator-ikot .6s linear infinite;
+            transform-origin: center;
+        }
+    }
+
+    @keyframes loading-indicator-ikot {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    &[disabled]:hover {
+        cursor: not-allowed;
+    }
+
+    &:active {
+        transform: scale(.98);
+    }
+}
+
+.ntt--html-to-canvas---downloading--js {
+    background-color: $accent-color---desaturated;
+    border-color: transparent;
+    transform: scale(.98);
+    
+    .ntt--txt {
+        visibility: hidden;
     }
 }

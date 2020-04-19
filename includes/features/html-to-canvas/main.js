@@ -38,16 +38,17 @@
     
             // Create the download button
             var downloadAxn = document.createElement( 'button' );
-            downloadAxn.id = 'ntt--kid-ntt--feature--html-to-canvas-download-axn--js';
-            downloadAxn.className = 'ntt--kid-ntt--feature--html-to-canvas-download-axn--js';
+            downloadAxn.id = 'ntt--html-to-canvas-download-axn--js';
+            downloadAxn.className = 'ntt--html-to-canvas-download-axn--js';
             downloadAxn.setAttribute('data-html2canvas-ignore', 'true');
-            downloadAxn.innerHTML = nttData.loadingIndicator;
+            downloadAxn.innerHTML = '<span class="ntt--txt">' + nttData.downloadScreenshotTxt + '</span>';
             toolbar.appendChild( downloadAxn );
             
             // Create the button's click event
             downloadAxn.addEventListener( 'click', () => {
                 
                 let options = {
+                    logging: false,
                     scale: 2.5,
                     backgroundColor: '#ffffff',
                     useCORS: true,
@@ -59,11 +60,17 @@
                 html2canvas( capture, options ).then( function( canvas ) {
                     kidNtt.htmlToCanvas.saveAs( canvas.toDataURL(), 'ntt--html-to-canvas.png' );
                 } );
+
+                downloadAxn.classList.add( 'ntt--html-to-canvas---downloading--js' );
+                downloadAxn.classList.remove( 'ntt--html-to-canvas---downloaded--js' );
+                downloadAxn.setAttribute( 'disabled', 'true' );
+                downloadAxn.insertAdjacentHTML( 'beforeend', nttData.loadingIndicator );
             } );
         },
 
         saveAs: function( uri, filename ) {
             var link = document.createElement( 'a' );
+            var downloadAxn = document.getElementById( 'ntt--html-to-canvas-download-axn--js' );
             
             if ( typeof link.download === 'string' ) {
                 link.href = uri;
@@ -77,13 +84,39 @@
 
                 // Remove the link when done
                 document.body.removeChild( link );
+
+                window.setTimeout( function() {
+                    downloadAxn.classList.add( 'ntt--html-to-canvas---downloaded--js' );
+                    downloadAxn.classList.remove( 'ntt--html-to-canvas---downloading--js' );
+                    downloadAxn.removeAttribute( 'disabled' );
+                    downloadAxn.querySelector( '.ntt--loading-indicator-icon' ).remove();
+                }, 1000 );
             } else {
                 window.open( uri ) ;
             }
         }
     }; // kidNtt.htmlToCanvas
 
-    window.addEventListener( 'load', function() {
+    /**
+     * Is the DOM ready?
+     *
+     * This implementation is coming from https://gomakethings.com/a-native-javascript-equivalent-of-jquerys-ready-method/
+     *
+     * @param {Function} fn Callback function to run.
+     */
+    function nttDomReady( fn ) {
+        if ( typeof fn !== 'function' ) {
+            return;
+        }
+
+        if ( document.readyState === 'interactive' || document.readyState === 'complete' ) {
+            return fn();
+        }
+
+        document.addEventListener( 'DOMContentLoaded', fn, false );
+    }
+
+    nttDomReady( function() {
         kidNtt.htmlToCanvas.init();
     } );
 } )( jQuery, window, document );
