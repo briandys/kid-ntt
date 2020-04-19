@@ -44,7 +44,7 @@ function ntt__kid_ntt__function__responsive_flickr( $content ) {
             $find[1] = $flickr_find;
             $find[2] = $flickr_find;
             $find[3] = '/data-flickr-embed="true" /i';
-            $find[4] = '/<script async src="\/\/embedr.flickr.com\/assets\/client-code.js" charset="utf-8"><\/script>/i';
+            $find[4] = '/<script.*script>/i';
             
             $replace = array();
             $replace[0] = $flickr_replace;

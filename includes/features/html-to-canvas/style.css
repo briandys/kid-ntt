@@ -1,6 +1,11 @@
 /* Screen Reader Text ------------------------ */
 .ntt--html-to-canvas-download-axn--js {
   position: relative;
+  visibility: hidden;
+}
+
+.ntt--content--intersected--js .ntt--html-to-canvas-download-axn--js {
+  visibility: visible;
 }
 
 .ntt--html-to-canvas-download-axn--js .ntt--loading-indicator-icon {

@@ -712,11 +712,21 @@
             var entityFooter = document.querySelector('.ntt--entity-footer');
 
             if ( entityFooter ) {
-                var observer = new IntersectionObserver( handleIntersect, { rootMargin: "0px 0px 0px 0px" } );
+                var observer = new IntersectionObserver( handleIntersect, {
+                    rootMargin: '0px 0px 0px 0px',
+                    threshold: .75
+                } );
             
                 observer.observe( entityFooter );
         
                 function handleIntersect( entries ) {
+
+                    // Set bottom style of Go to Start Navigation during intersection
+                    var footerStyle = window.getComputedStyle ? getComputedStyle( entityFooter, null ) : entityFooter.currentStyle;
+                    var footerMarginTop = parseInt( footerStyle.marginTop ) || 0;
+                    var footerMarginBottom = parseInt( footerStyle.marginBottom ) || 0;
+                    var footerHeight = entityFooter.offsetHeight + footerMarginTop + footerMarginBottom;
+                    document.getElementById( 'ntt--go-start-nav' ).style.bottom = footerHeight + 'px';
                     
                     entries.forEach( ( entry ) => {
                         if ( entry.isIntersecting ) {
@@ -727,6 +737,63 @@
                     } );
                 }
             }
+        },
+
+        genericIntersection: function() {
+
+            var intersectionElement = document.querySelectorAll( '.ntt--observe-intersection--js' );
+
+            if ( intersectionElement ) {
+
+                var observer = new IntersectionObserver( entries => {
+                
+                    entries.forEach( entry => {
+                        var id = entry.target.getAttribute('id');
+                        
+                        if ( entry.intersectionRatio > 0 ) {
+                            entry.target.classList.add('ntt--intersected--js');
+                            entry.target.classList.remove('ntt--not-intersected--js');
+                        } else {
+                            entry.target.classList.add('ntt--not-intersected--js');
+                            entry.target.classList.remove('ntt--intersected--js');
+                        }
+                    });
+                });
+            
+                // Track all sections that have an 'id' applied
+                intersectionElement.forEach( ( el ) => {
+                    observer.observe( el );
+                    el.classList.add('ntt--not-intersected--js');
+                } );
+            }
+
+            /*
+            var genericIntersectionElement = document.querySelectorAll( '' );
+            var observer = new IntersectionObserver( handleIntersect, {
+                rootMargin: '0px 0px 0px 0px',
+                threshold: 0
+            } );
+        
+            observer.observe( entityFooter );
+    
+            function handleIntersect( entries ) {
+
+                // Set bottom style of Go to Start Navigation during intersection
+                var footerStyle = window.getComputedStyle ? getComputedStyle( entityFooter, null ) : entityFooter.currentStyle;
+                var footerMarginTop = parseInt( footerStyle.marginTop ) || 0;
+                var footerMarginBottom = parseInt( footerStyle.marginBottom ) || 0;
+                var footerHeight = entityFooter.offsetHeight + footerMarginTop + footerMarginBottom;
+                document.getElementById( 'ntt--go-start-nav' ).style.bottom = footerHeight + 'px';
+                
+                entries.forEach( ( entry ) => {
+                    if ( entry.isIntersecting ) {
+                        html.classList.add('ntt--entity-footer--intersected--js');
+                    } else {
+                        html.classList.remove('ntt--entity-footer--intersected--js');
+                    }
+                } );
+            }
+            */
         }
     }; // kidNtt.entityFooterIntersection
 
@@ -897,6 +964,7 @@
         kidNtt.entriesNav.init();
         kidNtt.subMenu.init();
         kidNtt.entityFooterIntersection.init();
+        kidNtt.entityFooterIntersection.genericIntersection();
         kidNtt.commentInputElements.init();
         kidNtt.displayRandomImage.init();
         kidNtt.sectionIdIntersection.init();

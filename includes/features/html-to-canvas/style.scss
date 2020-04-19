@@ -2,6 +2,11 @@
 
 .ntt--html-to-canvas-download-axn--js {
     position: relative;
+    visibility: hidden;
+
+    @at-root .ntt--content--intersected--js & {
+        visibility: visible;
+    }
 
     .ntt--loading-indicator-icon {
         position: absolute;

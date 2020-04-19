@@ -90,9 +90,31 @@
                     downloadAxn.classList.remove( 'ntt--html-to-canvas---downloading--js' );
                     downloadAxn.removeAttribute( 'disabled' );
                     downloadAxn.querySelector( '.ntt--loading-indicator-icon' ).remove();
-                }, 1000 );
+                }, 5000 );
             } else {
                 window.open( uri ) ;
+            }
+        },
+
+        contentIntersection: function() {
+            var content = document.querySelector( '.ntt--entry-main' );
+
+            var observer = new IntersectionObserver( handleIntersect, {
+                rootMargin: '0px 0px 0px 0px',
+                threshold: [.15, .85]
+            } );
+        
+            observer.observe( content );
+    
+            function handleIntersect( entries ) {
+
+                entries.forEach( ( entry ) => {
+                    if ( entry.isIntersecting ) {
+                        html.classList.add( 'ntt--content--intersected--js' );
+                    } else {
+                        html.classList.remove( 'ntt--content--intersected--js' );
+                    }
+                } );
             }
         }
     }; // kidNtt.htmlToCanvas
@@ -118,5 +140,6 @@
 
     nttDomReady( function() {
         kidNtt.htmlToCanvas.init();
+        kidNtt.htmlToCanvas.contentIntersection();
     } );
 } )( jQuery, window, document );
