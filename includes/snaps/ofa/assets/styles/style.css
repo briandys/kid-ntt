@@ -190,6 +190,22 @@ body {
   color: #1f2023;
 }
 
+.ntt--entity-name .ntt--txt {
+  position: relative;
+}
+
+.ntt--entity-name .ntt--txt::before {
+  content: attr(data-first-letter);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(-0.0625em, calc(-50% + .0625em));
+          transform: translate(-0.0625em, calc(-50% + .0625em));
+  color: rgba(0, 96, 230, 0.125);
+  font-size: 2em;
+  z-index: 0;
+}
+
 .ntt--entry-name {
   font-family: 'Playfair Display';
   font-size: 2rem;

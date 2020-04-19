@@ -148,6 +148,7 @@
         display: flex;
         align-items: center;
         @include y-margin(2rem);
+        margin-bottom: 4.5rem;
     
         .navigation,
         .nav-links {

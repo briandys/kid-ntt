@@ -33,6 +33,21 @@ body {
     a {
         color: $on-surface-color;
     }
+
+    .ntt--txt {
+        position: relative;
+
+        &::before {
+            content: attr(data-first-letter);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-.0625em, calc(-50% + .0625em));
+            color: $accent-color---alpha-s;
+            font-size: 2em;
+            z-index: 0;
+        }
+    }
 }
 
 .ntt--entry-name {
