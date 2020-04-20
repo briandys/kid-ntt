@@ -917,15 +917,6 @@
         }
     }; // kidNtt.displayRandomImage
 
-    kidNtt.entityName = {
-
-        init: function() {
-            var entityName = document.querySelector( '.ntt--entity-name .ntt--txt' );
-            var entityNameFirstLetter = entityName.textContent.charAt( 0 );
-            entityName.setAttribute( 'data-first-letter', entityNameFirstLetter );
-        }
-    }; // kidNtt.entityName
-
     kidNtt.insertIcons = {
 
         init: function() {
@@ -978,7 +969,6 @@
         kidNtt.displayRandomImage.init();
         kidNtt.sectionIdIntersection.init();
         kidNtt.intrinsicRatioVideos.init();
-        kidNtt.entityName.init();
         kidNtt.insertIcons.init();
     } );
 } )( jQuery, window, document );

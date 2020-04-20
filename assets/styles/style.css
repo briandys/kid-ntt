@@ -286,6 +286,10 @@ table {
   width: 100%;
 }
 
+table * {
+  word-break: normal;
+}
+
 tbody {
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -806,6 +810,10 @@ th {
 
 .ntt--entry-full-content .wp-block-gallery .blocks-gallery-item {
   margin: 0;
+}
+
+.ntt .wp-block-table {
+  overflow-x: visible;
 }
 
 .ntt--single-entry .ntt--entity-main-header {
@@ -2118,9 +2126,19 @@ th {
   white-space: nowrap;
 }
 
+.ntt--widget_tag_cloud {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .ntt--widget_tag_cloud a {
   display: inline-block;
   padding: .5rem;
+}
+
+.ntt--widget_tag_cloud .ntt--widget-name {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .ntt--widget_nav_menu {

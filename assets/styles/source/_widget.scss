@@ -75,10 +75,15 @@
 //--------------------------------------------------------------
 
 .ntt--widget_tag_cloud {
+    @include x-padding(.5rem);
 
     a {
         display: inline-block;
         padding: .5rem;
+    }
+
+    .ntt--widget-name {
+        @include x-padding(.5rem);
     }
 }
 
