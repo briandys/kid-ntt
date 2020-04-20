@@ -1,0 +1,187 @@
+@import '../../../../../assets/styles/source/rules';
+
+$hexetidine-sky-blue: #00A2FF;
+$hexetidine-navy-blue: #200099;
+$hexetidine-gray: #C3C6D5;
+$hexetidine-pink: #FF6174;
+$hexetidine-purple: #000F54;
+
+$accent-color: $hexetidine-navy-blue;
+$surface-color: white;
+$on-surface-color: $hexetidine-purple;
+
+$text-link-color: $hexetidine-navy-blue;
+
+::selection {
+    color: $surface-color;
+    background-color: $accent-color;
+}
+
+body {
+    color: $on-surface-color;
+}
+
+.ntt--hexetidine--current-month {
+    text-align: right;
+    font-weight: bold;
+    color: $accent-color;
+    margin-bottom: .5rem;
+}
+
+.ntt--entity-name {
+    font-size: 2rem;
+
+    a {
+        display: block;
+        color: $accent-color;
+    }
+
+    .ntt--txt {
+        @include x-padding(.5em);
+        border: .25rem solid $accent-color;
+    }
+}
+
+.ntt--entity-description {
+    color: $hexetidine-pink;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+    .ntt--txt {
+        @include x-padding(.5em);
+        border: .25rem solid transparent;
+    }
+}
+
+.ntt--entity-heading {
+    margin: 1rem;
+    padding: 0;
+    text-align: center;
+}
+
+.ntt--entity-primary-nav {
+    margin: 1rem;
+    text-align: center;
+    background-color: $accent-color;
+
+    a {
+        color: $surface-color;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+}
+
+.ntt--entity-primary-nav-group {
+    justify-content: center;
+}
+
+.ntt--entity-secondary-info {
+    background-color: $hexetidine-sky-blue;
+    color: $surface-color;
+
+    a {
+        color: $surface-color;
+    }
+}
+
+.ntt--entity-header-aside {
+    @include y-margin(2rem);
+}
+
+#ntt--custom_html-2 {
+    margin: 1rem 1rem;
+    padding: 0;
+    padding-bottom: 2rem;
+    border: .5rem solid $hexetidine-gray;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+//--------------------------------------------------------------
+// Media Query
+//--------------------------------------------------------------
+
+@include mq($tablet-viewport-width) {
+
+    @supports (display: grid) {
+            
+        .ntt--entity-header {
+            display: grid;
+            grid-template:
+                'entity-heading entity-primary-nav'
+                'entity-heading-aside .';
+        }
+        
+        .ntt--entity-heading {
+            grid-area: entity-heading;
+        }
+        
+        .ntt--entity-primary-nav {
+            grid-area: entity-primary-nav;
+        }
+        
+        .ntt--entity-header-aside {
+            grid-column: entity-heading-aside / -1;
+        }
+    }
+
+    .ntt--entity-heading {
+        margin: 2rem;
+    }
+
+    .ntt--entity-primary-nav {
+        margin: 2rem;
+
+        a {
+            font-size: 1.5rem;
+        }
+    }
+
+    .ntt--entity-header-aside {
+
+        .ntt--widget {
+            @include x-padding(2rem);
+        }
+    }
+
+    #ntt--custom_html-2 {
+        margin: 2rem;
+        font-size: 1.5rem;
+    }
+}
+
+@include mq($laptop-viewport-width) {
+    
+    @supports (display: grid) {
+            
+        .ntt--entity {
+            display: grid;
+            grid-template:
+                'entity-start .'
+                'entity-header entity-main'
+                'entity-footer .'
+                'entity-end .'
+                / 2fr 3fr;
+        }
+    
+        .ntt--entity-footer {
+            grid-column: entity-footer / -1;
+        }
+
+        .ntt--entity-header {
+            display: block;
+        }
+    }
+
+    .ntt--entity-name {
+        font-size: 3rem;
+    }
+
+    .ntt--entity-description {
+        font-size: 2rem;
+    }
+}
+
+@import '../../../../../assets/styles/source/theme';
