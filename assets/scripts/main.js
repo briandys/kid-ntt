@@ -208,6 +208,21 @@
         return element;
     };
 
+    /**
+     * Get Window Dimensions
+     */
+    kidNtt.getWindowDimensions = function() {
+        var w = window,
+            d = document,
+            e = html,
+            g = d.body,
+            x = w.innerWidth || e.clientWidth || g.clientWidth,
+            y = w.innerHeight || e.clientHeight || g.clientHeight;
+        
+        return [x, y];
+        // var windowHeight = kidNtt.getWindowDimensions()[1];
+    };
+
     // Add a class to the body for when touch is enabled for browsers that don't support media queries
     // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
     kidNtt.touchEnabled = {
@@ -711,31 +726,44 @@
         init: function() {
             var entityFooter = document.querySelector('.ntt--entity-footer');
 
-            if ( entityFooter ) {
-                var observer = new IntersectionObserver( handleIntersect, {
-                    rootMargin: '0px 0px 0px 0px',
-                    threshold: .75
-                } );
-            
-                observer.observe( entityFooter );
+            var observer = new IntersectionObserver( handleIntersect, {
+                rootMargin: '0px 0px 0px 0px',
+                threshold: .75
+            } );
         
-                function handleIntersect( entries ) {
+            observer.observe( entityFooter );
+    
+            function handleIntersect( entries ) {
 
-                    // Set bottom style of Go to Start Navigation during intersection
-                    var footerStyle = window.getComputedStyle ? getComputedStyle( entityFooter, null ) : entityFooter.currentStyle;
-                    var footerMarginTop = parseInt( footerStyle.marginTop ) || 0;
-                    var footerMarginBottom = parseInt( footerStyle.marginBottom ) || 0;
-                    var footerHeight = entityFooter.offsetHeight + footerMarginTop + footerMarginBottom;
-                    document.getElementById( 'ntt--go-start-nav' ).style.bottom = footerHeight + 'px';
+                entries.forEach( ( entry ) => {
                     
-                    entries.forEach( ( entry ) => {
-                        if ( entry.isIntersecting ) {
-                            html.classList.add('ntt--entity-footer--intersected--js');
-                        } else {
-                            html.classList.remove('ntt--entity-footer--intersected--js');
+                    if ( entry.isIntersecting ) {
+                        html.classList.add('ntt--entity-footer--intersected--js');
+
+                        function setNavStyle() {
+
+                            window.addEventListener( 'load', function() {
+
+                                if ( html.classList.contains( 'ntt--view-height---long--js' ) ) {
+                                    // Set bottom style of Go to Start Navigation during intersection
+                                    var footerStyle = window.getComputedStyle ? getComputedStyle( entityFooter, null ) : entityFooter.currentStyle;
+                                    var footerMarginTop = parseInt( footerStyle.marginTop ) || 0;
+                                    var footerMarginBottom = parseInt( footerStyle.marginBottom ) || 0;
+                                    var footerHeight = entityFooter.offsetHeight + footerMarginTop + footerMarginBottom;
+                                    document.getElementById( 'ntt--go-start-nav' ).style.bottom = footerHeight + 'px';
+                                }
+                            } );
                         }
-                    } );
-                }
+
+                        setNavStyle();
+
+                        window.addEventListener( 'resize', function() {
+                            setNavStyle();
+                        } );
+                    } else {
+                        html.classList.remove('ntt--entity-footer--intersected--js');
+                    }
+                } );
             }
         },
 
@@ -938,6 +966,33 @@
         }
     }; // kidNtt.insertIcons
 
+    kidNtt.windowDocumentHeight = {
+
+        init: function() {
+
+            window.addEventListener( 'load', function() {
+                kidNtt.windowDocumentHeight.checkHeight();
+
+                window.addEventListener( 'resize', function() {
+                    kidNtt.windowDocumentHeight.checkHeight();
+                } );
+            } );
+        },
+
+        checkHeight: function() {
+            var windowHeight = kidNtt.getWindowDimensions()[1];
+            var documentHeight = document.documentElement.scrollHeight;
+
+            if ( documentHeight <= windowHeight ) {
+                html.classList.add( 'ntt--view-height---short--js' );
+                html.classList.remove( 'ntt--view-height---long--js' );
+            } else {
+                html.classList.add( 'ntt--view-height---long--js' );
+                html.classList.remove( 'ntt--view-height---short--js' );
+            }
+        }
+    }; // kidNtt.windowDocumentHeight
+
     /**
      * Is the DOM ready?
      *
@@ -970,5 +1025,6 @@
         kidNtt.sectionIdIntersection.init();
         kidNtt.intrinsicRatioVideos.init();
         kidNtt.insertIcons.init();
+        kidNtt.windowDocumentHeight.init();
     } );
 } )( jQuery, window, document );

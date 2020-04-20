@@ -290,6 +290,21 @@ table * {
   word-break: normal;
 }
 
+table th,
+table td {
+  vertical-align: top;
+}
+
+table th > *:first-child,
+table td > *:first-child {
+  margin-top: 0;
+}
+
+table th > *:last-child,
+table td > *:last-child {
+  margin-bottom: 0;
+}
+
 tbody {
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -1972,7 +1987,7 @@ th {
   text-decoration: none;
 }
 
-.ntt--entity-footer--intersected--js .ntt--go-start-nav {
+.ntt--entity-footer--intersected--js.ntt--view-height---long--js .ntt--go-start-nav {
   visibility: visible;
 }
 

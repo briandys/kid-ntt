@@ -259,6 +259,22 @@ table {
     * {
         word-break: normal;
     }
+
+    th,
+    td {
+        vertical-align: top;
+
+        > * {
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 }
 
 tbody {
