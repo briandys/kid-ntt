@@ -6,7 +6,6 @@
 /**
  * Get Snaps
  */
-
 function ntt__kid_ntt__snaps() {
     
     $snaps = array();
@@ -30,7 +29,6 @@ add_action( 'wp_head', 'ntt__kid_ntt__snaps' );
 /**
  * Snaps HTML CSS
  */
-
 function ntt__kid_ntt__snaps_view__css( $classes ) {
 
     $r_snaps = ntt__kid_ntt__snaps();
@@ -51,7 +49,6 @@ function ntt__kid_ntt__snaps_view__css( $classes ) {
 /**
  * Snaps Directory
  */
-
 $r_snaps = ntt__kid_ntt__snaps();
 
 if ( $r_snaps === false ) {

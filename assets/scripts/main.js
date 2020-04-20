@@ -741,25 +741,16 @@
                         html.classList.add('ntt--entity-footer--intersected--js');
 
                         function setNavStyle() {
-
-                            window.addEventListener( 'load', function() {
-
-                                if ( html.classList.contains( 'ntt--view-height---long--js' ) ) {
-                                    // Set bottom style of Go to Start Navigation during intersection
-                                    var footerStyle = window.getComputedStyle ? getComputedStyle( entityFooter, null ) : entityFooter.currentStyle;
-                                    var footerMarginTop = parseInt( footerStyle.marginTop ) || 0;
-                                    var footerMarginBottom = parseInt( footerStyle.marginBottom ) || 0;
-                                    var footerHeight = entityFooter.offsetHeight + footerMarginTop + footerMarginBottom;
-                                    document.getElementById( 'ntt--go-start-nav' ).style.bottom = footerHeight + 'px';
-                                }
-                            } );
+                            // Set bottom style of Go to Start Navigation during intersection
+                            var footerStyle = window.getComputedStyle ? getComputedStyle( entityFooter, null ) : entityFooter.currentStyle;
+                            var footerMarginTop = parseInt( footerStyle.marginTop ) || 0;
+                            var footerMarginBottom = parseInt( footerStyle.marginBottom ) || 0;
+                            var footerHeight = entityFooter.offsetHeight + footerMarginTop + footerMarginBottom;
+                            document.getElementById( 'ntt--go-start-nav' ).style.bottom = footerHeight + 'px';
                         }
 
-                        setNavStyle();
-
-                        window.addEventListener( 'resize', function() {
-                            setNavStyle();
-                        } );
+                        window.addEventListener( 'load', setNavStyle() );
+                        window.addEventListener( 'resize', setNavStyle() );
                     } else {
                         html.classList.remove('ntt--entity-footer--intersected--js');
                     }
