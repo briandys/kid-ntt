@@ -212,6 +212,7 @@
 //--------------------------------------------------------------
 
 .ntt--entity-header-aside {
+    @include max-width;
 
     .ntt--widget:only-of-type {
         padding-bottom: 0;
@@ -220,4 +221,12 @@
             margin-bottom: 0;
         }
     }
+}
+
+//--------------------------------------------------------------
+// Entity Footer Aside
+//--------------------------------------------------------------
+
+.ntt--entity-footer-aside {
+    @include max-width;
 }

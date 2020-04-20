@@ -323,3 +323,8 @@ $faint-border: 1px solid hsla(0, 0%, 0%, .125);
         line-height: $line-height-body;
     }
 }
+
+@mixin max-width {
+    max-width: 880px;
+    @include x-margin(auto);
+}
