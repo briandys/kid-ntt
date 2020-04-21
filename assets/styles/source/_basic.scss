@@ -4,6 +4,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: $surface-color;
 }
 
 body {
@@ -12,6 +13,7 @@ body {
     overflow-anchor: auto;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
     text-rendering: optimizeSpeed;
+    color: $on-surface-color;
 }
 
 *,
@@ -110,6 +112,7 @@ pre {
 
 a {
     text-decoration: none;
+    color: var(--text-link-color);
     
     &:hover,
     &:focus {
@@ -164,7 +167,13 @@ textarea {
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 1rem;
     line-height: 1.25;
+    border: 1px solid $on-surface-color---alpha-m;
     border-radius: $corner-radius---sm;
+}
+
+button,
+input[type="submit"] {
+    background-color: $accent-color;
 }
 
 code,
@@ -323,4 +332,32 @@ th {
 	-ms-user-select: none;
 	text-align: inherit;
 	user-select: none;
+}
+
+//--------------------------------------------------------------
+// Actions
+//--------------------------------------------------------------
+
+#{$secondary-action--elements} {
+    
+    a {
+        color: $accent-color;
+
+        &:hover {
+            color: $surface-color;
+
+            .ntt--txt {
+                background-color: $accent-color;
+            }
+        }
+
+        &:active {
+            @include active-scale;
+        }
+    }
+
+    .ntt--txt {
+        background-color: $surface-color;
+        border: .125rem solid $accent-color;
+    }
 }

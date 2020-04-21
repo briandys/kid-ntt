@@ -13,7 +13,7 @@ function ntt__kid_ntt__wp_custom_field__feature_view__css( $classes ) {
     }
     return $classes;
 }
-// add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__wp_custom_field__feature_view__css' );
+// add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__wp_custom_field__feature_view__css' );
 
 /**
  * HTML CSS Custom Field
@@ -29,7 +29,7 @@ function ntt__kid_ntt__wp_custom_field__css( $classes ) {
     }
     return $classes;
 }
-add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__wp_custom_field__css' );
+add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__wp_custom_field__css' );
 
 /**
  * Entry Subname Custom Field
@@ -76,6 +76,6 @@ function ntt__kid_ntt__wp_custom_field__entry__feature__css( $classes ) {
 add_filter( 'post_class', 'ntt__kid_ntt__wp_custom_field__entry__feature__css' );
 
 // Entry CSS added to HTML
-add_filter( 'ntt_html_css_filter', function( $classes ) {
+add_filter( 'ntt__wp_filter__view_css', function( $classes ) {
     return ( is_singular() && ntt__kid_ntt__wp_custom_field__entry__feature() ) ? ntt__kid_ntt__wp_custom_field__entry__feature__css( $classes ) : $classes;
 } );

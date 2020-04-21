@@ -70,7 +70,7 @@ function ntt__kid_ntt__feature__responsive_flickr__view__css( $classes ) {
     
     return $classes;
 }
-add_filter( 'ntt_html_css_filter', 'ntt__kid_ntt__feature__responsive_flickr__view__css' );
+add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__feature__responsive_flickr__view__css' );
 
 // Entry CSS
 function ntt__kid_ntt__feature__responsive_flickr__entry__css( $classes ) {

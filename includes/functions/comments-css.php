@@ -30,6 +30,6 @@ function ntt__kid_ntt__function__comments_status__css( $classes ) {
     return $classes;
 }
 
-add_filter( 'ntt_html_css_filter', function( $classes ) {
+add_filter( 'ntt__wp_filter__view_css', function( $classes ) {
     return is_singular() ? ntt__kid_ntt__function__comments_status__css( $classes ) : $classes;
 } );

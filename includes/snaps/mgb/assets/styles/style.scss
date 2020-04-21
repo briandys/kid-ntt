@@ -85,13 +85,13 @@ $content-link-color: $link-color;
 // Redeclare theme to detect the variables above
 //--------------------------------------------------------------
 
-@import '../../../../../assets/styles/source/theme';
+// @import '../../../../../assets/styles/source/theme';
 
 //--------------------------------------------------------------
 // Hide Stuff
 //--------------------------------------------------------------
 
-.ntt--entity-logo---1 {
+.ntt--entity-logo---1--view {
 
     .ntt--entity-name {
         display: none;
@@ -473,7 +473,7 @@ textarea {
 .ntt--entity-view-heading {
     justify-content: center;
 
-    .ntt--current-index & {
+    .ntt--entry-index---current--view & {
         display: none;
     }
 }
@@ -525,7 +525,7 @@ textarea {
 
 .ntt--entry {
 
-    .ntt--multiple-entries & {
+    .ntt--entry---multiple--view & {
         margin-top: 4rem;
 
         &:first-child {

@@ -286,8 +286,8 @@
 // Index Views
 //--------------------------------------------------------------
 
-.ntt--current-index-view,
-.ntt--archive-index-view  {
+.ntt--entry-index---current--view-view,
+.ntt--entry-index---archive--view-view  {
     
     .ntt--entity-view-heading {
         display: none;
@@ -298,7 +298,7 @@
 // Singular View
 //--------------------------------------------------------------
 
-.ntt--single-entry {
+.ntt--entry---single--view {
 
     .ntt--entry-banner-visuals {
 
@@ -562,7 +562,7 @@
 .entry {
     @include y-margin(1rem);
 
-    .ntt--current-index-view & {
+    .ntt--entry-index---current--view-view & {
         
         &:first-of-type {
             margin-top: 0;
@@ -690,9 +690,9 @@ p.has-drop-cap:not(:focus) {
 // Entry Summary Content
 //--------------------------------------------------------------
 
-.ntt--current-index-view,
-.ntt--archive-index-view,
-.ntt--single-entry {
+.ntt--entry-index---current--view-view,
+.ntt--entry-index---archive--view-view,
+.ntt--entry---single--view {
 
     .ntt--entry-summary-content {
         font-size: $large-font-size;
@@ -949,7 +949,7 @@ p.has-drop-cap:not(:focus) {
         }
     }
 
-    .ntt--multiple-entries {
+    .ntt--entry---multiple--view {
 
         .entry {
             flex: 1 100%;

@@ -77,7 +77,7 @@ foreach ( $r_snaps as $key => $value ) {
             
             require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' );
             
-            add_filter( 'ntt_html_css_filter', function( $classes ) {
+            add_filter( 'ntt__wp_filter__view_css', function( $classes ) {
                 return ntt__kid_ntt__snaps_view__css( $classes );
             } );
         }

@@ -2,7 +2,7 @@
 // Hide Stuff
 //--------------------------------------------------------------
 
-.ntt--single-entry .ntt--entity-main-header {
+.ntt--entry---single--view .ntt--entity-main-header {
     display: none;
 }
 
@@ -52,7 +52,7 @@
 // Hide Stuff
 //--------------------------------------------------------------
 
-.ntt--entity-logo---1 {
+.ntt--entity-logo---1--view {
 
     .ntt--entity-name {
         display: none;
@@ -104,10 +104,12 @@
     @include if-y-center;
     padding: .5rem;
     padding-top: 2rem;
+}
 
+.ntt--entity-main-header {
     
-    .ntt--current-index &,
-    .ntt--zero-entry & {
+    .ntt--entry-index---current--view &,
+    .ntt--zero-entry--view & {
         display: none;
     }
 }
@@ -128,7 +130,7 @@
         font-weight: bold;
     }
 
-    .ntt--archive-index & {
+    .ntt--entry-index---archive--view & {
 
         .ntt--key-line {
             display: none;
@@ -152,7 +154,7 @@
 // Entity Banner Visuals
 //--------------------------------------------------------------
 
-.ntt--entity-banner-visuals---1 {
+.ntt--entity-banner-visuals---1--view {
 
     .ntt--entity-banner-visuals {
         margin-bottom: 2em;
@@ -212,7 +214,6 @@
 //--------------------------------------------------------------
 
 .ntt--entity-header-aside {
-    @include max-width;
 
     .ntt--widget:only-of-type {
         padding-bottom: 0;

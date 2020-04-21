@@ -76,4 +76,4 @@ function mgb_ntt_html_css( $classes ) {
 
     return $classes;
 }
-add_filter( 'ntt_html_css_filter', 'mgb_ntt_html_css' );
+add_filter( 'ntt__wp_filter__view_css', 'mgb_ntt_html_css' );

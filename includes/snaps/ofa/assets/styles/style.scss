@@ -673,7 +673,7 @@ body {
     }
 }
 
-.ntt--tag-archive-index {
+.ntt--entry-index---tag-archive--view {
 
     .ntt--entity-view-name {
         
@@ -859,7 +859,7 @@ body {
 
     @supports (display: grid) {
 
-        .ntt--multiple-entries {
+        .ntt--entry---multiple--view {
                 
             .ntt--entry-banner-visuals---1 {
 
@@ -998,5 +998,3 @@ body {
         }
     }
 }
-
-@import '../../../../../assets/styles/source/theme';

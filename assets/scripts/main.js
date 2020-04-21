@@ -740,8 +740,8 @@
                     if ( entry.isIntersecting ) {
                         html.classList.add('ntt--entity-footer--intersected--js');
 
+                        // Set bottom style of Go to Start Navigation during intersection
                         function setNavStyle() {
-                            // Set bottom style of Go to Start Navigation during intersection
                             var footerStyle = window.getComputedStyle ? getComputedStyle( entityFooter, null ) : entityFooter.currentStyle;
                             var footerMarginTop = parseInt( footerStyle.marginTop ) || 0;
                             var footerMarginBottom = parseInt( footerStyle.marginBottom ) || 0;
@@ -767,7 +767,6 @@
                 var observer = new IntersectionObserver( entries => {
                 
                     entries.forEach( entry => {
-                        var id = entry.target.getAttribute('id');
                         
                         if ( entry.intersectionRatio > 0 ) {
                             entry.target.classList.add('ntt--intersected--js');
@@ -779,40 +778,11 @@
                     });
                 });
             
-                // Track all sections that have an 'id' applied
                 intersectionElement.forEach( ( el ) => {
                     observer.observe( el );
                     el.classList.add('ntt--not-intersected--js');
                 } );
             }
-
-            /*
-            var genericIntersectionElement = document.querySelectorAll( '' );
-            var observer = new IntersectionObserver( handleIntersect, {
-                rootMargin: '0px 0px 0px 0px',
-                threshold: 0
-            } );
-        
-            observer.observe( entityFooter );
-    
-            function handleIntersect( entries ) {
-
-                // Set bottom style of Go to Start Navigation during intersection
-                var footerStyle = window.getComputedStyle ? getComputedStyle( entityFooter, null ) : entityFooter.currentStyle;
-                var footerMarginTop = parseInt( footerStyle.marginTop ) || 0;
-                var footerMarginBottom = parseInt( footerStyle.marginBottom ) || 0;
-                var footerHeight = entityFooter.offsetHeight + footerMarginTop + footerMarginBottom;
-                document.getElementById( 'ntt--go-start-nav' ).style.bottom = footerHeight + 'px';
-                
-                entries.forEach( ( entry ) => {
-                    if ( entry.isIntersecting ) {
-                        html.classList.add('ntt--entity-footer--intersected--js');
-                    } else {
-                        html.classList.remove('ntt--entity-footer--intersected--js');
-                    }
-                } );
-            }
-            */
         }
     }; // kidNtt.entityFooterIntersection
 
@@ -1017,5 +987,20 @@
         kidNtt.intrinsicRatioVideos.init();
         kidNtt.insertIcons.init();
         kidNtt.windowDocumentHeight.init();
+
+        function offset(el) {
+            var rect = el.getBoundingClientRect(),
+            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+        }
+
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // example use
+        var div = document.querySelector('.ntt--entity-footer');
+        var divOffset = offset(div);
+        console.log(divOffset.left, divOffset.top);
+        console.log(scrollTop);
     } );
 } )( jQuery, window, document );

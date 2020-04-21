@@ -186,7 +186,7 @@ function ntt__kid_ntt__function__entry_view__css( $classes ) {
     return $classes;
 }
 
-add_filter( 'ntt_html_css_filter', function( $classes ) {
+add_filter( 'ntt__wp_filter__view_css', function( $classes ) {
     return is_singular() ? ntt__kid_ntt__function__entry_view__css( $classes ) : $classes;
 } );
 
@@ -260,7 +260,7 @@ function ntt_kid_entry_css_status_classes( $classes ) {
 add_filter( 'post_class', 'ntt_kid_entry_css_status_classes' );
 
 // Entry CSS Status Classes added to HTML Element
-add_filter( 'ntt_html_css_filter', function( $classes ) {
+add_filter( 'ntt__wp_filter__view_css', function( $classes ) {
     return is_singular() ? ntt_kid_entry_css_status_classes( $classes ) : $classes;
 } );
 */

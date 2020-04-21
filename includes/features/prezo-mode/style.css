@@ -1,4 +1,19 @@
 /* Screen Reader Text ------------------------ */
+:root {
+  --text---xxs: .625rem;
+  --text---xs: .75rem;
+  --text---s: .875rem;
+  --text---m: 1rem;
+  --text---l: 1.125rem;
+  --text---xl: 1.5rem;
+  --text---xxl: 2rem;
+  --text---xxxl: 2.5rem;
+  --text---yl: 3rem;
+  --text---yyl: 3.5rem;
+  --text---yyyl: 4rem;
+  --text-link-color: $accent-color;
+}
+
 .ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-content {
   font-size: 1.5rem;
 }

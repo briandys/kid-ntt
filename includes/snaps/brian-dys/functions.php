@@ -47,7 +47,7 @@ add_filter( 'ntt_cm_datetime_month_filter', function() {
  * HTML CSS
  */
 
-add_filter( 'ntt_html_css_filter', function( $classes ) {
+add_filter( 'ntt__wp_filter__view_css', function( $classes ) {
     $classes[] = 'ntt--entry-datetime--boxy';
     return $classes;
 } );

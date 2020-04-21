@@ -26,7 +26,7 @@ $color-1: $blood-red;
 $link-color: $color-1;
 $content-bg-color: hsl(0, 0%, 92%);
 
-@import '../../../../../assets/styles/source/theme';
+//@import '../../../../../assets/styles/source/theme';
 @import 'source/uxd';
 
 @mixin vertical-name {
@@ -388,7 +388,7 @@ body {
     text-align: center;
     font-size: 2rem;
 
-    .ntt--entity-logo---1 & {
+    .ntt--entity-logo---1--view & {
         @include vh;
     }
 }
