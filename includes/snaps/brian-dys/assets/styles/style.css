@@ -129,8 +129,8 @@
   border: 2px solid #1c1c1c;
   border-radius: 10rem;
   padding: .5rem 1rem;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--site-id--brian-dys-uxd.ntt--page--topics--view .ntt--entry-full-content ul a:hover {
@@ -236,8 +236,8 @@ body {
   background-color: #1c1c1c;
   text-transform: uppercase;
   border: 1px solid white;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--page--view.ntt--site-id--brian-dys .ntt--entry-name {
@@ -317,8 +317,8 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.125rem;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--entity-primary-nav a:hover,
@@ -365,8 +365,8 @@ body {
 
 .brian-dys-work-item .title a {
   color: #f2f2f2;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .brian-dys-work-item .title a:hover {
@@ -388,8 +388,8 @@ body {
 }
 
 .brian-dys-work-item .glyph a svg {
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
 }
@@ -442,8 +442,8 @@ body {
 
 .brian-dys-intro .paymaya-label a svg,
 .brian-dys-intro .voyager-label a svg {
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
 }
@@ -799,8 +799,8 @@ body {
     background-color: #1c1c1c;
     text-transform: uppercase;
     border: 1px solid white;
-    -webkit-transition: all 0.15s linear;
-    transition: all 0.15s linear;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
   .ntt--page-view .ntt--entry-header > * {
     padding-left: 2rem;

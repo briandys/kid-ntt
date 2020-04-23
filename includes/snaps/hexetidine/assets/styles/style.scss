@@ -274,14 +274,6 @@ textarea {
             height: .5rem;
             background-color: var(--color--hexetidine-peach);
             opacity: 1;
-            border-radius: 0 99rem 99rem 0;
-        }
-    }
-
-    &[data-scroll-y-percentage~="100"] {
-
-        &::before {
-            border-radius: 0;
         }
     }
 

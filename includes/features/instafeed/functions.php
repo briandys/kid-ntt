@@ -53,7 +53,7 @@ add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__instafeed__styles_scri
 function ntt__kid_ntt__feature__instafeed__view__css( $classes ) {
     
     if ( ntt__kid_ntt__feature__instafeed__validation() ) {
-        $classes[] = esc_attr( $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__prefixed_name'] );
+        $classes[] = esc_attr( $GLOBALS['ntt__gvar__kid_ntt__feature__screenshot__prefixed_name'] );
     }
     
     return $classes;

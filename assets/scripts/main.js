@@ -741,18 +741,6 @@
                     
                     if ( entry.isIntersecting ) {
                         html.classList.add('ntt--entity-footer--intersected--js');
-
-                        // Set bottom style of Go to Start Navigation during intersection
-                        function setNavStyle() {
-                            var footerStyle = window.getComputedStyle ? getComputedStyle( entityFooter, null ) : entityFooter.currentStyle;
-                            var footerMarginTop = parseInt( footerStyle.marginTop ) || 0;
-                            var footerMarginBottom = parseInt( footerStyle.marginBottom ) || 0;
-                            var footerHeight = entityFooter.offsetHeight + footerMarginTop + footerMarginBottom;
-                            document.getElementById( 'ntt--go-start-nav' ).style.bottom = footerHeight + 'px';
-                        }
-
-                        //window.addEventListener( 'load', setNavStyle() );
-                        //window.addEventListener( 'resize', setNavStyle() );
                     } else {
                         html.classList.remove('ntt--entity-footer--intersected--js');
                     }

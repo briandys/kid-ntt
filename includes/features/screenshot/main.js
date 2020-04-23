@@ -1,20 +1,21 @@
 /**
- * HTML to Canvas
- * .ntt--f5e--html-to-canvas
+ * Feature: Screenshot
+ * .ntt--kid-ntt--feature--screenshot
  * Adds a button to save screenshot of the page
  * https://html2canvas.hertzen.com
  * https://github.com/eKoopmans/html2pdf.js/
  */
-var kidNttF5eHtmlToCanvas = kidNttF5eHtmlToCanvas || {};
+var kidNttFeatureScreenshot = kidNttFeatureScreenshot || {};
 
 const html = document.documentElement;
 
-kidNttF5eHtmlToCanvas.htmlToCanvas = {
+kidNttFeatureScreenshot.htmlToCanvas = {
 
     init: function() {
-
-        if ( html.classList.contains( 'ntt--kid-ntt--feature--html-to-canvas' ) ) {
+            
+        if ( html.classList.contains( 'ntt--kid-ntt--feature--screenshot' ) ) {
             this.createButton();
+            this.contentIntersection();
         }
     },
 
@@ -35,9 +36,9 @@ kidNttF5eHtmlToCanvas.htmlToCanvas = {
 
         // Create the download button
         var downloadAxn = document.createElement( 'button' );
-        downloadAxn.id = 'ntt--html-to-canvas-download-axn--js';
-        downloadAxn.className = 'ntt--html-to-canvas-download-axn--js';
-        downloadAxn.setAttribute('data-html2canvas-ignore', 'true');
+        downloadAxn.id = 'ntt--kid-ntt--download-axn--js';
+        downloadAxn.className = 'ntt--kid-ntt--download-axn--js';
+        downloadAxn.setAttribute( 'title', nttData.downloadScreenshotTxt );
         downloadAxn.innerHTML = '<span class="ntt--txt">' + nttData.downloadScreenshotTxt + '</span>';
         toolbar.appendChild( downloadAxn );
         
@@ -50,16 +51,16 @@ kidNttF5eHtmlToCanvas.htmlToCanvas = {
                 backgroundColor: '#ffffff',
                 useCORS: true,
                 ignoreElements: function ( el ) {
-                    return el == content.querySelector( '.jp-relatedposts' ) || el == content.querySelector( '.ntt--entry-footer' );
+                    return el == downloadAxn || el == content.querySelector( '.jp-relatedposts' ) || el == content.querySelector( '.ntt--entry-footer' );
                 }
             }
             
             html2canvas( capture, options ).then( function( canvas ) {
-                kidNttF5eHtmlToCanvas.htmlToCanvas.saveAs( canvas.toDataURL(), kidNttF5eHtmlToCanvas.htmlToCanvas.generateFilename() );
+                kidNttFeatureScreenshot.htmlToCanvas.saveAs( canvas.toDataURL(), kidNttFeatureScreenshot.htmlToCanvas.generateFilename() );
             } );
 
-            downloadAxn.classList.add( 'ntt--html-to-canvas---downloading--js' );
-            downloadAxn.classList.remove( 'ntt--html-to-canvas---downloaded--js' );
+            downloadAxn.classList.add( 'ntt--kid-ntt--screenshot---downloading--js' );
+            downloadAxn.classList.remove( 'ntt--kid-ntt--screenshot---downloaded--js' );
             downloadAxn.setAttribute( 'disabled', 'true' );
             downloadAxn.insertAdjacentHTML( 'beforeend', nttData.loadingIndicator );
         } );
@@ -67,7 +68,7 @@ kidNttF5eHtmlToCanvas.htmlToCanvas = {
 
     saveAs: function( uri, filename ) {
         var link = document.createElement( 'a' );
-        var downloadAxn = document.getElementById( 'ntt--html-to-canvas-download-axn--js' );
+        var downloadAxn = document.getElementById( 'ntt--kid-ntt--download-axn--js' );
         
         if ( typeof link.download === 'string' ) {
             link.href = uri;
@@ -83,8 +84,8 @@ kidNttF5eHtmlToCanvas.htmlToCanvas = {
             document.body.removeChild( link );
 
             window.setTimeout( function() {
-                downloadAxn.classList.add( 'ntt--html-to-canvas---downloaded--js' );
-                downloadAxn.classList.remove( 'ntt--html-to-canvas---downloading--js' );
+                downloadAxn.classList.add( 'ntt--kid-ntt--screenshot---downloaded--js' );
+                downloadAxn.classList.remove( 'ntt--kid-ntt--screenshot---downloading--js' );
                 downloadAxn.removeAttribute( 'disabled' );
                 downloadAxn.querySelector( '.ntt--loading-indicator-icon' ).remove();
             }, 4000 );
@@ -129,7 +130,7 @@ kidNttF5eHtmlToCanvas.htmlToCanvas = {
         
         return filename;
     }
-}; // kidNttF5eHtmlToCanvas.htmlToCanvas
+}; // kidNttFeatureScreenshot.htmlToCanvas
 
 /**
  * Is the DOM ready?
@@ -151,6 +152,5 @@ function nttDomReady( fn ) {
 }
 
 nttDomReady( function() {
-    kidNttF5eHtmlToCanvas.htmlToCanvas.init();
-    kidNttF5eHtmlToCanvas.htmlToCanvas.contentIntersection();
+    kidNttFeatureScreenshot.htmlToCanvas.init();
 } );

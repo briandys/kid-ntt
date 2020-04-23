@@ -38,3 +38,37 @@
         }
     }
 }
+
+//--------------------------------------------------------------
+// Tooltip
+//--------------------------------------------------------------
+
+.ntt--kid-ntt--download-axn--js {
+    position: relative;
+
+    &::before {
+        visibility: hidden;
+        content: attr(title);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        transform: translate(-1rem, -1rem);
+        padding: 0.5rem 1rem;
+        min-width: 3rem;
+        width: 120px;
+        max-width: 100%;
+        min-height: 3rem;
+        color: white;
+        background-color: red;
+    }
+
+    &.ntt--mousedown--js {
+
+        &::before {
+            visibility: visible;
+        }
+    }
+}

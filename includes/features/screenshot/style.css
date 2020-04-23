@@ -1,14 +1,14 @@
 /* Screen Reader Text ------------------------ */
-.ntt--html-to-canvas-download-axn--js {
+.ntt--kid-ntt--download-axn--js {
   position: relative;
   visibility: hidden;
 }
 
-.ntt--content--intersected--js .ntt--html-to-canvas-download-axn--js {
+.ntt--content--intersected--js .ntt--kid-ntt--download-axn--js {
   visibility: visible;
 }
 
-.ntt--html-to-canvas-download-axn--js .ntt--loading-indicator-icon {
+.ntt--kid-ntt--download-axn--js .ntt--loading-indicator-icon {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -17,7 +17,7 @@
   fill: white;
 }
 
-.ntt--html-to-canvas-download-axn--js .ntt--loading-indicator-icon path {
+.ntt--kid-ntt--download-axn--js .ntt--loading-indicator-icon path {
   -webkit-animation: loading-indicator-ikot .6s linear infinite;
           animation: loading-indicator-ikot .6s linear infinite;
   -webkit-transform-origin: center;
@@ -46,22 +46,22 @@
   }
 }
 
-.ntt--html-to-canvas-download-axn--js[disabled]:hover {
+.ntt--kid-ntt--download-axn--js[disabled]:hover {
   cursor: not-allowed;
 }
 
-.ntt--html-to-canvas-download-axn--js:active {
+.ntt--kid-ntt--download-axn--js:active {
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
 }
 
-.ntt--html-to-canvas---downloading--js {
+.ntt--kid-ntt--screenshot---downloading--js {
   background-color: #0556c7;
   border-color: transparent;
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
 }
 
-.ntt--html-to-canvas---downloading--js .ntt--txt {
+.ntt--kid-ntt--screenshot---downloading--js .ntt--txt {
   visibility: hidden;
 }

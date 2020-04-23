@@ -71,8 +71,8 @@ textarea {
 .ntt--entity-name a {
   display: block;
   color: var(--accent-color);
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
 }
@@ -238,8 +238,8 @@ textarea {
 }
 
 .ntt--content a {
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-property: -webkit-box-shadow;
   transition-property: -webkit-box-shadow;
   transition-property: box-shadow;
@@ -258,11 +258,6 @@ textarea {
   height: .5rem;
   background-color: var(--color--hexetidine-peach);
   opacity: 1;
-  border-radius: 0 99rem 99rem 0;
-}
-
-.ntt.ntt--kid-ntt--feature--scroll-y[data-scroll-y-percentage~="100"]::before {
-  border-radius: 0;
 }
 
 .ntt.ntt--kid-ntt--feature--scroll-y[data-scroll-y-percentage~="1"]::before {

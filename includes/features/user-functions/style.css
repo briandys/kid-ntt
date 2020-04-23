@@ -2,8 +2,8 @@
 .ntt--user-functions details {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--user-functions details h2,
@@ -35,8 +35,8 @@
   border-radius: 0.125rem;
   font-size: 1rem;
   line-height: normal;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--user-functions summary {
@@ -79,6 +79,6 @@
   border-radius: 0.125rem;
   font-size: 1rem;
   line-height: normal;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }

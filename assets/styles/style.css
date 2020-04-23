@@ -1573,8 +1573,8 @@ th {
   right: 0;
   margin-right: .75rem;
   width: 1rem;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
   transition-property: transform;
@@ -1635,8 +1635,8 @@ th {
 
 .ntt--js .ntt--entries-adjacent-page-control--js .ntt--icon {
   width: 1.25rem;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
   transition-property: transform;
@@ -1844,8 +1844,8 @@ th {
   margin-right: 1.125rem;
   width: .75rem;
   fill: #1f2023;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
   transition-property: transform;
@@ -2100,8 +2100,8 @@ th {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   margin-bottom: -1rem;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-property: bottom;
   transition-property: bottom;
 }
@@ -2174,6 +2174,40 @@ th {
   padding-bottom: 1rem;
   background-color: aliceblue;
   border-radius: 0.125rem;
+}
+
+.ntt--kid-ntt--download-axn--js {
+  position: relative;
+}
+
+.ntt--kid-ntt--download-axn--js::before {
+  visibility: hidden;
+  content: attr(title);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  -webkit-transform: translate(-1rem, -1rem);
+          transform: translate(-1rem, -1rem);
+  padding: 0.5rem 1rem;
+  min-width: 3rem;
+  width: 120px;
+  max-width: 100%;
+  min-height: 3rem;
+  color: white;
+  background-color: red;
+}
+
+.ntt--kid-ntt--download-axn--js.ntt--mousedown--js::before {
+  visibility: visible;
 }
 
 .ntt--widget {
@@ -2307,8 +2341,8 @@ th {
   position: absolute;
   margin-left: calc(1.25rem + 1px);
   margin-top: calc(1.75rem + 1px);
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--dom---unloaded--js .ntt--comment-form .ntt--form-field label {
@@ -2439,8 +2473,8 @@ th {
 }
 
 .ntt--entity-header {
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--post--table-of-contents--view .ntt--entry-full-content nav {
@@ -2451,8 +2485,8 @@ th {
 }
 
 .ntt--post--table-of-contents--view .ntt--entry-full-content nav a {
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-duration: 2s;
           transition-duration: 2s;
 }
@@ -2462,8 +2496,8 @@ th {
 }
 
 section {
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-transition-delay: .2s;
           transition-delay: .2s;
   -webkit-transition-duration: 1s;
@@ -2653,8 +2687,8 @@ section:target {
   min-height: 2.375rem;
   min-width: 2.375rem;
   border-radius: 0.125rem;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--comment-reply-axn a:hover .ntt--reply-text {

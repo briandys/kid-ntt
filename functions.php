@@ -8,13 +8,14 @@
  */
 $GLOBALS['ntt__gvar__child_theme__name'] = 'Kid NTT';
 $GLOBALS['ntt__gvar__child_theme__url'] = '//briandys.com/ntt/';
-$GLOBALS['ntt__gvar__child_theme__version'] = '1.0.2';
+$GLOBALS['ntt__gvar__child_theme__version'] = '1.0.3';
 
 /**
  * Features Global Variables
  */
 $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix'] = 'ntt--kid-ntt--feature--';
-$GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__name'] = 'html-to-canvas';
+
+$GLOBALS['ntt__gvar__kid_ntt__feature__screenshot__name'] = 'screenshot';
 $GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'] = 'instafeed';
 $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'] = 'prezo-mode';
 $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'] = 'scroll-y';
@@ -60,7 +61,7 @@ foreach ( $r_functions as $function ) {
 if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 0 || get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) > 1 ) {
     
     $r_features = array(
-        $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__name'],
+        $GLOBALS['ntt__gvar__kid_ntt__feature__screenshot__name'],
         $GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'],
         $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'],
         $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'],

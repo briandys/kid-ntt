@@ -164,8 +164,8 @@ textarea {
   padding: 0;
   min-height: 2.375rem;
   color: inherit;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--entity-primary-nav a:hover,
@@ -208,8 +208,8 @@ textarea {
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js {
   background-position-y: 55%;
   background-size: .75rem;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:checked {
@@ -734,8 +734,8 @@ textarea {
   border: 2px solid #DE756E;
   border-left: 0;
   border-right: 0;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .ntt--content .ntt--show-more-axn .ntt--txt:hover {
@@ -918,8 +918,8 @@ textarea {
   font-weight: 600;
   border: 2px solid #FFB3CC;
   border-radius: 8px;
-  -webkit-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .txt-axn a:hover {
