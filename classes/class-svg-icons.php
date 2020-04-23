@@ -18,10 +18,12 @@ class NTT_SVG_Icons {
      * @param string $group Icon group.
      * @param string $color Color.
      */
-    public static function ntt__kid_ntt__function__get_svg( $icon, $group = 'ui', $color = '#1A1A1B' ) {
+    public static function ntt__kid_ntt__function__get_svg( $icon, $group = 'ui', $color = '#1C1C1C' ) {
         
         if ( 'ui' === $group ) {
             $arr = self::$ui_icons;
+        } elseif ( 'hexetidine' === $group ) {
+            $arr = ntt__kid_ntt__snaps__hexetidine_ntt__function__icons( $icons );
         } else {
             $arr = array();
         }
@@ -29,7 +31,7 @@ class NTT_SVG_Icons {
         if ( array_key_exists( $icon, $arr ) ) {
             $repl = '<svg aria-hidden="true" role="img" focusable="false" ';
             $svg  = preg_replace( '/^<svg /', $repl, trim( $arr[ $icon ] ) ); // Add extra attributes to SVG code.
-            $svg  = str_replace( '#1A1A1B', $color, $svg );   // Replace the color.
+            $svg  = str_replace( '#1C1C1C', $color, $svg );   // Replace the color.
             $svg  = str_replace( '#', '%23', $svg );          // Urlencode hashes.
             $svg  = preg_replace( "/([\n\t]+)/", ' ', $svg ); // Remove newlines & tabs.
             $svg  = preg_replace( '/>\s*</', '><', $svg );    // Remove whitespace between SVG tags.
@@ -55,6 +57,6 @@ class NTT_SVG_Icons {
         
         'chevron-up-down'   => '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="ntt--chevron-up-down-icon ntt--icon"><path d="M24 35a4.4 4.4 0 006.2 0l19.6-19.5 19.6 19.6a4.4 4.4 0 006.2-6.2L52.9 6.3a4.3 4.3 0 00-3-1.3 4 4 0 00-3.1 1.3L24 28.9a4.4 4.4 0 000 6.2zM76 65a4.4 4.4 0 00-6.3 0L50.3 84.4 30.6 64.9a4.4 4.4 0 00-6.2 6.2l22.7 22.6a4.3 4.3 0 003 1.3 4 4 0 003.1-1.3L76 71.1a4.4 4.4 0 000-6.2z"/></svg>',
 
-        'loading-indicator' => '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="ntt--loading-indicator-icon ntt--icon"><path d="M27.4 6.2A18.7 18.7 0 1023 43.3l.5-4a14.6 14.6 0 013.4-29l.5-4z"/></svg>',
+        'loading-indicator' => '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="ntt--loading-indicator-icon ntt--icon"><path d="M77 83.8a7 7 0 01-4.8-2 6.7 6.7 0 010-9.6 31.2 31.2 0 000-44.4 31.2 31.2 0 00-44.4 0 31.2 31.2 0 000 44.4c2.7 2.7 2.7 7 0 9.6a6.7 6.7 0 01-9.6 0 44.7 44.7 0 010-63.6 44.7 44.7 0 0163.6 0 44.7 44.7 0 010 63.6c-1.3 1.4-3 2-4.8 2z"/></svg>',
     );
 }

@@ -9,6 +9,7 @@
     var kidNtt = kidNtt || {};
 
     const html = document.documentElement;
+    const body = document.body;
     const commentForm = document.getElementById( 'commentform' );
     const entriesNav = document.getElementById( 'ntt--entries-nav' );
 
@@ -171,7 +172,7 @@
      */
     kidNtt.domMaker = function( tag,options ) {
         var doc = options.document || document;
-        var element = doc.createElementNS(options.namespace || "http://www.w3.org/1999/xhtml",tag);
+        var element = doc.createElementNS( options.namespace || "http://www.w3.org/1999/xhtml", tag );
         
         if ( options['id'] ) {
             element.id = options['id'];
@@ -210,17 +211,18 @@
 
     /**
      * Get Window Dimensions
+     * Usage: To get the window height
+     * var windowHeight = kidNtt.getWindowDimensions()[1];
      */
     kidNtt.getWindowDimensions = function() {
         var w = window,
             d = document,
-            e = html,
-            g = d.body,
-            x = w.innerWidth || e.clientWidth || g.clientWidth,
-            y = w.innerHeight || e.clientHeight || g.clientHeight;
+            h = html,
+            b = d.body,
+            width = w.innerWidth || h.clientWidth || b.clientWidth,
+            height = w.innerHeight || h.clientHeight || b.clientHeight;
         
-        return [x, y];
-        // var windowHeight = kidNtt.getWindowDimensions()[1];
+        return [width, height];
     };
 
     // Add a class to the body for when touch is enabled for browsers that don't support media queries
@@ -749,8 +751,8 @@
                             document.getElementById( 'ntt--go-start-nav' ).style.bottom = footerHeight + 'px';
                         }
 
-                        window.addEventListener( 'load', setNavStyle() );
-                        window.addEventListener( 'resize', setNavStyle() );
+                        //window.addEventListener( 'load', setNavStyle() );
+                        //window.addEventListener( 'resize', setNavStyle() );
                     } else {
                         html.classList.remove('ntt--entity-footer--intersected--js');
                     }
@@ -885,30 +887,41 @@
     }; // kidNtt.commentInputElements
 
     /*	-----------------------------------------------------------------------------------------------
-    Display a Random Image from a Set
-    .ntt--js--random-image
-    https://stackoverflow.com/a/19693578
+    Go to Start navigation
     --------------------------------------------------------------------------------------------------- */
-    kidNtt.displayRandomImage = {
+    kidNtt.goStartNav = {
 
         init: function() {
 
-            if ( html.classList.contains('ntt--js--random-image') ) {
-                var imagesArray = [
-                    '<a href="https://www.flickr.com/photos/briansahagun/3386389393" title="Nobody"><img src="https://live.staticflickr.com/3555/3386389393_084c05a47d_z.jpg" width="640" height="480" alt="Nobody"></a>',
-                    '<a href="https://www.flickr.com/photos/briansahagun/3380918261" title="Fishbowl"><img src="https://live.staticflickr.com/3449/3380918261_752d542889_z.jpg" width="640" height="480" alt="Fishbowl"></a>',
-                    '<a href="https://www.flickr.com/photos/briansahagun/3377609579" title="Tie the Knot"><img src="https://live.staticflickr.com/3417/3377609579_505cddb043_z.jpg" width="640" height="427" alt="Tie the Knot"></a>'
-                ];
+            window.addEventListener( 'load', function() {
                 
-                var num = Math.floor(Math.random() * (imagesArray.length));
-                document.getElementById('canvas').innerHTML = imagesArray[num];
-            }
+                // Get the element's static offset
+                function offset( el ) {
+                    var rect = el.getBoundingClientRect();
+                    var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+                    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+                }
+                
+                var docHeight = Math.max( html.clientHeight, html.scrollHeight, html.offsetHeight, body.scrollHeight, body.offsetHeight );
+                var footerOffset = offset( document.querySelector('.ntt--entity-footer') );
+                var goStartNav = document.getElementById( 'ntt--go-start-nav' );
+                
+                // Set style of nav
+                goStartNav.style.bottom = docHeight - footerOffset.top + 'px';
+            } );
         }
-    }; // kidNtt.displayRandomImage
+    }; // kidNtt.goStartNav
 
+    /*	-----------------------------------------------------------------------------------------------
+    Insert SVG Icons
+    --------------------------------------------------------------------------------------------------- */
     kidNtt.insertIcons = {
 
         init: function() {
+            
+            // Go to Start Navigation
             var goStartNav = document.getElementById( 'ntt--go-start-nav' );
 
             if ( goStartNav ) {
@@ -916,6 +929,7 @@
                 goStartTxt.insertAdjacentHTML( 'afterend', nttData.arrowUpIcon );
             }
             
+            // Breadcrumbs Navigation
             var breadcrumbsNav = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
             
             if ( breadcrumbsNav ) {
@@ -927,29 +941,37 @@
         }
     }; // kidNtt.insertIcons
 
+    /*	-----------------------------------------------------------------------------------------------
+    Window, Document Height
+    Tell if the page is short or long
+    --------------------------------------------------------------------------------------------------- */
     kidNtt.windowDocumentHeight = {
 
         init: function() {
 
+            checkHeight();
+
             window.addEventListener( 'load', function() {
-                kidNtt.windowDocumentHeight.checkHeight();
-
-                window.addEventListener( 'resize', function() {
-                    kidNtt.windowDocumentHeight.checkHeight();
-                } );
+                checkHeight();
             } );
-        },
 
-        checkHeight: function() {
-            var windowHeight = kidNtt.getWindowDimensions()[1];
-            var documentHeight = document.documentElement.scrollHeight;
+            window.addEventListener( 'resize', function() {
+                checkHeight();
+            } );
 
-            if ( documentHeight <= windowHeight ) {
-                html.classList.add( 'ntt--view-height---short--js' );
-                html.classList.remove( 'ntt--view-height---long--js' );
-            } else {
-                html.classList.add( 'ntt--view-height---long--js' );
-                html.classList.remove( 'ntt--view-height---short--js' );
+            function checkHeight() {
+                var windowHeight = kidNtt.getWindowDimensions()[1];
+                var documentHeight = document.documentElement.scrollHeight;
+                var shortTxt = 'ntt--view-height---short--js';
+                var longTxt = 'ntt--view-height---long--js';
+    
+                if ( documentHeight <= windowHeight ) {
+                    html.classList.add( shortTxt );
+                    html.classList.remove( longTxt );
+                } else {
+                    html.classList.add( longTxt );
+                    html.classList.remove( shortTxt );
+                }
             }
         }
     }; // kidNtt.windowDocumentHeight
@@ -982,25 +1004,10 @@
         kidNtt.entityFooterIntersection.init();
         kidNtt.entityFooterIntersection.genericIntersection();
         kidNtt.commentInputElements.init();
-        kidNtt.displayRandomImage.init();
         kidNtt.sectionIdIntersection.init();
         kidNtt.intrinsicRatioVideos.init();
         kidNtt.insertIcons.init();
         kidNtt.windowDocumentHeight.init();
-
-        function offset(el) {
-            var rect = el.getBoundingClientRect(),
-            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
-        }
-
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // example use
-        var div = document.querySelector('.ntt--entity-footer');
-        var divOffset = offset(div);
-        console.log(divOffset.left, divOffset.top);
-        console.log(scrollTop);
+        kidNtt.goStartNav.init();
     } );
 } )( jQuery, window, document );

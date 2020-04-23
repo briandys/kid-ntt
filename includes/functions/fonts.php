@@ -16,11 +16,11 @@ add_filter( 'wp_resource_hints', 'ntt__kid_ntt__function__custom_fonts_preconnec
 
 /**
  * Custom Fonts
+ * Usage: $font_families[] = 'Open+Sans';
  */
 function ntt__kid_ntt__function__custom_fonts() {
     $font_families = array();
-    //$font_families[] = 'Open+Sans';
-    $font_families = apply_filters( 'kid_ntt_custom_fonts_filter', $font_families );
+    $font_families = apply_filters( 'ntt__kid_ntt__wp_filter__custom_fonts', $font_families );
 
     $query_args = array(
         'family' => implode( '|', $font_families ),

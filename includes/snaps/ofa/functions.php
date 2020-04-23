@@ -33,9 +33,9 @@ function ntt__kid_ntt__snaps__ofa_ntt__function__custom_fonts( $font_families ) 
     
     return $font_families;
 }
-add_filter( 'kid_ntt_custom_fonts_filter', 'ntt__kid_ntt__snaps__ofa_ntt__function__custom_fonts' );
+add_filter( 'ntt__kid_ntt__wp_filter__custom_fonts', 'ntt__kid_ntt__snaps__ofa_ntt__function__custom_fonts' );
 
-add_filter( 'ntt_entry_author_label_filter', function() {
+add_filter( 'ntt__wp_filter__entry_author_label', function() {
     return __( 'By', 'ntt' );
 } );
 

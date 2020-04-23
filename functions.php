@@ -8,7 +8,7 @@
  */
 $GLOBALS['ntt__gvar__child_theme__name'] = 'Kid NTT';
 $GLOBALS['ntt__gvar__child_theme__url'] = '//briandys.com/ntt/';
-$GLOBALS['ntt__gvar__child_theme__version'] = '1.0.0';
+$GLOBALS['ntt__gvar__child_theme__version'] = '1.0.1';
 
 /**
  * Features Global Variables
@@ -55,29 +55,24 @@ foreach ( $r_functions as $function ) {
 
 /**
  * Features
+ * Features won't work if Snaps is set as "NTT"
  */
-$r_features = array(
-    $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__name'],
-    $GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'],
-    $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'],
-    $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'],
-    $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'],
-    $GLOBALS['ntt__gvar__kid_ntt__feature__responsive_flickr__name'],
-);
+if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 0 || get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) > 1 ) {
+    
+    $r_features = array(
+        $GLOBALS['ntt__gvar__kid_ntt__feature__html_to_canvas__name'],
+        $GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'],
+        $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'],
+        $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'],
+        $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'],
+        $GLOBALS['ntt__gvar__kid_ntt__feature__responsive_flickr__name'],
+    );
 
-foreach ( $r_features as $feature ) {
-    require( get_stylesheet_directory(). '/includes/features/'. $feature. '/functions.php' );
+    foreach ( $r_features as $feature ) {
+        require( get_stylesheet_directory(). '/includes/features/'. $feature. '/functions.php' );
+    }
 }
 
-/**
- * Font Families
- */
-/*
-add_filter( 'kid_ntt_custom_fonts_filter', function( $font_families ) {
-    $font_families[] = 'Hind|Open+Sans+Condensed:700';
-    return $font_families;
-} );
-*/
 
 /**
  * String Position with Needles in Array
@@ -103,20 +98,20 @@ function strpos_array( $haystack, $needles ) {
 /**
  * Maker Tag Name
  */
-add_filter( 'ntt_entity_maker_tag_theme_name_filter', function() {
+add_filter( 'ntt__wp_filter__entity_maker_tag_theme_name', function() {
     return $GLOBALS['ntt__gvar__child_theme__name'];
 } );
 
 /**
  * Maker Tag URL
  */
-add_filter( 'ntt_entity_maker_tag_theme_url_filter', function() {
+add_filter( 'ntt__wp_filter__entity_maker_tag_theme_url', function() {
     return $GLOBALS['ntt__gvar__child_theme__url'];
 } );
 
 /**
  * Remove Password-Protected Posts Filter
- * Removes posts that are password-protected from the index
+ * Removes posts that are password-protected from the Entry Index
  * https://aspengrovestudios.com/how-to-customize-password-protected-pages/
  */
 function ntt__kid_ntt__function__remove_password_protected_posts( $where = '' ) {
@@ -132,7 +127,7 @@ add_filter( 'posts_where', 'ntt__kid_ntt__function__remove_password_protected_po
 /**
  * DateTime - Month Format
  */
-add_filter( 'ntt_cm_datetime_month_filter', function() {
+add_filter( 'ntt__wp_filter__cm_datetime_month', function() {
     return 'M';
 } );
 

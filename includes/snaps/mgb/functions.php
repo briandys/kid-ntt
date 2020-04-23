@@ -36,7 +36,7 @@ function mgb_ntt_font_families( $font_families ) {
     
     return $font_families;
 }
-add_filter( 'kid_ntt_custom_fonts_filter', 'mgb_ntt_font_families' );
+add_filter( 'ntt__kid_ntt__wp_filter__custom_fonts', 'mgb_ntt_font_families' );
 
 /** 
  * Insert Elements After Entry Name
@@ -60,12 +60,12 @@ function mgb_ntt_entry_banner_visuals_featured_image_size() {
 
     return $featured_image_size;
 }
-add_filter( 'ntt_entry_banner_visuals_featured_image_size_filter', 'mgb_ntt_entry_banner_visuals_featured_image_size' );
+add_filter( 'ntt__wp_filter__entry_banner_visuals_featured_image_size', 'mgb_ntt_entry_banner_visuals_featured_image_size' );
 
-function mgb_ntt_cm_datetime_month_filter() {
+function mgb_ntt__wp_filter__cm_datetime_month() {
     return 'M';
 }
-add_filter( 'ntt_cm_datetime_month_filter', 'mgb_ntt_cm_datetime_month_filter' );
+add_filter( 'ntt__wp_filter__cm_datetime_month', 'mgb_ntt__wp_filter__cm_datetime_month' );
 
 /**
  * HTML CSS

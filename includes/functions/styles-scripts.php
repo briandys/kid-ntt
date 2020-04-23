@@ -4,10 +4,10 @@
  */
 function ntt__kid_ntt__function__styles_scripts() {
 
-    wp_enqueue_style( 'ntt-kid-style', get_stylesheet_directory_uri(). '/assets/styles/style.min.css', array( 'ntt-style' ), wp_get_theme()->get( 'Version' ). '-'. wp_get_theme( get_template() )->get( 'Version' ) );
+    wp_enqueue_style( 'ntt-kid-style', get_stylesheet_directory_uri(). '/assets/styles/style.min.css', array( 'ntt-style' ), wp_get_theme( get_template() )->get( 'Version' ). '-'. wp_get_theme()->get( 'Version' ) );
     wp_enqueue_style( 'ntt-kid-noscript-style', get_stylesheet_directory_uri(). '/assets/styles/style.min.css', array( 'ntt-style' ) );
 
-    wp_enqueue_script( 'ntt-kid-script', get_stylesheet_directory_uri(). '/assets/scripts/main.js', array( 'jquery', 'ntt-script', ), wp_get_theme()->get( 'Version' ). '-'. wp_get_theme( get_template() )->get( 'Version' ), true );
+    wp_enqueue_script( 'ntt-kid-script', get_stylesheet_directory_uri(). '/assets/scripts/main.js', array( 'jquery', 'ntt-script', ), wp_get_theme( get_template() )->get( 'Version' ). '-'. wp_get_theme()->get( 'Version' ), true );
 
     $ntt_l10n = array(
         'arrowUpIcon'           => ntt__kid_ntt__function__get_theme_svg( 'arrow-up' ),
@@ -16,6 +16,7 @@ function ntt__kid_ntt__function__styles_scripts() {
         'chevronDownIcon'       => ntt__kid_ntt__function__get_theme_svg( 'chevron-down' ),
         'chevronUpDownIcon'     => ntt__kid_ntt__function__get_theme_svg( 'chevron-up-down' ),
         'loadingIndicator'      => ntt__kid_ntt__function__get_theme_svg( 'loading-indicator' ),
+
         'toggleMenuTxt'         => __( 'Toggle Menu', 'ntt' ),
         'downloadScreenshotTxt' => __( 'Download Screenshot', 'ntt' ),
     );

@@ -390,16 +390,38 @@ function ntt__kid_ntt__feature__user_functions() {
                     ?>
                 </ul>
             </details>
+
+            <?php
+            $result = [];
+            $result['styles'] = [];
+            $result['scripts'] = [];
+
+            // Print all loaded Styles
+            global $wp_styles;
+            echo '<h2 class="ntt--user-functions-heading">Styles</h2>'. '<span class="ntt--count">'. count( $wp_styles->queue ). '</span>';
+            foreach( $wp_styles->queue as $style ) {
+                echo '<dl>';
+                echo '<dt>'. $wp_styles->registered[$style]->handle. '<dt>';
+                echo '<dd>'. $wp_styles->registered[$style]->src. '</dd>';
+                echo '</dl>';
+            }
+
+            // Print all loaded Scripts
+            global $wp_scripts;
+            echo '<h2 class="ntt--user-functions-heading">Scripts</h2>'. '<span class="ntt--count">'. count( $wp_scripts->queue ). '</span>';
+            foreach( $wp_scripts->queue as $script ) {
+                echo '<dl>';
+                echo '<dt>'. $wp_scripts->registered[$script]->handle. '</dt>';
+                echo '<dd>'. $wp_scripts->registered[$script]->src. '</dd>';
+                echo '</dl>';
+            }
+            ?>
         </div>
         <?php
     }
 }
-add_action( 'ntt__wp_hook__the_content___after', 'ntt__kid_ntt__feature__user_functions');
+add_action( 'ntt__wp_hook__the_content___after', 'ntt__kid_ntt__feature__user_functions' );
 
-/**
- * Styles, Scripts
- * Enqueues the styles and scripts
- */
 function ntt__kid_ntt__feature__user_functions__styles_scripts() {
 
     $name = $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'];
@@ -409,7 +431,7 @@ function ntt__kid_ntt__feature__user_functions__styles_scripts() {
 
     if ( is_page() && ntt__kid_ntt__feature__user_functions__validation() ) {
 
-        wp_enqueue_style( $prefixed_name. '--style', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/style.min.css', array( 'ntt-kid-style' ), $version. '-'. $theme_version );
+        wp_enqueue_style( $prefixed_name. '--style', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/style.min.css', array( 'ntt-style', 'ntt-kid-style' ), $version. '-'. $theme_version );
 
         wp_enqueue_script( $prefixed_name. '--script', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/main.js', array(), $version. '-'. $theme_version, true );
     }

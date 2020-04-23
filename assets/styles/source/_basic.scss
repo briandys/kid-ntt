@@ -13,7 +13,7 @@ body {
     overflow-anchor: auto;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
     text-rendering: optimizeSpeed;
-    color: $on-surface-color;
+    color: var(--on-surface-color);
 }
 
 *,
@@ -167,13 +167,13 @@ textarea {
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 1rem;
     line-height: 1.25;
-    border: 1px solid $on-surface-color---alpha-m;
-    border-radius: $corner-radius---sm;
+    border: 1px solid var(--on-surface-color---alpha-m);
+    border-radius: var(--element-corner-radius);
 }
 
 button,
 input[type="submit"] {
-    background-color: $accent-color;
+    background-color: var(--accent-color);
 }
 
 code,
@@ -287,7 +287,7 @@ table {
 }
 
 tbody {
-    border: 1px solid $on-surface-color---alpha-m;
+    border: 1px solid var(--on-surface-color---alpha-m);
 
     th {
         text-align: left;
@@ -297,7 +297,7 @@ tbody {
 th,
 td {
     padding: .5rem;
-    border: 1px solid $on-surface-color---alpha-m;
+    border: 1px solid var(--on-surface-color---alpha-m);
 	overflow: visible;
 }
 
@@ -344,10 +344,10 @@ th {
         color: $accent-color;
 
         &:hover {
-            color: $surface-color;
+            color: var(--surface-color);
 
             .ntt--txt {
-                background-color: $accent-color;
+                background-color: var(--accent-color);
             }
         }
 
@@ -357,7 +357,7 @@ th {
     }
 
     .ntt--txt {
-        background-color: $surface-color;
-        border: .125rem solid $accent-color;
+        background-color: var(--surface-color);
+        border: .125rem solid var(--accent-color);
     }
 }

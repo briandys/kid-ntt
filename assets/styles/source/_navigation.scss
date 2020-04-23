@@ -737,10 +737,10 @@
 
 .ntt--go-start-nav {
     @include block-pad;
-    margin: .35rem;
     padding: 0;
     text-decoration: none;
 
+    .ntt--entity-footer--intersected--js &,
     .ntt--entity-footer--intersected--js.ntt--view-height---long--js & {
         visibility: visible;
     }
@@ -751,6 +751,9 @@
         bottom: 0;
         z-index: 1;
         transform: translateX(-50%);
+        margin-bottom: -1rem;
+        @include transition;
+        transition-property: bottom;
 
         a {
             display: flex;

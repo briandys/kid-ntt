@@ -41,3 +41,25 @@ function ntt__kid_ntt__feature__prezo_mode__styles_scripts() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__prezo_mode__styles_scripts', 0 );
+
+// View CSS
+function ntt__kid_ntt__feature__prezo_mode__view__css( $classes ) {
+    
+    if ( is_singular() && ntt__kid_ntt__feature__prezo_mode__validation() ) {
+        $classes[] = esc_attr( $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__prefixed_name'] );
+    }
+    
+    return $classes;
+}
+add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__feature__prezo_mode__view__css' );
+
+// Entry CSS
+function ntt__kid_ntt__feature__prezo_mode__entry__css( $classes ) {
+    
+    if ( is_singular() && ntt__kid_ntt__feature__prezo_mode__validation() ) {
+        $classes[] = esc_attr( $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__prefixed_name']. '--entry' );
+    }
+    
+    return $classes;
+}
+add_filter( 'post_class', 'ntt__kid_ntt__feature__prezo_mode__entry__css' );

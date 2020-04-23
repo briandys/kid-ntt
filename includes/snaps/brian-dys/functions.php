@@ -30,7 +30,7 @@ add_action( 'wp_enqueue_scripts', function() {
  * Font Families
  */
 
-add_filter( 'kid_ntt_custom_fonts_filter', function( $font_families ) {
+add_filter( 'ntt__kid_ntt__wp_filter__custom_fonts', function( $font_families ) {
     $font_families[] = 'Montserrat:400,800|Work+Sans:400,700&display=swap';
     return $font_families;
 } );
@@ -39,7 +39,7 @@ add_filter( 'kid_ntt_custom_fonts_filter', function( $font_families ) {
  * DateTime - Month Format
  */
 
-add_filter( 'ntt_cm_datetime_month_filter', function() {
+add_filter( 'ntt__wp_filter__cm_datetime_month', function() {
     return 'M';
 } );
 

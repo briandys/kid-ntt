@@ -15,7 +15,7 @@ function ntt__kid_ntt__snaps() {
         return array();
     }
 
-    $snaps[] = esc_html( 'default' );
+    $snaps[] = esc_html( 'kid-ntt' ); // Default
     $snaps[] = esc_html( 'ntt' );
 
     foreach ( $r_snaps as $snap ) {
@@ -27,7 +27,7 @@ function ntt__kid_ntt__snaps() {
 add_action( 'wp_head', 'ntt__kid_ntt__snaps' );
 
 /**
- * Snaps HTML CSS
+ * View CSS
  */
 function ntt__kid_ntt__snaps_view__css( $classes ) {
 
@@ -38,8 +38,8 @@ function ntt__kid_ntt__snaps_view__css( $classes ) {
     }
 
     foreach ( $r_snaps as $key => $value ) {
-        if ( get_theme_mod( 'ntt_kid_settings_snaps' ) == $key ) {
-            $classes[] = 'ntt--'. sanitize_title( $GLOBALS['ntt__gvar__child_theme__name'] ). '--'. basename( $value );
+        if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == $key ) {
+            $classes[] = 'ntt--'. sanitize_title( $GLOBALS['ntt__gvar__child_theme__name'] ). '--snaps--'. basename( $value );
         }
     }
 
@@ -55,26 +55,25 @@ if ( $r_snaps === false ) {
     return array();
 }
 
-foreach ( $r_snaps as $key => $value ) {
+// Kid NTT
+if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 0 ) {
+    return;
 
-    // Kid NTT
-    if ( get_theme_mod( 'ntt_kid_settings_snaps' ) == 0 ) {
-        
-        return;
-
-    // NTT
-    } elseif ( get_theme_mod( 'ntt_kid_settings_snaps' ) == 1 ) {
-        
-        add_action( 'wp_enqueue_scripts', function() {
-            wp_dequeue_style( 'ntt-kid-style' );
-            wp_dequeue_script( 'ntt-kid-script' );
-        }, 100 );
+// NTT
+} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 1 ) {
     
-    // Snaps
-    } elseif ( get_theme_mod( 'ntt_kid_settings_snaps' ) > 1 ) {
+    add_action( 'wp_enqueue_scripts', function() {
+        wp_dequeue_style( 'ntt-kid-style' );
+        wp_dequeue_script( 'ntt-kid-script' );
+    }, 11 );
 
-        if ( get_theme_mod( 'ntt_kid_settings_snaps' ) == $key ) {
-            
+// Snaps
+} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) > 1 ) {
+
+    foreach ( $r_snaps as $key => $value ) {
+
+        if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == $key ) {
+        
             require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' );
             
             add_filter( 'ntt__wp_filter__view_css', function( $classes ) {

@@ -38,6 +38,9 @@
 }
 
 :root {
+  --laptop-viewport-width---xl: 1440px;
+  --color--almost-black: hsl(225, 6%, 13%);
+  --color--panda-blue: hsl(215, 100%, 45%);
   --text---xxs: .625rem;
   --text---xs: .75rem;
   --text---s: .875rem;
@@ -49,7 +52,18 @@
   --text---yl: 3rem;
   --text---yyl: 3.5rem;
   --text---yyyl: 4rem;
-  --text-link-color: $accent-color;
+  --corner-radius---sm: .125rem;
+  --corner-radius---md: .25rem;
+  --corner-radius---lg: .5rem;
+  --surface-color: white;
+  --on-surface-color: var(--color--almost-black);
+  --on-surface-color---alpha-xs: hsla(0, 0%, 0%, .015625);
+  --on-surface-color---alpha-s: hsla(0, 0%, 0%, .03125);
+  --on-surface-color---alpha-m: hsla(0, 0%, 0%, .125);
+  --on-surface-color---alpha-l: hsla(0, 0%, 0%, .25);
+  --accent-color: var(--color--panda-blue);
+  --text-link-color: var(--accent-color);
+  --element-corner-radius: var(--corner-radius---sm);
 }
 
 .ntt--entity-secondary-nav .ntt--txt {

@@ -30,7 +30,7 @@ function ntt__kid_ntt__function__get_theme_svg( $svg_name, $group = 'ui', $color
     $svg = wp_kses(
         NTT_SVG_Icons::ntt__kid_ntt__function__get_svg( $svg_name, $group, $color ),
         array(
-            'svg'     => array(
+            'svg'       => array(
                 'class'       => true,
                 'xmlns'       => true,
                 'width'       => true,
@@ -40,19 +40,24 @@ function ntt__kid_ntt__function__get_theme_svg( $svg_name, $group = 'ui', $color
                 'role'        => true,
                 'focusable'   => true,
             ),
-            'path'    => array(
+            'path'      => array(
                 'fill'      => true,
                 'fill-rule' => true,
                 'd'         => true,
                 'transform' => true,
                 'class'     => true,
             ),
-            'polygon' => array(
+            'polygon'   => array(
                 'fill'      => true,
                 'fill-rule' => true,
                 'points'    => true,
                 'transform' => true,
                 'focusable' => true,
+            ),
+            'circle'    => array(
+                'cx'    => true,
+                'cy'    => true,
+                'r'     => true,
             ),
         )
     );
