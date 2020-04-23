@@ -66,8 +66,6 @@ body {
     }
 }
 
-button,
-input,
 select,
 textarea {
     border: .25rem solid var(--color--hexetidine-gray);
@@ -272,13 +270,54 @@ textarea {
 
     &[data-scroll-y-percentage] {
 
-        // Page Length Progress Bar
         &::before {
-            height: 1rem;
-            background-color: red;
+            height: .5rem;
+            background-color: var(--color--hexetidine-peach);
+            opacity: 1;
+            border-radius: 0 99rem 99rem 0;
+        }
+    }
+
+    &[data-scroll-y-percentage~="100"] {
+
+        &::before {
+            border-radius: 0;
+        }
+    }
+
+    @for $i from 1 through 100 {
+
+        $steps: 1;
+        
+        // $hexetidine-peach: rgb(245, 77, 71);
+        $r1: 245;
+        $g1: 77;
+        $b1: 71;
+
+        // $hexetidine-sky-blue: rgb(0, 162, 255);
+        $r2: 0;
+        $g2: 162;
+        $b2: 255;
+
+        @if $i % $steps == 0 {
+            
+            $width: percentage($i / 100);
+            
+            $r: $r1 - ($i * (abs($r1 - $r2) / 100));
+            $g: $g1 + ($i * (abs($g1 - $g2) / 100));
+            $b: $b1 + ($i * (abs($b1 - $b2) / 100));
+        
+            &[data-scroll-y-percentage~="#{$i}"] {
+
+                &::before {
+                    width: $width;
+                    background-color: rgb($r, $g, $b);
+                }
+            }
         }
     }
 }
+
 
 //--------------------------------------------------------------
 // Media Query: Tablet
@@ -288,6 +327,21 @@ textarea {
 
     body {
         --view-border-width: 1rem;
+    }
+
+    //--------------------------------------------------------------
+    // Feature: Scroll Y
+    //--------------------------------------------------------------
+    
+    .ntt.ntt--kid-ntt--feature--scroll-y {
+    
+        &[data-scroll-y-percentage] {
+    
+            // Page Length Progress Bar
+            &::before {
+                height: 1rem;
+            }
+        }
     }
 
     .ntt--hexetidine--current-month {

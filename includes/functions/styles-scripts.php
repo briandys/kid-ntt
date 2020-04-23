@@ -19,6 +19,7 @@ function ntt__kid_ntt__function__styles_scripts() {
 
         'toggleMenuTxt'         => __( 'Toggle Menu', 'ntt' ),
         'downloadScreenshotTxt' => __( 'Download Screenshot', 'ntt' ),
+        'screenShotTxt'         => __( 'Screenshot', 'ntt' ),
     );
     
     wp_localize_script( 'ntt-kid-script', 'nttData', $ntt_l10n );

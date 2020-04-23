@@ -8,7 +8,7 @@
  */
 $GLOBALS['ntt__gvar__child_theme__name'] = 'Kid NTT';
 $GLOBALS['ntt__gvar__child_theme__url'] = '//briandys.com/ntt/';
-$GLOBALS['ntt__gvar__child_theme__version'] = '1.0.1';
+$GLOBALS['ntt__gvar__child_theme__version'] = '1.0.2';
 
 /**
  * Features Global Variables

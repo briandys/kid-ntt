@@ -44,7 +44,7 @@ kidNttF5eHtmlToCanvas.htmlToCanvas = {
         // Create the button's click event
         downloadAxn.addEventListener( 'click', () => {
             
-            let options = {
+            var options = {
                 logging: false,
                 scale: 2.5,
                 backgroundColor: '#ffffff',
@@ -52,10 +52,10 @@ kidNttF5eHtmlToCanvas.htmlToCanvas = {
                 ignoreElements: function ( el ) {
                     return el == content.querySelector( '.jp-relatedposts' ) || el == content.querySelector( '.ntt--entry-footer' );
                 }
-            };
+            }
             
             html2canvas( capture, options ).then( function( canvas ) {
-                kidNttF5eHtmlToCanvas.htmlToCanvas.saveAs( canvas.toDataURL(), 'ntt--html-to-canvas.png' );
+                kidNttF5eHtmlToCanvas.htmlToCanvas.saveAs( canvas.toDataURL(), kidNttF5eHtmlToCanvas.htmlToCanvas.generateFilename() );
             } );
 
             downloadAxn.classList.add( 'ntt--html-to-canvas---downloading--js' );
@@ -87,7 +87,7 @@ kidNttF5eHtmlToCanvas.htmlToCanvas = {
                 downloadAxn.classList.remove( 'ntt--html-to-canvas---downloading--js' );
                 downloadAxn.removeAttribute( 'disabled' );
                 downloadAxn.querySelector( '.ntt--loading-indicator-icon' ).remove();
-            }, 5000 );
+            }, 4000 );
         } else {
             window.open( uri ) ;
         }
@@ -113,6 +113,21 @@ kidNttF5eHtmlToCanvas.htmlToCanvas = {
                 }
             } );
         }
+    },
+
+    // Generate Local DateTime for Filename
+    // https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
+    generateFilename: function() {
+        
+        function pad( n ) {
+            return n < 10 ? '0' + n : n;
+        }
+
+        var now = new Date();
+        var localDateTimeFilename = now.getFullYear() + '-' + pad( now.getMonth() + 1 ) + '-' + pad( now.getDate() ) + ' ' + 'at' + ' ' + pad( now.getHours() ) + '.' + pad( now.getMinutes() ) + '.' + pad( now.getSeconds() );
+        var filename = nttData.screenShotTxt + ' ' + localDateTimeFilename + ' ' + '-' + ' ' + document.title + '.png';
+        
+        return filename;
     }
 }; // kidNttF5eHtmlToCanvas.htmlToCanvas
 

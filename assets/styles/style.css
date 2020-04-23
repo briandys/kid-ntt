@@ -48,6 +48,21 @@
   clear: both;
 }
 
+.ntt--comment-name .ntt--txt, .ntt--comment-author-name .ntt--txt, .ntt--comment-author-label .ntt--txt, .ntt--comments-count .ntt--txt, .ntt--comments-header .ntt--comments-count .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--comments-name .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-composition-name .ntt--txt, .ntt--cancel-reply-axn .ntt--txt, .ntt--comment-form label .ntt--txt, .ntt--log-out-account-axn .ntt--txt, .ntt--logged-in-account .ntt--txt, .ntt--comment-published-datetime-label .ntt--txt, .ntt--comment-published-date .ntt--txt,
+.ntt--comment-published-time .ntt--txt, .ntt--cm-author-name .ntt--txt, .ntt--entity-name .ntt--txt, .ntt--entity-description .ntt--txt, .ntt--entity-view-name .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
+.ntt--entity-copyright .ntt--txt,
+.ntt--entity-maker-tag .ntt--txt, .sub-content-ntt--entry-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
+.ntt--entry-modified-datetime-label .ntt--txt, .ntt--entry-published-date .ntt--txt,
+.ntt--entry-published-time .ntt--txt,
+.ntt--entry-modified-date .ntt--txt,
+.ntt--entry-modified-time .ntt--txt, .ntt--entry-name .ntt--txt, .ntt--entry-subname .ntt--txt, .ntt--modify-entry-axn .ntt--txt, .ntt--entry-tags a, .ntt--entry-tags-name .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--entry-author-label .ntt--txt, .ntt--entry-author-name .ntt--txt, .post-navigation .ntt--txt, .ntt--entry-breadcrumbs-navi .ntt--txt, .ntt--entries-nav li .ntt--txt,
+.ntt--entry-subcontent-nav li .ntt--txt, .ntt--entries-page-indicator .ntt--txt, .ntt--entity-primary-nav li .ntt--txt,
+.ntt--entity-secondary-nav li .ntt--txt,
+.ntt--widget_nav_menu li .ntt--txt, .ntt--widget_nav_menu a, .ntt--entry-nav .ntt--txt, .ntt--entry-content-nav .ntt--txt, .ntt--comments-navi .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 :root {
   --laptop-viewport-width---xl: 1440px;
   --color--almost-black: hsl(225, 6%, 13%);
@@ -75,21 +90,6 @@
   --accent-color: var(--color--panda-blue);
   --text-link-color: var(--accent-color);
   --element-corner-radius: var(--corner-radius---sm);
-}
-
-.ntt--comment-name .ntt--txt, .ntt--comment-author-name .ntt--txt, .ntt--comment-author-label .ntt--txt, .ntt--comments-count .ntt--txt, .ntt--comments-header .ntt--comments-count .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--comments-name .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-composition-name .ntt--txt, .ntt--cancel-reply-axn .ntt--txt, .ntt--comment-form label .ntt--txt, .ntt--log-out-account-axn .ntt--txt, .ntt--logged-in-account .ntt--txt, .ntt--comment-published-datetime-label .ntt--txt, .ntt--comment-published-date .ntt--txt,
-.ntt--comment-published-time .ntt--txt, .ntt--cm-author-name .ntt--txt, .ntt--entity-name .ntt--txt, .ntt--entity-description .ntt--txt, .ntt--entity-view-name .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
-.ntt--entity-copyright .ntt--txt,
-.ntt--entity-maker-tag .ntt--txt, .sub-content-ntt--entry-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
-.ntt--entry-modified-datetime-label .ntt--txt, .ntt--entry-published-date .ntt--txt,
-.ntt--entry-published-time .ntt--txt,
-.ntt--entry-modified-date .ntt--txt,
-.ntt--entry-modified-time .ntt--txt, .ntt--entry-name .ntt--txt, .ntt--entry-subname .ntt--txt, .ntt--modify-entry-axn .ntt--txt, .ntt--entry-tags a, .ntt--entry-tags-name .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--entry-author-label .ntt--txt, .ntt--entry-author-name .ntt--txt, .post-navigation .ntt--txt, .ntt--entry-breadcrumbs-navi .ntt--txt, .ntt--entries-nav li .ntt--txt,
-.ntt--entry-subcontent-nav li .ntt--txt, .ntt--entries-page-indicator .ntt--txt, .ntt--entity-primary-nav li .ntt--txt,
-.ntt--entity-secondary-nav li .ntt--txt,
-.ntt--widget_nav_menu li .ntt--txt, .ntt--widget_nav_menu a, .ntt--entry-nav .ntt--txt, .ntt--entry-content-nav .ntt--txt, .ntt--comments-navi .ntt--txt {
-  display: block;
-  padding: .5rem;
 }
 
 html {
