@@ -1,5 +1,5 @@
 /* Screen Reader Text ------------------------ */
-.ntt--content span[id^=more-], .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js, .ntt--go-content-nav:not(:focus-within), .ntt--go-content-navi a:not(:focus), .ntt--js .ntt--go-start-nav .ntt--txt {
+.ntt--content span[id^=more-], .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js, .ntt--go-content-nav:not(:focus-within), .ntt--no-js .ntt--go-content-navi, .ntt--go-content-navi a:not(:focus), .ntt--js .ntt--go-start-nav .ntt--txt {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
@@ -14,7 +14,7 @@
   word-break: normal;
 }
 
-.ntt--content span:focus[id^=more-], .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js:focus, .ntt--go-content-nav:focus:not(:focus-within), .ntt--go-content-navi a:focus:not(:focus), .ntt--js .ntt--go-start-nav .ntt--txt:focus {
+.ntt--content span:focus[id^=more-], .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js:focus, .ntt--go-content-nav:focus:not(:focus-within), .ntt--no-js .ntt--go-content-navi:focus, .ntt--go-content-navi a:focus:not(:focus), .ntt--js .ntt--go-start-nav .ntt--txt:focus {
   background-color: #f1f1f1;
   border-radius: 3px;
   -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -1061,6 +1061,10 @@ th {
   margin-right: auto;
 }
 
+.ntt--entity-end {
+  position: relative;
+}
+
 .ntt--entry-categories-name {
   display: none;
 }
@@ -1751,6 +1755,10 @@ th {
   text-decoration: none;
 }
 
+.ntt--js .ntt--entries-page-menu--js .ntt--txt {
+  white-space: nowrap;
+}
+
 .ntt--dom---unloaded--js .ntt--entity-primary-nav, .ntt--dom---unloaded--js
 .ntt--entity-secondary-nav, .ntt--dom---unloaded--js
 .ntt--widget_nav_menu {
@@ -2092,14 +2100,17 @@ th {
   visibility: visible;
 }
 
+.ntt--entity-footer--intersected--js.ntt--view-height---short--js .ntt--go-start-nav {
+  visibility: hidden;
+}
+
 .ntt--js .ntt--go-start-nav {
-  position: fixed;
+  position: absolute;
   left: 50%;
   bottom: 0;
   z-index: 1;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  margin-bottom: -1rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   -webkit-transition-property: bottom;

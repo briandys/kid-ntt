@@ -270,40 +270,73 @@ textarea {
 
     &[data-scroll-y-percentage] {
 
-        &::before {
+        &::before,
+        &::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            z-index: 2;
+            width: 0%;
             height: .5rem;
+            background-color: var(--accent-color);
+            @include transition;
+            transform: translate3d(0px, 0px, 0px);
+        }
+
+        &::before {
+            left: 0;
             background-color: var(--color--hexetidine-peach);
-            opacity: 1;
+        }
+
+        &::after {
+            right: 0;
+            background-color: var(--color--hexetidine-sky-blue);
         }
     }
 
-    @for $i from 1 through 100 {
-
+    // Set left bar
+    @for $i from 1 through 50 {
         $steps: 1;
-        
-        // $hexetidine-peach: rgb(245, 77, 71);
-        $r1: 245;
-        $g1: 77;
-        $b1: 71;
-
-        // $hexetidine-sky-blue: rgb(0, 162, 255);
-        $r2: 0;
-        $g2: 162;
-        $b2: 255;
 
         @if $i % $steps == 0 {
-            
             $width: percentage($i / 100);
-            
-            $r: $r1 - ($i * (abs($r1 - $r2) / 100));
-            $g: $g1 + ($i * (abs($g1 - $g2) / 100));
-            $b: $b1 + ($i * (abs($b1 - $b2) / 100));
         
-            &[data-scroll-y-percentage~="#{$i}"] {
+            &[data-scroll-y-percentage~='#{$i}'] {
 
                 &::before {
                     width: $width;
-                    background-color: rgb($r, $g, $b);
+                }
+            }
+        }
+    }
+
+    // Left bar will stop at 50%
+    &[data-scroll-y-percentage~='50'] {
+        
+        &::before {
+            width: 50%;
+        }
+    }
+
+    // Right bar will start at 50%
+    &[data-scroll-y-percentage~='0'] {
+        
+        &::after {
+            width: 0%;
+        }
+    }
+
+    // Set right bar
+    @for $i from 51 through 100 {
+        $steps: 1;
+
+        @if $i % $steps == 0 {
+            $width: percentage(($i / 100) - .5); // Total percentage less 50%
+        
+            &[data-scroll-y-percentage~='#{$i}'] {
+
+                &::after {
+                    width: $width;
                 }
             }
         }
@@ -329,8 +362,8 @@ textarea {
     
         &[data-scroll-y-percentage] {
     
-            // Page Length Progress Bar
-            &::before {
+            &::before,
+            &::after {
                 height: 1rem;
             }
         }
@@ -405,6 +438,10 @@ textarea {
     
         .ntt--entity-footer {
             grid-column: entity-footer / -1;
+        }
+    
+        .ntt--entity-end {
+            grid-column: entity-end / -1;
         }
 
         .ntt--entity-header {

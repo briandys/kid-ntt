@@ -9,10 +9,10 @@ kidNttHexetidine.displayRandomQuote = {
 
     init: function() {
         var nttDataArray = [
-            nttDataQuote.one,
-            nttDataQuote.two,
-            nttDataQuote.three,
-            nttDataQuote.four,
+            nttKidNttHexetidineData.one,
+            nttKidNttHexetidineData.two,
+            nttKidNttHexetidineData.three,
+            nttKidNttHexetidineData.four,
         ];
         
         var num = Math.floor( Math.random() * ( nttDataArray.length ) );

@@ -4,6 +4,8 @@
  */
 var kidNttF5eScrollY = kidNttF5eScrollY || {};
 
+const html = document.documentElement;
+
 kidNttF5eScrollY.scrollY = {
 
     init: function() {

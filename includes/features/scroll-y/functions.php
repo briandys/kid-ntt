@@ -9,7 +9,7 @@ $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__version'] = '1.0.0';
 
 /**
  * NTT Feature Validation
- * Checks if the feature is in Custom Fields
+ * Checks if the feature is in Custom Fields or Customizer > NTT Settings
  */
 function ntt__kid_ntt__feature__scroll_y__validation() {
     $post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
@@ -25,6 +25,22 @@ function ntt__kid_ntt__feature__scroll_y__validation() {
 }
 
 /**
+ * NTT Feature Validation
+ * Checks if the feature is in Custom Fields or Customizer > NTT Settings
+ */
+function ntt__kid_ntt__feature__scroll_y__snaps_settings_validation() {
+    $snaps_feature_settings = join( ' ', ntt__kid_ntt__snaps__feature_settings() );
+
+    $ntt_f5e_array = array(
+        $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'],
+    );
+
+    if ( strpos_array( $snaps_feature_settings, $ntt_f5e_array ) ) {
+        return true;
+    }
+}
+
+/**
  * Styles, Scripts
  * Enqueues the styles and scripts
  */
@@ -35,9 +51,7 @@ function ntt__kid_ntt__feature__scroll_y__styles_scripts() {
     $version = $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__version'];
     $theme_version = wp_get_theme()->get( 'Version' );
 
-    if ( ntt__kid_ntt__feature__scroll_y__validation() ) {
-
-        wp_enqueue_style( $prefixed_name. '--style', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/style.min.css', array( 'ntt-kid-style' ), $version. '-'. $theme_version );
+    if ( ntt__kid_ntt__feature__scroll_y__validation() || ntt__kid_ntt__feature__scroll_y__snaps_settings_validation() ) {
 
         wp_enqueue_script( $prefixed_name. '--script', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/main.js', array(), $version. '-'. $theme_version, true );
     }
@@ -47,7 +61,7 @@ add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__scroll_y__styles_scrip
 // View CSS
 function ntt__kid_ntt__feature__scroll_y__view__css( $classes ) {
     
-    if ( is_singular() && ntt__kid_ntt__feature__scroll_y__validation() ) {
+    if ( ( is_singular() && ntt__kid_ntt__feature__scroll_y__validation() ) || ntt__kid_ntt__feature__scroll_y__snaps_settings_validation() ) {
         $classes[] = esc_attr( $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__prefixed_name'] );
     }
     

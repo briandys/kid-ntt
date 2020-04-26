@@ -732,8 +732,6 @@
                 rootMargin: '0px 0px 0px 0px',
                 threshold: .75
             } );
-        
-            observer.observe( entityFooter );
     
             function handleIntersect( entries ) {
 
@@ -746,9 +744,14 @@
                     }
                 } );
             }
-        },
+        
+            observer.observe( entityFooter );
+        }
+    }; // kidNtt.entityFooterIntersection
 
-        genericIntersection: function() {
+    kidNtt.genericIntersection = {
+        
+        init: function() {
 
             var intersectionElement = document.querySelectorAll( '.ntt--observe-intersection--js' );
 
@@ -758,7 +761,7 @@
                 
                     entries.forEach( entry => {
                         
-                        if ( entry.intersectionRatio > 0 ) {
+                        if ( entry.isIntersecting ) {
                             entry.target.classList.add('ntt--intersected--js');
                             entry.target.classList.remove('ntt--not-intersected--js');
                         } else {
@@ -766,15 +769,15 @@
                             entry.target.classList.remove('ntt--intersected--js');
                         }
                     });
-                });
+                } );
             
                 intersectionElement.forEach( ( el ) => {
-                    observer.observe( el );
                     el.classList.add('ntt--not-intersected--js');
+                    observer.observe( el );
                 } );
             }
         }
-    }; // kidNtt.entityFooterIntersection
+    }; // kidNtt.genericIntersection
 
     /*	-----------------------------------------------------------------------------------------------
     Assign Population Status of Input Elements
@@ -990,7 +993,7 @@
         kidNtt.entriesNav.init();
         kidNtt.subMenu.init();
         kidNtt.entityFooterIntersection.init();
-        kidNtt.entityFooterIntersection.genericIntersection();
+        kidNtt.genericIntersection.init();
         kidNtt.commentInputElements.init();
         kidNtt.sectionIdIntersection.init();
         kidNtt.intrinsicRatioVideos.init();

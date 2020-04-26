@@ -347,6 +347,10 @@
                 text-decoration: none;
             }
         }
+
+        .ntt--txt {
+            white-space: nowrap;
+        }
     }
 }
 
@@ -695,6 +699,10 @@
 
 .ntt--go-content-navi {
 
+    @at-root .ntt--no-js & {
+        @extend %vh;
+    }
+
     a {
         position: fixed;
         left: 0;
@@ -745,13 +753,16 @@
         visibility: visible;
     }
 
+    .ntt--entity-footer--intersected--js.ntt--view-height---short--js & {
+        visibility: hidden;
+    }
+
     .ntt--js & {
-        position: fixed;
+        position: absolute;
         left: 50%;
         bottom: 0;
         z-index: 1;
         transform: translateX(-50%);
-        margin-bottom: -1rem;
         @include transition;
         transition-property: bottom;
 

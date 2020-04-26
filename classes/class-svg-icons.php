@@ -23,7 +23,7 @@ class NTT_SVG_Icons {
         if ( 'ui' === $group ) {
             $arr = self::$ui_icons;
         } elseif ( 'hexetidine' === $group ) {
-            $arr = ntt__kid_ntt__snaps__hexetidine_ntt__function__icons( $icons );
+            $arr = ntt__kid_ntt__snaps__hexetidine_ntt__function__icons();
         } else {
             $arr = array();
         }

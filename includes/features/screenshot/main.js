@@ -38,8 +38,8 @@ kidNttFeatureScreenshot.htmlToCanvas = {
         var downloadAxn = document.createElement( 'button' );
         downloadAxn.id = 'ntt--kid-ntt--download-axn--js';
         downloadAxn.className = 'ntt--kid-ntt--download-axn--js';
-        downloadAxn.setAttribute( 'title', nttData.downloadScreenshotTxt );
-        downloadAxn.innerHTML = '<span class="ntt--txt">' + nttData.downloadScreenshotTxt + '</span>';
+        downloadAxn.setAttribute( 'title', nttKidNttScreenshotData.downloadScreenshotTxt );
+        downloadAxn.innerHTML = '<span class="ntt--txt">' + nttKidNttScreenshotData.downloadScreenshotTxt + '</span>';
         toolbar.appendChild( downloadAxn );
         
         // Create the button's click event
@@ -126,7 +126,7 @@ kidNttFeatureScreenshot.htmlToCanvas = {
 
         var now = new Date();
         var localDateTimeFilename = now.getFullYear() + '-' + pad( now.getMonth() + 1 ) + '-' + pad( now.getDate() ) + ' ' + 'at' + ' ' + pad( now.getHours() ) + '.' + pad( now.getMinutes() ) + '.' + pad( now.getSeconds() );
-        var filename = nttData.screenShotTxt + ' ' + localDateTimeFilename + ' ' + '-' + ' ' + document.title + '.png';
+        var filename = nttKidNttScreenshotData.screenShotTxt + ' ' + localDateTimeFilename + ' ' + '-' + ' ' + document.title + '.png';
         
         return filename;
     }

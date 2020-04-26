@@ -41,6 +41,13 @@ function ntt__kid_ntt__feature__screenshot__styles_scripts() {
         wp_enqueue_script( $prefixed_name. '--library-script', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/html2canvas.min.js', array(), $version. '-'. $theme_version, true );
 
         wp_enqueue_script( $prefixed_name. '--script', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/main.js', array( $prefixed_name. '--library-script' ), $version. '-'. $theme_version, true );
+
+        $ntt_l10n = array(  
+            'downloadScreenshotTxt' => __( 'Download Screenshot', 'ntt' ),
+            'screenShotTxt'         => __( 'Screenshot', 'ntt' ),
+        );
+        
+        wp_localize_script( 'ntt-kid-script', 'nttKidNttScreenshotData', $ntt_l10n );
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__screenshot__styles_scripts', 0 );
