@@ -11,18 +11,6 @@ $GLOBALS['ntt__gvar__child_theme__url'] = '//briandys.com/ntt/';
 $GLOBALS['ntt__gvar__child_theme__version'] = '1.0.3';
 
 /**
- * Features Global Variables
- */
-$GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix'] = 'ntt--kid-ntt--feature--';
-
-$GLOBALS['ntt__gvar__kid_ntt__feature__screenshot__name'] = 'screenshot';
-$GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'] = 'instafeed';
-$GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'] = 'prezo-mode';
-$GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'] = 'scroll-y';
-$GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'] = 'user-functions';
-$GLOBALS['ntt__gvar__kid_ntt__feature__responsive_flickr__name'] = 'responsive-flickr';
-
-/**
  * Classes
  */
 

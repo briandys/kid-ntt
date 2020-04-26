@@ -169,8 +169,10 @@
         justify-content: center;
         align-items: center;
         margin-right: 1rem;
-        padding-right: 2.5rem;
+        padding-right: 3rem;
         user-select: none;
+        border: 1px solid var(--on-surface-color---alpha-m);
+        border-radius: var(--element-corner-radius);
     
         &:hover {
             cursor: pointer;
@@ -200,7 +202,7 @@
         .ntt--icon {
             position: absolute;
             right: 0;
-            margin-right: .75rem;
+            margin-right: 1rem;
             width: 1rem;
             @include transition;
             transition-property: transform;
@@ -284,12 +286,9 @@
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        
-        margin: 2px 0 0 -1px;
-        
-        background-color: $surface-color;
-        border: 1px solid $on-surface-color---alpha-m;
-        border-radius: $corner-radius---sm;
+        background-color: var(--surface-color);
+        border: 1px solid var(--on-surface-color---alpha-m);
+        border-radius: var(--element-corner-radius);
         box-shadow: 0 .25rem .5rem -.25rem $on-surface-color---alpha-m;
         
         user-select: none;

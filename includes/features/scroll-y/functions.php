@@ -4,6 +4,19 @@
  * Adds data attributes to HTML element to track scrolling in the Y-axis, both in pixels and percentage.
  */
 
+function ntt__kid_ntt__features__info() {
+    
+    $name = 'Scroll Y';
+
+    $info = array(
+        'name'      => $name,
+        'slug'      => sanitize_title( $name ),
+        'version'   => '0.0.1',
+    );
+    
+    return $info;
+}
+
 $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__prefixed_name'] = $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix']. $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'];
 $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__version'] = '1.0.0';
 
@@ -16,7 +29,7 @@ function ntt__kid_ntt__feature__scroll_y__validation() {
     $theme_mod = get_theme_mod( 'ntt_settings_features' );
 
     $ntt_f5e_array = array(
-        $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__prefixed_name'],
+        ntt__kid_ntt__features__info()['slug'],
     );
 
     if ( strpos_array( $post_meta, $ntt_f5e_array ) || strpos_array( $theme_mod, $ntt_f5e_array ) ) {
@@ -32,7 +45,7 @@ function ntt__kid_ntt__feature__scroll_y__snaps_settings_validation() {
     $snaps_feature_settings = join( ' ', ntt__kid_ntt__snaps__feature_settings() );
 
     $ntt_f5e_array = array(
-        $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'],
+        ntt__kid_ntt__features__info()['slug'],
     );
 
     if ( strpos_array( $snaps_feature_settings, $ntt_f5e_array ) ) {
@@ -46,14 +59,14 @@ function ntt__kid_ntt__feature__scroll_y__snaps_settings_validation() {
  */
 function ntt__kid_ntt__feature__scroll_y__styles_scripts() {
 
-    $name = $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'];
-    $prefixed_name = $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__prefixed_name'];
-    $version = $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__version'];
+    $slug = ntt__kid_ntt__features__info()['slug'];
+    $prefixed_name = 'ntt--kid-ntt--feature--'. $name;
+    $version = ntt__kid_ntt__features__info()['version'];
     $theme_version = wp_get_theme()->get( 'Version' );
 
     if ( ntt__kid_ntt__feature__scroll_y__validation() || ntt__kid_ntt__feature__scroll_y__snaps_settings_validation() ) {
 
-        wp_enqueue_script( $prefixed_name. '--script', get_stylesheet_directory_uri(). '/includes/features/'. $name. '/main.js', array(), $version. '-'. $theme_version, true );
+        wp_enqueue_script( $prefixed_name. '--script', get_stylesheet_directory_uri(). '/includes/features/'. $slug. '/main.js', array(), $version. '-'. $theme_version, true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__feature__scroll_y__styles_scripts', 0 );

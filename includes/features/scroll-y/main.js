@@ -4,11 +4,11 @@
  */
 var kidNttF5eScrollY = kidNttF5eScrollY || {};
 
-const html = document.documentElement;
-
 kidNttF5eScrollY.scrollY = {
 
     init: function() {
+
+        var html = document.documentElement;
 
         if ( html.classList.contains( 'ntt--kid-ntt--feature--scroll-y' ) ) {
 

@@ -16,7 +16,7 @@ function ntt__kid_ntt__snaps__info() {
 function ntt__kid_ntt__snaps__feature_settings() {
     
     $settings = array(
-        $GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'],
+        'scroll-y',
     );
     
     return $settings;

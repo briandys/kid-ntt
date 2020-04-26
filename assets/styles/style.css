@@ -1539,11 +1539,13 @@ th {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 1rem;
-  padding-right: 2.5rem;
+  padding-right: 3rem;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  border: 1px solid var(--on-surface-color---alpha-m);
+  border-radius: var(--element-corner-radius);
 }
 
 .ntt--js .ntt--entries-page-indicator:hover {
@@ -1575,7 +1577,7 @@ th {
 .ntt--js .ntt--entries-page-indicator .ntt--icon {
   position: absolute;
   right: 0;
-  margin-right: .75rem;
+  margin-right: 1rem;
   width: 1rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1685,10 +1687,9 @@ th {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  margin: 2px 0 0 -1px;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.125rem;
+  background-color: var(--surface-color);
+  border: 1px solid var(--on-surface-color---alpha-m);
+  border-radius: var(--element-corner-radius);
   -webkit-box-shadow: 0 0.25rem 0.5rem -0.25rem rgba(0, 0, 0, 0.125);
           box-shadow: 0 0.25rem 0.5rem -0.25rem rgba(0, 0, 0, 0.125);
   -webkit-user-select: none;
