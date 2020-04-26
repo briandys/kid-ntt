@@ -2,9 +2,9 @@
  * Scroll Y
  * https://pqina.nl/blog/using-smart-css-to-time-your-wonderful-newsletter-popup/
  */
-var kidNttF5eScrollY = kidNttF5eScrollY || {};
+var kidNttFeature = kidNttFeature || {};
 
-kidNttF5eScrollY.scrollY = {
+kidNttFeature.scrollY = {
 
     init: function() {
         const html = document.documentElement;
@@ -65,7 +65,7 @@ kidNttF5eScrollY.scrollY = {
             'scrollYPercentage': 0
         } );
 
-        if ( html.classList.contains( 'ntt--kid-ntt--feature--scroll-y' ) ) {
+        if ( html.classList.contains( nttKidNttFeatureScrollYData.prefixedSlug ) ) {
             
             // Scroll
             // Listen for new scroll events, here we debounce our scroll handler function for performance reasons
@@ -82,37 +82,9 @@ kidNttF5eScrollY.scrollY = {
                 // Calculate current progress in percentages
                 updateEnv( 'scrollYPercentage', stack( Math.round( scrollProgress * 100 ), scrollSteps) );
             } ), { passive: true } );
-
-            /*
-            // Duration
-            // Determine How long has the user been on the page, updates the `pageVisitDuration` each 15 seconds, the siteVisitDuration is set in minutes.
-            const pageOpenDate = Date.now();
-
-            // Retrieves the site visit duration, or, if not defined, 0
-            const siteVisitDuration = parseInt( localStorage.getItem( 'siteVisitDuration' ) || 0, 10 );
-
-            // Set current amount of visits
-            updateEnv( 'siteVisitDuration', stack( siteVisitDuration / 60, 1 ) );
-
-            // Update each 15 seconds
-            setInterval( () => {
-                // Page visit duration in seconds
-                const pageVisitDuration = Math.round( Date.now() - pageOpenDate ) / 1000;
-                
-                // Update `pageVisitDuration` with 15 second intervals (0 15 30 45 ...)
-                updateEnv( 'pageVisitDuration', stack( pageVisitDuration, 15 ) );
-                
-                // Update `siteVisitDuration` with 1 minute intervals (0 1 2 3 ...)
-                updateEnv( 'siteVisitDuration', stack( ( siteVisitDuration + pageVisitDuration ) / 60, 1 ) );
-
-                // Remember current duration
-                localStorage.setItem( 'siteVisitDuration', siteVisitDuration + pageVisitDuration );
-                
-            }, 0 );
-            */
         }
     }
-}; // kidNttF5eScrollY.scrollY
+}; // kidNttFeature.scrollY
 
 /**
  * Is the DOM ready?
@@ -134,5 +106,5 @@ function nttDomReady( fn ) {
 }
 
 nttDomReady( function() {
-    kidNttF5eScrollY.scrollY.init();
+    kidNttFeature.scrollY.init();
 } );
