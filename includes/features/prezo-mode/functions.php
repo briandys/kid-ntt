@@ -10,8 +10,8 @@ $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__version'] = '1.0.0';
  * NTT Feature Validation
  */
 function ntt__kid_ntt__feature__prezo_mode__validation() {
-    $post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
-    $theme_mod = get_theme_mod( 'ntt_settings_features' );
+    $post_meta = get_post_meta( get_the_ID(), 'ntt_features', true );
+    $theme_mod = get_theme_mod( 'ntt__wp_customizer__settings__features' );
 
     $ntt_f5e_array = array(
         $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__prefixed_name'],

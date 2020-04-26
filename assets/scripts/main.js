@@ -953,10 +953,11 @@
             function checkHeight() {
                 var windowHeight = kidNtt.getWindowDimensions()[1];
                 var documentHeight = document.documentElement.scrollHeight;
+                var heightBuffer = windowHeight * .25;
                 var shortTxt = 'ntt--view-height---short--js';
                 var longTxt = 'ntt--view-height---long--js';
     
-                if ( documentHeight <= windowHeight ) {
+                if ( documentHeight <= ( windowHeight + heightBuffer ) ) {
                     html.classList.add( shortTxt );
                     html.classList.remove( longTxt );
                 } else {

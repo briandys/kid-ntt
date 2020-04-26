@@ -1,12 +1,12 @@
 <?php
 /**
  * Feature Custom Field
- * Key: ntt_feature
- * Any value found in Custom Field named, ntt_feature, will be added as CSS class names in HTML element.
+ * Key: ntt_features
+ * Any value found in Custom Field named, ntt_features, will be added as CSS class names in HTML element.
  */
 function ntt__kid_ntt__wp_custom_field__feature_view__css( $classes ) {
     
-    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
+    $html_css_post_meta = get_post_meta( get_the_ID(), 'ntt_features', true );
 
     if ( $html_css_post_meta !== '' ) {
         $classes[] = esc_attr( $html_css_post_meta );

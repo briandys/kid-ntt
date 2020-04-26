@@ -12,7 +12,7 @@
 // Validation
  function ntt__kid_ntt__feature__responsive_flickr__validation() {
     
-    $post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
+    $post_meta = get_post_meta( get_the_ID(), 'ntt_features', true );
 
     $ntt_f5e_array = array(
         $GLOBALS['ntt__gvar__kid_ntt__feature__responsive_flickr__prefixed_name'],

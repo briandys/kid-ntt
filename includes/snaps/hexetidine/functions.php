@@ -91,13 +91,13 @@ function ntt__kid_ntt__snaps__hexetidine_ntt__function__icons() {
     return $icons;
 }
 
-function ntt__kid_ntt__snaps__hexetidine_ntt__function__exclude_pages_from_search( $query ) {
+function ntt__kid_ntt__snaps__hexetidine_ntt__function__search_query( $query ) {
     
-    if ( $query->is_main_query() && is_search() ) {
-        $query->set( 'post_type', 'page' );
-        $query->set( 'category__not_in', '7' );
+    if ( ! is_admin() && $query->is_main_query() && is_search() ) {
+        //$query->set( 'post_type', 'page' );
+        //$query->set( 'category__not_in', '7' );
     }
     
     return $query;
 }
-add_filter( 'pre_get_posts','ntt__kid_ntt__snaps__hexetidine_ntt__function__exclude_pages_from_search' );
+add_filter( 'pre_get_posts','ntt__kid_ntt__snaps__hexetidine_ntt__function__search_query' );

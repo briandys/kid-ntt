@@ -17,11 +17,11 @@ function ntt__kid_ntt__features() {
     return $features;
 }
 
-$GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix'] = 'ntt--kid-ntt--feature--';
+
 $GLOBALS['ntt__gvar__kid_ntt__feature__screenshot__name'] = 'screenshot';
 $GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'] = 'instafeed';
 $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'] = 'prezo-mode';
-$GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'] = 'scroll-y';
+//$GLOBALS['ntt__gvar__kid_ntt__feature__scroll_y__name'] = 'scroll-y';
 $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'] = 'user-functions';
 $GLOBALS['ntt__gvar__kid_ntt__feature__responsive_flickr__name'] = 'responsive-flickr';
 
@@ -41,6 +41,9 @@ if ( $r_features === false ) {
 if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 0 || get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) > 1 ) {
 
     foreach ( $r_features as $feature ) {
-        require( get_stylesheet_directory(). '/includes/features/'. basename( $feature ). '/functions.php' );
+        
+        if ( file_exists( get_stylesheet_directory(). '/includes/features/'. basename( $feature ). '/functions.php' ) ) {
+            require( get_stylesheet_directory(). '/includes/features/'. basename( $feature ). '/functions.php' );
+        }
     }
 }

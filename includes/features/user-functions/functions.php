@@ -13,7 +13,7 @@ $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__version'] = '1.0.0';
  * NTT Feature Validation
  */
 function ntt__kid_ntt__feature__user_functions__validation() {
-    $post_meta = get_post_meta( get_the_ID(), 'ntt_feature', true );
+    $post_meta = get_post_meta( get_the_ID(), 'ntt_features', true );
 
     $ntt_f5e_array = array(
         $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__prefixed_name'],

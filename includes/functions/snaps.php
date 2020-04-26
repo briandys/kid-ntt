@@ -74,7 +74,9 @@ if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 0 ) {
 
         if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == $key ) {
         
-            require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' );
+            if ( file_exists( require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' ) ) ) {
+                require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' );
+            }
             
             add_filter( 'ntt__wp_filter__view_css', function( $classes ) {
                 return ntt__kid_ntt__snaps_view__css( $classes );
