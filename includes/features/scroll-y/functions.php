@@ -19,7 +19,7 @@ function ntt__kid_ntt__features__scroll_y__info() {
 
 /**
  * NTT Feature Validation
- * Checks if the feature is in Custom Fields or Customizer > NTT Settings
+ * Checks if the feature is in Custom Fields
  */
 function ntt__kid_ntt__features__scroll_y__entry_validation() {
     $post_meta = get_post_meta( get_the_ID(), 'ntt_features', true );
@@ -36,11 +36,11 @@ function ntt__kid_ntt__features__scroll_y__entry_validation() {
 
 /**
  * NTT Feature Validation
- * Checks if the feature is in Snaps functions.php
+ * Checks if the feature is in Snaps functions.php or WP Customizer
  */
 function ntt__kid_ntt__features__scroll_y__theme_validation() {
     
-    $theme_mod = get_theme_mod( 'ntt__wp_customizer__settings__features' );
+    $theme_mod = join( ' ', get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' ) );
     $snaps_feature_settings = join( ' ', ntt__kid_ntt__snaps__feature_settings() );
 
     $feature_array = array(

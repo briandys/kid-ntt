@@ -38,7 +38,7 @@ function ntt__kid_ntt__snaps_view__css( $classes ) {
     }
 
     foreach ( $r_snaps as $key => $value ) {
-        if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == $key ) {
+        if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == $key ) {
             $classes[] = 'ntt--'. sanitize_title( $GLOBALS['ntt__gvar__child_theme__name'] ). '--snaps--'. basename( $value );
         }
     }
@@ -56,11 +56,11 @@ if ( $r_snaps === false ) {
 }
 
 // Kid NTT
-if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 0 ) {
+if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == 0 ) {
     return;
 
 // NTT
-} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 1 ) {
+} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == 1 ) {
     
     add_action( 'wp_enqueue_scripts', function() {
         wp_dequeue_style( 'ntt-kid-style' );
@@ -68,11 +68,11 @@ if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 0 ) {
     }, 11 );
 
 // Snaps
-} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) > 1 ) {
+} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) > 1 ) {
 
     foreach ( $r_snaps as $key => $value ) {
 
-        if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == $key ) {
+        if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == $key ) {
         
             if ( file_exists( require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' ) ) ) {
                 require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' );

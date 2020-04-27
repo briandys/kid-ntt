@@ -38,7 +38,7 @@ if ( $r_features === false ) {
 // 0 = 'default'
 // 1 = 'ntt'
 // > 1 = snaps
-if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) == 0 || get_theme_mod( 'ntt__kid_ntt__wp_customizer__snaps__settings' ) > 1 ) {
+if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == 0 || get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) > 1 ) {
 
     foreach ( $r_features as $feature ) {
         
