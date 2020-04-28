@@ -254,6 +254,11 @@ textarea {
           box-shadow: inset 0 -3em 0 0 var(--color--hexetidine-sky-blue---alpha-s);
 }
 
+.ntt--content a.ntt--img-anchor--js {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .ntt.ntt--kid-ntt--feature--scroll-y[data-scroll-y-percentage]::before, .ntt.ntt--kid-ntt--feature--scroll-y[data-scroll-y-percentage]::after {
   content: '';
   position: fixed;

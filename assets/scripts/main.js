@@ -13,24 +13,6 @@
     const commentForm = document.getElementById( 'commentform' );
     const entriesNav = document.getElementById( 'ntt--entries-nav' );
 
-    // polyfill closest
-    // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
-    if ( ! Element.prototype.closest ) {
-        Element.prototype.closest = function( s ) {
-            var el = this;
-
-            do {
-                if ( el.matches( s ) ) {
-                    return el;
-                }
-
-                el = el.parentElement || el.parentNode;
-            } while ( el !== null && el.nodeType === 1 );
-
-            return null;
-        };
-    }
-
     // polyfill forEach
     // https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill
     if ( window.NodeList && ! NodeList.prototype.forEach ) {
@@ -968,6 +950,18 @@
         }
     }; // kidNtt.windowDocumentHeight
 
+
+
+    kidNtt.imageAnchor = {
+
+        init: function() {
+
+            document.querySelectorAll( '.ntt--content img' ).forEach( function( el ) {
+                el.closest( 'a' ).classList.add( 'ntt--img-anchor--js' );
+            } );
+        }
+    }; // kidNtt.imageAnchor
+
     /**
      * Is the DOM ready?
      *
@@ -1001,5 +995,6 @@
         kidNtt.insertIcons.init();
         kidNtt.windowDocumentHeight.init();
         kidNtt.goStartNav.init();
+        kidNtt.imageAnchor.init();
     } );
 } )( jQuery, window, document );

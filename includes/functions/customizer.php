@@ -84,7 +84,7 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
     ) );
 
     $wp_customize->add_control( 'ntt__kid_ntt__wp_customizer__settings__site_icon', array(
-        'label'         => __( 'Browser SVG Icon', 'ntt' ),
+        'label'         => __( 'SVG Site Icon', 'ntt' ),
         'section'       => 'ntt__wp_customizer__section__theme',
         'type'          => 'textarea',
         'input_attrs'   => array(
