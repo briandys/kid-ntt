@@ -47,3 +47,17 @@ function ntt__kid_ntt__function__stylesheet_noscript( $tag, $handle ) {
     return $tag;
 }
 add_filter( 'style_loader_tag', 'ntt__kid_ntt__function__stylesheet_noscript', 10, 2 );
+
+/**
+ * Customizer Stylesheet
+ */
+function ntt__kid_ntt__wp_customizer__styles() {
+    ?>
+    <style>
+        .customize-control select[multiple] {
+            min-height:160px;
+        }
+    </style>
+    <?php
+}
+add_action( 'customize_controls_print_styles', 'ntt__kid_ntt__wp_customizer__styles' );

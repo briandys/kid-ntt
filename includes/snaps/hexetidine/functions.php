@@ -7,7 +7,7 @@ function ntt__kid_ntt__snaps__info() {
     $info = array(
         'name'      => $name,
         'slug'      => sanitize_title( $name ),
-        'version'   => '0.0.5',
+        'version'   => '0.0.6',
     );
     
     return $info;
@@ -95,7 +95,7 @@ function ntt__kid_ntt__snaps__hexetidine_ntt__function__search_query( $query ) {
     
     if ( ! is_admin() && $query->is_main_query() && is_search() ) {
         $query->set( 'post_type', 'page' );
-        $query->set( 'category__not_in', '7' );
+        $query->set( 'category__not_in', get_cat_ID ( 'The Ride' ) );
     }
     
     return $query;

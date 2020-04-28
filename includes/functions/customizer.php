@@ -7,7 +7,6 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
     /**
      * Kid NTT Settings
      */
-    
     $wp_customize->add_setting( 'ntt__kid_ntt__wp_customizer__settings__snaps', array(
         'default'           => '0',
         'capability'        => 'edit_theme_options',
@@ -15,7 +14,7 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
     ) );
 
     $wp_customize->add_control( 'ntt__kid_ntt__wp_customizer__settings__snaps', array(
-        'label'     => 'Snaps',
+        'label'     => __( 'Snaps', 'ntt' ),
         'section'   => 'ntt__wp_customizer__section__theme',
         'type'      => 'select',
         'choices'   => ntt__kid_ntt__snaps(),
@@ -67,12 +66,30 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
             $wp_customize,
             'ntt__kid_ntt__wp_customizer__settings__features',
             array(
-                'label'    => 'Features',
+                'label'    => __( 'Features', 'ntt' ),
                 'section'  => 'ntt__wp_customizer__section__theme',
                 'type'     => 'ntt-multiple-select',
                 'choices'  => $kid_ntt_features,
             )
         )
     );
+
+    /**
+     * Site Icon Settings
+     */    
+    $wp_customize->add_setting( 'ntt__kid_ntt__wp_customizer__settings__site_icon', array(
+        array(
+            'sanitize_callback' => 'sanitize_textarea_field'
+        )
+    ) );
+
+    $wp_customize->add_control( 'ntt__kid_ntt__wp_customizer__settings__site_icon', array(
+        'label'         => __( 'Browser SVG Icon', 'ntt' ),
+        'section'       => 'ntt__wp_customizer__section__theme',
+        'type'          => 'textarea',
+        'input_attrs'   => array(
+            'placeholder'   => esc_attr( '<svg>...</svg>' ),
+         ),
+    ) );
 }
 add_action( 'customize_register', 'ntt__kid_ntt__wp_customizer' );

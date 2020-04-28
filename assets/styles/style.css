@@ -891,6 +891,10 @@ th {
   overflow-x: visible;
 }
 
+.ntt--customizer-preview--view .customize-control select[multiple] {
+  min-height: 160px;
+}
+
 .ntt--entry---single--view .ntt--entity-main-header {
   display: none;
 }
