@@ -1,6 +1,7 @@
 <?php
 /**
  * WP Customizer
+ * http://ottopress.com/2015/whats-new-with-the-customizer/
  */
 function ntt__kid_ntt__wp_customizer( $wp_customize ) {
 
@@ -76,20 +77,33 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
 
     /**
      * Site Icon Settings
-     */    
-    $wp_customize->add_setting( 'ntt__kid_ntt__wp_customizer__settings__site_icon', array(
-        array(
-            'sanitize_callback' => 'sanitize_textarea_field'
-        )
+     */
+    $wp_customize->add_setting('ntt__kid_ntt__wp_customizer__settings__site_icon', array(
+        'default'   => '',
     ) );
 
-    $wp_customize->add_control( 'ntt__kid_ntt__wp_customizer__settings__site_icon', array(
-        'label'         => __( 'SVG Site Icon', 'ntt' ),
-        'section'       => 'ntt__wp_customizer__section__theme',
-        'type'          => 'textarea',
-        'input_attrs'   => array(
-            'placeholder'   => esc_attr( '<svg>...</svg>' ),
-         ),
-    ) );
+    $default_icon = '<svg aria-hidden="true" role="img" focusable="false" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="ntt--default-site-icon ntt--icon"><path d="M320,640a71,71,0,0,1-35.78-9.66l-213-124.26A71.25,71.25,0,0,1,36,444.74V195.26a71.25,71.25,0,0,1,35.22-61.34l213-124.26a71.09,71.09,0,0,1,71.56,0l213,124.26A71.25,71.25,0,0,1,604,195.26V444.74a71.25,71.25,0,0,1-35.22,61.34l-213,124.26A71,71,0,0,1,320,640Z" fill="#0049b2"/><path d="M555.4 156.92l-213-124.26a44.42 44.42 0 0 0-44.72 0l-213 124.26a44.54 44.54 0 0 0-22 38.34v249.48a44.54 44.54 0 0 0 22 38.34l213 124.26a44.42 44.42 0 0 0 44.72 0l213-124.26a44.54 44.54 0 0 0 22-38.34V195.26a44.54 44.54 0 0 0-22-38.34z" fill="#1064e2"/><path d="M308.9 235.86c-2.9-1.68-4.6-4-4.6-6.47V122l-84.17 49.1c-6.12 3.58-16.06 3.58-22.2 0s-6.12-9.37 0-12.94l111-64.72c4.5-2.62 11.24-3.4 17.1-2s9.7 4.76 9.7 8.46v107.4l84.16-49.1c6.13-3.58 16.07-3.58 22.2 0s6.13 9.37 0 12.94l-111 64.72c-4.48 2.62-11.23 3.4-17.1 2a18.76 18.76 0 0 1-5.08-2zM198 468.15c0 7.2-5 10.16-11.1 6.63s-11.1-12.25-11.1-19.45V338l-44.38-25.62c-6.13-3.54-11.1-12.24-11.1-19.44s5-10.17 11.1-6.63l111 64.05c6.13 3.54 11.1 12.25 11.1 19.45s-5 10.17-11.1 6.63L198 350.8m244 0l-44.38 25.63c-6.12 3.54-11.1.57-11.1-6.63s5-15.9 11.1-19.45l111-64.05c6.12-3.54 11.1-.57 11.1 6.63s-5 15.9-11.1 19.44L464.24 338v117.33c0 7.2-5 15.9-11.1 19.45s-11.1.57-11.1-6.63" fill="#fff"/></svg>';
+    
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'ntt__kid_ntt__wp_customizer__settings__site_icon',
+            array(
+                'label'             => __( 'SVG Site Icon', 'ntt' ),
+                'description'       => 'Choose SVG icon. If icon is not SVG, default NTT icon'. ' '. $default_icon. ' '. 'will be used. Leave blank to use custom site icon or none at all.',
+                'section'           => 'ntt__wp_customizer__section__theme',
+            )
+        )
+    );
 }
 add_action( 'customize_register', 'ntt__kid_ntt__wp_customizer' );
+
+/**
+ * WP Customizer Styles, Scripts
+ * 
+ */
+function ntt__kid_ntt__wp_customizer__styles_scripts() {
+   
+    wp_enqueue_style( 'ntt--kid-ntt--wp-customizer--style', get_stylesheet_directory_uri(). '/assets/styles/customizer.min.css', array(), wp_get_theme( get_template() )->get( 'Version' ). '-'. wp_get_theme()->get( 'Version' ) );
+}
+add_action( 'customize_controls_enqueue_scripts', 'ntt__kid_ntt__wp_customizer__styles_scripts');

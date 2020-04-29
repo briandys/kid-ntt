@@ -64,25 +64,22 @@ kidNttFeature.scrollY = {
             'scrollY': window.scrollY,
             'scrollYPercentage': 0
         } );
-
-        if ( html.classList.contains( nttKidNttFeatureScrollYData.prefixedSlug ) ) {
             
-            // Scroll
-            // Listen for new scroll events, here we debounce our scroll handler function for performance reasons
-            document.addEventListener( 'scroll', debounce(() => {
-                
-                const scrollOffset = window.scrollY;
-                const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollProgress = Math.min(1, scrollOffset / pageHeight);
-                const scrollSteps = 1;
-                
-                // Set current scroll offset (we use this to make the floating header)
-                updateEnv( 'scrollY', scrollOffset );
-                
-                // Calculate current progress in percentages
-                updateEnv( 'scrollYPercentage', stack( Math.round( scrollProgress * 100 ), scrollSteps) );
-            } ), { passive: true } );
-        }
+        // Scroll
+        // Listen for new scroll events, here we debounce our scroll handler function for performance reasons
+        document.addEventListener( 'scroll', debounce(() => {
+            
+            const scrollOffset = window.scrollY;
+            const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollProgress = Math.min(1, scrollOffset / pageHeight);
+            const scrollSteps = 1;
+            
+            // Set current scroll offset (we use this to make the floating header)
+            updateEnv( 'scrollY', scrollOffset );
+            
+            // Calculate current progress in percentages
+            updateEnv( 'scrollYPercentage', stack( Math.round( scrollProgress * 100 ), scrollSteps) );
+        } ), { passive: true } );
     }
 }; // kidNttFeature.scrollY
 

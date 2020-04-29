@@ -84,7 +84,7 @@ function ntt__kid_ntt__features__scroll_y__view__css( $classes ) {
     $feature_prefixed_name = $feature_prefix. $feature_slug;
     
     if ( ( is_singular() && ntt__kid_ntt__features__scroll_y__entry_validation() ) || ntt__kid_ntt__features__scroll_y__theme_validation() ) {
-        $classes[] = esc_attr( $feature_prefixed_name );
+        $classes[] = esc_attr( $feature_prefixed_name ). '--view';
     }
     
     return $classes;

@@ -43,31 +43,28 @@ kidNttFeature.visitDuration = {
             'pageVisitDuration': ''
         } );
 
-        if ( html.classList.contains( nttKidNttFeatureVisitDurationData.prefixedSlug ) ) {
+        const pageOpenDate = Date.now();
+
+        // Retrieves the site visit duration, or, if not defined, 0
+        const siteVisitDuration = parseInt( localStorage.getItem( 'siteVisitDuration' ) || 0, 10 );
+
+        // Set current amount of visits
+        updateEnv( 'siteVisitDuration', stack( siteVisitDuration / 60, 1 ) );
+
+        // Update each 15 seconds
+        setInterval( () => {
+            // Page visit duration in seconds
+            const pageVisitDuration = Math.round( Date.now() - pageOpenDate ) / 1000;
             
-            const pageOpenDate = Date.now();
+            // Update `pageVisitDuration` with 15 second intervals (0 15 30 45 ...)
+            updateEnv( 'pageVisitDuration', stack( pageVisitDuration, 15 ) );
+            
+            // Update `siteVisitDuration` with 1 minute intervals (0 1 2 3 ...)
+            updateEnv( 'siteVisitDuration', stack( ( siteVisitDuration + pageVisitDuration ) / 60, 1 ) );
 
-            // Retrieves the site visit duration, or, if not defined, 0
-            const siteVisitDuration = parseInt( localStorage.getItem( 'siteVisitDuration' ) || 0, 10 );
-
-            // Set current amount of visits
-            updateEnv( 'siteVisitDuration', stack( siteVisitDuration / 60, 1 ) );
-
-            // Update each 15 seconds
-            setInterval( () => {
-                // Page visit duration in seconds
-                const pageVisitDuration = Math.round( Date.now() - pageOpenDate ) / 1000;
-                
-                // Update `pageVisitDuration` with 15 second intervals (0 15 30 45 ...)
-                updateEnv( 'pageVisitDuration', stack( pageVisitDuration, 15 ) );
-                
-                // Update `siteVisitDuration` with 1 minute intervals (0 1 2 3 ...)
-                updateEnv( 'siteVisitDuration', stack( ( siteVisitDuration + pageVisitDuration ) / 60, 1 ) );
-
-                // Remember current duration
-                localStorage.setItem( 'siteVisitDuration', siteVisitDuration + pageVisitDuration );
-            }, 0 );
-        }
+            // Remember current duration
+            localStorage.setItem( 'siteVisitDuration', siteVisitDuration + pageVisitDuration );
+        }, 0 );
     }
 }; // kidNttFeature.siteDuration
 
