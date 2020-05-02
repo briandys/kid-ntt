@@ -4,12 +4,13 @@
  * Adds data attributes to HTML element to track scrolling in the Y-axis, both in pixels and percentage.
  */
 function ntt__kid_ntt__features__scroll_y__info() {
+    
     $name = 'Scroll Y';
 
     $info = array(
         'name'      => $name,
         'slug'      => sanitize_title( $name ),
-        'version'   => '0.0.1',
+        'version'   => '0.0.2',
         'prefix'    => $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix'],
     );
     
@@ -22,7 +23,6 @@ function ntt__kid_ntt__features__scroll_y__info() {
  */
 function ntt__kid_ntt__features__scroll_y__entry_validation() {
     $post_meta = get_post_meta( get_the_ID(), 'ntt_features', true );
-    
     
     $feature_array = array(
         ntt__kid_ntt__features__scroll_y__info()['slug'],
@@ -40,7 +40,7 @@ function ntt__kid_ntt__features__scroll_y__entry_validation() {
 function ntt__kid_ntt__features__scroll_y__theme_validation() {
     
     $theme_mod = join( ' ', get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' ) );
-    $snaps_feature_settings = join( ' ', array() );
+    $snaps_feature_settings = join( ' ', ntt__kid_ntt__snaps__features() );
 
     $feature_array = array(
         ntt__kid_ntt__features__scroll_y__info()['slug'],
@@ -65,12 +65,6 @@ function ntt__kid_ntt__features__scroll_y__styles_scripts() {
     if ( ntt__kid_ntt__features__scroll_y__entry_validation() || ntt__kid_ntt__features__scroll_y__theme_validation() ) {
 
         wp_enqueue_script( $main_script_id, get_stylesheet_directory_uri(). '/includes/features/'. $info['slug']. '/main.js', array(), $version, true );
-
-        $ntt_l10n = array(
-            'prefixedSlug' => $prefixed_slug,
-        );
-    
-        wp_localize_script( $main_script_id, 'nttKidNttFeatureScrollYData', $ntt_l10n );
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__features__scroll_y__styles_scripts', 0 );

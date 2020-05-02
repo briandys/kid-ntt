@@ -5,12 +5,13 @@
  */
 
 function ntt__kid_ntt__features__visit_duration__info() {
+    
     $name = 'Visit Duration';
 
     $info = array(
         'name'      => $name,
         'slug'      => sanitize_title( $name ),
-        'version'   => '0.0.1',
+        'version'   => '0.0.2',
         'prefix'    => $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix'],
     );
     
@@ -41,7 +42,7 @@ function ntt__kid_ntt__features__visit_duration__entry_validation() {
 function ntt__kid_ntt__features__visit_duration__theme_validation() {
     
     $theme_mod = join( ' ', get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' ) );
-    $snaps_feature_settings = join( ' ', ntt__kid_ntt__snaps__feature_settings() );
+    $snaps_feature_settings = join( ' ', ntt__kid_ntt__snaps__features() );
 
     $feature_array = array(
         ntt__kid_ntt__features__visit_duration__info()['slug'],
@@ -66,40 +67,36 @@ function ntt__kid_ntt__features__visit_duration__styles_scripts() {
     if ( ntt__kid_ntt__features__visit_duration__entry_validation() || ntt__kid_ntt__features__visit_duration__theme_validation() ) {
 
         wp_enqueue_script( $main_script_id, get_stylesheet_directory_uri(). '/includes/features/'. $info['slug']. '/main.js', array(), $version, true );
-
-        $ntt_l10n = array(
-            'prefixedSlug' => $prefixed_slug,
-        );
-    
-        wp_localize_script( $main_script_id, 'nttKidNttFeatureVisitDurationData', $ntt_l10n );
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__features__visit_duration__styles_scripts', 0 );
 
-// View CSS
+/**
+ * View CSS
+ */
 function ntt__kid_ntt__features__visit_duration__view__css( $classes ) {
     
-    $feature_slug = ntt__kid_ntt__features__visit_duration__info()['slug'];
-    $feature_prefix = ntt__kid_ntt__features__visit_duration__info()['prefix'];
-    $feature_prefixed_name = $feature_prefix. $feature_slug;
+    $info = ntt__kid_ntt__features__scroll_y__info();
+    $prefixed_slug = $info['prefix']. $info['slug'];
     
     if ( ( is_singular() && ntt__kid_ntt__features__visit_duration__entry_validation() ) || ntt__kid_ntt__features__visit_duration__theme_validation() ) {
-        $classes[] = esc_attr( $feature_prefixed_name ). '--view';
+        $classes[] = esc_attr( $prefixed_slug ). '--view';
     }
     
     return $classes;
 }
 add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__features__visit_duration__view__css' );
 
-// Entry CSS
+/**
+ * Entry CSS
+ */
 function ntt__kid_ntt__features__visit_duration__entry__css( $classes ) {
     
-    $feature_slug = ntt__kid_ntt__features__visit_duration__info()['slug'];
-    $feature_prefix = ntt__kid_ntt__features__visit_duration__info()['prefix'];
-    $feature_prefixed_name = $feature_prefix. $feature_slug;
+    $info = ntt__kid_ntt__features__scroll_y__info();
+    $prefixed_slug = $info['prefix']. $info['slug'];
     
     if ( is_singular() && ntt__kid_ntt__features__visit_duration__entry_validation() ) {
-        $classes[] = esc_attr( $feature_prefixed_name. '--entry' );
+        $classes[] = esc_attr( $prefixed_slug. '--entry' );
     }
     
     return $classes;

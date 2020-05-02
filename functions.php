@@ -174,13 +174,3 @@ function ntt__kid_ntt__function__site_icon() {
     }
 }
 add_action( 'wp_head', 'ntt__kid_ntt__function__site_icon' );
-
-
-/**
- * Testing JT Customizer
- */
-
-function jt_load_customize_controls() {
-    require( get_stylesheet_directory(). '/includes/functions/x.php' );
-}
-add_action( 'customize_register', 'jt_load_customize_controls', 0 );

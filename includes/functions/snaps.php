@@ -90,7 +90,7 @@ if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) === 'kid-nt
  * Snaps Feature Settings
  * Check if a Snap has a feature set
  */
-function ntt__kid_ntt__snaps__feature_settings() {
+function ntt__kid_ntt__snaps__features() {
 
     $settings = array();
 

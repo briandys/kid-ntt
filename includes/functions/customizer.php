@@ -101,6 +101,12 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
     // Populate the fields
     $kid_ntt_features = ntt__kid_ntt__features__slugs();
 
+    // Remove feature items that are exclusive for entries only (not theme-wide)
+    $kid_ntt_features_exclude = array(
+        'prezo-mode',
+    );
+    $kid_ntt_features = array_diff( $kid_ntt_features, $kid_ntt_features_exclude );
+
     // Insert this as the first item
     array_unshift( $kid_ntt_features, $default_term );
 
