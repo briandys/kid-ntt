@@ -5,6 +5,14 @@
  */
 function ntt__kid_ntt__wp_customizer( $wp_customize ) {
 
+    // Separates labels into words and capitalize
+    function ntt__kid_ntt__wp_customizer__format_label( $item ) {
+
+        $item = ucwords( str_replace( array( '-', 'ntt' ), array( ' ', 'NTT' ), $item ) );
+        
+        return $item;
+    }
+
     /**
      * Kid NTT Settings
      */
@@ -13,11 +21,15 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
     ) );
 
     if ( function_exists( 'ntt__kid_ntt__snaps' ) ) {
+        
         $kid_ntt_snaps = ntt__kid_ntt__snaps();
+
+        // Format the label for display
+        $kid_ntt_snaps_label = array_map( 'ntt__kid_ntt__wp_customizer__format_label', $kid_ntt_snaps );
 
         // Make the values as keys by array_combine
         // https://www.php.net/array-combine
-        $kid_ntt_snaps = array_combine( $kid_ntt_snaps, $kid_ntt_snaps );
+        $kid_ntt_snaps = array_combine( $kid_ntt_snaps, $kid_ntt_snaps_label );
     } else {
         $kid_ntt_snaps = array();
     }
@@ -101,9 +113,10 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
     // Populate the fields
     $kid_ntt_features = ntt__kid_ntt__features__slugs();
 
-    // Remove feature items that are exclusive for entries only (not theme-wide)
+    // Remove feature items that are exclusive for Entry Singular (not Entry Index)
     $kid_ntt_features_exclude = array(
-        'prezo-mode',
+        'prezo-mode', 
+        'screenshot', 
     );
     $kid_ntt_features = array_diff( $kid_ntt_features, $kid_ntt_features_exclude );
 
@@ -111,10 +124,17 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
     array_unshift( $kid_ntt_features, $default_term );
 
     if ( function_exists( 'ntt__kid_ntt__features__slugs' ) && $kid_ntt_features ) {
-    
+
+        function ntt__kid_ntt__features__format_label( $item ) {
+            return ucwords( str_replace( '-', ' ', $item ) );
+        }
+
+        // Format the label for display
+        $kid_ntt_features_label = array_map( 'ntt__kid_ntt__wp_customizer__format_label', $kid_ntt_features );
+
         // Make the values as keys by array_combine
         // https://www.php.net/array-combine
-        $kid_ntt_features = array_combine( $kid_ntt_features, $kid_ntt_features );
+        $kid_ntt_features = array_combine( $kid_ntt_features, $kid_ntt_features_label );
 
         //echo '<pre>Proof that NTT Features is an array: '. var_dump($kid_ntt_features). '</pre>';
         //echo '<pre>From Scroll Y Functions returns the string "array": '. var_dump( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' ) ). '</pre>';

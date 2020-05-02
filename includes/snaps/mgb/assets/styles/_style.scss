@@ -298,7 +298,7 @@
 // Singular View
 //--------------------------------------------------------------
 
-.ntt--entry---single--view {
+.ntt--entry-singular--view {
 
     .ntt--entry-banner-visuals {
 
@@ -692,7 +692,7 @@ p.has-drop-cap:not(:focus) {
 
 .ntt--entry-index---current--view-view,
 .ntt--entry-index---archive--view-view,
-.ntt--entry---single--view {
+.ntt--entry-singular--view {
 
     .ntt--entry-summary-content {
         font-size: $large-font-size;
@@ -949,7 +949,7 @@ p.has-drop-cap:not(:focus) {
         }
     }
 
-    .ntt--entry---multiple--view {
+    .ntt--entry-index--view {
 
         .entry {
             flex: 1 100%;

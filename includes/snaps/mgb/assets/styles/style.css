@@ -385,11 +385,11 @@ textarea {
   padding-right: 0.5rem;
 }
 
-.ntt--entry---multiple--view .ntt--entry {
+.ntt--entry-index--view .ntt--entry {
   margin-top: 4rem;
 }
 
-.ntt--entry---multiple--view .ntt--entry:first-child {
+.ntt--entry-index--view .ntt--entry:first-child {
   margin-top: 0;
 }
 

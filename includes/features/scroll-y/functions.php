@@ -10,6 +10,7 @@ function ntt__kid_ntt__features__scroll_y__info() {
     $info = array(
         'name'      => $name,
         'slug'      => sanitize_title( $name ),
+        'type'      => 'index',
         'version'   => '0.0.2',
         'prefix'    => $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix'],
     );
