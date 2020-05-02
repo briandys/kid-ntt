@@ -9,17 +9,28 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
      * Kid NTT Settings
      */
     $wp_customize->add_setting( 'ntt__kid_ntt__wp_customizer__settings__snaps', array(
-        'default'           => '0',
-        'capability'        => 'edit_theme_options',
-        'sanitize_callback' => 'esc_attr',
+        'default'           => 'kid-ntt',
     ) );
+
+    if ( function_exists( 'ntt__kid_ntt__snaps' ) ) {
+        $kid_ntt_snaps = ntt__kid_ntt__snaps();
+
+        // Make the values as keys by array_combine
+        // https://www.php.net/array-combine
+        $kid_ntt_snaps = array_combine( $kid_ntt_snaps, $kid_ntt_snaps );
+    } else {
+        $kid_ntt_snaps = array();
+    }
 
     $wp_customize->add_control( 'ntt__kid_ntt__wp_customizer__settings__snaps', array(
         'label'     => __( 'Snaps', 'ntt' ),
         'section'   => 'ntt__wp_customizer__section__theme',
         'type'      => 'select',
-        'choices'   => ntt__kid_ntt__snaps(),
+        'choices'   => $kid_ntt_snaps,
     ) );
+
+
+
 
     /**
      * Multiple select customize control class.
@@ -31,21 +42,44 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
          */
         public $type = 'ntt-multiple-select';
 
+        /*
+        public function enqueue() {
+            wp_enqueue_script( 'ntt-customize-control', get_stylesheet_directory_uri(). '/assets/scripts/customizer.js', array( 'jquery' ) );
+        }
+        */
+
         /**
          * Displays the multiple select on the customize screen.
          */
         public function render_content() {
 
-        if ( empty( $this->choices ) )
-            return;
-        ?>
+            if ( empty( $this->choices ) ) {
+                return;
+            }
+            ?>
+
+            <input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr( implode( ',', $multi_values ) ); ?>" />
+
             <label>
-                <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                <?php
+                if ( ! empty( $this->label ) ) {
+                    ?>
+                    <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                    <?php
+                }
+                
+                if ( ! empty( $this->description ) ) {
+                    ?>
+                    <span class="description customize-control-description"><?php echo $this->description; ?></span>
+                    <?php
+                }
+                ?>
                 <select <?php $this->link(); ?> multiple="multiple">
                     <?php
                         foreach ( $this->choices as $value => $label ) {
-                            $selected = ( @in_array( $value, $this->value() ) ) ? selected( 1, 1, false ) : '';
-                            echo '<option value="' . esc_attr( $value ) . '"' . $selected . '>' . $label . '</option>';
+                            $multi_values = ! is_array( $this->value() ) ? explode( ',', $this->value() ) : $this->value();
+                            $selected = ( in_array( $value, $this->value() ) ) ? selected( 1, 1, false ) : '';
+                            echo '<option value="'. esc_attr( $value ). '"'. $selected. '>'. $label. '</option>';
                         }
                     ?>
                 </select>
@@ -53,14 +87,32 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
         <?php }
     }
 
-    $wp_customize->add_setting( 'ntt__kid_ntt__wp_customizer__settings__features', array(
-        'default' => array(),
-    ) );
+    $default_term = sanitize_title( __( 'default', 'ntt' ) );
+
+    $wp_customize->add_setting(
+        'ntt__kid_ntt__wp_customizer__settings__features',
+        array(
+            'default'   => array(
+                $default_term,
+            ),
+        )
+    );
+
+    // Populate the fields
+    $kid_ntt_features = ntt__kid_ntt__features__slugs();
+
+    // Insert this as the first item
+    array_unshift( $kid_ntt_features, $default_term );
+
+    if ( function_exists( 'ntt__kid_ntt__features__slugs' ) && $kid_ntt_features ) {
     
-    // Make the values as keys by array_combine
-    // https://www.php.net/array-combine
-    $kid_ntt_features = ntt__kid_ntt__features();
-    $kid_ntt_features = array_combine( $kid_ntt_features, $kid_ntt_features );
+        // Make the values as keys by array_combine
+        // https://www.php.net/array-combine
+        $kid_ntt_features = array_combine( $kid_ntt_features, $kid_ntt_features );
+
+        //echo '<pre>Proof that NTT Features is an array: '. var_dump($kid_ntt_features). '</pre>';
+        //echo '<pre>From Scroll Y Functions returns the string "array": '. var_dump( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' ) ). '</pre>';
+    }
      
     $wp_customize->add_control(
         new NTT_Customize_Control_Multiple_Select(
@@ -75,6 +127,9 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
         )
     );
 
+    
+    
+    
     /**
      * Site Icon Settings
      */
@@ -89,9 +144,9 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
             $wp_customize,
             'ntt__kid_ntt__wp_customizer__settings__site_icon',
             array(
-                'label'             => __( 'SVG Site Icon', 'ntt' ),
-                'description'       => 'Choose SVG icon. If icon is not SVG, default NTT icon'. ' '. $default_icon. ' '. 'will be used. Leave blank to use custom site icon or none at all.',
-                'section'           => 'ntt__wp_customizer__section__theme',
+                'section'       => 'ntt__wp_customizer__section__theme',
+                'label'         => __( 'SVG Site Icon', 'ntt' ),
+                'description'   => 'Choose SVG icon. If icon is not SVG, default NTT icon'. ' '. $default_icon. ' '. 'will be used. Leave blank to use custom site icon or none at all.',
             )
         )
     );

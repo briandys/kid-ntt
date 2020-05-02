@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Snaps Info
+ */
 function ntt__kid_ntt__snaps__info() {
     
     $name = 'Hexetidine';
@@ -8,18 +11,12 @@ function ntt__kid_ntt__snaps__info() {
         'name'      => $name,
         'slug'      => sanitize_title( $name ),
         'version'   => '0.0.6',
+        'features'  => array(
+            //'scroll-y',
+        ),
     );
     
     return $info;
-}
-
-function ntt__kid_ntt__snaps__feature_settings() {
-    
-    $settings = array(
-        'scroll-y',
-    );
-    
-    return $settings;
 }
 
 /**
@@ -34,10 +31,11 @@ function ntt__kid_ntt__snaps__hexetidine_ntt__function__styles_scripts() {
     wp_enqueue_script( $info['slug']. '-ntt-kid-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $info['slug']. '/assets/scripts/main.js', array( 'ntt-kid-script', ), $info['version']. '-'. wp_get_theme()->get( 'Version' ), true );
 
     $ntt_l10n = array(
-        'one'   => __( 'Grow trees in your own backyard.', 'ntt' ),
+        'one'   => __( 'Plant seeds in the neighborhood, grow fruits in your yard.', 'ntt' ),
         'two'   => __( 'Better make it and make it better.', 'ntt' ),
         'three' => __( 'The power is in the collective.', 'ntt' ),
-        'four'  => ntt__kid_ntt__function__get_theme_svg( 'wink', 'hexetidine' ),
+        'four'  => __( 'Someone will notice your fire whether it is too bright or too dim only if you start a fire.', 'ntt' ),
+        'five'  => ntt__kid_ntt__function__get_theme_svg( 'wink', 'hexetidine' ),
     );
 
     wp_localize_script( $info['slug']. '-ntt-kid-script', 'nttKidNttHexetidineData', $ntt_l10n );

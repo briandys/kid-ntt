@@ -3,7 +3,6 @@
  * Scroll Y
  * Adds data attributes to HTML element to track scrolling in the Y-axis, both in pixels and percentage.
  */
-
 function ntt__kid_ntt__features__scroll_y__info() {
     $name = 'Scroll Y';
 
@@ -41,7 +40,7 @@ function ntt__kid_ntt__features__scroll_y__entry_validation() {
 function ntt__kid_ntt__features__scroll_y__theme_validation() {
     
     $theme_mod = join( ' ', get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' ) );
-    $snaps_feature_settings = join( ' ', ntt__kid_ntt__snaps__feature_settings() );
+    $snaps_feature_settings = join( ' ', array() );
 
     $feature_array = array(
         ntt__kid_ntt__features__scroll_y__info()['slug'],
@@ -76,30 +75,32 @@ function ntt__kid_ntt__features__scroll_y__styles_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__features__scroll_y__styles_scripts', 0 );
 
-// View CSS
+/**
+ * View CSS
+ */
 function ntt__kid_ntt__features__scroll_y__view__css( $classes ) {
     
-    $feature_slug = ntt__kid_ntt__features__scroll_y__info()['slug'];
-    $feature_prefix = ntt__kid_ntt__features__scroll_y__info()['prefix'];
-    $feature_prefixed_name = $feature_prefix. $feature_slug;
+    $info = ntt__kid_ntt__features__scroll_y__info();
+    $prefixed_slug = $info['prefix']. $info['slug'];
     
     if ( ( is_singular() && ntt__kid_ntt__features__scroll_y__entry_validation() ) || ntt__kid_ntt__features__scroll_y__theme_validation() ) {
-        $classes[] = esc_attr( $feature_prefixed_name ). '--view';
+        $classes[] = esc_attr( $prefixed_slug ). '--view';
     }
     
     return $classes;
 }
 add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__features__scroll_y__view__css' );
 
-// Entry CSS
+/**
+ * Entry CSS
+ */
 function ntt__kid_ntt__features__scroll_y__entry__css( $classes ) {
     
-    $feature_slug = ntt__kid_ntt__features__scroll_y__info()['slug'];
-    $feature_prefix = ntt__kid_ntt__features__scroll_y__info()['prefix'];
-    $feature_prefixed_name = $feature_prefix. $feature_slug;
+    $info = ntt__kid_ntt__features__scroll_y__info();
+    $prefixed_slug = $info['prefix']. $info['slug'];
     
     if ( is_singular() && ntt__kid_ntt__features__scroll_y__entry_validation() ) {
-        $classes[] = esc_attr( $feature_prefixed_name. '--entry' );
+        $classes[] = esc_attr( $prefixed_slug. '--entry' );
     }
     
     return $classes;

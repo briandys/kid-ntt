@@ -24,7 +24,6 @@ function ntt__kid_ntt__snaps() {
 
     return $snaps;
 }
-add_action( 'wp_head', 'ntt__kid_ntt__snaps' );
 
 /**
  * View CSS
@@ -56,11 +55,11 @@ if ( $r_snaps === false ) {
 }
 
 // Kid NTT
-if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == 0 ) {
+if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) === 'kid-ntt' ) {
     return;
 
 // NTT
-} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == 1 ) {
+} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) === 'ntt' ) {
     
     add_action( 'wp_enqueue_scripts', function() {
         wp_dequeue_style( 'ntt-kid-style' );
@@ -68,14 +67,16 @@ if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == 0 ) {
     }, 11 );
 
 // Snaps
-} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) > 1 ) {
+} else {
 
-    foreach ( $r_snaps as $key => $value ) {
+    foreach ( $r_snaps as $snap ) {
 
-        if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == $key ) {
+        if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) === $snap ) {
         
-            if ( file_exists( require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' ) ) ) {
-                require( get_stylesheet_directory(). '/includes/snaps/'. basename( $value ). '/functions.php' );
+            $functions_file = get_stylesheet_directory(). '/includes/snaps/'. basename( $snap ). '/functions.php';
+            
+            if ( file_exists( $functions_file ) ) {
+                require( $functions_file );
             }
             
             add_filter( 'ntt__wp_filter__view_css', function( $classes ) {
@@ -83,4 +84,24 @@ if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) == 0 ) {
             } );
         }
     }
+}
+
+/**
+ * Snaps Feature Settings
+ * Check if a Snap has a feature set
+ */
+function ntt__kid_ntt__snaps__feature_settings() {
+
+    $settings = array();
+
+    if ( function_exists( 'ntt__kid_ntt__snaps__info' ) ) {
+
+        $features = ntt__kid_ntt__snaps__info()['features'];
+        
+        if ( $features ) {
+            $settings = $features;
+        }
+    }
+    
+    return $settings;
 }

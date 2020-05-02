@@ -13,15 +13,6 @@ function ntt__kid_ntt__snaps__info() {
     return $info;
 }
 
-function ntt__kid_ntt__snaps__feature_settings() {
-    
-    $settings = array(
-        '',
-    );
-    
-    return $settings;
-}
-
 /**
  * Functions
  */
