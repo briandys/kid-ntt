@@ -424,9 +424,9 @@
         z-index: 1;
         width: $sub-menu-arrow-size;
         height: $sub-menu-arrow-size;
-        -webkit-appearance: none;
-        -moz-appearance: none;
         appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
         border: 0;
     
         &:hover {

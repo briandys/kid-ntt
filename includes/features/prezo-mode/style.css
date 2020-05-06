@@ -1,28 +1,27 @@
 /* Screen Reader Text ------------------------ */
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-content {
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-content {
   font-size: 1.5rem;
 }
 
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-content > * {
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-content > * {
   color: black;
 }
 
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-header,
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-header,
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--comment-md,
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-main-footer,
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-footer,
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-header-aside,
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-main-main-aside {
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-header,
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-header,
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--comment-md,
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-main-footer,
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-footer,
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-header-aside,
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entity-main-main-aside {
   display: none;
 }
 
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-full-content .wp-block-gallery .blocks-gallery-item {
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-full-content .wp-block-gallery .blocks-gallery-item {
   padding: .5rem;
   max-height: 100vh;
 }
 
-.ntt--kid-ntt--feature--prezo-mode.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-full-content .wp-block-gallery .blocks-gallery-item img {
-  -o-object-fit: contain;
-     object-fit: contain;
+.ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-full-content .wp-block-gallery .blocks-gallery-item img {
+  object-fit: contain;
 }

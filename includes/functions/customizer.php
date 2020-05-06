@@ -17,7 +17,7 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
      * Kid NTT Settings
      */
     $wp_customize->add_setting( 'ntt__kid_ntt__wp_customizer__settings__snaps', array(
-        'default'           => 'kid-ntt',
+        'default'   => 'kid-ntt',
     ) );
 
     if ( function_exists( 'ntt__kid_ntt__snaps' ) ) {

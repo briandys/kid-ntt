@@ -9,28 +9,29 @@ $GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'] = 'prezo-mode';
 $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'] = 'user-functions';
 $GLOBALS['ntt__gvar__kid_ntt__feature__responsive_flickr__name'] = 'responsive-flickr';
 
-    
-function ntt__kid_ntt__features__array_filter__functions_php( $feature_pathname ) {
-
-    if ( file_exists( $feature_pathname. '/functions.php' ) ) {
-        return $feature_pathname;
-    }
-}
-
  /**
  * Features Pathnames
  * Returns the pathnames of directories inside /includes/features/ folder
  */
 function ntt__kid_ntt__features__pathnames() {
     
-    // Glob all pathnames that does not start with an underscore
+    $feature_pathnames = array();
+    
+    // Exclude all pathnames that does not start with an underscore
     // Array Filter directories only
     $feature_pathnames = array_filter( glob( get_stylesheet_directory(). '/includes/features/[!_]*' ), 'is_dir' );
     
-    // Filter directories with functions.php only
+    // Filter directories with functions.php only by running through a function
     $feature_pathnames = array_filter( $feature_pathnames, 'ntt__kid_ntt__features__array_filter__functions_php' );
 
     return $feature_pathnames;
+}
+
+function ntt__kid_ntt__features__array_filter__functions_php( $feature_pathname ) {
+
+    if ( file_exists( $feature_pathname. '/functions.php' ) ) {
+        return $feature_pathname;
+    }
 }
 
 /**
@@ -90,17 +91,21 @@ if ( $feature_pathnames && get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings
     }
 }
 
-/*
-// Only include functions.php of features that are set in the result of $features_unique (do not include all automatically)
-if ( $feature_pathnames && get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) !== 'ntt' && $features_unique ) {
+/**
+ * Get Feature Data
+ */
+function ntt__kid_ntt__features__get_data( $feature_slug ) {
+ 
+    $default_headers = array(
+        'Feature Name'  => 'Feature Name',
+        'Slug'          => 'Slug',
+        'Description'   => 'Description',
+        'URL'           => 'URL',
+        'Scope'         => 'Scope',
+        'Version'       => 'Version',
+    );
 
-    foreach ( $features_unique as $feature ) {
-        
-        $functions_file = get_stylesheet_directory(). '/includes/features/'. $feature. '/functions.php';
-        
-        if ( file_exists( $functions_file ) ) {
-            require( $functions_file );
-        }
-    }
+    $feature_data = get_file_data( get_stylesheet_directory(). '/includes/features/'. $feature_slug. '/functions.php', $default_headers, 'ntt_feature' );
+ 
+    return $feature_data;
 }
-*/

@@ -1,16 +1,21 @@
 <?php
-
-function ntt__kid_ntt__snaps__info() {
+/**
+ * Snaps Info
+ */
+if ( ! function_exists( 'ntt__kid_ntt__snaps__info' ) ) {
+    function ntt__kid_ntt__snaps__info() {
     
-    $name = 'OFA';
-
-    $info = array(
-        'name'      => $name,
-        'slug'      => sanitize_title( $name ),
-        'version'   => '1.1.1',
-    );
+        $name = 'OFA';
     
-    return $info;
+        $info = array(
+            'name'      => $name,
+            'slug'      => sanitize_title( $name ),
+            'version'   => '1.1.1',
+            'features'  => array(),
+        );
+        
+        return $info;
+    }
 }
 
 /**
@@ -27,13 +32,18 @@ foreach ( $r_funcs as $func ) {
 /**
  * Styles, Scripts
  */
-function ntt__kid_ntt__snaps__ofa_ntt__function__styles_scripts() {
+function ntt__kid_ntt__snaps__styles_scripts() {
 
-    $info = ntt__kid_ntt__snaps__info();
+    $snap = ntt__kid_ntt__snaps__info();
+    $slug = $snap['slug'];
+    $prefixed_slug = $GLOBALS['ntt__gvar__kid_ntt__snap__name_prefix']. $slug;    
+    $main_style_id = $prefixed_slug. '--style';
+    $path = get_stylesheet_directory_uri(). '/includes/snaps/'. $slug. '/assets';
+    $version = $snap['version']. '-'. wp_get_theme()->get( 'Version' );
 
-    wp_enqueue_style( $info['slug']. '-ntt-style', get_stylesheet_directory_uri(). '/includes/snaps/'. $info['slug']. '/assets/styles/style.min.css', array( 'ntt-style', 'ntt-kid-style' ), $info['version']. '-'. wp_get_theme()->get( 'Version' ) );
+    wp_enqueue_style( $main_style_id, $path. '/styles/style.min.css', array( 'ntt-style', 'ntt-kid-style' ), $version );
 }
-add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__snaps__ofa_ntt__function__styles_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__snaps__styles_scripts', 0 );
 
 /**
  * Font Families
@@ -46,10 +56,16 @@ function ntt__kid_ntt__snaps__ofa_ntt__function__custom_fonts( $font_families ) 
 }
 add_filter( 'ntt__kid_ntt__wp_filter__custom_fonts', 'ntt__kid_ntt__snaps__ofa_ntt__function__custom_fonts' );
 
+/**
+ * Entry Author Label
+ */
 add_filter( 'ntt__wp_filter__entry_author_label', function() {
     return __( 'By', 'ntt' );
 } );
 
+/**
+ * Modifying Entry Header Structure
+ */
 function ntt__tag__entry_header__structure() {
 
     ntt__tag__entry_categories();
@@ -65,6 +81,9 @@ function ntt__tag__entry_header__structure() {
     }
 }
 
+/**
+ * Modifying Entry Primary Meta Structure
+ */
 function ntt__tag__entry_primary_meta__structure() {
 
     ntt__tag__entry_datetime(); 

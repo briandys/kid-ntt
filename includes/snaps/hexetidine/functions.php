@@ -1,46 +1,52 @@
 <?php
-
 /**
  * Snaps Info
  */
-function ntt__kid_ntt__snaps__info() {
+ if ( ! function_exists( 'ntt__kid_ntt__snaps__info' ) ) {
+    function ntt__kid_ntt__snaps__info() {
     
-    $name = 'Hexetidine';
-
-    $info = array(
-        'name'      => $name,
-        'slug'      => sanitize_title( $name ),
-        'version'   => '0.0.6',
-        'features'  => array(
-            //'scroll-y',
-        ),
-    );
+        $name = 'Hexetidine';
     
-    return $info;
+        $info = array(
+            'name'      => $name,
+            'slug'      => sanitize_title( $name ),
+            'version'   => '0.0.7',
+            'features'  => array(
+                'scroll-y',
+            ),
+        );
+        
+        return $info;
+    }
 }
 
 /**
  * Styles, Scripts
  */
-function ntt__kid_ntt__snaps__hexetidine_ntt__function__styles_scripts() {
+function ntt__kid_ntt__snaps__styles_scripts() {
 
-    $info = ntt__kid_ntt__snaps__info();
+    $snap = ntt__kid_ntt__snaps__info();
+    $slug = $snap['slug'];
+    $prefixed_slug = $GLOBALS['ntt__gvar__kid_ntt__snap__name_prefix']. $slug;    
+    $main_style_id = $prefixed_slug. '--style';
+    $main_script_id = $prefixed_slug. '--script';
+    $path = get_stylesheet_directory_uri(). '/includes/snaps/'. $slug. '/assets';
+    $version = $snap['version']. '-'. wp_get_theme()->get( 'Version' );
 
-    wp_enqueue_style( $info['slug']. '-ntt-style', get_stylesheet_directory_uri(). '/includes/snaps/'. $info['slug']. '/assets/styles/style.min.css', array( 'ntt-style', 'ntt-kid-style' ), $info['version']. '-'. wp_get_theme()->get( 'Version' ) );
-
-    wp_enqueue_script( $info['slug']. '-ntt-kid-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $info['slug']. '/assets/scripts/main.js', array( 'ntt-kid-script', ), $info['version']. '-'. wp_get_theme()->get( 'Version' ), true );
+    wp_enqueue_style( $main_style_id, $path. '/styles/style.min.css', array( 'ntt-style', 'ntt-kid-style' ), $version );
+    wp_enqueue_script( $main_script_id, $path. '/scripts/main.js', array( 'ntt-kid-script', ), $version, true );
 
     $ntt_l10n = array(
         'one'   => __( 'Plant seeds in the neighborhood, grow fruits in your yard.', 'ntt' ),
         'two'   => __( 'Better make it and make it better.', 'ntt' ),
         'three' => __( 'The power is in the collective.', 'ntt' ),
-        'four'  => __( 'Someone will notice your fire whether it is too bright or too dim only if you start a fire.', 'ntt' ),
+        'four'  => __( 'Someone will notice your fire whether it is too bright or too dim only after you start a fire.', 'ntt' ),
         'five'  => ntt__kid_ntt__function__get_theme_svg( 'wink', 'hexetidine' ),
     );
 
-    wp_localize_script( $info['slug']. '-ntt-kid-script', 'nttKidNttHexetidineData', $ntt_l10n );
+    wp_localize_script( $main_script_id, 'nttKidNttHexetidineData', $ntt_l10n );
 }
-add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__snaps__hexetidine_ntt__function__styles_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__snaps__styles_scripts', 0 );
 
 /**
  * Add Month
@@ -89,6 +95,9 @@ function ntt__kid_ntt__snaps__hexetidine_ntt__function__icons() {
     return $icons;
 }
 
+/**
+ * Search Query Criteria
+ */
 function ntt__kid_ntt__snaps__hexetidine_ntt__function__search_query( $query ) {
     
     if ( ! is_admin() && $query->is_main_query() && is_search() ) {

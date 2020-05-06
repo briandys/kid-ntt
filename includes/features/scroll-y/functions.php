@@ -1,55 +1,54 @@
 <?php
-/**
- * Scroll Y
- * Adds data attributes to HTML element to track scrolling in the Y-axis, both in pixels and percentage.
- */
-function ntt__kid_ntt__features__scroll_y__info() {
-    
-    $name = 'Scroll Y';
-
-    $info = array(
-        'name'      => $name,
-        'slug'      => sanitize_title( $name ),
-        'type'      => 'index',
-        'version'   => '0.0.2',
-        'prefix'    => $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix'],
-    );
-    
-    return $info;
-}
+/*
+Feature Name: Scroll Y
+Slug: scroll-y
+Description: Adds data attributes to HTML element to track scrolling in the Y-axis, both in pixels and percentage.
+Scope: Entity
+Version: 0.0.2
+*/
 
 /**
- * NTT Feature Validation
+ * Entry Feature Validation (entry-specific)
  * Checks if the feature is in Custom Fields
  */
 function ntt__kid_ntt__features__scroll_y__entry_validation() {
-    $post_meta = get_post_meta( get_the_ID(), 'ntt_features', true );
-    
-    $feature_array = array(
-        ntt__kid_ntt__features__scroll_y__info()['slug'],
-    );
 
-    if ( strpos_array( $post_meta, $feature_array ) ) {
-        return true;
+    $post_meta = get_post_meta( get_the_ID(), 'ntt_features', true );
+
+    if ( is_singular() && $post_meta ) {
+
+        // Convert string to array
+        $post_meta = explode( ' ', $post_meta );
+
+        $feature_array = array(
+            ntt__kid_ntt__features__get_data( 'scroll-y' )['Slug'],        
+        );
+
+        if ( array_intersect( $post_meta, $feature_array ) ) {
+            return true;
+        }
     }
 }
 
 /**
- * NTT Feature Validation
+ * Entity Feature Validation (site-wide)
  * Checks if the feature is in Snaps functions.php or WP Customizer
  */
-function ntt__kid_ntt__features__scroll_y__theme_validation() {
+function ntt__kid_ntt__features__scroll_y__entity_validation() {
     
-    $theme_mod = join( ' ', get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' ) );
-    $snaps_feature_settings = join( ' ', ntt__kid_ntt__snaps__features() );
+    $theme_mod = get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' );
+    $snaps_feature_settings = ntt__kid_ntt__snaps__features();
 
-    $feature_array = array(
-        ntt__kid_ntt__features__scroll_y__info()['slug'],
-    );
+    if ( $theme_mod || $snaps_feature_settings ) {
 
-    if (  strpos_array( $theme_mod, $feature_array ) || strpos_array( $snaps_feature_settings, $feature_array ) ) {
-        return true;
-    }
+        $feature_array = array(
+            ntt__kid_ntt__features__get_data( 'scroll-y' )['Slug'],
+        );
+    
+        if (  array_intersect( $theme_mod, $feature_array ) || array_intersect( $snaps_feature_settings, $feature_array ) ) {
+            return true;
+        }
+    }    
 }
 
 /**
@@ -58,14 +57,16 @@ function ntt__kid_ntt__features__scroll_y__theme_validation() {
  */
 function ntt__kid_ntt__features__scroll_y__styles_scripts() {
 
-    $info = ntt__kid_ntt__features__scroll_y__info();
-    $prefixed_slug = $info['prefix']. $info['slug'];
+    $feature = ntt__kid_ntt__features__get_data( 'scroll-y' );
+    $slug = $feature['Slug'];
+    $prefixed_slug = $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix']. $slug;
     $main_script_id = $prefixed_slug. '--script';
-    $version = $info['version']. '-'. wp_get_theme()->get( 'Version' );
+    $path = get_stylesheet_directory_uri(). '/includes/features/'. $slug;
+    $version = $feature['Version']. '-'. wp_get_theme()->get( 'Version' );
 
-    if ( ntt__kid_ntt__features__scroll_y__entry_validation() || ntt__kid_ntt__features__scroll_y__theme_validation() ) {
+    if ( ntt__kid_ntt__features__scroll_y__entry_validation() || ntt__kid_ntt__features__scroll_y__entity_validation() ) {
 
-        wp_enqueue_script( $main_script_id, get_stylesheet_directory_uri(). '/includes/features/'. $info['slug']. '/main.js', array(), $version, true );
+        wp_enqueue_script( $main_script_id, $path. '/main.js', array(), $version, true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__features__scroll_y__styles_scripts', 0 );
@@ -75,10 +76,11 @@ add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__features__scroll_y__styles_scri
  */
 function ntt__kid_ntt__features__scroll_y__view__css( $classes ) {
     
-    $info = ntt__kid_ntt__features__scroll_y__info();
-    $prefixed_slug = $info['prefix']. $info['slug'];
+    $slug = ntt__kid_ntt__features__get_data( 'scroll-y' )['Slug'];
+    $prefixed_slug = $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix']. $slug;
     
-    if ( ( is_singular() && ntt__kid_ntt__features__scroll_y__entry_validation() ) || ntt__kid_ntt__features__scroll_y__theme_validation() ) {
+    if ( ( is_singular() && ntt__kid_ntt__features__scroll_y__entry_validation() ) || ntt__kid_ntt__features__scroll_y__entity_validation() ) {
+        
         $classes[] = esc_attr( $prefixed_slug ). '--view';
     }
     
@@ -91,10 +93,11 @@ add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__features__scroll_y__view_
  */
 function ntt__kid_ntt__features__scroll_y__entry__css( $classes ) {
     
-    $info = ntt__kid_ntt__features__scroll_y__info();
-    $prefixed_slug = $info['prefix']. $info['slug'];
+    $slug = ntt__kid_ntt__features__get_data( 'scroll-y' )['Slug'];
+    $prefixed_slug = $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix']. $slug;
     
     if ( is_singular() && ntt__kid_ntt__features__scroll_y__entry_validation() ) {
+        
         $classes[] = esc_attr( $prefixed_slug. '--entry' );
     }
     

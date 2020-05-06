@@ -264,6 +264,30 @@ textarea {
             box-shadow: none;
         }
     }
+
+    hr {
+        @extend %cf;
+        margin: 2em auto;
+        @include x-padding();
+        width: 3rem;
+        border-top: .25rem solid var(--color--hexetidine-gray);
+    }
+    
+    // Jetpack
+    p.has-drop-cap:not(:focus) {
+        
+        &:first-letter {
+            position: relative;
+            margin: 0 .1em 0 -.05em;
+            margin-top: .25em; // Inherent to font-family: 'Spartan';
+            font-size: 5.25em;
+            line-height: .45;
+        }
+
+        &::after {
+            padding-top: 1em;
+        }
+    }
 }
 
 //--------------------------------------------------------------
@@ -351,13 +375,12 @@ textarea {
 // Page: About
 //--------------------------------------------------------------
 
-.ntt--page--about--view {
+._ntt--page--about--view {
     
     body {
         background-color: var(--color--hexetidine-purple);
     }
 }
-
 
 //--------------------------------------------------------------
 // Media Query: Tablet

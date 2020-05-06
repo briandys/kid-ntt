@@ -1,10 +1,11 @@
 <?php
-/**
- * InstaFeed
- * .ntt--f5e--instafeed
- * Display personal Instagram feed
- * http://instafeedjs.com/
- */
+/*
+Feature Name: InstaFeed
+Description: Display personal Instagram feed
+URL: http://instafeedjs.com/
+Version: 0.0.0
+Type: Singular
+*/
 $GLOBALS['ntt_kid_f5e_instafeed_css_name'] = 'ntt--f5e--'. $GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'];
 $GLOBALS['ntt_kid_f5e_instafeed_enqueue_slug'] = 'ntt-kid-f5e--'. $GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'];
 

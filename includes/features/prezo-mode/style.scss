@@ -1,38 +1,35 @@
 @import '../../../assets/styles/source/rules';
 
-.ntt--kid-ntt--feature--prezo-mode {
-
-    &.ntt--kid-ntt--feature--prezo-mode---active--js {
+.ntt--kid-ntt--feature--prezo-mode---active--js {
             
-        .ntt--entry-content {
-            font-size: $text---xl;
+    .ntt--entry-content {
+        font-size: $text---xl;
 
-            > * {
-                color: black; // Fix so that Feature: HTML to Canvas will work.
-            }
+        > * {
+            color: black; // Fix so that Feature: HTML to Canvas will work.
         }
-    
-        .ntt--entity-header,
-        .ntt--entry-header,
-        .ntt--comment-md,
-        .ntt--entity-main-footer,
-        .ntt--entity-footer,
-        .ntt--entity-header-aside,
-        .ntt--entity-main-main-aside {
-            display: none;
-        }
-    
-        .ntt--entry-full-content {
-    
-            .wp-block-gallery {
-                
-                .blocks-gallery-item {
-                    padding: .5rem;
-                    max-height: 100vh;
-    
-                    img {
-                        object-fit: contain;
-                    }
+    }
+
+    .ntt--entity-header,
+    .ntt--entry-header,
+    .ntt--comment-md,
+    .ntt--entity-main-footer,
+    .ntt--entity-footer,
+    .ntt--entity-header-aside,
+    .ntt--entity-main-main-aside {
+        display: none;
+    }
+
+    .ntt--entry-full-content {
+
+        .wp-block-gallery {
+            
+            .blocks-gallery-item {
+                padding: .5rem;
+                max-height: 100vh;
+
+                img {
+                    object-fit: contain;
                 }
             }
         }

@@ -47,19 +47,14 @@ textarea {
 }
 
 .ntt--entity-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
 .ntt--entity-header > * {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
+  flex: 1 100%;
 }
 
 .ntt--entity-heading {
@@ -153,18 +148,12 @@ textarea {
 
 .ntt--entity-primary-nav a,
 .ntt--entity-secondary-nav a {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
   padding: 0;
   min-height: 2.375rem;
   color: inherit;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -208,7 +197,6 @@ textarea {
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js {
   background-position-y: 55%;
   background-size: .75rem;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -287,9 +275,7 @@ textarea {
 }
 
 .ntt--nav---sub-menu--js > div > ul {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -307,14 +293,9 @@ textarea {
 }
 
 .ntt--widget_nav_menu a {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
   padding-left: 0;
   padding-right: 0;
   min-height: 2.375rem;
@@ -331,9 +312,7 @@ textarea {
 }
 
 .ntt--entity-view-heading {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .ntt--entry-index---current--view .ntt--entity-view-heading {
@@ -355,17 +334,10 @@ textarea {
 }
 
 .ntt--entry-count .ntt--txt {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   padding: .2rem .5rem;
   min-width: 2rem;
   min-height: 2rem;
@@ -416,8 +388,7 @@ textarea {
 }
 
 .ntt--entry-datetime {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .ntt--entry-published-datetime {
@@ -436,9 +407,8 @@ textarea {
 }
 
 .ntt--entry-header {
-  display: -ms-grid;
   display: grid;
-  grid-template: 'entry-categories entry-categories' 'entry-name entry-datetime' 'entry-subname entry-subname' 'entry-axns entry-axns' 'entry-author entry-author' 'entry-banner entry-banner' 'entry-summary-content entry-summary-content' / 1fr auto;
+  grid-template: 'entry-categories entry-categories' 'entry-name entry-datetime' 'entry-subname entry-subname' 'entry-axns entry-axns' 'entry-author entry-author' 'entry-banner entry-banner' 'entry-summary-content entry-summary-content' / 1fr auto;
 }
 
 .ntt--entry-header .ntt--comments-actions-snippet {
@@ -467,8 +437,7 @@ textarea {
 
 .ntt--entry-name {
   grid-area: entry-name;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -683,8 +652,7 @@ textarea {
   background-color: #FFCCDD;
   min-width: 4rem;
   height: .25rem;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .ntt--content blockquote {
@@ -734,7 +702,6 @@ textarea {
   border: 2px solid #DE756E;
   border-left: 0;
   border-right: 0;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -786,17 +753,10 @@ textarea {
 }
 
 .ntt--entry-tags a {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   padding: .2rem .5rem;
   min-width: 2rem;
   min-height: 2rem;
@@ -811,9 +771,7 @@ textarea {
 }
 
 .ntt--entries-nav .navigation ul {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .ntt--entries-nav .navigation .ntt--txt {
@@ -821,17 +779,10 @@ textarea {
 }
 
 .ntt--entries-nav .ntt--page-number-txt {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   padding: .2rem .5rem;
   min-width: 2rem;
   min-height: 2rem;
@@ -844,14 +795,9 @@ textarea {
 .ntt--entries-nav .prev .ntt--txt,
 .ntt--entries-nav .next .ntt--txt {
   position: relative;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .ntt--entries-nav .prev .ntt--txt:before,
@@ -872,8 +818,7 @@ textarea {
 
 .ntt--entries-nav .prev .ntt--txt:before {
   left: 0;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .ntt--entries-nav .next .ntt--txt {
@@ -882,29 +827,22 @@ textarea {
 
 .ntt--entries-nav .next .ntt--txt:before {
   right: 0;
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 #instafeed {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 #instafeed a {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 25%;
-          flex: 1 25%;
+  flex: 1 25%;
 }
 
 #instafeed img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .txt-axn {
@@ -918,7 +856,6 @@ textarea {
   font-weight: 600;
   border: 2px solid #FFB3CC;
   border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -952,14 +889,9 @@ textarea {
 }
 
 .ntt--content .contact-form label.checkbox, .ntt--content .contact-form label.checkbox-multiple, .ntt--content .contact-form label.radio {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .ntt--content .contact-form input[type=checkbox],
@@ -1010,27 +942,21 @@ textarea {
 }
 
 .ntt--page--gallery--view .ntt--entry-full-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .ntt--page--gallery--view .ntt--entry-full-content > figure {
   margin-top: 0;
   margin-bottom: 0;
   height: 40vh;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
 }
 
 .ntt--page--gallery--view .ntt--entry-full-content > figure img {
   max-height: 100%;
   min-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   vertical-align: bottom;
 }
 
@@ -1048,9 +974,7 @@ textarea {
 
 .ntt--page--gallery--view .ntt--entry-full-content::after {
   content: '';
-  -webkit-box-flex: 10;
-      -ms-flex-positive: 10;
-          flex-grow: 10;
+  flex-grow: 10;
 }
 
 @media (max-aspect-ratio: 1 / 1), (max-height: 480px) {

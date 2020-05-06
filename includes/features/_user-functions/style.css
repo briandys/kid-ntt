@@ -2,7 +2,6 @@
 .ntt--user-functions details {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -16,17 +15,10 @@
 }
 
 .ntt--user-functions details .ntt--count {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   padding: .5rem .75rem;
   min-width: 2.5rem;
   min-height: 2rem;
@@ -35,7 +27,6 @@
   border-radius: 0.125rem;
   font-size: 1rem;
   line-height: normal;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -60,17 +51,10 @@
 }
 
 .ntt--user-functions-count {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   padding: .5rem .75rem;
   min-width: 2.5rem;
   min-height: 2rem;
@@ -79,6 +63,5 @@
   border-radius: 0.125rem;
   font-size: 1rem;
   line-height: normal;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }

@@ -11,6 +11,7 @@ $GLOBALS['ntt__gvar__child_theme__url'] = '//briandys.com/ntt/';
 $GLOBALS['ntt__gvar__child_theme__version'] = '1.0.3';
 
 $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix'] = 'ntt--kid-ntt--feature--';
+$GLOBALS['ntt__gvar__kid_ntt__snap__name_prefix'] = 'ntt--kid-ntt--snap--';
 
 /**
  * Classes
