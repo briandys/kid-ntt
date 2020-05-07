@@ -469,6 +469,11 @@
             entriesPageMenu.insertAdjacentHTML( 'afterbegin', entriesPageMenuList.outerHTML );
             entriesPageMenuList.remove();
 
+            // Checks if the nav has 2 items or less
+            if ( entriesPageMenuList && entriesPageMenuList.children.length <= 2 ) {
+                entriesPageMenuList.closest( '#ntt--entries-nav' ).classList.add( 'ntt--entries-nav---single-navi--js' );
+            }
+
             function currentNaviIntoView() {
                 var entriesPageMenuList = entriesNav.querySelector( 'ul.page-numbers' );
                 var currentEntriesNavi = entriesNav.querySelector( '.ntt--current-entries-navi--js' );
@@ -1002,10 +1007,10 @@
 
         init: function() {
             
-            const foo = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
+            var nav = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
             
-            if ( foo && foo.children.length == 1 ) {
-                foo.closest( '.ntt--entry-breadcrumbs-nav' ).classList.add( 'ntt--entry-breadcrumbs-nav--single-navi--js' );
+            if ( nav && nav.children.length == 1 ) {
+                nav.closest( '.ntt--entry-breadcrumbs-nav' ).classList.add( 'ntt--entry-breadcrumbs-nav--single-navi--js' );
             }
         }
     }; // kidNtt.breadCrumbs

@@ -39,6 +39,17 @@
             display: block;
         }
 
+        &.ntt--js {
+
+            .ntt--entity {
+        
+                &::before,
+                &::after {
+                    z-index: 2;
+                }
+            }
+        }
+
         .ntt--entity-main-main {
             margin: 0;
         }
@@ -49,6 +60,10 @@
 
         .ntt--entry-name {
             color: var(--color--hexetidine-peach);
+        }
+
+        .ntt--entry-subname {
+            color: var(--color--hexetidine-gray);
         }
 
         .ntt--entry,
@@ -76,8 +91,7 @@
 
         .ntt--entry-heading {
             display: flex;
-            flex-wrap: nowrap;
-            @include x-padding(1rem);
+            align-items: flex-start;
 
             .ntt--icon {
                 fill: var(--color--hexetidine-gray);
@@ -149,6 +163,7 @@
         }
 
         .ntt--kid-ntt--back-axn--js {
+            margin: 1rem;
             padding: .75rem;
             background-color: var(--color--hexetidine-navy-blue);
         

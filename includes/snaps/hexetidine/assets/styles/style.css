@@ -36,6 +36,10 @@
   display: block;
 }
 
+.ntt--site-id--briandys-com--view.ntt--page--about--view.ntt--js .ntt--entity::before, .ntt--site-id--briandys-com--view.ntt--page--about--view.ntt--js .ntt--entity::after {
+  z-index: 2;
+}
+
 .ntt--site-id--briandys-com--view.ntt--page--about--view .ntt--entity-main-main {
   margin: 0;
 }
@@ -47,6 +51,10 @@
 
 .ntt--site-id--briandys-com--view.ntt--page--about--view .ntt--entry-name {
   color: var(--color--hexetidine-peach);
+}
+
+.ntt--site-id--briandys-com--view.ntt--page--about--view .ntt--entry-subname {
+  color: var(--color--hexetidine-gray);
 }
 
 .ntt--site-id--briandys-com--view.ntt--page--about--view .ntt--entry,
@@ -76,9 +84,7 @@
 
 .ntt--site-id--briandys-com--view.ntt--page--about--view .ntt--entry-heading {
   display: flex;
-  flex-wrap: nowrap;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  align-items: flex-start;
 }
 
 .ntt--site-id--briandys-com--view.ntt--page--about--view .ntt--entry-heading .ntt--icon {
@@ -151,6 +157,7 @@
 }
 
 .ntt--site-id--briandys-com--view.ntt--page--about--view .ntt--kid-ntt--back-axn--js {
+  margin: 1rem;
   padding: .75rem;
   background-color: var(--color--hexetidine-navy-blue);
 }
@@ -224,6 +231,11 @@ textarea {
   border: 0.25rem solid var(--color--hexetidine-gray);
 }
 
+.ntt--search .text-input {
+  border: 0.25rem solid var(--color--hexetidine-gray);
+  border-right: 0;
+}
+
 .ntt--hexetidine--current-month {
   margin-bottom: .5rem;
   text-align: right;
@@ -255,6 +267,7 @@ textarea {
 }
 
 .ntt--entity-view-heading {
+  justify-content: flex-end;
   padding: .5rem 0;
 }
 
@@ -383,6 +396,39 @@ textarea {
   justify-content: center;
 }
 
+.ntt--js .ntt--entity {
+  position: relative;
+}
+
+.ntt--js .ntt--entity::before, .ntt--js .ntt--entity::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 50vh;
+  background-color: var(--color--hexetidine-gray);
+  transition: all 0.3s ease-in-out;
+  transition-property: height;
+  transition-duration: .75s;
+}
+
+.ntt--js .ntt--entity::before {
+  top: 0;
+}
+
+.ntt--js .ntt--entity::after {
+  bottom: 0;
+}
+
+.ntt--js.ntt--dom---unloaded--js .ntt--entity::before, .ntt--js.ntt--dom---unloaded--js .ntt--entity::after {
+  height: 50vh;
+}
+
+.ntt--js.ntt--dom---loaded--js .ntt--entity::before, .ntt--js.ntt--dom---loaded--js .ntt--entity::after {
+  height: 0vh;
+}
+
 .ntt--entry-name {
   font-size: var(--text---xxl);
 }
@@ -397,11 +443,26 @@ textarea {
   color: var(--color--hexetidine-peach);
 }
 
+.ntt--entry-tags {
+  margin-top: -1rem;
+}
+
+.ntt--entry-tags a::before {
+  content: '#';
+  margin-right: .25em;
+}
+
+.ntt--entry-index---tag-archive--view .ntt--entity-view-name .ntt--tag-txt::before {
+  content: '#';
+  margin-right: .25em;
+}
+
 .ntt--cm-datetime label {
   display: none;
 }
 
 .ntt--cm-date {
+  font-size: var(--text---xs);
   text-align: center;
 }
 
@@ -416,6 +477,7 @@ textarea {
 .ntt--cm-date .ntt--txt {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .ntt--cm-date .ntt--txt > * {
@@ -452,11 +514,16 @@ textarea {
 
 .ntt--entry-primary-meta {
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
 }
 
 .ntt--cm-author label {
   display: none;
+}
+
+.ntt--entry-author {
+  padding: 1rem;
 }
 
 .ntt--entry-author-name {
@@ -492,12 +559,23 @@ textarea {
   box-shadow: none;
 }
 
+.ntt--content > blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+}
+
 .ntt--content hr {
   margin: 2em auto;
   padding-left: 0;
   padding-right: 0;
   width: 3rem;
   border-top: 0.25rem solid var(--color--hexetidine-gray);
+}
+
+.ntt--content .ntt--entry-content-snippet a {
+  color: var(--on-surface-color);
+  box-shadow: none;
 }
 
 .ntt--content p.has-drop-cap:not(:focus):first-letter {
@@ -945,6 +1023,11 @@ textarea {
 @media only screen and (min-width: 768px) {
   body {
     --view-border-width: 1rem;
+  }
+  .ntt--content > blockquote {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    text-align: left;
   }
   .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage]::before, .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage]::after {
     height: 1rem;

@@ -37,7 +37,7 @@ function ntt__kid_ntt__snaps__styles_scripts() {
     wp_enqueue_script( $main_script_id, $path. '/scripts/main.js', array( 'ntt-kid-script', ), $version, true );
 
     $ntt_l10n = array(
-        'one'       => __( 'Plant seeds in the neighborhood, grow fruits in your yard.', 'ntt' ),
+        'one'       => __( 'Plant seeds in the neighborhood; grow fruits in your yard.', 'ntt' ),
         'two'       => __( 'Better make it and make it better.', 'ntt' ),
         'three'     => __( 'The power is in the collective.', 'ntt' ),
         'four'      => __( 'Someone will notice your fire whether it is too bright or too dim only after you start a fire.', 'ntt' ),

@@ -13,6 +13,10 @@ $on-surface-color: $hexetidine-purple;
 
 $text-link-color: $hexetidine-navy-blue;
 
+//--------------------------------------------------------------
+// Custom Properties
+//--------------------------------------------------------------
+
 :root {
     --color--hexetidine-sky-blue: #00A2FF;
     --color--hexetidine-sky-blue---alpha-s: hsla(202, 100%, 50%, .25);
@@ -67,10 +71,23 @@ body {
     }
 }
 
+//--------------------------------------------------------------
+// Form Elements
+//--------------------------------------------------------------
+
 select,
 textarea {
     border: .25rem solid var(--color--hexetidine-gray);
 }
+
+.ntt--search .text-input {
+    border: .25rem solid var(--color--hexetidine-gray);
+    border-right: 0;
+}
+
+//--------------------------------------------------------------
+// Entity Header
+//--------------------------------------------------------------
 
 .ntt--hexetidine--current-month {
     margin-bottom: .5rem;
@@ -102,6 +119,7 @@ textarea {
 }
 
 .ntt--entity-view-heading {
+    justify-content: flex-end;
     padding: .5rem 0;
 }
 
@@ -231,6 +249,57 @@ textarea {
     }
 }
 
+.ntt--js {
+
+    .ntt--entity {
+        position: relative;
+
+        &::before,
+        &::after {
+            content: '';
+            position: fixed;
+            left: 0;
+            z-index: 1;
+            width: 100vw;
+            height: 50vh;
+            background-color: var(--color--hexetidine-gray);
+            @include transition;
+            transition-property: height;
+            transition-duration: .75s;
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+    }
+
+    &.ntt--dom---unloaded--js {
+
+        .ntt--entity {
+
+            &::before,
+            &::after {
+                height: 50vh;
+            }
+        }
+    }
+
+    &.ntt--dom---loaded--js {
+
+        .ntt--entity {
+
+            &::before,
+            &::after {
+                height: 0vh;
+            }
+        }
+    }
+}
+
 //--------------------------------------------------------------
 // Entry
 //--------------------------------------------------------------
@@ -249,6 +318,40 @@ textarea {
     }
 }
 
+//--------------------------------------------------------------
+// Entry Tags
+//--------------------------------------------------------------
+
+.ntt--entry-tags {
+    margin-top: -1rem;
+
+    a {
+
+        &::before {
+            content: '#';
+            margin-right: .25em;
+        }
+    }
+}
+
+.ntt--entry-index---tag-archive--view {
+
+    .ntt--entity-view-name {
+        
+        .ntt--tag-txt {
+
+            &::before {
+                content: '#';
+                margin-right: .25em;
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Date
+//--------------------------------------------------------------
+
 .ntt--cm-datetime {
 
     label {
@@ -257,6 +360,7 @@ textarea {
 }
 
 .ntt--cm-date {
+    font-size: var(--text---xs);
     text-align: center;
 
     .ntt--dom---unloaded--js & {
@@ -270,6 +374,7 @@ textarea {
     .ntt--txt {
         display: flex;
         align-items: center;
+        white-space: nowrap;
 
         > * {
             font-size: var(--text---m);
@@ -309,6 +414,7 @@ textarea {
 
 .ntt--entry-primary-meta {
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -321,6 +427,10 @@ textarea {
     label {
         display: none;
     }
+}
+
+.ntt--entry-author {
+    padding: 1rem;
 }
 
 .ntt--entry-author-name {
@@ -365,12 +475,25 @@ textarea {
         }
     }
 
+    > blockquote {
+        @include x-margin();
+        text-align: center;
+    }
+
     hr {
         @extend %cf;
         margin: 2em auto;
         @include x-padding();
         width: 3rem;
         border-top: .25rem solid var(--color--hexetidine-gray);
+    }
+
+    .ntt--entry-content-snippet {
+
+        a {
+            color: var(--on-surface-color);
+            box-shadow: none;
+        }
     }
     
     // Jetpack
@@ -479,6 +602,14 @@ textarea {
 
     body {
         --view-border-width: 1rem;
+    }
+
+    .ntt--content {
+    
+        > blockquote {
+            @include x-margin(2.5rem);
+            text-align: left;
+        }
     }
 
     //--------------------------------------------------------------

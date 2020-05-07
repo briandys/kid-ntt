@@ -10,6 +10,10 @@
 // Entry
 //--------------------------------------------------------------
 
+.ntt--entry {
+    @include y-padding(2rem);
+}
+
 .ntt--entry-primary-meta {
     display: inline-flex;
     flex-direction: column;
