@@ -372,3 +372,10 @@
         padding-bottom: .02px; // Hack so that the margin-bottom of the last block will take effect
     }
 }
+
+.ntt--comments---empty.ntt--comment-creation---0 {
+
+    .ntt--comment-md {
+        display: none;
+    }
+}

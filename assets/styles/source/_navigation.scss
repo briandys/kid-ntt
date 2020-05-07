@@ -80,6 +80,30 @@
     }
 }
 
+.ntt--entry-breadcrumbs-nav--single-navi--js {
+
+    .ntt--entry-breadcrumbs-navi---current {
+        display: none;
+    }
+
+    .ntt--entry-breadcrumbs-nav-ancestors-group {
+
+        .ntt--icon {
+            display: none;
+        }
+    }
+
+    .ntt--entry-breadcrumbs-navi {
+        margin-right: 0;
+
+        a {
+            font-weight: bold;
+            font-size: var(--text---l);
+            color: var(--color--hexetidine-peach);
+        }
+    }
+}
+
 //--------------------------------------------------------------
 // Entries Navigation
 //--------------------------------------------------------------

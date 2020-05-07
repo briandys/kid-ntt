@@ -123,7 +123,7 @@
     }
 
     span[id^=more-] {
-        @extend %vh;
+        display: none;
     }
 
     figure {

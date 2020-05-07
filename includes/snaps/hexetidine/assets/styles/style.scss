@@ -259,7 +259,7 @@ textarea {
 .ntt--cm-date {
     text-align: center;
 
-    @at-root .ntt--dom---unloaded--js {
+    .ntt--dom---unloaded--js & {
         visibility: hidden;
     }
 

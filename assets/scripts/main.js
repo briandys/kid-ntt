@@ -79,6 +79,31 @@
     }
 
     /**
+     * Polyfill
+     * Overwrites native 'children' prototype.
+     * Adds Document & DocumentFragment support for IE9 & Safari.
+     * Returns array instead of HTMLCollection.
+     * https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children
+     */
+    (function(constructor) {
+        if (constructor &&
+        constructor.prototype &&
+        constructor.prototype.children == null) {
+        Object.defineProperty(constructor.prototype, 'children', {
+            get: function() {
+            let i = 0, node, nodes = this.childNodes, children = [];
+            while (node = nodes[i++]) {
+                if (node.nodeType === 1) {
+                children.push(node);
+                }
+            }
+            return children;
+            }
+        });
+        }
+    })(window.Node || window.Element);
+
+    /**
      * Adding, removing, and testing for classes
      * https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/
      */
@@ -960,8 +985,9 @@
         }
     }; // kidNtt.windowDocumentHeight
 
-
-
+    /**
+     * Identify Linked Images
+     */
     kidNtt.imageAnchor = {
 
         init: function() {
@@ -971,6 +997,18 @@
             } );
         }
     }; // kidNtt.imageAnchor
+
+    kidNtt.breadCrumbs = {
+
+        init: function() {
+            
+            const foo = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
+            
+            if ( foo && foo.children.length == 1 ) {
+                foo.closest( '.ntt--entry-breadcrumbs-nav' ).classList.add( 'ntt--entry-breadcrumbs-nav--single-navi--js' );
+            }
+        }
+    }; // kidNtt.breadCrumbs
 
     /**
      * Is the DOM ready?
@@ -1006,5 +1044,6 @@
         kidNtt.windowDocumentHeight.init();
         kidNtt.goStartNav.init();
         kidNtt.imageAnchor.init();
+        kidNtt.breadCrumbs.init();
     } );
 } )( jQuery, window, document );

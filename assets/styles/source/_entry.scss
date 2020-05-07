@@ -14,7 +14,7 @@
     display: inline-flex;
     flex-direction: column;
 
-    .ntt--page-view {
+    .ntt--page--view & {
         display: none;
     }
 }
