@@ -876,13 +876,23 @@
                     
                     return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
                 }
+
+                function isPresent( el ) {
+                    var style = window.getComputedStyle( el );
+                    return ( el && style.display !== 'none' && style.visibility !== 'hidden' );
+                }
                 
-                var docHeight = Math.max( html.clientHeight, html.scrollHeight, html.offsetHeight, body.scrollHeight, body.offsetHeight );
-                var footerOffset = offset( document.querySelector('.ntt--entity-footer') );
+                var entityFooter = document.querySelector( '.ntt--entity-footer' );
                 var goStartNav = document.getElementById( 'ntt--go-start-nav' );
                 
-                // Set style of nav
-                goStartNav.style.bottom = docHeight - footerOffset.top + 'px';
+                if ( isPresent( entityFooter ) && goStartNav ) {
+
+                    var docHeight = Math.max( html.clientHeight, html.scrollHeight, html.offsetHeight, body.scrollHeight, body.offsetHeight );
+                    var footerOffset = offset( entityFooter );
+                    
+                    // Set style of nav
+                    goStartNav.style.bottom = docHeight - footerOffset.top + 'px';
+                }
             } );
         }
     }; // kidNtt.goStartNav

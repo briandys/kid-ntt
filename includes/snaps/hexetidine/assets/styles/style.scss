@@ -1,4 +1,5 @@
 @import '../../../../../assets/styles/source/rules';
+@import 'source/briandys';
 
 $hexetidine-sky-blue: #00A2FF;
 $hexetidine-navy-blue: #200099;
@@ -211,6 +212,11 @@ textarea {
 .ntt--entity-view-name {
     font-weight: bold;
     color: $accent-color;
+
+    .ntt--txt {
+        @include x-padding();
+        margin-right: .5rem;
+    }
 }
 
 .ntt--entry-count {
@@ -240,6 +246,100 @@ textarea {
 
     a {
         color: var(--color--hexetidine-peach);
+    }
+}
+
+.ntt--cm-datetime {
+
+    label {
+        display: none;
+    }
+}
+
+.ntt--cm-date {
+    text-align: center;
+
+    @at-root .ntt--dom---unloaded--js {
+        visibility: hidden;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .ntt--txt {
+        display: flex;
+        align-items: center;
+
+        > * {
+            font-size: var(--text---m);
+        }
+    }
+
+    .ntt--year-txt {
+        display: block;
+        font-size: var(--text---xxxl);
+    }
+
+    .ntt--month-txt {
+        text-transform: uppercase;
+        letter-spacing: .125em;
+        @include x-margin(.25rem);
+        padding: .25em;
+        border: .125em solid var(--color--hexetidine-gray);
+        border-left: 0;
+        border-right: 0;
+    }
+
+    .ntt--day-txt {
+        font-size: var(--text---xxxl);
+    }
+}
+
+.ntt--cm-date--current-year--js {
+
+    .ntt--year-txt {
+        display: none;
+    }
+}
+
+.ntt--entry-modified-datetime {
+    display: none;
+}
+
+.ntt--entry-primary-meta {
+    flex-direction: row;
+    align-items: center;
+}
+
+//--------------------------------------------------------------
+// Author
+//--------------------------------------------------------------
+
+.ntt--cm-author {
+
+    label {
+        display: none;
+    }
+}
+
+.ntt--entry-author-name {
+    display: none;
+}
+
+.ntt--entry-header .ntt--comments-actions-snippet {
+    display: none;
+}
+
+.ntt {
+
+    .wp-caption,
+    .wp-block-image,
+    .wp-block-embed {
+            
+        figcaption {
+            font-size: to-em($text---s);
+        }
     }
 }
 
@@ -278,9 +378,9 @@ textarea {
         
         &:first-letter {
             position: relative;
-            margin: 0 .1em 0 -.05em;
-            margin-top: .25em; // Inherent to font-family: 'Spartan';
-            font-size: 5.25em;
+            margin: .25em .1em 0 -.05em;
+            font-size: 3.25em;
+            font-weight: bold;
             line-height: .45;
         }
 
@@ -368,17 +468,6 @@ textarea {
                 }
             }
         }
-    }
-}
-
-//--------------------------------------------------------------
-// Page: About
-//--------------------------------------------------------------
-
-._ntt--page--about--view {
-    
-    body {
-        background-color: var(--color--hexetidine-purple);
     }
 }
 

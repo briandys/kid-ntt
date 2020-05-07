@@ -2,7 +2,7 @@
 /**
  * Snaps Info
  */
- if ( ! function_exists( 'ntt__kid_ntt__snaps__info' ) ) {
+if ( ! function_exists( 'ntt__kid_ntt__snaps__info' ) ) {
     function ntt__kid_ntt__snaps__info() {
     
         $name = 'Hexetidine';
@@ -10,7 +10,7 @@
         $info = array(
             'name'      => $name,
             'slug'      => sanitize_title( $name ),
-            'version'   => '0.0.7',
+            'version'   => '0.0.8',
             'features'  => array(
                 'scroll-y',
             ),
@@ -37,11 +37,12 @@ function ntt__kid_ntt__snaps__styles_scripts() {
     wp_enqueue_script( $main_script_id, $path. '/scripts/main.js', array( 'ntt-kid-script', ), $version, true );
 
     $ntt_l10n = array(
-        'one'   => __( 'Plant seeds in the neighborhood, grow fruits in your yard.', 'ntt' ),
-        'two'   => __( 'Better make it and make it better.', 'ntt' ),
-        'three' => __( 'The power is in the collective.', 'ntt' ),
-        'four'  => __( 'Someone will notice your fire whether it is too bright or too dim only after you start a fire.', 'ntt' ),
-        'five'  => ntt__kid_ntt__function__get_theme_svg( 'wink', 'hexetidine' ),
+        'one'       => __( 'Plant seeds in the neighborhood, grow fruits in your yard.', 'ntt' ),
+        'two'       => __( 'Better make it and make it better.', 'ntt' ),
+        'three'     => __( 'The power is in the collective.', 'ntt' ),
+        'four'      => __( 'Someone will notice your fire whether it is too bright or too dim only after you start a fire.', 'ntt' ),
+        'five'      => ntt__kid_ntt__function__get_theme_svg( 'wink', 'hexetidine' ),
+        'backTxt'   => __( 'Back', 'ntt' ),
     );
 
     wp_localize_script( $main_script_id, 'nttKidNttHexetidineData', $ntt_l10n );

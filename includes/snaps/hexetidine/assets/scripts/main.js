@@ -13,6 +13,7 @@ kidNttHexetidine.displayRandomQuote = {
             nttKidNttHexetidineData.two,
             nttKidNttHexetidineData.three,
             nttKidNttHexetidineData.four,
+            nttKidNttHexetidineData.five,
         ];
         
         var num = Math.floor( Math.random() * ( nttDataArray.length ) );
@@ -24,6 +25,43 @@ kidNttHexetidine.displayRandomQuote = {
         entitySecondaryInfo.insertAdjacentHTML( 'beforebegin', quotes.outerHTML );
     }
 }; // kidNttHexetidine.displayRandomQuote
+
+kidNttHexetidine.backButton = {
+
+    init: function() {
+        var aboutPage = document.querySelector( '.ntt--site-id--briandys-com--view.ntt--page--about--view' );        
+        
+        if ( aboutPage ) {
+            var entryName = aboutPage.querySelector( '.ntt--entry-name' );            
+            
+            var axn = document.createElement( 'a' );
+            axn.className = 'ntt--kid-ntt--back-axn--js';
+            axn.href = '../';
+            axn.setAttribute( 'title', nttKidNttHexetidineData.backTxt );
+            axn.innerHTML = '<span class="ntt--txt">' + nttKidNttHexetidineData.backTxt + '</span>' + nttData.chevronLeftIcon;
+            entryName.insertAdjacentHTML( 'beforebegin', axn.outerHTML );
+        }
+    }
+}; // kidNttHexetidine.backButton
+
+kidNttHexetidine.currentYear = {
+
+    init: function() {
+        var yearTxt = document.querySelectorAll( '.ntt--cm-date .ntt--year-txt' );        
+        
+        if ( yearTxt ) {
+
+            var currentYear = new Date().getFullYear();
+            
+            yearTxt.forEach( function ( el ) {
+
+                if ( el.textContent == currentYear ) {
+                    el.closest( '.ntt--cm-date' ).classList.add( 'ntt--cm-date--current-year--js' );
+                }                
+            } );
+        }
+    }
+}; // kidNttHexetidine.backButton
 
 /**
  * Is the DOM ready?
@@ -46,4 +84,6 @@ function nttDomReady( fn ) {
 
 nttDomReady( function() {
     kidNttHexetidine.displayRandomQuote.init();
+    kidNttHexetidine.backButton.init();
+    kidNttHexetidine.currentYear.init();
 } );
