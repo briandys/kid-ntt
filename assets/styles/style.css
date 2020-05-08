@@ -717,10 +717,6 @@ th {
   margin-bottom: 1em;
 }
 
-.ntt .ntt--content > *:first-child {
-  margin-top: 1rem;
-}
-
 .ntt--content > ul,
 .ntt--content > ol {
   padding-left: calc(2.5rem + .5em);
@@ -784,11 +780,6 @@ th {
   width: auto !important;
 }
 
-.ntt--content figure.is-type-video {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
 .ntt--content form {
   font-size: 1rem;
 }
@@ -815,6 +806,10 @@ th {
 .ntt--content .ntt--table-el-skin--js,
 .ntt--content .ntt--pre-el-skin--js {
   margin: 2em 0;
+}
+
+.ntt--content > *:first-child {
+  margin-top: 0;
 }
 
 .ntt--content > *:last-child {
@@ -2154,17 +2149,17 @@ th {
   min-height: calc(5.5rem + .125rem);
 }
 
-.ntt--comment-form .ntt--form-field .text-input {
+.ntt--comment-form .text-input {
   min-height: 4rem;
   padding-top: 2rem;
   text-overflow: ellipsis;
 }
 
-.ntt--comment-form .ntt--form-field .text-input::placeholder {
+.ntt--comment-form .text-input::placeholder {
   color: transparent;
 }
 
-.ntt--comment-form .ntt--form-field textarea.text-input {
+.ntt--comment-form textarea.text-input {
   padding-top: 0;
   padding-bottom: 0;
   min-height: calc(7.5rem + .125rem);
@@ -2405,7 +2400,8 @@ section:target {
   margin-top: 2rem;
 }
 
-.ntt--entry-footer {
+.ntt--entry-secondary-meta,
+.ntt--comment-md {
   margin-top: 2rem;
 }
 

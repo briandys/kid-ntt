@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Screen Reader Text ------------------------ */
 .ntt--content hr:before {
   content: " ";
@@ -183,8 +184,11 @@
   --color--hexetidine-sky-blue---alpha-s: hsla(202, 100%, 50%, .25);
   --color--hexetidine-sky-blue---alpha-m: hsla(202, 100%, 50%, .5);
   --color--hexetidine-sky-blue---alpha-l: hsla(202, 100%, 50%, .75);
-  --color--hexetidine-navy-blue: #200099;
   --color--hexetidine-gray: #C3C6D5;
+  --color--hexetidine-gray---alpha-s: hsla(230, 18%, 80%, .25);
+  --color--hexetidine-gray---alpha-m: hsla(230, 18%, 80%, .5);
+  --color--hexetidine-gray---alpha-l: hsla(230, 18%, 80%, .75);
+  --color--hexetidine-navy-blue: #200099;
   --color--hexetidine-peach: #F54A45;
   --color--hexetidine-purple: #000F54;
   --surface-color: white;
@@ -224,6 +228,11 @@ body::before {
 
 body::after {
   bottom: 0;
+}
+
+.ntt--comment-form .text-input,
+.ntt--comment-form .ntt--comment-author-message-field {
+  border: 0.25rem solid var(--color--hexetidine-gray);
 }
 
 select,
@@ -394,6 +403,7 @@ textarea {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .ntt--js .ntt--entity {
@@ -443,10 +453,6 @@ textarea {
   color: var(--color--hexetidine-peach);
 }
 
-.ntt--entry-tags {
-  margin-top: -1rem;
-}
-
 .ntt--entry-tags a::before {
   content: '#';
   margin-right: .25em;
@@ -455,6 +461,29 @@ textarea {
 .ntt--entry-index---tag-archive--view .ntt--entity-view-name .ntt--tag-txt::before {
   content: '#';
   margin-right: .25em;
+}
+
+.ntt--entry-tags {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.ntt--entry-tags-name {
+  position: relative;
+}
+
+.ntt--entry-tags-name::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: .25rem;
+  height: 100%;
+  background-color: var(--color--hexetidine-gray);
+}
+
+.ntt--entry-tags-group {
+  display: contents;
 }
 
 .ntt--cm-datetime label {
@@ -560,9 +589,30 @@ textarea {
 }
 
 .ntt--content > blockquote {
-  margin-left: 0;
-  margin-right: 0;
+  position: relative;
+  margin: 2em 0;
   text-align: center;
+}
+
+.ntt--content > blockquote::before {
+  content: '“';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: -1;
+  transform: translate(-50%, -4.5rem);
+  color: rgba(0, 0, 0, 0.125);
+  font-size: 6em;
+  line-height: 1;
+  font-family: serif;
+}
+
+.ntt--content > blockquote cite {
+  display: inline-block;
+}
+
+.ntt--content > blockquote cite em {
+  font-style: normal;
 }
 
 .ntt--content hr {
@@ -576,6 +626,16 @@ textarea {
 .ntt--content .ntt--entry-content-snippet a {
   color: var(--on-surface-color);
   box-shadow: none;
+}
+
+.ntt--content .wp-block-image {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ntt--content .wp-block-image figcaption {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .ntt--content p.has-drop-cap:not(:focus):first-letter {
@@ -1020,14 +1080,139 @@ textarea {
   width: 50%;
 }
 
+.comment-respond {
+  margin: 1rem;
+  background-color: var(--color--hexetidine-gray---alpha-s);
+  border-radius: var(--element-corner-radius);
+}
+
+.ntt--comment-composition-name {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.ntt--comment-form .form-submit {
+  display: flex;
+}
+
+.ntt--comment-form .ntt--submit-comment-axn {
+  width: 100%;
+}
+
+.ntt--comment {
+  margin: 1rem;
+  background-color: var(--color--hexetidine-gray---alpha-s);
+  border-radius: var(--element-corner-radius);
+}
+
+.ntt--comment-approval---unapproved {
+  background-color: var(--surface-color);
+  border: 1px dashed var(--color--hexetidine-gray);
+}
+
+.ntt--cancel-reply-axn {
+  margin-top: 1rem;
+}
+
+.ntt--comment-meta {
+  align-items: normal;
+}
+
+.ntt--comment-author {
+  flex-wrap: nowrap;
+  padding: 1rem;
+}
+
+.ntt--comment-reply-axn {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.ntt--comments-count .ntt--label-txt {
+  display: none;
+}
+
+.ntt--comments-count .ntt--count-txt {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: .5em .75em;
+  min-width: 2.5em;
+  min-height: 2em;
+  color: var(--surface-color);
+  background-color: var(--color--hexetidine-navy-blue);
+  border-radius: var(--element-corner-radius);
+  border-bottom-left-radius: 0;
+  font-size: var(--text---m);
+  font-weight: bold;
+  line-height: normal;
+  transition: all 0.3s ease-in-out;
+}
+
+.ntt--comments-count .ntt--count-txt::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: .5rem .5rem 0 0;
+  border-color: var(--color--hexetidine-navy-blue) transparent transparent transparent;
+}
+
+.ntt--comments-count a:hover {
+  text-decoration: none;
+}
+
+.ntt--comments-header {
+  width: 100%;
+}
+
+.ntt--comment-name {
+  margin-top: 1rem;
+}
+
+.ntt--comments-group .children {
+  position: relative;
+}
+
+.ntt--comments-group .children::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: .5rem;
+  height: 100%;
+  background-color: var(--color--hexetidine-sky-blue---alpha-s);
+}
+
+.ntt--entry-header .ntt--comments-actions-snippet {
+  display: none;
+}
+
+.ntt--comments---empty--view.ntt--comment-creation---0--view .ntt--comment-md {
+  display: none;
+}
+
+.ntt--comments---empty--view .ntt--comments-count {
+  display: none;
+}
+
 @media only screen and (min-width: 768px) {
   body {
     --view-border-width: 1rem;
   }
   .ntt--content > blockquote {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
     text-align: left;
+  }
+  .ntt--content > blockquote::before {
+    left: 0;
+    transform: translate(-2rem, -3rem);
   }
   .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage]::before, .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage]::after {
     height: 1rem;

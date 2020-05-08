@@ -55,23 +55,23 @@
                 min-height: calc(5.5rem + .125rem);
             }
         }
+    }
 
-        .text-input {
-            min-height: 4rem;
-            padding-top: 2rem;
-            text-overflow: ellipsis;
+    .text-input {
+        min-height: 4rem;
+        padding-top: 2rem;
+        text-overflow: ellipsis;
 
-            &::placeholder {
-                color: transparent;
-            }
+        &::placeholder {
+            color: transparent;
         }
+    }
 
-        textarea.text-input {
-            @include y-padding();
-            min-height: calc(7.5rem + .125rem);
-            background-color: transparent;
-            border: 0;
-        }
+    textarea.text-input {
+        @include y-padding();
+        min-height: calc(7.5rem + .125rem);
+        background-color: transparent;
+        border: 0;
     }
 
     .ntt--required-txt {
@@ -360,7 +360,8 @@ section:target {
     margin-top: 2rem;
 }
 
-.ntt--entry-footer {
+.ntt--entry-secondary-meta,
+.ntt--comment-md {
     margin-top: 2rem;
 }
 
