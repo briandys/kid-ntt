@@ -392,7 +392,7 @@ th {
 }
 
 .ntt--modify-entry-axn a, .ntt--modify-comment-axn a, .ntt--comment-reply-axn a, .ntt--show-more-axn a, .ntt--comments-actions-snippet .ntt--comment-axn a, .ntt--go-content-navi a {
-  color: #0060e6;
+  color: var(--accent-color);
 }
 
 .ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--show-more-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {

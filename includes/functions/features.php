@@ -109,3 +109,10 @@ function ntt__kid_ntt__features__get_data( $feature_slug ) {
  
     return $feature_data;
 }
+
+/*
+foreach ( ntt__kid_ntt__features__slugs() as $feature ) {
+        
+    echo ntt__kid_ntt__features__get_data( $feature )['Feature Name']. ntt__kid_ntt__features__get_data( $feature )['Scope'];
+}
+*/

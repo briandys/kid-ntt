@@ -382,7 +382,7 @@ th {
 #{$secondary-action--elements} {
     
     a {
-        color: $accent-color;
+        color: var(--accent-color);
 
         &:hover {
             color: var(--surface-color);
