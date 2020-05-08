@@ -374,6 +374,10 @@ textarea {
   fill: var(--surface-color);
 }
 
+.ntt--entity-main {
+  padding-bottom: 4.5rem;
+}
+
 .ntt--entity-main-header {
   margin: 1rem;
   text-align: right;
@@ -437,6 +441,10 @@ textarea {
 
 .ntt--js.ntt--dom---loaded--js .ntt--entity::before, .ntt--js.ntt--dom---loaded--js .ntt--entity::after {
   height: 0vh;
+}
+
+.ntt--entity-view-name .ntt--search-term-txt {
+  color: var(--color--hexetidine-peach);
 }
 
 .ntt--entry-name {

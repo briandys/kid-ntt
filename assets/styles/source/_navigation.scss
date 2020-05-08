@@ -172,7 +172,6 @@
         display: flex;
         align-items: center;
         @include y-margin(2rem);
-        margin-bottom: 4.5rem;
     
         .navigation,
         .nav-links {
@@ -634,7 +633,6 @@
 
 .ntt--entry-nav {
     width: 100%;
-    padding-bottom: 4.5rem;
 
     a {
         display: inline-block;

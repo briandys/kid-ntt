@@ -471,7 +471,7 @@
 
             // Checks if the nav has 2 items or less
             if ( entriesPageMenuList && entriesPageMenuList.children.length <= 2 ) {
-                entriesPageMenuList.closest( '#ntt--entries-nav' ).classList.add( 'ntt--entries-nav---single-navi--js' );
+                entriesPageMenu.closest( '#ntt--entries-nav' ).classList.add( 'ntt--entries-nav---single-navi--js' );
             }
 
             function currentNaviIntoView() {

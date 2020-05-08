@@ -233,6 +233,10 @@ textarea {
 // Entity
 //--------------------------------------------------------------
 
+.ntt--entity-main {
+    padding-bottom: 4.5rem;
+}
+
 .ntt--entity-main-header {
     margin: 1rem;
     text-align: right;
@@ -262,6 +266,7 @@ textarea {
     }
 }
 
+// Blinders while loading
 .ntt--js {
 
     .ntt--entity {
@@ -311,6 +316,10 @@ textarea {
             }
         }
     }
+}
+
+.ntt--entity-view-name .ntt--search-term-txt {
+    color: var(--color--hexetidine-peach);
 }
 
 //--------------------------------------------------------------
