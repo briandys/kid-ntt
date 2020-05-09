@@ -596,6 +596,15 @@ textarea {
   box-shadow: none;
 }
 
+.ntt--content > a[href*="flickr.com/"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ntt--content > a[href*="flickr.com/"] img {
+  width: 100%;
+}
+
 .ntt--content > blockquote {
   position: relative;
   margin: 2em 0;

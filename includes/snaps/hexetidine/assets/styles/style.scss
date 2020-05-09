@@ -518,6 +518,14 @@ textarea {
         }
     }
 
+    > a[href*="flickr.com/"] {
+        @include x-padding();
+
+        img {
+            width: 100%;
+        }
+    }
+
     > blockquote {
         position: relative;
         margin: 2em 0;

@@ -350,6 +350,7 @@
         flex-wrap: nowrap;
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
         height: calc(160px - 48px);
         overflow: auto;
         scroll-snap-type: y mandatory;
