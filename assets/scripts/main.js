@@ -998,7 +998,10 @@
         init: function() {
 
             document.querySelectorAll( '.ntt--content img' ).forEach( function( el ) {
-                el.closest( 'a' ).classList.add( 'ntt--img-anchor--js' );
+                
+                if ( el.closest( 'a' ) ) {
+                    el.closest( 'a' ).classList.add( 'ntt--img-anchor--js' );
+                }
             } );
         }
     }; // kidNtt.imageAnchor
@@ -1007,10 +1010,16 @@
 
         init: function() {
             
-            var nav = document.querySelector( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
-            
-            if ( nav && nav.children.length == 1 ) {
-                nav.closest( '.ntt--entry-breadcrumbs-nav' ).classList.add( 'ntt--entry-breadcrumbs-nav--single-navi--js' );
+            var nav = document.querySelectorAll( '.ntt--entry-breadcrumbs-nav-ancestors-group' );
+
+            if ( nav ) {
+
+                nav.forEach( function( el ) {
+
+                    if ( el.closest( '.ntt--entry-breadcrumbs-nav' ) && el.children.length == 1 ) {
+                        el.closest( '.ntt--entry-breadcrumbs-nav' ).classList.add( 'ntt--entry-breadcrumbs-nav--single-navi--js' );
+                    }
+                } );
             }
         }
     }; // kidNtt.breadCrumbs

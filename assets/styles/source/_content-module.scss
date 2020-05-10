@@ -163,6 +163,10 @@
 
     > *:last-child {
         margin-bottom: 0;
+    }    
+
+    iframe[src*="spotify.com/"] {
+        max-height: 80vh;
     }
 }
 

@@ -31,11 +31,13 @@ add_action( 'init', 'ntt__kid_ntt__wp_shortcode__initialization' );
  *
  * To display a particular entry: [ntt_percept post_id="<post id>"]
  * To display a custom field: [ntt_percept "custom_field_name"]
+ * To display a custom field from a particular entry: [ntt_percept post_id="<post id>" "custom_field_name"]
  */
 function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
     
     $atts = array_change_key_case( ( array ) $atts, CASE_LOWER );
  
+    // Shortcode Attributes
     $clean_atts = extract( shortcode_atts( array(
         'content'   => null,
         'post'      => null,
@@ -45,6 +47,7 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
         'security'  => null,
     ), $atts ) );
     
+    // WP_Query Arguments
     $args = array(
         'post_status'   => array( 'publish', 'private' ),
         'name'          => sanitize_title( $post ),
@@ -110,14 +113,14 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
                 global $post;
 				$the_query->the_post();
 
-                $section_mu = '<div class="ntt--percept---'. $post->post_type.'--%3$s ntt--'. $post->post_type. '--%3$s'. ' ntt--percept ntt--cp" data-source-url="'. esc_url( get_the_permalink() ).'" data-name="NTT Percept">';
-                    $section_mu .= '<div class="ntt--percept--entry-name ntt--obj" data-name="NTT Percept Entry Name">';
+                $section_mu = '<article class="ntt--percept---'. $post->post_type.'--%3$s ntt--'. $post->post_type. '--%3$s'. ' ntt--percept ntt--cp" data-source-url="'. esc_url( get_the_permalink() ).'" data-name="NTT Percept">';
+                    $section_mu .= '<h2 class="ntt--percept--entry-name ntt--obj" data-name="NTT Percept Entry Name">';
                         $section_mu .= '<a href="'. esc_url( get_the_permalink() ).'" target="_blank" rel="noreferrer noopener" aria-label="'. esc_attr( '%2$s' ).' (opens in a new tab)">'. esc_html( '%2$s' ). '</a>';
-                    $section_mu .= '</div>';
-                    $section_mu .= '<div class="ntt--percept--entry-content ntt--cp" data-name="NTT Percept Entry Content">';
+                    $section_mu .= '</h2>';
+                    $section_mu .= '<section class="ntt--percept--entry-content ntt--cp" data-name="NTT Percept Entry Content">';
                         $section_mu .= '%1$s';
-                    $section_mu .= '</div>';
-				$section_mu .= '</div>';
+                    $section_mu .= '</section>';
+				$section_mu .= '</article>';
 
                 $percept_section = sprintf( $section_mu,
                     apply_filters( 'the_content', do_shortcode( get_the_content() ) ),

@@ -581,6 +581,10 @@ textarea {
     .wp-block-image {
         @include x-padding();
 
+        img {
+            width: 100%;
+        }
+
         figcaption {
             @include x-padding(1rem);
         }
