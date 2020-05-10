@@ -375,15 +375,18 @@ textarea {
 
 .ntt--entry-tags-name {
     position: relative;
+    margin-left: -1rem;
+    padding-left: 1.5rem;
 
+    // Visuals: Bar
     &::before {
         content: '';
         position: absolute;
         left: 0;
         top: 0;
-        width: .25rem;
+        width: 1rem;
         height: 100%;
-        background-color: var(--color--hexetidine-gray);
+        background-color: var(--color--hexetidine-gray---alpha-s);
     }
 }
 
@@ -568,9 +571,13 @@ textarea {
             box-shadow: none;
         }
     }
+
+    > .ntt--emoji-txt {
+        font-size: 2em;
+        text-align: center;
+    }
     
     // Jetpack
-
     .wp-block-image {
         @include x-padding();
 
@@ -602,6 +609,14 @@ textarea {
 .ntt--kid-ntt--feature--scroll-y--view {
 
     &[data-scroll-y-percentage] {
+
+        &.ntt--view-height---short--js {
+
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
 
         &::before,
         &::after {
@@ -838,6 +853,11 @@ textarea {
                 transform: translate(-2rem, -3rem);
             }
         }
+
+        > .ntt--emoji-txt {
+            font-size: 3em;
+            text-align: left;
+        }
     }
 
     //--------------------------------------------------------------
@@ -917,7 +937,7 @@ textarea {
             display: grid;
             grid-template:
                 'entity-start .'
-                'entity-header entity-main'
+                'entity-header entity-main' 1fr
                 'entity-footer .'
                 'entity-end .'
                 / 2fr 5fr;

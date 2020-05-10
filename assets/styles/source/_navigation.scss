@@ -778,7 +778,7 @@
 .ntt--js {
 
     .ntt--go-start-nav {
-        visibility: hidden;
+        display: none;
     }
 }
 
@@ -787,13 +787,12 @@
     padding: 0;
     text-decoration: none;
 
-    .ntt--entity-footer--intersected--js &,
-    .ntt--entity-footer--intersected--js.ntt--view-height---long--js & {
-        visibility: visible;
+    .ntt--entity-footer--intersected--js & {
+        display: block;
     }
 
     .ntt--entity-footer--intersected--js.ntt--view-height---short--js & {
-        visibility: hidden;
+        display: none;
     }
 
     .ntt--js & {

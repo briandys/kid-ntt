@@ -1881,7 +1881,7 @@ th {
 }
 
 .ntt--js .ntt--go-start-nav {
-  visibility: hidden;
+  display: none;
 }
 
 .ntt--go-start-nav {
@@ -1891,13 +1891,12 @@ th {
   text-decoration: none;
 }
 
-.ntt--entity-footer--intersected--js .ntt--go-start-nav,
-.ntt--entity-footer--intersected--js.ntt--view-height---long--js .ntt--go-start-nav {
-  visibility: visible;
+.ntt--entity-footer--intersected--js .ntt--go-start-nav {
+  display: block;
 }
 
 .ntt--entity-footer--intersected--js.ntt--view-height---short--js .ntt--go-start-nav {
-  visibility: hidden;
+  display: none;
 }
 
 .ntt--js .ntt--go-start-nav {
