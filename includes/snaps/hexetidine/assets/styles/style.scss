@@ -234,7 +234,7 @@ textarea {
 //--------------------------------------------------------------
 
 .ntt--entity-main {
-    padding-bottom: 4.5rem;
+    padding-bottom: 6.5rem;
 }
 
 .ntt--entity-main-header {
@@ -537,10 +537,10 @@ textarea {
         &::before {
             content: '“';
             position: absolute;
-            left: 50%;
+            left: 0;
             top: 0;
             z-index: -1;
-            transform: translate(-50%, -4.5rem);
+            transform: translate(0, -3.25rem);
             color: $on-surface-color---alpha-m;
             font-size: 6em;
             line-height: 1;

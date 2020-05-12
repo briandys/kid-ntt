@@ -41,9 +41,6 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
         'choices'   => $kid_ntt_snaps,
     ) );
 
-
-
-
     /**
      * Multiple select customize control class.
      */
@@ -112,13 +109,19 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
 
     // Populate the fields
     $kid_ntt_features = ntt__kid_ntt__features__slugs();
+    
+    // Identify Entry Scope
+    foreach ( $kid_ntt_features as $feature ) {
+        $kid_ntt_features_slug_scope[ntt__kid_ntt__features__get_data( $feature )['Slug']] = ntt__kid_ntt__features__get_data( $feature )['Scope'];
+    }
 
-    // Remove feature items that are exclusive for Entry Singular (not Entry Index)
-    $kid_ntt_features_exclude = array(
-        'prezo-mode', 
-        'screenshot', 
-    );
-    $kid_ntt_features = array_diff( $kid_ntt_features, $kid_ntt_features_exclude );
+    // Identify Entry Scope: Put the keys into values
+    foreach ( array_intersect( $kid_ntt_features_slug_scope, array( 'Entry' ) ) as $key => $value ) {
+        $kid_ntt_features_entry[] = $key;
+    }
+
+    // Remove feature items that are exclusive for Entry Singular (not Entry Index)    
+    $kid_ntt_features = array_diff( $kid_ntt_features, $kid_ntt_features_entry );
 
     // Insert this as the first item
     array_unshift( $kid_ntt_features, $default_term );
@@ -135,9 +138,6 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
         // Make the values as keys by array_combine
         // https://www.php.net/array-combine
         $kid_ntt_features = array_combine( $kid_ntt_features, $kid_ntt_features_label );
-
-        //echo '<pre>Proof that NTT Features is an array: '. var_dump($kid_ntt_features). '</pre>';
-        //echo '<pre>From Scroll Y Functions returns the string "array": '. var_dump( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' ) ). '</pre>';
     }
      
     $wp_customize->add_control(
@@ -151,10 +151,7 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
                 'choices'  => $kid_ntt_features,
             )
         )
-    );
-
-    
-    
+    );    
     
     /**
      * Site Icon Settings

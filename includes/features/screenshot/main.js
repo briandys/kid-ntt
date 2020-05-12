@@ -11,12 +11,9 @@ const html = document.documentElement;
 
 kidNttFeatureScreenshot.htmlToCanvas = {
 
-    init: function() {
-            
-        if ( html.classList.contains( 'ntt--kid-ntt--feature--screenshot' ) ) {
-            this.createButton();
-            this.contentIntersection();
-        }
+    init: function() {            
+        this.createButton();
+        this.contentIntersection();
     },
 
     createButton: function() {

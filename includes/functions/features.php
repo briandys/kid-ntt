@@ -3,11 +3,7 @@
  * Features
  */
 
-$GLOBALS['ntt__gvar__kid_ntt__feature__screenshot__name'] = 'screenshot';
-$GLOBALS['ntt__gvar__kid_ntt__feature__instafeed__name'] = 'instafeed';
-$GLOBALS['ntt__gvar__kid_ntt__feature__prezo_mode__name'] = 'prezo-mode';
 $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__name'] = 'user-functions';
-$GLOBALS['ntt__gvar__kid_ntt__feature__responsive_flickr__name'] = 'responsive-flickr';
 
  /**
  * Features Pathnames
@@ -109,10 +105,3 @@ function ntt__kid_ntt__features__get_data( $feature_slug ) {
  
     return $feature_data;
 }
-
-/*
-foreach ( ntt__kid_ntt__features__slugs() as $feature ) {
-        
-    echo ntt__kid_ntt__features__get_data( $feature )['Feature Name']. ntt__kid_ntt__features__get_data( $feature )['Scope'];
-}
-*/

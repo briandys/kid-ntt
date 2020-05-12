@@ -9,7 +9,7 @@
 }
 
 /* Screen Reader Text ------------------------ */
-.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js, .ntt--go-content-nav:not(:focus-within), .ntt--no-js .ntt--go-content-navi, .ntt--go-content-navi a:not(:focus), .ntt--js .ntt--go-start-nav .ntt--txt {
+.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js, .ntt--no-js .ntt--go-content-navi, .ntt--go-content-navi a, .ntt--js .ntt--go-start-nav .ntt--txt {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -23,25 +23,11 @@
   word-break: normal;
 }
 
-.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js:focus, .ntt--go-content-nav:focus:not(:focus-within), .ntt--no-js .ntt--go-content-navi:focus, .ntt--go-content-navi a:focus:not(:focus), .ntt--js .ntt--go-start-nav .ntt--txt:focus {
-  background-color: #f1f1f1;
-  border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox-label--js:focus, .ntt--no-js .ntt--go-content-navi:focus, .ntt--go-content-navi a:focus, .ntt--js .ntt--go-start-nav .ntt--txt:focus {
   clip: auto !important;
   clip-path: none;
-  color: #21759b;
-  display: block;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: 700;
   height: auto;
-  right: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
   width: auto;
-  z-index: 100000;
 }
 
 .ntt--entry-full-content:before {
@@ -817,6 +803,7 @@ th {
 }
 
 .ntt--content iframe[src*="spotify.com/"] {
+  min-width: 100%;
   max-height: 80vh;
 }
 
@@ -1908,7 +1895,7 @@ th {
   left: 50%;
   bottom: 0;
   z-index: 1;
-  transform: translateX(-50%);
+  transform: translate(-50%, -1.5rem);
   transition: all 0.3s ease-in-out;
   transition-property: bottom;
 }

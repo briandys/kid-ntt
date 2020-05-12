@@ -729,13 +729,6 @@
 // Go to Content Navigation
 //--------------------------------------------------------------
 
-.ntt--go-content-nav {
-
-    &:not(:focus-within) {
-        @extend %vh;
-    }
-}
-
 .ntt--go-content-navi {
 
     @at-root .ntt--no-js & {
@@ -751,6 +744,7 @@
         padding: 0;
         text-decoration: none;
         color: $surface-color;
+        @extend %vh;
 
         &:hover {
             color: $accent-color;
@@ -759,10 +753,6 @@
                 background-color: $surface-color;
                 border: .125rem solid $accent-color;
             }
-        }
-        
-        &:not(:focus) {
-            @extend %vh;
         }
     }
     
@@ -800,7 +790,7 @@
         left: 50%;
         bottom: 0;
         z-index: 1;
-        transform: translateX(-50%);
+        transform: translate(-50%, -1.5rem);
         @include transition;
         transition-property: bottom;
 

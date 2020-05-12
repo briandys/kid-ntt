@@ -57,7 +57,7 @@ function ntt__kid_ntt__features__prezo_mode__entity_validation() {
  */
 function ntt__kid_ntt__features__prezo_mode__styles_scripts() {
 
-    $feature = ntt__kid_ntt__features__get_data( 'prezo-mode ');
+    $feature = ntt__kid_ntt__features__get_data( 'prezo-mode');
     $slug = $feature['Slug'];
     $prefixed_slug = $GLOBALS['ntt__gvar__kid_ntt__feature__name_prefix']. $slug;
     $main_style_id = $prefixed_slug. '--style';
