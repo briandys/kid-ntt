@@ -29,7 +29,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -40,6 +40,10 @@
 .ntt--entry-breadcrumbs-nav {
     flex: 1 100%;
     padding: .5rem;
+
+    .ntt--entry .ntt--entry & {
+        display: none;
+    }
 }
 
 .ntt--entry-breadcrumbs-nav-group {
@@ -76,7 +80,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -95,12 +99,15 @@
 
     .ntt--entry-breadcrumbs-navi {
         margin-right: 0;
+    }
+}
 
-        a {
-            font-weight: bold;
-            font-size: var(--text---l);
-            color: var(--color--hexetidine-peach);
-        }
+.ntt--entry-breadcrumbs-navi {
+
+    a {
+        font-weight: bold;
+        font-size: var(--text---l);
+        color: var(--color--hexetidine-peach);
     }
 }
 
@@ -124,7 +131,7 @@
         }
 
         .ntt--txt {
-            @extend %block-pad;
+           @include block-pad;
         }
     }
     
@@ -138,7 +145,7 @@
     @include space-around;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -423,7 +430,7 @@
         padding: .5rem;
 
         .ntt--txt {
-            @extend %block-pad;
+           @include block-pad;
         }
     }
 
@@ -444,7 +451,7 @@
     }
 
     a {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -649,7 +656,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 
     .ntt--img {
@@ -680,7 +687,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 
     ul {
@@ -717,7 +724,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 

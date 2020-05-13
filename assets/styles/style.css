@@ -41,21 +41,6 @@
   clear: both;
 }
 
-.ntt--comment-name .ntt--txt, .ntt--comment-author-name .ntt--txt, .ntt--comment-author-label .ntt--txt, .ntt--comments-count .ntt--txt, .ntt--comments-header .ntt--comments-count .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--comments-name .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-composition-name .ntt--txt, .ntt--cancel-reply-axn .ntt--txt, .ntt--comment-form label .ntt--txt, .ntt--log-out-account-axn .ntt--txt, .ntt--logged-in-account .ntt--txt, .ntt--comment-published-datetime-label .ntt--txt, .ntt--comment-published-date .ntt--txt,
-.ntt--comment-published-time .ntt--txt, .ntt--cm-author-name .ntt--txt, .ntt--entity-name .ntt--txt, .ntt--entity-description .ntt--txt, .ntt--entity-view-name .ntt--txt, .ntt--entry-count .ntt--txt, .ntt--entity-secondary-name .ntt--txt,
-.ntt--entity-copyright .ntt--txt,
-.ntt--entity-maker-tag .ntt--txt, .sub-content-ntt--entry-name .ntt--txt, .ntt--entry-categories a, .ntt--entry-published-datetime-label .ntt--txt,
-.ntt--entry-modified-datetime-label .ntt--txt, .ntt--entry-published-date .ntt--txt,
-.ntt--entry-published-time .ntt--txt,
-.ntt--entry-modified-date .ntt--txt,
-.ntt--entry-modified-time .ntt--txt, .ntt--entry-name .ntt--txt, .ntt--entry-subname .ntt--txt, .ntt--modify-entry-axn .ntt--txt, .ntt--entry-tags a, .ntt--entry-tags-name .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--entry-author-label .ntt--txt, .ntt--entry-author-name .ntt--txt, .post-navigation .ntt--txt, .ntt--entry-breadcrumbs-navi .ntt--txt, .ntt--entries-nav li .ntt--txt,
-.ntt--entry-subcontent-nav li .ntt--txt, .ntt--entries-page-indicator .ntt--txt, .ntt--entity-primary-nav li .ntt--txt,
-.ntt--entity-secondary-nav li .ntt--txt,
-.ntt--widget_nav_menu li .ntt--txt, .ntt--widget_nav_menu a, .ntt--entry-nav .ntt--txt, .ntt--entry-content-nav .ntt--txt, .ntt--comments-navi .ntt--txt {
-  display: block;
-  padding: .5rem;
-}
-
 :root {
   --laptop-viewport-width---xl: 1440px;
   --color--almost-black: hsl(225, 6%, 13%);
@@ -411,8 +396,18 @@ th {
   font-weight: bold;
 }
 
+.ntt--comment-name .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--comment-author-name a {
   display: inline-block;
+}
+
+.ntt--comment-author-name .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--comment-author {
@@ -426,12 +421,27 @@ th {
   display: inline-block;
 }
 
+.ntt--comment-author-label .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
+.ntt--comment-author-name .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--comments-count a {
   display: inline-block;
 }
 
 .ntt--comments-count a:hover .ntt--count-txt {
   text-decoration: underline;
+}
+
+.ntt--comments-count .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--comments-header {
@@ -448,6 +458,11 @@ th {
 .ntt--comments-header .ntt--comments-count {
   padding: .5rem;
   font-weight: bold;
+}
+
+.ntt--comments-header .ntt--comments-count .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--comments-header .ntt--comments-count a:hover {
@@ -478,6 +493,11 @@ th {
   text-decoration: underline;
 }
 
+.ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--comment-reply-axn {
   padding: .5rem;
 }
@@ -494,6 +514,11 @@ th {
   text-decoration: underline;
 }
 
+.ntt--comment-reply-axn .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--comments-name {
   display: inline-block;
   padding: .5rem;
@@ -502,6 +527,11 @@ th {
   margin-right: -1rem;
   font-weight: normal;
   font-size: 1.5rem;
+}
+
+.ntt--comments-name .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--modify-comment-axn {
@@ -513,8 +543,18 @@ th {
   display: inline-block;
 }
 
+.ntt--modify-comment-axn .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--comment-composition-name {
   display: inline-block;
+  padding: .5rem;
+}
+
+.ntt--comment-composition-name .ntt--txt {
+  display: block;
   padding: .5rem;
 }
 
@@ -525,6 +565,11 @@ th {
 
 .ntt--cancel-reply-axn a {
   display: inline-block;
+}
+
+.ntt--cancel-reply-axn .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--comments-group {
@@ -557,6 +602,11 @@ th {
 
 .ntt--comment-form label {
   display: inline-block;
+}
+
+.ntt--comment-form label .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--comment-form .form-submit {
@@ -624,7 +674,17 @@ th {
   display: inline-block;
 }
 
+.ntt--log-out-account-axn .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--logged-in-account {
+  padding: .5rem;
+}
+
+.ntt--logged-in-account .ntt--txt {
+  display: block;
   padding: .5rem;
 }
 
@@ -643,10 +703,21 @@ th {
   display: inline-block;
 }
 
+.ntt--comment-published-datetime-label .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--comment-published-date a,
 .ntt--comment-published-time a {
   display: inline-block;
   color: inherit;
+}
+
+.ntt--comment-published-date .ntt--txt,
+.ntt--comment-published-time .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--comment-creation---0 .ntt--comment-full-content {
@@ -670,6 +741,11 @@ th {
 
 .ntt--cm-author-name a {
   display: inline-block;
+}
+
+.ntt--cm-author-name .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--cm-time {
@@ -701,6 +777,13 @@ th {
   padding-right: 1rem;
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.ntt--content > a {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .ntt--content > ul,
@@ -903,8 +986,18 @@ th {
   display: inline-block;
 }
 
+.ntt--entity-name .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entity-description {
   display: inline-block;
+}
+
+.ntt--entity-description .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--entity-view-heading {
@@ -930,6 +1023,11 @@ th {
   display: inline-block;
 }
 
+.ntt--entity-view-name .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entity-view-name .ntt--search-term-txt {
   font-weight: bold;
 }
@@ -940,6 +1038,11 @@ th {
 
 .ntt--entry-count {
   font-weight: bold;
+}
+
+.ntt--entry-count .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--entry-count .ntt--label-txt {
@@ -970,6 +1073,8 @@ th {
 .ntt--entity-secondary-name .ntt--txt,
 .ntt--entity-copyright .ntt--txt,
 .ntt--entity-maker-tag .ntt--txt {
+  display: block;
+  padding: .5rem;
   font-size: 0.875rem;
 }
 
@@ -1029,6 +1134,11 @@ th {
 
 .sub-content-ntt--entry-name a {
   display: inline-block;
+}
+
+.sub-content-ntt--entry-name .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .entry--sub-content-entries-parent .ntt--entry-heading {
@@ -1091,6 +1201,8 @@ th {
 }
 
 .ntt--entry-categories a {
+  display: block;
+  padding: .5rem;
   display: inline-block;
 }
 
@@ -1106,12 +1218,26 @@ th {
   margin-right: -.5rem;
 }
 
+.ntt--entry-published-datetime-label .ntt--txt,
+.ntt--entry-modified-datetime-label .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entry-published-date a,
 .ntt--entry-published-time a,
 .ntt--entry-modified-date a,
 .ntt--entry-modified-time a {
   display: inline-block;
   color: inherit;
+}
+
+.ntt--entry-published-date .ntt--txt,
+.ntt--entry-published-time .ntt--txt,
+.ntt--entry-modified-date .ntt--txt,
+.ntt--entry-modified-time .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--entry-name {
@@ -1125,11 +1251,21 @@ th {
   display: inline-block;
 }
 
+.ntt--entry-name .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entry-subname {
   display: inline-block;
   padding: .5rem;
   margin-top: -1rem;
   font-size: 1.125rem;
+}
+
+.ntt--entry-subname .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--entry-axns {
@@ -1144,8 +1280,18 @@ th {
   display: inline-block;
 }
 
+.ntt--modify-entry-axn .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entry-tags li {
   display: inline-block;
+  padding: .5rem;
+}
+
+.ntt--entry-tags a {
+  display: block;
   padding: .5rem;
 }
 
@@ -1154,6 +1300,11 @@ th {
   vertical-align: middle;
   padding: .5rem;
   font-weight: bold;
+}
+
+.ntt--entry-tags-name .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--entry-tags-group {
@@ -1202,6 +1353,11 @@ th {
   margin-top: 1em;
 }
 
+.ntt--entry-published-date .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .entry-heading {
   flex: 1 100%;
 }
@@ -1243,6 +1399,11 @@ th {
   display: inline-block;
 }
 
+.ntt--show-more-axn .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entry-author {
   display: inline-flex;
   flex-wrap: wrap;
@@ -1252,6 +1413,16 @@ th {
 
 .ntt--entry-author-label {
   display: inline-block;
+}
+
+.ntt--entry-author-label .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
+.ntt--entry-author-name .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .post-password-form label input {
@@ -1286,9 +1457,18 @@ th {
   display: inline-block;
 }
 
+.post-navigation .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entry-breadcrumbs-nav {
   flex: 1 100%;
   padding: .5rem;
+}
+
+.ntt--entry .ntt--entry .ntt--entry-breadcrumbs-nav {
+  display: none;
 }
 
 .ntt--entry-breadcrumbs-nav-group {
@@ -1324,6 +1504,11 @@ th {
   display: inline-block;
 }
 
+.ntt--entry-breadcrumbs-navi .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entry-breadcrumbs-nav--single-navi--js .ntt--entry-breadcrumbs-navi---current {
   display: none;
 }
@@ -1336,7 +1521,7 @@ th {
   margin-right: 0;
 }
 
-.ntt--entry-breadcrumbs-nav--single-navi--js .ntt--entry-breadcrumbs-navi a {
+.ntt--entry-breadcrumbs-navi a {
   font-weight: bold;
   font-size: var(--text---l);
   color: var(--color--hexetidine-peach);
@@ -1362,6 +1547,12 @@ th {
   display: inline-block;
 }
 
+.ntt--entries-nav li .ntt--txt,
+.ntt--entry-subcontent-nav li .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entries-nav .current,
 .ntt--entry-subcontent-nav .current {
   font-weight: bold;
@@ -1369,6 +1560,11 @@ th {
 
 .ntt--entries-page-indicator {
   display: inline-block;
+  padding: .5rem;
+}
+
+.ntt--entries-page-indicator .ntt--txt {
+  display: block;
   padding: .5rem;
 }
 
@@ -1611,6 +1807,13 @@ th {
   padding: .5rem;
 }
 
+.ntt--entity-primary-nav li .ntt--txt,
+.ntt--entity-secondary-nav li .ntt--txt,
+.ntt--widget_nav_menu li .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entity-primary-nav a,
 .ntt--entity-secondary-nav a,
 .ntt--widget_nav_menu a {
@@ -1630,6 +1833,11 @@ th {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.ntt--widget_nav_menu a {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js {
@@ -1787,6 +1995,11 @@ th {
   text-decoration: underline;
 }
 
+.ntt--entry-nav .ntt--txt {
+  display: block;
+  padding: .5rem;
+}
+
 .ntt--entry-nav .ntt--img {
   display: inline-block;
 }
@@ -1805,6 +2018,11 @@ th {
 
 .ntt--entry-content-nav a {
   display: inline-block;
+}
+
+.ntt--entry-content-nav .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--entry-content-nav ul {
@@ -1840,6 +2058,11 @@ th {
 
 .ntt--comments-navi a {
   display: inline-block;
+}
+
+.ntt--comments-navi .ntt--txt {
+  display: block;
+  padding: .5rem;
 }
 
 .ntt--next-comments-navi {

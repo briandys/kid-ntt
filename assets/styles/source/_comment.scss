@@ -13,7 +13,7 @@
     font-weight: bold;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -24,7 +24,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -41,14 +41,14 @@
     display: inline-block;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
 .ntt--comment-author-name {
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -70,7 +70,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -89,7 +89,7 @@
         font-weight: bold;
 
         .ntt--txt {
-            @extend %block-pad;
+           @include block-pad;
         }
 
         a {
@@ -127,7 +127,7 @@
         }
 
         .ntt--txt {
-            @extend %block-pad;
+           @include block-pad;
         }
     }
 }
@@ -148,7 +148,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -161,7 +161,7 @@
     font-size: $text---xl;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -174,7 +174,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -183,7 +183,7 @@
     @include space-around;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
     
 }
@@ -197,7 +197,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -237,7 +237,7 @@
         display: inline-block;
 
         .ntt--txt {
-            @extend %block-pad;
+           @include block-pad;
         }
     }
 
@@ -306,7 +306,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -314,7 +314,7 @@
     @include space-around;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -345,7 +345,7 @@
     display: inline-block;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -358,7 +358,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 

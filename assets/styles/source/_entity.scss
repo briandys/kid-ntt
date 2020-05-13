@@ -84,7 +84,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -92,7 +92,7 @@
     display: inline-block;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -123,7 +123,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 
     .ntt--search-term-txt {
@@ -142,7 +142,7 @@
     font-weight: bold;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 
     .ntt--label-txt {
@@ -182,7 +182,7 @@
     display: inline-block;
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
         font-size: $text---s;
     }
 }

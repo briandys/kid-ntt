@@ -16,6 +16,8 @@ function ntt__kid_ntt__wp_shortcode__initialization() {
         'ntt__kid_ntt__wp_shortcode__nav_menu'            => 'ntt_menu',
         'ntt__kid_ntt__wp_shortcode__random_number'       => 'ntt_rand',
         'ntt__kid_ntt__wp_shortcode__email_anti_spambots' => 'ntt_email',
+        'applicator_htmlok_shortcode'                     => 'applicator_htmlok_cp',
+        'applicator_tag_shortcode'                        => 'applicator_tag',
     );
     
     foreach ( $r_wp_shortcodes as $func => $wp_shortcode ) {
@@ -194,3 +196,77 @@ add_shortcode( 'email', 'ntt__kid_ntt__wp_shortcode__email_anti_spambots' );
  * Enable the Text Widget and Custom HTML Widget to run WP Shortcodes
  */
 add_filter( 'widget_text', 'do_shortcode' );
+
+// ------------------------------------ Applicator HTML_OK Shortcode
+// [applicator_htmlok_cp name="Name"]Content[/applicator_htmlok_cp]
+// https://developer.wordpress.org/plugins/shortcodes/shortcodes-with-parameters/#complete-example
+
+function applicator_htmlok_shortcode( $atts = [], $content = null, $tag = '' )
+{
+    $atts = array_change_key_case( ( array ) $atts, CASE_LOWER );
+ 
+    $htmlok_atts = shortcode_atts( [
+        'name' => 'HTML_OK',
+    ], $atts, $tag );
+ 
+    $o = '';
+ 
+    $o .= '<div id="'. sanitize_title( $htmlok_atts['name'] ). '" class="cp'. ' '. sanitize_title( $htmlok_atts['name'] ). ' '. 'applicator-html-ok-shortcode'. '" data-name="'. esc_html( $htmlok_atts['name'] ). ' CP">';
+        $o .= '<div class="cr'. ' '. sanitize_title( $htmlok_atts['name'] ). '---cr">';
+            $o .= '<div class="h">' . esc_html__( $htmlok_atts['name'], 'applicator' ). '</div>';
+            $o .= '<div class="ct'. ' '. sanitize_title( $htmlok_atts['name'] ). '---ct">';
+
+            if ( ! is_null( $content ) )
+            {
+                $o .= do_shortcode( $content );
+            }
+
+            $o .= '</div>';
+        $o .= '</div>';
+    $o .= '</div>';
+ 
+    return $o;
+}
+
+/**
+ *
+ * Applicator Tag Shortcode
+ *
+ * Usage: [applicator_tag "[tag]"]
+ *
+ * @package WordPress\Applicator\Plugin\Function\Shortcode
+ *
+ * @version 1.0.0
+ *
+ */
+function applicator_tag_shortcode( $atts )
+{
+    extract( shortcode_atts( array(
+        'post_id' => NULL,
+    ), $atts ) );
+    
+    if ( !isset( $atts[0] ) )
+    {
+        return;
+    }
+    
+    $field = esc_attr( $atts[0] );
+    
+    $tag = get_term_by( 'slug', $field, 'post_tag' );
+    
+    $tag_display = '';
+    
+    if ( $tag )
+    {
+        $tag_id = $tag->term_id;
+        $tag_link = get_tag_link( $tag_id );
+        
+        $tag_display = '<a class="tag" href="'. $tag_link. '">'. $field. '</a>';
+    }
+    else
+    {
+        $tag_display = '<span class="untagged">'. $field. '</span>';
+    }
+    
+    return $tag_display;
+}

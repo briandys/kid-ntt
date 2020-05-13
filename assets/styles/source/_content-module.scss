@@ -23,7 +23,7 @@
     }
 
     .ntt--txt {
-        @extend %block-pad;
+       @include block-pad;
     }
 }
 
@@ -67,6 +67,11 @@
     > * {
         @include x-padding(1rem);
         @include y-margin(1em);
+    }
+
+    > a {
+        @include x-margin(1rem);
+        @include x-padding();
     }
 
     > ul,

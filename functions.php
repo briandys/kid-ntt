@@ -18,7 +18,8 @@ $GLOBALS['ntt__gvar__kid_ntt__snap__name_prefix'] = 'ntt--kid-ntt--snap--';
  */
 
 $r_classes = array(
-    'class-svg-icons',
+    'class-svg-icons',    
+    'page-templater',
 );
 
 foreach ( $r_classes as $class ) {
@@ -41,8 +42,8 @@ $r_functions = array(
     'entry-css',
     'comments-css',
 
-    'snaps', // Like WP Child Themes
-    'features', // Like WP Plugins
+    'snaps', // Similar to WP Child Themes
+    'features', // Similar to  WP Plugins
 );
 
 foreach ( $r_functions as $function ) {
@@ -108,19 +109,20 @@ add_filter( 'ntt__wp_filter__cm_datetime_month', function() {
 } );
 
 /**
- * Sub-pages
+* Page Template: Sub-Pages
  */
 function ntt__kid_ntt__function__sub_pages() {
     
     if ( is_page_template( 'templates/sub-pages.php' ) ) {   
+        
         global $post;
-        $parent = $post->ID;
         $args = array(
-            'post_type'     => 'page',
-            'post_status'   => 'publish',
-            'post_parent'   => $parent,
-            'orderby'       => 'menu_order',
-            'order'         => 'ASC'
+            'post_type'         => 'page',
+            'post_status'       => 'publish',
+            'post_parent'       => $post->ID,
+            'orderby'           => 'menu_order',
+            'order'             => 'ASC',
+            'posts_per_page'    => -1,
         );
 
         $the_query = new WP_Query( $args );

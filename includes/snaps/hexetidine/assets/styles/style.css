@@ -168,9 +168,9 @@
 }
 
 .ntt--site-id--briandys-com--view.ntt--page--about--view.ntt--js .ntt--go-start-nav {
+  display: block;
   position: static;
   transform: none;
-  visibility: visible;
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -632,6 +632,11 @@ textarea {
 
 .ntt--content > blockquote cite em {
   font-style: normal;
+}
+
+.ntt--content > figure {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .ntt--content hr {
