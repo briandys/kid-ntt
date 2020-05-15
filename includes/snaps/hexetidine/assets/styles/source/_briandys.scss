@@ -59,7 +59,10 @@
         }
 
         .ntt--entry-name {
-            color: var(--color--hexetidine-peach);
+
+            a {
+                color: var(--color--hexetidine-peach);
+            }
         }
 
         .ntt--entry-subname {

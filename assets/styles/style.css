@@ -1049,6 +1049,10 @@ th {
   display: none;
 }
 
+.ntt--entity-main {
+  padding-bottom: 6.5rem;
+}
+
 .ntt--entity-banner-visuals---1--view .ntt--entity-banner-visuals {
   margin-bottom: 2em;
 }

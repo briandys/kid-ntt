@@ -61,6 +61,12 @@ $feature_slugs = ntt__kid_ntt__features__slugs();
 // Check WP Customizer which features are enabled
 $features_customizer = get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' );
 
+if ( $features_customizer == '' ) {
+    $features_customizer = array();
+} else {
+    $features_customizer = get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' );
+}
+
 // Check Snaps which features are enabled
 $features_snaps_settings = ntt__kid_ntt__snaps__features();
 

@@ -50,7 +50,7 @@
   padding-bottom: 0;
 }
 
-.ntt--site-id--briandys-com--view.ntt--page--about--view .ntt--entry-name {
+.ntt--site-id--briandys-com--view.ntt--page--about--view .ntt--entry-name a {
   color: var(--color--hexetidine-peach);
 }
 
@@ -300,6 +300,10 @@ textarea {
   border-bottom: 0.75rem solid var(--color--hexetidine-peach);
 }
 
+.ntt--entity-description---0 .ntt--entity-heading {
+  padding-bottom: 1rem;
+}
+
 .ntt--entity-primary-nav {
   margin: 1rem;
   font-size: var(--entity-primary-nav--font-size);
@@ -372,10 +376,6 @@ textarea {
   margin-right: auto;
   width: 3rem;
   fill: var(--surface-color);
-}
-
-.ntt--entity-main {
-  padding-bottom: 6.5rem;
 }
 
 .ntt--entity-main-header {

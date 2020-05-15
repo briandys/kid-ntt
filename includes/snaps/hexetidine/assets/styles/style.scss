@@ -151,8 +151,11 @@ textarea {
 .ntt--entity-heading {
     margin: 1rem;
     padding: 0;
-
     border-bottom: .75rem solid var(--color--hexetidine-peach);
+
+    .ntt--entity-description---0 & {
+        padding-bottom: 1rem;
+    }
 }
 
 .ntt--entity-primary-nav {
@@ -232,10 +235,6 @@ textarea {
 //--------------------------------------------------------------
 // Entity
 //--------------------------------------------------------------
-
-.ntt--entity-main {
-    padding-bottom: 6.5rem;
-}
 
 .ntt--entity-main-header {
     margin: 1rem;
