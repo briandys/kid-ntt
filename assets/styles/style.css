@@ -1587,6 +1587,8 @@ th {
   align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .ntt--js .ntt--entries-nav .navigation,

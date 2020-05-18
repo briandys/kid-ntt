@@ -265,6 +265,12 @@ textarea {
     }
 }
 
+.ntt--entry-archive-description {
+    flex: 1 100%;
+    font-weight: bold;
+    color: var(--color--hexetidine-gray);
+}
+
 // Blinders while loading
 .ntt--js {
 
@@ -295,6 +301,7 @@ textarea {
     }
 
     &.ntt--dom---unloaded--js {
+        overflow: hidden;
 
         .ntt--entity {
 
@@ -368,25 +375,8 @@ textarea {
     }
 }
 
-.ntt--entry-tags {
-    @include x-margin(1rem);
-}
-
 .ntt--entry-tags-name {
     position: relative;
-    margin-left: -1rem;
-    padding-left: 1.5rem;
-
-    // Visuals: Bar
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 1rem;
-        height: 100%;
-        background-color: var(--color--hexetidine-gray---alpha-s);
-    }
 }
 
 .ntt--entry-tags-group {
@@ -559,6 +549,10 @@ textarea {
         @include x-padding();
     }
 
+    > .ntt--img-paragraph--js {
+        @include x-padding();
+    }
+
     hr {
         @extend %cf;
         margin: 2em auto;
@@ -606,6 +600,13 @@ textarea {
         &::after {
             padding-top: 1em;
         }
+    }
+}
+
+.ntt--img-anchor--js {
+
+    img {
+        width: 100%;
     }
 }
 

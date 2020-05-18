@@ -102,7 +102,7 @@ function ntt__kid_ntt__snaps__hexetidine_ntt__function__icons() {
 function ntt__kid_ntt__snaps__hexetidine_ntt__function__search_query( $query ) {
     
     if ( ! is_admin() && $query->is_main_query() && is_search() ) {
-        $query->set( 'post_type', 'page' );
+        $query->set( 'post_type', 'post' );
         $query->set( 'category__not_in', get_cat_ID ( 'The Ride' ) );
     }
     

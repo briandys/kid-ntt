@@ -35,17 +35,24 @@ function ntt__kid_ntt__features__instafeed__entry_validation() {
  * Checks if the feature is in Snaps functions.php or WP Customizer
  */
 function ntt__kid_ntt__features__instafeed__entity_validation() {
+
+    $features_customizer = get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' );
+
+    if ( $features_customizer == '' ) {
+        $features_customizer = array();
+    } else {
+        $features_customizer = get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' );
+    }
     
-    $theme_mod = get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' );
     $snaps_feature_settings = ntt__kid_ntt__snaps__features();
 
-    if ( $theme_mod || $snaps_feature_settings ) {
+    if ( $features_customizer || $snaps_feature_settings ) {
 
         $feature_array = array(
             ntt__kid_ntt__features__get_data( 'instafeed' )['Slug'],
         );
     
-        if (  array_intersect( $theme_mod, $feature_array ) || array_intersect( $snaps_feature_settings, $feature_array ) ) {
+        if (  array_intersect( $features_customizer, $feature_array ) || array_intersect( $snaps_feature_settings, $feature_array ) ) {
             return true;
         }
     }    

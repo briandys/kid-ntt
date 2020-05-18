@@ -410,6 +410,12 @@ textarea {
   text-align: center;
 }
 
+.ntt--entry-archive-description {
+  flex: 1 100%;
+  font-weight: bold;
+  color: var(--color--hexetidine-gray);
+}
+
 .ntt--js .ntt--entity {
   position: relative;
 }
@@ -433,6 +439,10 @@ textarea {
 
 .ntt--js .ntt--entity::after {
   bottom: 0;
+}
+
+.ntt--js.ntt--dom---unloaded--js {
+  overflow: hidden;
 }
 
 .ntt--js.ntt--dom---unloaded--js .ntt--entity::before, .ntt--js.ntt--dom---unloaded--js .ntt--entity::after {
@@ -471,25 +481,8 @@ textarea {
   margin-right: .25em;
 }
 
-.ntt--entry-tags {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
 .ntt--entry-tags-name {
   position: relative;
-  margin-left: -1rem;
-  padding-left: 1.5rem;
-}
-
-.ntt--entry-tags-name::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1rem;
-  height: 100%;
-  background-color: var(--color--hexetidine-gray---alpha-s);
 }
 
 .ntt--entry-tags-group {
@@ -639,6 +632,11 @@ textarea {
   padding-right: 0;
 }
 
+.ntt--content > .ntt--img-paragraph--js {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .ntt--content hr {
   margin: 2em auto;
   padding-left: 0;
@@ -681,6 +679,10 @@ textarea {
 
 .ntt--content p.has-drop-cap:not(:focus)::after {
   padding-top: 1em;
+}
+
+.ntt--img-anchor--js img {
+  width: 100%;
 }
 
 .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage].ntt--view-height---short--js::before, .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage].ntt--view-height---short--js::after {

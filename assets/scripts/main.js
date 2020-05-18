@@ -1002,6 +1002,10 @@
                 if ( el.closest( 'a' ) ) {
                     el.closest( 'a' ).classList.add( 'ntt--img-anchor--js' );
                 }
+
+                if ( el.closest( 'p' ) ) {
+                    el.closest( 'p' ).classList.add( 'ntt--img-paragraph--js' );
+                }
             } );
         }
     }; // kidNtt.imageAnchor
