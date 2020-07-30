@@ -1242,6 +1242,53 @@ textarea {
   display: none;
 }
 
+.ntt--multiple-exposure-images {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 1600px;
+  max-height: 900px;
+  overflow: hidden;
+}
+
+.ntt--multiple-exposure-images img:not(:last-of-type) {
+  position: absolute;
+  mix-blend-mode: multiply;
+  opacity: .75;
+}
+
+.ntt--juxtaposed-images {
+  display: flex;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ntt--juxtaposed-images img {
+  width: 60%;
+}
+
+.ntt--juxtaposed-images img:not(:last-of-type) {
+  position: absolute;
+  mix-blend-mode: multiply;
+  right: 0;
+}
+
+.ntt--widget_custom_html .textwidget > *:first-child {
+  margin-top: 0;
+}
+
+.ntt--widget_custom_html .textwidget > *:last-child {
+  margin-bottom: 0;
+}
+
+.ntt--widget_custom_html .textwidget > *.wp-block-image {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 @media only screen and (min-width: 768px) {
   body {
     --view-border-width: 1rem;
@@ -1254,10 +1301,6 @@ textarea {
   .ntt--content > blockquote::before {
     left: 0;
     transform: translate(-2rem, -3rem);
-  }
-  .ntt--content > .ntt--emoji-txt {
-    font-size: 3em;
-    text-align: left;
   }
   .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage]::before, .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage]::after {
     height: 1rem;

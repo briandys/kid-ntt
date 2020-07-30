@@ -840,6 +840,65 @@ textarea {
     }
 }
 
+.ntt--multiple-exposure-images {
+    position: relative;
+    @include x-padding();
+    max-width: 1600px;
+    max-height: 900px;
+    overflow: hidden;
+
+    img:not(:last-of-type) {
+        position: absolute;
+        mix-blend-mode: multiply;
+        opacity: .75;
+    }
+}
+
+.ntt--juxtaposed-images {
+    display: flex;
+    position: relative;
+    @include x-padding();
+    max-width: 100%;
+    overflow: hidden;
+
+    img {
+        width: 60%;
+
+        &:not(:last-of-type) {
+            position: absolute;
+            mix-blend-mode: multiply;
+            right: 0;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Widgets
+//--------------------------------------------------------------
+
+.ntt--widget_custom_html {
+
+    .textwidget {
+
+        > * {
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &.wp-block-image {
+                @include x-margin();
+            }
+        }
+
+    }
+
+}
+
 //--------------------------------------------------------------
 // Media Query: Tablet
 //--------------------------------------------------------------
@@ -860,11 +919,6 @@ textarea {
                 left: 0;
                 transform: translate(-2rem, -3rem);
             }
-        }
-
-        > .ntt--emoji-txt {
-            font-size: 3em;
-            text-align: left;
         }
     }
 

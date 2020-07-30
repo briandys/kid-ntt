@@ -109,3 +109,10 @@ function ntt__kid_ntt__snaps__hexetidine_ntt__function__search_query( $query ) {
     return $query;
 }
 add_filter( 'pre_get_posts','ntt__kid_ntt__snaps__hexetidine_ntt__function__search_query' );
+
+/**
+ * Comment Label Text
+ */
+add_filter( 'ntt__wp_filter__comment_label_text', function() {
+    return __( 'What are your thoughts?', 'ntt' );
+} );
