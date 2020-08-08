@@ -185,7 +185,7 @@
     display: inline-block;
     @include space-around;
     margin-top: -1rem;
-    font-size: $text---l;
+    font-size: $text---xl;
 
     .ntt--txt {
        @include block-pad;

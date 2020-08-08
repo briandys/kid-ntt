@@ -42,6 +42,7 @@ function ntt__kid_ntt__snaps__styles_scripts() {
         'three'     => __( 'The power is in the collective.', 'ntt' ),
         'four'      => __( 'Someone will notice your fire whether it is too bright or too dim only after you start a fire.', 'ntt' ),
         'five'      => ntt__kid_ntt__function__get_theme_svg( 'wink', 'hexetidine' ),
+        'six'       => __( 'Reach out to find out.', 'ntt' ),
         'backTxt'   => __( 'Back', 'ntt' ),
     );
 

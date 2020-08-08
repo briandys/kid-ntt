@@ -14,6 +14,7 @@ kidNttHexetidine.displayRandomQuote = {
             nttKidNttHexetidineData.three,
             nttKidNttHexetidineData.four,
             nttKidNttHexetidineData.five,
+            nttKidNttHexetidineData.six,
         ];
         
         var num = Math.floor( Math.random() * ( nttDataArray.length ) );
