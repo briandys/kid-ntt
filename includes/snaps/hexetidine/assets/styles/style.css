@@ -181,6 +181,57 @@
   display: inline-flex;
 }
 
+.ntt--rec-nav {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.ntt--rec-nav .ntt--nav-group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.ntt--rec-nav .ntt--nav-group > * {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 1rem;
+  margin: .5rem;
+  border-radius: .125rem;
+  background-color: var(--surface-color);
+  border: 0.125rem solid var(--accent-color);
+}
+
+.ntt--rec-nav .ntt--nav-group a {
+  padding: .5rem;
+}
+
+.ntt--rec-nav .ntt--nav-group ul {
+  display: flex;
+}
+
+.ntt--rec-nav .ntt--nav-group ul li {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.ntt--rec-nav .ntt--label {
+  font-size: var(--text---s);
+}
+
+.ntt--rec-nav .ntt--round-txt {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .ntt--rec-nav .ntt--nav-group {
+    display: flex;
+  }
+}
+
 :root {
   --color--hexetidine-sky-blue: #00A2FF;
   --color--hexetidine-sky-blue---alpha-s: hsla(202, 100%, 50%, .25);

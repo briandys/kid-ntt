@@ -193,3 +193,63 @@
         }
     }
 }
+
+//--------------------------------------------------------------
+// RE:C Navigation
+//--------------------------------------------------------------
+
+.ntt--rec-nav {
+    @include x-padding(.5rem);
+
+    .ntt--nav-group {
+        @include unlist;
+        white-space: nowrap;
+    
+        > * {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: .5rem 1rem;
+            margin: .5rem;
+            border-radius: .125rem;
+            background-color: var(--surface-color);
+            border: 0.125rem solid var(--accent-color);
+        }
+
+        a {
+            padding: .5rem;
+        }
+
+        ul {
+            display: flex;
+
+            li {
+                @include x-padding(.5rem);
+            }
+        }
+    }
+
+    .ntt--label {        
+        font-size: var(--text---s);
+    }
+
+    .ntt--round-txt {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Media Query: Laptop
+//--------------------------------------------------------------
+
+@include mq($laptop-viewport-width) {
+
+    .ntt--rec-nav {
+    
+        .ntt--nav-group {
+            display: flex;
+        }
+    }
+
+}
