@@ -195,11 +195,29 @@
 }
 
 //--------------------------------------------------------------
-// RE:C Navigation
+// RE:Creation
 //--------------------------------------------------------------
+
+.category-rec {
+
+    .ntt--entry-primary-meta {
+        display: none;
+    }
+
+    .ntt--entry-index--view & {
+
+        .ntt--rec-nav {
+            display: none;
+        }
+    }
+}
 
 .ntt--rec-nav {
     @include x-padding(.5rem);
+
+    .ntt--nav-name {
+        display: block;
+    }
 
     .ntt--nav-group {
         @include unlist;

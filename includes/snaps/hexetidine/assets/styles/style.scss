@@ -1,4 +1,5 @@
 @import '../../../../../assets/styles/source/rules';
+@import 'source/jetpack';
 @import 'source/briandys';
 
 $hexetidine-sky-blue: #00A2FF;
@@ -518,6 +519,15 @@ textarea {
         }
     }
 
+    > ul,
+    > ol {
+
+        li {
+            @include y-margin(.5em);
+        }
+    }
+
+
     > blockquote {
         position: relative;
         margin: 2em 0;
@@ -714,6 +724,14 @@ textarea {
     font-weight: bold;
 }
 
+/* Visible when comment-reply.js is not in use */
+.ntt--comment-reply-reference {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-weight: bold;
+}
+
 .ntt--comment-form {
 
     .form-submit {
@@ -738,10 +756,6 @@ textarea {
 
 .ntt--cancel-reply-axn {
     margin-top: 1rem;
-}
-
-.ntt--comment-meta {
-    align-items: normal;
 }
 
 .ntt--comment-author {
@@ -900,6 +914,193 @@ textarea {
 }
 
 //--------------------------------------------------------------
+// Jetpack
+//--------------------------------------------------------------
+
+.ntt--widget_blog_subscription {
+    @include x-margin(1rem);
+    background-color: var(--color--hexetidine-gray---alpha-s);
+    border-radius: var(--element-corner-radius);
+
+    .ntt--widget-name {
+        @include y-padding();
+        font-size: var(--text---xl);
+    }
+
+    form {
+        display: grid;
+            grid-template:
+                'text .'
+                'count .'
+                'input button'
+                / 1fr auto;
+    }
+    
+    #subscribe-text {
+        grid-column: text / -1;
+    }
+
+    .jetpack-subscribe-count {
+        grid-column: count / -1;
+    }
+
+    #subscribe-email {
+
+        input {
+            width: 100%;
+        }
+    }
+
+    input[type="email"] {
+        border: .25rem solid var(--color--hexetidine-gray);
+        border-right: 0;
+    }
+
+    button {
+        min-height: 3rem;
+    }
+}
+
+.ntt {
+
+    #jp-relatedposts {
+        @include y-margin(2rem);
+        @include x-padding();
+    
+        h3.jp-relatedposts-headline {
+            float: none;
+            @include x-padding(1rem);
+            font-size: 1em;
+    
+            em:before {
+                border-top: .25rem solid var(--color--hexetidine-gray);
+            }
+        }
+    
+        .jp-relatedposts-items {
+            clear: none;
+            
+            p {
+                font-size: inherit;
+                line-height: inherit;
+            }
+
+            .jp-relatedposts-post {
+                display: grid;
+                grid-template:
+                    'image'
+                    'context'
+                    'title'
+                    'date'
+                    'excerpt';
+                float: none;
+                margin: 0;
+                margin-bottom: 2em;
+                padding: 1rem;
+                width: auto;
+
+                &:hover {
+                    
+                    .jp-relatedposts-post-title a {
+                        text-decoration: none;
+                    }
+                }
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                > .jp-relatedposts-post-a {
+                    grid-area: image;
+                    margin-bottom: 1.5em;
+
+                    /* Aspect Ratio */
+                    position: relative;
+                    padding: 0;
+                    overflow: hidden;
+
+                    /* Aspect Ratio */
+                    &::before {
+                        content: "";
+                        display: block;
+                        padding-top: calc((9 / 16) * 100%);
+                        width: 100%;
+                    }
+
+                    /* Aspect Ratio */
+                    img {
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transform: scale(1.5);
+                    }
+                }
+
+                .jp-relatedposts-post-title {
+                    grid-area: title;
+                }
+                
+                .jp-relatedposts-post-date {
+                    grid-area: date;
+                    margin-top: .5em;
+                    font-size: var(--text---xs);
+                    opacity: 1;
+                }
+                
+                .jp-relatedposts-post-excerpt {
+                    grid-area: excerpt;
+                    @include y-margin(1em, 0);
+                }
+
+                .jp-relatedposts-post-context {
+                    grid-area: context;
+                    opacity: 1;
+                    font-size: var(--text---xs);
+                    font-weight: bold;
+                    color: var(--color--hexetidine-peach);
+                }
+            }
+        }
+    
+        .jp-relatedposts-items-visual {
+            margin-right: 0;
+
+            h4.jp-relatedposts-post-title {
+                font-size: 1.125em;
+                line-height: inherit;
+
+                a { 
+                    font-weight: bold;
+                }
+            }
+
+            .jp-relatedposts-post {
+                opacity: 1;
+            }
+
+            .jp-relatedposts-post-nothumbs {
+                
+                a.jp-relatedposts-post-aoverlay {
+                    display: none;
+                }
+            }
+
+            div.jp-relatedposts-post-thumbs {
+                
+                p.jp-relatedposts-post-excerpt {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
 // Media Query: Tablet
 //--------------------------------------------------------------
 
@@ -920,6 +1121,14 @@ textarea {
                 transform: translate(-2rem, -3rem);
             }
         }
+    }
+
+    //--------------------------------------------------------------
+    // Jetpack
+    //--------------------------------------------------------------
+
+    .ntt--widget_blog_subscription {
+        @include x-margin(2rem);
     }
 
     //--------------------------------------------------------------
@@ -984,6 +1193,26 @@ textarea {
 
     .ntt--entity-primary-nav {
         @include x-margin(2rem);
+    }
+
+    //--------------------------------------------------------------
+    // Jetpack
+    //--------------------------------------------------------------
+
+    .ntt {
+
+        #jp-relatedposts {
+            
+            .jp-relatedposts-items {
+                display: flex;
+                align-items: flex-start;
+                flex-wrap: wrap;
+
+                .jp-relatedposts-post {
+                    flex: 1 33%;
+                }
+            }
+        }
     }
 }
 

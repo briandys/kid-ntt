@@ -30,7 +30,7 @@ kidNttHexetidine.displayRandomQuote = {
 kidNttHexetidine.backButton = {
 
     init: function() {
-        var aboutPage = document.querySelector( '.ntt--site-id--briandys-com--view.ntt--page--about--view' );        
+        var aboutPage = document.querySelector( '.ntt--site-id--briandys-com--view.ntt--page--about--view' );
         
         if ( aboutPage ) {
             var entryName = aboutPage.querySelector( '.ntt--entry-name' );            
@@ -62,7 +62,22 @@ kidNttHexetidine.currentYear = {
             } );
         }
     }
-}; // kidNttHexetidine.backButton
+}; // kidNttHexetidine.currentYear
+
+kidNttHexetidine.jetpackRelatedPosts = {
+
+    init: function() {
+        var postContext = document.querySelectorAll( '.jp-relatedposts-post-context' );        
+        
+        if ( postContext ) {
+
+            postContext.forEach( function ( el ) {
+                var txt = el.textContent.replace( /In “|”/g, '' );
+                el.textContent = txt;
+            } );
+        }
+    }
+}; // kidNttHexetidine.jetpackRelatedPosts
 
 /**
  * Is the DOM ready?
@@ -87,4 +102,5 @@ nttDomReady( function() {
     kidNttHexetidine.displayRandomQuote.init();
     kidNttHexetidine.backButton.init();
     kidNttHexetidine.currentYear.init();
+    kidNttHexetidine.jetpackRelatedPosts.init();
 } );
