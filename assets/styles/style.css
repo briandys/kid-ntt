@@ -622,11 +622,23 @@ th {
   padding: .5rem;
 }
 
+.ntt--comment-form .comment-form-cookies-consent,
 .ntt--comment-form .comment-subscription-form {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.ntt--comment-form .comment-form-cookies-consent input,
+.ntt--comment-form .comment-subscription-form input {
+  margin-left: 1rem;
+}
+
+.ntt--comment-form .comment-form-cookies-consent label,
+.ntt--comment-form .comment-subscription-form label {
+  padding: 1rem;
 }
 
 .ntt--comment-form .ntt--form-field {
@@ -639,20 +651,6 @@ th {
 
 .ntt--submit-comment-axn {
   margin: 1rem;
-}
-
-.comment-form-cookies-consent {
-  display: inline-flex;
-  align-items: baseline;
-  margin: 1rem 0;
-}
-
-.comment-form-cookies-consent input {
-  margin-left: 1rem;
-}
-
-.comment-form-cookies-consent label {
-  padding: 1rem;
 }
 
 .ntt--account-logged-in-status {
@@ -2652,8 +2650,8 @@ section:target {
     position: absolute;
     right: 0;
     bottom: 0;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
   }
   .ntt--user---admin .ntt--comment-form .form-submit input[type="submit"] {
     margin: 0;

@@ -254,9 +254,20 @@
         padding: .5rem;
     }
 
+    .comment-form-cookies-consent,
     .comment-subscription-form {
-        @include x-padding(1rem);
-        @include y-margin(1rem);
+        display: flex;
+        align-items: baseline;
+        margin: 0;
+        @include x-padding(.5rem);
+
+        input {
+            margin-left: 1rem;
+        }
+
+        label {
+            padding: 1rem;
+        }
     }
 
     .ntt--form-field {
@@ -270,20 +281,6 @@
 
 .ntt--submit-comment-axn {
     margin: 1rem;
-}
-
-.comment-form-cookies-consent {
-    display: inline-flex;
-    align-items: baseline;
-    margin: 1rem 0;
-
-    input {
-        margin-left: 1rem;
-    }
-
-    label {
-        padding: 1rem;
-    }
 }
 
 //--------------------------------------------------------------

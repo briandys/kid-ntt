@@ -72,7 +72,7 @@ kidNttHexetidine.jetpackRelatedPosts = {
         if ( postContext ) {
 
             postContext.forEach( function ( el ) {
-                var txt = el.textContent.replace( /In “|”/g, '' );
+                var txt = el.textContent.replace( /In "|"/g, '' );
                 el.textContent = txt;
             } );
         }

@@ -1,5 +1,5 @@
 @import '../../../../../assets/styles/source/rules';
-@import 'source/jetpack';
+//@import 'source/jetpack';
 @import 'source/briandys';
 
 $hexetidine-sky-blue: #00A2FF;
@@ -527,11 +527,9 @@ textarea {
         }
     }
 
-
-    > blockquote {
+    blockquote {
         position: relative;
         margin: 2em 0;
-        text-align: center;
 
         &::before {
             content: '“';
@@ -539,7 +537,7 @@ textarea {
             left: 0;
             top: 0;
             z-index: -1;
-            transform: translate(0, -3.25rem);
+            transform: translate(-2rem, -3.25rem);
             color: $on-surface-color---alpha-m;
             font-size: 6em;
             line-height: 1;
@@ -552,6 +550,19 @@ textarea {
             em {
                 font-style: normal;
             }
+        }
+    }
+
+    > blockquote {
+        text-align: center;
+
+        &::before {
+            left: 50%;
+            transform: translate(-50%, -3.25rem);
+        }
+
+        &:last-child {
+            margin-bottom: 2em;
         }
     }
 
@@ -1038,6 +1049,7 @@ textarea {
                         height: 100%;
                         object-fit: cover;
                         transform: scale(1.5);
+                        object-fit: scale-down;
                     }
                 }
 
@@ -1112,13 +1124,20 @@ textarea {
 
     .ntt--content {
     
-        > blockquote {
+        blockquote {
             @include x-margin(1.5em);
             text-align: left;
 
             &::before {
                 left: 0;
-                transform: translate(-2rem, -3rem);
+                transform: translate(-4rem, -3rem);
+            }
+        }
+
+        > blockquote {
+            
+            &::before {
+                transform: translate(-3rem, -3rem);
             }
         }
     }
