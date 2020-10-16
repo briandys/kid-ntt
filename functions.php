@@ -177,3 +177,30 @@ function ntt__kid_ntt__function__site_icon() {
     }
 }
 add_action( 'wp_head', 'ntt__kid_ntt__function__site_icon' );
+
+/**
+ * Remove Jetpack Related Posts
+ * https://jetpack.com/support/related-posts/customize-related-posts/#delete
+ */
+function ntt__kid_ntt__function__jetpack_remove_rp() {
+    
+    if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+        $jprp = Jetpack_RelatedPosts::init();
+        $callback = array( $jprp, 'filter_add_target_to_dom' );
+ 
+        remove_filter( 'the_content', $callback, 40 );
+    }
+}
+add_action( 'wp', 'ntt__kid_ntt__function__jetpack_remove_rp', 20 );
+
+/**
+ * Add Jetpack Related Posts
+ * https://jetpack.com/support/related-posts/customize-related-posts/#delete
+ */
+function ntt__kid_ntt__function__jetpack_add_rp() {
+    
+    if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+        echo do_shortcode( '[jetpack-related-posts]' );
+    }
+}
+add_action( 'ntt__wp_hook__entry_secondary_meta___after', 'ntt__kid_ntt__function__jetpack_add_rp' );

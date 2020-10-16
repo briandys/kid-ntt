@@ -113,7 +113,7 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
 			while ( $the_query->have_posts() ) {
             
                 global $post;
-				$the_query->the_post();
+                $the_query->the_post();
 
                 $section_mu = '<article class="ntt--percept---'. esc_attr( '%3$s' ). ' '. 'ntt--'. esc_attr( '%3$s' ). ' '. 'ntt--percept ntt--cp" data-source-url="'. esc_url( get_the_permalink() ).'" data-name="NTT Percept">';
                     $section_mu .= '<h2 class="ntt--percept--entry-name ntt--obj" data-name="NTT Percept Entry Name">';
@@ -133,7 +133,7 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
                 return $percept_section;
             }
         }
-        wp_reset_postdata();
+        wp_reset_postdata();        
     }
 }
 
