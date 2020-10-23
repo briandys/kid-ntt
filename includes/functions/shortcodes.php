@@ -115,19 +115,20 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
                 global $post;
                 $the_query->the_post();
 
-                $section_mu = '<article class="ntt--percept---'. esc_attr( '%3$s' ). ' '. 'ntt--'. esc_attr( '%3$s' ). ' '. 'ntt--percept ntt--cp" data-source-url="'. esc_url( get_the_permalink() ).'" data-name="NTT Percept">';
-                    $section_mu .= '<h2 class="ntt--percept--entry-name ntt--obj" data-name="NTT Percept Entry Name">';
+                $section_mu = '<article class="ntt--percept---'. esc_attr( '%3$s' ). ' '. 'ntt--'. esc_attr( '%3$s' ). ' '. 'ntt--percept ntt--'. esc_attr( '%4$s' ). ' '. 'ntt--entry ntt--cp" data-source-url="'. esc_url( get_the_permalink() ).'" data-name="NTT Percept">';
+                    $section_mu .= '<h1 class="ntt--percept--entry-name ntt--entry-name ntt--obj" data-name="NTT Percept Entry Name">';
                         $section_mu .= '<a href="'. esc_url( get_the_permalink() ).'">'. esc_html( '%2$s' ). '</a>';
-                    $section_mu .= '</h2>';
-                    $section_mu .= '<section class="ntt--percept--entry-content ntt--cp" data-name="NTT Percept Entry Content">';
+                    $section_mu .= '</h1>';
+                    $section_mu .= '<div class="ntt--percept--entry-content ntt--entry-content ntt--content ntt--cp" data-name="NTT Percept Entry Content">';
                         $section_mu .= esc_html( '%1$s' );
-                    $section_mu .= '</section>';
+                    $section_mu .= '</div>';
 				$section_mu .= '</article>';
 
                 $percept_section = sprintf( $section_mu,
                     apply_filters( 'the_content', do_shortcode( get_the_content() ) ),
                     get_the_title(),
-                    sanitize_title( $post->post_type ). '--'. sanitize_title( $post->post_name )
+                    sanitize_title( $post->post_type ). '--'. sanitize_title( $post->post_name ),
+                    sanitize_title( $post->post_type )
                 );
                 
                 return $percept_section;

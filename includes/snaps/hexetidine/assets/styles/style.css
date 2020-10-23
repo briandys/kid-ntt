@@ -181,6 +181,68 @@
   display: inline-flex;
 }
 
+.ntt--site-id--briandys-com--view.ntt--page--elsewhere--view .ntt--widget .ntt--page--elsewhere {
+  display: none;
+}
+
+.ntt--site-id--briandys-com--view .ntt--page--elsewhere .ntt--bdcl--social-media {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ntt--site-id--briandys-com--view .ntt--page--elsewhere .ntt--bdcl--social-media li {
+  padding: .5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ntt--site-id--briandys-com--view .ntt--page--elsewhere .ntt--bdcl--social-media li a {
+  display: block;
+  box-shadow: none;
+}
+
+.ntt--site-id--briandys-com--view .ntt--page--elsewhere .ntt--bdcl--social-media li a > * {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.ntt--site-id--briandys-com--view .ntt--page--elsewhere .ntt--bdcl--social-media .icon {
+  width: 6rem;
+  max-height: 6rem;
+}
+
+.ntt--site-id--briandys-com--view .ntt--page--elsewhere .ntt--bdcl--social-media .name {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.ntt--site-id--briandys-com--view .ntt--page--elsewhere .ntt--bdcl--social-media .description {
+  color: gray;
+}
+
+.ntt--site-id--briandys-com--view .ntt--entry-md .ntt--page--elsewhere .ntt--bdcl--social-media li {
+  width: clamp(320px, 25%, 100%);
+}
+
+.ntt--site-id--briandys-com--view .ntt--widget .ntt--page--elsewhere h2 {
+  display: none;
+}
+
+.ntt--site-id--briandys-com--view .ntt--widget .ntt--page--elsewhere .ntt--bdcl--social-media .name,
+.ntt--site-id--briandys-com--view .ntt--widget .ntt--page--elsewhere .ntt--bdcl--social-media .description {
+  display: none;
+}
+
+.ntt--site-id--briandys-com--view .ntt--widget .ntt--page--elsewhere .ntt--bdcl--social-media .icon {
+  width: 3rem;
+  max-height: 3rem;
+}
+
 .category-rec .ntt--entry-primary-meta {
   display: none;
 }
@@ -418,6 +480,12 @@ textarea {
   margin-bottom: 2rem;
 }
 
+.ntt--entity-footer-aside {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .ntt--hexetidine--about-snippet {
   padding: 0;
   padding-bottom: 2rem;
@@ -522,8 +590,8 @@ textarea {
   color: var(--color--hexetidine-peach);
 }
 
-.ntt--entry-name {
-  font-size: var(--text---xxl);
+.ntt--entry-md .ntt--entry-name {
+  font-size: var(--text---xxxl);
 }
 
 .ntt--entry-categories {
@@ -637,10 +705,6 @@ textarea {
   font-size: 0.875em;
 }
 
-.ntt--content {
-  font-size: var(--text---xl);
-}
-
 .ntt--content a {
   transition: all 0.3s ease-in-out;
   transition-property: box-shadow;
@@ -669,6 +733,10 @@ textarea {
 .ntt--content > ol li {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+.ntt--content > ul li::marker {
+  color: var(--color--hexetidine-peach);
 }
 
 .ntt--content blockquote {
@@ -728,16 +796,6 @@ textarea {
   border-top: 0.25rem solid var(--color--hexetidine-gray);
 }
 
-.ntt--content .ntt--entry-content-snippet a {
-  color: var(--on-surface-color);
-  box-shadow: none;
-}
-
-.ntt--content > .ntt--emoji-txt {
-  font-size: 2em;
-  text-align: center;
-}
-
 .ntt--content .wp-block-image {
   padding-left: 0;
   padding-right: 0;
@@ -752,7 +810,11 @@ textarea {
   padding-right: 1rem;
 }
 
-.ntt--content p.has-drop-cap:not(:focus):first-letter {
+.ntt--entry-md .ntt--content {
+  font-size: var(--text---xl);
+}
+
+.ntt--entry-md .ntt--content p.has-drop-cap:not(:focus):first-letter {
   position: relative;
   margin: .25em .1em 0 -.05em;
   font-size: 3.25em;
@@ -760,8 +822,18 @@ textarea {
   line-height: .45;
 }
 
-.ntt--content p.has-drop-cap:not(:focus)::after {
+.ntt--entry-md .ntt--content p.has-drop-cap:not(:focus)::after {
   padding-top: 1em;
+}
+
+.ntt--entry-md .ntt--content > .ntt--emoji-txt {
+  font-size: 2em;
+  text-align: center;
+}
+
+.ntt--entry-md .ntt--content .ntt--entry-content-snippet a {
+  color: var(--on-surface-color);
+  box-shadow: none;
 }
 
 .ntt--img-anchor--js img {
@@ -1574,7 +1646,7 @@ textarea {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
-  .ntt--entity-header-aside .ntt--widget {
+  .ntt--entity-header-aside > .ntt--widget {
     padding-left: 2rem;
     padding-right: 2rem;
   }
@@ -1588,7 +1660,7 @@ textarea {
 }
 
 @media only screen and (min-width: 1024px) {
-  .ntt--entry-name {
+  .ntt--entry-md .ntt--entry-name {
     font-size: var(--text---yl);
   }
   .ntt--entity-primary-nav {

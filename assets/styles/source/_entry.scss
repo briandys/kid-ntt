@@ -12,7 +12,32 @@
 
 .ntt--entry {
     @include y-padding(3rem);
+
+    .ntt--widget & {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        &:first-of-type {
+            padding-top: 0;
+        }
+        
+        &:first-of-type:not(:first-child) {
+            padding-top: 2rem;
+        }
+
+        &:last-of-type {
+            padding-bottom: 0;
+        }
+        
+        &:last-of-type:not(:last-child) {
+            padding-bottom: 2rem;
+        }
+    }
 }
+
+//--------------------------------------------------------------
+// Entry Primary Meta
+//--------------------------------------------------------------
 
 .ntt--entry-primary-meta {
     display: inline-flex;
@@ -167,10 +192,12 @@
 //--------------------------------------------------------------
 
 .ntt--entry-name {
-    flex: 1 100%;
-    @include space-around;
-    margin: 0;
-    font-size: $text---xl;
+
+    .ntt--entry-md & {
+        flex: 1 100%;
+        @include space-around;
+        margin: 0;
+    }
 
     a {
         display: inline-block;

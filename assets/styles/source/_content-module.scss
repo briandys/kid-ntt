@@ -54,7 +54,7 @@
 }
 
 //--------------------------------------------------------------
-// Content
+// Generic Content
 //--------------------------------------------------------------
 
 .ntt--content {
@@ -65,18 +65,12 @@
     }
 
     > * {
-        @include x-padding(1rem);
         @include y-margin(1em);
-    }
-
-    > a {
-        @include x-margin(1rem);
-        @include x-padding();
     }
 
     > ul,
     > ol {
-        padding-left: calc(2.5rem + .5em);
+        padding-left: 2.5rem;
     }
 
     > .ntt--note {
@@ -103,10 +97,10 @@
     }
 
     blockquote {
-        font-size: $text---xxl;
+        font-size: to-em($text---xl);
 
         cite {
-            font-size: $text---l;
+            font-size: clamp($text---m, to-em($text---xxs), $text---xl);
             font-style: normal;
             font-weight: bold;
         }
@@ -123,20 +117,12 @@
         }
     }
 
-    span[id^=more-] {
-        display: none;
-    }
-
     figure {
         @include x-margin();
         
         &[style*="width"] {
             width: auto !important;
         }
-    }
-
-    form {
-        font-size: 1rem;
     }
 
     @at-root .ntt & .alignleft {
@@ -168,6 +154,35 @@
 
     > *:last-child {
         margin-bottom: 0;
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Module-specific Content
+//--------------------------------------------------------------
+
+.ntt--entry-md .ntt--content {
+
+    > * {
+        @include x-padding(1rem);
+    }    
+
+    > a {
+        @include x-margin(1rem);
+        @include x-padding();
+    }
+
+    > ul,
+    > ol {
+        padding-left: 2.5rem;
+    }
+
+    span[id^=more-] {
+        display: none;
+    }
+
+    form {
+        font-size: 1rem;
     }    
 
     iframe[src*="spotify.com/"] {
@@ -176,7 +191,12 @@
     }
 }
 
+//--------------------------------------------------------------
+// <pre> Element
+//--------------------------------------------------------------
+
 .ntt--pre-el-skin--js {
+    display: grid;
     max-width: 100vw;
     overflow: auto;
 
@@ -187,16 +207,16 @@
     }
 }
 
+//--------------------------------------------------------------
+// <table> Element
+//--------------------------------------------------------------
+
 .ntt--table-el-skin--js {
     overflow-x: auto;
 
     table {
         width: 100%;
     }
-}
-
-.ntt--pre-el-skin--js {
-    display: grid;
 }
 
 //--------------------------------------------------------------

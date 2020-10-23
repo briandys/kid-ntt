@@ -205,8 +205,20 @@ textarea {
     }
 }
 
+//--------------------------------------------------------------
+// Entity Header Aside
+//--------------------------------------------------------------
+
 .ntt--entity-header-aside {
     @include y-margin(2rem);
+}
+
+//--------------------------------------------------------------
+// Entity Footer Aside
+//--------------------------------------------------------------
+
+.ntt--entity-footer-aside {
+    @include max-width;
 }
 
 .ntt--hexetidine--about-snippet {
@@ -330,11 +342,11 @@ textarea {
 }
 
 //--------------------------------------------------------------
-// Entry
+// Entry Name
 //--------------------------------------------------------------
 
-.ntt--entry-name {
-    font-size: var(--text---xxl);
+.ntt--entry-md .ntt--entry-name {
+    font-size: var(--text---xxxl);
 }
 
 .ntt--entry-categories {
@@ -490,12 +502,12 @@ textarea {
 }
 
 //--------------------------------------------------------------
-// Content
+// Generic Content
 //--------------------------------------------------------------
 
 .ntt--content {
-    font-size: var(--text---xl);
 
+    // Text Links
     a {
         @include transition;
         transition-property: box-shadow;
@@ -524,6 +536,13 @@ textarea {
 
         li {
             @include y-margin(.5em);
+        }
+    }
+
+    > ul li {
+        
+        &::marker {
+            color: var(--color--hexetidine-peach);
         }
     }
 
@@ -581,19 +600,6 @@ textarea {
         width: 3rem;
         border-top: .25rem solid var(--color--hexetidine-gray);
     }
-
-    .ntt--entry-content-snippet {
-
-        a {
-            color: var(--on-surface-color);
-            box-shadow: none;
-        }
-    }
-
-    > .ntt--emoji-txt {
-        font-size: 2em;
-        text-align: center;
-    }
     
     // Jetpack
     .wp-block-image {
@@ -607,7 +613,16 @@ textarea {
             @include x-padding(1rem);
         }
     }
+}
 
+//--------------------------------------------------------------
+// Entry Module-specific Content
+//--------------------------------------------------------------
+
+.ntt--entry-md .ntt--content {
+    font-size: var(--text---xl);
+
+    // Jetpack Dropcap
     p.has-drop-cap:not(:focus) {
         
         &:first-letter {
@@ -622,7 +637,24 @@ textarea {
             padding-top: 1em;
         }
     }
+
+    > .ntt--emoji-txt {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .ntt--entry-content-snippet {
+
+        a {
+            color: var(--on-surface-color);
+            box-shadow: none;
+        }
+    }
 }
+
+//--------------------------------------------------------------
+// Image Anchor JS
+//--------------------------------------------------------------
 
 .ntt--img-anchor--js {
 
@@ -1181,7 +1213,7 @@ textarea {
 
     .ntt--entity-header-aside {
 
-        .ntt--widget {
+        > .ntt--widget {
             @include x-padding(2rem);
         }
     }
@@ -1206,7 +1238,7 @@ textarea {
 
 @include mq($laptop-viewport-width) {
 
-    .ntt--entry-name {
+    .ntt--entry-md .ntt--entry-name {
         font-size: var(--text---yl);
     }
 

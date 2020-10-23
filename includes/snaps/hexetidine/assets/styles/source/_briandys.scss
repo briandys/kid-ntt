@@ -192,6 +192,94 @@
             }
         }
     }
+
+    //--------------------------------------------------------------
+    // Elsewhere
+    // https://www.briandys.com/elsewhere/
+    //--------------------------------------------------------------
+
+    // Hide Elsewhere widget if it is on the actual page
+    &.ntt--page--elsewhere--view {
+        
+        .ntt--widget {
+            
+            .ntt--page--elsewhere {
+                display: none;
+            }
+        }
+    }
+
+    .ntt--page--elsewhere {
+        
+        .ntt--bdcl--social-media {
+            list-style: none;
+            margin-top: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            li {
+                padding: .5rem;
+                @include y-margin();
+
+                a {
+                    display: block;
+                    box-shadow: none;
+
+                    > * {
+                        display: block;
+                        margin: auto;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .icon {
+                width: 6rem;
+                max-height: 6rem;
+            }
+
+            .name {
+                margin-top: 1em;
+                font-weight: bold;
+            }
+
+            .description {
+                color: gray;
+            }
+        }
+    }
+
+    .ntt--entry-md .ntt--page--elsewhere {
+        
+        .ntt--bdcl--social-media {
+
+            li {
+                width: clamp(320px, 25%, 100%);
+            }
+        }
+    }
+
+    .ntt--widget .ntt--page--elsewhere {
+
+        h2 {
+            display: none;
+        }
+        
+        .ntt--bdcl--social-media {
+            
+            .name,
+            .description {
+                display: none;
+            }
+
+            .icon {
+                width: 3rem;
+                max-height: 3rem;
+            }
+        }
+    }
 }
 
 //--------------------------------------------------------------
