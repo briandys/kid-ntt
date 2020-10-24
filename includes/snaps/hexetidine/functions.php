@@ -43,6 +43,7 @@ function ntt__kid_ntt__snaps__styles_scripts() {
         'four'      => __( 'Someone will notice your fire whether it is too bright or too dim only after you start a fire.', 'ntt' ),
         'five'      => ntt__kid_ntt__function__get_theme_svg( 'wink', 'hexetidine' ),
         'six'       => __( 'Reach out to find out.', 'ntt' ),
+        'seven'     => __( 'Walk your own stride but watch out for falling debris.', 'ntt' ),
         'backTxt'   => __( 'Back', 'ntt' ),
     );
 

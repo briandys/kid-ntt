@@ -1059,7 +1059,7 @@ textarea {
 
                 // Thumbnail
                 > .jp-relatedposts-post-a {
-                    display: none; // Disable
+                    display: none;
                     grid-area: image;
                     margin-bottom: 1.5em;
 
@@ -1096,6 +1096,7 @@ textarea {
                 }
                 
                 .jp-relatedposts-post-date {
+                    display: none;
                     grid-area: date;
                     margin-top: .5em;
                     font-size: var(--text---xs);

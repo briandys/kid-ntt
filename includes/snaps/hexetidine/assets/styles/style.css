@@ -1571,6 +1571,7 @@ textarea {
 }
 
 .ntt #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-date {
+  display: none;
   grid-area: date;
   margin-top: .5em;
   font-size: var(--text---xs);
