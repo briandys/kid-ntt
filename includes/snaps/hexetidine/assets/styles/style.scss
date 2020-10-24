@@ -1004,6 +1004,10 @@ textarea {
     }
 }
 
+//--------------------------------------------------------------
+// Jetpack Related Posts
+//--------------------------------------------------------------
+
 .ntt {
 
     #jp-relatedposts {
@@ -1053,7 +1057,9 @@ textarea {
                     margin-bottom: 0;
                 }
 
+                // Thumbnail
                 > .jp-relatedposts-post-a {
+                    display: none; // Disable
                     grid-area: image;
                     margin-bottom: 1.5em;
 
@@ -1101,8 +1107,10 @@ textarea {
                     @include y-margin(1em, 0);
                 }
 
+                // Entry Category
                 .jp-relatedposts-post-context {
                     grid-area: context;
+                    @include y-margin();
                     opacity: 1;
                     font-size: var(--text---xs);
                     font-weight: bold;
@@ -1114,7 +1122,9 @@ textarea {
         .jp-relatedposts-items-visual {
             margin-right: 0;
 
+            // Entry Name
             h4.jp-relatedposts-post-title {
+                @include y-margin();
                 font-size: 1.125em;
                 line-height: inherit;
 

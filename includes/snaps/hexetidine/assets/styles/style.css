@@ -243,6 +243,10 @@
   max-height: 3rem;
 }
 
+.ntt--site-id--briandys-com--view .ntt--entry-primary-meta {
+  display: none;
+}
+
 .category-rec .ntt--entry-primary-meta {
   display: none;
 }
@@ -1531,6 +1535,7 @@ textarea {
 }
 
 .ntt #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post > .jp-relatedposts-post-a {
+  display: none;
   grid-area: image;
   margin-bottom: 1.5em;
   /* Aspect Ratio */
@@ -1580,6 +1585,8 @@ textarea {
 
 .ntt #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-context {
   grid-area: context;
+  margin-top: 0;
+  margin-bottom: 0;
   opacity: 1;
   font-size: var(--text---xs);
   font-weight: bold;
@@ -1591,6 +1598,8 @@ textarea {
 }
 
 .ntt #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
+  margin-top: 0;
+  margin-bottom: 0;
   font-size: 1.125em;
   line-height: inherit;
 }

@@ -117,3 +117,18 @@ add_filter( 'pre_get_posts','ntt__kid_ntt__snaps__hexetidine_ntt__function__sear
 add_filter( 'ntt__wp_filter__comment_label_text', function() {
     return __( 'What are your thoughts?', 'ntt' );
 } );
+
+/**
+ * Reading Time
+ * https://gist.github.com/mynameispj/3170442
+ */
+/*
+add_action( 'ntt__wp_hook__entry_primary_meta__structure___after', function() {
+    global $post;
+    $content = $post->post_content;
+    $word = str_word_count( strip_tags( $content ) );
+    $m = floor( $word / 200 );
+    $est = '<span class="ntt--num">'. $m. '</span>'. ' '. '<span class="ntt--minute--txt">'. 'minute'. ( $m == 1 ? '': 's' ). '</span>';
+    echo '<span class="ntt--reading-time--txt">'. __( 'Reading time', 'ntt' ). '</span>'. ':'. ' '. '<span class="ntt--reading-time--minutes">'. $est. '</span>';
+} );
+*/
