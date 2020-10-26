@@ -155,6 +155,13 @@
     > *:last-child {
         margin-bottom: 0;
     }
+
+    // Entry inside content
+    // Reset font-size
+    .ntt--entry {
+        font-size: 1rem;
+        font-size: initial;
+    }
 }
 
 //--------------------------------------------------------------
