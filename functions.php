@@ -18,8 +18,7 @@ $GLOBALS['ntt__gvar__kid_ntt__snap__name_prefix'] = 'ntt--kid-ntt--snap--';
  */
 
 $r_classes = array(
-    'class-svg-icons',    
-    'page-templater',
+    'class-svg-icons',
 );
 
 foreach ( $r_classes as $class ) {
@@ -43,7 +42,7 @@ $r_functions = array(
     'comments-css',
 
     'snaps', // Similar to WP Child Themes
-    'features', // Similar to  WP Plugins
+    'features', // Similar to WP Plugins
 );
 
 foreach ( $r_functions as $function ) {

@@ -7,6 +7,11 @@ Author: WPExplorer
 Author URI: http://www.wpexplorer.com/
 */
 
+// Page Templater
+// Use this plugin for when you want to create a page template inside the plugin folder, or any folder for that matter.
+
+// To start, look for this line: "// EDIT THIS"
+
 class NTT_Page_Templater {
 
 	/**
@@ -73,9 +78,9 @@ class NTT_Page_Templater {
 		);
 
 
-		// Add your templates to this array.
+		// EDIT THIS: Add your templates to this array.
 		$this->templates = array(
-			'templates/projects.php' => 'Projects',
+			'projects.php' => 'Projects',
 		);
 			
 	} 

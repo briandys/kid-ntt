@@ -1,6 +1,7 @@
 <?php
-// Template Name: Subject Matter
+// Projects
 // Displays the categories with the same slug as the page name that uses this template
+// Template is declared using page-templater.php
 ?>
 
     <div class="ct main-content---ct">

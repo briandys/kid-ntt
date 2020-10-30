@@ -613,6 +613,25 @@ textarea {
             @include x-padding(1rem);
         }
     }
+
+    //--------------------------------------------------------------
+    // Entry inside content
+    // Possibly by using [ntt_percept]
+    //--------------------------------------------------------------
+    
+    .ntt--entry {
+        
+        .ntt--entry-name {
+            
+            a {
+                box-shadow: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
 }
 
 //--------------------------------------------------------------

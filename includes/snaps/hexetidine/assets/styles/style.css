@@ -247,6 +247,10 @@
   display: none;
 }
 
+.ntt--site-id--briandys-com--view .ntt--content .ntt--page--mentorship-feedback blockquote {
+  font-size: 1em;
+}
+
 .category-rec .ntt--entry-primary-meta {
   display: none;
 }
@@ -812,6 +816,14 @@ textarea {
 .ntt--content .wp-block-image figcaption {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.ntt--content .ntt--entry .ntt--entry-name a {
+  box-shadow: none;
+}
+
+.ntt--content .ntt--entry .ntt--entry-name a:hover {
+  text-decoration: underline;
 }
 
 .ntt--entry-md .ntt--content {
@@ -1571,7 +1583,6 @@ textarea {
 }
 
 .ntt #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post .jp-relatedposts-post-date {
-  display: none;
   grid-area: date;
   margin-top: .5em;
   font-size: var(--text---xs);

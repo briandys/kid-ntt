@@ -288,6 +288,21 @@
     .ntt--entry-primary-meta {
         display: none;
     }
+
+    //--------------------------------------------------------------
+    // Mentorship Feedback
+    // Inside another content
+    //--------------------------------------------------------------
+
+    .ntt--content {
+        
+        .ntt--page--mentorship-feedback {
+
+            blockquote {
+                font-size: 1em;
+            }
+        }
+    }
 }
 
 //--------------------------------------------------------------
