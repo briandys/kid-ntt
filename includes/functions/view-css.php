@@ -50,6 +50,22 @@ function ntt__kid_ntt__function__view__css( $classes ) {
         $classes[] = 'ntt--entity-description---0';
     }
 
+    /**
+     * Page Template
+     */
+
+    if ( get_page_template_slug() ) {
+        $template_slug = get_page_template_slug( $post->ID );
+        $template_slug = preg_replace( '/\.[^.]+$/', '', $template_slug );
+        $template_slug = sanitize_title( $template_slug );
+        
+        $page_template_text = 'ntt--page-template';
+        $view_text = 'view';
+        
+        $classes[] = $page_template_text. '--'. $view_text;
+        $classes[] = $page_template_text. '--'. $template_slug. '--'. $view_text;
+    }
+
     return $classes;
 }
 add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__function__view__css' );
