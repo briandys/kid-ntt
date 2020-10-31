@@ -88,6 +88,7 @@ function ntt__tag__entry_primary_meta__structure() {
 /**
  * Icons
  * classes/class-svg-icons.php
+ * Note: Currently this isn't being used.
  */
 function ntt__kid_ntt__snaps__hexetidine_ntt__function__icons() {
 

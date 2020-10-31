@@ -100,7 +100,7 @@ function nttDomReady( fn ) {
 }
 
 nttDomReady( function() {
-    kidNttHexetidine.displayRandomQuote.init();
+    // kidNttHexetidine.displayRandomQuote.init();
     kidNttHexetidine.backButton.init();
     kidNttHexetidine.currentYear.init();
     kidNttHexetidine.jetpackRelatedPosts.init();
