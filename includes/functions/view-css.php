@@ -52,6 +52,7 @@ function ntt__kid_ntt__function__view__css( $classes ) {
 
     /**
      * Page Template
+     * https://stackoverflow.com/a/2395905
      */
 
     if ( get_page_template_slug() ) {

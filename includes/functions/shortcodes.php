@@ -82,8 +82,8 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
                     $the_query->the_post();
                     $post_id = get_the_id();
                 }
+                wp_reset_postdata();
             }
-            wp_reset_postdata();
         }
 
         if ( $security === 'private' ) {
