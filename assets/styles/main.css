@@ -65,6 +65,9 @@
   --on-surface-color---alpha-s: hsla(0, 0%, 0%, .03125);
   --on-surface-color---alpha-m: hsla(0, 0%, 0%, .125);
   --on-surface-color---alpha-l: hsla(0, 0%, 0%, .25);
+  --on-surface-color---reverse---alpha-m: hsla(0, 100%, 100%, .125);
+  --on-surface-color---reverse---alpha-l: hsla(0, 100%, 100%, .25);
+  --on-surface-color---reverse---alpha-xl: hsla(0, 100%, 100%, .5);
   --accent-color: var(--color--panda-blue);
   --text-link-color: var(--accent-color);
   --element-corner-radius: var(--corner-radius---sm);
@@ -750,15 +753,15 @@ th {
   display: none;
 }
 
-.ntt--entry-content-snippet:empty {
+.ntt--entry-snippet-content:empty {
   display: none;
 }
 
-.ntt--entry-content-snippet a:empty {
+.ntt--entry-snippet-content a:empty {
   display: none;
 }
 
-.ntt--entry-content-snippet a:hover {
+.ntt--entry-snippet-content a:hover {
   text-decoration: none;
 }
 
@@ -1780,7 +1783,7 @@ th {
   content: '';
   position: absolute;
   left: 0;
-  width: 100%;
+  width: calc(100% - 1rem);
   height: 1rem;
   background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
@@ -1858,17 +1861,11 @@ th {
   align-items: center;
 }
 
-.ntt--entity-primary-nav li,
-.ntt--entity-secondary-nav li,
-.ntt--widget_nav_menu li {
-  padding: .5rem;
-}
-
 .ntt--entity-primary-nav li .ntt--txt,
 .ntt--entity-secondary-nav li .ntt--txt,
 .ntt--widget_nav_menu li .ntt--txt {
   display: block;
-  padding: .5rem;
+  padding: 1rem;
 }
 
 .ntt--entity-primary-nav a,
@@ -1909,16 +1906,22 @@ th {
   border: 0;
 }
 
+.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: .0625rem;
+  height: 1rem;
+  background-color: var(--on-surface-color---alpha-m);
+}
+
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:hover {
   cursor: pointer;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:hover ~ .ntt--icon {
   transform: scale(1.25);
-}
-
-.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:checked {
-  transform: rotate(180deg);
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js:checked ~ .ntt--sub-menu--js {
@@ -1941,6 +1944,7 @@ th {
 
 .ntt--nav---sub-menu--js .ntt--sub-menu-ancestor--js {
   position: relative;
+  z-index: 0;
   display: inline-flex;
   align-items: center;
   padding-right: 3rem;
@@ -1954,6 +1958,10 @@ th {
 .ntt--nav---sub-menu--js .ntt--sub-menu-ancestor--js li {
   padding: 0;
   min-width: 100%;
+}
+
+.ntt--nav---sub-menu--js .ntt--sub-menu---active--js {
+  z-index: 1;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu--js {
@@ -2011,6 +2019,7 @@ th {
   display: block;
   visibility: hidden;
   height: 0;
+  border-bottom-width: 0;
 }
 
 .ntt--nav---sub-menu--js.ntt--widget_nav_menu .ntt--sub-menu--js a {

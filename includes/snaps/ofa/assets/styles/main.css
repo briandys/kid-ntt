@@ -724,7 +724,7 @@ body {
   box-shadow: 0;
 }
 
-.ntt--entry-summary-content .ntt--entry-content-snippet a {
+.ntt--entry-summary-content .ntt--entry-snippet-content a {
   box-shadow: none;
 }
 

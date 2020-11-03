@@ -226,12 +226,8 @@ textarea {
   padding-right: 0.75rem;
 }
 
-.ntt--nav---sub-menu--js .ntt--sub-menu--js .ntt--sub-menu-ancestor--js:hover {
-  background-color: #fff0f0;
-}
-
 .ntt--nav---sub-menu--js .ntt--sub-menu--js .ntt--sub-menu-ancestor--js > a:hover {
-  background-color: transparent;
+  background-color: #fff0f0;
 }
 
 .ntt--nav---sub-menu--js .ntt--sub-menu--js .ntt--sub-menu-current-item--js > a .ntt--txt {
@@ -720,7 +716,7 @@ textarea {
   width: auto !important;
 }
 
-.ntt--entry-content-snippet a {
+.ntt--entry-snippet-content a {
   color: #707070;
 }
 

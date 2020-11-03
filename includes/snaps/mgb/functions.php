@@ -19,7 +19,7 @@ foreach ( $r_funcs as $func ) {
  */
 function mgb_ntt_styles_scripts() {
 
-    wp_enqueue_style( $GLOBALS['ntt_snaps_name_slug']. '-ntt-style', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/styles/style.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
+    wp_enqueue_style( $GLOBALS['ntt_snaps_name_slug']. '-ntt-style', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/styles/main.min.css', array( 'ntt-kid-style' ), wp_get_theme()->get( 'Version' ) );
 
     wp_enqueue_script( $GLOBALS['ntt_snaps_name_slug']. '-ntt-instafeed-script', get_stylesheet_directory_uri(). '/includes/snaps/'. $GLOBALS['ntt_snaps_name_slug']. '/assets/scripts/instafeed.min.js', array( 'ntt-script' ), wp_get_theme()->get( 'Version' ), true );
 

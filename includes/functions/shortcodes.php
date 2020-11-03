@@ -29,11 +29,14 @@ add_action( 'init', 'ntt__kid_ntt__wp_shortcode__initialization' );
 /**
  * NTT Percept Shortcode
  * 
- * Display any content using a shortcode
+ * Display content from posts, pages, and custom fields using a shortcode
  *
- * To display a particular entry: [ntt_percept post_id="<post id>"]
- * To display a custom field: [ntt_percept "custom_field_name"]
- * To display a custom field from a particular entry: [ntt_percept post_id="<post id>" "custom_field_name"]
+ * To display a particular post using ID: [ntt_percept post_id="<post ID>"]
+ * To display a particular post using name: [ntt_percept post="<post name>"]
+ * To display a particular page using ID: [ntt_percept page_id="<page ID>"]
+ * To display a particular page using name: [ntt_percept page="<page name>"]
+ * To display a custom field from the current entry: [ntt_percept "custom_field_name"]
+ * To display a custom field from a particular entry: [ntt_percept post_id="<post ID>" "custom_field_name"]
  */
 function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
     
@@ -72,7 +75,7 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
         // If no Post is defined, use the current Post
         if ( $post === null && $post_id === null && $page === null && $page_id === null ) {
             global $post;
-            $post_id = $post->ID;
+            $post_id = $post->ID;        
         // If Post ID or Name is defined, get the ID of that
         } else {
             $the_query = new WP_Query( $args );
@@ -105,8 +108,7 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
             return;
         }
 
-        // References: https://wordpress.org/plugins/insert-pages/
-        
+        // References: https://wordpress.org/plugins/insert-pages/        
         $old_query = $GLOBALS['wp_query'];
         $posts = query_posts( $args );
 

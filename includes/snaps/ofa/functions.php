@@ -41,7 +41,7 @@ function ntt__kid_ntt__snaps__styles_scripts() {
     $path = get_stylesheet_directory_uri(). '/includes/snaps/'. $slug. '/assets';
     $version = $snap['version']. '-'. wp_get_theme()->get( 'Version' );
 
-    wp_enqueue_style( $main_style_id, $path. '/styles/style.min.css', array( 'ntt-style', 'ntt-kid-style' ), $version );
+    wp_enqueue_style( $main_style_id, $path. '/styles/main.min.css', array( 'ntt-style', 'ntt-kid-style' ), $version );
 }
 add_action( 'wp_enqueue_scripts', 'ntt__kid_ntt__snaps__styles_scripts', 0 );
 

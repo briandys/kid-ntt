@@ -340,14 +340,10 @@ textarea {
 
         .ntt--sub-menu-ancestor--js {
 
-            &:hover {
-                background-color: hsl(0, 100%, 97%);
-            }
-
             > a {
 
                 &:hover {
-                    background-color: transparent;
+                    background-color: hsl(0, 100%, 97%);
                 }
             }
         }
@@ -936,7 +932,7 @@ textarea {
     }
 }
 
-.ntt--entry-content-snippet {
+.ntt--entry-snippet-content {
 
     a {
         color: $content-color;

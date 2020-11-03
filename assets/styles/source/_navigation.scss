@@ -335,7 +335,7 @@
         content: '';
         position: absolute;
         left: 0;
-        width: 100%;
+        width: calc(100% - 1rem); // To not overlap the scrollbar
         height: 1rem;
         background: -moz-linear-gradient(top,  hsla(0,0%,100%,1) 0%, hsla(0,0%,100%,0) 100%);
         background: -webkit-linear-gradient(top,  hsla(0,0%,100%,1) 0%,hsla(0,0%,100%,0) 100%);
@@ -428,10 +428,10 @@
     }
 
     li {
-        padding: .5rem;
 
         .ntt--txt {
-           @include block-pad;
+           display: block;
+           padding: 1rem;
         }
     }
 
@@ -477,6 +477,16 @@
         -moz-appearance: none;
         -webkit-appearance: none;
         border: 0;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: .0625rem;
+            height: 1rem;
+            background-color: var(--on-surface-color---alpha-m);
+        }
     
         &:hover {
             cursor: pointer;
@@ -487,8 +497,7 @@
         }
     
         &:checked {
-            transform: rotate(180deg);
-    
+            
             ~ .ntt--sub-menu--js {
                 display: block;
             }
@@ -511,6 +520,7 @@
 
     .ntt--sub-menu-ancestor--js {
         position: relative;
+        z-index: 0;
         display: inline-flex;
         align-items: center;
         padding-right: $sub-menu-arrow-size;
@@ -524,6 +534,10 @@
             padding: 0;
             min-width: 100%;
         }
+    }
+
+    .ntt--sub-menu---active--js {
+        z-index: 1;
     }
     
     .ntt--sub-menu--js {
@@ -569,13 +583,14 @@
         }
     }
 
-    // Target the siblings of active menu items, excluding top-level menu items
     > div {
 
         > ul {
 
+            // Top-level menu items
             > .ntt--sub-menu-ancestor--js {
     
+                // Target the siblings of active menu items, excluding top-level menu items
                 .ntt--sub-menu---active--js {
                     border-bottom-width: 0;
                         
@@ -584,6 +599,7 @@
                         display: block;
                         visibility: hidden;
                         height: 0;
+                        border-bottom-width: 0;
                     }
                 }
             }

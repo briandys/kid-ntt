@@ -455,6 +455,10 @@ textarea {
   margin-right: 0.5rem;
 }
 
+.ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js::before {
+  background-color: var(--on-surface-color---reverse---alpha-xl);
+}
+
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js ~ .ntt--icon {
   fill: var(--surface-color);
 }
@@ -464,10 +468,6 @@ textarea {
   background-color: var(--accent-color);
   border-color: var(--surface-color);
   border-radius: 0;
-}
-
-.ntt--sub-menu-ancestor--js > a > .ntt--txt {
-  padding-right: 0;
 }
 
 .ntt--entity-footer {
@@ -502,21 +502,6 @@ textarea {
   border: 0.5rem solid var(--color--hexetidine-gray);
   border-left: 0;
   border-right: 0;
-}
-
-.ntt--kid-ntt--hexetidine--quotes--js {
-  margin-top: 1rem;
-  padding: 1rem;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.ntt--kid-ntt--hexetidine--quotes--js .ntt--icon {
-  margin-left: auto;
-  margin-right: auto;
-  width: 3rem;
-  fill: var(--surface-color);
 }
 
 .ntt--entity-main-header {
@@ -847,7 +832,7 @@ textarea {
   text-align: center;
 }
 
-.ntt--entry-md .ntt--content .ntt--entry-content-snippet a {
+.ntt--entry-md .ntt--content .ntt--entry-snippet-content a:not(:hover) {
   color: var(--on-surface-color);
   box-shadow: none;
 }
@@ -1407,11 +1392,11 @@ textarea {
   display: none;
 }
 
-.ntt--comments---empty--view.ntt--comment-creation---0--view .ntt--comment-md {
+.ntt--comments---empty.ntt--comment-creation---0 .ntt--comment-md {
   display: none;
 }
 
-.ntt--comments---empty--view .ntt--comments-count {
+.ntt--comments---empty .ntt--comments-count {
   display: none;
 }
 

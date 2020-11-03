@@ -176,8 +176,15 @@ textarea {
 
 .ntt--nav---sub-menu--js {
     
-    .ntt--sub-menu-checkbox--js ~ .ntt--icon {
-        fill: var(--surface-color);
+    .ntt--sub-menu-checkbox--js {
+
+        &::before {
+            background-color: var(--on-surface-color---reverse---alpha-xl);
+        }
+        
+        ~ .ntt--icon {
+            fill: var(--surface-color);
+        }
     }
 
     .ntt--sub-menu--js {
@@ -186,10 +193,6 @@ textarea {
         border-color: var(--surface-color);
         border-radius: 0;
     }
-}
-
-.ntt--sub-menu-ancestor--js > a > .ntt--txt {
-    padding-right: 0;
 }
 
 .ntt--entity-footer {
@@ -648,9 +651,9 @@ textarea {
         text-align: center;
     }
 
-    .ntt--entry-content-snippet {
+    .ntt--entry-snippet-content {
 
-        a {
+        a:not(:hover) {
             color: var(--on-surface-color);
             box-shadow: none;
         }
@@ -660,7 +663,6 @@ textarea {
 //--------------------------------------------------------------
 // Image Anchor JS
 //--------------------------------------------------------------
-
 .ntt--img-anchor--js {
 
     img {
@@ -671,7 +673,6 @@ textarea {
 //--------------------------------------------------------------
 // Feature: Scroll Y
 //--------------------------------------------------------------
-
 .ntt--kid-ntt--feature--scroll-y--view {
 
     &[data-scroll-y-percentage] {
@@ -888,9 +889,9 @@ textarea {
     }
 }
 
-.ntt--comments---empty--view {
+.ntt--comments---empty {
     
-    &.ntt--comment-creation---0--view {
+    &.ntt--comment-creation---0 {
 
         .ntt--comment-md {
             display: none;
