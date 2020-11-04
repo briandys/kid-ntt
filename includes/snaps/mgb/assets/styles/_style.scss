@@ -131,7 +131,7 @@
         font-size: 1em;
     }
 
-    .ntt--show-more-axn {
+    .ntt--view-details-axn {
 
         a {
             background-image: none;
@@ -334,7 +334,7 @@
 // Show More Action
 //--------------------------------------------------------------
 
-.ntt--show-more-axn {
+.ntt--view-details-axn {
     padding: 1rem;
 
     a {
@@ -694,7 +694,7 @@ p.has-drop-cap:not(:focus) {
 .ntt--entry-index---archive--view-view,
 .ntt--entry-singular--view {
 
-    .ntt--entry-summary-content {
+    .ntt--entry-excerpt-content {
         font-size: $large-font-size;
     }
 }

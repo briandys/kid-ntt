@@ -77,7 +77,7 @@ function ntt__tag__entry_header__structure() {
     ntt__tag__comments_actions_snippet();
     
     if ( ( ( is_singular() || is_home() || is_archive() ) && has_excerpt() ) || is_search() ) {
-        ntt__tag__entry_secondary_meta__structure();
+        ntt__tag__entry_excerpt_content();
     }
 }
 

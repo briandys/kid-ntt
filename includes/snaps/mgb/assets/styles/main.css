@@ -466,7 +466,7 @@ textarea {
   grid-area: entry-banner;
 }
 
-.ntt--entry-summary-content {
+.ntt--entry-excerpt-content {
   grid-area: entry-summary-content;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -477,7 +477,7 @@ textarea {
   font-family: "Sanchez", serif;
 }
 
-.ntt--entry-summary-content > * {
+.ntt--entry-excerpt-content > * {
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -689,11 +689,11 @@ textarea {
   color: #DE756E;
 }
 
-.ntt--content .ntt--show-more-axn {
+.ntt--content .ntt--view-details-axn {
   margin-top: 2em;
 }
 
-.ntt--content .ntt--show-more-axn .ntt--txt {
+.ntt--content .ntt--view-details-axn .ntt--txt {
   padding: .25rem 1rem;
   border: 2px solid #DE756E;
   border-left: 0;
@@ -701,7 +701,7 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.ntt--content .ntt--show-more-axn .ntt--txt:hover {
+.ntt--content .ntt--view-details-axn .ntt--txt:hover {
   background-color: #DE756E;
   color: white;
   border-radius: .25rem;

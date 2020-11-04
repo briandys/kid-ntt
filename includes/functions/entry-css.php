@@ -50,7 +50,7 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
      */
 
     if ( has_excerpt() ) {
-        $classes[] = 'ntt--entry-summary-content---1';
+        $classes[] = 'ntt--entry-excerpt-content---1';
     }
 
     /**
@@ -149,7 +149,7 @@ function ntt__kid_ntt__function__entry_view__css( $classes ) {
      */
 
     if ( has_excerpt() ) {
-        $classes[] = 'ntt--entry-summary-content---1'. $css_suffix;
+        $classes[] = 'ntt--entry-excerpt-content---1'. $css_suffix;
     }
 
     /**

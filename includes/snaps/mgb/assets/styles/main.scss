@@ -652,7 +652,7 @@ textarea {
     grid-area: entry-banner;
 }
 
-.ntt--entry-summary-content {
+.ntt--entry-excerpt-content {
     grid-area: entry-summary-content;
     @include y-margin(1rem);
     margin-bottom: -1rem;
@@ -905,7 +905,7 @@ textarea {
         color: #DE756E;
     }
 
-    .ntt--show-more-axn {
+    .ntt--view-details-axn {
         margin-top: 2em;
 
         .ntt--txt {

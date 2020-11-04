@@ -365,23 +365,23 @@ th {
   user-select: none;
 }
 
-.ntt--modify-entry-axn a, .ntt--modify-comment-axn a, .ntt--comment-reply-axn a, .ntt--show-more-axn a, .ntt--comments-actions-snippet .ntt--comment-axn a, .ntt--go-content-navi a {
+.ntt--modify-entry-axn a, .ntt--modify-comment-axn a, .ntt--comment-reply-axn a, .ntt--view-details-axn a, .ntt--comments-actions-snippet .ntt--comment-axn a, .ntt--go-content-navi a {
   color: var(--accent-color);
 }
 
-.ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--show-more-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {
+.ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--view-details-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {
   color: var(--surface-color);
 }
 
-.ntt--modify-entry-axn a:hover .ntt--txt, .ntt--modify-comment-axn a:hover .ntt--txt, .ntt--comment-reply-axn a:hover .ntt--txt, .ntt--show-more-axn a:hover .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn a:hover .ntt--txt, .ntt--go-content-navi a:hover .ntt--txt {
+.ntt--modify-entry-axn a:hover .ntt--txt, .ntt--modify-comment-axn a:hover .ntt--txt, .ntt--comment-reply-axn a:hover .ntt--txt, .ntt--view-details-axn a:hover .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn a:hover .ntt--txt, .ntt--go-content-navi a:hover .ntt--txt {
   background-color: var(--accent-color);
 }
 
-.ntt--modify-entry-axn a:active, .ntt--modify-comment-axn a:active, .ntt--comment-reply-axn a:active, .ntt--show-more-axn a:active, .ntt--comments-actions-snippet .ntt--comment-axn a:active, .ntt--go-content-navi a:active {
+.ntt--modify-entry-axn a:active, .ntt--modify-comment-axn a:active, .ntt--comment-reply-axn a:active, .ntt--view-details-axn a:active, .ntt--comments-actions-snippet .ntt--comment-axn a:active, .ntt--go-content-navi a:active {
   transform: scale(0.98);
 }
 
-.ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
+.ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--view-details-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
   background-color: var(--surface-color);
   border: 0.125rem solid var(--accent-color);
 }
@@ -1407,7 +1407,7 @@ th {
   margin: 1rem 1rem 0;
 }
 
-.ntt--entry-summary-content---1 .ntt--entry-full-content {
+.ntt--entry-excerpt-content---1 .ntt--entry-full-content {
   margin-top: 1em;
 }
 
@@ -1445,7 +1445,7 @@ th {
   display: none;
 }
 
-.ntt--show-more-axn {
+.ntt--view-details-axn {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   margin-top: 2em;
@@ -1453,11 +1453,11 @@ th {
   font-size: 1rem;
 }
 
-.ntt--show-more-axn a {
+.ntt--view-details-axn a {
   display: inline-block;
 }
 
-.ntt--show-more-axn .ntt--txt {
+.ntt--view-details-axn .ntt--txt {
   display: block;
   padding: .5rem;
 }
@@ -2642,16 +2642,16 @@ section:target {
   border-bottom-left-radius: 0;
 }
 
-.ntt--modify-entry-axn, .ntt--modify-comment-axn, .ntt--comment-reply-axn, .ntt--show-more-axn, .ntt--comments-actions-snippet .ntt--comment-axn, .ntt--go-content-navi {
+.ntt--modify-entry-axn, .ntt--modify-comment-axn, .ntt--comment-reply-axn, .ntt--view-details-axn, .ntt--comments-actions-snippet .ntt--comment-axn, .ntt--go-content-navi {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--show-more-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {
+.ntt--modify-entry-axn a:hover, .ntt--modify-comment-axn a:hover, .ntt--comment-reply-axn a:hover, .ntt--view-details-axn a:hover, .ntt--comments-actions-snippet .ntt--comment-axn a:hover, .ntt--go-content-navi a:hover {
   text-decoration: none;
 }
 
-.ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--show-more-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
+.ntt--modify-entry-axn .ntt--txt, .ntt--modify-comment-axn .ntt--txt, .ntt--comment-reply-axn .ntt--txt, .ntt--view-details-axn .ntt--txt, .ntt--comments-actions-snippet .ntt--comment-axn .ntt--txt, .ntt--go-content-navi .ntt--txt {
   display: flex;
   justify-content: center;
   align-items: center;
