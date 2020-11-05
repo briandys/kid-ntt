@@ -19,7 +19,7 @@ function ntt__kid_ntt__feature__user_functions__validation() {
         $GLOBALS['ntt__gvar__kid_ntt__feature__user_functions__prefixed_name'],
     );
 
-    if ( strpos_array( $post_meta, $ntt_f5e_array ) ) {
+    if ( ntt__kid_ntt__function__strpos_array( $post_meta, $ntt_f5e_array ) ) {
         return true;
     }
 }

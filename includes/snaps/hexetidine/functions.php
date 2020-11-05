@@ -37,14 +37,14 @@ function ntt__kid_ntt__snaps__styles_scripts() {
     wp_enqueue_script( $main_script_id, $path. '/scripts/main.js', array( 'ntt-kid-script', ), $version, true );
 
     $ntt_l10n = array(
-        'one'       => __( 'Plant seeds in the neighborhood; grow fruits in your yard.', 'ntt' ),
-        'two'       => __( 'Better make it and make it better.', 'ntt' ),
-        'three'     => __( 'The power is in the collective.', 'ntt' ),
-        'four'      => __( 'Someone will notice your fire whether it is too bright or too dim only after you start a fire.', 'ntt' ),
-        'five'      => ntt__kid_ntt__function__get_theme_svg( 'wink', 'hexetidine' ),
-        'six'       => __( 'Reach out to find out.', 'ntt' ),
-        'seven'     => __( 'Walk your own stride but watch out for falling debris.', 'ntt' ),
-        'backTxt'   => __( 'Back', 'ntt' ),
+        'one'       => __( 'Plant seeds in the neighborhood; grow fruits in your yard.', 'kid-ntt' ),
+        'two'       => __( 'Better make it and make it better.', 'kid-ntt' ),
+        'three'     => __( 'The power is in the collective.', 'kid-ntt' ),
+        'four'      => __( 'Someone will notice your fire whether it is too bright or too dim only after you start a fire.', 'kid-ntt' ),
+        'five'      => ntt__kid_ntt__function__get_theme_svg( 'wink', 'hexetidine-ntt' ),
+        'six'       => __( 'Reach out to find out.', 'kid-ntt' ),
+        'seven'     => __( 'Walk your own stride but watch out for falling debris.', 'kid-ntt' ),
+        'backTxt'   => __( 'Back', 'kid-ntt' ),
     );
 
     wp_localize_script( $main_script_id, 'nttKidNttHexetidineData', $ntt_l10n );
@@ -119,7 +119,7 @@ add_filter( 'pre_get_posts','ntt__kid_ntt__snaps__hexetidine_ntt__function__sear
  * Comment Label Text
  */
 add_filter( 'ntt__wp_filter__comment_label_text', function() {
-    return __( 'What are your thoughts?', 'ntt' );
+    return __( 'What are your thoughts?', 'kid-ntt' );
 } );
 
 /**
@@ -133,6 +133,6 @@ add_action( 'ntt__wp_hook__entry_primary_meta__structure___after', function() {
     $word = str_word_count( strip_tags( $content ) );
     $m = floor( $word / 200 );
     $est = '<span class="ntt--num">'. $m. '</span>'. ' '. '<span class="ntt--minute--txt">'. 'minute'. ( $m == 1 ? '': 's' ). '</span>';
-    echo '<span class="ntt--reading-time--txt">'. __( 'Reading time', 'ntt' ). '</span>'. ':'. ' '. '<span class="ntt--reading-time--minutes">'. $est. '</span>';
+    echo '<span class="ntt--reading-time--txt">'. __( 'Reading time', 'kid-ntt' ). '</span>'. ':'. ' '. '<span class="ntt--reading-time--minutes">'. $est. '</span>';
 } );
 */

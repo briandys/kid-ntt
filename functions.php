@@ -2,7 +2,6 @@
 /**
  * Child Theme Settings
  */
-
 $GLOBALS['ntt__gvar__child_theme__name'] = 'Kid NTT';
 $GLOBALS['ntt__gvar__child_theme__url'] = '//briandys.com/ntt/';
 $GLOBALS['ntt__gvar__child_theme__version'] = '1.0.3';
@@ -14,19 +13,18 @@ $GLOBALS['ntt__gvar__kid_ntt__plugin__name_prefix'] = 'ntt--kid-ntt--plugin--';
 /**
  * Classes
  */
-
-$r_classes = array(
+$ntt_r_classes = array(
     'class-svg-icons',
 );
 
-foreach ( $r_classes as $class ) {
-    require( get_stylesheet_directory(). '/classes/'. $class. '.php' );
+foreach ( $ntt_r_classes as $ntt_class ) {
+    require( get_stylesheet_directory(). '/classes/'. $ntt_class. '.php' );
 }
 
 /**
  * Functions
  */
-$r_functions = array(
+$ntt_r_functions = array(
     'styles-scripts',
     'customizer',
     'custom-fields',
@@ -44,20 +42,19 @@ $r_functions = array(
     'features', // Similar to WP Plugins
 );
 
-foreach ( $r_functions as $function ) {
-    require( get_stylesheet_directory(). '/includes/functions/'. $function. '.php' );
+foreach ( $ntt_r_functions as $ntt_function ) {
+    require( get_stylesheet_directory(). '/includes/functions/'. $ntt_function. '.php' );
 }
-
 
 /**
  * String Position with Needles in Array
  * https://www.php.net/manual/en/function.strpos.php#102773
  */
-function strpos_array( $haystack, $needles ) {
+function ntt__kid_ntt__function__strpos_array( $haystack, $needles ) {
     if ( is_array( $needles ) ) {
         foreach ( $needles as $str ) {
             if ( is_array( $str ) ) {
-                $pos = strpos_array( $haystack, $str );
+                $pos = ntt__kid_ntt__function__strpos_array( $haystack, $str );
             } else {
                 $pos = strpos( $haystack, $str );
             }

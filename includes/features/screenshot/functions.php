@@ -60,8 +60,8 @@ function ntt__kid_ntt__features__screenshot__styles_scripts() {
         wp_enqueue_script( $main_script_id, $path. '/main.js', array( $library_script_id ), $version, true );
 
         $ntt_l10n = array(  
-            'downloadScreenshotTxt' => __( 'Download Screenshot', 'ntt' ),
-            'screenShotTxt'         => __( 'Screenshot', 'ntt' ),
+            'downloadScreenshotTxt' => __( 'Download Screenshot', 'kid-ntt' ),
+            'screenShotTxt'         => __( 'Screenshot', 'kid-ntt' ),
         );
         
         wp_localize_script( 'ntt-kid-script', 'nttKidNttScreenshotData', $ntt_l10n );

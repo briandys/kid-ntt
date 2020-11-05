@@ -60,7 +60,7 @@ add_filter( 'ntt__kid_ntt__wp_filter__custom_fonts', 'ntt__kid_ntt__snaps__ofa_n
  * Entry Author Label
  */
 add_filter( 'ntt__wp_filter__entry_author_label', function() {
-    return __( 'By', 'ntt' );
+    return __( 'By', 'kid-ntt' );
 } );
 
 /**

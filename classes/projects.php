@@ -31,7 +31,7 @@
             }            
             
             // Override via Custom Fields
-            $category_name_post_meta = get_post_meta( get_the_ID(), 'Applicator: Category Name', true );
+            $category_name_post_meta = get_post_meta( get_the_ID(), 'Category Name', true );
     
             if ( $category_name_post_meta )
             {
