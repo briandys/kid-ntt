@@ -480,13 +480,19 @@ textarea {
 
 .ntt {
 
-    .wp-caption,
-    .wp-block-image,
-    .wp-block-embed {
+    figure {
             
         figcaption {
+            text-align: center;
             font-size: to-em($text---s);
         }
+    }
+}
+
+.ntt--entry-banner-visuals {
+
+    figure {
+        font-size: var(--text---xl);
     }
 }
 
@@ -596,10 +602,6 @@ textarea {
 
         img {
             width: 100%;
-        }
-
-        figcaption {
-            @include x-padding(1rem);
         }
     }
 
@@ -1224,7 +1226,7 @@ textarea {
     .ntt--entity-primary-nav {
         margin: 2rem;
         margin-top: -1rem;
-        @include y-padding(1rem);
+        @include y-padding(.5rem);
     }
 
     .ntt--entity-header-aside {

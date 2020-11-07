@@ -13,6 +13,7 @@ if ( ! function_exists( 'ntt__kid_ntt__snaps__info' ) ) {
             'version'   => '0.0.8',
             'features'  => array(
                 'scroll-y',
+                'responsive-flickr',
             ),
         );
         

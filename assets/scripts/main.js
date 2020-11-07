@@ -79,31 +79,6 @@
     }
 
     /**
-     * Polyfill
-     * Overwrites native 'children' prototype.
-     * Adds Document & DocumentFragment support for IE9 & Safari.
-     * Returns array instead of HTMLCollection.
-     * https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children
-     */
-    (function(constructor) {
-        if (constructor &&
-        constructor.prototype &&
-        constructor.prototype.children == null) {
-        Object.defineProperty(constructor.prototype, 'children', {
-            get: function() {
-            let i = 0, node, nodes = this.childNodes, children = [];
-            while (node = nodes[i++]) {
-                if (node.nodeType === 1) {
-                children.push(node);
-                }
-            }
-            return children;
-            }
-        });
-        }
-    })(window.Node || window.Element);
-
-    /**
      * Adding, removing, and testing for classes
      * https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/
      */
@@ -1010,6 +985,22 @@
         }
     }; // kidNtt.imageAnchor
 
+    /**
+     * Identify Flickr Images
+     */
+    kidNtt.flickrImages = { 
+
+        init: function() {
+
+            document.querySelectorAll( 'a[href*="flickr.com/"]' ).forEach( function( el ) {
+                
+                if ( el.closest( 'figure' ) ) {
+                    el.closest( 'figure' ).classList.add( 'ntt--flickr-image--js' );
+                }
+            } );
+        }
+    }; // kidNtt.flickrImages
+
     kidNtt.breadCrumbs = {
 
         init: function() {
@@ -1062,6 +1053,7 @@
         kidNtt.windowDocumentHeight.init();
         kidNtt.goStartNav.init();
         kidNtt.imageAnchor.init();
+        kidNtt.flickrImages.init();
         kidNtt.breadCrumbs.init();
     } );
 } )( jQuery, window, document );

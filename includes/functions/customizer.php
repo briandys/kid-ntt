@@ -97,8 +97,11 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
         <?php }
     }
 
-    $default_term = sanitize_title( __( 'default', 'kid-ntt' ) );
+    /*
+   // Features setting in Customizer: Start
 
+    $default_term = sanitize_title( __( 'default', 'kid-ntt' ) );
+    
     $wp_customize->add_setting(
         'ntt__kid_ntt__wp_customizer__settings__features',
         array(
@@ -153,7 +156,10 @@ function ntt__kid_ntt__wp_customizer( $wp_customize ) {
                 'choices'           => $kid_ntt_features,
             )
         )
-    );    
+    );
+
+    // Features setting in Customizer: End
+    */
     
     /**
      * Site Icon Settings

@@ -95,20 +95,25 @@
     @include y-padding(1rem);
 }
 
+.ntt--entry-banner-visuals {
+
+    figure {
+        margin: 0;
+    }
+}
+
 //--------------------------------------------------------------
 // Figures, Images, Captions
 //--------------------------------------------------------------
 
 .ntt {
 
-    .wp-caption,
-    .wp-block-image,
-    .wp-block-embed {
+    figure {
             
         figcaption {
             display: block;
-            margin: 0;
-            margin-top: .5em;
+            @include y-margin(1em);
+            @include x-padding(1rem);
             text-align: left;
             color: $mid-color;
         }
@@ -305,11 +310,6 @@
 
 .ntt--entry-banner-visuals {
     margin: 0;
-
-    figcaption {
-        //@extend .wp-caption-text;
-        margin: 1rem 1rem 0;
-    }
 }
 
 //--------------------------------------------------------------

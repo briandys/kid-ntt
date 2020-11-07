@@ -91,11 +91,6 @@
         display: block;
     }
 
-    a[href*="flickr.com/"] {
-        pointer-events: none;
-        cursor: default;
-    }
-
     blockquote {
         font-size: to-em($text---xl);
 

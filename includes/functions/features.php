@@ -58,6 +58,9 @@ function ntt__kid_ntt__features__slugs() {
 $feature_pathnames = ntt__kid_ntt__features__pathnames();
 $feature_slugs = ntt__kid_ntt__features__slugs();
 
+/*
+// Features setting in Customizer: Start
+
 // Check WP Customizer which features are enabled
 $features_customizer = get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__features' );
 
@@ -78,6 +81,9 @@ $features_intersect = array_intersect( $features_merge, $feature_slugs );
 
 // Remove duplicate features
 $features_unique = array_unique( $features_intersect );
+
+// Features setting in Customizer: End
+*/
 
 // Features won't work if Customizer > NTT Settings > Snaps is set to "ntt"
 if ( $feature_pathnames && get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) !== 'ntt' ) {

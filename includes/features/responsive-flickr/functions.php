@@ -47,6 +47,9 @@ function ntt__kid_ntt__features__responsive_flickr__entity_validation() {
     
     $snaps_feature_settings = ntt__kid_ntt__snaps__features();
 
+    //Temp until Customizer is fixed
+    $features_customizer = array();
+
     if ( $features_customizer || $snaps_feature_settings ) {
 
         $feature_array = array(

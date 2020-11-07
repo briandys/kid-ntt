@@ -56,6 +56,7 @@ function ntt__kid_ntt__function__view__css( $classes ) {
      */
 
     if ( get_page_template_slug() ) {
+        global $post;
         $template_slug = get_page_template_slug( $post->ID );
         $template_slug = preg_replace( '/\.[^.]+$/', '', $template_slug );
         $template_slug = sanitize_title( $template_slug );

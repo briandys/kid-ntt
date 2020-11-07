@@ -692,10 +692,13 @@ textarea {
   display: none;
 }
 
-.ntt .wp-caption figcaption,
-.ntt .wp-block-image figcaption,
-.ntt .wp-block-embed figcaption {
+.ntt figure figcaption {
+  text-align: center;
   font-size: 0.875em;
+}
+
+.ntt--entry-banner-visuals figure {
+  font-size: var(--text---xl);
 }
 
 .ntt--content a {
@@ -796,11 +799,6 @@ textarea {
 
 .ntt--content .wp-block-image img {
   width: 100%;
-}
-
-.ntt--content .wp-block-image figcaption {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .ntt--content .ntt--entry .ntt--entry-name a {
@@ -1649,8 +1647,8 @@ textarea {
   .ntt--entity-primary-nav {
     margin: 2rem;
     margin-top: -1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
   .ntt--entity-header-aside > .ntt--widget {
     padding-left: 2rem;

@@ -805,11 +805,6 @@ th {
   display: block;
 }
 
-.ntt--content a[href*="flickr.com/"] {
-  pointer-events: none;
-  cursor: default;
-}
-
 .ntt--content blockquote {
   font-size: 1.5em;
 }
@@ -1222,12 +1217,16 @@ th {
   padding-bottom: 1rem;
 }
 
-.ntt .wp-caption figcaption,
-.ntt .wp-block-image figcaption,
-.ntt .wp-block-embed figcaption {
-  display: block;
+.ntt--entry-banner-visuals figure {
   margin: 0;
-  margin-top: .5em;
+}
+
+.ntt figure figcaption {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 1rem;
+  padding-right: 1rem;
   text-align: left;
   color: #757575;
 }
@@ -1401,10 +1400,6 @@ th {
 
 .ntt--entry-banner-visuals {
   margin: 0;
-}
-
-.ntt--entry-banner-visuals figcaption {
-  margin: 1rem 1rem 0;
 }
 
 .ntt--entry-excerpt-content---1 .ntt--entry-full-content {
@@ -2682,6 +2677,16 @@ section:target {
 .ntt--cancel-reply-axn .ntt--txt,
 .ntt--log-out-account-axn .ntt--txt {
   font-size: 0.875rem;
+}
+
+.ntt--flickr-image--js {
+  pointer-events: none;
+  cursor: default;
+}
+
+.ntt--flickr-image--js figcaption {
+  pointer-events: auto;
+  cursor: text;
 }
 
 @media only screen and (min-width: 768px) {
