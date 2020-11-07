@@ -101,6 +101,7 @@ function ntt__kid_ntt__function__responsive_flickr( $content ) {
     return $content;
 }
 add_filter( 'the_content', 'ntt__kid_ntt__function__responsive_flickr' );
+add_filter( 'ntt__kid_ntt__wp_filter__entry_banner_visuals', 'ntt__kid_ntt__function__responsive_flickr' );
 
 /**
  * View CSS

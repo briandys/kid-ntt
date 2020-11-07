@@ -39,6 +39,7 @@ $faint-color--med: hsla(0, 0%, 0%, .125);
 $faint-color--lo: hsla(0, 0%, 0%, .0625);
 
 $mobile-l-vp: 26.5625em;
+$mobile-l-xvp: 26.5625em - .0625em;
 $tablet-vp: 48em;
 $laptop-vp: 64em;
 $laptop-l-vp: 90em;
@@ -94,8 +95,10 @@ $font-body-factor-xs: .75;
 $mobile-viewport-width---s: 320px;
 $mobile-viewport-width---m: 375px;
 $mobile-viewport-width---l: 425px;
+$mobile-viewport-width---l---minus-1: 425px - 1px;
 $tablet-viewport-width: 768px;
 $laptop-viewport-width: 1024px;
+$laptop-viewport-width---m---minus-1: 1024px - 1px;
 $laptop-viewport-width---l: 1280px;
 
 //------------ Texts

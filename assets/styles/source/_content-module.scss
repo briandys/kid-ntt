@@ -87,7 +87,7 @@
         @include y-margin(1em);
     }
 
-    > a[href*="flickr.com/"] {
+    > .ntt--image-anchor--js {
         display: block;
     }
 

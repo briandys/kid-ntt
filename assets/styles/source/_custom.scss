@@ -376,14 +376,9 @@ section:target {
 //--------------------------------------------------------------
 // Flickr Image JS
 //--------------------------------------------------------------
-.ntt--flickr-image--js {
+.ntt--flickr-image-anchor--js {
     pointer-events: none;
     cursor: default;
-
-    figcaption {
-        pointer-events: auto;
-        cursor: text;
-    }
 }
 
 //--------------------------------------------------------------

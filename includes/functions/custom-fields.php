@@ -98,6 +98,8 @@ function ntt__tag__entry_banner() {
                 $markup .= $post_meta;
             $markup .= '</figure>';
         $markup .= $entry_banner_mu_e;
+
+        $markup = apply_filters( 'ntt__kid_ntt__wp_filter__entry_banner_visuals', $markup );
         
         echo $markup;
     
@@ -109,24 +111,5 @@ function ntt__tag__entry_banner() {
     
     } else {
         return;
-    }
+    }    
 }
-
-/**
- * Entry Banner Visuals
-*/
-function ntt__kid_ntt__wp_custom_field__entry_banner_visuals() {
-
-    $post_meta = get_post_meta( get_the_ID(), 'ntt_featured_image', true );
-
-    if ( $post_meta ) {
-        $markup = '<figure class="ntt--entry-banner-visuals ntt--obj" data-name="Entry Banner Visuals">';
-            $markup .= $post_meta;
-        $markup .= '</figure>';
-    } else {
-        $markup = '';
-    }
-
-    echo $markup;
-}
-//add_action( 'ntt__wp_hook__entry_banner___after', 'ntt__kid_ntt__wp_custom_field__entry_banner_visuals' );

@@ -975,11 +975,11 @@
             document.querySelectorAll( '.ntt--content img' ).forEach( function( el ) {
                 
                 if ( el.closest( 'a' ) ) {
-                    el.closest( 'a' ).classList.add( 'ntt--img-anchor--js' );
+                    el.closest( 'a' ).classList.add( 'ntt--image-anchor--js' );
                 }
 
                 if ( el.closest( 'p' ) ) {
-                    el.closest( 'p' ).classList.add( 'ntt--img-paragraph--js' );
+                    el.closest( 'p' ).classList.add( 'ntt--image-paragraph--js' );
                 }
             } );
         }
@@ -992,8 +992,12 @@
 
         init: function() {
 
-            document.querySelectorAll( 'a[href*="flickr.com/"]' ).forEach( function( el ) {
+            document.querySelectorAll( 'img[src*="flickr.com/"]' ).forEach( function( el ) {
                 
+                if ( el.closest( 'a' ) ) {
+                    el.closest( 'a' ).classList.add( 'ntt--flickr-image-anchor--js' );
+                }
+
                 if ( el.closest( 'figure' ) ) {
                     el.closest( 'figure' ).classList.add( 'ntt--flickr-image--js' );
                 }
@@ -1001,6 +1005,9 @@
         }
     }; // kidNtt.flickrImages
 
+    /**
+     * Breadcrumbs
+     */
     kidNtt.breadCrumbs = {
 
         init: function() {
