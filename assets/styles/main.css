@@ -972,11 +972,7 @@ th {
 @supports (display: grid) {
   .ntt--entity {
     display: grid;
-    grid-template: 'entity-start'
- 'entity-header'
- 'entity-main' 1fr
- 'entity-footer'
- 'entity-end';
+    grid-template: 'entity-start' 'entity-header' 'entity-main' 1fr 'entity-footer' 'entity-end';
     min-height: 100vh;
   }
   .ntt--entity-start {
@@ -2687,17 +2683,20 @@ section:target {
   font-size: 0.875rem;
 }
 
-.ntt--flickr-image-anchor--js {
+.ntt--flickr-image--js {
   pointer-events: none;
-  cursor: default;
+}
+
+.ntt--flickr-image--js figcaption {
+  pointer-events: auto;
+  cursor: text;
 }
 
 @media only screen and (min-width: 768px) {
   @supports (display: grid) {
     .ntt--entity-main-main-aside---1 .ntt--entity-main-main {
       display: grid;
-      grid-template: 'entry-md entity-main-main-aside'
- / 2fr 1fr;
+      grid-template: 'entry-md entity-main-main-aside' / 2fr 1fr;
     }
     .ntt--entity-main-main-aside---1 .ntt--entry-md {
       grid-area: entry-md;
@@ -2707,8 +2706,7 @@ section:target {
     }
     .ntt--entity-main-main-aside---1 .ntt--entity-main-footer {
       display: grid;
-      grid-template: 'entity-main-footer .'
- / 2fr 1fr;
+      grid-template: 'entity-main-footer .' / 2fr 1fr;
     }
     .ntt--entity-main-main-aside---1 .ntt--entry-nav {
       grid-area: entity-main-footer;
