@@ -47,6 +47,17 @@ foreach ( $ntt_r_functions as $ntt_function ) {
 }
 
 /**
+ * Tag
+ */
+$ntt_r_tags = array(
+    'entry-banner',
+);
+
+foreach ( $ntt_r_tags as $ntt_tag ) {
+    require( get_stylesheet_directory(). '/includes/tags/'. $ntt_tag. '.php' );
+}
+
+/**
  * String Position with Needles in Array
  * https://www.php.net/manual/en/function.strpos.php#102773
  */

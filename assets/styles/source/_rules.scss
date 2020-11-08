@@ -96,8 +96,10 @@ $mobile-viewport-width---s: 320px;
 $mobile-viewport-width---m: 375px;
 $mobile-viewport-width---l: 425px;
 $mobile-viewport-width---l---minus-1: 425px - 1px;
-$tablet-viewport-width: 768px;
-$laptop-viewport-width: 1024px;
+
+$tablet-viewport-width---m: 768px;
+
+$laptop-viewport-width---m: 1024px;
 $laptop-viewport-width---m---minus-1: 1024px - 1px;
 $laptop-viewport-width---l: 1280px;
 
@@ -153,7 +155,7 @@ $content-text-color: $on-surface-color;
 // Elements
 //--------------------------------------------------------------
 
-$secondary-action--elements: '.ntt--modify-entry-axn, .ntt--modify-comment-axn, .ntt--comment-reply-axn, .ntt--view-details-axn, .ntt--comments-actions-snippet .ntt--comment-axn, .ntt--go-content-navi';
+$secondary-action--elements: '.ntt--modify-entry-axn, .ntt--modify-comment-axn, .ntt--comment-reply-axn, .ntt--view-entry-details-axn, .ntt--comments-actions-snippet .ntt--comment-axn, .ntt--go-content-navi';
 
 //--------------------------------------------------------------
 // Rules

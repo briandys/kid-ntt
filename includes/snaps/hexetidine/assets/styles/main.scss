@@ -270,7 +270,6 @@ textarea {
 .ntt--entry-archive-description {
     flex: 1 100%;
     font-weight: bold;
-    color: var(--color--hexetidine-gray);
 }
 
 // Blinders while loading
@@ -1167,7 +1166,7 @@ textarea {
 // Media Query: Tablet
 //--------------------------------------------------------------
 
-@include mq($tablet-viewport-width) {
+@include mq($tablet-viewport-width---m) {
 
     body {
         --view-border-width: 1rem;
@@ -1255,7 +1254,7 @@ textarea {
 // Media Query: Laptop
 //--------------------------------------------------------------
 
-@include mq($laptop-viewport-width) {
+@include mq($laptop-viewport-width---m) {
 
     .ntt--entry-md .ntt--entry-name {
         font-size: var(--text---yl);

@@ -539,7 +539,6 @@ textarea {
 .ntt--entry-archive-description {
   flex: 1 100%;
   font-weight: bold;
-  color: var(--color--hexetidine-gray);
 }
 
 .ntt--js .ntt--entity {

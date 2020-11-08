@@ -385,7 +385,7 @@ section:target {
 // Media Query
 //--------------------------------------------------------------
 
-@include mq($tablet-viewport-width) {
+@include mq($tablet-viewport-width---m) {
 
     //--------------------------------------------------------------
     // Layout

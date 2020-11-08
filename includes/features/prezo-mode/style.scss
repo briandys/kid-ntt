@@ -59,7 +59,7 @@
 // Media Query: Tablet
 //--------------------------------------------------------------
 
-@include mq($tablet-viewport-width) {
+@include mq($tablet-viewport-width---m) {
 
     .ntt--kid-ntt--feature--prezo-mode---active--js {
         
@@ -76,7 +76,7 @@
 // Media Query: Laptop
 //--------------------------------------------------------------
 
-@include mq($laptop-viewport-width) {
+@include mq($laptop-viewport-width---m) {
 
     .ntt--kid-ntt--feature--prezo-mode---active--js {
 

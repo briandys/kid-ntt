@@ -689,11 +689,11 @@ textarea {
   color: #DE756E;
 }
 
-.ntt--content .ntt--view-details-axn {
+.ntt--content .ntt--view-entry-details-axn {
   margin-top: 2em;
 }
 
-.ntt--content .ntt--view-details-axn .ntt--txt {
+.ntt--content .ntt--view-entry-details-axn .ntt--txt {
   padding: .25rem 1rem;
   border: 2px solid #DE756E;
   border-left: 0;
@@ -701,7 +701,7 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.ntt--content .ntt--view-details-axn .ntt--txt:hover {
+.ntt--content .ntt--view-entry-details-axn .ntt--txt:hover {
   background-color: #DE756E;
   color: white;
   border-radius: .25rem;

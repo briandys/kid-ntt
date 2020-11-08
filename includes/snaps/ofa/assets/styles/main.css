@@ -719,7 +719,7 @@ body {
   max-height: 80vh;
 }
 
-.ntt--view-details-axn a {
+.ntt--view-entry-details-axn a {
   font-weight: normal;
   box-shadow: 0;
 }
@@ -793,7 +793,7 @@ body {
     .ntt--entry-index--view .ntt--entry-banner-visuals---1.ntt--entry-excerpt-content---1 .ntt--entry-full-content > * {
       display: none;
     }
-    .ntt--entry-index--view .ntt--entry-banner-visuals---1.ntt--entry-excerpt-content---1 .ntt--entry-full-content > .ntt--view-details-axn {
+    .ntt--entry-index--view .ntt--entry-banner-visuals---1.ntt--entry-excerpt-content---1 .ntt--entry-full-content > .ntt--view-entry-details-axn {
       grid-area: entry-content;
       display: block;
       position: absolute;

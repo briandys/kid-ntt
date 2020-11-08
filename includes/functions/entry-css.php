@@ -62,16 +62,6 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
     }
 
     /**
-     * Entry Banner Visuals (Featured Image) Ability Status
-     */
-
-    if ( get_the_post_thumbnail() !== '' ) {
-        $classes[] = 'ntt--entry-banner-visuals---1';
-    } else {
-        $classes[] = 'ntt--entry-banner-visuals---0';
-    }
-
-    /**
      * Sticky Post
      */
 

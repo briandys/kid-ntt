@@ -372,7 +372,7 @@
 // Media Query: Laptop
 //--------------------------------------------------------------
 
-@include mq($laptop-viewport-width) {
+@include mq($laptop-viewport-width---m) {
 
     .ntt--rec-nav {
     

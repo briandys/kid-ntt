@@ -796,7 +796,7 @@ body {
     max-height: 80vh;
 }
 
-.ntt--view-details-axn {
+.ntt--view-entry-details-axn {
 
     a {
         font-weight: normal;
@@ -840,7 +840,7 @@ body {
 // Media Query
 //--------------------------------------------------------------
 
-@include mq($tablet-viewport-width) {
+@include mq($tablet-viewport-width---m) {
 
     //--------------------------------------------------------------
     // Comment Form
@@ -930,7 +930,7 @@ body {
                                 display: none;
                             }
 
-                            .ntt--view-details-axn {
+                            .ntt--view-entry-details-axn {
                                 grid-area: entry-content;
                                 display: block;
                                 position: absolute;
