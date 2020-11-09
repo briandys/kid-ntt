@@ -60,7 +60,7 @@ if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) === 'kid-nt
     return;
 
 // NTT
-} elseif ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) === 'ntt' ) {
+} else if ( get_theme_mod( 'ntt__kid_ntt__wp_customizer__settings__snaps' ) === 'ntt' ) {
     
     add_action( 'wp_enqueue_scripts', function() {
         wp_dequeue_style( 'ntt-kid-style' );

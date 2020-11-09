@@ -3,10 +3,7 @@
  * Open Graph XMLNS
  */
 function ntt__kid_ntt__function__open_graph_xmlns( $output ) {
-    return $output. '
-    xmlns="https://www.w3.org/1999/xhtml"
-    xmlns:og="https://ogp.me/"
-    ';
+    return $output. 'xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/"';
 }
 add_filter( 'language_attributes', 'ntt__kid_ntt__function__open_graph_xmlns' );
 
@@ -45,9 +42,10 @@ function ntt__kid_ntt__function__open_graph() {
          * Get Image
          * 
          * Priority List
-         * 1. Featured Image
-         * 2. First Image in Content
-         * 3. Custom Logo
+         * 1. Featured Image via custom fields
+         * 2. Featured Image
+         * 3. First Image in Content
+         * 4. Custom Logo
          * 
          * https://developer.wordpress.org/reference/functions/wp_get_attachment_image_src/
          * https://wordpress.stackexchange.com/a/302166
@@ -57,7 +55,19 @@ function ntt__kid_ntt__function__open_graph() {
          * $image_width = $image_meta['sizes']['medium']['width'];
          * $image_height = $image_meta['sizes']['medium']['height'];
          */
-        if ( has_post_thumbnail( $post->ID ) ) {
+        if ( $post_meta = get_post_meta( get_the_ID(), 'ntt_featured_image', true ) ) {
+            $dom = new DOMDocument;
+            libxml_use_internal_errors( true );
+            $dom->loadHTML( $post_meta );
+            libxml_clear_errors();
+            
+            $images = $dom->getElementsByTagName( 'img' );
+            $image = $images->item( 0 );
+
+            $image_src = $image->getAttribute( 'src' );
+            $image_width = $image->getAttribute( 'width' );
+            $image_height = $image->getAttribute( 'height' );
+        } else if ( has_post_thumbnail( $post->ID ) ) {
             $image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
             $image_meta = wp_get_attachment_metadata( get_post_thumbnail_id( $post->ID ) );
             $image_width = $image_meta['sizes']['medium']['width'];
@@ -66,7 +76,7 @@ function ntt__kid_ntt__function__open_graph() {
             $image_src = $image_src[0];
             //$image_width = $image_src[1];
             //$image_height = $image_src[2];
-        } elseif ( $content = $post->post_content) {
+        } else if ( $content = $post->post_content) {
             $dom = new DOMDocument;
             libxml_use_internal_errors( true );
             $dom->loadHTML( $content );
@@ -78,7 +88,7 @@ function ntt__kid_ntt__function__open_graph() {
                 $image_src = $image->getAttribute( 'src' );
                 $image_width = $image->getAttribute( 'width' );
                 $image_height = $image->getAttribute( 'height' );
-            } elseif ( has_custom_logo() ) {
+            } else if ( has_custom_logo() ) {
                 $image_src = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'medium' );
                 
                 $image_src = $image_src[0];
@@ -108,13 +118,13 @@ function ntt__kid_ntt__function__open_graph() {
          */
         if ( $excerpt = $post->post_excerpt ) {
             $meta_description = $excerpt;
-        } elseif ( $content = $post->post_content ) {
+        } else if ( $content = $post->post_content ) {
             $meta_description = $content;
-        } elseif ( $description = get_bloginfo( 'description' ) ) {
+        } else if ( $description = get_bloginfo( 'description' ) ) {
             $meta_description = $description;
-        } elseif ( $description = wp_get_theme()->get( 'Description' ) ) {
+        } else if ( $description = wp_get_theme()->get( 'Description' ) ) {
             $meta_description = $description;
-        } elseif ( $description = wp_get_theme( get_template() )->get( 'Description' ) ) {
+        } else if ( $description = wp_get_theme( get_template() )->get( 'Description' ) ) {
             $meta_description = $description;
         } else {
             $meta_description = '';
@@ -136,7 +146,7 @@ function ntt__kid_ntt__function__open_graph() {
         if ( has_custom_logo() ) {
             $image_src = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'medium' );
             $image_src = $image_src[0];
-        } elseif ( has_header_image() ) {
+        } else if ( has_header_image() ) {
             $image_src = get_header_image();
         } else {
             $image_src = '';
@@ -153,9 +163,9 @@ function ntt__kid_ntt__function__open_graph() {
          */
         if ( $description = get_bloginfo( 'description' ) ) {
             $meta_description = $description;
-        } elseif ( $description = wp_get_theme()->get( 'Description' ) ) {
+        } else if ( $description = wp_get_theme()->get( 'Description' ) ) {
             $meta_description = $description;
-        } elseif ( $description = wp_get_theme( get_template() )->get( 'Description' ) ) {
+        } else if ( $description = wp_get_theme( get_template() )->get( 'Description' ) ) {
             $meta_description = $description;
         } else {
             $meta_description = '';

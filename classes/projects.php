@@ -21,7 +21,7 @@
             {
                 $paged = get_query_var( 'paged' );
             }
-            elseif ( get_query_var( 'page' ) )
+            else if ( get_query_var( 'page' ) )
             {
                 $paged = get_query_var( 'page' );
             }

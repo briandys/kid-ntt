@@ -68,7 +68,7 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
         if ( $content !== null && ! isset( $atts[0] ) ) {
             $content = $content;
         // If root attribute is set
-        } elseif ( $content === null && isset( $atts[0] ) ) {
+        } else if ( $content === null && isset( $atts[0] ) ) {
             $content = esc_attr( $atts[0] );
         }
         

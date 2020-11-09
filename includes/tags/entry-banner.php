@@ -1,6 +1,9 @@
 <?php
 /**
  * Entry Banner
+ * Featured Image via custom fields
+ * Key: [ntt_featured_image]
+ * Value: HTML <img>
 */
 function ntt__tag__entry_banner() {
 
@@ -32,18 +35,29 @@ function ntt__tag__entry_banner() {
     }    
 }
 
-function ntt__kid_ntt__function__entry_banner__css( $classes ) {
+// Validation
+function ntt__kid_ntt__function__entry_banner_visuals__validation() {
+    
+    if ( get_post_meta( get_the_ID(), 'ntt_featured_image', true ) ) {
+        return true;
+    } 
+}
 
-    $post_meta = get_post_meta( get_the_ID(), 'ntt_featured_image', true );
+// CSS
+function ntt__kid_ntt__function__entry_banner_visuals__css( $classes ) {
+
+    $post_meta = ntt__kid_ntt__function__entry_banner_visuals__validation();
+    $on = 'ntt--entry-banner-visuals---1';
+    $off = 'ntt--entry-banner-visuals---0';
 
     if ( $post_meta || get_the_post_thumbnail() !== '' ) {
-        $classes[] = 'ntt--entry-banner-visuals---1';
+        $classes[] = $on;
     } else if ( ! $post_meta || get_the_post_thumbnail() === '' ) {
-        $classes[] = 'ntt--entry-banner-visuals---0';
+        $classes[] = $off;
     } else {
-        $classes[] = 'ntt--entry-banner-visuals---0';
+        $classes[] = $off;
     }
 
     return $classes;
 }
-add_filter( 'post_class', 'ntt__kid_ntt__function__entry_banner__css' );
+add_filter( 'post_class', 'ntt__kid_ntt__function__entry_banner_visuals__css' );
