@@ -812,6 +812,17 @@ textarea {
   font-size: var(--text---xl);
 }
 
+.ntt--entry-md .ntt--content h2 {
+  color: var(--accent-color);
+}
+
+.ntt--entry-md .ntt--content h3,
+.ntt--entry-md .ntt--content h4,
+.ntt--entry-md .ntt--content h5,
+.ntt--entry-md .ntt--content h6 {
+  color: var(--color--hexetidine-peach);
+}
+
 .ntt--entry-md .ntt--content p.has-drop-cap:not(:focus):first-letter {
   position: relative;
   margin: .25em .1em 0 -.05em;

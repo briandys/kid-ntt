@@ -628,6 +628,17 @@ textarea {
 .ntt--entry-md .ntt--content {
     font-size: var(--text---xl);
 
+    h2 {
+        color: var(--accent-color);
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--color--hexetidine-peach);
+    }
+
     // Jetpack Dropcap
     p.has-drop-cap:not(:focus) {
         
