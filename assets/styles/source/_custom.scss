@@ -376,7 +376,8 @@ section:target {
 //--------------------------------------------------------------
 // Flickr Image JS
 //--------------------------------------------------------------
-.ntt--flickr-image--js {
+.ntt--flickr-image--js,
+.ntt--unsplash-image--js {
     pointer-events: none;
 
     figcaption {

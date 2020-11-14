@@ -988,10 +988,11 @@
     /**
      * Identify Flickr Images
      */
-    kidNtt.flickrImages = { 
+    kidNtt.thirdPartyMedia = { 
 
         init: function() {
 
+            // Flickr
             document.querySelectorAll( 'img[src*="flickr.com/"]' ).forEach( function( el ) {
                 
                 if ( el.closest( 'a' ) ) {
@@ -1002,8 +1003,23 @@
                     el.closest( 'figure' ).classList.add( 'ntt--flickr-image--js' );
                 }
             } );
+
+            // Unsplash
+            document.querySelectorAll( 'img[src*="unsplash.com/"]' ).forEach( function( el ) {
+
+                var a = el.closest( 'a' );
+                var figure = el.closest( 'figure' );
+                
+                if ( a ) {
+                    a.classList.add( 'ntt--unsplash-image-anchor--js' );
+                }
+
+                if ( figure ) {
+                    figure.classList.add( 'ntt--unsplash-image--js' );
+                }
+            } );
         }
-    }; // kidNtt.flickrImages
+    }; // kidNtt.thirdPartyMedia
 
     /**
      * Breadcrumbs
@@ -1060,7 +1076,7 @@
         kidNtt.windowDocumentHeight.init();
         kidNtt.goStartNav.init();
         kidNtt.imageAnchor.init();
-        kidNtt.flickrImages.init();
+        kidNtt.thirdPartyMedia.init();
         kidNtt.breadCrumbs.init();
     } );
 } )( jQuery, window, document );

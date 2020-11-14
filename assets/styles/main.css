@@ -2683,11 +2683,13 @@ section:target {
   font-size: 0.875rem;
 }
 
-.ntt--flickr-image--js {
+.ntt--flickr-image--js,
+.ntt--unsplash-image--js {
   pointer-events: none;
 }
 
-.ntt--flickr-image--js figcaption {
+.ntt--flickr-image--js figcaption,
+.ntt--unsplash-image--js figcaption {
   pointer-events: auto;
   cursor: text;
 }

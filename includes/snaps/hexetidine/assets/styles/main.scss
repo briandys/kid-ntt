@@ -628,6 +628,24 @@ textarea {
 .ntt--entry-md .ntt--content {
     font-size: var(--text---xl);
 
+    // Links
+    a {
+
+        &:focus,
+        &:hover {
+            filter: brightness(110%) saturate(110%);
+        }
+    }
+
+    .ntt--flickr-image-anchor--js,
+    .ntt--unsplash-image-anchor--js {
+
+        &:focus,
+        &:hover {
+            filter: initial;
+        }
+    }
+
     h2 {
         color: var(--accent-color);
     }
@@ -637,6 +655,10 @@ textarea {
     h5,
     h6 {
         color: var(--color--hexetidine-peach);
+    }
+
+    ul {
+        list-style-type: disc;
     }
 
     // Jetpack Dropcap

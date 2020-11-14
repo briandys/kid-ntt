@@ -812,6 +812,16 @@ textarea {
   font-size: var(--text---xl);
 }
 
+.ntt--entry-md .ntt--content a:focus, .ntt--entry-md .ntt--content a:hover {
+  filter: brightness(110%) saturate(110%);
+}
+
+.ntt--entry-md .ntt--content .ntt--flickr-image-anchor--js:focus, .ntt--entry-md .ntt--content .ntt--flickr-image-anchor--js:hover,
+.ntt--entry-md .ntt--content .ntt--unsplash-image-anchor--js:focus,
+.ntt--entry-md .ntt--content .ntt--unsplash-image-anchor--js:hover {
+  filter: initial;
+}
+
 .ntt--entry-md .ntt--content h2 {
   color: var(--accent-color);
 }
@@ -821,6 +831,10 @@ textarea {
 .ntt--entry-md .ntt--content h5,
 .ntt--entry-md .ntt--content h6 {
   color: var(--color--hexetidine-peach);
+}
+
+.ntt--entry-md .ntt--content ul {
+  list-style-type: disc;
 }
 
 .ntt--entry-md .ntt--content p.has-drop-cap:not(:focus):first-letter {
