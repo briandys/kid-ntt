@@ -994,13 +994,16 @@
 
             // Flickr
             document.querySelectorAll( 'img[src*="flickr.com/"]' ).forEach( function( el ) {
+
+                var a = el.closest( 'a' );
+                var figure = el.closest( 'figure' );
                 
-                if ( el.closest( 'a' ) ) {
-                    el.closest( 'a' ).classList.add( 'ntt--flickr-image-anchor--js' );
+                if ( a ) {
+                    a.classList.add( 'ntt--flickr-image-anchor--js' );
                 }
 
-                if ( el.closest( 'figure' ) ) {
-                    el.closest( 'figure' ).classList.add( 'ntt--flickr-image--js' );
+                if ( figure ) {
+                    figure.classList.add( 'ntt--flickr-image--js' );
                 }
             } );
 
@@ -1043,6 +1046,23 @@
     }; // kidNtt.breadCrumbs
 
     /**
+     * Query String
+     * Add CSS class to HTML based on a query string in the URL
+     */
+    kidNtt.queryString = {
+
+        init: function() {
+
+            var url = window.location.href;
+            var queryString = url.search( /ref=index/i );
+
+            if ( queryString !== -1 ) {
+                html.classList.add( 'ntt--url-reference--index' );
+            }
+        }
+    }; // kidNtt.queryString
+
+    /**
      * Is the DOM ready?
      *
      * This implementation is coming from https://gomakethings.com/a-native-javascript-equivalent-of-jquerys-ready-method/
@@ -1078,5 +1098,6 @@
         kidNtt.imageAnchor.init();
         kidNtt.thirdPartyMedia.init();
         kidNtt.breadCrumbs.init();
+        kidNtt.queryString.init();
     } );
 } )( jQuery, window, document );

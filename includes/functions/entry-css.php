@@ -2,7 +2,6 @@
 /**
  * Entry CSS
  */
-
 function ntt__kid_ntt__function__entry__css( $classes ) {
 
     global $post;
@@ -10,7 +9,6 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
     /**
      * Entry Name
      */
-
     if ( $post->post_title ) {
         $classes[] = 'ntt--'. $post->post_type. '--'. $post->post_name;
     }
@@ -18,7 +16,6 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
     /**
      * Entry Type View
      */
-
     $classes[] = 'ntt--'. $post->post_type;
     
     /**
@@ -38,7 +35,6 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
     /**
      * Entry Author Default Avatar Status
      */
-
     if ( get_option( 'avatar_default' ) == 'blank' ) {
         $classes[] = 'ntt--entry-author-default-avatar---blank';
     } else {
@@ -48,7 +44,6 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
     /**
      * Entry Summary (Excerpt) Ability Status
      */
-
     if ( has_excerpt() ) {
         $classes[] = 'ntt--entry-excerpt-content---1';
     }
@@ -56,7 +51,6 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
     /**
      * Entry Name Population Status
      */
-
     if ( ! get_the_title() ) {
         $classes[] = 'ntt--entry-name---empty';
     }
@@ -64,7 +58,6 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
     /**
      * Sticky Post
      */
-
     if ( is_single() ) {
 
         if ( is_sticky() ) {
@@ -83,7 +76,6 @@ add_filter( 'post_class', 'ntt__kid_ntt__function__entry__css' );
  * 
  * Duplicated from ntt__kid_ntt__function__entry__css()
  */
-
 function ntt__kid_ntt__function__entry_view__css( $classes ) {
 
     global $post;
@@ -93,13 +85,11 @@ function ntt__kid_ntt__function__entry_view__css( $classes ) {
     /**
      * Entry ID
      */
-
     $classes[] = 'ntt--entry--'. $post->ID. $css_suffix;
 
     /**
      * Entry Name
      */
-
     if ( $post->post_title ) {
         $classes[] = 'ntt--'. $post->post_type. '--'. $post->post_name. $css_suffix;
     }
@@ -107,7 +97,6 @@ function ntt__kid_ntt__function__entry_view__css( $classes ) {
     /**
      * Entry Type View
      */
-
     $classes[] = 'ntt--'. $post->post_type. $css_suffix;
     
     /**
@@ -127,7 +116,6 @@ function ntt__kid_ntt__function__entry_view__css( $classes ) {
     /**
      * Entry Author Default Avatar Status
      */
-
     if ( get_option( 'avatar_default' ) == 'blank' ) {
         $classes[] = 'ntt--entry-author-default-avatar---blank'. $css_suffix;
     } else {
@@ -137,7 +125,6 @@ function ntt__kid_ntt__function__entry_view__css( $classes ) {
     /**
      * Entry Summary (Excerpt) Ability Status
      */
-
     if ( has_excerpt() ) {
         $classes[] = 'ntt--entry-excerpt-content---1'. $css_suffix;
     }
@@ -145,7 +132,6 @@ function ntt__kid_ntt__function__entry_view__css( $classes ) {
     /**
      * Entry Name Population Status
      */
-
     if ( ! get_the_title() ) {
         $classes[] = 'ntt--entry-name---empty'. $css_suffix;
     }
@@ -153,7 +139,6 @@ function ntt__kid_ntt__function__entry_view__css( $classes ) {
     /**
      * Entry Banner Visuals (Featured Image) Ability Status
      */
-
     if ( get_the_post_thumbnail() !== '' ) {
         $classes[] = 'ntt--entry-banner-visuals---1'. $css_suffix;
     } else {
@@ -163,7 +148,6 @@ function ntt__kid_ntt__function__entry_view__css( $classes ) {
     /**
      * Sticky Post
      */
-
     if ( is_single() ) {
 
         if ( is_sticky() ) {

@@ -31,6 +31,7 @@ $ntt_r_functions = array(
     'shortcodes',
     'open-graph',
     'page-template-sub-pages',
+    'query-string',
     'svg-icons',
 
     // Conditional CSS Class Names
