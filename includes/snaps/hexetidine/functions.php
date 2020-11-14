@@ -101,22 +101,6 @@ function ntt__kid_ntt__snaps__hexetidine_ntt__function__icons() {
 }
 
 /**
- * Search Query Criteria
- */
-
- function ntt__kid_ntt__snaps__hexetidine_ntt__function__search_query( $query ) {
-    
-    if ( ! is_admin() && $query->is_main_query() && is_search() ) {
-        $query->set( 'post_type', 'post' );
-        $query->set( 'category__not_in', get_cat_ID ( 'The Ride' ) );
-    }
-    
-    return $query;
-}
-add_filter( 'pre_get_posts','ntt__kid_ntt__snaps__hexetidine_ntt__function__search_query' );
-
-
-/**
  * Comment Label Text
  */
 add_filter( 'ntt__wp_filter__comment_label_text', function() {
