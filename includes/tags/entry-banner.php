@@ -22,11 +22,11 @@ if ( ! function_exists( 'ntt__tag__entry_banner' ) ) {
         // Custom Field
         if ( $post_meta ) {
             
-            $markup = $entry_banner_mu_s;
+            $markup = '<div class="ntt--entry-banner ntt--cp" data-name="Entry Banner">';
                 $markup .= $entry_banner_visuals_mu_s;
                     $markup .= $post_meta;
                 $markup .= $entry_banner_visuals_mu_e;
-            $markup .= $entry_banner_mu_e;
+            $markup .= '</div>';
 
             $markup = apply_filters( 'ntt__kid_ntt__wp_filter__entry_banner_visuals', $markup );
             
@@ -46,11 +46,11 @@ if ( ! function_exists( 'ntt__tag__entry_banner' ) ) {
             $content = $post->post_content;
 
             if ( $image = ntt__function__image_tag__getter( $content ) ) {
-                $markup = $entry_banner_mu_s;
+                $markup = '<div class="ntt--entry-banner ntt--entry-banner-visuals--img-tag---1 ntt--cp" data-name="Entry Banner">';
                     $markup .= $entry_banner_visuals_mu_s;
                         $markup .= '<img src="'. $image['src'].'" width="'. $image['width'].'" height="'. $image['height'].'" alt="Featured Image" />';
                     $markup .= $entry_banner_visuals_mu_e;
-                $markup .= $entry_banner_mu_e;
+                $markup .= '</div>';
 
                 $markup = apply_filters( 'ntt__kid_ntt__wp_filter__entry_banner_visuals', $markup );
                 

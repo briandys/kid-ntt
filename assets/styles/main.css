@@ -1229,6 +1229,10 @@ th {
   width: 100%;
 }
 
+.ntt--non-page-template--view.ntt--entry-singular--view .ntt--entry-banner-visuals--img-tag---1 {
+  display: none;
+}
+
 .ntt figure figcaption {
   display: block;
   margin-top: 1em;

@@ -60,6 +60,8 @@ function ntt__kid_ntt__function__view__css( $classes ) {
         
         $classes[] = $page_template_text. '--'. $view_text;
         $classes[] = $page_template_text. '--'. $template_slug. '--'. $view_text;
+    } else {
+        $classes[] = 'ntt--non-page-template--view';
     }
 
     return $classes;
