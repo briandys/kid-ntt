@@ -28,6 +28,7 @@ $ntt_r_functions = array(
     'styles-scripts',
     'customizer',
     'custom-fields',
+    'image-tag',
     'shortcodes',
     'open-graph',
     'page-template-sub-pages',

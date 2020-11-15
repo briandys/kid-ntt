@@ -12,6 +12,11 @@ add_filter( 'language_attributes', 'ntt__kid_ntt__function__open_graph_xmlns' );
  */
 function ntt__kid_ntt__function__open_graph() {
 
+    $image_src = '';
+    $image_width = '';
+    $image_height = '';
+    $meta_description = '';
+
     /*
     For Home
     Plural View
@@ -25,8 +30,7 @@ function ntt__kid_ntt__function__open_graph() {
 
     // Singular
     if ( is_singular() ) {
-        global $post;
-    
+        
         $og = array(
             'title'     => get_the_title(),
             'type'      => 'article',
@@ -50,59 +54,35 @@ function ntt__kid_ntt__function__open_graph() {
          * https://developer.wordpress.org/reference/functions/wp_get_attachment_image_src/
          * https://wordpress.stackexchange.com/a/302166
          * https://stackoverflow.com/a/7082487
-         * 
-         * $image_meta = wp_get_attachment_metadata( get_post_thumbnail_id( $post->ID ) );
-         * $image_width = $image_meta['sizes']['medium']['width'];
-         * $image_height = $image_meta['sizes']['medium']['height'];
          */
-        if ( $post_meta = get_post_meta( get_the_ID(), 'ntt_featured_image', true ) ) {
-            $dom = new DOMDocument;
-            libxml_use_internal_errors( true );
-            $dom->loadHTML( $post_meta );
-            libxml_clear_errors();
-            
-            $images = $dom->getElementsByTagName( 'img' );
-            $image = $images->item( 0 );
-
-            $image_src = $image->getAttribute( 'src' );
-            $image_width = $image->getAttribute( 'width' );
-            $image_height = $image->getAttribute( 'height' );
+        global $post;
+        $post_meta = get_post_meta( get_the_ID(), 'ntt_featured_image', true );
+        $content = $post->post_content;
+        
+        if ( $image = ntt__function__image_tag__getter( $post_meta ) ) {
+            $image_src = $image['src'];
+            $image_width = $image['width'];
+            $image_height = $image['height'];
         } else if ( has_post_thumbnail( $post->ID ) ) {
             $image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
             $image_meta = wp_get_attachment_metadata( get_post_thumbnail_id( $post->ID ) );
-            $image_width = $image_meta['sizes']['medium']['width'];
-            $image_height = $image_meta['sizes']['medium']['height'];
 
             $image_src = $image_src[0];
-            //$image_width = $image_src[1];
-            //$image_height = $image_src[2];
-        } else if ( $content = $post->post_content) {
-            $dom = new DOMDocument;
-            libxml_use_internal_errors( true );
-            $dom->loadHTML( $content );
-            libxml_clear_errors();
-            $images = $dom->getElementsByTagName( 'img' );
-            $image = $images->item( 0 );
+            $image_width = $image_meta['sizes']['medium']['width'];
+            $image_height = $image_meta['sizes']['medium']['height'];
+        } else if ( $image = ntt__function__image_tag__getter( $content ) ) {
 
             if ( $image ) {
-                $image_src = $image->getAttribute( 'src' );
-                $image_width = $image->getAttribute( 'width' );
-                $image_height = $image->getAttribute( 'height' );
-            } else if ( has_custom_logo() ) {
-                $image_src = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'medium' );
-                
-                $image_src = $image_src[0];
-                $image_width = $image_src[1];
-                $image_height = $image_src[2];
-            } else {
-                $image_src = '';
-                $image_width = '';
-                $image_height = '';
+                $image_src = $image['src'];
+                $image_width = $image['width'];
+                $image_height = $image['height'];
             }
-        } else {
-            $image_src = '';
-            $image_width = '';
-            $image_height = '';
+        } else if ( has_custom_logo() ) {
+            $get_image_src = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'medium' );
+
+            $image_src = $get_image_src[0];
+            $image_width = strval( $get_image_src[1] );
+            $image_height = strval( $get_image_src[2] );
         }
 
         /**
@@ -144,12 +124,13 @@ function ntt__kid_ntt__function__open_graph() {
 
         // Get Open Graph Image
         if ( has_custom_logo() ) {
-            $image_src = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'medium' );
-            $image_src = $image_src[0];
+            $get_image_src = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'medium' );
+            
+            $image_src = $get_image_src[0];
+            $image_width = strval( $get_image_src[1] );
+            $image_height = strval( $get_image_src[2] );
         } else if ( has_header_image() ) {
             $image_src = get_header_image();
-        } else {
-            $image_src = '';
         }
 
         /**
@@ -167,8 +148,6 @@ function ntt__kid_ntt__function__open_graph() {
             $meta_description = $description;
         } else if ( $description = wp_get_theme( get_template() )->get( 'Description' ) ) {
             $meta_description = $description;
-        } else {
-            $meta_description = '';
         }
     }
 
