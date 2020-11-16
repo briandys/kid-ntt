@@ -52,15 +52,17 @@ if ( ! function_exists( 'ntt__tag__entry_banner' ) ) {
 
         $entry_banner_mu_s = '<div class="ntt--entry-banner ntt--cp" data-name="Entry Banner">';
         $entry_banner_mu_e = '</div>';
-        $entry_banner_visuals_mu_s = '<figure class="ntt--entry-banner-visuals ntt--obj" data-name="Entry Banner Visuals">';
+        $entry_banner_visuals_mu_s = '<figure class="ntt--entry-banner-visuals ntt--obj" data-name="Entry Banner Visuals">';        
         $entry_banner_visuals_mu_e = '</figure>';
+        $a_mu_s = '<a href="'. esc_url( get_permalink() ). '" rel="bookmark" class="u-url">';
+        $a_mu_e = '</a>';
 
         // Custom Field
         if ( $post_meta ) {
             
             $markup = $entry_banner_mu_s;
                 $markup .= $entry_banner_visuals_mu_s;
-                    $markup .= $post_meta_content;
+                    $markup .= $a_mu_s. $post_meta_content. $a_mu_e;
                 $markup .= $entry_banner_visuals_mu_e;
             $markup .= $entry_banner_mu_e;
 
@@ -84,7 +86,7 @@ if ( ! function_exists( 'ntt__tag__entry_banner' ) ) {
             if ( $image = ntt__function__image_tag__getter( $content ) ) {
                 $markup = $entry_banner_mu_s;
                     $markup .= $entry_banner_visuals_mu_s;
-                        $markup .= '<img src="'. $image['src'].'" width="'. $image['width'].'" height="'. $image['height'].'" alt="Featured Image" />';
+                        $markup .= $a_mu_s. '<img src="'. $image['src'].'" width="'. $image['width'].'" height="'. $image['height'].'" alt="Featured Image" />'. $a_mu_e;
                     $markup .= $entry_banner_visuals_mu_e;
                 $markup .= $entry_banner_mu_e;
 

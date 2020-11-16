@@ -376,13 +376,21 @@ section:target {
 //--------------------------------------------------------------
 // Flickr Image JS
 //--------------------------------------------------------------
-.ntt--flickr-image--js,
-.ntt--unsplash-image--js {
-    pointer-events: none;
+.ntt--entry-full-content {
+    
+    .ntt--flickr-image--js,
+    .ntt--unsplash-image--js {
+        pointer-events: none;
 
-    figcaption {
-        pointer-events: auto;
-        cursor: text;
+        figcaption {
+            pointer-events: auto;
+            cursor: text;
+        }
+    }
+
+    .ntt--flickr-image-anchor--js,
+    .ntt--unsplash-image-anchor--js {
+        pointer-events: none;
     }
 }
 

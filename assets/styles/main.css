@@ -2687,15 +2687,20 @@ section:target {
   font-size: 0.875rem;
 }
 
-.ntt--flickr-image--js,
-.ntt--unsplash-image--js {
+.ntt--entry-full-content .ntt--flickr-image--js,
+.ntt--entry-full-content .ntt--unsplash-image--js {
   pointer-events: none;
 }
 
-.ntt--flickr-image--js figcaption,
-.ntt--unsplash-image--js figcaption {
+.ntt--entry-full-content .ntt--flickr-image--js figcaption,
+.ntt--entry-full-content .ntt--unsplash-image--js figcaption {
   pointer-events: auto;
   cursor: text;
+}
+
+.ntt--entry-full-content .ntt--flickr-image-anchor--js,
+.ntt--entry-full-content .ntt--unsplash-image-anchor--js {
+  pointer-events: none;
 }
 
 @media only screen and (min-width: 768px) {
