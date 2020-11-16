@@ -49,19 +49,19 @@ function ntt__kid_ntt__function__view__css( $classes ) {
      * Page Template
      * https://stackoverflow.com/a/2395905
      */
+    $page_template_text = 'ntt--page-template';
+    $view_text = 'view';
+    
     if ( get_page_template_slug() ) {
         global $post;
         $template_slug = get_page_template_slug( $post->ID );
         $template_slug = preg_replace( '/\.[^.]+$/', '', $template_slug );
         $template_slug = sanitize_title( $template_slug );
         
-        $page_template_text = 'ntt--page-template';
-        $view_text = 'view';
-        
-        $classes[] = $page_template_text. '--'. $view_text;
+        $classes[] = $page_template_text. '---specific'. '--'. $view_text;
         $classes[] = $page_template_text. '--'. $template_slug. '--'. $view_text;
     } else {
-        $classes[] = 'ntt--non-page-template--view';
+        $classes[] = $page_template_text. '---generic'. '--'. $view_text;
     }
 
     return $classes;
