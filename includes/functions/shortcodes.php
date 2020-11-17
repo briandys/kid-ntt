@@ -122,7 +122,7 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
                     $section_mu .= '<a href="'. esc_url( get_the_permalink() ).'">'. esc_html( '%2$s' ). '</a>';
                 $section_mu .= '</h1>';
                 $section_mu .= '<div class="ntt--percept--entry-content ntt--entry-content ntt--content ntt--cp" data-name="NTT Percept Entry Content">';                
-                    $section_mu .= esc_html( '%1$s' );                    
+                    $section_mu .= esc_html( '%1$s' );
                 $section_mu .= '</div>';
             $section_mu .= '</article>';
 

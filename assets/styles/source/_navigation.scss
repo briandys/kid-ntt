@@ -618,6 +618,26 @@
     }
 }
 
+.ntt--sub-menu-ancestor---unlinked--js {
+
+    .ntt--sub-menu-checkbox--js {
+        left: 0;
+        right: auto;
+        width: 100%;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    > a {
+
+        .ntt--txt {
+            padding-right: 0;
+        }
+    }
+}
+
 //--------------------------------------------------------------
 // Sub-Menu
 // JS-created CSS class name: .ntt--nav---sub-menu--js

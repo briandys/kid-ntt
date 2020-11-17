@@ -52,6 +52,7 @@ foreach ( $ntt_r_functions as $ntt_function ) {
  * Tag
  */
 $ntt_r_tags = array(
+    'content-none',
     'entry-banner',
 );
 

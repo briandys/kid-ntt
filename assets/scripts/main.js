@@ -12,6 +12,7 @@
     const body = document.body;
     const commentForm = document.getElementById( 'commentform' );
     const entriesNav = document.getElementById( 'ntt--entries-nav' );
+    const entityPrimaryNav = document.getElementById( 'ntt--entity-primary-nav' );
 
     // polyfill forEach
     // https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill
@@ -523,10 +524,12 @@
     kidNtt.subMenu = {
 
         init: function() {
+
             this.initCssClassNames();
-            this.toggleMenu();
-            this.uncheckInputOnExternalClick();
+            this.initToggleMenu();
+            this.initUncheckInputOnExternalClick();
             this.initActivityStatus();
+            this.initClassifyEmptyAnchor();
 
             window.addEventListener( 'load', function() {
                 kidNtt.subMenu.uncheckInput();
@@ -560,7 +563,7 @@
             } );
         },
 
-        toggleMenu: function() {
+        initToggleMenu: function() {
 
             // Prepends a control to hide and show the sub-menu
             var subMenu = document.querySelectorAll( '.ntt--nav .children, .ntt--nav .sub-menu, .ntt--widget_nav_menu .sub-menu' );
@@ -629,7 +632,7 @@
             } );
         },
 
-        uncheckInputOnExternalClick: function() {
+        initUncheckInputOnExternalClick: function() {
 
             window.addEventListener( 'click', function ( event ) {
                 
@@ -670,6 +673,19 @@
                         }
                     }
                 }
+            }
+        },
+
+        // Classify Empty Anchor
+        initClassifyEmptyAnchor: function() {
+
+            var a = entityPrimaryNav.querySelectorAll( '.ntt--sub-menu-ancestor--js > a[href="#"]' );
+
+            if ( a ) {
+                a.forEach( function( el ) {
+                    el.setAttribute( 'tabindex', '-1' );
+                    el.parentNode.classList.add( 'ntt--sub-menu-ancestor---unlinked--js' );
+                } );
             }
         }
     }; // kidNtt.subMenu
