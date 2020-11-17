@@ -2040,6 +2040,10 @@ th {
   display: none;
 }
 
+.ntt--sub-menu-ancestor---unlinked--js > a {
+  pointer-events: none;
+}
+
 .ntt--sub-menu-ancestor---unlinked--js > a .ntt--txt {
   padding-right: 0;
 }

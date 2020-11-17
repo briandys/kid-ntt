@@ -631,6 +631,7 @@
     }
 
     > a {
+        pointer-events: none;
 
         .ntt--txt {
             padding-right: 0;
