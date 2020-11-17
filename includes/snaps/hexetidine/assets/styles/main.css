@@ -1474,6 +1474,19 @@ textarea {
   margin-right: 0;
 }
 
+.ntt .ntt--cta-obj {
+  display: block;
+}
+
+.ntt .ntt--cta-obj .ntt--cta-button {
+  display: inline-block;
+  padding: .5em .75em;
+  min-height: 3rem;
+  background-color: var(--accent-color);
+  color: var(--surface-color);
+  box-shadow: none;
+}
+
 .ntt--widget_blog_subscription {
   margin-left: 1rem;
   margin-right: 1rem;

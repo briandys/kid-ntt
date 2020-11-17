@@ -4,6 +4,11 @@
  */
 
 /**
+ * Enable the Text Widget and Custom HTML Widget to run WP Shortcodes
+ */
+add_filter( 'widget_text', 'do_shortcode' );
+
+/**
  * WordPress Shortcode Initialization
  * 
  * List down all WordPress Shortcodes functions and their corresponding shortcode name (the one enclosed in [brackets] and is used while composing entries).
@@ -15,9 +20,9 @@ function ntt__kid_ntt__wp_shortcode__initialization() {
         'ntt__kid_ntt__wp_shortcode__percept'             => 'ntt_percept',
         'ntt__kid_ntt__wp_shortcode__nav_menu'            => 'ntt_menu',
         'ntt__kid_ntt__wp_shortcode__random_number'       => 'ntt_rand',
-        'ntt__kid_ntt__wp_shortcode__email_anti_spambots' => 'ntt_email',
         'ntt__kid_ntt__wp_shortcode__htmlok'              => 'ntt_htmlok',
         'ntt__kid_ntt__wp_shortcode__tag'                 => 'ntt_tag',
+        'ntt__kid_ntt__wp_shortcode__call_to_action'      => 'ntt_cta',
     );
     
     foreach ( $r_wp_shortcodes as $func => $wp_shortcode ) {
@@ -146,14 +151,19 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
 
 /**
  * Menu Shortcode
- * 
  * Call menu using a shortcode
- * 
- * Usage: [ntt_menu name="menu-name"]
+ * Usage: [ntt_menu "Menu Name"]
  */
-function ntt__kid_ntt__wp_shortcode__nav_menu( $atts, $content = null ) {
-	extract( shortcode_atts( array( 'name' => null, ), $atts ) );
-	$menu = wp_nav_menu( array( 'menu' => $name, 'echo' => false ) );
+function ntt__kid_ntt__wp_shortcode__nav_menu( $atts ) {
+
+    if ( ! isset( $atts[0] ) ) {
+        return;
+    } else {
+        $name = $atts[0];
+    }
+
+    $menu = wp_nav_menu( array( 'menu' => $name, 'echo' => false ) );
+    
 	return $menu;
 }
 
@@ -171,58 +181,30 @@ function ntt__kid_ntt__wp_shortcode__random_number( $atts ) {
     if ( ! isset( $atts[0] ) ) {
         $digits = '2';
     } else {
-        $digits = esc_attr( $atts[0] );
+        $digits = $atts[0];
     }
     
-    return substr( rand(), 0, $digits );
+    return substr( mt_rand(), 0, $digits );
 }
-
-/**
- * Hide email from Spam Bots using a shortcode.
- *
- * @param array  $atts    Shortcode attributes. Not used.
- * @param string $content The shortcode content. Should be an email address.
- *
- * @return string The obfuscated email address. 
- */
-function ntt__kid_ntt__wp_shortcode__email_anti_spambots( $atts , $content = null ) {
-	if ( ! is_email( $content ) ) {
-		return;
-	}
-
-	$content = antispambot( $content );
-
-	$email_link = sprintf( 'mailto:%s', $content );
-
-	return sprintf( '<a href="%s">%s</a>', esc_url( $email_link, array( 'mailto' ) ), esc_html( $content ) );
-}
-
-/**
- * Enable the Text Widget and Custom HTML Widget to run WP Shortcodes
- */
-add_filter( 'widget_text', 'do_shortcode' );
 
 // ------------------------------------ NTT HTML_OK Shortcode
 // [ntt_htmlok name="Name"]Content[/ntt_htmlok]
 // https://developer.wordpress.org/plugins/shortcodes/shortcodes-with-parameters/#complete-example
 
-function ntt__kid_ntt__wp_shortcode__htmlok( $atts = [], $content = null, $tag = '' )
-{
+function ntt__kid_ntt__wp_shortcode__htmlok( $atts, $content = null, $tag = '' ) {
+
     $atts = array_change_key_case( ( array ) $atts, CASE_LOWER );
  
-    $htmlok_atts = shortcode_atts( [
+    $atts = shortcode_atts( array(
         'name' => 'HTML_OK',
-    ], $atts, $tag );
+    ), $atts, $tag );
  
-    $o = '';
- 
-    $o .= '<div id="'. sanitize_title( $htmlok_atts['name'] ). '" class="cp'. ' '. sanitize_title( $htmlok_atts['name'] ). ' '. 'ntt-html-ok-shortcode'. '" data-name="'. esc_html( $htmlok_atts['name'] ). ' CP">';
-        $o .= '<div class="cr'. ' '. sanitize_title( $htmlok_atts['name'] ). '---cr">';
-            $o .= '<div class="h">' . esc_html__( $htmlok_atts['name'], 'kid-ntt' ). '</div>';
-            $o .= '<div class="ct'. ' '. sanitize_title( $htmlok_atts['name'] ). '---ct">';
+    $o = '<div id="'. sanitize_title( $atts['name'] ). '" class="cp'. ' '. sanitize_title( $atts['name'] ). ' '. 'ntt-html-ok-shortcode'. '" data-name="'. esc_html( $atts['name'] ). ' CP">';
+        $o .= '<div class="cr'. ' '. sanitize_title( $atts['name'] ). '---cr">';
+            $o .= '<div class="h">' . esc_html__( $atts['name'], 'kid-ntt' ). '</div>';
+            $o .= '<div class="ct'. ' '. sanitize_title( $atts['name'] ). '---ct">';
 
-            if ( ! is_null( $content ) )
-            {
+            if ( ! is_null( $content ) ) {
                 $o .= do_shortcode( $content );
             }
 
@@ -234,39 +216,66 @@ function ntt__kid_ntt__wp_shortcode__htmlok( $atts = [], $content = null, $tag =
 }
 
 /**
+ * NTT Call to Action
  *
+ * Usage: [ntt_cta "Click me!" href="#" class="button"]
+ *
+ */
+function ntt__kid_ntt__wp_shortcode__call_to_action( $atts ) {
+
+    $atts = array_change_key_case( ( array ) $atts, CASE_LOWER );
+
+    // Shortcode Attributes
+    $clean_atts = extract( shortcode_atts( array(
+        'class' => 'button',
+        'href'  => '#',
+    ), $atts ) );
+
+    if ( ! isset( $atts[0] ) ) {
+        return;
+    } else {
+        $content = $atts[0];
+    }
+
+    if ( $class === 'button' ) {
+        $mu_s = '<div class="ntt--cta-obj ntt--obj">';
+        $mu_e = '</div>';
+    } else {
+        $mu_s = '';
+        $mu_e = '';
+    }
+
+    $cta = $mu_s. '<a href="'. esc_attr( $href ). '" class="ntt--cta'. ' '. 'ntt--cta-'. esc_attr( $class ).'">'. esc_html( $content ). '</a>'. $mu_e;
+
+    return $cta;
+}
+
+/**
  * NTT Tag Shortcode
  *
  * Usage: [ntt_tag "[tag]"]
  *
  */
-function ntt__kid_ntt__wp_shortcode__tag( $atts )
-{
+function ntt__kid_ntt__wp_shortcode__tag( $atts ) {
+    
     extract( shortcode_atts( array(
         'post_id' => NULL,
     ), $atts ) );
     
-    if ( !isset( $atts[0] ) )
-    {
+    if ( ! isset( $atts[0] ) ) {
         return;
     }
     
-    $field = esc_attr( $atts[0] );
-    
+    $field = $atts[0];
     $tag = get_term_by( 'slug', $field, 'post_tag' );
     
-    $tag_display = '';
-    
-    if ( $tag )
-    {
+    if ( $tag ) {
         $tag_id = $tag->term_id;
         $tag_link = get_tag_link( $tag_id );
         
-        $tag_display = '<a class="tag" href="'. $tag_link. '">'. $field. '</a>';
-    }
-    else
-    {
-        $tag_display = '<span class="untagged">'. $field. '</span>';
+        $tag_display = '<a class="ntt--entry-tag" href="'. $tag_link. '" rel="tag">'. esc_html( $field ). '</a>';
+    } else {
+        $tag_display = '<span class="ntt--entry-tag---untagged">'. esc_html( $field ). '</span>';
     }
     
     return $tag_display;
