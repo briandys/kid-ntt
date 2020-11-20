@@ -380,6 +380,14 @@ textarea {
   border-right: 0;
 }
 
+.ntt .contact-form input[type=email],
+.ntt .contact-form input[type=tel],
+.ntt .contact-form input[type=text],
+.ntt .contact-form input[type=url] {
+  width: 100%;
+  border: 0.25rem solid var(--color--hexetidine-gray);
+}
+
 .ntt--hexetidine--current-month {
   margin-bottom: .5rem;
   text-align: right;
@@ -822,7 +830,8 @@ textarea {
   filter: initial;
 }
 
-.ntt--entry-md .ntt--content h2 {
+.ntt--entry-md .ntt--content h2,
+.ntt--entry-md .ntt--content .ntt--percept--entry-name a {
   color: var(--accent-color);
 }
 
@@ -1476,6 +1485,7 @@ textarea {
 
 .ntt .ntt--cta-obj {
   display: block;
+  margin-top: 2em;
 }
 
 .ntt .ntt--cta-obj .ntt--cta-button {
@@ -1490,6 +1500,8 @@ textarea {
 .ntt--widget_blog_subscription {
   margin-left: 1rem;
   margin-right: 1rem;
+  padding-top: 0.001rem;
+  padding-bottom: 0.001rem;
   background-color: var(--color--hexetidine-gray---alpha-s);
   border-radius: var(--element-corner-radius);
 }
@@ -1676,6 +1688,8 @@ textarea {
   .ntt--widget_blog_subscription {
     margin-left: 2rem;
     margin-right: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage]::before, .ntt--kid-ntt--feature--scroll-y--view[data-scroll-y-percentage]::after {
     height: 1rem;

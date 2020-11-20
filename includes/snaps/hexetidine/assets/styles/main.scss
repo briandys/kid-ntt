@@ -79,7 +79,6 @@ body {
 //--------------------------------------------------------------
 // Form Elements
 //--------------------------------------------------------------
-
 .ntt--comment-form {
     
     .text-input,
@@ -96,6 +95,17 @@ textarea {
 .ntt--search .text-input {
     border: .25rem solid var(--color--hexetidine-gray);
     border-right: 0;
+}
+
+.ntt .contact-form {
+
+    input[type=email],
+    input[type=tel],
+    input[type=text],
+    input[type=url] {
+        width: 100%;
+        border: .25rem solid var(--color--hexetidine-gray);
+    }
 }
 
 //--------------------------------------------------------------
@@ -646,7 +656,8 @@ textarea {
         }
     }
 
-    h2 {
+    h2,
+    .ntt--percept--entry-name a {
         color: var(--accent-color);
     }
 
@@ -999,6 +1010,7 @@ textarea {
 
     .ntt--cta-obj {
         display: block;
+        margin-top: 2em;
 
         .ntt--cta-button {
             display: inline-block;
@@ -1017,6 +1029,7 @@ textarea {
 
 .ntt--widget_blog_subscription {
     @include x-margin(1rem);
+    @include y-padding(.001rem);
     background-color: var(--color--hexetidine-gray---alpha-s);
     border-radius: var(--element-corner-radius);
 
@@ -1241,6 +1254,7 @@ textarea {
 
     .ntt--widget_blog_subscription {
         @include x-margin(2rem);
+        @include x-padding(2rem);
     }
 
     //--------------------------------------------------------------

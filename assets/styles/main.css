@@ -928,6 +928,10 @@ th {
   max-height: 80vh;
 }
 
+.ntt--entry-md .ntt--content .ntt--percept--entry-name {
+  font-size: 2.25rem;
+}
+
 .ntt--pre-el-skin--js {
   display: grid;
   max-width: 100vw;
@@ -1629,6 +1633,19 @@ th {
   padding: .5rem;
 }
 
+.ntt--entries-page-indicator .ntt--txt > * {
+  margin-left: 0.15em;
+  margin-right: 0.15em;
+}
+
+.ntt--entries-page-indicator .ntt--txt > *:first-child {
+  margin-left: 0;
+}
+
+.ntt--entries-page-indicator .ntt--txt > *:last-child {
+  margin-right: 0;
+}
+
 .ntt--dom---unloaded--js .ntt--entries-nav {
   visibility: hidden;
 }
@@ -1772,6 +1789,7 @@ th {
   position: absolute;
   left: 0;
   top: 50%;
+  margin-left: 1rem;
   transform: translateY(-50%);
   min-width: 7.25rem;
   background-color: var(--surface-color);

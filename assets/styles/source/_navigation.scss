@@ -146,6 +146,18 @@
 
     .ntt--txt {
        @include block-pad;
+
+       > * {
+           @include x-margin(.15em);
+
+           &:first-child {
+               margin-left: 0;
+           }
+
+           &:last-child {
+            margin-right: 0;
+        }
+       }
     }
 }
 
@@ -319,6 +331,7 @@
     position: absolute;
     left: 0;
     top: 50%;
+    margin-left: 1rem;
     transform: translateY(-50%);
     min-width: 7.25rem;
     background-color: var(--surface-color);
