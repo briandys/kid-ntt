@@ -1851,6 +1851,11 @@ th {
   white-space: nowrap;
 }
 
+.ntt--entries-nav---single-navi--js {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .ntt--entries-nav---single-navi--js .ntt--entries-page-indicator {
   padding-right: 0;
   border-color: transparent;

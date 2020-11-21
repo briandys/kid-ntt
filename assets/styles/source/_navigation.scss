@@ -403,6 +403,7 @@
 }
 
 .ntt--entries-nav---single-navi--js {
+    @include x-margin();
 
     .ntt--entries-page-indicator {
         padding-right: 0;
