@@ -62,7 +62,7 @@ if ( ! function_exists( 'ntt__tag__entry_banner' ) ) {
             
             $markup = $entry_banner_mu_s;
                 $markup .= $entry_banner_visuals_mu_s;
-                    $markup .= $a_mu_s. $post_meta_content. $a_mu_e;
+                    $markup .= $post_meta_content;
                 $markup .= $entry_banner_visuals_mu_e;
             $markup .= $entry_banner_mu_e;
 
