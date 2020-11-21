@@ -1656,11 +1656,11 @@ th {
 }
 
 .ntt--js .ntt--entries-nav {
+  flex: 1;
   position: relative;
   display: flex;
   align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -2220,10 +2220,10 @@ th {
 
 .ntt--js .ntt--go-start-nav {
   position: absolute;
-  left: 50%;
+  right: 0;
   bottom: 0;
   z-index: 1;
-  transform: translate(-50%, -1.5rem);
+  margin-right: 1rem;
   transition: all 0.3s ease-in-out;
   transition-property: bottom;
 }
@@ -2723,19 +2723,19 @@ section:target {
   font-size: 0.875rem;
 }
 
-.ntt--entry-full-content .ntt--flickr-image--js,
-.ntt--entry-full-content .ntt--unsplash-image--js {
+.ntt--flickr-image--js,
+.ntt--unsplash-image--js {
   pointer-events: none;
 }
 
-.ntt--entry-full-content .ntt--flickr-image--js figcaption,
-.ntt--entry-full-content .ntt--unsplash-image--js figcaption {
+.ntt--flickr-image--js figcaption,
+.ntt--unsplash-image--js figcaption {
   pointer-events: auto;
   cursor: text;
 }
 
-.ntt--entry-full-content .ntt--flickr-image-anchor--js,
-.ntt--entry-full-content .ntt--unsplash-image-anchor--js {
+.ntt--flickr-image-anchor--js,
+.ntt--unsplash-image-anchor--js {
   pointer-events: none;
 }
 

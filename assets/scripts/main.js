@@ -336,8 +336,35 @@
                 video.style.height = ( video.dataset.origheight * ratio ) + 'px';
             } );
         }
-
     }; // kidNtt.instrinsicRatioVideos
+
+    kidNtt.entriesCustomNav = {
+
+        init: function() {
+
+            var entriesCustomNav = document.querySelector( '.ntt--entries-custom-nav' );
+            
+            if ( entriesNav && entriesCustomNav ) {
+                this.initCustomNavStructure();
+            }
+        },
+
+        initCustomNavStructure: function() {
+
+            var customNavPageNumbersList = entriesNav.querySelector( '.ntt--entries-custom-nav ul.page-numbers' );
+            var customNavAdjacentPageControl = kidNtt.domMaker( 'div', {
+                'class': 'nav-links'
+            } );
+
+            console.log(customNavPageNumbersList);
+
+            customNavPageNumbersList.insertAdjacentHTML( 'beforebegin', customNavAdjacentPageControl.outerHTML );
+            
+            var customNavAdjacentPageControl = entriesNav.querySelector( '.ntt--entries-custom-nav .nav-links' );
+
+            customNavAdjacentPageControl.insertBefore( customNavPageNumbersList, null );
+        }
+    }; // kidNtt.entriesCustomNav
 
     /*	-----------------------------------------------------------------------------------------------
 	Entries Navigation
@@ -384,6 +411,7 @@
             var adjacentPageControl = kidNtt.domMaker( 'div', {
                 'class': 'ntt--entries-adjacent-page-control--js'
             } );
+
             entriesNavContainer.insertBefore( adjacentPageControl, pageNumbersList.nextSibling );
 
             // Create list inside Adjacent Page Control
@@ -1101,6 +1129,7 @@
         kidNtt.touchEnabled.init();
         kidNtt.detectTabbing.init();
         kidNtt.textContentProcessing.init();
+        kidNtt.entriesCustomNav.init();
         kidNtt.entriesNav.init();
         kidNtt.subMenu.init();
         kidNtt.entityFooterIntersection.init();

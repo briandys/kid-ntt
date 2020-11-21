@@ -187,10 +187,11 @@
     }
 
     .ntt--entries-nav {
+        flex: 1;
         position: relative;
         display: flex;
         align-items: center;
-        @include y-margin(2rem);
+        margin: 2rem 1rem;
         @include x-padding(1rem);
     
         .navigation,
@@ -845,10 +846,10 @@
 
     .ntt--js & {
         position: absolute;
-        left: 50%;
+        right: 0;
         bottom: 0;
         z-index: 1;
-        transform: translate(-50%, -1.5rem);
+        margin-right: 1rem;
         @include transition;
         transition-property: bottom;
 
