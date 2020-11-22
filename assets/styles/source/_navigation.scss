@@ -191,7 +191,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        margin: 2rem 1rem;
+        @include y-margin(2rem);
         @include x-padding(1rem);
     
         .navigation,
@@ -403,7 +403,10 @@
 }
 
 .ntt--entries-nav---single-navi--js {
-    @include x-margin();
+    
+    .ntt & {
+        @include x-margin();
+    }
 
     .ntt--entries-page-indicator {
         padding-right: 0;
@@ -639,6 +642,7 @@
         left: 0;
         right: auto;
         width: 100%;
+        height: 100%;
 
         &::before {
             display: none;

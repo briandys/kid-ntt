@@ -590,6 +590,11 @@ textarea {
   color: var(--color--hexetidine-peach);
 }
 
+.ntt--js .ntt--entries-nav {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .ntt--entry-md .ntt--entry-name {
   font-size: var(--text---xxxl);
 }

@@ -1346,6 +1346,7 @@ th {
 }
 
 .ntt--modify-entry-axn {
+  display: inline-block;
   padding: .5rem;
 }
 
@@ -1660,7 +1661,8 @@ th {
   position: relative;
   display: flex;
   align-items: center;
-  margin: 2rem 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -1851,7 +1853,7 @@ th {
   white-space: nowrap;
 }
 
-.ntt--entries-nav---single-navi--js {
+.ntt .ntt--entries-nav---single-navi--js {
   margin-left: 0;
   margin-right: 0;
 }
@@ -2057,6 +2059,7 @@ th {
   left: 0;
   right: auto;
   width: 100%;
+  height: 100%;
 }
 
 .ntt--sub-menu-ancestor---unlinked--js .ntt--sub-menu-checkbox--js::before {
