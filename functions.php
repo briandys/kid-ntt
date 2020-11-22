@@ -29,7 +29,6 @@ $ntt_r_functions = array(
     'customizer',
     'custom-fields',
     'image-tag',
-    'shortcodes',
     'open-graph',
     'page-template-sub-pages',
     'query-string',
@@ -49,15 +48,34 @@ foreach ( $ntt_r_functions as $ntt_function ) {
 }
 
 /**
- * Tag
+ * Tags
  */
 $ntt_r_tags = array(
     'content-none',
     'entry-banner',
+    'snippet-entry',
 );
 
 foreach ( $ntt_r_tags as $ntt_tag ) {
     require( get_stylesheet_directory(). '/includes/tags/'. $ntt_tag. '.php' );
+}
+
+/**
+ * WordPress Shortcodes
+ */
+$ntt_r_shortcodes = array(
+    'call-to-action',
+    'htmlok',
+    'menu',
+    'percept',
+    'query',
+    'random-numbers',
+    'search',
+    'tag',
+);
+
+foreach ( $ntt_r_shortcodes as $ntt_shortcode ) {
+    require( get_stylesheet_directory(). '/includes/shortcodes/'. $ntt_shortcode. '.php' );
 }
 
 /**
@@ -182,3 +200,8 @@ function ntt__kid_ntt__function__jetpack_add_rp() {
     }
 }
 add_action( 'ntt__wp_hook__entry_secondary_meta___after', 'ntt__kid_ntt__function__jetpack_add_rp' );
+
+/**
+ * Enable the Text Widget and Custom HTML Widget to run WP Shortcodes
+ */
+add_filter( 'widget_text', 'do_shortcode' );
