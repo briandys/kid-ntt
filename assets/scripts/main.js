@@ -1139,7 +1139,7 @@
         kidNtt.intrinsicRatioVideos.init();
         kidNtt.insertIcons.init();
         kidNtt.windowDocumentHeight.init();
-        kidNtt.goStartNav.init();
+        //kidNtt.goStartNav.init();
         kidNtt.imageAnchor.init();
         kidNtt.thirdPartyMedia.init();
         kidNtt.breadCrumbs.init();

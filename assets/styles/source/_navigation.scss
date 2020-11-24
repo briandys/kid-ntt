@@ -829,23 +829,12 @@
 // Go to Start Navigation
 //--------------------------------------------------------------
 
-.ntt--js {
-
-    .ntt--go-start-nav {
-        display: none;
-    }
-}
-
 .ntt--go-start-nav {
     @include block-pad;
     padding: 0;
     text-decoration: none;
 
-    .ntt--entity-footer--intersected--js & {
-        display: block;
-    }
-
-    .ntt--entity-footer--intersected--js.ntt--view-height---short--js & {
+    .ntt--view-height---short--js & {
         display: none;
     }
 
@@ -855,6 +844,7 @@
         bottom: 0;
         z-index: 1;
         margin-right: 1rem;
+        margin-bottom: 1rem;
         @include transition;
         transition-property: bottom;
 

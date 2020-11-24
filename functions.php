@@ -68,10 +68,10 @@ $ntt_r_shortcodes = array(
     'htmlok',
     'menu',
     'percept',
-    'query',
     'random-numbers',
     'search',
     'tag',
+    'taxonomy-query',
 );
 
 foreach ( $ntt_r_shortcodes as $ntt_shortcode ) {

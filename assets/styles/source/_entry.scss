@@ -156,12 +156,15 @@
 // Entry Categories
 //--------------------------------------------------------------
 
-.entry-categories {
-    @include if-y-center;
+// For Uncategorized that isn't linked to its Category view
+.ntt--entry-categories---0 > .ntt--entry-header {
 
-    // For Uncategorized that isn't linked to its Category view
-    > .ntt--txt {
-        padding: 1rem;
+    .ntt--entry-categories {
+        @include if-y-center;    
+        
+        > .ntt--txt {
+            padding: 1rem;
+        }
     }
 }
 

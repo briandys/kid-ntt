@@ -66,6 +66,15 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
             $classes[] = 'ntt--entry---unsticky';
         }
     }
+
+    /**
+     * Entry Categories
+     */
+    if ( has_category( '', $post->ID ) ) {
+        $classes[] = 'ntt--entry-categories---1';
+    } else {
+        $classes[] = 'ntt--entry-categories---0';
+    }
     
     return $classes;
 }

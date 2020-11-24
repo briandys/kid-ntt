@@ -19,32 +19,32 @@
     .ntt--entity {
         display: grid;
         grid-template:
-            'entity-start'
-            'entity-header'
-            'entity-main' 1fr
-            'entity-footer'
-            'entity-end';
+            'a1'
+            'a2'
+            'a3' 1fr
+            'a4'
+            'a5';
         min-height: 100vh;
     }
     
     .ntt--entity-start {
-        grid-area: entity-start;
+        grid-area: a1;
     }
     
     .ntt--entity-header {
-        grid-area: entity-header;
+        grid-area: a2;
     }
     
     .ntt--entity-main {
-        grid-area: entity-main;
+        grid-area: a3;
     }
     
     .ntt--entity-footer {
-        grid-area: entity-footer;
+        grid-area: a5;
     }
     
     .ntt--entity-end {
-        grid-area: entity-end;
+        grid-area: a4;
     }
 }
 
