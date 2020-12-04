@@ -1,0 +1,68 @@
+//--------------------------------------------------------------
+// Taxonomy Query
+//--------------------------------------------------------------
+
+.ntt--entry-md {
+
+    .ntt--content {
+
+        .ntt--taxonomy-query {
+            @include x-padding();
+
+            ul {
+                list-style-type: none;
+            }
+
+            a {
+                box-shadow: none;
+            }
+    
+            .ntt--entry-name {
+                @include block-pad;
+                @include y-margin();
+            }
+
+            .ntt--entry-excerpt-content {
+        
+                > * {
+                    @include x-padding(1rem);
+                }
+            }
+        }
+    }
+}
+
+.ntt--taxonomy-query {
+
+    .ntt--category-heading,
+    .ntt--tag-heading {
+        
+        .ntt--obj {
+            @include block-pad;
+            display: inline-block;
+            font-size: 2.25rem;
+            font-weight: bold;
+        }
+
+        a {
+            @include block-pad;
+            display: inline-block;
+        }
+    }
+
+    .ntt--entry-categories---0 {
+
+        .ntt--entry-categories {
+
+            .ntt--txt {
+                display: inline-block;
+                padding: 1rem;
+            }
+        }
+    }
+}
+
+.ntt--taxonomy-query--name {
+    @include y-margin();
+    padding: 1rem;
+}

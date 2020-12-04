@@ -51,6 +51,9 @@ $text-link-color: $hexetidine-navy-blue;
     background-color: var(--accent-color);
 }
 
+//--------------------------------------------------------------
+// Body
+//--------------------------------------------------------------
 body {
     --view-border-width: .5rem;
     color: var(--on-surface-color);
@@ -344,8 +347,11 @@ textarea {
 //--------------------------------------------------------------
 .ntt--js {
 
-    .ntt--entries-nav {
-        @include x-margin(1rem);
+    .ntt--entity-main-footer {
+
+        .ntt--entries-nav {
+            @include x-margin(1rem);
+        }
     }
 }
 
@@ -629,8 +635,12 @@ textarea {
     .ntt--entry {
         
         .ntt--entry-name {
+            padding: 0;
+            @include y-margin(1em);
+            font-size: $text---xxxxl;
             
             a {
+                color: var(--on-surface-color);
                 box-shadow: none;
 
                 &:hover {
@@ -638,6 +648,17 @@ textarea {
                 }
             }
         }
+
+        .ntt--content {
+            
+            > * {
+                @include x-padding();
+            }
+        }
+    }
+
+    .ntt--entries-nav {
+        font-size: 1rem;
     }
 }
 
@@ -1366,14 +1387,32 @@ textarea {
                 'entity-footer .'
                 'entity-end .'
                 / 2fr 5fr;
+            grid-template:
+                'a1 .'
+                'a2 b2' 1fr
+                'a3 .'
+                'a4 .'
+                / 2fr 5fr;
+        }
+    
+        .ntt--entity-start {
+            grid-column: a1 / -1;
+        }
+
+        .ntt--entity-header {
+            grid-area: a2;
+        }
+
+        .ntt--entity-main {
+            grid-area: b2;
         }
     
         .ntt--entity-footer {
-            grid-column: entity-footer / -1;
+            grid-column: a3 / -1;
         }
     
         .ntt--entity-end {
-            grid-column: entity-end / -1;
+            grid-column: a4 / -1;
         }
 
         .ntt--entity-header {

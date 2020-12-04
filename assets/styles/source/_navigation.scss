@@ -404,6 +404,11 @@
 
 .ntt--entries-nav---single-navi--js {
     
+    
+    .ntt--js & {
+        @include x-padding();
+    }
+    
     .ntt & {
         @include x-margin();
     }

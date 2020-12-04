@@ -118,9 +118,11 @@
      */
     kidNtt.removeExtraSpace = function( $el ) {
 		$el.each( function() {
-            var myStr = $( this ).text();
+
+            var $this = $( this );
+            var myStr = $this.text();
             var trimStr = myStr.replace( /\s+/g, ' ' ).trim();
-            $( this ).html( trimStr );
+            $this.html( trimStr );
 		} );
     };
 
@@ -275,7 +277,7 @@
             var $content = $( '.ntt--content' );
             kidNtt.wrapTextNode( $content);
             kidNtt.removeEmpty( $content.find( '.ntt--txt' ) );
-            kidNtt.removeExtraSpace( $content.find( '.ntt--txt' ) );
+            //kidNtt.removeExtraSpace( $content.find( '.ntt--txt' ) );
             kidNtt.removeEmpty( $content );
 
             // All text nodes will be wrapped in .ntt--txt. If empty, remove it.
@@ -355,8 +357,6 @@
             var customNavAdjacentPageControl = kidNtt.domMaker( 'div', {
                 'class': 'nav-links'
             } );
-
-            console.log(customNavPageNumbersList);
 
             customNavPageNumbersList.insertAdjacentHTML( 'beforebegin', customNavAdjacentPageControl.outerHTML );
             

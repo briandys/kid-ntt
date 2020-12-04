@@ -114,19 +114,6 @@
     }
 }
 
-.ntt--page-template---generic--view {
-    
-    &.ntt--entry-singular--view {
-
-        .ntt--entry-banner-visuals-auto {
-
-            .ntt--entry-banner {
-                display: none;
-            }
-        }
-    }
-}
-
 //--------------------------------------------------------------
 // Figures, Images, Captions
 //--------------------------------------------------------------
@@ -180,7 +167,7 @@
     }
 
     a {
-       @include block-pad;
+        @include block-pad;
         display: inline-block;
     }
 }

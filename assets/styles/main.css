@@ -877,25 +877,13 @@ th {
   margin-bottom: 0;
 }
 
-.ntt--content .ntt--entry .ntt--entry-name {
-  padding: 0;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-size: 2.75rem;
-}
-
-.ntt--content .ntt--entry .ntt--entry-name a {
-  color: var(--on-surface-color);
-}
-
-.ntt--content .ntt--entry .ntt--content > * {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .ntt--content .ntt--entry .ntt--content > ul,
 .ntt--content .ntt--entry .ntt--content > ol {
   padding-left: 1.5em;
+}
+
+.ntt--content p:empty {
+  display: none;
 }
 
 .ntt--entry-md .ntt--content > * {
@@ -1231,10 +1219,6 @@ th {
 
 .ntt--entry-banner-visuals img {
   width: 100%;
-}
-
-.ntt--page-template---generic--view.ntt--entry-singular--view .ntt--entry-banner-visuals-auto .ntt--entry-banner {
-  display: none;
 }
 
 .ntt figure figcaption {
@@ -1853,6 +1837,11 @@ th {
   white-space: nowrap;
 }
 
+.ntt--js .ntt--entries-nav---single-navi--js {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .ntt .ntt--entries-nav---single-navi--js {
   margin-left: 0;
   margin-right: 0;
@@ -2317,6 +2306,58 @@ th {
 
 .ntt--kid-ntt--download-axn--js.ntt--mousedown--js::before {
   visibility: visible;
+}
+
+.ntt--entry-md .ntt--content .ntt--taxonomy-query {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ntt--entry-md .ntt--content .ntt--taxonomy-query ul {
+  list-style-type: none;
+}
+
+.ntt--entry-md .ntt--content .ntt--taxonomy-query a {
+  box-shadow: none;
+}
+
+.ntt--entry-md .ntt--content .ntt--taxonomy-query .ntt--entry-name {
+  display: block;
+  padding: .5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ntt--entry-md .ntt--content .ntt--taxonomy-query .ntt--entry-excerpt-content > * {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.ntt--taxonomy-query .ntt--category-heading .ntt--obj,
+.ntt--taxonomy-query .ntt--tag-heading .ntt--obj {
+  display: block;
+  padding: .5rem;
+  display: inline-block;
+  font-size: 2.25rem;
+  font-weight: bold;
+}
+
+.ntt--taxonomy-query .ntt--category-heading a,
+.ntt--taxonomy-query .ntt--tag-heading a {
+  display: block;
+  padding: .5rem;
+  display: inline-block;
+}
+
+.ntt--taxonomy-query .ntt--entry-categories---0 .ntt--entry-categories .ntt--txt {
+  display: inline-block;
+  padding: 1rem;
+}
+
+.ntt--taxonomy-query--name {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1rem;
 }
 
 .ntt--widget {

@@ -166,27 +166,17 @@
             margin-bottom: 0;
         }
 
-        .ntt--entry-name {
-            padding: 0;
-            @include y-margin(1em);
-            font-size: $text---xxxxl;
-
-            a {
-                color: var(--on-surface-color);
-            }
-        }
-
         .ntt--content {
-            
-            > * {
-                @include x-padding();
-            }
 
             > ul,
             > ol {
                 padding-left: 1.5em;
             }
         }
+    }
+
+    p:empty {
+        display: none;
     }
 }
 
