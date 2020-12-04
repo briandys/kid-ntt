@@ -109,6 +109,9 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
             );
 
             $percept = ob_get_clean();
+        
+        } else {
+            $percept = ntt__kid_ntt__tag__content_none();
         }
         $GLOBALS['wp_query'] = $old_query; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
         wp_reset_postdata();

@@ -13,7 +13,7 @@ function ntt__kid_ntt__wp_shortcode__taxonomy_query( $atts ) {
         'tag'                   => '',
         'tag_heading'           => null,
         'relation'              => null,
-        'posts_per_page'        => 1,
+        'posts_per_page'        => -1,
         'ignore_sticky_posts'   => 1,
     ), $atts ) );
     
@@ -101,7 +101,9 @@ function ntt__kid_ntt__wp_shortcode__taxonomy_query( $atts ) {
             </div>
             
             <?php
-            ntt__tag__entries_custom_nav( $total_pages );
+            if ( $posts_per_page != -1 ) {
+                ntt__tag__entries_custom_nav( $total_pages );
+            }
             
             $GLOBALS['wp_query'] = $old_query; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
             wp_reset_postdata();

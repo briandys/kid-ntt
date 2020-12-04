@@ -1076,10 +1076,6 @@ th {
   display: none;
 }
 
-.ntt--entity-main {
-  padding-bottom: 6.5rem;
-}
-
 .ntt--entity-banner-visuals---1--view .ntt--entity-banner-visuals {
   margin-bottom: 2em;
 }
@@ -1159,6 +1155,14 @@ th {
 
 .ntt--widget .ntt--entry:last-of-type:not(:last-child) {
   padding-bottom: 2rem;
+}
+
+.ntt--entries > .ntt--entry:first-child {
+  padding-top: 1rem;
+}
+
+.ntt--entry-md > .ntt--entry {
+  padding-top: 1rem;
 }
 
 .ntt--entry-primary-meta {
@@ -1482,6 +1486,15 @@ th {
 
 .post-password-form input[type="submit"] {
   margin-top: 1rem;
+}
+
+@media only screen and (min-width: 1280px) {
+  .ntt--entries > .ntt--entry:first-child {
+    padding-top: 3rem;
+  }
+  .ntt--entry-md > .ntt--entry {
+    padding-top: 3rem;
+  }
 }
 
 .ntt--nav ul {
@@ -2208,10 +2221,8 @@ th {
 }
 
 .ntt--js .ntt--go-start-nav {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
   margin-right: 1rem;
   margin-bottom: 1rem;
   transition: all 0.3s ease-in-out;
@@ -2358,6 +2369,10 @@ th {
   margin-top: 0;
   margin-bottom: 0;
   padding: 1rem;
+}
+
+.ntt--percept .ntt--entries-nav {
+  display: none;
 }
 
 .ntt--widget {

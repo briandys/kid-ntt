@@ -1371,8 +1371,56 @@ textarea {
     }
 }
 
+@supports (display: grid) {
+            
+    .ntt--entity {
+        display: grid;
+        grid-template:
+            'a1'
+            'a2'
+            'a3'
+            'a4' 1fr
+            'a5'
+            'a6'
+            'a7';
+    }
+
+    .ntt--entity-start {
+        grid-area: a1;
+    }
+
+    .ntt--entity-header {
+        display: contents;
+        grid-area: none;
+    }
+
+    .ntt--entity-heading {
+        grid-area: a2;
+    }
+
+    .ntt--entity-primary-nav {
+        grid-area: a3;
+    }
+
+    .ntt--entity-header-aside {
+        grid-area: a5;
+    }
+
+    .ntt--entity-main {
+        grid-area: a4;
+    }
+
+    .ntt--entity-footer {
+        grid-area: a7;
+    }
+
+    .ntt--entity-end {
+        grid-area: a6;
+    }
+}
+
 //--------------------------------------------------------------
-// Media Query: Laptop Large
+// Media Query
 //--------------------------------------------------------------
 
 @include mq($laptop-viewport-width---l) {
@@ -1382,12 +1430,6 @@ textarea {
         .ntt--entity {
             display: grid;
             grid-template:
-                'entity-start .'
-                'entity-header entity-main' 1fr
-                'entity-footer .'
-                'entity-end .'
-                / 2fr 5fr;
-            grid-template:
                 'a1 .'
                 'a2 b2' 1fr
                 'a3 .'
@@ -1396,10 +1438,12 @@ textarea {
         }
     
         .ntt--entity-start {
+            grid-area: none;
             grid-column: a1 / -1;
         }
 
         .ntt--entity-header {
+            display: initial;
             grid-area: a2;
         }
 
@@ -1408,15 +1452,13 @@ textarea {
         }
     
         .ntt--entity-footer {
-            grid-column: a3 / -1;
+            grid-area: none;
+            grid-column: a4 / -1;
         }
     
         .ntt--entity-end {
-            grid-column: a4 / -1;
-        }
-
-        .ntt--entity-header {
-            display: block;
+            grid-area: a3;
+            grid-column-end: none;
         }
     }
 }

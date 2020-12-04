@@ -35,6 +35,23 @@
     }
 }
 
+.ntt--entries {
+
+    > .ntt--entry {
+
+        &:first-child {
+            padding-top: 1rem;
+        }
+    }
+}
+
+.ntt--entry-md {
+
+    > .ntt--entry {
+        padding-top: 1rem;
+    }
+}
+
 //--------------------------------------------------------------
 // Entry Primary Meta
 //--------------------------------------------------------------
@@ -419,5 +436,29 @@
 
     input[type="submit"] {
         margin-top: 1rem;
+    }
+}
+
+//--------------------------------------------------------------
+// Media Query
+//--------------------------------------------------------------
+
+@include mq($laptop-viewport-width---l) {
+
+    .ntt--entries {
+    
+        > .ntt--entry {
+    
+            &:first-child {
+                padding-top: 3rem;
+            }
+        }
+    }
+
+    .ntt--entry-md {
+
+        > .ntt--entry {
+            padding-top: 3rem;
+        }
     }
 }
