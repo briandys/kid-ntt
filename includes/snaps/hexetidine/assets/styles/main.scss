@@ -361,6 +361,14 @@ textarea {
 
 .ntt--entry-md .ntt--entry-name {
     font-size: var(--text---xxxl);
+
+    .ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) & {
+        pointer-events: none;
+
+        .ntt--txt:hover {
+            cursor: text;
+        }
+    }
 }
 
 .ntt--entry-categories {
@@ -1253,6 +1261,79 @@ textarea {
     }
 }
 
+//--------------------------------------------------------------
+// Entry Tag: Reading List
+//--------------------------------------------------------------
+.ntt--entry-tag--reading-list {
+
+    .ntt--content {
+
+        .ntt--reading-list-group {
+
+            li {
+                margin-top: 2em;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+
+            a:not(:hover) {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Comments Toggle Action
+//--------------------------------------------------------------
+.ntt--comments-toggle-axn--js {
+
+    .ntt--comments,
+    .comment-respond {
+        display: none;
+    }
+}
+
+.ntt--comments-toggle-axn-checkbox--js {
+    @include vh;
+
+    &:checked {
+        display: none;
+
+        ~ .ntt--comments,
+        ~ .comment-respond {
+            display: block;
+        }
+
+        ~ .ntt--comments-toggle-axn-label--js {
+            display: none;
+        }
+    }
+}
+
+.ntt--comments-toggle-axn-label--js {   
+    @include x-padding(.5rem);
+    margin-top: 2em;
+    margin-bottom: 0;
+    font-size: $text---m;
+    background-color: var(--surface-color);
+    border: 0.125rem solid var(--accent-color);
+
+    .ntt--toggle-txt {
+        @include vh;
+    }
+
+    .ntt--comments-txt {
+        @include block-pad;
+        display: inline-block;
+     }
+}
+
+//--------------------------------------------------------------
+// Media Query: Tablet
+//--------------------------------------------------------------
 @include mq($tablet-viewport-width---m) {
 
     body {

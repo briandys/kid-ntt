@@ -599,6 +599,14 @@ textarea {
   font-size: var(--text---xxxl);
 }
 
+.ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) .ntt--entry-md .ntt--entry-name {
+  pointer-events: none;
+}
+
+.ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) .ntt--entry-md .ntt--entry-name .ntt--txt:hover {
+  cursor: text;
+}
+
 .ntt--entry-categories {
   margin-bottom: -1rem;
   font-weight: bold;
@@ -1689,6 +1697,80 @@ textarea {
 
 .ntt #jp-relatedposts .jp-relatedposts-items-visual div.jp-relatedposts-post-thumbs p.jp-relatedposts-post-excerpt {
   display: block;
+}
+
+.ntt--entry-tag--reading-list .ntt--content .ntt--reading-list-group li {
+  margin-top: 2em;
+}
+
+.ntt--entry-tag--reading-list .ntt--content .ntt--reading-list-group li:first-child {
+  margin-top: 0;
+}
+
+.ntt--entry-tag--reading-list .ntt--content .ntt--reading-list-group a:not(:hover) {
+  box-shadow: none;
+}
+
+.ntt--comments-toggle-axn--js .ntt--comments,
+.ntt--comments-toggle-axn--js .comment-respond {
+  display: none;
+}
+
+.ntt--comments-toggle-axn-checkbox--js {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  word-break: normal;
+}
+
+.ntt--comments-toggle-axn-checkbox--js:checked {
+  display: none;
+}
+
+.ntt--comments-toggle-axn-checkbox--js:checked ~ .ntt--comments,
+.ntt--comments-toggle-axn-checkbox--js:checked ~ .comment-respond {
+  display: block;
+}
+
+.ntt--comments-toggle-axn-checkbox--js:checked ~ .ntt--comments-toggle-axn-label--js {
+  display: none;
+}
+
+.ntt--comments-toggle-axn-label--js {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-top: 2em;
+  margin-bottom: 0;
+  font-size: 1rem;
+  background-color: var(--surface-color);
+  border: 0.125rem solid var(--accent-color);
+}
+
+.ntt--comments-toggle-axn-label--js .ntt--toggle-txt {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  word-break: normal;
+}
+
+.ntt--comments-toggle-axn-label--js .ntt--comments-txt {
+  display: block;
+  padding: .5rem;
+  display: inline-block;
 }
 
 @media only screen and (min-width: 768px) {

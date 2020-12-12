@@ -18,6 +18,8 @@ function ntt__kid_ntt__function__styles_scripts() {
         'loadingIndicator'      => ntt__kid_ntt__function__get_theme_svg( 'loading-indicator' ),
 
         'toggleMenuTxt'         => __( 'Toggle Menu', 'kid-ntt' ),
+        'toggleTxt'     => __( 'Toggle', 'kid-ntt' ),
+        'commentsTxt'     => __( 'Comments', 'kid-ntt' ),
     );
     
     wp_localize_script( 'ntt-kid-script', 'nttData', $ntt_l10n );

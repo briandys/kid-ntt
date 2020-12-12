@@ -76,6 +76,13 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
         $classes[] = 'ntt--entry-categories---0';
     }
     
+    // Entry Tags
+    if ( $entry_tags = get_the_tags( $post->ID ) ) {
+        foreach( $entry_tags as $tag ) {
+            $classes[] = 'ntt--entry-tag--'. sanitize_title( $tag->name );
+        }
+    }
+    
     return $classes;
 }
 add_filter( 'post_class', 'ntt__kid_ntt__function__entry__css' );
@@ -221,11 +228,6 @@ function ntt_kid_entry_css_status_classes( $classes ) {
     // Entry Categories Ability Status
     if ( has_category( '', $post->ID ) ) {
         $classes[] = 'entry-categories--1';
-    }
-
-    // Entry Tags Population Status
-    if ( get_the_tag_list( '', '', '', $post->ID ) ) {
-        $classes[] = 'entry-tags--1';
     }
 
     // Entry Banner Visuals / Featured Image Ability Status

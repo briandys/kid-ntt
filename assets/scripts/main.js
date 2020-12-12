@@ -10,7 +10,11 @@
 
     const html = document.documentElement;
     const body = document.body;
+    
+    const commentModule = document.querySelector( '.ntt--comment-md' );
     const commentForm = document.getElementById( 'commentform' );
+    const comments = document.getElementById( 'comments' );
+    
     const entriesNav = document.getElementById( 'ntt--entries-nav' );
     const entityPrimaryNav = document.getElementById( 'ntt--entity-primary-nav' );
 
@@ -832,6 +836,48 @@
         }
     }; // kidNtt.inputPopulationStatus
 
+    kidNtt.commentsVisibilityToggle = {
+
+        init: function() {
+
+            if ( comments ) {
+                this.x();
+            }
+        },
+
+        x: function() {
+
+            // Add CSS Class Name
+            commentModule.classList.add( 'ntt--comments-toggle-axn--js' );
+            
+            var toggleTxt = nttData.toggleTxt;
+            var commentsTxt = nttData.commentsTxt;
+            var toggleCss = 'ntt--comments-toggle-axn-checkbox--js';
+
+            // Create Checkbox
+            var checkbox = kidNtt.domMaker( 'input', {
+                'type': 'checkbox',
+                'id': toggleCss,
+                'class': toggleCss,
+                attributes: { 
+                    'title': toggleTxt + ' ' + commentsTxt,
+                    'arial-label': toggleTxt + ' ' + commentsTxt }
+            } );
+
+            // Create Label
+            var label = kidNtt.domMaker( 'label', {
+                'class': 'ntt--comments-toggle-axn-label--js',
+                attributes: { 
+                    'for': toggleCss },
+                innerHTML: '<span class="ntt--txt"><span class="ntt--toggle-txt">'+ toggleTxt +'</span>' + ' ' + '<span class="ntt--comments-txt">'+ commentsTxt +'</span></span>'
+            } );
+
+            // Insert Checkbox and Label
+            commentModule.insertAdjacentHTML( 'afterbegin', label.outerHTML );
+            commentModule.insertAdjacentHTML( 'afterbegin', checkbox.outerHTML );
+        }
+    }; // kidNtt.commentsVisibilityToggle
+
     /*	-----------------------------------------------------------------------------------------------
     Assign Listeners to Comment Input Elements
     https://stackoverflow.com/a/47944959
@@ -1134,6 +1180,7 @@
         kidNtt.subMenu.init();
         kidNtt.entityFooterIntersection.init();
         kidNtt.genericIntersection.init();
+        kidNtt.commentsVisibilityToggle.init();
         kidNtt.commentInputElements.init();
         kidNtt.sectionIdIntersection.init();
         kidNtt.intrinsicRatioVideos.init();

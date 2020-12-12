@@ -2821,11 +2821,7 @@ section:target {
     padding-bottom: 1rem;
   }
   .ntt--user---admin .ntt--comment-form .form-submit {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
+    margin: 1rem;
   }
   .ntt--user---admin .ntt--comment-form .form-submit input[type="submit"] {
     margin: 0;
