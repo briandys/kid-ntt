@@ -1792,6 +1792,10 @@ textarea {
   display: none;
 }
 
+.ntt--entry-nav {
+  border-top: 0.75rem solid var(--color--hexetidine-gray);
+}
+
 @media only screen and (min-width: 768px) {
   body {
     --view-border-width: 1rem;

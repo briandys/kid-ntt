@@ -679,27 +679,9 @@
     }
 }
 
-.ntt--entry-nav {
-
-    a {
-        
-        &:hover {
-
-            .ntt--entry-name-txt {
-                color: var(--text-link-color);
-            }
-        }
-
-        .ntt--entry-name-txt {
-            color: var(--text-link-color);
-        }
-    }
-}
-
 //--------------------------------------------------------------
 // Entry Navigation
 //--------------------------------------------------------------
-
 .ntt--entry-nav {
     width: 100%;
 
@@ -711,8 +693,13 @@
             text-decoration: none;
 
             .ntt--entry-name-txt {
+                color: var(--text-link-color);
                 text-decoration: underline;
             }
+        }
+
+        .ntt--entry-name-txt {
+            color: var(--text-link-color);
         }
     }
 
@@ -892,7 +879,66 @@
     //--------------------------------------------------------------
     // Entry Navigation
     //--------------------------------------------------------------
+    .ntt--entry-nav {
+        @include x-margin(1rem);
+        @include y-padding(3rem);
+    }
+}
+
+//--------------------------------------------------------------
+// Entry Navigation
+//--------------------------------------------------------------
+.ntt--entry-nav-group {
+
+    .ntt--entry-navi {
+
+        .ntt--txt {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .ntt--entry-name-txt {
+            font-size: var(--text---xl);
+            font-weight: bold;
+        }
+
+        .ntt--label-txt {
+            flex: 1 100%;
+        }
+        
+        .ntt--delimiter-txt {
+            display: none;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Media Query: Latop
+//--------------------------------------------------------------
+@include mq($laptop-viewport-width---m) {
+
+    //--------------------------------------------------------------
+    // Entry Navigation
+    //--------------------------------------------------------------
     .ntt--entry-nav-group {
-        @include x-padding(1rem);
+        display: flex;
+        justify-content: space-between;
+
+        .ntt--entry-navi {
+            flex: 1 50%;
+        }
+
+        .ntt--previous-entry-navi {
+            display: flex;
+            justify-content: flex-end;
+
+            a {
+                text-align: right;
+            }
+
+            .ntt--txt {
+                justify-content: flex-end;
+            }
+        }
     }
 }
