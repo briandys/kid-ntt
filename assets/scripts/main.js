@@ -850,6 +850,17 @@
         }
     }; // kidNtt.inputPopulationStatus
 
+    function scrollToItem(item) {
+        var diff=(item.offsetTop-window.scrollY)/8
+        if (Math.abs(diff)>1) {
+            window.scrollTo(0, (window.scrollY+diff))
+            clearTimeout(window._TO)
+            window._TO=setTimeout(scrollToItem, 30, item)
+        } else {
+            window.scrollTo(0, item.offsetTop)
+        }
+    }
+
     kidNtt.commentModuleVisibilityStatus = {
 
         init: function() {
@@ -894,6 +905,15 @@
 
             // Declare the New Label Element
             var label = commentModule.querySelector( '.ntt--comments-toggle-axn-label--js' );
+
+            // Retain default click functionality, then scroll into view
+            label.onclick = function() {
+                window.setTimeout(function() {
+                    commentModule.scrollIntoView( { 
+                        behavior: 'smooth' 
+                    } );
+                }, 300);
+            }
         }
     }; // kidNtt.commentModuleVisibilityStatus
 

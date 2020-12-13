@@ -1924,11 +1924,6 @@ th {
   padding: .5rem;
 }
 
-.ntt--entry-nav-group {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js {
   position: absolute;
   right: 0;
@@ -2260,6 +2255,13 @@ th {
 .ntt--js .ntt--go-start-nav .ntt--icon {
   width: 1.25rem;
   fill: #0060e6;
+}
+
+@media only screen and (min-width: 768px) {
+  .ntt--entry-nav-group {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .ntt--note {
@@ -2777,7 +2779,7 @@ section:target {
 
 .ntt--entry-secondary-meta,
 .ntt--comment-md {
-  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
 .ntt--cancel-reply-axn .ntt--txt,
