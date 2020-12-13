@@ -1359,6 +1359,10 @@ textarea {
         background-color: var(--surface-color);
         border: 0.125rem solid var(--accent-color);
     }
+
+    .ntt--comments-txt {
+        display: none;
+    }
 }
 
 //--------------------------------------------------------------

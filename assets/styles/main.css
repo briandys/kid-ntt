@@ -1924,6 +1924,11 @@ th {
   padding: .5rem;
 }
 
+.ntt--entry-nav-group {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .ntt--nav---sub-menu--js .ntt--sub-menu-checkbox--js {
   position: absolute;
   right: 0;

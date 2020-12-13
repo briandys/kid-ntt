@@ -1788,6 +1788,10 @@ textarea {
   border: 0.125rem solid var(--accent-color);
 }
 
+.ntt--comments-toggle-axn-label--js .ntt--comments-txt {
+  display: none;
+}
+
 @media only screen and (min-width: 768px) {
   body {
     --view-border-width: 1rem;
