@@ -384,10 +384,19 @@ textarea {
     }
 }
 
+.ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) {
+    
+    .ntt--entry-banner-visuals-auto {
+
+        .ntt--entry-banner-visuals {
+            display: none;
+        }
+    }
+}
+
 //--------------------------------------------------------------
 // Entry Tags
 //--------------------------------------------------------------
-
 .ntt--entry-tags {
 
     a {
