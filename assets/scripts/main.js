@@ -608,6 +608,8 @@
                 var parent = el.parentNode;
                 var chevronDownIcon = nttData.chevronDownIcon;
                 var toggleMenuTxt = nttData.toggleMenuTxt;
+                var showTxt = nttData.showTxt;
+                var menuTxt = nttData.menuTxt;
                 
                 // Create Checkbox
                 var checkbox = kidNtt.domMaker( 'input', {
@@ -615,8 +617,8 @@
                     'id': 'ntt--sub-menu-checkbox-' + i + '--js',
                     'class': 'ntt--sub-menu-checkbox--js',
                     attributes: { 
-                        'title': toggleMenuTxt,
-                        'arial-label': toggleMenuTxt }
+                        'title': showTxt + ' ' + menuTxt,
+                        'aria-label': showTxt + ' ' + menuTxt }
                 } );
 
                 // Create Label
@@ -624,7 +626,7 @@
                     'class': 'ntt--sub-menu-checkbox-label--js',
                     attributes: { 
                         'for': 'ntt--sub-menu-checkbox-' + i + '--js' },
-                    innerHTML: '<span class="ntt--txt">' + toggleMenuTxt + '</span>'
+                    innerHTML: '<span class="ntt--txt"><span class="ntt--show-txt ntt--toggle-text">' + showTxt + '</span> <span class="ntt--menu-txt">' + menuTxt + '</span></span>'
                 } );
                 
                 // Insert in DOM
@@ -649,7 +651,9 @@
                         input[i].checked = false; 
                     }
                 }
+                
                 el.classList.remove( 'ntt--sub-menu---active--js' );
+
             } );
         },
 
@@ -696,12 +700,22 @@
                 if ( input[i].type === 'checkbox' ) {
                     
                     input[i].onclick = function() {
-                        var parent = this.parentNode;
+                        var parent = this.parentNode;                        
+                        var toggleText = this.parentNode.querySelector( '.ntt--sub-menu-checkbox-label--js .ntt--toggle-text' );
+                        var showTxt = nttData.showTxt;
+                        var hideTxt = nttData.hideTxt;
+                        var menuTxt = nttData.menuTxt;
                         
                         if ( this.checked ) {
                             parent.classList.add( 'ntt--sub-menu---active--js' );
+                            this.setAttribute( 'title', hideTxt + ' ' + menuTxt );
+                            this.setAttribute( 'aria-label', hideTxt + ' ' + menuTxt );
+                            toggleText.innerHTML = hideTxt;
                         } else {
                             parent.classList.remove( 'ntt--sub-menu---active--js' );
+                            this.setAttribute( 'title', showTxt + ' ' + menuTxt );
+                            this.setAttribute( 'aria-label', showTxt + ' ' + menuTxt );
+                            toggleText.innerHTML = showTxt;
                         }
                     }
                 }
@@ -836,21 +850,23 @@
         }
     }; // kidNtt.inputPopulationStatus
 
-    kidNtt.commentsVisibilityToggle = {
+    kidNtt.commentModuleVisibilityStatus = {
 
         init: function() {
 
-            if ( comments ) {
-                this.x();
+            var queryString = window.location.href.search( /#comment/i );
+
+            if ( comments && queryString == -1 ) {
+                this.elementCreation();
             }
         },
 
-        x: function() {
+        elementCreation: function() {
 
             // Add CSS Class Name
             commentModule.classList.add( 'ntt--comments-toggle-axn--js' );
             
-            var toggleTxt = nttData.toggleTxt;
+            var showTxt = nttData.showTxt;
             var commentsTxt = nttData.commentsTxt;
             var toggleCss = 'ntt--comments-toggle-axn-checkbox--js';
 
@@ -858,25 +874,28 @@
             var checkbox = kidNtt.domMaker( 'input', {
                 'type': 'checkbox',
                 'id': toggleCss,
-                'class': toggleCss,
-                attributes: { 
-                    'title': toggleTxt + ' ' + commentsTxt,
-                    'arial-label': toggleTxt + ' ' + commentsTxt }
+                'class': toggleCss
             } );
 
             // Create Label
             var label = kidNtt.domMaker( 'label', {
                 'class': 'ntt--comments-toggle-axn-label--js',
                 attributes: { 
-                    'for': toggleCss },
-                innerHTML: '<span class="ntt--txt"><span class="ntt--toggle-txt">'+ toggleTxt +'</span>' + ' ' + '<span class="ntt--comments-txt">'+ commentsTxt +'</span></span>'
+                    'for': toggleCss,
+                    'title': showTxt + ' ' + commentsTxt,
+                    'aria-label': showTxt + ' ' + commentsTxt,
+                    'role': 'button' },
+                innerHTML: '<span class="ntt--txt"><span class="ntt--show-txt ntt--toggle-text">'+ showTxt +'</span> <span class="ntt--comments-txt">'+ commentsTxt +'</span></span>'
             } );
 
             // Insert Checkbox and Label
             commentModule.insertAdjacentHTML( 'afterbegin', label.outerHTML );
             commentModule.insertAdjacentHTML( 'afterbegin', checkbox.outerHTML );
+
+            // Declare the New Label Element
+            var label = commentModule.querySelector( '.ntt--comments-toggle-axn-label--js' );
         }
-    }; // kidNtt.commentsVisibilityToggle
+    }; // kidNtt.commentModuleVisibilityStatus
 
     /*	-----------------------------------------------------------------------------------------------
     Assign Listeners to Comment Input Elements
@@ -1180,7 +1199,7 @@
         kidNtt.subMenu.init();
         kidNtt.entityFooterIntersection.init();
         kidNtt.genericIntersection.init();
-        kidNtt.commentsVisibilityToggle.init();
+        kidNtt.commentModuleVisibilityStatus.init();
         kidNtt.commentInputElements.init();
         kidNtt.sectionIdIntersection.init();
         kidNtt.intrinsicRatioVideos.init();

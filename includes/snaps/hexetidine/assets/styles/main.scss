@@ -363,9 +363,12 @@ textarea {
     font-size: var(--text---xxxl);
 
     .ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) & {
-        pointer-events: none;
+        
+        a {
+            pointer-events: none;        
+        }
 
-        .ntt--txt:hover {
+        &:hover {
             cursor: text;
         }
     }
@@ -1289,23 +1292,42 @@ textarea {
 // Comments Toggle Action
 //--------------------------------------------------------------
 .ntt--comments-toggle-axn--js {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
-    .ntt--comments,
+    .ntt--comments {
+        display: contents;
+    }
+
+    .ntt--comments-main,
     .comment-respond {
-        display: none;
+        flex: 1 100%;
+    }
+
+    .ntt--comments-header {
+        width: auto;
+        order: -1;
     }
 }
 
 .ntt--comments-toggle-axn-checkbox--js {
     @include vh;
 
-    &:checked {
-        display: none;
+    &:not(:checked) {
 
-        ~ .ntt--comments,
+        ~ .ntt--comments .ntt--comments-main,
+        ~ .ntt--comments .ntt--comments-header .ntt--comment-axn,
         ~ .comment-respond {
-            display: block;
+            display: none;
         }
+
+        ~ .ntt--comments .ntt--comments-header .ntt--comments-count {
+            pointer-events: none;
+        }
+    }
+
+    &:checked {
 
         ~ .ntt--comments-toggle-axn-label--js {
             display: none;
@@ -1313,22 +1335,30 @@ textarea {
     }
 }
 
-.ntt--comments-toggle-axn-label--js {   
-    @include x-padding(.5rem);
-    margin-top: 2em;
-    margin-bottom: 0;
-    font-size: $text---m;
-    background-color: var(--surface-color);
-    border: 0.125rem solid var(--accent-color);
+.ntt--comments-toggle-axn-label--js {
+    display: inline-block;
+    @include x-padding(1rem);
+    color: var(--accent-color);
 
-    .ntt--toggle-txt {
-        @include vh;
+    &:hover {
+        color: var(--surface-color);
+
+        .ntt--txt {
+            background-color: var(--accent-color);
+        }
     }
 
-    .ntt--comments-txt {
+    &:active {
+        @include active-scale;
+    }
+    
+    .ntt--txt {
         @include block-pad;
-        display: inline-block;
-     }
+        @include x-padding(1rem);
+        font-size: $text---m;
+        background-color: var(--surface-color);
+        border: 0.125rem solid var(--accent-color);
+    }
 }
 
 //--------------------------------------------------------------
