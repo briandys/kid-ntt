@@ -22,6 +22,7 @@ function ntt__kid_ntt__function__styles_scripts() {
         'hideTxt'               => __( 'Hide', 'kid-ntt' ),
         'menuTxt'               => __( 'Menu', 'kid-ntt' ),
         'commentsTxt'           => __( 'Comments', 'kid-ntt' ),
+        'menuTxt'               => __( 'Menu', 'kid-ntt' ),
     );
     
     wp_localize_script( 'ntt-kid-script', 'nttData', $ntt_l10n );

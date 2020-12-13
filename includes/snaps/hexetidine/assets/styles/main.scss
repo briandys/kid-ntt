@@ -164,6 +164,7 @@ textarea {
 
 .ntt--entity-heading {
     margin: 1rem;
+    margin-bottom: 0;
     padding: 0;
     border-bottom: .75rem solid var(--color--hexetidine-peach);
 
@@ -173,9 +174,13 @@ textarea {
 }
 
 .ntt--entity-primary-nav {
-    margin: 1rem;
-    font-size: var(--entity-primary-nav--font-size);
-    background-color: var(--accent-color);
+
+    .menu {
+        margin: 1rem;
+        margin-top: 0;
+        font-size: var(--entity-primary-nav--font-size);
+        background-color: var(--accent-color);
+    }
 
     a {
         font-weight: bold;
@@ -1374,6 +1379,10 @@ textarea {
     }
 }
 
+.ntt--mobile-menu {
+
+}
+
 //--------------------------------------------------------------
 // Entry Navigation
 //--------------------------------------------------------------
@@ -1439,13 +1448,8 @@ textarea {
     }
 
     .ntt--entity-heading {
-        margin: 2rem;
-    }
-
-    .ntt--entity-primary-nav {
-        margin: 2rem;
-        margin-top: -1rem;
-        @include y-padding(.5rem);
+        @include x-margin(2rem);
+        margin-top: 2rem;
     }
 
     .ntt--entity-header-aside {
@@ -1467,6 +1471,63 @@ textarea {
     .ntt--entity-main-main {
         margin: 1rem;
     }
+
+    //--------------------------------------------------------------
+    // Entity Primary Navigation
+    //--------------------------------------------------------------
+    .ntt--entity-primary-nav {
+
+        .menu {
+            @include x-margin(2rem);
+        }
+    }
+}
+
+.ntt--mobile-menu--js {
+
+    .ntt--mobile-menu-toggle-axn-checkbox--js,
+    .ntt--mobile-menu-toggle-axn-label--js,
+    .ntt--mobile-menu-toggle-axn-label--js .ntt--txt {
+        display: none;
+    }
+}
+
+//--------------------------------------------------------------
+// Media Query: Laptop
+//--------------------------------------------------------------
+@media only screen and (max-width: $mobile-viewport-width---l---minus-1) {
+
+    .ntt--mobile-menu--js {
+
+        .ntt--mobile-menu-toggle-axn-checkbox--js {
+            @include vh;
+
+            &:not(:checked) {
+                
+                ~ .menu {
+                    display: none;
+                }
+            }
+        }
+
+        .ntt--mobile-menu-toggle-axn-label--js {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 2.5rem;
+            margin-left: 0;
+            margin-bottom: 0;
+            display: inline-block;
+
+            .ntt--show-txt {
+                display: none;
+            }
+
+            .ntt--icon {
+                fill: var(--accent-color);
+            }
+        }
+    }
 }
 
 //--------------------------------------------------------------
@@ -1476,10 +1537,6 @@ textarea {
 
     .ntt--entry-md .ntt--entry-name {
         font-size: var(--text---yl);
-    }
-
-    .ntt--entity-primary-nav {
-        @include x-margin(2rem);
     }
 
     //--------------------------------------------------------------

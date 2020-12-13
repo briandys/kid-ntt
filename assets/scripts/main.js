@@ -736,6 +736,49 @@
         }
     }; // kidNtt.subMenu
 
+    kidNtt.mobileMenu = {
+
+        init: function() {
+
+            html.classList.add( 'ntt--mobile-menu--js' );
+
+            var navName = entityPrimaryNav.querySelector( '.ntt--entity-primary-nav-name' );
+
+            var showTxt = nttData.showTxt;
+            var menuTxt = nttData.menuTxt;
+            var icon = nttData.chevronUpDownIcon;
+            var toggleCss = 'ntt--mobile-menu-toggle-axn-checkbox--js';
+
+            // Create Checkbox
+            var checkbox = kidNtt.domMaker( 'input', {
+                'type': 'checkbox',
+                'id': toggleCss,
+                'class': toggleCss
+            } );
+
+            // Create Label
+            var label = kidNtt.domMaker( 'label', {
+                'class': 'ntt--mobile-menu-toggle-axn-label--js',
+                attributes: { 
+                    'for': toggleCss,
+                    'title': showTxt + ' ' + menuTxt,
+                    'aria-label': showTxt + ' ' + menuTxt,
+                    'role': 'button' },
+                innerHTML: '<span class="ntt--txt"><span class="ntt--show-txt ntt--toggle-text">'+ showTxt +'</span> <span class="ntt--menu-txt">'+ menuTxt +'</span></span>'
+            } );
+
+            // Insert Checkbox and Label
+            navName.insertAdjacentHTML( 'afterend', label.outerHTML );
+            navName.insertAdjacentHTML( 'afterend', checkbox.outerHTML );
+
+            // Declare the New Label Element
+            var label = entityPrimaryNav.querySelector( '.ntt--mobile-menu-toggle-axn-label--js' );
+            
+            label.insertAdjacentHTML( 'beforeend', icon );
+        }
+
+    }; // kidNtt.mobileMenu
+
     /*	-----------------------------------------------------------------------------------------------
     Intersection Observer Targeting IDs
     https://codepen.io/bramus/pen/ExaEqMJ
@@ -850,17 +893,9 @@
         }
     }; // kidNtt.inputPopulationStatus
 
-    function scrollToItem(item) {
-        var diff=(item.offsetTop-window.scrollY)/8
-        if (Math.abs(diff)>1) {
-            window.scrollTo(0, (window.scrollY+diff))
-            clearTimeout(window._TO)
-            window._TO=setTimeout(scrollToItem, 30, item)
-        } else {
-            window.scrollTo(0, item.offsetTop)
-        }
-    }
-
+    /*	-----------------------------------------------------------------------------------------------
+    Comment Module Visibility Status
+    --------------------------------------------------------------------------------------------------- */
     kidNtt.commentModuleVisibilityStatus = {
 
         init: function() {
@@ -1217,6 +1252,7 @@
         kidNtt.entriesCustomNav.init();
         kidNtt.entriesNav.init();
         kidNtt.subMenu.init();
+        kidNtt.mobileMenu.init();
         kidNtt.entityFooterIntersection.init();
         kidNtt.genericIntersection.init();
         kidNtt.commentModuleVisibilityStatus.init();

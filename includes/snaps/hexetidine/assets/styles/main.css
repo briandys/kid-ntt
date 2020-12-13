@@ -439,6 +439,7 @@ textarea {
 
 .ntt--entity-heading {
   margin: 1rem;
+  margin-bottom: 0;
   padding: 0;
   border-bottom: 0.75rem solid var(--color--hexetidine-peach);
 }
@@ -447,8 +448,9 @@ textarea {
   padding-bottom: 1rem;
 }
 
-.ntt--entity-primary-nav {
+.ntt--entity-primary-nav .menu {
   margin: 1rem;
+  margin-top: 0;
   font-size: var(--entity-primary-nav--font-size);
   background-color: var(--accent-color);
 }
@@ -1829,13 +1831,9 @@ textarea {
     margin-top: .5rem;
   }
   .ntt--entity-heading {
-    margin: 2rem;
-  }
-  .ntt--entity-primary-nav {
-    margin: 2rem;
-    margin-top: -1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
   }
   .ntt--entity-header-aside > .ntt--widget {
     padding-left: 2rem;
@@ -1848,15 +1846,55 @@ textarea {
   .ntt--entity-main-main {
     margin: 1rem;
   }
+  .ntt--entity-primary-nav .menu {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+.ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-checkbox--js,
+.ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js,
+.ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js .ntt--txt {
+  display: none;
+}
+
+@media only screen and (max-width: 424px) {
+  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-checkbox--js {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+    word-break: normal;
+  }
+  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-checkbox--js:not(:checked) ~ .menu {
+    display: none;
+  }
+  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2.5rem;
+    margin-left: 0;
+    margin-bottom: 0;
+    display: inline-block;
+  }
+  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js .ntt--show-txt {
+    display: none;
+  }
+  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js .ntt--icon {
+    fill: var(--accent-color);
+  }
 }
 
 @media only screen and (min-width: 1024px) {
   .ntt--entry-md .ntt--entry-name {
     font-size: var(--text---yl);
-  }
-  .ntt--entity-primary-nav {
-    margin-left: 2rem;
-    margin-right: 2rem;
   }
   .ntt #jp-relatedposts .jp-relatedposts-items {
     display: flex;
