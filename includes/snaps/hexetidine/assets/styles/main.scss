@@ -1499,6 +1499,10 @@ textarea {
 
     .ntt--mobile-menu--js {
 
+        .ntt--entity-heading {
+            border-bottom: 0;
+        }
+
         .ntt--mobile-menu-toggle-axn-checkbox--js {
             @include vh;
 
@@ -1511,13 +1515,17 @@ textarea {
         }
 
         .ntt--mobile-menu-toggle-axn-label--js {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1.65rem;
+            margin-left: 0;
+            margin-bottom: 0;
+            width: 3rem;
+            height: 3rem;
             position: absolute;
             right: 0;
             top: 0;
-            margin: 2.5rem;
-            margin-left: 0;
-            margin-bottom: 0;
-            display: inline-block;
 
             .ntt--show-txt {
                 display: none;

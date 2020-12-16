@@ -16,6 +16,7 @@ function ntt__kid_ntt__function__styles_scripts() {
         'chevronDownIcon'       => ntt__kid_ntt__function__get_theme_svg( 'chevron-down' ),
         'chevronUpDownIcon'     => ntt__kid_ntt__function__get_theme_svg( 'chevron-up-down' ),
         'loadingIndicator'      => ntt__kid_ntt__function__get_theme_svg( 'loading-indicator' ),
+        'menuIcon'              => ntt__kid_ntt__function__get_theme_svg( 'menu' ),
 
         'toggleMenuTxt'         => __( 'Toggle Menu', 'kid-ntt' ),
         'showTxt'               => __( 'Show', 'kid-ntt' ),

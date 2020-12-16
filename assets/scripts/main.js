@@ -746,7 +746,7 @@
 
             var showTxt = nttData.showTxt;
             var menuTxt = nttData.menuTxt;
-            var icon = nttData.chevronUpDownIcon;
+            var icon = nttData.menuIcon;
             var toggleCss = 'ntt--mobile-menu-toggle-axn-checkbox--js';
 
             // Create Checkbox
@@ -763,7 +763,9 @@
                     'for': toggleCss,
                     'title': showTxt + ' ' + menuTxt,
                     'aria-label': showTxt + ' ' + menuTxt,
-                    'role': 'button' },
+                    'role': 'button',
+                    'tabindex': '0'
+                },
                 innerHTML: '<span class="ntt--txt"><span class="ntt--show-txt ntt--toggle-text">'+ showTxt +'</span> <span class="ntt--menu-txt">'+ menuTxt +'</span></span>'
             } );
 
@@ -772,9 +774,28 @@
             navName.insertAdjacentHTML( 'afterend', checkbox.outerHTML );
 
             // Declare the New Label Element
+            var checkbox = document.getElementById( 'ntt--mobile-menu-toggle-axn-checkbox--js' );
             var label = entityPrimaryNav.querySelector( '.ntt--mobile-menu-toggle-axn-label--js' );
             
+            // Insert icon
             label.insertAdjacentHTML( 'beforeend', icon );
+
+            if ( checkbox.checked ) {
+                console.log( 'checkbox' );
+            } else {
+                console.log( 'not checkbox' );
+            }
+
+            label.onclick = function() {
+                
+                if ( checkbox != checkbox.checked  ) {
+                    html.classList.add( 'checked' );
+                    html.classList.remove( 'not-checked' );console.log( 'checkbox' );
+                } else {
+                    html.classList.add( 'not-checked' );
+                    html.classList.remove( 'checked' );console.log( 'not checkbox' );
+                }
+            }
         }
 
     }; // kidNtt.mobileMenu
