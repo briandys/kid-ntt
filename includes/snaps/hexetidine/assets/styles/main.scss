@@ -1290,6 +1290,11 @@ textarea {
             li {
                 margin-top: 2em;
 
+                ul,
+                ol {
+                    margin-top: 2em;
+                }
+
                 &:first-child {
                     margin-top: 0;
                 }
@@ -1377,10 +1382,6 @@ textarea {
     .ntt--comments-txt {
         display: none;
     }
-}
-
-.ntt--mobile-menu {
-
 }
 
 //--------------------------------------------------------------
@@ -1483,57 +1484,62 @@ textarea {
     }
 }
 
-.ntt--mobile-menu--js {
-
-    .ntt--mobile-menu-toggle-axn-checkbox--js,
-    .ntt--mobile-menu-toggle-axn-label--js,
-    .ntt--mobile-menu-toggle-axn-label--js .ntt--txt {
-        display: none;
-    }
+.ntt--mobile-menu-toggle-axn--js {
+    display: none;
 }
 
 //--------------------------------------------------------------
-// Media Query: Laptop
+// Media Query: Mobile only
 //--------------------------------------------------------------
 @media only screen and (max-width: $mobile-viewport-width---l---minus-1) {
 
-    .ntt--mobile-menu--js {
+    .ntt--dom---unloaded--js,
+    .ntt--mobile-menu---inactive--js {
+
+        .ntt--entity-primary-nav {
+
+            .menu {
+                display: none;
+            }
+        }
 
         .ntt--entity-heading {
             border-bottom: 0;
         }
+    }
 
-        .ntt--mobile-menu-toggle-axn-checkbox--js {
-            @include vh;
+    .ntt--mobile-menu---active--js {
 
-            &:not(:checked) {
-                
-                ~ .menu {
-                    display: none;
-                }
-            }
-        }
-
-        .ntt--mobile-menu-toggle-axn-label--js {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 1.65rem;
-            margin-left: 0;
-            margin-bottom: 0;
-            width: 3rem;
-            height: 3rem;
-            position: absolute;
-            right: 0;
-            top: 0;
-
-            .ntt--show-txt {
-                display: none;
-            }
+        .ntt--mobile-menu-toggle-axn--js {
 
             .ntt--icon {
-                fill: var(--accent-color);
+                transform: rotate(180deg) scale(.75);
             }
+        }
+    }
+
+    .ntt--mobile-menu-toggle-axn--js {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1.65rem;
+        margin-left: 0;
+        margin-bottom: 0;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: $sub-menu-arrow-size;
+        height: $sub-menu-arrow-size;
+        background-color: transparent;
+
+        .ntt--txt {
+            display: none;
+        }
+
+        .ntt--icon {
+            fill: var(--accent-color);
+            @include transition;
         }
     }
 }

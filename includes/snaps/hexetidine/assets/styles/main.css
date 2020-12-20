@@ -1709,6 +1709,11 @@ textarea {
   margin-top: 2em;
 }
 
+.ntt--entry-tag--reading-list .ntt--content .ntt--reading-list-group li ul,
+.ntt--entry-tag--reading-list .ntt--content .ntt--reading-list-group li ol {
+  margin-top: 2em;
+}
+
 .ntt--entry-tag--reading-list .ntt--content .ntt--reading-list-group li:first-child {
   margin-top: 0;
 }
@@ -1852,50 +1857,43 @@ textarea {
   }
 }
 
-.ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-checkbox--js,
-.ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js,
-.ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js .ntt--txt {
+.ntt--mobile-menu-toggle-axn--js {
   display: none;
 }
 
 @media only screen and (max-width: 424px) {
-  .ntt--mobile-menu--js .ntt--entity-heading {
-    border-bottom: 0;
-  }
-  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-checkbox--js {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute !important;
-    width: 1px;
-    word-wrap: normal !important;
-    word-break: normal;
-  }
-  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-checkbox--js:not(:checked) ~ .menu {
+  .ntt--dom---unloaded--js .ntt--entity-primary-nav .menu,
+  .ntt--mobile-menu---inactive--js .ntt--entity-primary-nav .menu {
     display: none;
   }
-  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js {
+  .ntt--dom---unloaded--js .ntt--entity-heading,
+  .ntt--mobile-menu---inactive--js .ntt--entity-heading {
+    border-bottom: 0;
+  }
+  .ntt--mobile-menu---active--js .ntt--mobile-menu-toggle-axn--js .ntt--icon {
+    transform: rotate(180deg) scale(0.75);
+  }
+  .ntt--mobile-menu-toggle-axn--js {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1.65rem;
     margin-left: 0;
     margin-bottom: 0;
-    width: 3rem;
-    height: 3rem;
+    padding: 0;
     position: absolute;
     right: 0;
     top: 0;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
   }
-  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js .ntt--show-txt {
+  .ntt--mobile-menu-toggle-axn--js .ntt--txt {
     display: none;
   }
-  .ntt--mobile-menu--js .ntt--mobile-menu-toggle-axn-label--js .ntt--icon {
+  .ntt--mobile-menu-toggle-axn--js .ntt--icon {
     fill: var(--accent-color);
+    transition: all 0.3s ease-in-out;
   }
 }
 
