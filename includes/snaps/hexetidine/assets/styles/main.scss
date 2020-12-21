@@ -586,6 +586,14 @@ textarea {
         &::marker {
             color: var(--color--hexetidine-peach);
         }
+
+        li {
+
+            &::marker {
+                color: var(--color--hexetidine-sky-blue);
+            }
+
+        }
     }
 
     blockquote {
@@ -656,7 +664,7 @@ textarea {
     // Entry inside content
     // Possibly by using [ntt_percept]
     //--------------------------------------------------------------
-    
+
     .ntt--entry {
         
         .ntt--entry-name {
@@ -674,10 +682,12 @@ textarea {
             }
         }
 
-        .ntt--content {
-            
-            > * {
-                @include x-padding();
+        &.ntt--percept {
+            @include x-padding();
+        
+            .ntt--entry-name {
+                margin-top: 0;
+                @include x-padding(1rem);
             }
         }
     }
@@ -1293,6 +1303,7 @@ textarea {
                 ul,
                 ol {
                     margin-top: 2em;
+                    padding-left: 1em;
                 }
 
                 &:first-child {
@@ -1493,13 +1504,29 @@ textarea {
 //--------------------------------------------------------------
 @media only screen and (max-width: $mobile-viewport-width---l---minus-1) {
 
+    .ntt--mobile-menu--js {
+
+        .ntt--entity-heading {
+            border-bottom: 0;            
+        }
+
+        .ntt--entity-primary-nav {
+
+            .menu {
+                @include transition;
+                border-top: .5rem solid var(--color--hexetidine-peach);
+            }
+        }
+    }
+
     .ntt--dom---unloaded--js,
     .ntt--mobile-menu---inactive--js {
 
         .ntt--entity-primary-nav {
 
             .menu {
-                display: none;
+                visibility: hidden;
+                max-height: 0;
             }
         }
 
@@ -1516,22 +1543,32 @@ textarea {
                 transform: rotate(180deg) scale(.75);
             }
         }
+        
+        .ntt--entity-primary-nav {
+
+            .menu {
+                max-height: 100%;
+            }
+        }
     }
 
     .ntt--mobile-menu-toggle-axn--js {
+        // Look
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 1.65rem;
-        margin-left: 0;
-        margin-bottom: 0;
         padding: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
         width: $sub-menu-arrow-size;
         height: $sub-menu-arrow-size;
         background-color: transparent;
+        
+        // Layout
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 1.65rem;
+        margin-left: 0;
+        margin-bottom: 0;
 
         .ntt--txt {
             display: none;

@@ -82,14 +82,6 @@
             return null;
         };
     }
-
-    /**
-     * Adding, removing, and testing for classes
-     * https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/
-     */
-    function hasClass(el, className) {
-        return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
-    }
     
     /**
 	 * Wrap Text Node
@@ -214,8 +206,30 @@
         return [width, height];
     };
 
-    // Add a class to the body for when touch is enabled for browsers that don't support media queries
-    // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
+    /**
+     * Get element's top, left offset
+     */
+    kidNtt.offset = function( el ) {
+        var rect = el.getBoundingClientRect();
+        var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+    };
+
+    /**
+     * Return true if element is visible
+     */
+    kidNtt.isVisible = function( el ) {
+        var style = window.getComputedStyle( el );
+        return ( el && style.display !== 'none' && style.visibility !== 'hidden' );
+    };
+
+    /**
+     * Touch Enabled
+     * Add a class to the body for when touch is enabled for browsers that don't support media queries
+     * for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>.
+     */
     kidNtt.touchEnabled = {
 
         init: function() {
@@ -234,10 +248,10 @@
         }
     }; // kidNtt.touchEnabled
 
-    /*	-----------------------------------------------------------------------------------------------
-    Detect Tabbing and Mouse Usage
-    https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Detect Tabbing and Mouse Usage
+     * https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+     */ 
     kidNtt.detectTabbing = {
 
         init: function() {
@@ -245,7 +259,7 @@
             this.handleMouseDownOnce();
 
             window.addEventListener( 'keydown', function( event ) {
-                if ( event.keyCode === 9 ) {
+                if ( event.key === 9 ) {
                     kidNtt.detectTabbing.handleFirstTab();
                 }
             } );
@@ -261,18 +275,17 @@
             html.classList.remove( 'ntt--nav-mode---tab--js' );
             window.removeEventListener( 'mousedown', kidNtt.detectTabbing.handleMouseDownOnce );
             window.addEventListener( 'keydown', function( event ) {
-                if ( event.keyCode === 9 ) {
+                if ( event.key === 9 ) {
                     kidNtt.detectTabbing.handleFirstTab();
                 }
             } );
         }
     }; // kidNtt.detectTabbing
     
-    /*	-----------------------------------------------------------------------------------------------
-    Text Content Processing
-    Wrap text nodes, remove empty tags, etc.
-    --------------------------------------------------------------------------------------------------- */
-    
+    /**
+     * Text Content Processing
+     * Wrap text nodes, remove empty tags, etc.
+     */    
     kidNtt.textContentProcessing = {
 
         init: function() {
@@ -301,11 +314,10 @@
         }
     }; // kidNtt.textContentProcessing
 
-    /*	-----------------------------------------------------------------------------------------------
-    Intrinsic Ratio Embeds
-    From Twenty Twenty
-    --------------------------------------------------------------------------------------------------- */
-
+    /**
+     * Intrinsic Ratio Embeds
+     * From Twenty Twenty WordPress Theme 
+     */
     kidNtt.intrinsicRatioVideos = {
 
         init: function() {
@@ -370,9 +382,9 @@
         }
     }; // kidNtt.entriesCustomNav
 
-    /*	-----------------------------------------------------------------------------------------------
-	Entries Navigation
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Entries Navigation
+     */
     kidNtt.entriesNav = {
 
         init: function() {
@@ -526,14 +538,14 @@
             
             // On enter or spacebar
             entriesPageIndicator.addEventListener( 'keyup', function( event ) {
-                if ( ( event.keyCode === 13 ) || ( event.keyCode === 32 ) ) {
+                if ( ( event.key === 13 ) || ( event.key === 32 ) ) {
                     toggleActivityStatus();
                 }
             } );
 
             // On escape
             document.addEventListener( 'keyup', function( event ) {
-                if ( entriesNav.classList.contains( 'ntt--entries-page-menu---active') && event.key === 'Escape' ) {
+                if ( entriesNav.classList.contains( 'ntt--entries-page-menu---active' ) && event.key === 'Escape' ) {
                     toggleActivityStatus();
                     entriesPageIndicator.focus();
                 }
@@ -542,7 +554,7 @@
             // On external click
             window.addEventListener( 'click', function ( event ) {
                 
-                if ( entriesNav.classList.contains( 'ntt--entries-page-menu---active') && ( ! entriesPageIndicator.contains( event.target ) && ! entriesPageMenu.contains( event.target ) ) ) {
+                if ( entriesNav.classList.contains( 'ntt--entries-page-menu---active' ) && ( ! entriesPageIndicator.contains( event.target ) && ! entriesPageMenu.contains( event.target ) ) ) {
                     toggleActivityStatus();
                     entriesPageIndicator.focus();
                 }
@@ -550,9 +562,9 @@
         },
     }; // kidNtt.entriesNav
 
-    /*	-----------------------------------------------------------------------------------------------
-	Sub-menu
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Sub-menu
+     */
     kidNtt.subMenu = {
 
         init: function() {
@@ -607,7 +619,6 @@
                 i++;
                 var parent = el.parentNode;
                 var chevronDownIcon = nttData.chevronDownIcon;
-                var toggleMenuTxt = nttData.toggleMenuTxt;
                 var showTxt = nttData.showTxt;
                 var menuTxt = nttData.menuTxt;
                 
@@ -644,7 +655,7 @@
 
             subMenuAncestor.forEach( function ( el ) {
                 
-                var input = el.getElementsByTagName('input');
+                var input = el.getElementsByTagName( 'input' );
                     
                 for ( var i = 0; i < input.length; i++ ) { 
                     if ( input[i].type === 'checkbox' ) { 
@@ -679,7 +690,7 @@
                     var targetEl = el.contains( event.target );
                 
                     if ( ! targetEl ) {
-                        var input = el.getElementsByTagName('input');
+                        var input = el.getElementsByTagName( 'input' );
                         
                         for ( var i = 0; i < input.length; i++ ) { 
                             if ( input[i].type === 'checkbox' ) { 
@@ -736,25 +747,29 @@
         }
     }; // kidNtt.subMenu
 
+    /**
+     * Mobile Menu
+     */
     kidNtt.mobileMenu = {
 
         init: function() {
-            this.elements();
-            //this.escKey();
-            //this.externalClick();            
-        },
-
-        elements: function() {
-
+            
+            var menu = entityPrimaryNav.querySelector( '.menu' );
+            var menuCss = 'ntt--entity-primary-nav-menu';
             var navName = entityPrimaryNav.querySelector( '.ntt--entity-primary-nav-name' );
             var showTxt = nttData.showTxt;
+            var hideTxt = nttData.hideTxt;
             var menuTxt = nttData.menuTxt;
             var icon = nttData.menuIcon;
+            var activeCss = 'ntt--mobile-menu---active--js';
             var inactiveCss = 'ntt--mobile-menu---inactive--js';
 
             // Initial CSS class names
             html.classList.add( 'ntt--mobile-menu--js' );
             html.classList.add( inactiveCss );
+
+            // Menu attribute
+            menu.setAttribute( 'id', menuCss );
 
             // Create Button
             var button = kidNtt.domMaker( 'button', {
@@ -762,6 +777,8 @@
                 attributes: { 
                     'title': showTxt + ' ' + menuTxt,
                     'aria-label': showTxt + ' ' + menuTxt,
+                    'aria-controls': menuCss,
+                    'aria-expanded': 'false',
                 },
                 innerHTML: '<span class="ntt--txt"><span class="ntt--show-txt ntt--toggle-text">'+ showTxt +'</span> <span class="ntt--menu-txt">'+ menuTxt +'</span></span>'
             } );
@@ -775,65 +792,52 @@
             // Insert icon
             button.insertAdjacentHTML( 'beforeend', icon );
 
-            // Button onclick
-            button.onclick = function() {                
-                kidNtt.mobileMenu.activation();
-            }
-        },
-
-        activation: function() {
-            var button = entityPrimaryNav.querySelector( '.ntt--mobile-menu-toggle-axn--js' );
-            var toggleText = button.querySelector( '.ntt--toggle-text' );
-            var activeCss = 'ntt--mobile-menu---active--js';
-            var inactiveCss = 'ntt--mobile-menu---inactive--js';
-            var showTxt = nttData.showTxt;
-            var hideTxt = nttData.hideTxt;
-
-            // Activate
-            if ( html.classList.contains( inactiveCss ) ) {
-                html.classList.add( activeCss );
-                html.classList.remove( inactiveCss );
-                toggleText.innerHTML = hideTxt;
+            // Toggle activity status
+            function toggleActivityStatus() {
+                var toggleText = button.querySelector( '.ntt--toggle-text' );
+    
+                // Activate
+                if ( html.classList.contains( inactiveCss ) ) {
+                    html.classList.add( activeCss );
+                    html.classList.remove( inactiveCss );
+                    button.setAttribute( 'aria-expanded', 'true' );
+                    toggleText.innerHTML = hideTxt;
+                }
+                
+                // Deactivate
+                else if ( html.classList.contains( activeCss ) ) {
+                    html.classList.add( inactiveCss );
+                    html.classList.remove( activeCss );
+                    button.setAttribute( 'aria-expanded', 'false' );
+                    toggleText.innerHTML = showTxt;
+                }
             }
             
-            // Deactivate
-            else if ( html.classList.contains( activeCss ) ) {
-                html.classList.add( inactiveCss );
-                html.classList.remove( activeCss );
-                toggleText.innerHTML = showTxt;
-            }
-        },
+            // On click
+            button.addEventListener( 'click', function() {
+                toggleActivityStatus();
+            } );
 
-        escKey: function() {
-
-            document.addEventListener( 'keyup', function ( event ) {
-                
-                if ( entityPrimaryNav.length && event.key === 'Escape' ) {
-                    kidNtt.mobileMenu.activation();
-                    console.log( 'boom' );
+            // On keyup
+            document.addEventListener( 'keyup', function( event ) {
+                if ( html.classList.contains( activeCss ) && event.key === 'Escape' ) {
+                    toggleActivityStatus();
                 }
             } );
-        },
 
-        externalClick: function() {
-
-            window.addEventListener( 'click', function ( event ) {
-                
-                var targetEl = el.contains( event.target );
-                
-                if ( ! targetEl ) {
-                    var input = el.getElementsByTagName('input');
-                    el.classList.remove( 'ntt--sub-menu---active--js' );
+            // On external click
+            window.addEventListener( 'click', function ( event ) {                
+                if ( html.classList.contains( activeCss ) && ( ! entityPrimaryNav.contains( event.target ) ) ) {
+                    toggleActivityStatus();
                 }
             }, false);
         }
-
     }; // kidNtt.mobileMenu
 
-    /*	-----------------------------------------------------------------------------------------------
-    Intersection Observer Targeting IDs
-    https://codepen.io/bramus/pen/ExaEqMJ
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Intersection Observer Targeting IDs
+     * https://codepen.io/bramus/pen/ExaEqMJ
+     */
     kidNtt.sectionIdIntersection = {
 
         init: function() {
@@ -841,35 +845,35 @@
             var observer = new IntersectionObserver( entries => {
                 
                 entries.forEach( entry => {
-                    var id = entry.target.getAttribute('id');
+                    var id = entry.target.getAttribute( 'id' );
                     
                     if ( entry.intersectionRatio > 0 ) {
-                        document.querySelector(`a[href="#${id}"]`).classList.add('ntt--intersected--js');
-                        entry.target.classList.remove('ntt--not-intersected--js');
-                        entry.target.classList.add('ntt--intersected--js');
+                        document.querySelector( `a[href="#${id}"]` ).classList.add( 'ntt--intersected--js' );
+                        entry.target.classList.remove( 'ntt--not-intersected--js' );
+                        entry.target.classList.add( 'ntt--intersected--js' );
                     } else {
-                        document.querySelector(`a[href="#${id}"]`).classList.remove('ntt--intersected--js');
-                        entry.target.classList.remove('ntt--intersected--js');
+                        document.querySelector( `a[href="#${id}"]` ).classList.remove( 'ntt--intersected--js' );
+                        entry.target.classList.remove( 'ntt--intersected--js' );
                     }
-                });
-            });
+                } );
+            } );
         
             // Track all sections that have an 'id' applied
-            document.querySelectorAll('section[id]').forEach((section) => {
-                observer.observe(section);
-                section.classList.add('ntt--not-intersected--js');
-            });
+            document.querySelectorAll( 'section[id]' ).forEach( ( section ) => {
+                observer.observe( section );
+                section.classList.add( 'ntt--not-intersected--js' );
+            } );
         }
     }; // kidNtt.sectionIdIntersection
 
-    /*	-----------------------------------------------------------------------------------------------
-    Intersection Observer for Entity Footer
-    https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Intersection Observer for Entity Footer
+     * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+     */
     kidNtt.entityFooterIntersection = {
 
         init: function() {
-            var entityFooter = document.querySelector('.ntt--entity-footer');
+            var entityFooter = document.querySelector( '.ntt--entity-footer' );
 
             var observer = new IntersectionObserver( handleIntersect, {
                 rootMargin: '0px 0px 0px 0px',
@@ -881,9 +885,9 @@
                 entries.forEach( ( entry ) => {
                     
                     if ( entry.isIntersecting ) {
-                        html.classList.add('ntt--entity-footer--intersected--js');
+                        html.classList.add( 'ntt--entity-footer--intersected--js' );
                     } else {
-                        html.classList.remove('ntt--entity-footer--intersected--js');
+                        html.classList.remove( 'ntt--entity-footer--intersected--js' );
                     }
                 } );
             }
@@ -905,26 +909,26 @@
                     entries.forEach( entry => {
                         
                         if ( entry.isIntersecting ) {
-                            entry.target.classList.add('ntt--intersected--js');
-                            entry.target.classList.remove('ntt--not-intersected--js');
+                            entry.target.classList.add( 'ntt--intersected--js' );
+                            entry.target.classList.remove( 'ntt--not-intersected--js' );
                         } else {
-                            entry.target.classList.add('ntt--not-intersected--js');
-                            entry.target.classList.remove('ntt--intersected--js');
+                            entry.target.classList.add( 'ntt--not-intersected--js' );
+                            entry.target.classList.remove( 'ntt--intersected--js' );
                         }
                     });
                 } );
             
                 intersectionElement.forEach( ( el ) => {
-                    el.classList.add('ntt--not-intersected--js');
+                    el.classList.add( 'ntt--not-intersected--js' );
                     observer.observe( el );
                 } );
             }
         }
     }; // kidNtt.genericIntersection
 
-    /*	-----------------------------------------------------------------------------------------------
-    Assign Population Status of Input Elements
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Assign Population Status of Input Elements
+     */
     kidNtt.inputPopulationStatus = {
 
         init: function() {
@@ -936,17 +940,17 @@
                 input = inputs[i];
 
                 if ( ! input.value ) {
-                    input.closest( formField ).classList.add('ntt--form-field---empty--js');
+                    input.closest( formField ).classList.add( 'ntt--form-field---empty--js' );
                 } else {
-                    input.closest( formField ).classList.add('ntt--form-field---populated--js');
+                    input.closest( formField ).classList.add( 'ntt--form-field---populated--js' );
                 }
             }
         }
     }; // kidNtt.inputPopulationStatus
 
-    /*	-----------------------------------------------------------------------------------------------
-    Comment Module Visibility Status
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Comment Module Visibility Status
+     */
     kidNtt.commentModuleVisibilityStatus = {
 
         init: function() {
@@ -1003,10 +1007,10 @@
         }
     }; // kidNtt.commentModuleVisibilityStatus
 
-    /*	-----------------------------------------------------------------------------------------------
-    Assign Listeners to Comment Input Elements
-    https://stackoverflow.com/a/47944959
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Assign Listeners to Comment Input Elements
+     * https://stackoverflow.com/a/47944959
+     */
     kidNtt.commentInputElements = {
 
         init: function() {
@@ -1027,9 +1031,9 @@
                 input = inputs[i];
 
                 if ( ! input.value ) {
-                    input.closest( formField ).classList.add('ntt--form-field---empty--js');
+                    input.closest( formField ).classList.add( 'ntt--form-field---empty--js' );
                 } else {
-                    input.closest( formField ).classList.add('ntt--form-field---populated--js');
+                    input.closest( formField ).classList.add( 'ntt--form-field---populated--js' );
                 }
             }
         },
@@ -1039,7 +1043,7 @@
             if ( html.classList.contains( 'ntt--comment-creation---1--view' ) ) {
             
                 var delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
-                var inputDelegate = delegate('.text-input');
+                var inputDelegate = delegate( '.text-input' );
                 var formField = '.ntt--form-field';
                 var focusInTxt = 'ntt--form-field---focusin--js';
                 var focusOutTxt = 'ntt--form-field---focusout--js';
@@ -1047,30 +1051,30 @@
                 var populatedTxt = 'ntt--form-field---populated--js';
     
                 // Focus In
-                commentForm.addEventListener('focusin', inputDelegate((el) => {
-                    el.target.closest( formField ).classList.add(focusInTxt);
-                    el.target.closest( formField ).classList.remove(focusOutTxt);
+                commentForm.addEventListener( 'focusin', inputDelegate( ( el ) => {
+                    el.target.closest( formField ).classList.add( focusInTxt );
+                    el.target.closest( formField ).classList.remove( focusOutTxt );
     
                     if ( ! el.target.value ) {
-                        el.target.closest( formField ).classList.add(emptyTxt);
-                        el.target.closest( formField ).classList.remove(populatedTxt);
+                        el.target.closest( formField ).classList.add( emptyTxt );
+                        el.target.closest( formField ).classList.remove( populatedTxt );
                     } else {
-                        el.target.closest( formField ).classList.add(populatedTxt);
-                        el.target.closest( formField ).classList.remove(emptyTxt);
+                        el.target.closest( formField ).classList.add( populatedTxt );
+                        el.target.closest( formField ).classList.remove( emptyTxt );
                     }
                 }));
     
                 // Focus Out
-                commentForm.addEventListener('focusout', inputDelegate((el) => {
-                    el.target.closest( formField ).classList.add(focusOutTxt);
-                    el.target.closest( formField ).classList.remove(focusInTxt);
+                commentForm.addEventListener( 'focusout', inputDelegate( ( el ) => {
+                    el.target.closest( formField ).classList.add( focusOutTxt );
+                    el.target.closest( formField ).classList.remove( focusInTxt );
     
                     if ( ! el.target.value ) {
-                        el.target.closest( formField ).classList.add(emptyTxt);
-                        el.target.closest( formField ).classList.remove(populatedTxt);
+                        el.target.closest( formField ).classList.add( emptyTxt );
+                        el.target.closest( formField ).classList.remove( populatedTxt );
                     } else {
-                        el.target.closest( formField ).classList.add(populatedTxt);
-                        el.target.closest( formField ).classList.remove(emptyTxt);
+                        el.target.closest( formField ).classList.add( populatedTxt );
+                        el.target.closest( formField ).classList.remove( emptyTxt );
                     }
                 }));
 
@@ -1079,9 +1083,9 @@
         }
     }; // kidNtt.commentInputElements
 
-    /*	-----------------------------------------------------------------------------------------------
-    Go to Start navigation
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Go to Start navigation
+     */
     kidNtt.goStartNav = {
 
         init: function() {
@@ -1117,9 +1121,9 @@
         }
     }; // kidNtt.goStartNav
 
-    /*	-----------------------------------------------------------------------------------------------
-    Insert SVG Icons
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Insert SVG Icons
+     */
     kidNtt.insertIcons = {
 
         init: function() {
@@ -1144,10 +1148,10 @@
         }
     }; // kidNtt.insertIcons
 
-    /*	-----------------------------------------------------------------------------------------------
-    Window, Document Height
-    Tell if the page is short or long
-    --------------------------------------------------------------------------------------------------- */
+    /**
+     * Window, Document Height
+     * Tell if the page is short or long
+     */
     kidNtt.windowDocumentHeight = {
 
         init: function() {
@@ -1312,7 +1316,6 @@
         kidNtt.intrinsicRatioVideos.init();
         kidNtt.insertIcons.init();
         kidNtt.windowDocumentHeight.init();
-        //kidNtt.goStartNav.init();
         kidNtt.imageAnchor.init();
         kidNtt.thirdPartyMedia.init();
         kidNtt.breadCrumbs.init();

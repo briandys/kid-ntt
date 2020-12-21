@@ -761,6 +761,10 @@ textarea {
   color: var(--color--hexetidine-peach);
 }
 
+.ntt--content > ul li li::marker {
+  color: var(--color--hexetidine-sky-blue);
+}
+
 .ntt--content blockquote {
   position: relative;
   margin: 2em 0;
@@ -843,9 +847,15 @@ textarea {
   text-decoration: underline;
 }
 
-.ntt--content .ntt--entry .ntt--content > * {
+.ntt--content .ntt--entry.ntt--percept {
   padding-left: 0;
   padding-right: 0;
+}
+
+.ntt--content .ntt--entry.ntt--percept .ntt--entry-name {
+  margin-top: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .ntt--content .ntt--entries-nav {
@@ -1712,6 +1722,7 @@ textarea {
 .ntt--entry-tag--reading-list .ntt--content .ntt--reading-list-group li ul,
 .ntt--entry-tag--reading-list .ntt--content .ntt--reading-list-group li ol {
   margin-top: 2em;
+  padding-left: 1em;
 }
 
 .ntt--entry-tag--reading-list .ntt--content .ntt--reading-list-group li:first-child {
@@ -1862,9 +1873,17 @@ textarea {
 }
 
 @media only screen and (max-width: 424px) {
+  .ntt--mobile-menu--js .ntt--entity-heading {
+    border-bottom: 0;
+  }
+  .ntt--mobile-menu--js .ntt--entity-primary-nav .menu {
+    transition: all 0.3s ease-in-out;
+    border-top: 0.5rem solid var(--color--hexetidine-peach);
+  }
   .ntt--dom---unloaded--js .ntt--entity-primary-nav .menu,
   .ntt--mobile-menu---inactive--js .ntt--entity-primary-nav .menu {
-    display: none;
+    visibility: hidden;
+    max-height: 0;
   }
   .ntt--dom---unloaded--js .ntt--entity-heading,
   .ntt--mobile-menu---inactive--js .ntt--entity-heading {
@@ -1873,20 +1892,23 @@ textarea {
   .ntt--mobile-menu---active--js .ntt--mobile-menu-toggle-axn--js .ntt--icon {
     transform: rotate(180deg) scale(0.75);
   }
+  .ntt--mobile-menu---active--js .ntt--entity-primary-nav .menu {
+    max-height: 100%;
+  }
   .ntt--mobile-menu-toggle-axn--js {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1.65rem;
-    margin-left: 0;
-    margin-bottom: 0;
     padding: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
     width: 3rem;
     height: 3rem;
     background-color: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1.65rem;
+    margin-left: 0;
+    margin-bottom: 0;
   }
   .ntt--mobile-menu-toggle-axn--js .ntt--txt {
     display: none;

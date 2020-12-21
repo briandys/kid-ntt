@@ -873,6 +873,10 @@ th {
   font-size: initial;
 }
 
+.ntt--content .ntt--entry:first-child {
+  margin-top: 0;
+}
+
 .ntt--content .ntt--entry:last-child {
   margin-bottom: 0;
 }
@@ -2816,7 +2820,7 @@ section:target {
 
 .ntt--entry-secondary-meta,
 .ntt--comment-md {
-  padding-top: 2rem;
+  padding-top: 3rem;
 }
 
 .ntt--cancel-reply-axn .ntt--txt,
