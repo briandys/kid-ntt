@@ -619,8 +619,12 @@ textarea {
   color: var(--color--hexetidine-peach);
 }
 
-.ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) .ntt--entry-banner-visuals-auto .ntt--entry-banner-visuals {
+.ntt--entry-banner-visuals-auto .ntt--entry-banner-visuals {
   display: none;
+}
+
+.ntt--entry-pseudo-index--view .ntt--entry-banner-visuals-auto .ntt--entry-banner-visuals {
+  display: block;
 }
 
 .ntt--entry-tags a::before {

@@ -389,12 +389,16 @@ textarea {
     }
 }
 
-.ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) {
-    
-    .ntt--entry-banner-visuals-auto {
+//--------------------------------------------------------------
+// Entry Banner Visuals
+//--------------------------------------------------------------
+.ntt--entry-banner-visuals-auto {
 
-        .ntt--entry-banner-visuals {
-            display: none;
+    .ntt--entry-banner-visuals {
+        display: none;
+
+        .ntt--entry-pseudo-index--view & {
+            display: block;
         }
     }
 }
