@@ -129,9 +129,11 @@ add_action( 'init', 'ntt__kid_ntt__wp_shortcode__taxonomy_query__initialization'
  * View CSS
  */
 function ntt__kid_ntt__wp_shortcode__taxonomy_query__view__css( $classes ) {
-
-    $classes[] = 'ntt--entry-pseudo-index--view';
-
+    global $post;
+    if ( is_singular() && has_shortcode( $post->post_content, 'ntt_taxonomy_query') ) {
+        $classes[] = 'ntt--wp-shortcode--taxonomy-query--view';
+        $classes[] = 'ntt--entry-pseudo-index--view';
+    }
     return $classes;
 }
 add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__wp_shortcode__taxonomy_query__view__css' );

@@ -367,7 +367,7 @@ textarea {
 .ntt--entry-md .ntt--entry-name {
     font-size: var(--text---xxxl);
 
-    .ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) & {
+    .ntt--entry-singular--view:not(.ntt--entry-pseudo-index--view) & {
         
         a {
             pointer-events: none;        

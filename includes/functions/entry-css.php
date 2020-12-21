@@ -68,7 +68,7 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
     }
 
     /**
-     * Entry Categories
+     * Entry Categories Ability Status
      */
     if ( has_category( '', $post->ID ) ) {
         $classes[] = 'ntt--entry-categories---1';
@@ -76,6 +76,13 @@ function ntt__kid_ntt__function__entry__css( $classes ) {
         $classes[] = 'ntt--entry-categories---0';
     }
     
+    // Entry Categories
+    if ( $entry_categories = get_the_category( $post->ID ) ) {
+        foreach( $entry_categories as $category ) {
+            $classes[] = 'ntt--entry-category--'. sanitize_title( $category->name );
+        }
+    }
+
     // Entry Tags
     if ( $entry_tags = get_the_tags( $post->ID ) ) {
         foreach( $entry_tags as $tag ) {

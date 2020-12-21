@@ -146,6 +146,7 @@
 
     .ntt--txt {
        @include block-pad;
+       white-space: nowrap;
 
        > * {
            @include x-margin(.15em);
@@ -190,6 +191,7 @@
         flex: 1;
         position: relative;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         @include y-margin(2rem);
         @include x-padding(1rem);

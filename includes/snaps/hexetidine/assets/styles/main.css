@@ -601,11 +601,11 @@ textarea {
   font-size: var(--text---xxxl);
 }
 
-.ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) .ntt--entry-md .ntt--entry-name a {
+.ntt--entry-singular--view:not(.ntt--entry-pseudo-index--view) .ntt--entry-md .ntt--entry-name a {
   pointer-events: none;
 }
 
-.ntt--entry-singular--view:not(.ntt--page-template--mag-index--view) .ntt--entry-md .ntt--entry-name:hover {
+.ntt--entry-singular--view:not(.ntt--entry-pseudo-index--view) .ntt--entry-md .ntt--entry-name:hover {
   cursor: text;
 }
 

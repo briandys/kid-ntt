@@ -63,6 +63,11 @@ function ntt__kid_ntt__function__view__css( $classes ) {
     } else {
         $classes[] = $page_template_text. '---generic'. '--'. $view_text;
     }
+    
+    // Entry Category
+    if ( is_category() ) {
+        $classes[] = 'ntt--entry-category--'. sanitize_title( single_cat_title( '', false ) ). '--view';
+    }
 
     return $classes;
 }

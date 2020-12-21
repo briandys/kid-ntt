@@ -1633,6 +1633,7 @@ th {
 .ntt--entries-page-indicator .ntt--txt {
   display: block;
   padding: .5rem;
+  white-space: nowrap;
 }
 
 .ntt--entries-page-indicator .ntt--txt > * {
@@ -1661,6 +1662,7 @@ th {
   flex: 1;
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
