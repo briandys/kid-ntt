@@ -593,8 +593,13 @@ textarea {
 }
 
 .ntt--js .ntt--entity-main-footer .ntt--entries-nav {
+  flex: 0;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.ntt--js .ntt--entity-main-footer .ntt--entries-nav ul {
+  flex-wrap: nowrap;
 }
 
 .ntt--entry-md .ntt--entry-name {
@@ -1864,7 +1869,7 @@ textarea {
     margin-top: 3.5rem;
   }
   .ntt--entity-main-main {
-    margin: 1rem;
+    margin: 1rem 2rem;
   }
   .ntt--entity-primary-nav .menu {
     margin-left: 2rem;
@@ -1920,6 +1925,15 @@ textarea {
   .ntt--mobile-menu-toggle-axn--js .ntt--icon {
     fill: var(--accent-color);
     transition: all 0.3s ease-in-out;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ntt--js .ntt--entries-nav {
+    flex-wrap: nowrap;
+  }
+  .ntt--js .ntt--entries-page-indicator {
+    margin-right: 1rem;
   }
 }
 

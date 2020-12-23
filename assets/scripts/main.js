@@ -748,93 +748,6 @@
     }; // kidNtt.subMenu
 
     /**
-     * Mobile Menu
-     */
-    kidNtt.mobileMenu = {
-
-        init: function() {
-            
-            var menu = entityPrimaryNav.querySelector( '.menu' );
-            var menuCss = 'ntt--entity-primary-nav-menu';
-            var navName = entityPrimaryNav.querySelector( '.ntt--entity-primary-nav-name' );
-            var showTxt = nttData.showTxt;
-            var hideTxt = nttData.hideTxt;
-            var menuTxt = nttData.menuTxt;
-            var icon = nttData.menuIcon;
-            var activeCss = 'ntt--mobile-menu---active--js';
-            var inactiveCss = 'ntt--mobile-menu---inactive--js';
-
-            // Initial CSS class names
-            html.classList.add( 'ntt--mobile-menu--js' );
-            html.classList.add( inactiveCss );
-
-            // Menu attribute
-            menu.setAttribute( 'id', menuCss );
-
-            // Create Button
-            var button = kidNtt.domMaker( 'button', {
-                'class': 'ntt--mobile-menu-toggle-axn--js',
-                attributes: { 
-                    'title': showTxt + ' ' + menuTxt,
-                    'aria-label': showTxt + ' ' + menuTxt,
-                    'aria-controls': menuCss,
-                    'aria-expanded': 'false',
-                },
-                innerHTML: '<span class="ntt--txt"><span class="ntt--show-txt ntt--toggle-text">'+ showTxt +'</span> <span class="ntt--menu-txt">'+ menuTxt +'</span></span>'
-            } );
-            
-            // Insert Checkbox and Label
-            navName.insertAdjacentHTML( 'afterend', button.outerHTML );
-
-            // Declare button
-            var button = entityPrimaryNav.querySelector( '.ntt--mobile-menu-toggle-axn--js' );
-            
-            // Insert icon
-            button.insertAdjacentHTML( 'beforeend', icon );
-
-            // Toggle activity status
-            function toggleActivityStatus() {
-                var toggleText = button.querySelector( '.ntt--toggle-text' );
-    
-                // Activate
-                if ( html.classList.contains( inactiveCss ) ) {
-                    html.classList.add( activeCss );
-                    html.classList.remove( inactiveCss );
-                    button.setAttribute( 'aria-expanded', 'true' );
-                    toggleText.innerHTML = hideTxt;
-                }
-                
-                // Deactivate
-                else if ( html.classList.contains( activeCss ) ) {
-                    html.classList.add( inactiveCss );
-                    html.classList.remove( activeCss );
-                    button.setAttribute( 'aria-expanded', 'false' );
-                    toggleText.innerHTML = showTxt;
-                }
-            }
-            
-            // On click
-            button.addEventListener( 'click', function() {
-                toggleActivityStatus();
-            } );
-
-            // On keyup
-            document.addEventListener( 'keyup', function( event ) {
-                if ( html.classList.contains( activeCss ) && event.key === 'Escape' ) {
-                    toggleActivityStatus();
-                }
-            } );
-
-            // On external click
-            window.addEventListener( 'click', function ( event ) {                
-                if ( html.classList.contains( activeCss ) && ( ! entityPrimaryNav.contains( event.target ) ) ) {
-                    toggleActivityStatus();
-                }
-            }, false);
-        }
-    }; // kidNtt.mobileMenu
-
-    /**
      * Intersection Observer Targeting IDs
      * https://codepen.io/bramus/pen/ExaEqMJ
      */
@@ -1307,7 +1220,6 @@
         kidNtt.entriesCustomNav.init();
         kidNtt.entriesNav.init();
         kidNtt.subMenu.init();
-        kidNtt.mobileMenu.init();
         kidNtt.entityFooterIntersection.init();
         kidNtt.genericIntersection.init();
         kidNtt.commentModuleVisibilityStatus.init();

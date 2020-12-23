@@ -192,6 +192,7 @@
         position: relative;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
         @include y-margin(2rem);
         @include x-padding(1rem);
@@ -214,7 +215,6 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        margin-right: 1rem;
         padding-right: 3rem;
         user-select: none;
         border: 1px solid var(--on-surface-color---alpha-m);
@@ -255,14 +255,13 @@
         }
     }
 }
-
-
     
 .ntt--entries-adjacent-page-control--js {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     user-select: none;
+    overflow: hidden;
 
     li {
         padding: 0;
@@ -404,8 +403,7 @@
     }
 }
 
-.ntt--entries-nav---single-navi--js {
-    
+.ntt--entries-nav---single-navi--js {    
     
     .ntt--js & {
         @include x-padding();

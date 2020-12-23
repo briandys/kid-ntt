@@ -1663,6 +1663,7 @@ th {
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -1684,7 +1685,6 @@ th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
   padding-right: 3rem;
   user-select: none;
   border: 1px solid var(--on-surface-color---alpha-m);
@@ -1730,6 +1730,7 @@ th {
   justify-content: center;
   align-items: center;
   user-select: none;
+  overflow: hidden;
 }
 
 .ntt--entries-adjacent-page-control--js li {

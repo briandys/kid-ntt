@@ -355,7 +355,12 @@ textarea {
     .ntt--entity-main-footer {
 
         .ntt--entries-nav {
+            flex: 0;
             @include x-margin(1rem);
+
+            ul {
+                flex-wrap: nowrap;
+            }
         }
     }
 }
@@ -1485,7 +1490,7 @@ textarea {
     }
 
     .ntt--entity-main-main {
-        margin: 1rem;
+        margin: 1rem 2rem;
     }
 
     //--------------------------------------------------------------
@@ -1586,7 +1591,27 @@ textarea {
 }
 
 //--------------------------------------------------------------
-// Media Query: Laptop
+// Media Query: Tablet M
+//--------------------------------------------------------------
+@include mq($tablet-viewport-width---m) {
+
+    //--------------------------------------------------------------
+    // Entries Navigation
+    //--------------------------------------------------------------
+    .ntt--js {
+        
+        .ntt--entries-nav {
+            flex-wrap: nowrap;
+        }
+        
+        .ntt--entries-page-indicator {
+            margin-right: 1rem;
+        }
+    }
+}
+
+//--------------------------------------------------------------
+// Media Query: Laptop M
 //--------------------------------------------------------------
 @include mq($laptop-viewport-width---m) {
 
