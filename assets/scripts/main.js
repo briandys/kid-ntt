@@ -929,25 +929,7 @@
         init: function() {
 
             if ( commentForm ) {
-                this.populationStatus();
                 this.focusListener();
-            }
-        },
-
-        populationStatus: function() {
-            
-            var inputs = commentForm.querySelectorAll( 'input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea' );
-            var input = null;
-            var formField = '.ntt--form-field';
-
-            for ( var i = 0, len = inputs.length; i < len; i++ ) {
-                input = inputs[i];
-
-                if ( ! input.value ) {
-                    input.closest( formField ).classList.add( 'ntt--form-field---empty--js' );
-                } else {
-                    input.closest( formField ).classList.add( 'ntt--form-field---populated--js' );
-                }
             }
         },
         
