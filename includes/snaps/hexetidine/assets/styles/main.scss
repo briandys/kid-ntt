@@ -1,6 +1,5 @@
 @import '../../../../../assets/styles/source/rules';
 //@import 'source/jetpack';
-@import 'source/briandys';
 
 $hexetidine-sky-blue: #00A2FF;
 $hexetidine-navy-blue: #200099;
@@ -240,6 +239,21 @@ textarea {
 
 .ntt--entity-footer-aside {
     @include max-width;
+
+    .ntt--widget_nav_menu {
+        text-align: center;
+
+        .menu {
+
+            > li {
+                @include x-margin(1rem);
+            }
+        }
+
+        a {
+            color: white;
+        }
+    }
 }
 
 .ntt--hexetidine--about-snippet {

@@ -44,7 +44,7 @@ function ntt__kid_ntt__function__entry_banner_visuals__validation( $type = '' ) 
 if ( ! function_exists( 'ntt__tag__entry_banner' ) ) {
     function ntt__tag__entry_banner() {
 
-        $post_meta = ntt__kid_ntt__function__entry_banner_visuals__validation( $type = 'post_meta' );        
+        $post_meta = ntt__kid_ntt__function__entry_banner_visuals__validation( $type = 'post_meta' );
         $post_meta_auto = ntt__kid_ntt__function__entry_banner_visuals__validation( $type = 'post_meta_auto' );
         $post_thumbnail = ntt__kid_ntt__function__entry_banner_visuals__validation( $type = 'post_thumbnail' );
 
@@ -52,8 +52,8 @@ if ( ! function_exists( 'ntt__tag__entry_banner' ) ) {
 
         $entry_banner_mu_s = '<div class="ntt--entry-banner ntt--cp" data-name="Entry Banner">';
         $entry_banner_mu_e = '</div>';
-        $entry_banner_visuals_mu_s = '<figure class="ntt--entry-banner-visuals ntt--obj" data-name="Entry Banner Visuals">';        
-        $entry_banner_visuals_mu_e = '</figure>';
+        $entry_banner_visuals_mu_s = '<div class="ntt--entry-banner-visuals ntt--obj" data-name="Entry Banner Visuals">';        
+        $entry_banner_visuals_mu_e = '</div>';
         $a_mu_s = '<a href="'. esc_url( get_permalink() ). '" rel="bookmark" class="u-url">';
         $a_mu_e = '</a>';
 
