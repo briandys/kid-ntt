@@ -34,7 +34,8 @@
 }
 
 .ntt--kid-ntt--feature--prezo-mode---active--js .ntt--entry-full-content .wp-block-gallery .blocks-gallery-item img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 @media only screen and (min-width: 768px) {
