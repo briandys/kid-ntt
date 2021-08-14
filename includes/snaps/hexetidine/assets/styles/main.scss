@@ -672,6 +672,7 @@ textarea {
         @include x-padding();
         width: 3rem;
         border-top: .25rem solid var(--color--hexetidine-gray);
+        border-bottom: 0;
     }
     
     // Jetpack
