@@ -1043,14 +1043,6 @@ th {
   }
 }
 
-.ntt--entity-logo---1--view .ntt--entity-name {
-  display: none;
-}
-
-.ntt--entity-logo---1--view .ntt--entity-description {
-  display: none;
-}
-
 .ntt--entity-logo {
   padding: 1rem;
 }

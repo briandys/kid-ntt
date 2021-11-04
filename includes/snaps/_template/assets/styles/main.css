@@ -1,0 +1,26 @@
+/* Screen Reader Text ------------------------ */
+/* Variables */
+:root {
+  /* Colors */
+  --global--color-black: #000;
+  --global--color-dark-gray: #28303d;
+  --global--color-gray: #39414d;
+  --global--color-light-gray: #f0f0f0;
+  --global--color-green: #d1e4dd;
+  --global--color-blue: #d1dfe4;
+  --global--color-purple: #d1d1e4;
+  --global--color-red: #e4d1d1;
+  --global--color-orange: #e4dad1;
+  --global--color-yellow: #eeeadd;
+  --global--color-white: #fff;
+  --global--color-white-50: rgba(255, 255, 255, 0.5);
+  --global--color-white-90: rgba(255, 255, 255, 0.9);
+  --global--color-primary: var(--global--color-dark-gray);
+  /* Body text color, site title, footer text color. */
+  --global--color-secondary: var(--global--color-gray);
+  /* Headings */
+  --global--color-primary-hover: var(--global--color-primary);
+  --global--color-background: var(--global--color-green);
+  /* Mint, default body background */
+  --global--color-border: var(--global--color-primary);
+}

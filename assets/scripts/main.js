@@ -311,6 +311,8 @@
 
             var contentCode = document.querySelectorAll( '.ntt--content code' );
             kidNtt.wrapElement( contentCode, 'span', 'ntt--code-el-skin--js' );
+
+            kidNtt.removeEmpty( $content.find( '.ntt--txt' ) );
         }
     }; // kidNtt.textContentProcessing
 
