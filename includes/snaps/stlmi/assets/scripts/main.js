@@ -32,12 +32,19 @@
 
 // https://splidejs.com/tutorials/image-slider/
 document.addEventListener( 'DOMContentLoaded', function () {
-    new Splide( '.hero-slider', {
-        cover       : true,
-    } ).mount();
+            
+    if ( document.querySelector( '.hero-slider' ) ) {
 
-    new Splide( '.testimonies-slider', {
-        cover       : true,
-        perPage     : 3,
-    } ).mount();
+        new Splide( '.hero-slider', {
+            cover       : true,
+        } ).mount();
+    }
+
+    if ( document.querySelector( '.testimonies-slider' ) ) {
+
+        new Splide( '.testimonies-slider', {
+            cover       : true,
+            perPage     : 3,
+        } ).mount();
+    }
 } );

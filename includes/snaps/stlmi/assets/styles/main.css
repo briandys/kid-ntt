@@ -292,6 +292,29 @@
   width: 100%;
 }
 
+.ntt--page--pastors .ntt--entry-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ntt--page--pastors .wp-block-media-text {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 calc(100%/3);
+          flex: 1 calc(100%/3);
+}
+
+.ntt--page--pastors .wp-block-media-text.bishop {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+}
+
 .ntt--page--home--view .hero-slider {
   margin: 0;
 }
@@ -384,4 +407,10 @@
 .ntt--page--home--view .hero-slider .splide__pagination {
   margin-bottom: 1rem;
   bottom: var(--hero-slider-offset);
+}
+
+.ntt .wp-block-cover.has-background-dim:before {
+  background: #EB5757;
+  mix-blend-mode: lighten;
+  opacity: 0.8;
 }
