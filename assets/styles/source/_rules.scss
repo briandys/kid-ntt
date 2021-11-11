@@ -154,6 +154,56 @@ $corner-radius---lg: .5rem;
 $content-text-color: $on-surface-color;
 
 //--------------------------------------------------------------
+// Responsive Styles
+// Based on WordPress TwentyTwentyOne
+//--------------------------------------------------------------
+
+// Required Variables
+$breakpoint_sm: 320px;
+$breakpoint_md: 768px;
+$breakpoint_lg: 1024px;
+
+// Responsive breakpoints mixin
+@mixin media( $res ) {
+
+    @if mobile-only == $res {
+        @media only screen and (max-width: #{$breakpoint_sm - 1}) {
+            @content;
+        }
+    }
+
+    @if mobile == $res {
+        @media only screen and (min-width: #{$breakpoint_sm}) {
+            @content;
+        }
+    }
+
+    @if tablet-only == $res {
+        @media only screen and (max-width: #{$breakpoint_md - 1}) {
+            @content;
+        }
+    }
+
+    @if tablet == $res {
+        @media only screen and (min-width: #{$breakpoint_md}) {
+            @content;
+        }
+    }
+
+    @if laptop-only == $res {
+        @media only screen and (max-width: #{$breakpoint_lg - 1}) {
+            @content;
+        }
+    }
+
+    @if laptop == $res {
+        @media only screen and (min-width: #{$breakpoint_lg}) {
+            @content;
+        }
+    }
+}
+
+//--------------------------------------------------------------
 // Elements
 //--------------------------------------------------------------
 

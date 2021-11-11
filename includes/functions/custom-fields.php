@@ -35,8 +35,6 @@ add_filter( 'ntt__wp_filter__view_css', 'ntt__kid_ntt__wp_custom_field__css' );
  * Entry Subname Custom Field
  * Adds a sub-title under Entry Name
  * Key: ntt_entry_subname
- * 
- * Adds Entry Subname
  */
 function ntt__kid_ntt__wp_custom_field__entry_subname() {
     
@@ -53,11 +51,6 @@ function ntt__kid_ntt__wp_custom_field__entry_subname() {
     echo $entry_subname_mu;
 }
 add_action( 'ntt__wp_hook__entry_name___after', 'ntt__kid_ntt__wp_custom_field__entry_subname', 0 );
-
-
-
-
-
 
 /**
  * Entry Feature Return True

@@ -1,22 +1,24 @@
 @import '../../../../../assets/styles/source/rules';
 
-/* Variables */
+//--------------------------------------------------------------
+// Variables
+//--------------------------------------------------------------
 :root {
 
     /* Colors */
 	--global--color-black: #000;
-	--global--color-dark-gray: #28303d;
+	--global--color-dark-gray: #333333;
 	--global--color-gray: #39414d;
 	--global--color-light-gray: #f0f0f0;
-	--global--color-green: #d1e4dd;
-	--global--color-blue: #d1dfe4;
-	--global--color-purple: #d1d1e4;
-	--global--color-red: #e4d1d1;
-	--global--color-orange: #e4dad1;
-	--global--color-yellow: #eeeadd;
+
+	--global--color-green: #227629;
+	--global--color-light-green: #6DDB9C;
+	--global--color-red: #FF0000;
+
 	--global--color-white: #fff;
 	--global--color-white-50: rgba(255, 255, 255, 0.5);
 	--global--color-white-90: rgba(255, 255, 255, 0.9);
+
 	--global--color-primary: var(--global--color-dark-gray);
 
 	/* Body text color, site title, footer text color. */
@@ -28,37 +30,333 @@
 
 	/* Mint, default body background */
 	--global--color-border: var(--global--color-primary);
+
+	--global--corner-radius-card-m: 1rem;
+	--global--corner-radius-card-s: .75rem;
 }
 
-.splide__slide img {
-	width: 100%;
-	height: auto;
-  }
+//--------------------------------------------------------------
+// Entity Header
+//--------------------------------------------------------------
+.ntt--entity-header {
 
-  .upcoming {
-	  display: flex;
-	  justify-content: center;
-	margin-top: -2rem;
-		z-index: 1;
-		position: relative;
-  }
+	@include media(laptop) {
+		display: flex;
+		flex-direction: column;
+	}
+}
 
-  .ntt--page--home--view {
+.ntt--entity-header-aside {
+
+	@include media(laptop) {
+		order: -1;
+	}
+}
+
+.ntt--entity-heading {
+	display: flex;
+	align-items: center;
+}
+
+.ntt--entity-logo {
+
+	img {
+		width: auto;
+		max-width: none;
+		height: 96px;
+	}
+}
+
+//--------------------------------------------------------------
+// Entry Header
+//--------------------------------------------------------------
+.ntt--page--home--view {
 
 	.ntt--entry-header {
 		display: none;
 	}
-  }
+}
 
-  .ntt--entity-heading {
-	  display: flex;
-	  align-items: center;
-  }
+//--------------------------------------------------------------
+// Splide Slider
+//--------------------------------------------------------------
+.ntt .slider {
+	padding: 0;
+}
 
-  .ntt--entity-logo {
+.splide__slide {
+	
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.splide__arrow,
+.splide__pagination__page {
+	min-height: auto;
+}
+
+//--------------------------------------------------------------
+// Card
+//--------------------------------------------------------------
+.ntt .card {
+	display: flex;
+	flex-grow: 1;
+	padding: 0;
+	margin: 0;
+	border-radius: var(--global--corner-radius-card-m);
+
+	.wp-block-image {
+		margin: 0;
+	}
+
+	figure,
+	img {
+		width: 100%;
+	}
+
+	figure {
+		display: flex;
+		overflow: hidden;
+	}
 
 	img {
-		width: auto;
-		height: 80px;
+		object-fit: cover;
+		transform: scale(1.1);
 	}
-  }
+}
+
+//--------------------------------------------------------------
+// Card - Label In
+//--------------------------------------------------------------
+.ntt .card---label-in {
+	justify-content: center;
+	flex-grow: 1;
+	height: 240px;
+	position: relative;
+	overflow: hidden;
+
+	.heading {
+		display: flex;
+		justify-content: center;
+		align-items: center;		
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 1;
+	}
+}
+
+//--------------------------------------------------------------
+// Card - Content
+//--------------------------------------------------------------
+.ntt .card---content {
+	gap: 1rem;
+	padding: 1rem;
+	background: var(--global--color-white);
+	border: 1px solid var(--global--color-light-gray);
+	box-sizing: border-box;
+	box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.1);
+
+	.content {
+		flex-grow: 1;
+	}
+
+	.heading {
+		margin: 0;
+	}
+
+	figure {
+		width: 160px;
+		height: 160px;
+		order: -1;
+		border-radius: var(--global--corner-radius-card-s);
+	}
+}
+
+//--------------------------------------------------------------
+// Card - Label Out
+//--------------------------------------------------------------
+.card---label-out {
+	flex-direction: column;
+	gap: 1rem;
+	text-align: center;
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		gap: .25rem;
+	}
+
+	figure {
+		order: -1;
+
+		a {
+			width: 100%;
+		}
+	}
+}
+
+:root {
+	--slider-arrow-dimensions: 2rem;
+	--slider-arrow-pad: 1rem;
+}
+
+@include media(mobile) {
+
+	:root {
+		--hero-slider-offset: 2rem;
+	}
+}
+
+@include media(laptop) {
+
+	:root {
+		--hero-slider-offset: 240px;
+	}
+}
+
+.ntt--page--home--view {
+
+	//--------------------------------------------------------------
+	// Events, Online Services
+	//--------------------------------------------------------------
+	.ntt--page--events-online-services {
+		display: flex;
+		justify-content: center;
+		margin-top: calc(var(--hero-slider-offset) * -1);
+		width: 100%;
+		position: relative;
+		z-index: 1;
+
+		.ntt--entry-name {
+			display: none;
+		}
+
+		.ntt--entry-content {
+			width: 100%;
+
+			@include media(tablet) {
+				display: flex;
+				gap: 1rem;
+			}
+		}
+	}
+
+	//--------------------------------------------------------------
+	// Most Recent
+	//--------------------------------------------------------------
+	.ntt--page--most-recent {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.ntt--entry-content {
+			width: 100%;
+
+			@include media(tablet) {
+				display: flex;
+				justify-content: center;
+				gap: 1rem;
+			}
+		}
+	}
+
+	//--------------------------------------------------------------
+	// Testimonies
+	//--------------------------------------------------------------
+	.ntt--page--testimonies {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		
+		.ntt--entry-content {
+			width: 100%;
+		}
+	}
+
+	//--------------------------------------------------------------
+	// Hero Slider
+	//--------------------------------------------------------------
+	.hero-slider {
+		margin: 0;
+		
+		.splide__list {
+
+			@include media(laptop) {
+				height: 640px;
+			}		
+		}
+
+		.splide__track {
+			position: relative;
+
+			&:after {
+				content: '';
+				display: block;
+				width: 100%;
+				height: var(--hero-slider-offset);
+				position: absolute;
+				bottom: 0;
+				background: linear-gradient(transparent, #fff) left repeat; 
+			  }
+		}
+
+		.splide__slide {
+			position: relative;
+
+			.content {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				flex-grow: 1;
+				padding-bottom: var(--hero-slider-offset);
+				padding-left: calc(1rem + var(--slider-arrow-dimensions) + var(--slider-arrow-pad));
+				padding-right: calc(1rem + var(--slider-arrow-dimensions) + var(--slider-arrow-pad));
+				width: 100%;
+				height: 100%;
+				position: absolute;
+
+				.heading {
+					margin: 0;
+					text-align: center;
+				}
+			}
+
+			figure,
+			img {
+				height: 100%;
+			}
+
+			figure {
+				margin: 0;
+			}
+
+			img {
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+
+		.splide__arrow {
+			margin-top: calc(calc(var(--hero-slider-offset) / 2) * -1);
+			width: var(--slider-arrow-dimensions);
+			height: var(--slider-arrow-dimensions);
+		}
+
+		.splide__arrow--prev {
+			left: var(--slider-arrow-pad);
+		}
+
+		.splide__arrow--next {
+			right: var(--slider-arrow-pad);
+		}
+
+		.splide__pagination {
+			margin-bottom: 1rem;
+			bottom: var(--hero-slider-offset);
+		}
+	}
+}

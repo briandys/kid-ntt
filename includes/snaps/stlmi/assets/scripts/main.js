@@ -31,9 +31,13 @@
 
 
 // https://splidejs.com/tutorials/image-slider/
-  document.addEventListener( 'DOMContentLoaded', function () {
-    new Splide( '#image-slider', {
-          cover      : true,
-          heightRatio: 0.5,
+document.addEventListener( 'DOMContentLoaded', function () {
+    new Splide( '.hero-slider', {
+        cover       : true,
     } ).mount();
-  } );
+
+    new Splide( '.testimonies-slider', {
+        cover       : true,
+        perPage     : 3,
+    } ).mount();
+} );

@@ -245,7 +245,8 @@
     }
 }
 
-.ntt--entry-subname {
+.ntt--entry-subname,
+.ntt--entry-subtitle {
     display: inline-block;
     @include space-around;
     margin-top: -1rem;
@@ -363,7 +364,8 @@
     @include if-y-center;
 
     .entry-name,
-    .ntt--entry-subname {
+    .ntt--entry-subname,
+    .ntt--entry-subtitle {
         flex: 1 100%;
     }
 

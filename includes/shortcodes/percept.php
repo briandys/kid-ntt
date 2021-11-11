@@ -92,8 +92,9 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
 
             $mu = '<article class="ntt--percept---'. esc_attr( '%3$s' ). ' '. 'ntt--'. esc_attr( '%3$s' ). ' '. 'ntt--percept ntt--'. esc_attr( '%4$s' ). ' '. 'ntt--entry ntt--cp" data-source-url="'. esc_url( get_the_permalink() ).'" data-name="NTT Percept">';
                 $mu .= '<h1 class="ntt--percept--entry-name ntt--entry-name ntt--obj" data-name="NTT Percept Entry Name">';
-                    $mu .= '<a href="'. esc_url( get_the_permalink() ).'">'. esc_html( '%2$s' ). '</a>';
+                    $mu .= '<a href="'. esc_url( get_the_permalink() ).'">'. esc_html( '%2$s' ). '</a>';                    
                 $mu .= '</h1>';
+                $mu .= do_shortcode( '[ntt_subtitle]' );
                 $mu .= '<div class="ntt--percept--entry-content ntt--entry-content ntt--content ntt--cp" data-name="NTT Percept Entry Content">';                
                     $mu .= esc_html( '%1$s' );
                 $mu .= '</div>';
