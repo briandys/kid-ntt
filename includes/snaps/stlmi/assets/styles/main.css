@@ -123,7 +123,15 @@
   overflow: hidden;
 }
 
-.ntt .card---label-in .heading {
+.ntt .card---label-in .wp-block-media-text__content {
+  display: contents;
+}
+
+.ntt .card---label-in .wp-block-media-text__content p {
+  display: contents;
+}
+
+.ntt .card---label-in .wp-block-media-text__content a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
