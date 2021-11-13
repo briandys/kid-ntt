@@ -102,6 +102,10 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
 
             global $post;
 
+            if ( has_shortcode( $post->post_content, 'ntt_percept' ) ) {
+                remove_filter( 'the_content', 'wpautop' );
+            }
+
             $percept = printf( $mu,
                 apply_filters( 'the_content', do_shortcode( get_the_content() ) ),
                 get_the_title(),

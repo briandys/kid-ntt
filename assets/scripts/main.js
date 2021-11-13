@@ -294,6 +294,7 @@
             var $content = $( '.ntt--content' );
             kidNtt.wrapTextNode( $content);
             kidNtt.removeEmpty( $content.find( '.ntt--txt' ) );
+            kidNtt.removeEmpty( $content.find( 'p' ) ); // Empty <p> tags were created by wpautop
             //kidNtt.removeExtraSpace( $content.find( '.ntt--txt' ) );
             kidNtt.removeEmpty( $content );
 

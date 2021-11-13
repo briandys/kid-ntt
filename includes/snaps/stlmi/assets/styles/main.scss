@@ -167,19 +167,15 @@
 	box-sizing: border-box;
 	box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.1);
 
-	.content {
-		flex-grow: 1;
-	}
-
-	.heading {
-		margin: 0;
-	}
-
 	figure {
 		width: 160px;
 		height: 160px;
 		order: -1;
 		border-radius: var(--global--corner-radius-card-s);
+	}
+
+	.wp-block-media-text__content {
+		@include x-padding(0);
 	}
 }
 
@@ -226,6 +222,32 @@
 }
 
 //--------------------------------------------------------------
+// NTT Percept in Home View
+//--------------------------------------------------------------
+.ntt--page--home--view {
+
+	.ntt--entry-full-content {
+	
+		> .ntt--percept {
+
+			.ntt--entry-content {
+				width: 100%;
+
+				@include media(tablet) {
+					display: flex;
+					gap: 1rem;
+				}
+
+				> .heading {
+					flex: 1 100%;
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+//--------------------------------------------------------------
 // Events, Online Services
 //--------------------------------------------------------------
 .ntt--page--home--view {
@@ -241,15 +263,6 @@
 		.ntt--entry-name {
 			display: none;
 		}
-
-		.ntt--entry-content {
-			width: 100%;
-
-			@include media(tablet) {
-				display: flex;
-				gap: 1rem;
-			}
-		}
 	}
 }
 
@@ -264,12 +277,10 @@
 		align-items: center;
 
 		.ntt--entry-content {
-			width: 100%;
 
 			@include media(tablet) {
-				display: flex;
+				flex-wrap: wrap;
 				justify-content: center;
-				gap: 1rem;
 			}
 		}
 	}
@@ -284,9 +295,24 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		
+
 		.ntt--entry-content {
-			width: 100%;
+
+			@include media(tablet) {
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			.slider {
+				width: 100%;
+			}
+		}
+	}
+
+	.testimonies-slider {
+
+		figure {
+			height: 320px;
 		}
 	}
 }
@@ -305,20 +331,27 @@
 	.wp-block-media-text {
 		flex: 1 calc(100%/3);
 
-		&.bishop {
+		&.pastors-bishop {
 			flex: 1 100%;
 		}
-	}
-	
+	}	
 }
 
 //--------------------------------------------------------------
 // Hero Slider
 //--------------------------------------------------------------
 .ntt--page--home--view {
+	
+	.ntt--page--hero-slider {
+		margin: 0;
+		padding: 0;
+
+		.ntt--entry-name {
+			display: none;
+		}
+	}
 
 	.hero-slider {
-		margin: 0;
 		
 		.splide__list {
 
@@ -341,27 +374,32 @@
 			  }
 		}
 
+		.wp-block-media-text {
+			display: contents;
+		}
+
+		.wp-block-media-text__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			flex-grow: 1;
+			padding-bottom: var(--hero-slider-offset);
+			padding-left: calc(1rem + var(--slider-arrow-dimensions) + var(--slider-arrow-pad));
+			padding-right: calc(1rem + var(--slider-arrow-dimensions) + var(--slider-arrow-pad));
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+
+			.heading {
+				margin: 0;
+				text-align: center;
+			}
+		}
+
 		.splide__slide {
 			position: relative;
-
-			.content {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				flex-grow: 1;
-				padding-bottom: var(--hero-slider-offset);
-				padding-left: calc(1rem + var(--slider-arrow-dimensions) + var(--slider-arrow-pad));
-				padding-right: calc(1rem + var(--slider-arrow-dimensions) + var(--slider-arrow-pad));
-				width: 100%;
-				height: 100%;
-				position: absolute;
-
-				.heading {
-					margin: 0;
-					text-align: center;
-				}
-			}
 
 			figure,
 			img {
@@ -406,4 +444,124 @@
 	background: #EB5757;
 	mix-blend-mode: lighten;
 	opacity: 0.8;
+}
+
+//--------------------------------------------------------------
+// Entity Footer
+//--------------------------------------------------------------
+.ntt--entity-secondary-info {
+	text-align: left;
+}
+
+//--------------------------------------------------------------
+// Entity Footer Aside
+//--------------------------------------------------------------
+.ntt--entity-footer-aside {
+	display: flex;
+
+	.ntt--page--footer-menu {
+
+		.ntt--entry-name {
+			display: none;
+		}
+
+		ul,
+		li {			
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			list-style-type: none;
+
+			&:before {
+				content: '\200B';
+			}
+		}
+
+		.ntt--entry-content {
+
+			> ul {
+				display: flex;
+			}
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Newsletter, Social Media
+//--------------------------------------------------------------
+.ntt--entity-footer-aside {
+
+	.ntt--page--newsletter-social-media {
+
+		.ntt--entry-name {
+			display: none;
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// About Us - Content Selector
+//--------------------------------------------------------------
+.ntt--page--about-us--view {	
+
+	.ntt--page--vision-mission-values {
+
+		.ntt--entry-name {
+			display: none;
+		}
+
+		.content-selector {
+			display: grid;
+			grid-template:
+				'nav1 content'
+				'nav2 .'
+				'nav3 .' 1fr;
+			
+				@include media(laptop) {
+					grid-template:
+					'nav1 nav2 nav3'
+					'content . .'
+					/ auto auto 1fr;
+				}
+
+			.wp-block-group__inner-container {
+				display: contents;
+			}
+
+			.ntt--page {
+				display: none;
+				grid-area: content;
+				grid-row: 1 / -1;
+
+				@include media(laptop) {
+					grid-column: 1 / -1;
+				}
+			}
+
+			label {
+				
+				&:nth-of-type(1) {
+					grid-area: nav1;
+				}
+				
+				&:nth-of-type(2) {
+					grid-area: nav2;
+				}
+				
+				&:nth-of-type(3) {
+					grid-area: nav3;
+				}
+			}
+	
+			[type=radio] {
+				display: none;
+				
+				&:checked + label + .ntt--page {
+					display: block;
+				}
+			}
+		}
+	}
 }
