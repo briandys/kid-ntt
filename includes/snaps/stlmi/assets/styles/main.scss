@@ -35,27 +35,42 @@
 	--global--corner-radius-card-s: .75rem;
 }
 
+.hero-color-overlay {
+	background: #EB5757;
+	mix-blend-mode: lighten;
+	opacity: 0.8;
+}
+
+//--------------------------------------------------------------
+// Link
+//--------------------------------------------------------------
+a {
+	color: var(--global--color-green);
+}
+
 //--------------------------------------------------------------
 // Entity Header
 //--------------------------------------------------------------
 .ntt--entity-header {
-
-	@include media(laptop) {
-		display: flex;
-		flex-direction: column;
-	}
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .ntt--entity-header-aside {
+	flex: 1 100%;
+	order: -1;
+	background-color: var(--global--color-green);
 
-	@include media(laptop) {
-		order: -1;
+	@at-root .ntt & .ntt--widget {
+		@include y-padding(.5rem);
 	}
 }
 
 .ntt--entity-heading {
 	display: flex;
 	align-items: center;
+	align-self: center;
 }
 
 .ntt--entity-logo {
@@ -67,6 +82,27 @@
 	}
 }
 
+.ntt--entity-primary-nav {
+	align-self: center;
+}
+
+.widget_search {
+    display: flex;
+    justify-content: flex-end;
+	
+	@at-root .ntt & form {
+		margin-top: 0;
+
+		@include media($breakpoint_sm) {
+			max-width: 320px;
+		}
+	}	
+
+	label {
+		display: none;
+	}
+}
+
 //--------------------------------------------------------------
 // Entry Header
 //--------------------------------------------------------------
@@ -74,7 +110,7 @@
 
 	.ntt--entry-header {
 		display: none;
-	}
+	}	
 }
 
 //--------------------------------------------------------------
@@ -228,21 +264,124 @@
 
 	.ntt--entry-full-content {
 	
-		> .ntt--percept {
+		.ntt--percept--entry-content {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+			width: 100%;
 
-			.ntt--entry-content {
-				width: 100%;
+			> .heading {
+				flex: 1 100%;
+				text-align: center;
+			}
+		}
+	}
+}
 
+//--------------------------------------------------------------
+// Entity Footer
+//--------------------------------------------------------------
+.ntt--entity-secondary-info {
+
+	@include media(laptop) {
+		text-align: left;
+	}
+}
+
+//--------------------------------------------------------------
+// Footer Aside
+//--------------------------------------------------------------
+.ntt--entity-footer-aside {
+	
+	@include media(laptop) {
+		display: flex;
+	}
+	
+	.ntt--widget {
+		display: contents;
+	}
+
+	.ntt--page {
+		margin: 0;
+		padding: 1rem;
+	}
+}
+
+//--------------------------------------------------------------
+// Footer Menu
+//--------------------------------------------------------------
+.ntt--entity-footer-aside {
+
+	.ntt--page--footer-menu {
+		flex: 1 100%;
+
+		.ntt--entry-name {
+			display: none;
+		}
+
+		ul,
+		li {			
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			list-style-type: none;
+
+			&:before {
+				content: '\200B';
+			}
+		}
+
+		.ntt--entry-content {
+
+			> ul {
 				@include media(tablet) {
 					display: flex;
-					gap: 1rem;
 				}
 
-				> .heading {
-					flex: 1 100%;
-					text-align: center;
+				> li {
+					@include media(tablet) {
+						flex: 1 100%;
+					}
 				}
 			}
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Page View
+//--------------------------------------------------------------
+.ntt--page--view {
+
+	.ntt--entry-header {
+		display: none;
+	}
+
+	.ntt--entry-main {
+		margin-top: 0;
+	}
+
+	.ntt--entry-md {
+
+		> .ntt--entry {
+			padding-top: 0;
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Content Components in Pages
+//--------------------------------------------------------------
+.ntt--entry-full-content {
+						
+	> .ntt--percept {
+		@include x-margin(auto);
+		max-width: $breakpoint_lg;
+
+		.ntt--entry-name a {
+			pointer-events: none;
 		}
 	}
 }
@@ -263,6 +402,18 @@
 		.ntt--entry-name {
 			display: none;
 		}
+		
+		.ntt--entry-content {
+			max-width: $breakpoint_lg;
+
+			@include media(tablet) {
+				flex-wrap: nowrap;
+			}
+		}
+
+		figure {
+			height: 100%;
+		}
 	}
 }
 
@@ -275,8 +426,10 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		padding: 1rem;
 
 		.ntt--entry-content {
+			max-width: $breakpoint_lg;
 
 			@include media(tablet) {
 				flex-wrap: wrap;
@@ -295,6 +448,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		padding: 0;
+		max-width: none;
 
 		.ntt--entry-content {
 
@@ -302,17 +457,23 @@
 				flex-wrap: wrap;
 				justify-content: center;
 			}
+		}
 
-			.slider {
-				width: 100%;
-			}
+		.wp-block-media-text__media {
+			border-radius: var(--global--corner-radius-card-m);
 		}
 	}
 
 	.testimonies-slider {
+		width: 100%;
+		margin-top: 0;
+		@include x-padding(.5rem);
 
 		figure {
 			height: 320px;
+		}
+		.splide__slide {
+			@include x-padding(.5rem);
 		}
 	}
 }
@@ -323,13 +484,27 @@
 .ntt--page--pastors {
 
 	.ntt--entry-content {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+
+		@include media(tablet) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	.ntt--entry-name {
+		text-align: center;
 	}
 
 	.wp-block-media-text {
-		flex: 1 calc(100%/3);
+
+		@include media(tablet) {
+			flex: 1 calc(100% / 2);
+		}
+
+		@include media(laptop) {
+			flex: 1 calc(100% / 3);
+		}
 
 		&.pastors-bishop {
 			flex: 1 100%;
@@ -345,6 +520,7 @@
 	.ntt--page--hero-slider {
 		margin: 0;
 		padding: 0;
+		max-width: none;
 
 		.ntt--entry-name {
 			display: none;
@@ -357,12 +533,13 @@
 
 			@include media(laptop) {
 				height: 640px;
-			}		
+			}
 		}
 
 		.splide__track {
 			position: relative;
 
+			// Fade to white gradient
 			&:after {
 				content: '';
 				display: block;
@@ -371,7 +548,7 @@
 				position: absolute;
 				bottom: 0;
 				background: linear-gradient(transparent, #fff) left repeat; 
-			  }
+			}
 		}
 
 		.wp-block-media-text {
@@ -391,6 +568,7 @@
 			height: 100%;
 			position: absolute;
 			top: 0;
+			z-index: 1;
 
 			.heading {
 				margin: 0;
@@ -399,7 +577,6 @@
 		}
 
 		.splide__slide {
-			position: relative;
 
 			figure,
 			img {
@@ -407,7 +584,20 @@
 			}
 
 			figure {
+				position: relative;
 				margin: 0;
+			
+				// Color gradient overlay
+				&:before {
+					content: '';
+					display: block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					z-index: 1;
+					@extend .hero-color-overlay;
+				}
 			}
 
 			img {
@@ -440,51 +630,20 @@
 //--------------------------------------------------------------
 // Hero Image
 //--------------------------------------------------------------
-.ntt .wp-block-cover.has-background-dim:before {
-	background: #EB5757;
-	mix-blend-mode: lighten;
-	opacity: 0.8;
+.ntt .wp-block-cover.has-background-dim {
+
+	&:before {
+		@extend .hero-color-overlay;
+	}
 }
 
 //--------------------------------------------------------------
-// Entity Footer
-//--------------------------------------------------------------
-.ntt--entity-secondary-info {
-	text-align: left;
-}
-
-//--------------------------------------------------------------
-// Entity Footer Aside
+// Newsletter, Social Media
 //--------------------------------------------------------------
 .ntt--entity-footer-aside {
-	display: flex;
 
-	.ntt--page--footer-menu {
-
-		.ntt--entry-name {
-			display: none;
-		}
-
-		ul,
-		li {			
-			margin: 0;
-			padding: 0;
-		}
-
-		li {
-			list-style-type: none;
-
-			&:before {
-				content: '\200B';
-			}
-		}
-
-		.ntt--entry-content {
-
-			> ul {
-				display: flex;
-			}
-		}
+	.ntt--page--newsletter-social-media {
+		min-width: 320px;
 	}
 }
 
@@ -515,15 +674,16 @@
 		.content-selector {
 			display: grid;
 			grid-template:
-				'nav1 content'
-				'nav2 .'
-				'nav3 .' 1fr;
+			'nav1 nav2 nav3 .'
+			'content . . .'
+			/ auto auto auto 1fr;
 			
 				@include media(laptop) {
 					grid-template:
-					'nav1 nav2 nav3'
-					'content . .'
-					/ auto auto 1fr;
+					'nav1 content'
+					'nav2 .'
+					'nav3 .'
+					'. .' 1fr;
 				}
 
 			.wp-block-group__inner-container {
@@ -533,10 +693,11 @@
 			.ntt--page {
 				display: none;
 				grid-area: content;
-				grid-row: 1 / -1;
+				grid-column: 1 / -1;
 
 				@include media(laptop) {
-					grid-column: 1 / -1;
+					grid-row: 1 / -1;
+					grid-column: auto;
 				}
 			}
 
@@ -558,8 +719,12 @@
 			[type=radio] {
 				display: none;
 				
-				&:checked + label + .ntt--page {
-					display: block;
+				&:checked + label {
+					font-weight: bold;
+					
+					+ .ntt--page {
+						display: block;
+					}
 				}
 			}
 		}

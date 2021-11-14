@@ -44,7 +44,20 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
         new Splide( '.testimonies-slider', {
             cover       : true,
-            perPage     : 3,
+            perPage     : 1,
+            pagination  : false,
+            mediaQuery  : 'min',
+            breakpoints: {
+                320: {
+                    perPage: 1, //$breakpoint_sm
+                },
+                768: {
+                    perPage: 2, //$breakpoint_md
+                },
+                1024: {
+                    perPage: 3, //$breakpoint_lg
+                },
+            },
         } ).mount();
     }
 } );
