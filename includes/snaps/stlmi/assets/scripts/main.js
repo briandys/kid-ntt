@@ -36,7 +36,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
     if ( document.querySelector( '.hero-slider' ) ) {
 
         new Splide( '.hero-slider', {
-            cover       : true,
+            cover  : true,
+            type   : 'loop',
         } ).mount();
     }
 
@@ -44,6 +45,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
         new Splide( '.testimonies-slider', {
             cover       : true,
+            type        : 'loop',
             perPage     : 1,
             pagination  : false,
             mediaQuery  : 'min',
