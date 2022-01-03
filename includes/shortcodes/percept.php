@@ -28,9 +28,9 @@ function ntt__kid_ntt__wp_shortcode__percept( $atts ) {
     // WP_Query Arguments
     $args = array(
         'post_status'   => array( 'publish', 'private' ),
-        'name'          => sanitize_title( $post ),
+        'name'          => sanitize_text_field( $post ),
         'p'             => $post_id,
-        'pagename'      => sanitize_title( $page ),
+        'pagename'      => sanitize_text_field( $page ),
         'page_id'       => $page_id,
 	);
     
