@@ -163,6 +163,10 @@ a {
 			}
 		}
 	}
+
+	.wp-block-media-text .wp-block-media-text__media {
+		align-self: auto;
+	}
 }
 
 //--------------------------------------------------------------
@@ -490,72 +494,6 @@ a {
 
 	@include media(laptop) {
 		text-align: left;
-	}
-}
-
-//--------------------------------------------------------------
-// Footer Aside
-//--------------------------------------------------------------
-.ntt--entity-footer-aside {
-	
-	@include media(laptop) {
-		display: flex;
-	}
-	
-	.ntt--widget {
-		display: contents;
-	}
-
-	.ntt--page {
-		margin: 0;
-		padding: 1rem;
-	}
-}
-
-//--------------------------------------------------------------
-// Footer Menu
-//--------------------------------------------------------------
-.ntt--entity-footer-aside {
-
-	.ntt--page--footer-menu {
-		flex: 1 100%;
-
-		.ntt--entry-name {
-			display: none;
-		}
-
-		ul,
-		li {			
-			margin: 0;
-			padding: 0;
-		}
-
-		li {
-			list-style-type: none;
-			margin-top: 1em;
-
-			&:before {
-				content: '\200B';
-			}
-		}
-
-		.ntt--entry-content {
-
-			> ul {
-				@include media(tablet) {
-					display: flex;
-					gap: 1em;
-				}
-
-				> li {
-					margin-top: 2.5em;
-
-					@include media(tablet) {
-						flex-grow: 1;
-					}
-				}
-			}
-		}
 	}
 }
 
@@ -892,89 +830,171 @@ a {
 }
 
 //--------------------------------------------------------------
-// Newsletter, Social Media
+// Footer
+//--------------------------------------------------------------
+.ntt--page--footer {
+	margin: 0;
+
+	> .ntt--entry-name {
+		display: none;
+	}
+
+	> .ntt--entry-content {
+	
+		@include media(laptop) {
+			display: flex;
+		}
+		
+		.ntt--widget {
+			display: contents;
+		}
+
+		.ntt--page {
+			margin: 0;
+			padding: 1rem;
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Footer Menu
 //--------------------------------------------------------------
 .ntt--entity-footer-aside {
 
-	.ntt--page--newsletter-social-media {
+	.ntt--page--footer-menu {
 		flex: 1 100%;
-		margin-top: 3em;
-
-		@include media(laptop) {
-			margin-top: 2em;
-		}
 
 		.ntt--entry-name {
 			display: none;
 		}
 
-		> .ntt--entry-content {
-			padding: 1em .5em;
-			background-color: var(--global--color-light-green-25);
-			border-radius: var(--global--corner-radius-card-s);
+		ul,
+		li {			
+			margin: 0;
+			padding: 0;
 		}
 
-		.heading {
-			font-weight: bold;
-		}
-	}
+		li {
+			list-style-type: none;
+			margin-top: 1em;
 
-	.ntt--page--email-newsletter {
-
-		.contact-form {
-			display: flex;
-			flex-direction: column;
-
-			@include media(tablet) {
-				flex-direction: initial;
-			}
-
-			label {
-				@include vh;
-			}
-
-			.grunion-field-email-wrap {
-				width: 100%;
-			}
-
-			.wp-block-button {
-				white-space: nowrap;
-			}
-
-			input {
-
-				@include media(tablet) {
-					border-top-right-radius: 0;
-					border-bottom-right-radius: 0;
-				}
-			}
-
-			button {
-				margin-top: 1em;
-
-				@include media(tablet) {
-					margin-top: 0;
-					border-top-left-radius: 0;
-					border-bottom-left-radius: 0;
-				}
+			&:before {
+				content: '\200B';
 			}
 		}
-	}
-
-	.ntt--page--social-media {
 
 		.ntt--entry-content {
 
-			ul {
-				list-style-type: none;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 1em;
-				padding: 0;
+			> ul {
+				padding-left: 0;
+				@include media(tablet) {
+					display: flex;
+					gap: 1em;
+				}
+
+				> li {
+					margin-top: 2.5em;
+
+					@include media(tablet) {
+						flex-grow: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Newsletter, Social Media
+//--------------------------------------------------------------
+.ntt--entity-footer-aside {
+
+	.ntt--page--footer {
+
+		.ntt--page--newsletter-social-media {
+			flex: 1 100%;
+			margin-top: 3em;
+
+			@include media(laptop) {
+				margin-top: 2em;
 			}
 
-			li {
-				padding: 0;
+			.ntt--entry-name {
+				display: none;
+			}
+
+			> .ntt--entry-content {
+				padding: 1em .5em;
+				background-color: var(--global--color-light-green-25);
+				border-radius: var(--global--corner-radius-card-s);
+			}
+
+			.heading {
+				font-weight: bold;
+			}
+		}
+
+		.ntt--page--email-newsletter {
+
+			.contact-form {
+				display: flex;
+				flex-direction: column;
+
+				@include media(tablet) {
+					flex-direction: initial;
+				}
+
+				label {
+					@include vh;
+				}
+
+				br {
+					display: none;
+				}
+
+				.grunion-field-email-wrap {
+					width: 100%;
+				}
+
+				.wp-block-button {
+					white-space: nowrap;
+				}
+
+				input {
+
+					@include media(tablet) {
+						border-top-right-radius: 0;
+						border-bottom-right-radius: 0;
+					}
+				}
+
+				button {
+					margin-top: 1em;
+
+					@include media(tablet) {
+						margin-top: 0;
+						border-top-left-radius: 0;
+						border-bottom-left-radius: 0;
+					}
+				}
+			}
+		}
+
+		.ntt--page--social-media {
+
+			.ntt--entry-content {
+
+				ul {
+					list-style-type: none;
+					display: flex;
+					flex-wrap: wrap;
+					gap: 1em;
+					padding: 0;
+				}
+
+				li {
+					padding: 0;
+				}
 			}
 		}
 	}
@@ -985,30 +1005,33 @@ a {
 //--------------------------------------------------------------
 .ntt--entity-footer-aside {
 
-	.ntt--page--verse-of-the-day {
-		margin-top: 3em;
+	.ntt--page--footer {
 
-		@include media(laptop) {
-			margin-top: 2em;
-		}
+		.ntt--page--verse-of-the-day {
+			margin-top: 3em;
 
-		.ntt--entry-name {
-			font-size: 1em;
-
-			a {
-				color: var(--global--color-black);
+			@include media(laptop) {
+				margin-top: 2em;
 			}
-		}
 
-		blockquote {
-			margin: 0;
-			font-size: 1em;
-		}
+			.ntt--entry-name {
+				font-size: 1em;
 
-		cite {
-			font-size: .75em;
-			text-transform: uppercase;
-			color: var(--global--color-label-gray);
+				a {
+					color: var(--global--color-black);
+				}
+			}
+
+			blockquote {
+				margin: 0;
+				font-size: 1em;
+			}
+
+			cite {
+				font-size: .75em;
+				text-transform: uppercase;
+				color: var(--global--color-label-gray);
+			}
 		}
 	}
 }
@@ -1027,17 +1050,18 @@ a {
 		.content-selector {
 			display: grid;
 			grid-template:
-			'nav1 nav2 nav3 .'
-			'content . . .'
-			/ auto auto auto 1fr;
+			'nav1 nav2 nav3'
+			'content . .'
+			/ 1fr 1fr 1fr;
 			padding: 0;
 			
 				@include media(laptop) {
 					grid-template:
 					'nav1 content'
 					'nav2 .'
-					'nav3 .'
-					'. .' 1fr;
+					'nav3 .' 1fr
+					/ 80px auto;
+					grid-column-gap: 2em;
 				}
 
 			.wp-block-group__inner-container {
@@ -1046,6 +1070,33 @@ a {
 
 			.wp-block-media-text {
 				padding: 0;
+
+				@include media(laptop) {
+					padding: 2em;
+					background: #FFFFFF;
+					/* STLMI/Light Gray */
+
+					border: 1px solid #F7F7F7;
+					box-sizing: border-box;
+					/* STLMI/Card Shadow */
+
+					box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.1);
+					border-radius: 16px;
+				}
+			}
+
+			.wp-block-media-text__media {
+				align-self: auto;
+			}
+
+			.wp-block-media-text__content {
+
+				p:first-of-type {
+					
+					@include media(tablet) {
+						margin-top: 0;
+					}
+				}
 			}
 
 			.ntt--page {
@@ -1060,6 +1111,8 @@ a {
 			}
 
 			label {
+				color: var(--global--color-green);
+				white-space: nowrap;
 				
 				&:nth-of-type(1) {
 					grid-area: nav1;
@@ -1079,12 +1132,54 @@ a {
 				
 				&:checked + label {
 					font-weight: bold;
+					color: var(--global--color-black);
 					
 					+ .ntt--page {
 						display: block;
+						margin-top: 1em;
+
+						@include media(laptop) {
+							margin-top: 0;
+						}
 					}
 				}
 			}
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Ministries
+//--------------------------------------------------------------
+.ntt--page--ministries--view {	
+
+	.ntt--page--ministries-directory {
+
+		.ntt--entry-name {
+			display: none;
+		}
+
+		.ntt--entry-content {
+
+			> .card {
+				margin-top: 2em;
+			}
+		}
+	}
+}
+
+.ntt--page--bible-institute--view {
+
+	.ntt--page--certificates-offered {
+
+		> .ntt--entry-name {
+			text-align: center;
+		}
+
+		.ntt--entry-content {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1em 2em;
 		}
 	}
 }
