@@ -10,10 +10,10 @@ if ( ! function_exists( 'ntt__kid_ntt__snaps__info' ) ) {
         $info = array(
             'name'      => $name,
             'slug'      => sanitize_title( $name ),
-            'version'   => '0.0.8',
+            'version'   => '0.0.9',
             'features'  => array(
                 'scroll-y',
-                'responsive-flickr',
+                //'responsive-flickr',
             ),
         );
         

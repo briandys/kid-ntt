@@ -230,6 +230,7 @@
     display: grid;
     max-width: 100vw;
     overflow: auto;
+    justify-content: flex-start;
 
     pre {
         padding: 1rem;
