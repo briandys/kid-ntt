@@ -51,15 +51,19 @@ textarea {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.ntt input[type="text"],
-.ntt input[type="email"],
-.ntt input[type="search"] {
-  min-height: 56px;
-  border: 0;
-  border-radius: var(--global--corner-radius-form);
-  background-color: var(--global--color-white);
-}
+/*
+.ntt {
 
+	input[type="text"],
+	input[type="email"],
+	input[type="search"] {
+		min-height: 56px;
+		border: 0;
+		border-radius: var(--global--corner-radius-form);
+		background-color: var(--global--color-white);
+	}
+}
+*/
 .hero-color-overlay, .ntt--page--home--view .hero-slider .splide__slide figure:before, .ntt .wp-block-cover.has-background-dim:before {
   background: #EB5757;
   mix-blend-mode: lighten;
@@ -258,10 +262,7 @@ a {
 
 .ntt .wp-block-cover {
   min-height: 240px;
-}
-
-.ntt .wp-block-cover .wp-block-cover__inner-container p {
-  font-size: 36px;
+  z-index: 0;
 }
 
 .ntt--page--home--view .ntt--entry-header {
@@ -535,6 +536,41 @@ a {
 
 .ntt--entry-full-content > .ntt--percept .ntt--entry-name a {
   pointer-events: none;
+}
+
+.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
+.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
+.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
+.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
+.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
+.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
+.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
+.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > * {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+}
+
+.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
+.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
+.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
+.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
+.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
+.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
+.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
+.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading {
+  display: block;
+}
+
+.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
+.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
+.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
+.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
+.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
+.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
+.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
+.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover {
+  max-width: none;
 }
 
 .ntt--page--home--view .ntt--page--events-online-services {
@@ -1164,4 +1200,41 @@ a {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 1em 2em;
+}
+
+.ntt--page--stlmi-online-registration--view .ntt--entry-header {
+  display: block;
+}
+
+.ntt--page--stlmi-online-registration--view .ntt--entry-header .ntt--entry-breadcrumbs-nav,
+.ntt--page--stlmi-online-registration--view .ntt--entry-header .ntt--comments-actions-snippet {
+  display: none;
+}
+
+.ntt--page--outreaches--view .ntt--entry-full-content .blocks-gallery-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.ntt--page--outreaches--view .ntt--entry-full-content .blocks-gallery-item {
+  max-height: 240px;
+  border-radius: var(--global--corner-radius-card-m);
+  overflow: hidden;
+}
+
+.ntt--page--outreaches--view .ntt--page--outreaches-directory .ntt--entry-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.ntt--page--outreaches--view .ntt--page--outreaches-directory .ntt--entry-content .wp-block-media-text {
+  height: 240px;
+}
+
+.ntt--page--outreaches--view .ntt--page--outreaches-directory .ntt--entry-content .wp-block-media-text__media {
+  border-radius: var(--global--corner-radius-card-m);
 }

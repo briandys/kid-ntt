@@ -206,12 +206,3 @@ add_action( 'ntt__wp_hook__entry_secondary_meta___after', 'ntt__kid_ntt__functio
  * Enable the Text Widget and Custom HTML Widget to run WP Shortcodes
  */
 add_filter( 'widget_text', 'do_shortcode' );
-
-/**
- * Entry Subtitle
- * Adds a subtitle under Entry Name
- */
-function ntt__kid_ntt__function__entry_subtitle() {
-    echo do_shortcode( '[ntt_subtitle]' );
-}
-add_action( 'ntt__wp_hook__entry_name___after', 'ntt__kid_ntt__function__entry_subtitle', 0 );

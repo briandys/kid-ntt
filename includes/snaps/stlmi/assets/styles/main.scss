@@ -62,6 +62,7 @@ textarea {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+/*
 .ntt {
 
 	input[type="text"],
@@ -73,6 +74,7 @@ textarea {
 		background-color: var(--global--color-white);
 	}
 }
+*/
 
 .hero-color-overlay {
 	background: #EB5757;
@@ -249,10 +251,7 @@ a {
 //--------------------------------------------------------------
 .ntt .wp-block-cover {
 	min-height: 240px;
-
-	.wp-block-cover__inner-container p {
-		font-size: 36px;
-	}
+	z-index: 0;
 }
 
 //--------------------------------------------------------------
@@ -526,7 +525,7 @@ a {
 }
 
 //--------------------------------------------------------------
-// Content Components in Pages
+// Content Width
 //--------------------------------------------------------------
 .ntt--entry-full-content {
 						
@@ -536,6 +535,35 @@ a {
 
 		.ntt--entry-name a {
 			pointer-events: none;
+		}
+	}
+}
+
+.ntt--page--stlmi-online-registration--view,
+.ntt--page--certificate-programs--view,
+.ntt--page--discipleship--view,
+.ntt--page--outreaches--view {
+
+	.ntt--entry-md {
+
+		> .ntt--entry {
+			
+			> .ntt--entry-header,
+			> .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content {
+				
+				> * {
+					@include x-margin(auto);
+					max-width: $breakpoint_lg;
+				}
+
+				> .ntt--entry-heading {
+					display: block;
+				}
+
+				> .wp-block-cover {
+					max-width: none;
+				}
+			}
 		}
 	}
 }
@@ -1180,6 +1208,54 @@ a {
 			display: flex;
 			flex-wrap: wrap;
 			gap: 1em 2em;
+		}
+	}
+}
+
+.ntt--page--stlmi-online-registration--view {
+
+	.ntt--entry-header {
+		display: block;
+
+		.ntt--entry-breadcrumbs-nav,
+		.ntt--comments-actions-snippet {
+			display: none;
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Outreaches
+//--------------------------------------------------------------
+.ntt--page--outreaches--view {
+
+	.ntt--entry-full-content {
+
+		.blocks-gallery-grid {
+			display: flex;
+			gap: 1rem;
+		}
+
+		.blocks-gallery-item {
+			max-height: 240px;
+			border-radius: var(--global--corner-radius-card-m);
+			overflow: hidden;
+		}
+	}
+	
+	.ntt--page--outreaches-directory {
+
+		.ntt--entry-content {
+			display: flex;
+			gap: 1rem;
+
+			.wp-block-media-text {
+				height: 240px;
+			}
+
+			.wp-block-media-text__media {
+				border-radius: var(--global--corner-radius-card-m);
+			}
 		}
 	}
 }

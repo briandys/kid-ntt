@@ -24,3 +24,12 @@ function ntt__kid_ntt__wp_shortcode__subtitle__initialization() {
     add_shortcode( 'ntt_subtitle', 'ntt__kid_ntt__wp_shortcode__subtitle' );    
 }
 add_action( 'init', 'ntt__kid_ntt__wp_shortcode__subtitle__initialization' );
+
+/**
+ * Entry Subtitle
+ * Adds a subtitle under Entry Name
+ */
+function ntt__kid_ntt__function__entry_subtitle() {
+    echo do_shortcode( '[ntt_subtitle]' );
+}
+add_action( 'ntt__wp_hook__entry_name___after', 'ntt__kid_ntt__function__entry_subtitle', 0 );
