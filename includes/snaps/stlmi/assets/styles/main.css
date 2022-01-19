@@ -545,7 +545,9 @@ a {
 .ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
 .ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
 .ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > * {
+.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
+.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
+.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > * {
   margin-left: auto;
   margin-right: auto;
   max-width: 1024px;
@@ -558,7 +560,9 @@ a {
 .ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
 .ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
 .ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading {
+.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
+.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
+.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading {
   display: block;
 }
 
@@ -569,7 +573,9 @@ a {
 .ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
 .ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
 .ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover {
+.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
+.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
+.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover {
   max-width: none;
 }
 
