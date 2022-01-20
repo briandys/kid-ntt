@@ -51,19 +51,26 @@ textarea {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/*
-.ntt {
-
-	input[type="text"],
-	input[type="email"],
-	input[type="search"] {
-		min-height: 56px;
-		border: 0;
-		border-radius: var(--global--corner-radius-form);
-		background-color: var(--global--color-white);
-	}
+.wp-block-search input[type="search"],
+.ntt--page--email-newsletter .contact-form input[type="email"] {
+  min-height: 56px;
+  border: 0;
+  border-radius: var(--global--corner-radius-form);
+  background-color: var(--global--color-white);
 }
-*/
+
+.contact-form .grunion-field-wrap {
+  margin-top: 1rem;
+}
+
+.contact-form .grunion-field-wrap:first-of-type {
+  margin-top: 0;
+}
+
+.contact-form .wp-block-button {
+  margin-top: 1rem;
+}
+
 .hero-color-overlay, .ntt--page--home--view .hero-slider .splide__slide figure:before, .ntt .wp-block-cover.has-background-dim:before {
   background: #EB5757;
   mix-blend-mode: lighten;
@@ -547,7 +554,9 @@ a {
 .ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
 .ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
 .ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > * {
+.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
+.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
+.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > * {
   margin-left: auto;
   margin-right: auto;
   max-width: 1024px;
@@ -562,7 +571,9 @@ a {
 .ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
 .ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
 .ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading {
+.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
+.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
+.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading {
   display: block;
 }
 
@@ -575,7 +586,9 @@ a {
 .ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
 .ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
 .ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover {
+.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
+.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
+.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover {
   max-width: none;
 }
 
@@ -1195,17 +1208,26 @@ a {
   margin-top: 2em;
 }
 
-.ntt--page--bible-institute--view .ntt--page--certificates-offered > .ntt--entry-name {
+.ntt--page--certificates-offered > .ntt--entry-name,
+.ntt--page--international-trip-locations > .ntt--entry-name {
   text-align: center;
 }
 
-.ntt--page--bible-institute--view .ntt--page--certificates-offered .ntt--entry-content {
+.ntt--page--certificates-offered .ntt--entry-content,
+.ntt--page--international-trip-locations .ntt--entry-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 1em 2em;
+}
+
+.ntt--page--international-trip-locations .sub-heading {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+  text-align: center;
 }
 
 .ntt--page--stlmi-online-registration--view .ntt--entry-header {

@@ -62,19 +62,31 @@ textarea {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/*
-.ntt {
+//--------------------------------------------------------------
+// Form - Input Fields
+//--------------------------------------------------------------
+.wp-block-search input[type="search"],
+.ntt--page--email-newsletter .contact-form input[type="email"] {
+	min-height: 56px;
+	border: 0;
+	border-radius: var(--global--corner-radius-form);
+	background-color: var(--global--color-white);
+}
 
-	input[type="text"],
-	input[type="email"],
-	input[type="search"] {
-		min-height: 56px;
-		border: 0;
-		border-radius: var(--global--corner-radius-form);
-		background-color: var(--global--color-white);
+.contact-form {
+
+	.grunion-field-wrap {
+		margin-top: 1rem;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+
+	.wp-block-button {
+		margin-top: 1rem;
 	}
 }
-*/
 
 .hero-color-overlay {
 	background: #EB5757;
@@ -525,7 +537,7 @@ a {
 }
 
 //--------------------------------------------------------------
-// Content Width
+// Content Width, Page Width
 //--------------------------------------------------------------
 .ntt--entry-full-content {
 						
@@ -543,7 +555,8 @@ a {
 .ntt--page--certificate-programs--view,
 .ntt--page--discipleship--view,
 .ntt--page--outreaches--view,
-.ntt--page--counselling--view {
+.ntt--page--counselling--view,
+.ntt--page--bible-study--view {
 
 	.ntt--entry-md {
 
@@ -1197,19 +1210,29 @@ a {
 	}
 }
 
-.ntt--page--bible-institute--view {
+//--------------------------------------------------------------
+// Bible Institute > Certificates Offered
+// Outreaches > Missions > International Trip Locations
+//--------------------------------------------------------------
+.ntt--page--certificates-offered,
+.ntt--page--international-trip-locations {
 
-	.ntt--page--certificates-offered {
+	> .ntt--entry-name {
+		text-align: center;
+	}
 
-		> .ntt--entry-name {
-			text-align: center;
-		}
+	.ntt--entry-content {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em 2em;
+	}
+}
 
-		.ntt--entry-content {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 1em 2em;
-		}
+.ntt--page--international-trip-locations {
+
+	.sub-heading {
+		flex: 1 100%;
+		text-align: center;
 	}
 }
 
