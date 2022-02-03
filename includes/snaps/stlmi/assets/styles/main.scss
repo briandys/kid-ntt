@@ -556,7 +556,13 @@ a {
 .ntt--page--discipleship--view,
 .ntt--page--outreaches--view,
 .ntt--page--counselling--view,
-.ntt--page--bible-study--view {
+.ntt--page--bible-study--view,
+.ntt--page--podcast--view,
+.ntt--page--video-sermon--view,
+.ntt--page--daily-devotions--view,
+.ntt--page--worship-with-us--view,
+.ntt--page--connect--view,
+.ntt--page--give--view {
 
 	.ntt--entry-md {
 
@@ -579,6 +585,14 @@ a {
 				}
 			}
 		}
+	}
+}
+
+.wp-block-cover {
+	overflow: hidden;
+
+	img {
+		transform: scale(1.1);
 	}
 }
 
@@ -621,21 +635,18 @@ a {
 //--------------------------------------------------------------
 // Most Recent
 //--------------------------------------------------------------
-.ntt--page--home--view {
-	
-	.ntt--page--most-recent {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 1rem;
+.ntt--page--most-recent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
 
-		.ntt--entry-content {
-			max-width: $breakpoint_lg;
+	.ntt--entry-content {
+		max-width: $breakpoint_lg;
 
-			@include media(tablet) {
-				flex-wrap: wrap;
-				justify-content: center;
-			}
+		@include media(tablet) {
+			flex-wrap: wrap;
+			justify-content: center;
 		}
 	}
 }
@@ -999,6 +1010,7 @@ a {
 				}
 
 				.wp-block-button {
+					margin-top: 0;
 					white-space: nowrap;
 				}
 
@@ -1280,6 +1292,42 @@ a {
 			.wp-block-media-text__media {
 				border-radius: var(--global--corner-radius-card-m);
 			}
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Media
+//--------------------------------------------------------------
+.ntt--page--media--view {	
+
+	.ntt--page--media-directory {
+
+		.ntt--entry-name {
+			display: none;
+		}
+
+		.ntt--entry-content {
+
+			> .card {
+				margin-top: 2em;
+			}
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Podcast
+//--------------------------------------------------------------
+
+.ntt--page--podcast--view,
+.ntt--page--daily-devotions--view,
+.ntt--page--worship-with-us--view {
+
+	.ntt--entry-full-content {
+
+		.wp-block-media-text {
+			margin-top: 2em;
 		}
 	}
 }
