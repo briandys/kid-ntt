@@ -133,7 +133,8 @@ a {
 //--------------------------------------------------------------
 .ntt {
 
-	.wp-block-button__link,
+	a.wp-block-button__link,
+	button.wp-block-button__link,
 	.wp-block-search .wp-block-search__button  {
 		display: flex;
 		justify-content: center;
@@ -187,10 +188,16 @@ a {
 // Navigation
 //--------------------------------------------------------------
 .current-menu-item,
-.current_page_item {
-	font-weight: bold;
+.current_page_item,
+.current-page-ancestor,
+.current-menu-ancestor,
+.current-menu-parent,
+.current-page-parent,
+.current_page_parent,
+.current_page_ancestor {
 
-	a {
+	> a {
+		font-weight: bold;
 		color: var(--global--color-black);
 	}
 }
@@ -216,9 +223,11 @@ a {
 		@include y-padding(.5rem);
 	}
 
+	/* Show only on Home page
 	@at-root .ntt--page--view:not(.ntt--page--home--view) & .widget_search {
 		display: none;
 	}
+	*/
 }
 
 .ntt--entity-heading {
@@ -240,8 +249,52 @@ a {
 	}
 }
 
+//--------------------------------------------------------------
+// Primary Navigation
+//--------------------------------------------------------------
 .ntt--entity-primary-nav {
+	padding: 1em;
 	align-self: center;
+}
+
+.ntt--entity-primary-nav-group {
+
+	> .menu-item {
+
+		a[href*="/give/"] {
+			margin-left: .5em;
+
+			.ntt--txt {
+				@include y-padding(.65em);
+				padding-left: calc(36px + .5em);
+				position: relative;
+				border: 2px solid var(--global--color-green);
+				border-radius: var(--global--corner-radius-form);
+
+				&::before {
+					content: '';
+					display: block;
+					margin-left: 0.25em;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%);
+					background-image: url(http://localhost/wordpress/wp-content/uploads/2022/02/Give-Icon.png);
+					width: 36px;
+					height: 36px;
+					background-position: center;
+					background-size: cover;
+				}
+			}
+		}
+
+		> ul { //Sub-menu
+
+			@at-root .ntt--dom---unloaded--js {
+				display: none;
+			}			
+		}
+	}
 }
 
 .widget_search {
@@ -259,11 +312,15 @@ a {
 }
 
 //--------------------------------------------------------------
-// Page Cover Image
+// Page Cover Image, WP Block Cover
 //--------------------------------------------------------------
 .ntt .wp-block-cover {
-	min-height: 240px;
+	overflow: hidden;
 	z-index: 0;
+
+	img {
+		transform: scale(1.1);
+	}
 }
 
 //--------------------------------------------------------------
@@ -539,60 +596,29 @@ a {
 //--------------------------------------------------------------
 // Content Width, Page Width
 //--------------------------------------------------------------
-.ntt--entry-full-content {
-						
-	> .ntt--percept {
+.ntt .ntt--entry-full-content {
+
+	.ntt--entry-name a {
+		pointer-events: none;
+	}
+			
+	> * {
 		@include x-margin(auto);
 		max-width: $breakpoint_lg;
-
-		.ntt--entry-name a {
-			pointer-events: none;
-		}
 	}
-}
 
-.ntt--page--stlmi-online-registration--view,
-.ntt--page--certificate-programs--view,
-.ntt--page--discipleship--view,
-.ntt--page--outreaches--view,
-.ntt--page--counselling--view,
-.ntt--page--bible-study--view,
-.ntt--page--podcast--view,
-.ntt--page--video-sermon--view,
-.ntt--page--daily-devotions--view,
-.ntt--page--worship-with-us--view,
-.ntt--page--connect--view,
-.ntt--page--give--view {
-
-	.ntt--entry-md {
-
-		> .ntt--entry {
-			
-			> .ntt--entry-header,
-			> .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content {
-				
-				> * {
-					@include x-margin(auto);
-					max-width: $breakpoint_lg;
-				}
-
-				> .ntt--entry-heading {
-					display: block;
-				}
-
-				> .wp-block-cover {
-					max-width: none;
-				}
-			}
-		}
+	> .ntt--entry-heading {
+		display: block;
 	}
-}
 
-.wp-block-cover {
-	overflow: hidden;
+	> .wp-block-cover,
+	> .ntt--page--hero-slider {
+		margin-bottom: 3em;
+		max-width: none;
+	}
 
-	img {
-		transform: scale(1.1);
+	div[id*="contact-form-"] {
+		max-width: $breakpoint_md;
 	}
 }
 
@@ -661,7 +687,6 @@ a {
 		flex-direction: column;
 		align-items: center;
 		padding: 0;
-		max-width: none;
 
 		.ntt--entry-content {
 
@@ -1319,7 +1344,6 @@ a {
 //--------------------------------------------------------------
 // Podcast
 //--------------------------------------------------------------
-
 .ntt--page--podcast--view,
 .ntt--page--daily-devotions--view,
 .ntt--page--worship-with-us--view {
@@ -1328,6 +1352,54 @@ a {
 
 		.wp-block-media-text {
 			margin-top: 2em;
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Donate
+//--------------------------------------------------------------
+.ntt--page--donate--view {
+
+	.donate-online {
+		justify-content: center;
+
+		.wp-block-group__inner-container {
+			text-align: center;
+
+			.wp-block-buttons {
+				justify-content: center;
+			}
+		}
+	}
+
+	.ntt--page--plant-a-seed {
+
+		.ntt--entry-name {
+			display: none;
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Local Outreach
+//--------------------------------------------------------------
+.ntt--page--local-outreach--view {
+
+	.ntt--page--local-outreach-directory {
+
+		.ntt--entry-name {
+			display: none;
+		}
+
+		.ntt--entry-content {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1em;
+			
+			@include media(laptop) {
+				flex-wrap: nowrap;
+			}
 		}
 	}
 }

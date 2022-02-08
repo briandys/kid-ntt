@@ -109,7 +109,8 @@ a {
   color: var(--global--color-green);
 }
 
-.ntt .wp-block-button__link,
+.ntt a.wp-block-button__link,
+.ntt button.wp-block-button__link,
 .ntt .wp-block-search .wp-block-search__button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -175,13 +176,15 @@ a {
       align-self: auto;
 }
 
-.current-menu-item,
-.current_page_item {
+.current-menu-item > a,
+.current_page_item > a,
+.current-page-ancestor > a,
+.current-menu-ancestor > a,
+.current-menu-parent > a,
+.current-page-parent > a,
+.current_page_parent > a,
+.current_page_ancestor > a {
   font-weight: bold;
-}
-
-.current-menu-item a,
-.current_page_item a {
   color: var(--global--color-black);
 }
 
@@ -201,6 +204,11 @@ a {
       -ms-flex: 1 100%;
           flex: 1 100%;
   background-color: var(--global--color-green);
+  /* Show only on Home page
+	@at-root .ntt--page--view:not(.ntt--page--home--view) & .widget_search {
+		display: none;
+	}
+	*/
 }
 
 @media only screen and (min-width: 768px) {
@@ -214,10 +222,6 @@ a {
 .ntt .ntt--entity-header-aside .ntt--widget {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
-
-.ntt--page--view:not(.ntt--page--home--view) .ntt--entity-header-aside .widget_search {
-  display: none;
 }
 
 .ntt--entity-heading {
@@ -244,9 +248,43 @@ a {
 }
 
 .ntt--entity-primary-nav {
+  padding: 1em;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+.ntt--entity-primary-nav-group > .menu-item a[href*="/give/"] {
+  margin-left: .5em;
+}
+
+.ntt--entity-primary-nav-group > .menu-item a[href*="/give/"] .ntt--txt {
+  padding-top: 0.65em;
+  padding-bottom: 0.65em;
+  padding-left: calc(36px + .5em);
+  position: relative;
+  border: 2px solid var(--global--color-green);
+  border-radius: var(--global--corner-radius-form);
+}
+
+.ntt--entity-primary-nav-group > .menu-item a[href*="/give/"] .ntt--txt::before {
+  content: '';
+  display: block;
+  margin-left: 0.25em;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-image: url(http://localhost/wordpress/wp-content/uploads/2022/02/Give-Icon.png);
+  width: 36px;
+  height: 36px;
+  background-position: center;
+  background-size: cover;
+}
+
+.ntt--dom---unloaded--js {
+  display: none;
 }
 
 .widget_search {
@@ -268,8 +306,13 @@ a {
 }
 
 .ntt .wp-block-cover {
-  min-height: 240px;
+  overflow: hidden;
   z-index: 0;
+}
+
+.ntt .wp-block-cover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .ntt--page--home--view .ntt--entry-header {
@@ -535,106 +578,28 @@ a {
   padding-top: 0;
 }
 
-.ntt--entry-full-content > .ntt--percept {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1024px;
-}
-
-.ntt--entry-full-content > .ntt--percept .ntt--entry-name a {
+.ntt .ntt--entry-full-content .ntt--entry-name a {
   pointer-events: none;
 }
 
-.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--podcast--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--podcast--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--video-sermon--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--video-sermon--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--daily-devotions--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--daily-devotions--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--worship-with-us--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--worship-with-us--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--connect--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--connect--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > *,
-.ntt--page--give--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > *,
-.ntt--page--give--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > * {
+.ntt .ntt--entry-full-content > * {
   margin-left: auto;
   margin-right: auto;
   max-width: 1024px;
 }
 
-.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--podcast--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--podcast--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--video-sermon--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--video-sermon--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--daily-devotions--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--daily-devotions--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--worship-with-us--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--worship-with-us--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--connect--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--connect--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading,
-.ntt--page--give--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .ntt--entry-heading,
-.ntt--page--give--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .ntt--entry-heading {
+.ntt .ntt--entry-full-content > .ntt--entry-heading {
   display: block;
 }
 
-.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--stlmi-online-registration--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--certificate-programs--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--discipleship--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--outreaches--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--counselling--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--bible-study--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--podcast--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--podcast--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--video-sermon--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--video-sermon--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--daily-devotions--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--daily-devotions--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--worship-with-us--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--worship-with-us--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--connect--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--connect--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover,
-.ntt--page--give--view .ntt--entry-md > .ntt--entry > .ntt--entry-header > .wp-block-cover,
-.ntt--page--give--view .ntt--entry-md > .ntt--entry > .ntt--entry-main > .ntt--entry-content > .ntt--entry-full-content > .wp-block-cover {
+.ntt .ntt--entry-full-content > .wp-block-cover,
+.ntt .ntt--entry-full-content > .ntt--page--hero-slider {
+  margin-bottom: 3em;
   max-width: none;
 }
 
-.wp-block-cover {
-  overflow: hidden;
-}
-
-.wp-block-cover img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+.ntt .ntt--entry-full-content div[id*="contact-form-"] {
+  max-width: 768px;
 }
 
 .ntt--page--home--view .ntt--page--events-online-services {
@@ -716,7 +681,6 @@ a {
       -ms-flex-align: center;
           align-items: center;
   padding: 0;
-  max-width: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1325,4 +1289,44 @@ a {
 .ntt--page--daily-devotions--view .ntt--entry-full-content .wp-block-media-text,
 .ntt--page--worship-with-us--view .ntt--entry-full-content .wp-block-media-text {
   margin-top: 2em;
+}
+
+.ntt--page--donate--view .donate-online {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ntt--page--donate--view .donate-online .wp-block-group__inner-container {
+  text-align: center;
+}
+
+.ntt--page--donate--view .donate-online .wp-block-group__inner-container .wp-block-buttons {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ntt--page--donate--view .ntt--page--plant-a-seed .ntt--entry-name {
+  display: none;
+}
+
+.ntt--page--local-outreach--view .ntt--page--local-outreach-directory .ntt--entry-name {
+  display: none;
+}
+
+.ntt--page--local-outreach--view .ntt--page--local-outreach-directory .ntt--entry-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1em;
+}
+
+@media only screen and (min-width: 1024px) {
+  .ntt--page--local-outreach--view .ntt--page--local-outreach-directory .ntt--entry-content {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
 }
