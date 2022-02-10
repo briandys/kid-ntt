@@ -1,4 +1,8 @@
 /* Screen Reader Text ------------------------ */
+.ntt--wild-card {
+  display: none;
+}
+
 :root {
   /* Colors */
   --global--color-black: #000;
@@ -252,6 +256,7 @@ a {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  z-index: 2;
 }
 
 .ntt--entity-primary-nav-group > .menu-item a[href*="/give/"] {
@@ -276,7 +281,7 @@ a {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  background-image: url(http://localhost/wordpress/wp-content/uploads/2022/02/Give-Icon.png);
+  background-image: url(https://test.stlmi.org/wp-content/uploads/2022/02/Give-Icon.png);
   width: 36px;
   height: 36px;
   background-position: center;
@@ -1007,12 +1012,23 @@ a {
           flex-direction: column;
 }
 
+.ntt--entity-footer-aside .ntt--page--footer .ntt--page--email-newsletter .contact-form .grunion-field-wrap {
+  border-right: 0;
+}
+
 @media only screen and (min-width: 768px) {
   .ntt--entity-footer-aside .ntt--page--footer .ntt--page--email-newsletter .contact-form {
     -webkit-box-orient: initial;
     -webkit-box-direction: initial;
         -ms-flex-direction: initial;
             flex-direction: initial;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .ntt--entity-footer-aside .ntt--page--footer .ntt--page--email-newsletter .contact-form > div {
+    -webkit-box-flex: initial;
+        -ms-flex: initial;
+            flex: initial;
   }
 }
 
@@ -1329,4 +1345,26 @@ a {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
   }
+}
+
+.ntt.ntt--page--coming-soon--view .ntt--entity-header,
+.ntt.ntt--page--coming-soon--view .ntt--entity-footer,
+.ntt.ntt--page--coming-soon--view .ntt--entity-end {
+  display: none;
+}
+
+.ntt.ntt--page--coming-soon--view .ntt--entity-main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.ntt.ntt--page--coming-soon--view .ntt--entry {
+  padding-bottom: 0;
+}
+
+.ntt.ntt--page--coming-soon--view .wp-block-image figure img {
+  margin: auto;
 }

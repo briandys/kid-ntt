@@ -1,5 +1,9 @@
 @import '../../../../../assets/styles/source/rules';
 
+.ntt--wild-card {
+	display: none;
+}
+
 //--------------------------------------------------------------
 // Variables
 //--------------------------------------------------------------
@@ -255,6 +259,7 @@ a {
 .ntt--entity-primary-nav {
 	padding: 1em;
 	align-self: center;
+	z-index: 2;
 }
 
 .ntt--entity-primary-nav-group {
@@ -279,7 +284,7 @@ a {
 					left: 0;
 					top: 50%;
 					transform: translateY(-50%);
-					background-image: url(http://localhost/wordpress/wp-content/uploads/2022/02/Give-Icon.png);
+					background-image: url(https://test.stlmi.org/wp-content/uploads/2022/02/Give-Icon.png);
 					width: 36px;
 					height: 36px;
 					background-position: center;
@@ -1018,8 +1023,17 @@ a {
 				display: flex;
 				flex-direction: column;
 
+				.grunion-field-wrap {
+					border-right: 0;
+				}
+
 				@include media(tablet) {
 					flex-direction: initial;
+					flex-wrap: nowrap;
+
+					> div {
+						flex: initial;
+					}
 				}
 
 				label {
@@ -1400,6 +1414,36 @@ a {
 			@include media(laptop) {
 				flex-wrap: nowrap;
 			}
+		}
+	}
+}
+
+//--------------------------------------------------------------
+// Coming Soon
+//--------------------------------------------------------------
+.ntt.ntt--page--coming-soon--view {
+
+	.ntt--entity-header,
+	.ntt--entity-footer,
+	.ntt--entity-end {
+		display: none;
+	}
+
+	.ntt--entity-main {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.ntt--entry {
+		padding-bottom: 0;
+	}
+
+	.wp-block-image {
+	
+		figure img {
+			margin: auto;
 		}
 	}
 }
