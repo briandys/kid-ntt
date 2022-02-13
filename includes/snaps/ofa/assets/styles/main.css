@@ -211,6 +211,11 @@ body {
   font-size: 2rem;
 }
 
+.ntt--entity-logo img {
+  max-width: 160px;
+  max-height: 160px;
+}
+
 .ntt--entry-breadcrumbs-nav-ancestors-group .ntt--entry-breadcrumbs-navi:last-child .ntt--icon {
   display: none;
 }
@@ -609,6 +614,10 @@ body {
   border-top-color: #0060e6;
 }
 
+.ntt--comments---empty .ntt--comments-count {
+  display: none;
+}
+
 .ntt--comments-count .ntt--count-txt {
   position: relative;
   border-bottom-left-radius: 0;
@@ -651,7 +660,12 @@ body {
 }
 
 .ntt--entry-header .ntt--comments-actions-snippet {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .ntt--comments---empty--view.ntt--comment-creation---0--view .ntt--comment-md {
@@ -659,6 +673,15 @@ body {
 }
 
 .ntt--comments---empty--view .ntt--comments-count {
+  display: none;
+}
+
+.ntt--comments-toggle-axn-checkbox--js,
+.ntt--comments-toggle-axn-label--js {
+  display: none;
+}
+
+.ntt--comment-creation---0 .ntt--disabled-comments-note {
   display: none;
 }
 
@@ -939,4 +962,53 @@ body {
     -webkit-transform: translate(-2rem, -3rem);
             transform: translate(-2rem, -3rem);
   }
+}
+
+.entry--updated .entry-published-datetime {
+  display: block;
+}
+
+.entry--updated .entry-modified-datetime {
+  display: none;
+}
+
+iframe[src*="youtube.com/embed"] {
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+  .ntt--entry-nav-group .ntt--entry-navi .ntt--txt {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .ntt--entry-nav-group .ntt--previous-entry-navi {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .ntt--entry-nav-group .ntt--previous-entry-navi a {
+    text-align: left;
+  }
+  .ntt--entry-nav-group .ntt--previous-entry-navi a .ntt--txt {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+.ntt--page--view .ntt--entry-excerpt-content {
+  display: none;
+}
+
+.ntt .wp-block-separator {
+  border-bottom: none;
+}
+
+.ntt--js .ntt--entries-nav {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }

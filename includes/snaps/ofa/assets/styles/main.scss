@@ -55,6 +55,11 @@ body {
     font-size: $text---xxl;
 }
 
+.ntt--entity-logo img {
+	max-width: 160px;
+    max-height: 160px;
+}
+
 //--------------------------------------------------------------
 // Breadcrumbs Navigation
 //--------------------------------------------------------------
@@ -541,6 +546,10 @@ body {
 }
 
 .ntt--comments-count {
+
+    .ntt--comments---empty & {
+        display: none;
+    }
     
     .ntt--count-txt {
         position: relative;
@@ -590,7 +599,8 @@ body {
 .ntt--entry-header {
     
     .ntt--comments-actions-snippet {
-        display: none;
+        display: flex;
+        align-items: center;
     }
 }
 
@@ -604,6 +614,18 @@ body {
     }
 
     .ntt--comments-count {
+        display: none;
+    }
+}
+
+.ntt--comments-toggle-axn-checkbox--js,
+.ntt--comments-toggle-axn-label--js {
+    display: none;
+}
+
+.ntt--comment-creation---0 {
+
+    .ntt--disabled-comments-note {
         display: none;
     }
 }
@@ -997,4 +1019,64 @@ body {
             }
         }
     }
+}
+
+//--------------------------------------------------------------
+// Entry
+//--------------------------------------------------------------
+.entry--updated {
+
+    .entry-published-datetime {
+        display: block;
+    }
+
+    .entry-modified-datetime {
+        display: none;
+    }
+}
+
+iframe[src*="youtube.com/embed"] {
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .ntt--entry-nav-group {
+
+        .ntt--entry-navi {
+            
+            .ntt--txt {
+                justify-content: flex-end;
+            }
+        }
+        
+        .ntt--previous-entry-navi {
+            justify-content: flex-start;
+
+            a {
+                text-align: left;
+
+                .ntt--txt {
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+}
+
+.ntt--page--view {
+
+    .ntt--entry-excerpt-content {
+        display: none;
+    }
+}
+
+.ntt .wp-block-separator {
+    border-bottom: none;
+}
+
+.ntt--js .ntt--entries-nav {
+    justify-content: flex-start;
 }
