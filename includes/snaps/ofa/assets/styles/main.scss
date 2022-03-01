@@ -1,8 +1,5 @@
 @import '../../../../../assets/styles/source/rules';
 
-$ofa-periwinkle-purple: #6868AC;
-$text-link-color: $ofa-periwinkle-purple;
-
 @import 'custom';
 
 body {
@@ -16,6 +13,13 @@ body {
 .ntt--entity-description {
     color: $mid-color;
     font-size: $text---s;
+}
+
+$ofa-periwinkle-purple: #6868AC;
+$text-link-color: $ofa-periwinkle-purple;
+
+.ntt a  {
+    color: $ofa-periwinkle-purple;
 }
 
 //--------------------------------------------------------------

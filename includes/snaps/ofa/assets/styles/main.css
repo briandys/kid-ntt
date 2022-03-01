@@ -175,6 +175,10 @@ body {
   font-size: 0.875rem;
 }
 
+.ntt a {
+  color: #6868AC;
+}
+
 .ntt--entity-header {
   padding-top: 1rem;
   padding-bottom: 1rem;
