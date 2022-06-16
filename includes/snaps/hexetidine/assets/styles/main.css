@@ -480,6 +480,14 @@ textarea {
   font-size: var(--text---xl);
 }
 
+.ntt--content {
+  /*
+    > .ntt--image-paragraph--js {
+        @include x-padding();
+    }
+    */
+}
+
 .ntt--content a {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -567,11 +575,6 @@ textarea {
 }
 
 .ntt--content > figure {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.ntt--content > .ntt--image-paragraph--js {
   padding-left: 0;
   padding-right: 0;
 }

@@ -662,9 +662,11 @@ textarea {
         @include x-padding();
     }
 
+    /*
     > .ntt--image-paragraph--js {
         @include x-padding();
     }
+    */
 
     hr {
         @extend %cf;
